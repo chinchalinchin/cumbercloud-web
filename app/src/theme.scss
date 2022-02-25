@@ -1,0 +1,113 @@
+@use '~@angular/material' as mat;
+@use 'sass:map';
+
+@use './global.scss' as global;
+@use './app/app.theme' as app;
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$primary-palette: (
+  50 : #f1f9fd, 100 : #dbf1f9, 200 : #c3e7f5,
+  300 : #abddf1, 400 : #99d6ee, 500 : #87cfeb,
+  600 : #7fcae9, 700 : #74c3e5, 800 : #6abde2,
+  900 : #57b2dd, A100 : #ffffff, A200 : #ffffff,
+  A400 : #daf3ff, A700 : #c1eaff,
+  contrast: (
+      50 : #000000, 100 : #000000, 200 : #000000,
+      300 : #000000, 400 : #000000, 500 : #000000,
+      600 : #000000, 700 : #000000, 800 : #000000, 
+      900 : #000000, A100 : #000000, A200 : #000000,
+      A400 : #000000, A700 : #000000,
+  )
+);
+
+$complementary-palette: (
+    50 : #fdf4f1, 100 : #f9e3db, 200 : #f5d1c3,
+    300 : #f1bfab, 400 : #eeb199, 500 : #eba387,
+    600 : #e99b7f, 700 : #e59174, 800 : #e2886a,
+    900 : #dd7757, A100 : #ffffff, A200 : #ffffff,
+    A400 : #ffe3da, A700 : #ffcfc1,
+    contrast: (
+        50 : #000000, 100 : #000000, 200 : #000000,
+        300 : #000000, 400 : #000000, 500 : #000000,
+        600 : #000000, 700 : #000000, 800 : #000000,
+        900 : #000000, A100 : #000000, A200 : #000000,
+        A400 : #000000, A700 : #000000,
+    )
+);
+
+$analogous-palette:(
+  50 : #f1fdfa, 100 : #dbf9f2, 200 : #c3f5ea,
+  300 : #abf1e2, 400 : #99eedb, 500 : #87ebd5,
+  600 : #7fe9d0, 700 : #74e5ca, 800 : #6ae2c4,
+  900 : #57ddba, A100 : #ffffff, A200 : #ffffff,
+  A400 : #dafff5, A700 : #c1ffee,
+  contrast: (
+      50 : #000000, 100 : #000000, 200 : #000000,
+      300 : #000000, 400 : #000000, 500 : #000000,
+      600 : #000000, 700 : #000000, 800 : #000000,
+      900 : #000000, A100 : #000000, A200 : #000000,
+      A400 : #000000, A700 : #000000,
+  )
+);
+
+$analogous-alt-palette:(
+  50 : #f1f3fd, 100 : #dbe2f9, 200 : #c3cef5,
+  300 : #abbaf1, 400 : #99acee, 500 : #879deb,
+  600 : #7f95e9, 700 : #748be5, 800 : #6a81e2,
+  900 : #576fdd, A100 : #ffffff, A200 : #ffffff,
+  A400 : #dae1ff, A700 : #c1ccff,
+  contrast: (
+      50 : #000000, 100 : #000000, 200 : #000000,
+      300 : #000000, 400 : #000000, 500 : #000000,
+      600 : #000000, 700 : #000000, 800 : #000000,
+      900 : #ffffff, A100 : #000000, A200 : #000000,
+      A400 : #000000, A700 : #000000,
+  )
+);
+
+$triadic-palette: (
+  50 : #f4f1fd, 100 : #e3dbf9, 200 : #d1c3f5,
+  300 : #bfabf1, 400 : #b199ee, 500 : #a387eb,
+  600 : #9b7fe9, 700 : #9174e5, 800 : #886ae2,
+  900 : #7757dd, A100 : #ffffff, A200 : #ffffff,
+  A400 : #e3daff, A700 : #cfc1ff,
+  contrast: (
+      50 : #000000, 100 : #000000,200 : #000000,
+      300 : #000000, 400 : #000000, 500 : #000000,
+      600 : #000000, 700 : #000000, 800 : #000000,
+      900 : #ffffff, A100 : #000000, A200 : #000000,
+      A400 : #000000, A700 : #000000,
+  )
+);
+$triadic-alt-palette: (
+  50 : #fdf1f9, 100 : #f9dbf1, 200 : #f5c3e7,
+  300 : #f1abdd, 400 : #ee99d6, 500 : #eb87cf,
+  600 : #e97fca, 700 : #e574c3, 800 : #e26abd,
+  900 : #dd57b2, A100 : #ffffff, A200 : #ffffff,
+  A400 : #ffdaf3, A700 : #ffc1ea,
+  contrast: (
+      50 : #000000, 100 : #000000, 200 : #000000,
+      300 : #000000, 400 : #000000, 500 : #000000,
+      600 : #000000, 700 : #000000, 800 : #000000,
+      900 : #000000, A100 : #000000, A200 : #000000,
+      A400 : #000000, A700 : #000000,
+  )
+);
+
+$cc-primary: mat-palette($primary-palette);
+$cc-complement: mat-palette($analogous-alt-palette);
+$cc-warn: mat-palette($triadic-alt-palette);
+
+$cc-theme: mat-light-theme(
+    $cc-primary,
+    $cc-complement,
+    $cc-warn,
+);
+
+@include angular-material-theme($cc-theme);
+
+@include global.theme($cc-theme);
+@include app.theme($cc-theme);
