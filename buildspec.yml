@@ -14,5 +14,5 @@ phases:
   build:
     commands:
       - ng build --output-hashing none
-      - aws s3 rm s3://${APPLICATION-web} --recursive
+      - aws s3 rm s3://${APPLICATION}-web --recursive
       - aws s3 cp ./dist/app/ s3://${APPLICATION}-web/ --recursive
