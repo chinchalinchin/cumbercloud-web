@@ -98,7 +98,8 @@ export class Animations{
             })),
             transition(`void <=> ${ScaleStates.scale}`, [
                 animate(`${animateLength}s`)
-            ])
+            ]),
+            
         ])
     }
 
@@ -136,14 +137,6 @@ export class Animations{
             state(FadeStates.out, style({
                 opacity: 0
             })),
-            transition(':enter', [
-                style({opacity: 1}),
-                animate(`${animateLength}s`)
-            ]),
-            transition(':leave', [
-                style({opacity: 0}),
-                animate(`${animateLength}s`)
-            ]),
             transition(`${FadeStates.in} <=> ${FadeStates.out}`, [
                 animate(`${animateLength}s`)
             ])

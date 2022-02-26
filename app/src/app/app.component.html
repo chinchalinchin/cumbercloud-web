@@ -1,23 +1,28 @@
 <div class="bg-btm-layer"></div>
 
-<div class="splash">
-  <div class="banner mat-elevation-z8">
-    <div class="align" style="margin-left: 1.5%;">
-      <button mat-icon-button color="primary">
+<div id="splash">
+  <div id="banner"
+        class="mat-elevation-z8">
+    
+    <div id="cloud-btn-container"
+          class="align" 
+          style="margin-left: 1.5%;">
+      <button id="cloud-btn"
+              mat-icon-button 
+              (click)="display()">
         <mat-icon>cloud</mat-icon>
       </button>
     </div>
 
-    <div class="title">
-      <img src="/assets/title.png">
+    <div id="title">
+      <img id="title-img" 
+            alt="Cumberland Cloud"
+            src="/assets/title.png">
     </div>
   </div>
 
-  <div class="nav-menu">
-    <div class="nav-item" 
-          *ngFor="let item of navItems"
-          [ngClass]="{ selected: item == this.selectedNav }"
-          (click)="navigate(item)">{{item.title}}</div>
+  <div id="nav-menu" [@fade]="menuFadeCntl.state"  [@expand]="menuExpandCntl.state">
+    <div class="nav-item"  *ngFor="let item of navItems" [ngClass]="{ selected: item == this.selectedNav }" (click)="navigate(item)">{{item.title}}</div>
 
   </div>
 
