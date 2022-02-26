@@ -15,7 +15,7 @@ enum sliderStates{
 })
 export class HomeComponent implements OnInit {
 
-  public imgFadeCntl = new AnimationControl(AnimationTriggers.cntl_fade);
+  public sliderFadeCntl = new AnimationControl(AnimationTriggers.cntl_fade);
   public sliderState = sliderStates.one;
   public states = sliderStates;
 
@@ -23,15 +23,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public setState(state: sliderStates){
-    this.imgFadeCntl.animate();
+  public setState(state: sliderStates): void{
+    this.sliderFadeCntl.animate();
     setTimeout(()=>{
         this.sliderState = state;
-        this.imgFadeCntl.prime();
+        this.sliderFadeCntl.prime();
     }, AnimationPeriods.medium*1000)
   }
 
-  public getSrc(){
+  public getSrc(): string{
     switch(this.sliderState){
       case this.states.one:
           return "/assets/clouds-banner.jpg";
@@ -39,6 +39,39 @@ export class HomeComponent implements OnInit {
           return "/assets/fee-banner.png"
       default:
           return "/assets/clouds-banner.jpg";
+    }
+  }
+
+  public getTitle(): string{
+    switch(this.sliderState){
+      case this.states.one:
+          return "Web Design and Hosting";
+      case this.states.two:
+          return "Cost Savings Comparison"
+      default:
+          return "";
+    }
+  }
+
+  public getSubtitle(): string{
+    switch(this.sliderState){
+      case this.states.one:
+          return "Responsive sites built on modern architecture";
+      case this.states.two:
+          return "Bringing the cost savings of cloud computing to small businesses"
+      default:
+          return "";
+    }
+  }
+
+  public getTooltip(state: sliderStates): string {
+    switch(state){
+      case this.states.one:
+          return "Quality";
+      case this.states.two:
+          return "Cost"
+      default:
+          return "";
     }
   }
 }
