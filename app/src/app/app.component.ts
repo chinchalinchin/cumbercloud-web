@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AnimationControl, Animations, AnimationTriggers } from 'src/animations';
 
 interface NavConfig{
@@ -23,11 +24,19 @@ export class AppComponent {
   
   public navItems: NavConfig[] = [
     { path: '', title: 'Home' },
-    { path: '', title: 'About' },
-    { path: '', title: 'Design' },
-    { path: '', title: 'Pricing' },
-    { path: '', title: 'Contact' }
+    { path: 'about', title: 'About' },
+    { path: 'design', title: 'Design' },
+    { path: 'pricing', title: 'Pricing' },
+    { path: 'contact', title: 'Contact' }
   ];
+
+  public constructor(private router: Router){
+
+  }
+
+  ngAfterViewInit(){
+    console.log(this.router.url)
+  }
 
   public selectedNav: NavConfig = this.navItems[0];
 
