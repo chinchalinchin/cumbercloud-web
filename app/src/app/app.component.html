@@ -1,5 +1,7 @@
 <div class="bg-btm-layer"></div>
 
+<div class="bg-img"></div>
+
 <div id="splash">
   <div id="banner" class="mat-elevation-z8">
     <div id="cloud-btn-container" class="v-align"  style="margin-left: 1.5%;">
@@ -13,7 +15,7 @@
     </div>
   </div>
 
-  <div id="nav-menu" [@fade]="menuFadeCntl.state"  [@expand]="menuExpandCntl.state">
+  <div id="nav-menu" [@ctl_fade]="menuFadeCntl.state"  [@ctl_expand]="menuExpandCntl.state">
     <div class="nav-item"  *ngFor="let item of navItems" [ngClass]="{ selected: item == this.selectedNav }" (click)="navigate(item)" [routerLink]="item.path">{{item.title}}</div>
 
   </div>

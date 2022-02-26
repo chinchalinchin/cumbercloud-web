@@ -10,8 +10,8 @@ interface NavConfig{
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    Animations.getExpandTrigger('4%'),
-    Animations.getFadeTrigger()
+    Animations.getManualExpandTrigger('4%'),
+    Animations.getManualFadeTrigger()
   ]
 })
 export class AppComponent {
