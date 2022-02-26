@@ -14,9 +14,6 @@
       color: map-get($primary-palette, default-contrast) !important;
       background-color: map-get($primary-palette, 500) !important;
     }
-    mat-card-subtitle{
-      color: black !important;
-    }
     .bg-white {
       background-color: map-get($primary-palette, default-contrast);
     }

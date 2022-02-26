@@ -17,15 +17,12 @@
 
   <div id="nav-menu" [@ctl_fade]="menuFadeCntl.state"  [@ctl_expand]="menuExpandCntl.state">
     <div class="nav-item"  *ngFor="let item of navItems" [ngClass]="{ selected: item == this.selectedNav }" (click)="navigate(item)" [routerLink]="item.path">{{item.title}}</div>
-
   </div>
 
   <div id="top-spacer"></div>
 
   <div class="display">
-
     <router-outlet></router-outlet>
-
   </div>
 
   <div id="btm-spacer"></div>
