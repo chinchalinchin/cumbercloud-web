@@ -7,6 +7,19 @@
   flex-direction: column;
   justify-content: start;
 }
+#popup{
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 80%; 
+  height: 60%;
+  border-radius: 5px;
+}
+#popup-toolbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
 .spacer{
   flex-grow: 1;
 }

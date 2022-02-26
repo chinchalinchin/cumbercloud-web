@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div id="nav-menu"  [@cntl_expand]="menuExpandCntl.state">
+  <div id="nav-menu"  [@cntl_fold]="menuFoldCntl.state">
     <div class="nav-item"  *ngFor="let item of navItems" [ngClass]="{ selected: item == this.selectedNav }" (click)="navigate(item)" [routerLink]="item.path">{{item.title}}</div>
   </div>
 

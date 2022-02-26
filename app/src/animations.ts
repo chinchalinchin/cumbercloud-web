@@ -23,7 +23,8 @@ export enum AnimationTriggers{
     expand="expand", scale="scale", highlight="highlight", 
     fade="fade", slide="slide", float="float",
     cntl_fade="cntl_fade", cntl_expand="cntl_expand",
-    cntl_highlight="cntl_highlight", cntl_scale="cntl_scale"
+    cntl_highlight="cntl_highlight", cntl_scale="cntl_scale",
+    cntl_fold="cntl_fold"
 }
 /**
  * Enumeration of animation lengths for {@link Animations}
@@ -122,6 +123,27 @@ export class Animations{
         ])
      }
 
+    /**
+     * # Description
+     * Get animation trigger for expanding an element to a given height over a specific time period.
+     * @param toHeight height expressed in CSS units (e.g. %, px, em, etc.)
+     * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
+     * @returns animation expand trigger
+     */
+     public static getManualFoldTrigger(toHeight: string, animateLength: number = AnimationPeriods.short)
+     : AnimationTriggerMetadata {
+         return trigger(AnimationTriggers.cntl_fold,[
+             state(ExpandStates.open, style({ 
+                 height: `${toHeight}`, opacity: 1
+             })),
+             state(ExpandStates.closed, style({ 
+                 height: '0', opacity: 0 
+             })),
+             transition(`${ExpandStates.open} <=> ${ExpandStates.closed}`,[
+                 animate(`${animateLength}s`)
+             ])
+         ])
+     }
      /**
      * # Description
      * Get animation trigger for expanding an element to a given height over a specific time period.
@@ -129,14 +151,14 @@ export class Animations{
      * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
      * @returns animation expand trigger
      */
-    public static getManualExpandTrigger(toHeight: string, animateLength: number = AnimationPeriods.short)
+    public static getManualExpandTrigger(toHeight: string, toWidth: string, animateLength: number = AnimationPeriods.short)
     : AnimationTriggerMetadata {
         return trigger(AnimationTriggers.cntl_expand,[
             state(ExpandStates.open, style({ 
-                height: `${toHeight}`, opacity: 1
+                height: `${toHeight}`, width: `${toWidth}`, opacity: 1
             })),
             state(ExpandStates.closed, style({ 
-                height: '0', opacity: 0 
+                height: '0', width: '0', opacity: 0 
             })),
             transition(`${ExpandStates.open} <=> ${ExpandStates.closed}`,[
                 animate(`${animateLength}s`)

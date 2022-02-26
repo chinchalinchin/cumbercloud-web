@@ -10,7 +10,7 @@ interface NavConfig{
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    Animations.getManualExpandTrigger('4%'),
+    Animations.getManualFoldTrigger('4%'),
   ]
 })
 export class AppComponent {
@@ -18,7 +18,7 @@ export class AppComponent {
 
   public displayed: boolean = false;
 
-  public menuExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public menuFoldCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   
   public navItems: NavConfig[] = [
     { path: '', title: 'Home' },
@@ -43,12 +43,8 @@ export class AppComponent {
   }
 
   public display(){
-    if(this.displayed){
-      this.menuExpandCntl.prime();
-    }
-    else{
-      this.menuExpandCntl.animate();
-    }
+    if(this.displayed){ this.menuFoldCntl.prime(); }
+    else{ this.menuFoldCntl.animate(); }
     this.displayed = !this.displayed;
   }
 
