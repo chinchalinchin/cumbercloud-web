@@ -36,6 +36,7 @@
 }
 .nav-item{
   cursor: pointer;
+  font-weight: bold;
 }
 .selected{
   border-style: none none solid none;

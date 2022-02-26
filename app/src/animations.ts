@@ -22,8 +22,8 @@ export enum FadeStates { in="in", out="out" }
 export enum AnimationTriggers{
     expand="expand", scale="scale", highlight="highlight", 
     fade="fade", slide="slide", float="float",
-    ctl_fade="ctl_fade", ctl_expand="ctl_expand",
-    ctl_highlight="ctl_highlight", ctl_scale="ctl_scale"
+    cntl_fade="cntl_fade", cntl_expand="cntl_expand",
+    cntl_highlight="cntl_highlight", cntl_scale="cntl_scale"
 }
 /**
  * Enumeration of animation lengths for {@link Animations}
@@ -71,7 +71,7 @@ export class Animations{
      */
     public static getManualScaleTrigger(scaleFactor: number, animateLength: number = AnimationPeriods.short)
     : AnimationTriggerMetadata {
-        return trigger(AnimationTriggers.ctl_scale, [
+        return trigger(AnimationTriggers.cntl_scale, [
             state(ScaleStates.scale, style({
                 transform: `scale(${scaleFactor}, ${scaleFactor})`
             })),
@@ -91,7 +91,7 @@ export class Animations{
      */
      public static getManualHighlightTrigger(highlightFactor: number, animateLength: number = AnimationPeriods.short)
      : AnimationTriggerMetadata {
-         return trigger(AnimationTriggers.ctl_highlight, [
+         return trigger(AnimationTriggers.cntl_highlight, [
              state(HighlightStates.highlight, style({
                  filter: `brightness(${highlightFactor})`
              })),
@@ -109,7 +109,7 @@ export class Animations{
       */
      public static getManualFadeTrigger(animateLength: number = AnimationPeriods.medium)
      : AnimationTriggerMetadata {
-        return trigger(AnimationTriggers.ctl_fade, [
+        return trigger(AnimationTriggers.cntl_fade, [
             state(FadeStates.in, style({
                 opacity: 1
             })),
@@ -131,7 +131,7 @@ export class Animations{
      */
     public static getManualExpandTrigger(toHeight: string, animateLength: number = AnimationPeriods.short)
     : AnimationTriggerMetadata {
-        return trigger(AnimationTriggers.ctl_expand,[
+        return trigger(AnimationTriggers.cntl_expand,[
             state(ExpandStates.open, style({ 
                 height: `${toHeight}`, opacity: 1
             })),
@@ -260,15 +260,17 @@ export class AnimationControl{
      */
     public animate() { 
         switch(this.animationType){
-            case AnimationTriggers.expand:
+            case AnimationTriggers.cntl_expand:
                 this.state = ExpandStates.open;
                 break;
-            case AnimationTriggers.highlight:
+            case AnimationTriggers.cntl_highlight:
                 this.state = HighlightStates.highlight;
                 break;
-            case AnimationTriggers.scale:
-                console.log('animationg scale')
+            case AnimationTriggers.cntl_scale:
                 this.state = ScaleStates.scale;
+                break;
+            case AnimationTriggers.cntl_fade:
+                this.state = FadeStates.out;
                 break;
         }
     }
@@ -278,15 +280,19 @@ export class AnimationControl{
      */
     public prime(){
         switch(this.animationType){
-            case AnimationTriggers.expand:
+            case AnimationTriggers.cntl_expand:
                 this.state = ExpandStates.closed;
                 break;
-            case AnimationTriggers.highlight:
+            case AnimationTriggers.cntl_highlight:
                 this.state = HighlightStates.normal;
                 break;
-            case AnimationTriggers.scale:
+            case AnimationTriggers.cntl_scale:
                 this.state = ScaleStates.normal;
                 break;
+            case AnimationTriggers.cntl_fade:
+                this.state = FadeStates.in;
+                break;
+
         }
     }
 

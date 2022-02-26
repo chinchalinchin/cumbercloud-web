@@ -6,14 +6,14 @@
     <mat-card-subtitle>
       Bringing the cost savings of cloud computing to small businesses
     </mat-card-subtitle>
-    <img mat-card-img src="/assets/clouds-banner.jpg" alt="Cloud Computing" id="intro-img">
+    <img mat-card-img [src]="getSrc()" alt="Cloud Computing" id="intro-img" [@cntl_fade]="imgFadeCntl.state">
     <mat-card-content>
       <div id="intro-slider">
-        <button mat-icon-button class="info-btn">
+        <button mat-icon-button class="info-btn" (click)="setState(states.one)">
           <mat-icon>info</mat-icon>
         </button>
         <span class="sep"></span>
-        <button mat-icon-button color="primary">
+        <button mat-icon-button color="primary" (click)="setState(states.two)">
           <mat-icon>info</mat-icon>
         </button>
         <span class="sep"></span>

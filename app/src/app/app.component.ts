@@ -11,7 +11,6 @@ interface NavConfig{
   styleUrls: ['./app.component.css'],
   animations: [
     Animations.getManualExpandTrigger('4%'),
-    Animations.getManualFadeTrigger()
   ]
 })
 export class AppComponent {
@@ -19,8 +18,7 @@ export class AppComponent {
 
   public displayed: boolean = false;
 
-  public menuExpandCntl = new AnimationControl(AnimationTriggers.expand);
-  public menuFadeCntl = new AnimationControl(AnimationTriggers.fade);
+  public menuExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   
   public navItems: NavConfig[] = [
     { path: '', title: 'Home' },
@@ -47,11 +45,9 @@ export class AppComponent {
   public display(){
     if(this.displayed){
       this.menuExpandCntl.prime();
-      this.menuFadeCntl.prime();
     }
     else{
       this.menuExpandCntl.animate();
-      this.menuFadeCntl.animate();
     }
     this.displayed = !this.displayed;
   }
