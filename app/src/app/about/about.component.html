@@ -1,12 +1,23 @@
 <div id="about">
   <div class="facts-container top">
-    <div class="fact">
+    <div class="fact" (mouseenter)="highlight(0)" (mouseleave)="delight(0)">
+      <div class="factoid" [@cntl_highlight]="factHighlightCntls[0].state">
+        <div class="v-align">
+          {{getMessage(0)}}
+        </div>
+      </div>
       <div class="toggle">
         <button mat-icon-button color="accent" (click)="expand()"><mat-icon>chevron_right</mat-icon></button>
       </div>
     </div>
     <div class="spacer"></div>
-    <div class="fact">
+
+    <div class="fact" (mouseenter)="highlight(1)" (mouseleave)="delight(1)">
+      <div class="factoid" [@cntl_highlight]="factHighlightCntls[1].state">
+        <div class="v-align">
+          {{getMessage(1)}}
+        </div>
+      </div>
       <div class="toggle">
         <button mat-icon-button color="accent" (click)="expand()"><mat-icon>chevron_right</mat-icon></button>
       </div>
@@ -18,13 +29,24 @@
 
   <div class="facts-container bottom">
     <div class="spacer"></div>
-    <div class="fact">
+    <div class="fact" (mouseenter)="highlight(2)" (mouseleave)="delight(2)">
+      <div class="factoid" [@cntl_highlight]="factHighlightCntls[2].state">
+        <div class="v-align">
+          {{getMessage(2)}}
+        </div>
+      </div>
       <div class="toggle">
         <button mat-icon-button color="accent" (click)="expand()"><mat-icon>chevron_right</mat-icon></button>
       </div>
     </div>
+
     <div class="spacer"></div>
-    <div class="fact">
+    <div class="fact" (mouseenter)="highlight(3)" (mouseleave)="delight(3)">
+      <div class="factoid" [@cntl_highlight]="factHighlightCntls[3].state">
+        <div class="v-align">
+          {{getMessage(3)}}
+        </div>
+      </div>
       <div class="toggle">
         <button mat-icon-button color="accent" (click)="expand()"><mat-icon>chevron_right</mat-icon></button>
       </div>
