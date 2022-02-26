@@ -17,7 +17,7 @@
           <mat-icon>info</mat-icon>
         </button>
         <span class="sep"></span>
-        <button mat-icon-button class="info-btn">
+        <button mat-icon-button class="info-btn" (click)="setState(states.three)" [matTooltip]="getTooltip(states.three)">
           <mat-icon>info</mat-icon>
         </button>
       </div>
