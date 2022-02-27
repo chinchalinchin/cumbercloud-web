@@ -39,5 +39,7 @@ img {
 .block{
   min-width: 40%;
   min-height: 20%;
-  background: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
