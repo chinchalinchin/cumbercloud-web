@@ -7,8 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatCheckboxModule } from '@angular/material/checkbox'; 
 import { MatIconModule } from '@angular/material/icon'; 
+import { MatListModule } from '@angular/material/list'; 
+import { MatRippleModule } from '@angular/material/core';  
 import { MatTabsModule } from '@angular/material/tabs'; 
-import { MatTooltipModule } from '@angular/material/tooltip'; 
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +39,8 @@ import { DesignComponent } from './design/design.component';
     MatCardModule,
     MatCheckboxModule,
     MatIconModule,
+    MatListModule,
+    MatRippleModule,
     MatTabsModule,
     MatTooltipModule
   ],

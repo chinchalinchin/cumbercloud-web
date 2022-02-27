@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   public getSubtitle(): string{
     switch(this.sliderState){
       case this.states.one:
-          return "Creating responsive sites built on modern architecture";
+          return "Creating responsive sites built on modern infrastructure";
       case this.states.two:
           return "Bringing the cost savings of cloud computing to small businesses"
       case this.states.three:

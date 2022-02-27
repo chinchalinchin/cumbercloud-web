@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AnimationControl, Animations, AnimationTriggers, ExpandStates, HighlightStates } from 'src/animations';
 
 enum popupStates{
@@ -13,8 +13,7 @@ enum popupStates{
     Animations.getManualHighlightTrigger(1.25)
   ]
 })
-export class AboutComponent implements OnInit {
-
+export class AboutComponent {
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public states = popupStates;
   public popUpState: popupStates = popupStates.null;
@@ -29,32 +28,29 @@ export class AboutComponent implements OnInit {
     this.popupExpandCntl.setState(ExpandStates.closed);
   }
 
-  ngOnInit(): void {
-  }
-
-  public expand(state: popupStates){
+  public expand(state: popupStates): void{
     this.popUpState = state;
     this.popupExpandCntl.animate();
   }
 
-  public close(){
+  public close(): void{
     this.popUpState = popupStates.null;
     this.popupExpandCntl.prime();
   }
 
-  public closed(){
+  public closed(): boolean{
     return this.popupExpandCntl.state == ExpandStates.closed
   }
 
-  public highlight(factIndex: number){
+  public highlight(factIndex: number): void{
     this.factHighlightCntls[factIndex].animate()
   }
 
-  public delight(factIndex: number){
+  public delight(factIndex: number): void{
     this.factHighlightCntls[factIndex].prime()
   }
 
-  public getMessage(factIndex: number){
+  public getMessage(factIndex: number): string{
     if(this.factHighlightCntls[factIndex].state == HighlightStates.normal){
       switch(factIndex){
         case 0:
@@ -82,6 +78,21 @@ export class AboutComponent implements OnInit {
         default:
           return "";
       }
+    }
+  }
+
+  public getPopupTitle(): string{
+    switch(this.popUpState){
+      case this.states.one:
+        return "Professional Experience"
+      case this.states.two:
+        return "Industry Certifications"
+      case this.states.three:
+        return "Academic Career"
+      case this.states.four:
+        return "Project Gallery"
+      default:
+        return ""
     }
   }
 }

@@ -9,6 +9,7 @@
 
   .factoid{
     background-color: map-get($primary-palette, default);
+    color: map-get($primary-palette, lighter-contrast)
     //background: linear-gradient(90deg, map-get($primary-palette, 900) 0%, map-get($primary-palette, 50) 90%);
   }
   .toggle{
@@ -16,6 +17,9 @@
   }
   #popup{
     background-color: map-get($primary-palette, lighter);
+  }
+  #popup-header{
+    color: map-get($accent-palette, darker)
   }
 }
 

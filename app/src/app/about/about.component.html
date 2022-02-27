@@ -1,8 +1,9 @@
 <div id="about">
   <div class="facts-container top">
-    <div class="fact" (mouseenter)="highlight(0)" (mouseleave)="delight(0)">
+    
+    <div class="fact" (mouseenter)="highlight(0)" (mouseleave)="delight(0)" matRipple [matRippleUnbounded]="true" matRippleColor="rgba(255,255,255, 0.3)" [matRippleCentered]="false" (click)="expand(states.one)">
       <div class="factoid" [@cntl_highlight]="factHighlightCntls[0].state">
-        <div class="v-align">
+        <div class="v-align mat-title">
           {{getMessage(0)}}
         </div>
       </div>
@@ -12,9 +13,9 @@
     </div>
     <div class="spacer"></div>
 
-    <div class="fact" (mouseenter)="highlight(1)" (mouseleave)="delight(1)">
+    <div class="fact" (mouseenter)="highlight(1)" (mouseleave)="delight(1)" matRipple [matRippleUnbounded]="true" matRippleColor="rgba(255,255,255, 0.3)" [matRippleCentered]="false" (click)="expand(states.two)">
       <div class="factoid" [@cntl_highlight]="factHighlightCntls[1].state">
-        <div class="v-align">
+        <div class="v-align mat-title">
           {{getMessage(1)}}
         </div>
       </div>
@@ -24,14 +25,14 @@
     </div>
     <div class="spacer"></div>
   </div>
-
   <div class="spacer"></div>
 
   <div class="facts-container bottom">
+
     <div class="spacer"></div>
-    <div class="fact" (mouseenter)="highlight(2)" (mouseleave)="delight(2)">
+    <div class="fact" (mouseenter)="highlight(2)" (mouseleave)="delight(2)" matRipple [matRippleUnbounded]="true" matRippleColor="rgba(255,255,255, 0.3)" [matRippleCentered]="false" (click)="expand(states.three)">
       <div class="factoid" [@cntl_highlight]="factHighlightCntls[2].state">
-        <div class="v-align">
+        <div class="v-align mat-title">
           {{getMessage(2)}}
         </div>
       </div>
@@ -41,9 +42,9 @@
     </div>
 
     <div class="spacer"></div>
-    <div class="fact" (mouseenter)="highlight(3)" (mouseleave)="delight(3)">
+    <div class="fact" (mouseenter)="highlight(3)" (mouseleave)="delight(3)" matRipple [matRippleUnbounded]="true" matRippleColor="rgba(255,255,255, 0.3)" [matRippleCentered]="false" (click)="expand(states.four)">
       <div class="factoid" [@cntl_highlight]="factHighlightCntls[3].state">
-        <div class="v-align">
+        <div class="v-align mat-title">
           {{getMessage(3)}}
         </div>
       </div>
@@ -58,10 +59,79 @@
 
 <div id="popup" [@cntl_expand]="popupExpandCntl.state">
   <div id="popup-toolbar">
-    <button mat-icon-button (click)="close()" color="warn" *ngIf="!closed()"><mat-icon>close</mat-icon></button>
+    <h2 id="popup-header" class="v-align mat-title">{{getPopupTitle()}}</h2>
+    <div>
+      <button mat-icon-button (click)="close()" color="warn" *ngIf="!closed()"><mat-icon>close</mat-icon></button>
+    </div>
   </div>
-  <div id="experience-popup" class="popup-content" *ngIf="popUpState == states.one">experience</div>
-  <div id="certifications-popup" class="popup-content" *ngIf="popUpState == states.two">certifications</div>
+
+  <div id="experience-popup" class="popup-content" *ngIf="popUpState == states.one">
+    <mat-list>
+      <div mat-subheader>Makpar</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon color="accent">label_important</mat-icon>
+        <div mat-line>DevOps Engineer</div>
+        <div mat-line>2021 - Current</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <div mat-subheader>IBM</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon color="accent">label_important</mat-icon>
+        <div mat-line>Full Stack Developer</div>
+        <div mat-line>2018 - 2021</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      
+      <div mat-subheader>Front Range Community College</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon color="accent">label_important</mat-icon>
+        <div mat-line>Mathematics Professor</div>
+        <div mat-line>2017 - 2018</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <div mat-subheader>Frostburg State University</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon color="accent">label_important</mat-icon>
+        <div mat-line>Physics Professor</div>
+        <div mat-line>2015 - 2017</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+    </mat-list> 
+  </div>
+
+  <div id="certifications-popup" class="popup-content" *ngIf="popUpState == states.two">
+    <mat-tab-group animationDuration="1000ms" style="height: 100%;">
+      <mat-tab label="AWS Cloud Developer Associate">
+        <div class="img-container">
+          <img src="/assets/certs/AWS_DEVELOPER.png" alt="AWS Developer Associate Certification">
+        </div>
+      </mat-tab>
+      <mat-tab label="MTA Database Administration">
+        <div class="img-container">
+          <img src="/assets/certs/MTA_DATABASE.png" alt="MTA Database Administration Certification">
+        </div>
+      </mat-tab>
+      <mat-tab label="MTA Software Development">
+        <div class="img-container">
+          <img src="/assets/certs/MTA_SOFTWARE.png" alt="MTA Software Development Certification">
+        </div>
+      </mat-tab>
+      <mat-tab label="MTA Python Programming">
+        <div class="img-container">
+          <img src="/assets/certs/MTA_PYTHON.png" alt="MTA Python Programming Certification">
+        </div>
+      </mat-tab>
+      <mat-tab label="MTA Java Programming">
+        <div class="img-container">
+          <img src="/assets/certs/MTA_JAVA.png" alt="MTA Java Programming Certification">
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
   <div id="education-popup" class="popup-content" *ngIf="popUpState == states.three">education</div>
   <div id="portfolio-popup" class="popup-content" *ngIf="popUpState == states.four">
     <mat-tab-group animationDuration="1000ms" style="height: 100%;">
