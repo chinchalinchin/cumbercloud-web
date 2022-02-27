@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="toggle">
-        <button mat-icon-button color="accent" (click)="expand()"><mat-icon>chevron_right</mat-icon></button>
+        <button mat-icon-button color="accent" (click)="expand(states.one)"><mat-icon>chevron_right</mat-icon></button>
       </div>
     </div>
     <div class="spacer"></div>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="toggle">
-        <button mat-icon-button color="accent" (click)="expand()"><mat-icon>chevron_right</mat-icon></button>
+        <button mat-icon-button color="accent" (click)="expand(states.two)"><mat-icon>chevron_right</mat-icon></button>
       </div>
     </div>
     <div class="spacer"></div>
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="toggle">
-        <button mat-icon-button color="accent" (click)="expand()"><mat-icon>chevron_right</mat-icon></button>
+        <button mat-icon-button color="accent" (click)="expand(states.three)"><mat-icon>chevron_right</mat-icon></button>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="toggle">
-        <button mat-icon-button color="accent" (click)="expand()"><mat-icon>chevron_right</mat-icon></button>
+        <button mat-icon-button color="accent" (click)="expand(states.four)"><mat-icon>chevron_right</mat-icon></button>
       </div>
     </div>
   </div>
@@ -60,4 +60,17 @@
   <div id="popup-toolbar">
     <button mat-icon-button (click)="close()" color="warn" *ngIf="!closed()"><mat-icon>close</mat-icon></button>
   </div>
+  <div id="experience-popup" class="popup-content" *ngIf="popUpState == states.one">experience</div>
+  <div id="certifications-popup" class="popup-content" *ngIf="popUpState == states.two">certifications</div>
+  <div id="education-popup" class="popup-content" *ngIf="popUpState == states.three">education</div>
+  <div id="portfolio-popup" class="popup-content" *ngIf="popUpState == states.four">
+    <mat-tab-group animationDuration="1000ms" style="height: 100%;">
+      <mat-tab label="buy.gsa.gov">
+        <iframe src="https://buy.gsa.gov/contracts/home" width="100%" height="100%"></iframe>
+      </mat-tab>
+      <mat-tab label="Second">Content 2</mat-tab>
+      <mat-tab label="Third">Content 3</mat-tab>
+    </mat-tab-group>
+  </div>
+
 </div>

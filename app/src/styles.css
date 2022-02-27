@@ -8,9 +8,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: flex; 
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
 mat-card img{
   object-fit: cover;
   width: 100%;
+}
+
+.mat-tab-body-wrapper{
+  height: 100% !important;
+}
+.mat-tab-body-content{
+  overflow: hidden !important;
 }

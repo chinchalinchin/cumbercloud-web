@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatCheckboxModule } from '@angular/material/checkbox'; 
 import { MatIconModule } from '@angular/material/icon'; 
+import { MatTabsModule } from '@angular/material/tabs'; 
 import { MatTooltipModule } from '@angular/material/tooltip'; 
 
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { DesignComponent } from './design/design.component';
     MatCardModule,
     MatCheckboxModule,
     MatIconModule,
+    MatTabsModule,
     MatTooltipModule
   ],
   providers: [],

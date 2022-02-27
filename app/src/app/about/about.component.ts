@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimationControl, Animations, AnimationTriggers, ExpandStates, HighlightStates } from 'src/animations';
 
+enum popupStates{
+  one, two, three, four, null
+}
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -13,6 +16,8 @@ import { AnimationControl, Animations, AnimationTriggers, ExpandStates, Highligh
 export class AboutComponent implements OnInit {
 
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public states = popupStates;
+  public popUpState: popupStates = popupStates.null;
   public factHighlightCntls : AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_highlight),
     new AnimationControl(AnimationTriggers.cntl_highlight),
@@ -27,11 +32,13 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public expand(){
+  public expand(state: popupStates){
+    this.popUpState = state;
     this.popupExpandCntl.animate();
   }
 
   public close(){
+    this.popUpState = popupStates.null;
     this.popupExpandCntl.prime();
   }
 
