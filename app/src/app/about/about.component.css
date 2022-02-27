@@ -1,3 +1,7 @@
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
 #about{
   position: absolute;
   top: 40%;
@@ -20,6 +24,9 @@
   flex-direction: row;
   justify-content: space-between;
   height: 10%;
+}
+#popup-header{
+  margin-left: 5%;
 }
 .spacer{
   flex-grow: 1;
@@ -56,13 +63,6 @@
 .popup-content{
   height: 90%;
   overflow-y: auto;
-}
-#popup-header{
-  margin-left: 5%;
-}
-img {
-  max-width: 100%;
-  max-height: 100%;
 }
 .img-container{
   height: 100%;

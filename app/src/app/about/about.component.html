@@ -94,11 +94,18 @@
       <div mat-subheader>Frostburg State University</div>
       <mat-list-item>
         <mat-icon mat-list-icon color="accent">label_important</mat-icon>
-        <div mat-line>Physics Professor</div>
+        <div mat-line>Adjunct Physics Professor</div>
         <div mat-line>2015 - 2017</div>
       </mat-list-item>
       <mat-divider></mat-divider>
 
+      <div mat-subheader>Americorps</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon color="accent">label_important</mat-icon>
+        <div mat-line>Mathematics Mentor</div>
+        <div mat-line>2014 - 2016</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
     </mat-list> 
   </div>
 
@@ -133,6 +140,7 @@
   </div>
 
   <div id="education-popup" class="popup-content" *ngIf="popUpState == states.three">education</div>
+
   <div id="portfolio-popup" class="popup-content" *ngIf="popUpState == states.four">
     <mat-tab-group animationDuration="1000ms" style="height: 100%;">
       <mat-tab label="buy.gsa.gov">
