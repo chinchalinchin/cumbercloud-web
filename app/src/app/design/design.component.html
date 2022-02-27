@@ -3,7 +3,9 @@
   <div class="step-container">
     <div id="step-one" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button"><span class="mat-title">1. Prototype</span></button>
+        <button mat-stroked-button class="step-button" (click)="expand(states.one)">
+          <span class="mat-title">1. Prototype</span>
+        </button>
       </div>
     </div>
 
@@ -13,7 +15,9 @@
 
     <div id="step-three" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button"><span class="mat-title">3. Develop</span></button>
+        <button mat-stroked-button class="step-button" (click)="expand(states.three)">
+          <span class="mat-title">3. Develop</span>
+        </button>
       </div>
     </div>
   </div>
@@ -23,7 +27,8 @@
   <div class="step-container">
     <div id="step-two" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button"><span class="mat-title">2. Provision</span></button>
+        <button mat-stroked-button class="step-button" (click)="expand(states.two)">
+          <span class="mat-title">2. Provision</span></button>
       </div>
     </div>
 
@@ -33,8 +38,21 @@
 
     <div id="step-four" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button"><span class="mat-title">4. Deploy</span></button>
+        <button mat-stroked-button class="step-button" (click)="expand(states.four)">
+          <span class="mat-title">4. Deploy</span>
+        </button>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="popup" [@cntl_expand]="popupExpandCntl.state">
+  <div id="popup-toolbar">
+    <h2 id="popup-header" class="v-align mat-title">title</h2>
+    <div>
+      <button mat-icon-button (click)="close()" color="warn" *ngIf="!closed()">
+        <mat-icon>close</mat-icon>
+      </button>
     </div>
   </div>
 </div>

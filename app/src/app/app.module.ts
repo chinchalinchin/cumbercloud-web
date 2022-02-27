@@ -9,6 +9,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatListModule } from '@angular/material/list'; 
 import { MatRippleModule } from '@angular/material/core';  
+import { MatStepperModule } from '@angular/material/stepper'; 
 import { MatTabsModule } from '@angular/material/tabs'; 
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -28,7 +29,7 @@ import { DesignComponent } from './design/design.component';
     AboutComponent,
     PricingComponent,
     ContactComponent,
-    DesignComponent
+    DesignComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -41,8 +42,9 @@ import { DesignComponent } from './design/design.component';
     MatIconModule,
     MatListModule,
     MatRippleModule,
+    MatStepperModule,
     MatTabsModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

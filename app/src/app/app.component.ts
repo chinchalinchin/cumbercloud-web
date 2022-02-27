@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { AnimationControl, Animations, AnimationTriggers } from 'src/animations';
 
 interface NavConfig{
@@ -28,21 +27,16 @@ export class AppComponent {
     { path: 'contact', title: 'Contact' }
   ];
 
-  public constructor(private router: Router){
-
-  }
-
-  ngAfterViewInit(){
-    console.log(this.router.url)
-  }
+  public constructor(){ }
 
   public selectedNav: NavConfig = this.navItems[0];
 
   public navigate(nav: NavConfig){
     this.selectedNav = nav;
+    if(this.displayed){ this.menuFoldCntl.prime(); }
   }
 
-  public display(){
+  public toggle(){
     if(this.displayed){ this.menuFoldCntl.prime(); }
     else{ this.menuFoldCntl.animate(); }
     this.displayed = !this.displayed;

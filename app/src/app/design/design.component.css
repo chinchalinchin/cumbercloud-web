@@ -14,6 +14,23 @@ img {
   flex-direction: row;
   align-items:center;
 }
+#popup{
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 80%; 
+  height: 60%;
+  border-radius: 5px;
+}
+#popup-toolbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10%;
+}
+#popup-header{
+  margin-left: 5%;
+}
 .center{
   margin-left: auto;
   margin-right: auto;

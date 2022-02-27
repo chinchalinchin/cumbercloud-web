@@ -42,6 +42,10 @@ export class AboutComponent {
     return this.popupExpandCntl.state == ExpandStates.closed
   }
 
+  public highlighted(factIndex: number){
+    return this.factHighlightCntls[factIndex].state == HighlightStates.highlight;
+  }
+
   public highlight(factIndex: number): void{
     this.factHighlightCntls[factIndex].animate()
   }
@@ -70,7 +74,7 @@ export class AboutComponent {
         case 0:
           return "A wealth of technical expertise";
         case 1:
-          return "Industry recognized quality";
+          return "Industry recognized skill";
         case 2:
           return "Diverse, multidisciplined background";
         case 3:
@@ -86,7 +90,7 @@ export class AboutComponent {
       case this.states.one:
         return "Professional Experience"
       case this.states.two:
-        return "Industry Certifications"
+        return "Technical Certifications"
       case this.states.three:
         return "Academic Career"
       case this.states.four:
