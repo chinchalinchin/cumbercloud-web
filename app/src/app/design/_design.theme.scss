@@ -32,6 +32,9 @@
   .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
     background-color: map-get($accent-palette, 300);
   }
+  .step-img{
+    border-color: map-get($accent-palette, 900);
+  }
 }
 
 @mixin theme($theme) {

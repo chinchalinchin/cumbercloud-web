@@ -19,6 +19,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer{
   flex-grow: 1;
 }
+.text-center{
+  text-align: center;
+}
 mat-card img{
   object-fit: cover;
   width: 100%;

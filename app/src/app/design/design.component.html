@@ -58,31 +58,50 @@
 
   <div id="prototype-popup" class="popup-content" *ngIf="popUpState == states.one">
     <mat-stepper class="stepper" [linear]="true" #prototypeStepper>
-      <mat-step>
+
+      <mat-step id="step-one" class="step">
         <ng-template matStepLabel>1.</ng-template>
 
-        <div class="stepper-step">
-          <div id="raw-design" class="img-container">
-            <img src="/assets/design_02.jpg" alt="Hand drawn designs">
+        <div id="initial-design" class="step-content">
+          <div id="initial-design-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="/assets/design_02.jpg" alt="Hand drawn designs">
+              <figcaption class="text-center mat-caption">With the customer's direct input, low fidelity mockups of the webpage design will be created and the requirements of each page specified.</figcaption>
+            </figure>
           </div>
-
-          <div id="refined-design" class="img-container">
-            <img src="/assets/adobe_xd.jpg" alt="Computer assisted design">
-          </div>
-          
         </div>
-        <button mat-button color="accent" matStepperPrevious disabled>Back</button>
-        <button mat-button color="accent" matStepperNext>Next</button>
+
+        <div class="step-actions">
+          <button mat-button color="accent" matStepperPrevious disabled>Back</button>
+          <button mat-button color="accent" matStepperNext>Next</button>
+        </div>
       </mat-step>
+
       <mat-step>
         <ng-template matStepLabel>2.</ng-template>
-        <button mat-button color="accent" matStepperPrevious>Back</button>
-        <button mat-button color="accent" matStepperNext>Next</button>
+
+        <div id="refined-design" class="step-content">
+          <div id="refined-design-img" class="step-img-container">
+            <figure>
+              <img src="/assets/adobe_xd.jpg" alt="Computer assisted design">
+              <figcaption class="text-center mat-caption">These rough drafts will be transferred over into technical specifications for the customer's review and approval.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="step-actions">
+          <button mat-button color="accent" matStepperPrevious>Back</button>
+          <button mat-button color="accent" matStepperNext>Next</button>
+        </div>
       </mat-step>
+
       <mat-step>
         <ng-template matStepLabel>3.</ng-template>
-        <button mat-button color="accent" matStepperPrevious>Back</button>
-        <button mat-button color="accent" matStepperNext disabled>Next</button>
+        
+        <div class="step-actions">
+          <button mat-button color="accent" matStepperPrevious>Back</button>
+          <button mat-button color="accent" matStepperNext disabled>Next</button>
+        </div>
       </mat-step>
     </mat-stepper>
   </div>
