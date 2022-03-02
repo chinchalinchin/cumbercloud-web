@@ -3,7 +3,7 @@
   <div class="step-container">
     <div id="step-one" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button" (click)="expand(states.one)">
+        <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.one)">
           <span class="mat-title">1. Prototype</span>
         </button>
       </div>
@@ -15,7 +15,7 @@
 
     <div id="step-three" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button" (click)="expand(states.three)">
+        <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.three)">
           <span class="mat-title">3. Develop</span>
         </button>
       </div>
@@ -27,7 +27,7 @@
   <div class="step-container">
     <div id="step-two" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button" (click)="expand(states.two)">
+        <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.two)">
           <span class="mat-title">2. Provision</span></button>
       </div>
     </div>
@@ -38,7 +38,7 @@
 
     <div id="step-four" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button" (click)="expand(states.four)">
+        <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.four)">
           <span class="mat-title">4. Deploy</span>
         </button>
       </div>
@@ -57,12 +57,12 @@
   </div>
 
   <div id="design-popup" class="popup-content" *ngIf="popUpState == states.one">
-    <mat-stepper class="stepper" [linear]="true" #prototypeStepper>
+    <mat-stepper class="stepper" [linear]="true" #designStepper>
 
       <mat-step id="design-step-one" class="step">
         <ng-template matStepLabel>1. Your Small Business Website</ng-template>
 
-        <div id="idea" class="step-content">
+        <div id="small-business-website" class="step-content">
           <div id="small-business-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/small_business.jpg" alt="Small business owner">
@@ -92,8 +92,8 @@
       <mat-step id="design-step-two" class="step">
         <ng-template matStepLabel>2. Human Centered Design</ng-template>
 
-        <div id="design-step-two" class="step-content">
-          <div id="requirements" class="step-img-container">
+        <div id="human-centered-design" class="step-content">
+          <div id="requirements-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/idea.jpg" alt="Brainstorming">
               <figcaption class="text-center mat-caption">Schedule a <i>free</i> design session to map out your idea with the development team and get a price estimate before committing to a new project.</figcaption>
@@ -114,6 +114,7 @@
             </figure>
           </div>
         </div>
+
         <div class="step-actions">
           <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
           <button mat-icon-button color="accent" matStepperNext><mat-icon>chevron_right</mat-icon></button>
@@ -122,28 +123,30 @@
 
       <mat-step id="design-step-three" class="step">
         <ng-template matStepLabel>3. Price Estimate</ng-template>
+
         <div id="pricing" class="step-content">
-          <div id="" class="step-img-container">
+          <div id="-img" class="step-img-container">
             <figure>
               <img class="step-img" src="" alt="g">
               <figcaption class="text-center mat-caption"></figcaption>
             </figure>
           </div>
 
-          <div id="" class="step-img-container">
+          <div id="-img" class="step-img-container">
             <figure>
               <img class="step-img" src="" alt="">
               <figcaption class="text-center mat-caption"></figcaption>
             </figure>
           </div>
 
-          <div id="" class="step-img-container">
+          <div id="-img" class="step-img-container">
             <figure>
               <img class="step-img" src="" alt="">
               <figcaption class="text-center mat-caption"> </figcaption>
             </figure>
           </div>
         </div>
+
         <div class="step-actions">
           <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
           <button mat-icon-button color="accent" matStepperNext disabled><mat-icon>chevron_right</mat-icon></button>
@@ -155,4 +158,54 @@
       </ng-template>
     </mat-stepper>
   </div>
+
+  <div id="provision-popup" class="popup-content" *ngIf="popUpState == states.two">
+    <mat-stepper class="stepper" [linear]="true" #provisionStepper>
+
+      <mat-step id="provision-step-one" class="step">
+        <ng-template matStepLabel>1. Cloud Computing</ng-template>
+
+        <div id="cloud-computing" class="step-content">
+          <div id="cloud-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="/assets/big_business.jpg" alt="The magic of the cloud">
+              <figcaption class="text-center mat-caption">For the past decade, large-scale businesses have been using the cloud to cut costs and simplify their software needs.</figcaption>
+            </figure>
+          </div>
+
+          <div id="cloud-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="/assets/clouds-0002.jpg" alt="The magic of the cloud">
+              <figcaption class="text-center mat-caption">For the past decade, large-scale businesses have been using the cloud to cut costs and simplify their software needs.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+        <div class="step-actions">
+          <button mat-icon-button color="accent" matStepperPrevious disabled><mat-icon>chevron_left</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperNext><mat-icon>chevron_right</mat-icon></button>
+        </div>
+      </mat-step>
+
+      <mat-step id="provision-step-two" class="step">
+        <ng-template matStepLabel>2. Automated Architecture</ng-template>
+
+        <div id="project-architecture" class="step-content">
+          <div id="architecture-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="" alt="">
+              <figcaption class="text-center mat-caption"></figcaption>
+            </figure>
+          </div>
+
+
+        </div>
+        <div class="step-actions">
+          <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperNext disabled><mat-icon>chevron_right</mat-icon></button>
+        </div>
+        
+      </mat-step>
+    </mat-stepper>
+  </div> 
 </div>
