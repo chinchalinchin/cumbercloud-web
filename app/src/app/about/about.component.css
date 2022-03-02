@@ -31,9 +31,6 @@ img {
 .highlighted{
   font-size: smaller !important;
 }
-.spacer{
-  flex-grow: 1;
-}
 .facts-container{
   width: 90%;
   display: flex;
