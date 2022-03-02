@@ -9,7 +9,7 @@ img {
   height: 60%;
   display:flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
 }
 #popup{
   position: absolute;

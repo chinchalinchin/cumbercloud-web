@@ -72,11 +72,11 @@ export class AboutComponent {
     else{
       switch(factIndex){
         case 0:
-          return "A wealth of technical expertise";
+          return "Professional background";
         case 1:
-          return "Industry recognized skill";
+          return "Industry recognized expertise";
         case 2:
-          return "Diverse, multidisciplined background";
+          return "Diverse technical skillset";
         case 3:
           return "Websites, applications & projects";
         default:

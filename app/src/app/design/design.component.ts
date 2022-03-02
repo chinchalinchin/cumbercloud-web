@@ -36,4 +36,19 @@ export class DesignComponent implements OnInit {
     return this.popupExpandCntl.state == ExpandStates.closed
   }
   
+  public getPopupTitle(): string{
+    switch(this.popUpState){
+      case this.states.one:
+        return "Design Process"
+      case this.states.two:
+        return "Cloud Architecture"
+      case this.states.three:
+        return "Web App Development"
+      case this.states.four:
+        return "Product Deployment"
+      default:
+        return ""
+    }
+  }
+
 }
