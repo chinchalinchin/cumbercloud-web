@@ -56,53 +56,103 @@
     </div>
   </div>
 
-  <div id="prototype-popup" class="popup-content" *ngIf="popUpState == states.one">
+  <div id="design-popup" class="popup-content" *ngIf="popUpState == states.one">
     <mat-stepper class="stepper" [linear]="true" #prototypeStepper>
 
-      <mat-step id="step-one" class="step">
-        <ng-template matStepLabel>1.</ng-template>
+      <mat-step id="design-step-one" class="step">
+        <ng-template matStepLabel>1. Your Small Business Website</ng-template>
 
-        <div id="initial-design" class="step-content">
+        <div id="idea" class="step-content">
+          <div id="small-business-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="/assets/small_business.jpg" alt="Small business owner">
+              <figcaption class="text-center mat-caption">You're a small business owner who needs a website in order to acquire new clients, nurture existing relationships and grow your brand.</figcaption>
+            </figure>
+          </div>
+          <div id="frustrated-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="/assets/frustrated_03.jpg" alt="Frustration">
+              <figcaption class="text-center mat-caption">But trying to build your own website that is at once mobile friendly, search optimized and has all the modern bells and whistles can be frustrating.</figcaption>
+            </figure>
+          </div>
+          <div id="frustrated-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="/assets/design_station_02.jpg" alt="Cumberland Cloud Web Design">
+              <figcaption class="text-center mat-caption">That's where we come in. At the <strong>Cumberland Cloud</strong>, we offer an experienced and affordable approach to web design.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="step-actions">
+          <button mat-icon-button color="accent" matStepperPrevious disabled><mat-icon>chevron_left</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperNext><mat-icon>chevron_right</mat-icon></button>
+        </div>
+      </mat-step>
+
+      <mat-step id="design-step-two" class="step">
+        <ng-template matStepLabel>2. Human Centered Design</ng-template>
+
+        <div id="design-step-two" class="step-content">
+          <div id="requirements" class="step-img-container">
+            <figure>
+              <img class="step-img" src="/assets/idea.jpg" alt="Brainstorming">
+              <figcaption class="text-center mat-caption">Schedule a <i>free</i> design session to map out your idea with the development team and get a price estimate before committing to a new project.</figcaption>
+            </figure>
+          </div>
+
           <div id="initial-design-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/design_02.jpg" alt="Hand drawn designs">
-              <figcaption class="text-center mat-caption">With the customer's direct input, low fidelity mockups of the webpage design will be created and the requirements of each page specified.</figcaption>
+              <figcaption class="text-center mat-caption">With your direct input, low fidelity mockups of the webpage design will be created and the requirements of each page specified.</figcaption>
             </figure>
           </div>
-        </div>
 
-        <div class="step-actions">
-          <button mat-button color="accent" matStepperPrevious disabled>Back</button>
-          <button mat-button color="accent" matStepperNext>Next</button>
-        </div>
-      </mat-step>
-
-      <mat-step>
-        <ng-template matStepLabel>2.</ng-template>
-
-        <div id="refined-design" class="step-content">
           <div id="refined-design-img" class="step-img-container">
             <figure>
-              <img src="/assets/adobe_xd.jpg" alt="Computer assisted design">
-              <figcaption class="text-center mat-caption">These rough drafts will be transferred over into technical specifications for the customer's review and approval.</figcaption>
+              <img class="step-img" src="/assets/adobe_xd.jpg" alt="Computer assisted design">
+              <figcaption class="text-center mat-caption">These rough drafts will be transferred over into technical specifications for your review. If you like what you see, we'll move on to the next stage.</figcaption>
             </figure>
           </div>
         </div>
-
         <div class="step-actions">
-          <button mat-button color="accent" matStepperPrevious>Back</button>
-          <button mat-button color="accent" matStepperNext>Next</button>
+          <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperNext><mat-icon>chevron_right</mat-icon></button>
         </div>
       </mat-step>
 
-      <mat-step>
-        <ng-template matStepLabel>3.</ng-template>
-        
+      <mat-step id="design-step-three" class="step">
+        <ng-template matStepLabel>3. Price Estimate</ng-template>
+        <div id="pricing" class="step-content">
+          <div id="" class="step-img-container">
+            <figure>
+              <img class="step-img" src="" alt="g">
+              <figcaption class="text-center mat-caption"></figcaption>
+            </figure>
+          </div>
+
+          <div id="" class="step-img-container">
+            <figure>
+              <img class="step-img" src="" alt="">
+              <figcaption class="text-center mat-caption"></figcaption>
+            </figure>
+          </div>
+
+          <div id="" class="step-img-container">
+            <figure>
+              <img class="step-img" src="" alt="">
+              <figcaption class="text-center mat-caption"> </figcaption>
+            </figure>
+          </div>
+        </div>
         <div class="step-actions">
-          <button mat-button color="accent" matStepperPrevious>Back</button>
-          <button mat-button color="accent" matStepperNext disabled>Next</button>
+          <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperNext disabled><mat-icon>chevron_right</mat-icon></button>
         </div>
       </mat-step>
+
+      <ng-template matStepperIcon="edit">
+        <mat-icon>check</mat-icon>      
+      </ng-template>
     </mat-stepper>
   </div>
 </div>

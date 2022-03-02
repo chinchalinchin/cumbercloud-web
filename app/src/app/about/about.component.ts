@@ -76,7 +76,7 @@ export class AboutComponent {
         case 1:
           return "Industry recognized expertise";
         case 2:
-          return "Diverse technical skillset";
+          return "Diverse technical skill set";
         case 3:
           return "Websites, applications & projects";
         default:
