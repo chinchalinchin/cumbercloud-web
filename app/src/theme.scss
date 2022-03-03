@@ -4,8 +4,9 @@
 @use './global.scss' as global;
 @use './app/app.theme' as app;
 @use './app/home/home.theme' as home;
-@use './app/about/about.theme' as about;
 @use './app/design/design.theme' as design;
+@use './app/team/team.theme' as team;
+@use './app/team/members/grant/grant.theme' as grant;
 
 @import '~@angular/material/theming';
 
@@ -117,4 +118,5 @@ $cc-theme: mat-light-theme(
 @include app.theme($cc-theme);
 @include design.theme($cc-theme);
 @include home.theme($cc-theme);
-@include about.theme($cc-theme);
+@include team.theme($cc-theme);
+@include grant.theme($cc-theme);

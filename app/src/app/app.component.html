@@ -5,7 +5,7 @@
 <div id="splash">
   <div id="banner" class="mat-elevation-z8">
     <div id="cloud-btn-container" class="v-align"  style="margin-left: 1.5%;">
-      <button id="cloud-btn" mat-icon-button  (click)="toggle()" matTooltip="Menu">
+      <button id="cloud-btn" mat-icon-button  (click)="toggleMenu()" matTooltip="Menu">
         <mat-icon>cloud</mat-icon>
       </button>
     </div>
@@ -27,5 +27,8 @@
 
   <div id="btm-spacer"></div>
 
+  <button mat-icon-button id="master-button" (click)="openSheet()">
+    <mat-icon>help_outline</mat-icon>
+  </button>
 
 </div>

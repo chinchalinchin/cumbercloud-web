@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { AnimationControl, Animations, AnimationTriggers } from 'src/animations';
+import { SheetComponent } from './sheet/sheet.component';
 
 interface NavConfig{
   path: string, title: string
@@ -15,31 +17,36 @@ interface NavConfig{
 export class AppComponent {
   public title: String = 'cumberland cloud';
 
-  public displayed: boolean = false;
+  public menuDisplayed: boolean = false;
+  public sheetDisplayed: boolean = false;
 
   public menuFoldCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   
   public navItems: NavConfig[] = [
     { path: '', title: 'Home' },
-    { path: 'about', title: 'About' },
+    { path: 'team', title: 'Team' },
     { path: 'design', title: 'Design' },
     { path: 'pricing', title: 'Pricing' },
     { path: 'contact', title: 'Contact' }
   ];
 
-  public constructor(){ }
+  public constructor(private _bottomSheet: MatBottomSheet){ }
 
   public selectedNav: NavConfig = this.navItems[0];
 
   public navigate(nav: NavConfig){
     this.selectedNav = nav;
-    if(this.displayed){ this.menuFoldCntl.prime(); }
+    if(this.menuDisplayed){ this.menuFoldCntl.prime(); }
   }
 
-  public toggle(){
-    if(this.displayed){ this.menuFoldCntl.prime(); }
+  public toggleMenu(){
+    if(this.menuDisplayed){ this.menuFoldCntl.prime(); }
     else{ this.menuFoldCntl.animate(); }
-    this.displayed = !this.displayed;
+    this.menuDisplayed = !this.menuDisplayed;
+  }
+
+  public openSheet(){
+    this._bottomSheet.open(SheetComponent);
   }
 
 }

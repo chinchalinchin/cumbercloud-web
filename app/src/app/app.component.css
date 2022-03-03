@@ -34,6 +34,10 @@
 #btm-spacer{
   flex-grow: 1;
 }
+#master-button{
+  position: absolute;
+  top: 12.5%; right: 0%;
+}
 .nav-item{
   cursor: pointer;
   font-weight: 400;
