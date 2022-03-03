@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // TODO: material module
@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatCheckboxModule } from '@angular/material/checkbox'; 
 import { MatChipsModule } from '@angular/material/chips'; 
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon'; 
 import { MatListModule } from '@angular/material/list'; 
 import { MatRippleModule } from '@angular/material/core';  
 import { MatStepperModule } from '@angular/material/stepper'; 
@@ -26,6 +26,7 @@ import { DesignComponent } from './design/design.component';
 import { TeamComponent } from './team/team.component';
 import { SheetComponent } from './sheet/sheet.component';
 import { GrantComponent } from './team/members/grant/grant.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { GrantComponent } from './team/members/grant/grant.component';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     MatBottomSheetModule,
     MatButtonModule,
@@ -58,4 +60,12 @@ import { GrantComponent } from './team/members/grant/grant.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(private matIconRegistry: MatIconRegistry, 
+              private domSanitizer: DomSanitizer){
+    this.matIconRegistry.addSvgIcon('github', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/github.svg'));
+    this.matIconRegistry.addSvgIcon('pypi', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/pypi.svg'))
+  }
+}

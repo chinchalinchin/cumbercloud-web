@@ -46,7 +46,10 @@ export class AppComponent {
   }
 
   public openSheet(){
-    this._bottomSheet.open(SheetComponent);
+    this._bottomSheet.open(SheetComponent, { 
+      ariaLabel: 'Contact Information',
+      panelClass: 'sheet'
+    });
   }
 
 }
