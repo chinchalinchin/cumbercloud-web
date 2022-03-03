@@ -1,11 +1,18 @@
+/****/
 img {
   max-width: 100%;
   max-height: 100%;
 }
-.mat-horizontal-stepper-content, .mat-vertical-stepper-content{
-  margin-top: 5%; 
+
+/****/
+.mat-stepper-horizontal{
   height: 100%
 }
+::ng-deep::mat-horizontal-content-container{
+  height: 100%;
+}
+
+/****/
 #design{
   position: absolute;
   top: 30%;
@@ -33,8 +40,20 @@ img {
 #popup-header{
   margin-left: 5%;
 }
-.popup-content{
+#construction-img{
+  padding-top: 1%;
+  width: 34%;
+}
+#stack-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
+}
+
+/****/
+.popup-content{
+  height: 90%;
 }
 .stepper{
   height: 100%; 
@@ -54,9 +73,8 @@ img {
   justify-content: space-evenly;
 }
 .step-actions{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  position: absolute;
+  bottom: 0; right: 0;
 }
 .step-img{
   border-style: solid;
@@ -80,7 +98,7 @@ img {
 .right{
   margin-right: 5%;
 }
-.step-container{
+.phase-container{
   width: 40%;
   height: 100%;
   display: flex;
@@ -93,4 +111,18 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.side-figure{
+  display: flex;
+  align-items:center;
+}
+.blurb{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tech-icon{
+  width: 20px;
 }

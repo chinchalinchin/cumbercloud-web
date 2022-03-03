@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatCardModule } from '@angular/material/card'; 
 import { MatCheckboxModule } from '@angular/material/checkbox'; 
+import { MatChipsModule } from '@angular/material/chips'; 
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatListModule } from '@angular/material/list'; 
 import { MatRippleModule } from '@angular/material/core';  
@@ -39,6 +40,7 @@ import { DesignComponent } from './design/design.component';
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatChipsModule,
     MatIconModule,
     MatListModule,
     MatRippleModule,

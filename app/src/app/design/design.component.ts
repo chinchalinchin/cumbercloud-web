@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimationControl, Animations, AnimationTriggers, ExpandStates } from 'src/animations';
 
-enum popupStates{
+enum PopupStates{
   one, two, three, four, null
 }
 @Component({
@@ -14,21 +14,21 @@ enum popupStates{
 })
 export class DesignComponent implements OnInit {
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
-  public states = popupStates;
-  public popUpState: popupStates = popupStates.null;
+  public states = PopupStates;
+  public popUpState: PopupStates = PopupStates.null;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public expand(state: popupStates): void{
+  public expand(state: PopupStates): void{
     this.popUpState = state;
     this.popupExpandCntl.animate();
   }
 
   public close(): void{
-    this.popUpState = popupStates.null;
+    this.popUpState = this.states.null;
     this.popupExpandCntl.prime();
   }
 
@@ -41,11 +41,11 @@ export class DesignComponent implements OnInit {
       case this.states.one:
         return "Design Process"
       case this.states.two:
-        return "Cloud Architecture"
+        return "Development Process"
       case this.states.three:
-        return "Web App Development"
+        return "Deployment Process"
       case this.states.four:
-        return "Product Deployment"
+        return "Delivery Process"
       default:
         return ""
     }

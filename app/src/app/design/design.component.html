@@ -1,10 +1,10 @@
 <div id="design">
 
-  <div class="step-container">
-    <div id="step-one" class="block">
+  <div class="phase-container">
+    <div id="phase-one" class="block">
       <div class="v-align">
         <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.one)">
-          <span class="mat-title">1. Prototype</span>
+          <span class="mat-title">1. Design</span>
         </button>
       </div>
     </div>
@@ -13,10 +13,10 @@
       <div class="line left"></div>
     </div>
 
-    <div id="step-three" class="block">
+    <div id="phase-three" class="block">
       <div class="v-align">
         <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.three)">
-          <span class="mat-title">3. Develop</span>
+          <span class="mat-title">3. Deploy</span>
         </button>
       </div>
     </div>
@@ -24,22 +24,21 @@
 
   <img class="center" src="/assets/cloud-cartoon.png">
 
-  <div class="step-container">
-    <div id="step-two" class="block">
+  <div class="phase-container">
+    <div id="phase-two" class="block">
       <div class="v-align">
         <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.two)">
-          <span class="mat-title">2. Provision</span></button>
+          <span class="mat-title">2. Develop</span></button>
       </div>
     </div>
-
     <div class="h-align">
       <div class="line right"></div>
     </div>
 
-    <div id="step-four" class="block">
+    <div id="phase-four" class="block">
       <div class="v-align">
         <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.four)">
-          <span class="mat-title">4. Deploy</span>
+          <span class="mat-title">4. Deliver</span>
         </button>
       </div>
     </div>
@@ -60,21 +59,23 @@
     <mat-stepper class="stepper" [linear]="true" #designStepper>
 
       <mat-step id="design-step-one" class="step">
-        <ng-template matStepLabel>1. Your Small Business Website</ng-template>
+        <ng-template matStepLabel>1. Identify the Problem</ng-template>
 
-        <div id="small-business-website" class="step-content">
+        <div id="problem-step" class="step-content">
           <div id="small-business-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/small_business.jpg" alt="Small business owner">
               <figcaption class="text-center mat-caption">You're a small business owner who needs a website in order to acquire new clients, nurture existing relationships and grow your brand.</figcaption>
             </figure>
           </div>
+
           <div id="frustrated-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/frustrated_03.jpg" alt="Frustration">
               <figcaption class="text-center mat-caption">But trying to build your own website that is at once mobile friendly, search optimized and has all the modern bells and whistles can be frustrating.</figcaption>
             </figure>
           </div>
+
           <div id="frustrated-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/design_station_02.jpg" alt="Cumberland Cloud Web Design">
@@ -90,13 +91,13 @@
       </mat-step>
 
       <mat-step id="design-step-two" class="step">
-        <ng-template matStepLabel>2. Human Centered Design</ng-template>
+        <ng-template matStepLabel>2. Design the Solution</ng-template>
 
-        <div id="human-centered-design" class="step-content">
+        <div id="design-step" class="step-content">
           <div id="requirements-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/idea.jpg" alt="Brainstorming">
-              <figcaption class="text-center mat-caption">Schedule a <i>free</i> design session to map out your idea with the development team and get a price estimate before committing to a new project.</figcaption>
+              <figcaption class="text-center mat-caption">Schedule a <i>free</i> design session to map out your idea with the development team before committing to a new project.</figcaption>
             </figure>
           </div>
 
@@ -110,7 +111,7 @@
           <div id="refined-design-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/adobe_xd.jpg" alt="Computer assisted design">
-              <figcaption class="text-center mat-caption">These rough drafts will be transferred over into technical specifications for your review. If you like what you see, we'll move on to the next stage.</figcaption>
+              <figcaption class="text-center mat-caption">These drafts will be transferred over into high fidelity <a href="https://en.wikipedia.org/wiki/Website_wireframe" target="_blank" rel="noopener noreferrer">wireframes</a> for your review.</figcaption>
             </figure>
           </div>
         </div>
@@ -122,34 +123,16 @@
       </mat-step>
 
       <mat-step id="design-step-three" class="step">
-        <ng-template matStepLabel>3. Price Estimate</ng-template>
+        <ng-template matStepLabel>3. Hire the Cumberland Cloud</ng-template>
 
-        <div id="pricing" class="step-content">
-          <div id="-img" class="step-img-container">
-            <figure>
-              <img class="step-img" src="" alt="g">
-              <figcaption class="text-center mat-caption"></figcaption>
-            </figure>
+        <div id="hire-step" class="step-content">
+          <div id="design-summary" class="blurb mat-body">
+            If you like what you've seen so far, we will move to the next stage. At this point, our development team will take over and get to work building your new home in the cloud.
           </div>
-
-          <div id="-img" class="step-img-container">
-            <figure>
-              <img class="step-img" src="" alt="">
-              <figcaption class="text-center mat-caption"></figcaption>
-            </figure>
+          
+          <div id="construction-img">
+            <img class="step-img" src="/assets/construction.jpg" alt="Baltimore Street, Cumberland, Maryland">
           </div>
-
-          <div id="-img" class="step-img-container">
-            <figure>
-              <img class="step-img" src="" alt="">
-              <figcaption class="text-center mat-caption"> </figcaption>
-            </figure>
-          </div>
-        </div>
-
-        <div class="step-actions">
-          <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
-          <button mat-icon-button color="accent" matStepperNext disabled><mat-icon>chevron_right</mat-icon></button>
         </div>
       </mat-step>
 
@@ -159,24 +142,85 @@
     </mat-stepper>
   </div>
 
-  <div id="provision-popup" class="popup-content" *ngIf="popUpState == states.two">
-    <mat-stepper class="stepper" [linear]="true" #provisionStepper>
+  <div id="develop-popup" class="popup-content" *ngIf="popUpState == states.two">
+    <mat-stepper class="stepper" [linear]="true" #developStepper>
+      <mat-step id="develop-step-one" class="step">
+        
+        <ng-template matStepLabel>1. Technology</ng-template>
+        
+        <div id="technology" class="step-content">
+          <div>Your website will be built by experienced professional using the industry's latest technology.</div>
+          
+          <div id="stack-container">
+            <div id="design-stack" class="stack-component">
+              <h3>Design</h3>
+              <mat-chip-list aria-label="Infrastructure Stack">
+                <mat-chip matTooltip="Adobe XD">
+                  <object data="/assets/icons/medium/adobe-xd.svg" type="image/svg+xml" class="tech-icon"></object>
+                </mat-chip>
+                <mat-chip matTooltip="GIMP">
+                  <object data="/assets/icons/medium/gimp.svg" type="image/svg+xml" class="tech-icon"></object>
+                </mat-chip>
+              </mat-chip-list>
+            </div>
 
-      <mat-step id="provision-step-one" class="step">
+            <div id="infrastructure-stack" class="stack-component">
+              <h3>Infrastructure</h3>
+              <mat-chip-list aria-label="Infrastructure Stack">
+                <mat-chip matTooltip="AWS Cloudfront">
+                  <object data="/assets/icons/medium/aws-cloudfront.svg" type="image/svg+xml" class="tech-icon"></object>
+                </mat-chip>
+                <mat-chip matTooltip="AWS S3">
+                  <object data="/assets/icons/medium/aws-s3.svg" type="image/svg+xml" class="tech-icon"></object>
+                </mat-chip>
+                <mat-chip matTooltip="AWS Lambda">
+                  <object data="/assets/icons/medium/aws-lambda.svg" type="image/svg+xml" class="tech-icon"></object>
+                </mat-chip>
+              </mat-chip-list>
+            </div>
+
+            <div id="software-stack" class="stack-component">
+              <h3>Software</h3>
+              <mat-chip-list aria-label="Software Stack">
+                <mat-chip matTooltip="Angular">
+                  <object data="/assets/icons/medium/angular.svg" type="image/svg+xml" class="tech-icon"></object>
+                </mat-chip>
+                <mat-chip matTooltip="Django">
+                  <object data="/assets/icons/medium/django.svg" type="image/svg+xml" class="tech-icon"></object>
+                </mat-chip>
+                <mat-chip matTooltip="Docker">
+                  <object data="/assets/icons/medium/docker.svg" type="image/svg+xml" class="tech-icon"></object>
+                </mat-chip>
+              </mat-chip-list>
+            </div>
+          </div>
+        </div>
+      </mat-step>
+
+      <ng-template matStepperIcon="edit">
+        <mat-icon>check</mat-icon>      
+      </ng-template>
+    </mat-stepper>
+  </div>
+
+  <div id="deploy-popup" class="popup-content" *ngIf="popUpState == states.three">
+    <mat-stepper class="stepper" [linear]="true" #deployStepper>
+
+      <mat-step id="deploy-step-one" class="step">
         <ng-template matStepLabel>1. Cloud Computing</ng-template>
 
         <div id="cloud-computing" class="step-content">
-          <div id="cloud-img" class="step-img-container">
+          <div id="big-business-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/big_business.jpg" alt="The magic of the cloud">
-              <figcaption class="text-center mat-caption">For the past decade, large-scale businesses have been using the cloud to cut costs and simplify their software needs.</figcaption>
+              <figcaption class="text-center mat-caption">For the past decade, large-scale businesses have been using the cloud to cut costs and simplify their technology needs.</figcaption>
             </figure>
           </div>
 
           <div id="cloud-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/clouds-0002.jpg" alt="The magic of the cloud">
-              <figcaption class="text-center mat-caption">For the past decade, large-scale businesses have been using the cloud to cut costs and simplify their software needs.</figcaption>
+              <figcaption class="text-center mat-caption">The <strong>Cumberland Cloud</strong> is here to bring these cost-saving techniques and services to a wider audience.</figcaption>
             </figure>
           </div>
 
@@ -187,25 +231,69 @@
         </div>
       </mat-step>
 
-      <mat-step id="provision-step-two" class="step">
-        <ng-template matStepLabel>2. Automated Architecture</ng-template>
+      <mat-step id="deploy-step-two" class="step">
+        <ng-template matStepLabel>2. Serverless Hosting</ng-template>
+
+        <div id="serverless" class="step-content">
+          <div id="sharing-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="" alt="">
+              <figcaption class="text-center mat-caption">The key idea behind the cloud is pooling the physical infrastructure a site owner needs to host a web application into a single platform.</figcaption>
+            </figure>
+          </div>
+
+          <div id="serverless-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="" alt="">
+              <figcaption class="text-center mat-caption">This means the cloud manages the underlying servers, allowing the site owner to "rent" space and only pay for the capacity they use.</figcaption>
+            </figure>
+          </div>
+
+          <div id="serverless-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="" alt="">
+              <figcaption class="text-center mat-caption">Taking advantage of this cost savings requires the technical expertise to build and manage a cloud environment. </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="step-actions">
+          <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperNext><mat-icon>chevron_right</mat-icon></button>
+        </div>
+        
+      </mat-step>
+
+      <mat-step id="deploy-step-three" class="step">
+        <ng-template matStepLabel>3. Automated Architecture</ng-template>
 
         <div id="project-architecture" class="step-content">
           <div id="architecture-img" class="step-img-container">
             <figure>
               <img class="step-img" src="" alt="">
-              <figcaption class="text-center mat-caption"></figcaption>
+              <figcaption class="text-center mat-caption">Using the modern practice of <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code" target="" target="_blank" rel="noopener noreferrer">Infrastructure As Code</a>, the <strong>Cumberland Cloud</strong> has created a wide variety of web templates that can be deployed onto the cloud in minutes, ranging from social media integrations, online stores, email services, and more.</figcaption>
             </figure>
           </div>
 
+          <div id="architecture-img" class="step-img-container">
+            <figure>
+              <img class="step-img" src="" alt="">
+              <figcaption class="text-center mat-caption">Once your design specifications have been pinned, we will use our resource library to quickly and securely deploy your new application to the cloud.</figcaption>
+            </figure>
+          </div>
 
         </div>
         <div class="step-actions">
-          <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
-          <button mat-icon-button color="accent" matStepperNext disabled><mat-icon>chevron_right</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperPrevious disabled><mat-icon>chevron_left</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperNext><mat-icon>chevron_right</mat-icon></button>
         </div>
         
       </mat-step>
+
+      <ng-template matStepperIcon="edit">
+        <mat-icon>check</mat-icon>      
+      </ng-template>
     </mat-stepper>
   </div> 
+
 </div>
