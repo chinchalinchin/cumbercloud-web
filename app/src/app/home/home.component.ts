@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
       case this.states.two:
           return "/assets/banners/fee-banner.png"
       case this.states.three:
-          return "/assets/banners/clouds-banner.jpg"
+          return "/assets/banners/expertise-banner.jpg"
       default:
           return "/assets/banners/clouds-banner.jpg";
     }

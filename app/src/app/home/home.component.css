@@ -6,7 +6,8 @@
 }
 #slider-card{
   width: 90%;
-  margin-left: 5%;
+  margin-left: auto;
+  margin-right: auto;
 }
 #slider-img{
   border-style: solid;

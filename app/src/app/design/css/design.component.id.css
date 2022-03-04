@@ -31,13 +31,13 @@
   width: 34%;
 }
 #tools-one, #tools-two{
-  width: 15%;
+  width: 18%;
 }
 #tools-two{
   align-content: flex-start;
 }
 #tools-summary{
-  width: 65%
+  width: 60%
 }
 #main-img-container{
   margin-top: 5%;
