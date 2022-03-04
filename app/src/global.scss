@@ -12,7 +12,7 @@
     }
     mat-card{
       color: map-get($primary-palette, default-contrast) !important;
-      background-color: map-get($primary-palette, 500) !important;
+      background-color: map-get($primary-palette, 700) !important;
     }
     .bg-white {
       background-color: map-get($primary-palette, default-contrast);

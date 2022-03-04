@@ -150,7 +150,7 @@
         <div id="language-stack" style="margin-bottom: 2.5%;">
           <h3 class="mat-title align-left">Language</h3>
           <mat-chip-list aria-label="Infrastructure Stack" class="justify-chips">
-            <mat-chip *ngFor="let chip of techChips" [matTooltip]="chip.tooltip">
+            <mat-chip *ngFor="let chip of techChips" [matTooltip]="chip.tooltip" class="mat-elevation-z2">
               <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
                 <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
               </a>
@@ -161,7 +161,7 @@
         <div id="design-stack" style="margin-bottom: 2.5%;">
           <h3 class="mat-title align-left">Design</h3>
           <mat-chip-list aria-label="Infrastructure Stack" class="justify-chips">
-            <mat-chip *ngFor="let chip of designChips" [matTooltip]="chip.tooltip">
+            <mat-chip *ngFor="let chip of designChips" [matTooltip]="chip.tooltip" class="mat-elevation-z2">
               <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
                 <mat-icon [svgIcon]="chip.svgIcon" [class.drawio]="chip.svgIcon == 'drawio'"></mat-icon>
               </a>
@@ -172,7 +172,7 @@
         <div id="software-stack" >
           <h3 class="mat-title align-left">Software</h3>
           <mat-chip-list aria-label="Software Stack" class="justify-chips">
-            <mat-chip *ngFor="let chip of softChips" [matTooltip]="chip.tooltip">
+            <mat-chip *ngFor="let chip of softChips" [matTooltip]="chip.tooltip" class="mat-elevation-z2">
               <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
                 <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
               </a>
@@ -203,7 +203,7 @@
         <div id="infrastructure-stack">
           <h3 class="mat-title align-left">Infrastructure</h3>
           <mat-chip-list aria-label="Infrastructure Stack">
-            <mat-chip *ngFor="let chip of infraChips" [matTooltip]="chip.tooltip">
+            <mat-chip *ngFor="let chip of infraChips" [matTooltip]="chip.tooltip" class="mat-elevation-z2">
               <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
                 <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
               </a>
@@ -226,7 +226,7 @@
           <div id="big-business-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/big_business.jpg" alt="The magic of the cloud">
-              <figcaption class="text-center mat-caption">For the past decade, large-scale businesses have been using the cloud to cut costs and simplify their technology needs.</figcaption>
+              <figcaption class="text-center mat-caption">Since the early 2010s, large-scale businesses have been using the cloud to cut costs and simplify their technology needs.</figcaption>
             </figure>
           </div>
 
@@ -250,21 +250,21 @@
         <div id="serverless" class="step-content">
           <div id="sharing-img" class="step-img-container">
             <figure>
-              <img class="step-img" src="" alt="">
+              <img class="step-img" src="/assets/hand_circle.jpg" alt="The power of sharing">
               <figcaption class="text-center mat-caption">The key idea behind the cloud is pooling the physical infrastructure a site owner needs to host a web application onto a single platform.</figcaption>
             </figure>
           </div>
 
           <div id="serverless-img" class="step-img-container">
             <figure>
-              <img class="step-img" src="" alt="">
+              <img class="step-img" src="/assets/separated.jpg" alt="Pay for what you use">
               <figcaption class="text-center mat-caption">This means the cloud manages the underlying servers, allowing the site owner to "rent" space and only pay for the capacity they use.</figcaption>
             </figure>
           </div>
 
           <div id="serverless-img" class="step-img-container">
             <figure>
-              <img class="step-img" src="" alt="">
+              <img class="step-img" src="/assets/professional.jpg" alt="Technical expertise">
               <figcaption class="text-center mat-caption">Taking advantage of this cost savings requires the technical expertise to build and manage a cloud environment. </figcaption>
             </figure>
           </div>
@@ -297,8 +297,8 @@
 
         </div>
         <div class="step-actions">
-          <button mat-icon-button color="accent" matStepperPrevious disabled><mat-icon>chevron_left</mat-icon></button>
-          <button mat-icon-button color="accent" matStepperNext><mat-icon>chevron_right</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperNext disabled><mat-icon>chevron_right</mat-icon></button>
         </div>
         
       </mat-step>

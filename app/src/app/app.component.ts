@@ -36,7 +36,6 @@ export class AppComponent {
 
   public navigate(nav: NavConfig){
     this.selectedNav = nav;
-    if(this.menuDisplayed){ this.menuFoldCntl.prime(); }
   }
 
   public toggleMenu(){
