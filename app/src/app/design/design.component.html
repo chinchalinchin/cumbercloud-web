@@ -72,7 +72,7 @@
           <div id="frustrated-img" class="step-img-container">
             <figure>
               <img class="step-img" src="/assets/frustrated-03.jpg" alt="Frustration">
-              <figcaption class="text-center mat-caption">But trying to build your own website that is at once mobile friendly, search optimized and has all the modern bells and whistles can be frustrating.</figcaption>
+              <figcaption class="text-center mat-caption">Trying to build a website on your own that is simultaneously responsive, search optimized and user friendly can be frustrating.</figcaption>
             </figure>
           </div>
 
@@ -143,79 +143,78 @@
   </div>
 
   <div id="develop-popup" class="popup-content" *ngIf="popUpState == states.two">
-    <mat-stepper class="stepper" [linear]="true" #developStepper>
-      <mat-step id="develop-step-one" class="step">
-        
-        <ng-template matStepLabel>1. Technology</ng-template>
-        
-        <div id="technology" class="step-content">
+  
+    <div id="technology" class="step-content">
 
-          <div id="tools-one" class="icon-container">
-            <div id="language-stack" class="stack-component">
-              <h3>Language</h3>
-              <mat-chip-list aria-label="Infrastructure Stack">
-                <mat-chip *ngFor="let chip of techChips" [matTooltip]="chip.tooltip">
-                  <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
-                    <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
-                  </a>
-                </mat-chip>
-              </mat-chip-list>
-            </div>
-
-            <div id="infrastructure-stack" class="stack-component">
-              <h3>Infrastructure</h3>
-              <mat-chip-list aria-label="Infrastructure Stack">
-                <mat-chip *ngFor="let chip of infraChips" [matTooltip]="chip.tooltip">
-                  <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
-                    <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
-                  </a>
-                </mat-chip>
-              </mat-chip-list>
-            </div>
-          </div>
-
-          <div id="tools-summary" class="text-center">
-            
-            Your website will be built by experienced professionals using the industry's latest technology.
-            
-            <div class="center" style="width: 45%; margin-top: 5%;">
-              <img src="/assets/design_team-02.jpg">
-            </div>
-
-          </div>
-          
-
-          <div id="tools-two" class="icon-container">
-            <div id="design-stack" class="stack-component">
-              <h3>Design</h3>
-              <mat-chip-list aria-label="Infrastructure Stack">
-                <mat-chip *ngFor="let chip of designChips" [matTooltip]="chip.tooltip">
-                  <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
-                    <mat-icon [svgIcon]="chip.svgIcon" [class.drawio]="chip.svgIcon == 'drawio'"></mat-icon>
-                  </a>
-                </mat-chip>
-              </mat-chip-list>
-            </div>
-
-            <div id="software-stack" class="stack-component">
-              <h3>Software</h3>
-              <mat-chip-list aria-label="Software Stack">
-                <mat-chip *ngFor="let chip of softChips" [matTooltip]="chip.tooltip">
-                  <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
-                    <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
-                  </a>
-                </mat-chip>
-              </mat-chip-list>
-            </div>
-          </div>
-
+      <div id="tools-two" class="v-align">
+        <div id="language-stack" style="margin-bottom: 2.5%;">
+          <h3 class="mat-title align-left">Language</h3>
+          <mat-chip-list aria-label="Infrastructure Stack" class="justify-chips">
+            <mat-chip *ngFor="let chip of techChips" [matTooltip]="chip.tooltip">
+              <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
+                <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
+              </a>
+            </mat-chip>
+          </mat-chip-list>
         </div>
-      </mat-step>
 
-      <ng-template matStepperIcon="edit">
-        <mat-icon>check</mat-icon>      
-      </ng-template>
-    </mat-stepper>
+        <div id="design-stack" style="margin-bottom: 2.5%;">
+          <h3 class="mat-title align-left">Design</h3>
+          <mat-chip-list aria-label="Infrastructure Stack" class="justify-chips">
+            <mat-chip *ngFor="let chip of designChips" [matTooltip]="chip.tooltip">
+              <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
+                <mat-icon [svgIcon]="chip.svgIcon" [class.drawio]="chip.svgIcon == 'drawio'"></mat-icon>
+              </a>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+
+        <div id="software-stack" >
+          <h3 class="mat-title align-left">Software</h3>
+          <mat-chip-list aria-label="Software Stack" class="justify-chips">
+            <mat-chip *ngFor="let chip of softChips" [matTooltip]="chip.tooltip">
+              <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
+                <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
+              </a>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+
+      <div id="tools-summary" class="text-center">
+        
+        <p class="mat-body">Using the industry's latest technology, our development team will transform your design specifications into a living, breathing web application.</p>
+
+        <div id="main-img-container">
+          <div class="v-align" style="width: 20%; height: 100%;">
+            <div class="sep">Develop</div>
+          </div>
+          <div style="width: 40%;">
+            <img class="main-img" src="/assets/design_team-02.jpg">
+          </div>
+          <div class="v-align" style="width: 20%; height: 100%;">
+            <div class="sep">Implement</div>
+          </div>
+        </div>
+
+      </div>
+      
+      <div id="tools-one" class="v-align">
+        <div id="infrastructure-stack">
+          <h3 class="mat-title align-left">Infrastructure</h3>
+          <mat-chip-list aria-label="Infrastructure Stack">
+            <mat-chip *ngFor="let chip of infraChips" [matTooltip]="chip.tooltip">
+              <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
+                <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
+              </a>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+
+    </div>
+
+
   </div>
 
   <div id="deploy-popup" class="popup-content" *ngIf="popUpState == states.three">

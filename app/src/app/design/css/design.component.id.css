@@ -33,6 +33,16 @@
 #tools-one, #tools-two{
   width: 15%;
 }
+#tools-two{
+  align-content: flex-start;
+}
 #tools-summary{
   width: 65%
+}
+#main-img-container{
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 100%;
 }
