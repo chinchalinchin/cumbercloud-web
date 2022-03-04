@@ -19,14 +19,37 @@ export class HomeComponent implements OnInit {
   public sliderState = sliderStates.one;
   public states = sliderStates;
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.recurse();
+  }
 
   public setState(state: sliderStates): void{
     this.sliderFadeCntl.animate();
     setTimeout(()=>{
         this.sliderState = state;
         this.sliderFadeCntl.prime();
-    }, AnimationPeriods.medium*1000)
+    }, AnimationPeriods.medium*1000);
+  }
+
+  public recurse(){
+    setTimeout(()=>{
+      this.iterate();
+      this.recurse();
+    }, AnimationPeriods.medium*5000);
+  }
+
+  private iterate(){
+    switch(this.sliderState){
+      case this.states.one:
+        this.setState(this.states.two);
+        break;
+      case this.states.two:
+        this.setState(this.states.three);
+        break;
+      case this.states.three:
+        this.setState(this.states.one);
+        break;
+    }
   }
 
   public getSrc(): string{
