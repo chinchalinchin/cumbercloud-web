@@ -32,13 +32,13 @@ export class HomeComponent implements OnInit {
   public getSrc(): string{
     switch(this.sliderState){
       case this.states.one:
-          return "/assets/clouds-banner.jpg";
+          return "/assets/banners/clouds-banner.jpg";
       case this.states.two:
-          return "/assets/fee-banner.png"
+          return "/assets/banners/fee-banner.png"
       case this.states.three:
-          return "/assets/clouds-banner.jpg"
+          return "/assets/banners/clouds-banner.jpg"
       default:
-          return "/assets/clouds-banner.jpg";
+          return "/assets/banners/clouds-banner.jpg";
     }
   }
 

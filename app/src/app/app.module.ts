@@ -83,6 +83,8 @@ export class AppModule {
                                       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/github.svg'));
     this.matIconRegistry.addSvgIcon('gimp', 
                                       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/gimp-color.svg'));
+    this.matIconRegistry.addSvgIcon('html', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/html5.svg'));
     this.matIconRegistry.addSvgIcon('lambda', 
                                       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/aws-lambda.svg'));
     this.matIconRegistry.addSvgIcon('pypi', 
