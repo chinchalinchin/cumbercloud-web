@@ -1,0 +1,38 @@
+/****/
+#design{
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+#popup{
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 80%; 
+  border-radius: 5px;
+}
+#popup-toolbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10%;
+  border-style: none none groove none;
+  border-width: 1px;
+}
+#popup-header{
+  margin-left: 5%;
+}
+#construction-img{
+  padding-top: 1%;
+  width: 34%;
+}
+#tools-one, #tools-two{
+  width: 15%;
+}
+#tools-summary{
+  width: 65%
+}

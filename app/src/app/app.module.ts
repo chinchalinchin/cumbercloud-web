@@ -63,9 +63,39 @@ import { HttpClientModule } from '@angular/common/http';
 export class AppModule { 
   constructor(private matIconRegistry: MatIconRegistry, 
               private domSanitizer: DomSanitizer){
+    this.matIconRegistry.addSvgIcon('apigateway', 
+                this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/aws-apigateway.svg'))
+    this.matIconRegistry.addSvgIcon('angular', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/angular.svg'));
+    this.matIconRegistry.addSvgIcon('cognito', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/aws-cognito.svg'));
+    this.matIconRegistry.addSvgIcon('cloudfront', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/aws-cloudfront.svg'));
+    this.matIconRegistry.addSvgIcon('drawio',
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/flow-chart.svg'));
+    this.matIconRegistry.addSvgIcon('dynamodb', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/aws-dynamodb.svg'));
+    this.matIconRegistry.addSvgIcon('docker',
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/docker-round.svg'));
+    this.matIconRegistry.addSvgIcon('django',
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/django.svg'));
     this.matIconRegistry.addSvgIcon('github', 
                                       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/github.svg'));
+    this.matIconRegistry.addSvgIcon('gimp', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/gimp-color.svg'));
+    this.matIconRegistry.addSvgIcon('lambda', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/aws-lambda.svg'));
     this.matIconRegistry.addSvgIcon('pypi', 
-                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/pypi.svg'))
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/pypi.svg'));
+    this.matIconRegistry.addSvgIcon('python', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/python.svg'));
+    this.matIconRegistry.addSvgIcon('rds', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/aws-rds.svg'));
+    this.matIconRegistry.addSvgIcon('s3', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/aws-s3.svg'));
+    this.matIconRegistry.addSvgIcon('typescript', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/typescript.svg'));
+    this.matIconRegistry.addSvgIcon('xd', 
+                                      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/adobe-xd.svg'));
   }
 }

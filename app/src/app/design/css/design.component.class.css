@@ -1,0 +1,80 @@
+.icon-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.popup-content{
+  height: 90%;
+}
+.stepper{
+  height: 100%; 
+  width: 100%;
+}
+.step{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.step-content{
+  height: 100%; 
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.step-actions{
+  position: absolute;
+  bottom: 0; right: 0;
+}
+.step-img{
+  border-style: solid;
+  border-width: 1px;
+}
+.step-img-container{
+  width: 30%;
+}
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+.line{
+  width: 80%;
+  border-style: none none dashed none;
+  border-width: 2px;
+}
+.left{
+  margin-left: 5%;
+}
+.right{
+  margin-right: 5%;
+}
+.phase-container{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.block{
+  min-width: 40%;
+  min-height: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.side-figure{
+  display: flex;
+  align-items:center;
+}
+.blurb{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tech-icon{
+  width: 20px;
+}

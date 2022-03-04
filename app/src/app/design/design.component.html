@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <img class="center" src="/assets/cloud-cartoon.png">
+  <img class="center" src="/assets/cloud_cartoon.png">
 
   <div class="phase-container">
     <div id="phase-two" class="block">
@@ -71,14 +71,14 @@
 
           <div id="frustrated-img" class="step-img-container">
             <figure>
-              <img class="step-img" src="/assets/frustrated_03.jpg" alt="Frustration">
+              <img class="step-img" src="/assets/frustrated-03.jpg" alt="Frustration">
               <figcaption class="text-center mat-caption">But trying to build your own website that is at once mobile friendly, search optimized and has all the modern bells and whistles can be frustrating.</figcaption>
             </figure>
           </div>
 
-          <div id="frustrated-img" class="step-img-container">
+          <div id="hire-img" class="step-img-container">
             <figure>
-              <img class="step-img" src="/assets/design_station_02.jpg" alt="Cumberland Cloud Web Design">
+              <img class="step-img" src="/assets/design_station-02.jpg" alt="Cumberland Cloud Web Design">
               <figcaption class="text-center mat-caption">That's where we come in. At the <strong>Cumberland Cloud</strong>, we offer an experienced and affordable approach to web design.</figcaption>
             </figure>
           </div>
@@ -103,7 +103,7 @@
 
           <div id="initial-design-img" class="step-img-container">
             <figure>
-              <img class="step-img" src="/assets/design_02.jpg" alt="Hand drawn designs">
+              <img class="step-img" src="/assets/design-02.jpg" alt="Hand drawn designs">
               <figcaption class="text-center mat-caption">With your direct input, low fidelity mockups of the webpage design will be created and the requirements of each page specified.</figcaption>
             </figure>
           </div>
@@ -149,17 +149,15 @@
         <ng-template matStepLabel>1. Technology</ng-template>
         
         <div id="technology" class="step-content">
-          <div>Your website will be built by experienced professionals using the industry's latest technology.</div>
-          
-          <div id="stack-container">
-            <div id="design-stack" class="stack-component">
-              <h3>Design</h3>
+
+          <div id="tools-one" class="icon-container">
+            <div id="language-stack" class="stack-component">
+              <h3>Language</h3>
               <mat-chip-list aria-label="Infrastructure Stack">
-                <mat-chip matTooltip="Adobe XD">
-                  <object data="/assets/icons/adobe-xd.svg" type="image/svg+xml" class="tech-icon"></object>
-                </mat-chip>
-                <mat-chip matTooltip="GIMP">
-                  <object data="/assets/icons/gimp.svg" type="image/svg+xml" class="tech-icon"></object>
+                <mat-chip *ngFor="let chip of techChips" [matTooltip]="chip.tooltip">
+                  <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
+                    <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
+                  </a>
                 </mat-chip>
               </mat-chip-list>
             </div>
@@ -167,14 +165,34 @@
             <div id="infrastructure-stack" class="stack-component">
               <h3>Infrastructure</h3>
               <mat-chip-list aria-label="Infrastructure Stack">
-                <mat-chip matTooltip="AWS Cloudfront">
-                  <object data="/assets/icons/aws-cloudfront.svg" type="image/svg+xml" class="tech-icon"></object>
+                <mat-chip *ngFor="let chip of infraChips" [matTooltip]="chip.tooltip">
+                  <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
+                    <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
+                  </a>
                 </mat-chip>
-                <mat-chip matTooltip="AWS S3">
-                  <object data="/assets/icons/aws-s3.svg" type="image/svg+xml" class="tech-icon"></object>
-                </mat-chip>
-                <mat-chip matTooltip="AWS Lambda">
-                  <object data="/assets/icons/aws-lambda.svg" type="image/svg+xml" class="tech-icon"></object>
+              </mat-chip-list>
+            </div>
+          </div>
+
+          <div id="tools-summary" class="text-center">
+            
+            Your website will be built by experienced professionals using the industry's latest technology.
+            
+            <div class="center" style="width: 45%; margin-top: 5%;">
+              <img src="/assets/design_team-02.jpg">
+            </div>
+
+          </div>
+          
+
+          <div id="tools-two" class="icon-container">
+            <div id="design-stack" class="stack-component">
+              <h3>Design</h3>
+              <mat-chip-list aria-label="Infrastructure Stack">
+                <mat-chip *ngFor="let chip of designChips" [matTooltip]="chip.tooltip">
+                  <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
+                    <mat-icon [svgIcon]="chip.svgIcon" [class.drawio]="chip.svgIcon == 'drawio'"></mat-icon>
+                  </a>
                 </mat-chip>
               </mat-chip-list>
             </div>
@@ -182,18 +200,15 @@
             <div id="software-stack" class="stack-component">
               <h3>Software</h3>
               <mat-chip-list aria-label="Software Stack">
-                <mat-chip matTooltip="Angular">
-                  <object data="/assets/icons/angular.svg" type="image/svg+xml" class="tech-icon"></object>
-                </mat-chip>
-                <mat-chip matTooltip="Django">
-                  <object data="/assets/icons/django.svg" type="image/svg+xml" class="tech-icon"></object>
-                </mat-chip>
-                <mat-chip matTooltip="Docker">
-                  <object data="/assets/icons/docker.svg" type="image/svg+xml" class="tech-icon"></object>
+                <mat-chip *ngFor="let chip of softChips" [matTooltip]="chip.tooltip">
+                  <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
+                    <mat-icon [svgIcon]="chip.svgIcon"></mat-icon>
+                  </a>
                 </mat-chip>
               </mat-chip-list>
             </div>
           </div>
+
         </div>
       </mat-step>
 
@@ -205,7 +220,6 @@
 
   <div id="deploy-popup" class="popup-content" *ngIf="popUpState == states.three">
     <mat-stepper class="stepper" [linear]="true" #deployStepper>
-
       <mat-step id="deploy-step-one" class="step">
         <ng-template matStepLabel>1. Cloud Computing</ng-template>
 
@@ -238,7 +252,7 @@
           <div id="sharing-img" class="step-img-container">
             <figure>
               <img class="step-img" src="" alt="">
-              <figcaption class="text-center mat-caption">The key idea behind the cloud is pooling the physical infrastructure a site owner needs to host a web application into a single platform.</figcaption>
+              <figcaption class="text-center mat-caption">The key idea behind the cloud is pooling the physical infrastructure a site owner needs to host a web application onto a single platform.</figcaption>
             </figure>
           </div>
 
@@ -271,14 +285,14 @@
           <div id="architecture-img" class="step-img-container">
             <figure>
               <img class="step-img" src="" alt="">
-              <figcaption class="text-center mat-caption">Using the modern practice of <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code" target="" target="_blank" rel="noopener noreferrer">Infrastructure As Code</a>, the <strong>Cumberland Cloud</strong> has created a wide variety of web templates that can be deployed onto the cloud in minutes, ranging from social media integrations, online stores, email services, and more.</figcaption>
+              <figcaption class="text-center mat-caption">The <strong>Cumberland Cloud</strong> has created a wide variety of web templates that can be deployed onto the cloud in minutes, ranging from social media integrations, online stores, email notification services, and more.</figcaption>
             </figure>
           </div>
 
           <div id="architecture-img" class="step-img-container">
             <figure>
               <img class="step-img" src="" alt="">
-              <figcaption class="text-center mat-caption">Once your design specifications have been pinned, we will use our resource library to quickly and securely deploy your new application to the cloud.</figcaption>
+              <figcaption class="text-center mat-caption">Once the specifications from the initial design session have been pinned and our developers have converted them into a working prototype, we will use our template library to quickly and securely deploy your new application to the cloud.</figcaption>
             </figure>
           </div>
 
