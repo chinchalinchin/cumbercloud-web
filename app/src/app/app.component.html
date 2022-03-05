@@ -10,8 +10,17 @@
       </button>
     </div>
 
-    <div id="title">
-      <img id="title-img" alt="Cumberland Cloud" src="/assets/fonts/title.png">
+    <div class="v-align">
+      <div id="title" class="title-text">
+        Cumberland Cloud
+      </div>
+    </div>
+    
+
+    <div class="v-align">
+      <button mat-icon-button id="master-button" (click)="openSheet()">
+        <mat-icon>help_outline</mat-icon>
+      </button>
     </div>
   </div>
 
@@ -26,9 +35,5 @@
   </div>
 
   <div id="btm-spacer"></div>
-
-  <button mat-icon-button id="master-button" (click)="openSheet()">
-    <mat-icon>help_outline</mat-icon>
-  </button>
 
 </div>

@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-
+@font-face{
+  font-family: 'LoveSummer';
+  src: url('/assets/fonts/LoveSummer.otf') format('truetype');
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden;}
+
+.title-text{ font-family: 'LoveSummer'; font-size:10vw; line-height: 0; }
 
 .v-align{
   height: 100%;

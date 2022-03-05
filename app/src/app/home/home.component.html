@@ -1,24 +1,28 @@
 <div id="home">
 
+  <div id="btn-banner">
+
+  </div>
+
   <div id="selection-menu" [@cntl_position_selector]="selectorPositionCntl.state">
-    <div id="selection"></div>
-    <div id="selector"></div>
+    <div id="selection" class="border-accent"></div>
+    <div id="selector" class="border-accent"></div>
   </div>
 
   <button mat-fab color="primary" [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()">
     <mat-icon>touch_app</mat-icon>
   </button>
 
-  <button mat-icon-button id="cloud-btn-1" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_1]="cloudPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state">
+  <button mat-icon-button id="cloud-btn-1" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_1]="cloudPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.one)" [matTooltip]="getTooltip(states.one)">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-2" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_2]="cloudPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state">
+  <button mat-icon-button id="cloud-btn-2" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_2]="cloudPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.two)" [matTooltip]="getTooltip(states.two)">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-3" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_3]="cloudPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state">
+  <button mat-icon-button id="cloud-btn-3" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_3]="cloudPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.three)" [matTooltip]="getTooltip(states.three)">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-4" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_4]="cloudPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state">
+  <button mat-icon-button id="cloud-btn-4" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_4]="cloudPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.four)" [matTooltip]="getTooltip(states.four)">
     <mat-icon>cloud</mat-icon>
   </button>
 </div>
