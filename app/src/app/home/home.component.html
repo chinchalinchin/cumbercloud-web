@@ -1,27 +1,24 @@
 <div id="home">
-  <mat-card id="slider-card">
-    <mat-card-title class="center" [@cntl_fade]="sliderFadeCntl.state">
-      {{getTitle()}}
-    </mat-card-title>
-    <mat-card-subtitle class="center" [@cntl_fade]="sliderFadeCntl.state">
-      {{getSubtitle()}}
-    </mat-card-subtitle>
-    <img mat-card-img [src]="getSrc()" alt="Cloud Computing" id="slider-img" [@cntl_fade]="sliderFadeCntl.state">
-    <mat-card-content>
-      <div id="intro-slider">
-        <button mat-icon-button class="info-btn" (click)="setState(states.one)" [matTooltip]="getTooltip(states.one)">
-          <mat-icon>info</mat-icon>
-        </button>
-        <span class="sep"></span>
-        <button mat-icon-button color="primary" (click)="setState(states.two)" [matTooltip]="getTooltip(states.two)">
-          <mat-icon>info</mat-icon>
-        </button>
-        <span class="sep"></span>
-        <button mat-icon-button class="info-btn" (click)="setState(states.three)" [matTooltip]="getTooltip(states.three)">
-          <mat-icon>info</mat-icon>
-        </button>
-      </div>
-    </mat-card-content>
-  </mat-card>
 
+  <div id="selection-menu" [@cntl_position_selector]="selectorPositionCntl.state">
+    <div id="selection"></div>
+    <div id="selector"></div>
+  </div>
+
+  <button mat-icon-button [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()">
+    <mat-icon>help</mat-icon>
+  </button>
+
+  <button mat-icon-button id="cloud-btn-1" class="cloud-btn" [@cntl_position_cloud_btn_1]="cloudPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state">
+    <mat-icon>cloud</mat-icon>
+  </button>
+  <button mat-icon-button id="cloud-btn-2" class="cloud-btn" [@cntl_position_cloud_btn_2]="cloudPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state">
+    <mat-icon>cloud</mat-icon>
+  </button>
+  <button mat-icon-button id="cloud-btn-3" class="cloud-btn" [@cntl_position_cloud_btn_3]="cloudPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state">
+    <mat-icon>cloud</mat-icon>
+  </button>
+  <button mat-icon-button id="cloud-btn-4" class="cloud-btn" [@cntl_position_cloud_btn_4]="cloudPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state">
+    <mat-icon>cloud</mat-icon>
+  </button>
 </div>

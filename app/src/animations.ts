@@ -1,9 +1,30 @@
 import { animate, AnimationTriggerMetadata, keyframes, state, style, transition, trigger } from "@angular/animations";
 
+interface KeyObject{
+    [key: string]: any
+}
+
+function validatePosition(position: Position): KeyObject{
+    let parsed_position: KeyObject = {};
+    if(position.top){ parsed_position.top = position.top; };
+    if(position.bottom){ parsed_position.bottom = position.bottom; };
+    if(position.left){ parsed_position.left = position.left; };
+    if(position.right){ parsed_position.right = position.right; };
+    return parsed_position;
+}
+
+export interface Position{
+    top: string, bottom: string,
+    left: string, right: string,
+}
 /**
  * Enumeration of {@link Animations} expand animation states.
  */
 export enum ExpandStates{  open="open", closed="closed" }
+/**
+ * 
+ */
+export enum PositionStates { moved="moved", unmoved="unmoved"}
 /**
  * Enumeration of {@link Animations} scale animation states
  */
@@ -24,7 +45,7 @@ export enum AnimationTriggers{
     fade="fade", slide="slide", float="float",
     cntl_fade="cntl_fade", cntl_expand="cntl_expand",
     cntl_highlight="cntl_highlight", cntl_scale="cntl_scale",
-    cntl_fold="cntl_fold"
+    cntl_fold="cntl_fold", cntl_position="cntl_position"
 }
 /**
  * Enumeration of animation lengths for {@link Animations}
@@ -144,6 +165,7 @@ export class Animations{
              ])
          ])
      }
+
      /**
      * # Description
      * Get animation trigger for expanding an element to a given height over a specific time period.
@@ -165,6 +187,22 @@ export class Animations{
             ])
         ])
     }
+
+    /**
+     * # Description
+     */
+     public static getManualPositionTrigger(startPosition: Position, endPosition: Position, tag: string,animateLength: number = AnimationPeriods.short)
+     : AnimationTriggerMetadata {
+         let start_style: KeyObject = validatePosition(startPosition);
+         let end_style: KeyObject = validatePosition(endPosition);
+         return trigger(`${AnimationTriggers.cntl_position}_${tag}`,[
+             state(PositionStates.moved, style(end_style)),
+             state(PositionStates.unmoved, style(start_style)),
+             transition(`${PositionStates.moved} <=> ${PositionStates.unmoved}`,[
+                 animate(`${animateLength}s`)
+             ])
+         ])
+     }
 
      /**
       * # Description
@@ -294,6 +332,9 @@ export class AnimationControl{
             case AnimationTriggers.cntl_fade:
                 this.state = FadeStates.out;
                 break;
+            case AnimationTriggers.cntl_position:
+                this.state = PositionStates.moved;
+                break;
         }
     }
 
@@ -313,6 +354,9 @@ export class AnimationControl{
                 break;
             case AnimationTriggers.cntl_fade:
                 this.state = FadeStates.in;
+                break;
+            case AnimationTriggers.cntl_position:
+                this.state = PositionStates.unmoved;
                 break;
 
         }

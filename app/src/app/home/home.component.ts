@@ -1,106 +1,73 @@
 import { Component, OnInit } from '@angular/core';
-import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, FadeStates } from 'src/animations';
+import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, FadeStates, Position } from 'src/animations';
 
-enum sliderStates{
-  one="one", two="two", three="three"
-}
+const CONTROL_BUTTON_POSITIONS : any[] = [
+  { top: '40%', left: '49%'},
+  { top: '10%', left: '49%' }
+];
+
+const CLOUD_BUTTON_POSITIONS: any[] = [
+  { top: '10%', left: '49%' },
+  { top: '90%', left: '20%' },
+  { top: '90%', left: '40%' },
+  { top: '90%', left: '60%' },
+  { top: '90%', left: '80%' }
+]
+
+const SELECTOR_POSITIONS: any[] = [
+  { top: '100%', left: '0%', right: '0%', bottom: '0%'},
+  { top: '20%', left: '0%', right: '0%', bottom: '0%' }
+]
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   animations:[
-    Animations.getManualFadeTrigger(),
+    Animations.getManualPositionTrigger(CONTROL_BUTTON_POSITIONS[0], CONTROL_BUTTON_POSITIONS[1], 
+                                        'center', AnimationPeriods.short),
+    Animations.getManualPositionTrigger(SELECTOR_POSITIONS[0], SELECTOR_POSITIONS[1], 
+                                        'selector', AnimationPeriods.short),
+    Animations.getManualPositionTrigger(CLOUD_BUTTON_POSITIONS[0], CLOUD_BUTTON_POSITIONS[1],
+                                        'cloud_btn_1', AnimationPeriods.short),
+    Animations.getManualPositionTrigger(CLOUD_BUTTON_POSITIONS[0], CLOUD_BUTTON_POSITIONS[2],
+                                        'cloud_btn_2', AnimationPeriods.short),
+    Animations.getManualPositionTrigger(CLOUD_BUTTON_POSITIONS[0], CLOUD_BUTTON_POSITIONS[3],
+                                        'cloud_btn_3', AnimationPeriods.short),
+    Animations.getManualPositionTrigger(CLOUD_BUTTON_POSITIONS[0], CLOUD_BUTTON_POSITIONS[4],
+                                        'cloud_btn_4', AnimationPeriods.short),
+    Animations.getManualFadeTrigger()
   ]
 })
 export class HomeComponent implements OnInit {
 
-  public sliderFadeCntl = new AnimationControl(AnimationTriggers.cntl_fade);
-  public sliderState = sliderStates.one;
-  public states = sliderStates;
+  public cloudFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
+  public cloudPositionCntls: AnimationControl[] = [
+    new AnimationControl(AnimationTriggers.cntl_position),
+    new AnimationControl(AnimationTriggers.cntl_position),
+    new AnimationControl(AnimationTriggers.cntl_position),
+    new AnimationControl(AnimationTriggers.cntl_position),
+  ];
+
+  public centerPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
+  public centerFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
+
+  public selectorPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
 
   ngOnInit(): void { 
-    this.recurse();
+    this.cloudFadeCntl.setState(FadeStates.out);
   }
 
-  public setState(state: sliderStates): void{
-    this.sliderFadeCntl.animate();
+  public display(){
+    this.centerPositionCntl.animate();
+    this.selectorPositionCntl.animate();
     setTimeout(()=>{
-        this.sliderState = state;
-        this.sliderFadeCntl.prime();
-    }, AnimationPeriods.medium*1000);
+      this.centerFadeCntl.animate();
+      this.cloudFadeCntl.prime();
+      setTimeout(()=>{
+        this.cloudPositionCntls.forEach((cntl: AnimationControl)=>{ cntl.animate(); });
+      }, AnimationPeriods.medium*500)
+    }, AnimationPeriods.short*1000);
   }
 
-  public recurse(){
-    setTimeout(()=>{
-      this.iterate();
-      this.recurse();
-    }, AnimationPeriods.medium*5000);
-  }
-
-  private iterate(){
-    switch(this.sliderState){
-      case this.states.one:
-        this.setState(this.states.two);
-        break;
-      case this.states.two:
-        this.setState(this.states.three);
-        break;
-      case this.states.three:
-        this.setState(this.states.one);
-        break;
-    }
-  }
-
-  public getSrc(): string{
-    switch(this.sliderState){
-      case this.states.one:
-          return "/assets/banners/clouds-banner.jpg";
-      case this.states.two:
-          return "/assets/banners/fee-banner.png"
-      case this.states.three:
-          return "/assets/banners/expertise-banner.jpg"
-      default:
-          return "/assets/banners/clouds-banner.jpg";
-    }
-  }
-
-  public getTitle(): string{
-    switch(this.sliderState){
-      case this.states.one:
-          return "Web Design and Hosting";
-      case this.states.two:
-          return "Cost Savings Comparison"
-      case this.states.three:
-          return "Professional Tier Solutions"
-      default:
-          return "";
-    }
-  }
-
-  public getSubtitle(): string{
-    switch(this.sliderState){
-      case this.states.one:
-          return "Creating responsive sites built on modern infrastructure";
-      case this.states.two:
-          return "Bringing the cost savings of cloud computing to small businesses"
-      case this.states.three:
-          return "Drawing on years of production-scale web and software development";
-      default:
-          return "Creating responsive sites built on modern architecture";
-    }
-  }
-
-  public getTooltip(state: sliderStates): string {
-    switch(state){
-      case this.states.one:
-          return "Quality";
-      case this.states.two:
-          return "Cost"
-      case this.states.three:
-          return "Experience"
-      default:
-          return "Quality";
-    }
-  }
 }

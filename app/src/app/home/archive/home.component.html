@@ -1,0 +1,27 @@
+<div id="home">
+  <mat-card id="slider-card">
+    <mat-card-title class="center" [@cntl_fade]="sliderFadeCntl.state">
+      {{getTitle()}}
+    </mat-card-title>
+    <mat-card-subtitle class="center" [@cntl_fade]="sliderFadeCntl.state">
+      {{getSubtitle()}}
+    </mat-card-subtitle>
+    <img mat-card-img [src]="getSrc()" alt="Cloud Computing" id="slider-img" [@cntl_fade]="sliderFadeCntl.state">
+    <mat-card-content>
+      <div id="intro-slider">
+        <button mat-icon-button class="info-btn" (click)="setState(states.one)" [matTooltip]="getTooltip(states.one)">
+          <mat-icon>info</mat-icon>
+        </button>
+        <span class="sep"></span>
+        <button mat-icon-button color="primary" (click)="setState(states.two)" [matTooltip]="getTooltip(states.two)">
+          <mat-icon>info</mat-icon>
+        </button>
+        <span class="sep"></span>
+        <button mat-icon-button class="info-btn" (click)="setState(states.three)" [matTooltip]="getTooltip(states.three)">
+          <mat-icon>info</mat-icon>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
