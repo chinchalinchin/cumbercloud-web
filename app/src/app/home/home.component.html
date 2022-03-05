@@ -5,20 +5,20 @@
     <div id="selector"></div>
   </div>
 
-  <button mat-icon-button [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()">
-    <mat-icon>help</mat-icon>
+  <button mat-fab color="primary" [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()">
+    <mat-icon>touch_app</mat-icon>
   </button>
 
-  <button mat-icon-button id="cloud-btn-1" class="cloud-btn" [@cntl_position_cloud_btn_1]="cloudPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state">
+  <button mat-icon-button id="cloud-btn-1" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_1]="cloudPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-2" class="cloud-btn" [@cntl_position_cloud_btn_2]="cloudPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state">
+  <button mat-icon-button id="cloud-btn-2" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_2]="cloudPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-3" class="cloud-btn" [@cntl_position_cloud_btn_3]="cloudPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state">
+  <button mat-icon-button id="cloud-btn-3" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_3]="cloudPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-4" class="cloud-btn" [@cntl_position_cloud_btn_4]="cloudPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state">
+  <button mat-icon-button id="cloud-btn-4" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_4]="cloudPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state">
     <mat-icon>cloud</mat-icon>
   </button>
 </div>

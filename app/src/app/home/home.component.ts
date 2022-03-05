@@ -8,10 +8,10 @@ const CONTROL_BUTTON_POSITIONS : any[] = [
 
 const CLOUD_BUTTON_POSITIONS: any[] = [
   { top: '10%', left: '49%' },
-  { top: '90%', left: '20%' },
-  { top: '90%', left: '40%' },
-  { top: '90%', left: '60%' },
-  { top: '90%', left: '80%' }
+  { top: '25%', left: '72.5%' },
+  { top: '45%', left: '72.5%' },
+  { top: '65%', left: '72.5%' },
+  { top: '85%', left: '72.5%' }
 ]
 
 const SELECTOR_POSITIONS: any[] = [
@@ -36,7 +36,7 @@ const SELECTOR_POSITIONS: any[] = [
                                         'cloud_btn_3', AnimationPeriods.short),
     Animations.getManualPositionTrigger(CLOUD_BUTTON_POSITIONS[0], CLOUD_BUTTON_POSITIONS[4],
                                         'cloud_btn_4', AnimationPeriods.short),
-    Animations.getManualFadeTrigger()
+    Animations.getManualFadeTrigger(AnimationPeriods.short)
   ]
 })
 export class HomeComponent implements OnInit {
