@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit {
       case this.states.three:
           return "/assets/banners/expertise-banner.jpg"
       case this.states.four:
-          return "/assets/banners/clouds-banner.jpg"
+          return "/assets/banners/human_centric_design-banner.jpg"
       default:
           return "/assets/banners/clouds-banner.jpg";
     }
@@ -145,7 +145,7 @@ export class HomeComponent implements OnInit {
       case this.states.three:
           return "Professional Tier Solutions";
       case this.states.four:
-          return "Creative Design";
+          return "Human Centric Design";
       default:
           return "";
     }
@@ -160,7 +160,7 @@ export class HomeComponent implements OnInit {
       case this.states.three:
           return "Drawing on years of production web development";
       case this.states.four:
-          return ""
+          return "Behavior Driven Development"
       default:
           return "";
     }
