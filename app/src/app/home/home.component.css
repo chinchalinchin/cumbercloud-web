@@ -10,7 +10,6 @@
 }
 #selection{
   top: 0%; 
-  right: 30%;
   left: 0%;
   bottom: 0%;
   border-style: solid none none none;
@@ -18,7 +17,6 @@
 }
 #selector{
   top: 0%;
-  left: 70%;
   right: 0%;
   bottom: 0%;
   border-style: solid none none solid;
@@ -62,6 +60,7 @@
 .selection-body{
   margin-left: 10%;
   margin-right: 5%;
+  overflow-y: auto;
 }
 .selection-underline{
   border-style: none none solid none;
@@ -69,4 +68,21 @@
 }
 .no-underline{
   text-decoration: none;
+}
+
+@media(max-width:992px){
+  #selector{
+    left: 85%;
+  }
+  #selection{
+    right: 15%;
+  }
+}
+@media(min-width:991px){
+  #selector{
+    left: 70%;
+  }
+  #selection{
+    right: 30%;
+  }
 }

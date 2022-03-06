@@ -10,6 +10,7 @@
       <div id="selection-img-container">
         <img id="selection-img" [src]="getSrc()">
       </div>
+
       <p class="mat-body selection-body" [innerHTML]="getBlurb()"></p>
     </div>
     <div id="selector" class="border-accent"></div>
@@ -19,22 +20,22 @@
     <mat-icon>touch_app</mat-icon>
   </button>
 
-  <button mat-icon-button id="cloud-btn-1" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_1]="cloudBtnPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.one)">
+  <button mat-icon-button id="cloud-btn-1" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_1]="cloudBtnPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.one)" [class.selected-btn]="state == states.one">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-2" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_2]="cloudBtnPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.two)">
+  <button mat-icon-button id="cloud-btn-2" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_2]="cloudBtnPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.two)" [class.selected-btn]="state == states.two">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-3" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_3]="cloudBtnPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.three)">
+  <button mat-icon-button id="cloud-btn-3" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_3]="cloudBtnPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.three)" [class.selected-btn]="state == states.three">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-4" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_4]="cloudBtnPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.four)">
+  <button mat-icon-button id="cloud-btn-4" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_4]="cloudBtnPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.four)" [class.selected-btn]="state == states.four">
     <mat-icon>cloud</mat-icon>
   </button>
 
-  <div id="cloud-line-1" class="cloud-line" [@cntl_position_cloud_line_1]="cloudLinePositionCntls[0].state" [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.four) && !selecting && moved" *ngIf="displayLines" (click)="setState(states.four)"></div>
-  <div id="cloud-line-2" class="cloud-line" [@cntl_position_cloud_line_2]="cloudLinePositionCntls[1].state" [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.three) && !selecting && moved" *ngIf="displayLines" (click)="setState(states.three)"></div>
-  <div id="cloud-line-3" class="cloud-line" [@cntl_position_cloud_line_3]="cloudLinePositionCntls[2].state" [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.two) && !selecting && moved" *ngIf="displayLines" (click)="setState(states.two)"></div>
-  <div id="cloud-line-4" class="cloud-line" [@cntl_position_cloud_line_4]="cloudLinePositionCntls[3].state" [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.one) && !selecting && moved" *ngIf="displayLines" (click)="setState(states.one)"></div>
+  <div id="cloud-line-1" class="cloud-line" [@cntl_position_cloud_line_1]="cloudLinePositionCntls[0].state" [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.four) && !selecting && moved" *ngIf="linesDisplayed()" (click)="setState(states.four)"></div>
+  <div id="cloud-line-2" class="cloud-line" [@cntl_position_cloud_line_2]="cloudLinePositionCntls[1].state" [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.three) && !selecting && moved" *ngIf="linesDisplayed()" (click)="setState(states.three)"></div>
+  <div id="cloud-line-3" class="cloud-line" [@cntl_position_cloud_line_3]="cloudLinePositionCntls[2].state" [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.two) && !selecting && moved" *ngIf="linesDisplayed()" (click)="setState(states.two)"></div>
+  <div id="cloud-line-4" class="cloud-line" [@cntl_position_cloud_line_4]="cloudLinePositionCntls[3].state" [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.one) && !selecting && moved" *ngIf="linesDisplayed()" (click)="setState(states.one)"></div>
 
 </div>

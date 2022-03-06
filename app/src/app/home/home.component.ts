@@ -11,36 +11,39 @@ enum States{
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   animations:[
-    Animations.getManualPositionTrigger({ top: '40%', left: '48%'}, 
-                                        { top: '0%', left: '48%' }, 
+    Animations.getManualPositionTrigger({ top: '40%', left: '48%'},
+                                        [{ top: '0%', left: '48%' }], 
                                         'center', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '100%', left: '0%', right: '0%', bottom: '0%'}, 
-                                        { top: '20%', left: '0%', right: '0%', bottom: '0%'}, 
+    Animations.getManualPositionTrigger({ top: '100%', left: '0%', right: '0%', bottom: '0%'},
+                                        [{ top: '20%', left: '0%', right: '0%', bottom: '0%'}], 
                                         'selector', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' },
-                                        { top: '25%', left: '72.5%' },
+                                        [{ top: '25%', left: '72.5%' },
+                                         { top: '25%', left: '87.5%' }],
                                         'cloud_btn_1', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
-                                        { top: '45%', left: '72.5%' },
+                                         [{ top: '45%', left: '72.5%'},
+                                          { top: '45%', left: '87.5%'}],
                                         'cloud_btn_2', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
-                                        { top: '65%', left: '72.5%' },
+                                         [{ top: '65%', left: '72.5%' },
+                                          { top: '65%', left: '87.5%' }],
                                         'cloud_btn_3', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
-                                        { top: '85%', left: '72.5%' },
-                                        'cloud_btn_4', AnimationPeriods.short),
-                                        
+                                         [{ top: '85%', left: '72.5%' },
+                                          { top: '85%', left: '87.5%' }],
+                                        'cloud_btn_4', AnimationPeriods.short),              
     Animations.getManualPositionTrigger({ top: '35%', left: '7.5%' }, 
-                                        { top: '86%', left: '77.5%', right: '0%' },
+                                        [{ top: '86%', left: '77.5%', right: '0%' }],
                                         'cloud_line_1', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '55%', left: '12.5%' }, 
-                                        { top: '66%', left: '77.5%', right: '0%' },
+                                        [{ top: '66%', left: '77.5%', right: '0%' }],
                                         'cloud_line_2', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '35%', right: '7.5%' }, 
-                                        { top: '46%', left: '77.5%', right: '0%' },
+                                        [{ top: '46%', left: '77.5%', right: '0%' }],
                                         'cloud_line_3', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '55%', right: '12.5%' },  
-                                        { top: '26%', left: '77.5%', right: '0%'},
+                                        [{ top: '26%', left: '77.5%', right: '0%'}],
                                         'cloud_line_4', AnimationPeriods.short),
 
     Animations.getManualFadeTrigger(AnimationPeriods.short)
@@ -48,18 +51,17 @@ enum States{
 })
 export class HomeComponent implements OnInit {
 
-  public displayLines: boolean = true;
   public selecting: boolean = false;
   public moved: boolean = false;
   public animated: boolean = false;
+  public screenSize: string = '';
   public states = States;
   public state = States.one;
-  public centerPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
   public centerFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
-  public selectionPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
-  public selectorFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
   public selectionFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
   public cloudFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
+  public centerPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
+  public selectionPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
   public cloudBtnPositionCntls: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
@@ -75,23 +77,26 @@ export class HomeComponent implements OnInit {
 
   public constructor(private meta: MetaService){
     this.meta.mediaBreakpoint.subscribe((size: string)=>{
-      console.log(size)
-      if(size == 'md' || size == 'sm' || size == 'xs'){
-        this.displayLines = false;
-      } else{
-        this.displayLines = true;
-      }
+      this.screenSize = size;
     });
 
   }
+
   ngOnInit(): void { 
     this.cloudFadeCntl.setState(FadeStates.out);
   }
 
+  public linesDisplayed(){
+    return !(this.screenSize == 'md' || this.screenSize == 'sm' || this.screenSize == 'xs');
+  }
+
   public display(){
-    this.centerPositionCntl.animate();
-    this.selectionPositionCntl.animate();
-    this.cloudLinePositionCntls.forEach((cntl: AnimationControl)=>{ cntl.animate(); }); 
+    this.centerPositionCntl.animatePosition(0);
+    this.selectionPositionCntl.animatePosition(0);
+
+    this.cloudLinePositionCntls.forEach((cntl: AnimationControl)=>{ 
+      cntl.animatePosition(0); 
+    }); 
     setTimeout(()=>{
       this.moved = true;
     }, AnimationPeriods.short*500);
@@ -99,7 +104,13 @@ export class HomeComponent implements OnInit {
       this.centerFadeCntl.animate();
       this.cloudFadeCntl.prime();
       setTimeout(()=>{
-        this.cloudBtnPositionCntls.forEach((cntl: AnimationControl)=>{ cntl.animate(); });
+        this.cloudBtnPositionCntls.forEach((cntl: AnimationControl)=>{ 
+          if(this.linesDisplayed()){
+            cntl.animatePosition(0)
+          } else{
+            cntl.animatePosition(1)
+          }        
+        });
         setTimeout(()=>{
           this.animated = true;
         }, AnimationPeriods.short*1000);
@@ -158,9 +169,9 @@ export class HomeComponent implements OnInit {
       case this.states.two:
           return "Bringing the cloud's economy of scale to small businesses";
       case this.states.three:
-          return "Drawing on years of production web development";
+          return "Drawing on years of industrial web development experience";
       case this.states.four:
-          return "Behavior Driven Development"
+          return "Letting user behavior drive development"
       default:
           return "";
     }

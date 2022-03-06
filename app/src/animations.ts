@@ -191,17 +191,17 @@ export class Animations{
     /**
      * # Description
      */
-     public static getManualPositionTrigger(startPosition: Position, endPosition: Position, tag: string, animateLength: number = AnimationPeriods.short)
+     public static getManualPositionTrigger(start: Position, positions: Position[], tag: string, animateLength: number = AnimationPeriods.short)
      : AnimationTriggerMetadata {
-         let start_style: KeyObject = validatePosition(startPosition);
-         let end_style: KeyObject = validatePosition(endPosition);
-         return trigger(`${AnimationTriggers.cntl_position}_${tag}`,[
-             state(PositionStates.moved, style(end_style)),
-             state(PositionStates.unmoved, style(start_style)),
-             transition(`${PositionStates.moved} <=> ${PositionStates.unmoved}`,[
-                 animate(`${animateLength}s`)
-             ])
-         ])
+         let triggerConfig : any[] = []
+         let validated = validatePosition(start)
+         triggerConfig.push(state(`${PositionStates.unmoved}`, style(validated)))
+         positions.forEach((pos,ind)=>{ 
+             validated = validatePosition(pos)
+             triggerConfig.push(state(`${PositionStates.moved}_${ind}`, style(validated)))
+         })
+         triggerConfig.push(transition(`* <=> ${PositionStates.unmoved}`, [ animate(`${animateLength}s`)]))
+         return trigger(`${AnimationTriggers.cntl_position}_${tag}`, triggerConfig);
      }
 
      /**
@@ -336,6 +336,10 @@ export class AnimationControl{
                 this.state = PositionStates.moved;
                 break;
         }
+    }
+
+    public animatePosition(positionIndex: number){
+        this.state = `${PositionStates.moved}_${positionIndex}`
     }
 
     /**

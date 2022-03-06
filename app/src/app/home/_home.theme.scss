@@ -22,6 +22,9 @@
   .selections{
     color: map-get($primary-palette, 50);
   }
+  .selected-btn{
+    color: map-get($primary-palette, A700);
+  }
 }
 
 @mixin theme($theme) {
