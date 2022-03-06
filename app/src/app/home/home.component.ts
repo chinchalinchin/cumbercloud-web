@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, FadeStates } from 'src/animations';
+import { MetaService } from 'src/services/meta.service';
 
 enum States{
   one="one", two="two", three="three", four="four"
@@ -28,16 +29,17 @@ enum States{
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
                                         { top: '85%', left: '72.5%' },
                                         'cloud_btn_4', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '37.5%', left: '15%' }, 
+                                        
+    Animations.getManualPositionTrigger({ top: '35%', left: '12.5%' }, 
                                         { top: '86%', left: '77.5%', right: '0%' },
                                         'cloud_line_1', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '50%', left: '20%' }, 
+    Animations.getManualPositionTrigger({ top: '55%', left: '17.5%' }, 
                                         { top: '66%', left: '77.5%', right: '0%' },
                                         'cloud_line_2', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '37.5%', right: '20%' }, 
+    Animations.getManualPositionTrigger({ top: '35%', right: '12.5%' }, 
                                         { top: '46%', left: '77.5%', right: '0%' },
                                         'cloud_line_3', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '50%', right: '15%' },  
+    Animations.getManualPositionTrigger({ top: '55%', right: '17.5%' },  
                                         { top: '26%', left: '77.5%', right: '0%'},
                                         'cloud_line_4', AnimationPeriods.short),
 
@@ -45,6 +47,7 @@ enum States{
   ]
 })
 export class HomeComponent implements OnInit {
+  public mobile: boolean = false;
   public moved: boolean = false;
   public animated: boolean = false;
   public states = States;
@@ -52,6 +55,7 @@ export class HomeComponent implements OnInit {
   public centerPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
   public centerFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
   public selectorPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
+  public selectorFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
   public cloudFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
   public cloudBtnPositionCntls: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_position),
@@ -66,6 +70,17 @@ export class HomeComponent implements OnInit {
     new AnimationControl(AnimationTriggers.cntl_position),
   ];
 
+  public constructor(private meta: MetaService){
+    this.meta.mediaBreakpoint.subscribe((size: string)=>{
+      console.log(size)
+      if(size == 'md' || size == 'sm' || size == 'xs'){
+        this.mobile = true;
+      } else{
+        this.mobile = false;
+      }
+    });
+
+  }
   ngOnInit(): void { 
     this.cloudFadeCntl.setState(FadeStates.out);
   }
@@ -128,9 +143,9 @@ export class HomeComponent implements OnInit {
       case this.states.one:
           return "Creating responsive sites built on modern infrastructure";
       case this.states.two:
-          return "Bringing the cost savings of cloud computing to small businesses";
+          return "Bringing the cloud's economy of scale to small businesses";
       case this.states.three:
-          return "Drawing on years of production-scale web and software development";
+          return "Drawing on years of production web and software development";
       case this.states.four:
           return ""
       default:
@@ -144,13 +159,13 @@ export class HomeComponent implements OnInit {
         if(this.moved) return "state four";
         return "Give me a page to land";
       case this.states.two:
-        if(this.moved) return "state three";
+        if(this.moved) return "Quality Solutions";
         return "And a button big enough";
       case this.states.three:
-        if(this.moved) return "state two";
+        if(this.moved) return "Cost Effective";
         return "And I will move the world.";
       case this.states.four:
-        if(this.moved) return "state one";
+        if(this.moved) return "State-of-the-Art";
         return "- <a href=\"https://www.goodreads.com/quotes/16830-give-me-a-place-to-stand-and-a-lever-long\" target=\"_blank\" rel=\"noopener noreferrer\">Archimedes, probably</a>";
       default:
         return ""

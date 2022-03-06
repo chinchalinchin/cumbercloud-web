@@ -3,10 +3,32 @@
   font-family: 'LoveSummer';
   src: url('/assets/fonts/LoveSummer.otf') format('truetype');
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden;}
+@font-face{
+  font-family: 'FancyCursive';
+  src: url('/assets/fonts/UnderwoodRobertson.otf') format('opentype');
+}
+/****/
+html, body { 
+  height: 100%; 
+}
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  overflow: hidden;}
+mat-card img{
+  object-fit: cover;
+  width: 100%;
+}
 
-.title-text{ font-family: 'LoveSummer'; font-size:10vw; line-height: 0; }
+/****/
+.title-text{ 
+  font-family: 'LoveSummer';
+  line-height: 0; 
+}
+.fancy-text{ 
+  font-family: 'FancyCursive'; 
+  font-size: 2em; 
+  line-height: 0.5 }
 
 .v-align{
   height: 100%;
@@ -30,10 +52,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: h
 .transparent{
   opacity: 0.95;
 }
-mat-card img{
-  object-fit: cover;
-  width: 100%;
-}
 
 .mat-tab-body-wrapper{
   height: 100% !important;
@@ -55,4 +73,18 @@ mat-card img{
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
+}
+
+@media(min-width:431px) {
+  .fancy-text{
+    font-size: 2em;
+  }
+  .title-text{
+    font-size:7em; 
+  }
+}
+@media(max-width:430px){
+  .title-text{
+    font-size:5em;
+  }
 }

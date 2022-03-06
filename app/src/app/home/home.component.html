@@ -1,8 +1,6 @@
 <div id="home">
 
-  <div id="btn-banner">
-
-  </div>
+  <div id="btn-banner"></div>
 
   <div id="selection-menu" [@cntl_position_selector]="selectorPositionCntl.state">
     <div id="selection" class="border-accent">
@@ -12,26 +10,26 @@
     <div id="selector" class="border-accent"></div>
   </div>
 
-  <button mat-fab color="primary" [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()" matTooltip="">
+  <button mat-fab color="primary" [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()" matTooltip="The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character" matTooltipShowDelay="3000">
     <mat-icon>touch_app</mat-icon>
   </button>
 
-  <button mat-icon-button id="cloud-btn-1" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_1]="cloudBtnPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.one)" [matTooltip]="getTooltip(states.one)">
+  <button mat-icon-button id="cloud-btn-1" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_1]="cloudBtnPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.one)">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-2" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_2]="cloudBtnPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.two)" [matTooltip]="getTooltip(states.two)">
+  <button mat-icon-button id="cloud-btn-2" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_2]="cloudBtnPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.two)">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-3" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_3]="cloudBtnPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.three)" [matTooltip]="getTooltip(states.three)">
+  <button mat-icon-button id="cloud-btn-3" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_3]="cloudBtnPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.three)">
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-4" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_4]="cloudBtnPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.four)" [matTooltip]="getTooltip(states.four)">
+  <button mat-icon-button id="cloud-btn-4" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_4]="cloudBtnPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.four)">
     <mat-icon>cloud</mat-icon>
   </button>
 
-  <div id="cloud-line-1" class="cloud-line mat-title" [@cntl_position_cloud_line_1]="cloudLinePositionCntls[0].state" [innerHTML]="getLine(states.one)" [class.selections]="moved"></div>
-  <div id="cloud-line-)2" class="cloud-line mat-title" [@cntl_position_cloud_line_2]="cloudLinePositionCntls[1].state" [innerHTML]="getLine(states.two)" [class.selections]="moved"></div>
-  <div id="cloud-line-3" class="cloud-line mat-title" [@cntl_position_cloud_line_3]="cloudLinePositionCntls[2].state" [innerHTML]="getLine(states.three)" [class.selections]="moved"></div>
-  <div id="cloud-line-4" class="cloud-line mat-title" [@cntl_position_cloud_line_4]="cloudLinePositionCntls[3].state" [innerHTML]="getLine(states.four)" [class.selections]="moved"></div>
+  <div id="cloud-line-1" class="cloud-line" [@cntl_position_cloud_line_1]="cloudLinePositionCntls[0].state" [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" *ngIf="!mobile"></div>
+  <div id="cloud-line-)2" class="cloud-line" [@cntl_position_cloud_line_2]="cloudLinePositionCntls[1].state" [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" *ngIf="!mobile"></div>
+  <div id="cloud-line-3" class="cloud-line" [@cntl_position_cloud_line_3]="cloudLinePositionCntls[2].state" [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" *ngIf="!mobile"></div>
+  <div id="cloud-line-4" class="cloud-line" [@cntl_position_cloud_line_4]="cloudLinePositionCntls[3].state" [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" *ngIf="!mobile"></div>
 
 </div>

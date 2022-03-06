@@ -11,7 +11,7 @@
     background-color: map-get($primary-palette, 50);
   }
   #selector{
-    background-color: map-get($primary-palette, default);
+    background-color: map-get($primary-palette, 900);
   }
   #btn-banner{
     background-color: rgba(map-get($primary-palette, 100), 0.6);;
