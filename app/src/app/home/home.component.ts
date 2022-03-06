@@ -15,23 +15,23 @@ enum States{
                                         [{ top: '0%', left: '48%' }], 
                                         'center', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '100%', left: '0%', right: '0%', bottom: '0%'},
-                                        [{ top: '20%', left: '0%', right: '0%', bottom: '0%'}], 
+                                        [{ top: '10%', left: '0%', right: '0%', bottom: '0%'}], 
                                         'selector', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' },
                                         [{ top: '25%', left: '72.5%' },
-                                         { top: '25%', left: '87.5%' }],
+                                         { top: '20%', left: '87.5%' }],
                                         'cloud_btn_1', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
                                          [{ top: '45%', left: '72.5%'},
-                                          { top: '45%', left: '87.5%'}],
+                                          { top: '40%', left: '87.5%'}],
                                         'cloud_btn_2', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
                                          [{ top: '65%', left: '72.5%' },
-                                          { top: '65%', left: '87.5%' }],
+                                          { top: '60%', left: '87.5%' }],
                                         'cloud_btn_3', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
                                          [{ top: '85%', left: '72.5%' },
-                                          { top: '85%', left: '87.5%' }],
+                                          { top: '80%', left: '87.5%' }],
                                         'cloud_btn_4', AnimationPeriods.short),              
     Animations.getManualPositionTrigger({ top: '35%', left: '7.5%' }, 
                                         [{ top: '86%', left: '77.5%', right: '0%' }],
@@ -42,7 +42,7 @@ enum States{
     Animations.getManualPositionTrigger({ top: '35%', right: '7.5%' }, 
                                         [{ top: '46%', left: '77.5%', right: '0%' }],
                                         'cloud_line_3', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '55%', right: '12.5%' },  
+    Animations.getManualPositionTrigger({ top: '55%', right: '15%' },  
                                         [{ top: '26%', left: '77.5%', right: '0%'}],
                                         'cloud_line_4', AnimationPeriods.short),
 
@@ -93,7 +93,6 @@ export class HomeComponent implements OnInit {
   public display(){
     this.centerPositionCntl.animatePosition(0);
     this.selectionPositionCntl.animatePosition(0);
-
     this.cloudLinePositionCntls.forEach((cntl: AnimationControl)=>{ 
       cntl.animatePosition(0); 
     }); 
@@ -154,7 +153,7 @@ export class HomeComponent implements OnInit {
       case this.states.two:
           return "Cloud Cost Savings";
       case this.states.three:
-          return "Professional Tier Solutions";
+          return "Professional Solutions";
       case this.states.four:
           return "Human Centric Design";
       default:
@@ -171,7 +170,7 @@ export class HomeComponent implements OnInit {
       case this.states.three:
           return "Drawing on years of industrial web development experience";
       case this.states.four:
-          return "Letting user behavior drive development"
+          return "Letting the user behavior drive the development process"
       default:
           return "";
     }
@@ -180,15 +179,15 @@ export class HomeComponent implements OnInit {
   public getBlurb(): string{
     switch(this.state){
       case this.states.one:
-          return "The <strong>Cumberland Cloud</strong> offers custom web page design and application development for small business owners looking to expand their digital reach without breaking the bank. No matter what your vision for your new website looks like, whether it includes an online store, a reservation system, a forum for users or anything else, we can help you bring to it life while staying within budget.";
+          return "The <strong>Cumberland Cloud</strong> offers custom web page design for small business owners looking to expand their online footprint without breaking the bank.";
       case this.states.two:
-          return "The cloud provides a serverless, low-maintenance environment for the modern web application. The <strong>Cumberland Cloud</strong> specializes in using this pioneering technology to architect cost-optimized solutions. As a result, our sites are not only more secure, more scalable and more easily deployed than what the competition offers, but they are cheaper too!";
+          return "We specialize in using serverless, low-maintenance cloud environments to architect cost-optimized web solutions.";
       case this.states.three:
-          return "Our team has worked on production-scale projects with leading names in the industry. They bring to each project a professional approach, honed with years of experience. Every website we produce is hand-crafted and built from scratch. You won't find a site anywhere else on the internet that look like ours. ";
+          return "Our team has a rich professional background, with experience on production-scale projects from the leading names in the industry.";
       case this.states.four:
-          return ""
+          return "Every website we produce is built with your users in mind. Each detail is crafted to streamline the user experience and improve conversion. "
       default:
-          return "Creating responsive sites built on modern architecture";
+          return "";
     }
   }
 
