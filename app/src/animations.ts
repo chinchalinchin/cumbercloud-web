@@ -14,8 +14,8 @@ function validatePosition(position: Position): KeyObject{
 }
 
 export interface Position{
-    top: string, bottom: string,
-    left: string, right: string,
+    top?: string, bottom?: string,
+    left?: string, right?: string,
 }
 /**
  * Enumeration of {@link Animations} expand animation states.
@@ -191,7 +191,7 @@ export class Animations{
     /**
      * # Description
      */
-     public static getManualPositionTrigger(startPosition: Position, endPosition: Position, tag: string,animateLength: number = AnimationPeriods.short)
+     public static getManualPositionTrigger(startPosition: Position, endPosition: Position, tag: string, animateLength: number = AnimationPeriods.short)
      : AnimationTriggerMetadata {
          let start_style: KeyObject = validatePosition(startPosition);
          let end_style: KeyObject = validatePosition(endPosition);

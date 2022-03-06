@@ -5,7 +5,10 @@
   </div>
 
   <div id="selection-menu" [@cntl_position_selector]="selectorPositionCntl.state">
-    <div id="selection" class="border-accent"></div>
+    <div id="selection" class="border-accent">
+      <h1 class="selection-headline mat-headline">{{getTitle()}}</h1>
+      <h2 class="selection-subtitle mat-title">{{getSubtitle()}}</h2>
+    </div>
     <div id="selector" class="border-accent"></div>
   </div>
 

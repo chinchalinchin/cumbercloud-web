@@ -30,22 +30,16 @@
   right: 0%;
   bottom: 35%;
 }
-#cloud-line-2{
-  top: 50%;
-  left: 20%;
-}
-#cloud-line-3{
-  top: 37.5%;
-  right: 20%;
-}
-#cloud-line-4{
-  top: 50%;
-  right: 15%;
-}
 .cloud-btn{
   position: absolute;
   top: 10%; 
   left: 49%;
   border-style: solid;
   border-width: 1px;
+}
+.selection-headline{
+  margin-left: 5%;
+}
+.selection-subtitle{
+  margin-left: 10%;
 }
