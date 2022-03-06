@@ -24,6 +24,14 @@
   border-style: solid none none solid;
   border-width: 1px 0 0 3px;
 }
+#selection-img-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#selection-img{
+  width: 95%;
+}
 #btn-banner{
   top: 30%;
   left: 0%;
@@ -45,4 +53,8 @@
 .selection-subtitle{
   margin-left: 10%;
   margin-right: 5%;
+}
+.selection-underline{
+  border-style: none none solid none;
+  border-width: 1px;
 }

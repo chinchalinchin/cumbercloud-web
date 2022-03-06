@@ -47,7 +47,9 @@ enum States{
   ]
 })
 export class HomeComponent implements OnInit {
-  public mobile: boolean = false;
+
+  public displayLines: boolean = true;
+  
   public moved: boolean = false;
   public animated: boolean = false;
   public states = States;
@@ -74,9 +76,9 @@ export class HomeComponent implements OnInit {
     this.meta.mediaBreakpoint.subscribe((size: string)=>{
       console.log(size)
       if(size == 'md' || size == 'sm' || size == 'xs'){
-        this.mobile = true;
+        this.displayLines = false;
       } else{
-        this.mobile = false;
+        this.displayLines = true;
       }
     });
 
@@ -110,16 +112,22 @@ export class HomeComponent implements OnInit {
     this.state = state; 
   }
 
+  public selected(state: States){
+    return this.state == state;
+  }
+
   public getSrc(): string{
     switch(this.state){
       case this.states.one:
-          return "";
+          return "/assets/banners/circuitry-banner.jpg";
       case this.states.two:
-          return ""
+          return "/assets/banners/money-banner.jpg"
       case this.states.three:
-          return ""
+          return "/assets/banners/expertise-banner.jpg"
+      case this.states.four:
+          return "/assets/banners/clouds-banner.jpg"
       default:
-          return "";
+          return "/assets/banners/clouds-banner.jpg";
     }
   }
 
@@ -155,32 +163,20 @@ export class HomeComponent implements OnInit {
 
   public getLine(state: States): string{
     switch(state){
-      case this.states.one:
-        if(this.moved) return "state four";
-        return "Give me a page to land";
-      case this.states.two:
-        if(this.moved) return "Quality Solutions";
-        return "And a button big enough";
-      case this.states.three:
-        if(this.moved) return "Cost Effective";
-        return "And I will move the world.";
       case this.states.four:
-        if(this.moved) return "State-of-the-Art";
+        if(this.moved) return "Pioneering";
+        return "Give me a page to land";
+      case this.states.three:
+        if(this.moved) return "Proven";
+        return "And a button big enough";
+      case this.states.two:
+        if(this.moved) return "Affordable";
+        return "And I will move the world.";
+      case this.states.one:
+        if(this.moved) return "Innovative";
         return "- <a href=\"https://www.goodreads.com/quotes/16830-give-me-a-place-to-stand-and-a-lever-long\" target=\"_blank\" rel=\"noopener noreferrer\">Archimedes, probably</a>";
       default:
         return ""
-    }
-  }
-  public getTooltip(state: States): string {
-    switch(state){
-      case this.states.one:
-          return "Quality";
-      case this.states.two:
-          return "Cost"
-      case this.states.three:
-          return "Experience"
-      default:
-          return "Quality";
     }
   }
 

@@ -6,6 +6,10 @@
     <div id="selection" class="border-accent">
       <h1 class="selection-headline mat-headline">{{getTitle()}}</h1>
       <h2 class="selection-subtitle mat-title">{{getSubtitle()}}</h2>
+
+      <div id="selection-img-container">
+        <img id="selection-img" [src]="getSrc()">
+      </div>
     </div>
     <div id="selector" class="border-accent"></div>
   </div>
@@ -27,9 +31,9 @@
     <mat-icon>cloud</mat-icon>
   </button>
 
-  <div id="cloud-line-1" class="cloud-line" [@cntl_position_cloud_line_1]="cloudLinePositionCntls[0].state" [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" *ngIf="!mobile"></div>
-  <div id="cloud-line-)2" class="cloud-line" [@cntl_position_cloud_line_2]="cloudLinePositionCntls[1].state" [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" *ngIf="!mobile"></div>
-  <div id="cloud-line-3" class="cloud-line" [@cntl_position_cloud_line_3]="cloudLinePositionCntls[2].state" [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" *ngIf="!mobile"></div>
-  <div id="cloud-line-4" class="cloud-line" [@cntl_position_cloud_line_4]="cloudLinePositionCntls[3].state" [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" *ngIf="!mobile"></div>
+  <div id="cloud-line-1" class="cloud-line" [@cntl_position_cloud_line_1]="cloudLinePositionCntls[0].state" [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.four)" *ngIf="displayLines"></div>
+  <div id="cloud-line-2" class="cloud-line" [@cntl_position_cloud_line_2]="cloudLinePositionCntls[1].state" [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.three)" *ngIf="displayLines"></div>
+  <div id="cloud-line-3" class="cloud-line" [@cntl_position_cloud_line_3]="cloudLinePositionCntls[2].state" [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.two)" *ngIf="displayLines"></div>
+  <div id="cloud-line-4" class="cloud-line" [@cntl_position_cloud_line_4]="cloudLinePositionCntls[3].state" [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.one)" *ngIf="displayLines"></div>
 
 </div>
