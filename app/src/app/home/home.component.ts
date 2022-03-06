@@ -18,39 +18,39 @@ enum States{
                                         [{ top: '10%', left: '0%', right: '0%', bottom: '0%'}], 
                                         'selector', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' },
-                                        [{ top: '25%', left: '72.5%' },
+                                        [{ top: '20%', left: '72.5%' },
                                          { top: '20%', left: '87.5%' }],
                                         'cloud_btn_1', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
-                                         [{ top: '45%', left: '72.5%'},
+                                         [{ top: '40%', left: '72.5%'},
                                           { top: '40%', left: '87.5%'}],
                                         'cloud_btn_2', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
-                                         [{ top: '65%', left: '72.5%' },
+                                         [{ top: '60%', left: '72.5%' },
                                           { top: '60%', left: '87.5%' }],
                                         'cloud_btn_3', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '0%', left: '48%' }, 
-                                         [{ top: '85%', left: '72.5%' },
+                                         [{ top: '80%', left: '72.5%' },
                                           { top: '80%', left: '87.5%' }],
                                         'cloud_btn_4', AnimationPeriods.short),              
     Animations.getManualPositionTrigger({ top: '35%', left: '7.5%' }, 
-                                        [{ top: '86%', left: '77.5%', right: '0%' }],
+                                        [{ top: '81%', left: '77.5%', right: '0%' }],
                                         'cloud_line_1', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '55%', left: '12.5%' }, 
-                                        [{ top: '66%', left: '77.5%', right: '0%' }],
+                                        [{ top: '61%', left: '77.5%', right: '0%' }],
                                         'cloud_line_2', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '35%', right: '7.5%' }, 
-                                        [{ top: '46%', left: '77.5%', right: '0%' }],
+                                        [{ top: '41%', left: '77.5%', right: '0%' }],
                                         'cloud_line_3', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '55%', right: '15%' },  
-                                        [{ top: '26%', left: '77.5%', right: '0%'}],
+                                        [{ top: '21%', left: '77.5%', right: '0%'}],
                                         'cloud_line_4', AnimationPeriods.short),
 
     Animations.getManualFadeTrigger(AnimationPeriods.short)
   ]
 })
 export class HomeComponent implements OnInit {
-
+  public animating: boolean = false;
   public selecting: boolean = false;
   public moved: boolean = false;
   public animated: boolean = false;
@@ -91,6 +91,7 @@ export class HomeComponent implements OnInit {
   }
 
   public display(){
+    this.animating = true;
     this.centerPositionCntl.animatePosition(0);
     this.selectionPositionCntl.animatePosition(0);
     this.cloudLinePositionCntls.forEach((cntl: AnimationControl)=>{ 

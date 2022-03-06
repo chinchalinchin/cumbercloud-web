@@ -1,4 +1,5 @@
 #selection-menu, #selection, #selector, #home, #btn-banner,
+#underline-lg, #underline-md, #underline-sm,
 .cloud-line{
   position: absolute;
 }
@@ -38,6 +39,22 @@
   right: 0%;
   bottom: 35%;
 }
+#underline-lg{
+  left: 15%;
+  right: 10%;
+  bottom: 15%;
+}
+#underline-md{
+  left: 25%;
+  right: 20%;
+  bottom: 10%;
+}
+#underline-sm{
+  left: 35%;
+  right: 30%;
+  bottom: 5%;
+}
+
 .selections{
   cursor: pointer;
 }
@@ -59,7 +76,7 @@
 }
 .selection-body{
   margin-left: 10%;
-  margin-right: 5%;
+  margin-right: 2.5%;
   overflow-y: auto;
 }
 .selection-underline{
@@ -77,6 +94,9 @@
   #selection{
     right: 15%;
   }
+  .selection-body{
+    margin-top: 10%;
+  }
 }
 @media(min-width:991px){
   #selector{
@@ -84,5 +104,8 @@
   }
   #selection{
     right: 30%;
+  }
+  .selection-body{
+    margin-top: 2.5%;
   }
 }
