@@ -31,12 +31,17 @@
 }
 #selection-img{
   width: 95%;
+  border-style: solid;
+  border-width: 2px;
 }
 #btn-banner{
   top: 30%;
   left: 0%;
   right: 0%;
   bottom: 35%;
+}
+.selections{
+  cursor: pointer;
 }
 .cloud-btn{
   position: absolute;
@@ -54,7 +59,14 @@
   margin-left: 10%;
   margin-right: 5%;
 }
+.selection-body{
+  margin-left: 10%;
+  margin-right: 5%;
+}
 .selection-underline{
   border-style: none none solid none;
   border-width: 1px;
+}
+.no-underline{
+  text-decoration: none;
 }

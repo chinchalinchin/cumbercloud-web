@@ -2,19 +2,20 @@
 
   <div id="btn-banner"></div>
 
-  <div id="selection-menu" [@cntl_position_selector]="selectorPositionCntl.state">
-    <div id="selection" class="border-accent">
+  <div id="selection-menu" [@cntl_position_selector]="selectionPositionCntl.state">
+    <div id="selection" class="border-accent" [@cntl_fade]="selectionFadeCntl.state">
       <h1 class="selection-headline mat-headline">{{getTitle()}}</h1>
       <h2 class="selection-subtitle mat-title">{{getSubtitle()}}</h2>
 
       <div id="selection-img-container">
         <img id="selection-img" [src]="getSrc()">
       </div>
+      <p class="mat-body selection-body" [innerHTML]="getBlurb()"></p>
     </div>
     <div id="selector" class="border-accent"></div>
   </div>
 
-  <button mat-fab color="primary" [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()" matTooltip="The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character" matTooltipShowDelay="3000">
+  <button mat-fab color="primary" [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()" matTooltip="The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character" matTooltipShowDelay="3000" *ngIf="!moved">
     <mat-icon>touch_app</mat-icon>
   </button>
 
@@ -31,9 +32,9 @@
     <mat-icon>cloud</mat-icon>
   </button>
 
-  <div id="cloud-line-1" class="cloud-line" [@cntl_position_cloud_line_1]="cloudLinePositionCntls[0].state" [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.four)" *ngIf="displayLines"></div>
-  <div id="cloud-line-2" class="cloud-line" [@cntl_position_cloud_line_2]="cloudLinePositionCntls[1].state" [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.three)" *ngIf="displayLines"></div>
-  <div id="cloud-line-3" class="cloud-line" [@cntl_position_cloud_line_3]="cloudLinePositionCntls[2].state" [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.two)" *ngIf="displayLines"></div>
-  <div id="cloud-line-4" class="cloud-line" [@cntl_position_cloud_line_4]="cloudLinePositionCntls[3].state" [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.one)" *ngIf="displayLines"></div>
+  <div id="cloud-line-1" class="cloud-line" [@cntl_position_cloud_line_1]="cloudLinePositionCntls[0].state" [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.four) && !selecting && moved" *ngIf="displayLines" (click)="setState(states.four)"></div>
+  <div id="cloud-line-2" class="cloud-line" [@cntl_position_cloud_line_2]="cloudLinePositionCntls[1].state" [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.three) && !selecting && moved" *ngIf="displayLines" (click)="setState(states.three)"></div>
+  <div id="cloud-line-3" class="cloud-line" [@cntl_position_cloud_line_3]="cloudLinePositionCntls[2].state" [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.two) && !selecting && moved" *ngIf="displayLines" (click)="setState(states.two)"></div>
+  <div id="cloud-line-4" class="cloud-line" [@cntl_position_cloud_line_4]="cloudLinePositionCntls[3].state" [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.one) && !selecting && moved" *ngIf="displayLines" (click)="setState(states.one)"></div>
 
 </div>

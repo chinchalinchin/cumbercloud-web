@@ -5,7 +5,7 @@
 }
 @font-face{
   font-family: 'FancyCursive';
-  src: url('/assets/fonts/UnderwoodRobertson.otf') format('opentype');
+  src: url('/assets/fonts/NgutangDong.ttf') format('truetype');
 }
 /****/
 html, body { 
@@ -19,7 +19,9 @@ mat-card img{
   object-fit: cover;
   width: 100%;
 }
-
+.no-underline{
+  text-decoration: none;
+}
 /****/
 .title-text{ 
   font-family: 'LoveSummer';
