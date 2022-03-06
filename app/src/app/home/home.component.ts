@@ -182,11 +182,11 @@ export class HomeComponent implements OnInit {
       case this.states.one:
           return "The <strong>Cumberland Cloud</strong> offers custom web page design and cloud-based hosting for small business owners looking to expand their online footprint without breaking the bank.";
       case this.states.two:
-          return "We specialize in using serverless, low-maintenance cloud environments to architect cost-optimized web solutions.";
+          return "We specialize in using the latest in serverless, low-maintenance cloud technology to architect cost-optimized web solutions.";
       case this.states.three:
           return "Our team has a rich professional background in web development, with experience on production-scale projects from the leading names in the industry.";
       case this.states.four:
-          return "Every website we produce is built with your users in mind. Each detail is crafted to streamline the user experience and improve conversion. "
+          return "Every website we produce is built with your users in mind. Each detail is crafted to streamline the user experience and improve conversion."
       default:
           return "";
     }

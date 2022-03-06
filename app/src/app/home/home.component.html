@@ -12,9 +12,10 @@
       </div>
 
       <p class="mat-body selection-body text-center" [innerHTML]="getBlurb()"></p>
-      <div id="underline-lg" class="selection-underline"></div>
-      <div id="underline-md" class="selection-underline"></div>
-      <div id="underline-sm" class="selection-underline"></div>
+
+      <div id="underline-lg" class="selection-underline" *ngIf="linesDisplayed()"></div>
+      <div id="underline-md" class="selection-underline" *ngIf="linesDisplayed()"></div>
+      <div id="underline-sm" class="selection-underline" *ngIf="linesDisplayed()"></div>
     </div>
     <div id="selector" class="border-accent" *ngIf="animating"></div>
   </div>
