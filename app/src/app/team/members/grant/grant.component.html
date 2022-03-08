@@ -1,7 +1,10 @@
 <div id="grant">
-  <div class="facts-container top">
+  <h2 id="title" class="mat-display-2">Grant Moore</h2>
+
+  <div class="facts-container">
     
-    <div class="v-align" style="width: 25%;">
+    <div class="h-align">
+
       <div class="fact mat-elevation-z4" (mouseenter)="highlight(0)" (mouseleave)="delight(0)" matRipple [matRippleUnbounded]="true" matRippleColor="rgba(255,255,255, 0.3)" [matRippleCentered]="false" (click)="expand(states.one)">
         <div class="factoid" [class.highlighted]="highlighted(0)" [@cntl_highlight]="factHighlightCntls[0].state">
           <div class="v-align">
@@ -13,9 +16,8 @@
         </div>
       </div>
     </div>
-    <div class="spacer"></div>
 
-    <div class="v-align" style="width: 25%;">
+    <div class="h-align">
       <div class="fact mat-elevation-z4" (mouseenter)="highlight(1)" (mouseleave)="delight(1)" matRipple [matRippleUnbounded]="true" matRippleColor="rgba(255,255,255, 0.3)" [matRippleCentered]="false" (click)="expand(states.two)">
         <div class="factoid" [class.highlighted]="highlighted(1)" [@cntl_highlight]="factHighlightCntls[1].state">
           <div class="v-align">
@@ -27,14 +29,8 @@
         </div>
       </div>
     </div>
-    <div class="spacer"></div>
-  </div>
-  <div class="spacer"></div>
 
-  <div class="facts-container bottom">
-
-    <div class="spacer"></div>
-    <div class="v-align" style="width: 25%;">
+    <div class="h-align">
       <div class="fact mat-elevation-z4" (mouseenter)="highlight(2)" (mouseleave)="delight(2)" matRipple [matRippleUnbounded]="true" matRippleColor="rgba(255,255,255, 0.3)" [matRippleCentered]="false" (click)="expand(states.three)">
         <div class="factoid" [class.highlighted]="highlighted(2)" [@cntl_highlight]="factHighlightCntls[2].state">
           <div class="v-align">
@@ -47,8 +43,7 @@
       </div>
     </div>
 
-    <div class="spacer"></div>
-    <div class="v-align" style="width: 25%;">
+    <div class="h-align">
       <div class="fact mat-elevation-z4" (mouseenter)="highlight(3)" (mouseleave)="delight(3)" matRipple [matRippleUnbounded]="true" matRippleColor="rgba(255,255,255, 0.3)" [matRippleCentered]="false" (click)="expand(states.four)">
         <div class="factoid" [class.highlighted]="highlighted(3)" [@cntl_highlight]="factHighlightCntls[3].state">
           <div class="v-align">
@@ -60,10 +55,13 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="spacer"></div>
+  </div>
 </div>
+
+<button id="back-btn" mat-mini-fab routerLink="/team">
+  <mat-icon>keyboard_backspace</mat-icon>
+</button>
 
 <div id="popup" [@cntl_expand]="popupExpandCntl.state">
   <div id="popup-toolbar">

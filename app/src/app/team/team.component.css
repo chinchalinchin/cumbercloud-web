@@ -8,7 +8,6 @@
   justify-content: center;
 }
 .member{
-  width: 25%;
   height: 70%;
 }
 .profile-container{
@@ -16,14 +15,26 @@
 }
 .profile-pic{
   position: relative;
+  top: -25%;
   border-radius: 50%;
   border-style: solid;
   border-width: 2px;
+}
+.sep{
+  border-style: solid none none none;
+  border-width: 2px;
+  width: 34%;
 }
 .center{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
+}
+.spaced{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
 }
 .actions{

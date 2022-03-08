@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: center;
 }
-.sep{
+.divider{
   margin-left: 5%;
   margin-right: 5%;
   flex-grow: 1;

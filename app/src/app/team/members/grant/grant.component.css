@@ -7,9 +7,13 @@ img {
   top: 40%;
   width: 100%;
   height: 60%;
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
+}
+#title{
+  position: absolute;
+  top: -8%;
+  left: 0%;
+  right: 0%;
+  padding-left: 5%;
 }
 #popup{
   position: absolute;
@@ -28,29 +32,26 @@ img {
 #popup-header{
   margin-left: 5%;
 }
+#back-btn{
+  position: absolute;
+  top: 85%;
+  right: 5%;
+}
 .highlighted{
   font-size: smaller !important;
 }
 .facts-container{
-  width: 90%;
+  width: 100%;
+  height: 80%;
   display: flex;
-  flex-direction: row;
-  align-content: center;
-}
-.top{
-  padding-left: 10%;
-  height: 25%;
-}
-.bottom{
-  padding-right: 10%;
-  height: 25%;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .fact{
+  width: 50%;
   cursor: pointer;
-  width: 100%;
   display: flex;
   flex-direction: row;
-  height: 50%;
 }
 .factoid{
   flex-grow: 1;
@@ -75,3 +76,4 @@ img {
   flex-direction: row;
   justify-content: center;
 }
+

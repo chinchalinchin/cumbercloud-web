@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AnimationControl, Animations, AnimationTriggers, ExpandStates, HighlightStates } from 'src/animations';
+import { MetaService } from 'src/services/meta.service';
 
 enum popupStates{
   one, two, three, four, null
@@ -14,6 +15,7 @@ enum popupStates{
   ]
 })
 export class GrantComponent {
+  public screenSize: string = '';
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public states = popupStates;
   public popUpState: popupStates = popupStates.null;
@@ -24,8 +26,16 @@ export class GrantComponent {
     new AnimationControl(AnimationTriggers.cntl_highlight),
   ]
 
-  constructor() { 
+  constructor(private meta: MetaService) {
+    this.meta.mediaBreakpoint.subscribe((size: string)=>{
+      console.log(size);
+      this.screenSize = size;
+    }) 
     this.popupExpandCntl.setState(ExpandStates.closed);
+  }
+
+  public mobileMode(){
+    return this.screenSize == 'xs';
   }
 
   public expand(state: popupStates): void{

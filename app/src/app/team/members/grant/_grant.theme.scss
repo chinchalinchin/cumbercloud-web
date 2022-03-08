@@ -12,8 +12,8 @@
     color: rgba(map-get($primary-palette, darker-contrast), 1);
     //background: linear-gradient(90deg, map-get($primary-palette, 900) 0%, map-get($primary-palette, 50) 90%);
   }
-  .top, .bottom{
-    background-color: rgba(map-get($primary-palette, 50), 0.3);
+  .facts-container{
+    background-color: rgba(map-get($primary-palette, 50), 0.5);
   }
   .highlighted{
     color: rgb(map-get($accent-palette, 900), 1);
@@ -27,6 +27,10 @@
   }
   #popup-header{
     color: map-get($accent-palette, darker)
+  }
+  #title{
+    background: map-get($primary-palette, 50);
+    background: linear-gradient(90deg, rgba(map-get($primary-palette, 50),0) 0%, map-get($primary-palette, 50) 5%, rgba(map-get($primary-palette, 50),0) 40%);
   }
 }
 
