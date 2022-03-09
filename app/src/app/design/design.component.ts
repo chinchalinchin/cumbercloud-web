@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, ExpandStates } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, DESIGN_CHIPS, INFRASTRUCTURE_CHIPS, SOFTWARE_CHIPS, TECHNOLOGY_CHIPS } from '../app.config';
@@ -27,6 +27,8 @@ export class DesignComponent{
   public states = PopupStates;
   public popUpState: PopupStates = PopupStates.null;
 
+  public designStepOne: "who" | "what" | "why" = "who";
+  public designStepTwo: "session" | "specs" | "hire" = "session";
   public infraChips: ChipConfig[] = INFRASTRUCTURE_CHIPS;
   public designChips: ChipConfig[] = DESIGN_CHIPS;
   public softChips: ChipConfig[] = SOFTWARE_CHIPS;

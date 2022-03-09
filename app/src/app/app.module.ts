@@ -10,6 +10,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips'; 
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon'; 
 import { MatListModule } from '@angular/material/list'; 
+import { MatRadioModule } from '@angular/material/radio';
 import { MatRippleModule } from '@angular/material/core';  
 import { MatStepperModule } from '@angular/material/stepper'; 
 import { MatTabsModule } from '@angular/material/tabs'; 
@@ -27,6 +28,7 @@ import { TeamComponent } from './team/team.component';
 import { SheetComponent } from './sheet/sheet.component';
 import { GrantComponent } from './team/members/grant/grant.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     MatBottomSheetModule,
     MatButtonModule,
@@ -52,6 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatChipsModule,
     MatIconModule,
     MatListModule,
+    MatRadioModule,
     MatRippleModule,
     MatStepperModule,
     MatTabsModule,

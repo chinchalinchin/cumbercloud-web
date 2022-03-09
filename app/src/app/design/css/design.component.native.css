@@ -9,3 +9,6 @@ img {
 ::ng-deep::mat-horizontal-content-container{
   height: 100%;
 }
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}

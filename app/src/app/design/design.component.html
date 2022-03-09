@@ -67,29 +67,31 @@
     <mat-stepper class="stepper" [linear]="true" #designStepper>
 
       <mat-step id="design-step-one" class="step">
-        <ng-template matStepLabel>1. Identify the Problem</ng-template>
+        <ng-template matStepLabel *ngIf="!mobileMode()">Identify the Problem</ng-template>
 
         <div id="problem-step" class="step-content">
           <div id="small-business-img" class="step-img-container">
-            <figure class="step-figure">
-              <img class="step-img" src="/assets/imgs/small_business.jpg" alt="Small business owner">
-              <figcaption class="text-center mat-caption">You're a small business owner who needs a website in order to acquire new clients, nurture existing relationships and grow your brand.</figcaption>
+            <figure class="step-figure" *ngIf="designStepOne=='who'">
+              <img class="step-img"src="/assets/imgs/small_business.jpg" alt="Small business owner">
+              <figcaption class="text-center mat-caption step-caption">You're a small business owner who needs a website in order to acquire new clients, nurture existing relationships and grow your brand.</figcaption>
             </figure>
-          </div>
-
-          <div id="frustrated-img" class="step-img-container">
-            <figure class="step-figure">
+            <figure class="step-figure" *ngIf="designStepOne=='why'">
               <img class="step-img" src="/assets/imgs/frustrated-03.jpg" alt="Frustration">
-              <figcaption class="text-center mat-caption">Trying to build a website on your own that is simultaneously responsive, search optimized and user friendly can be frustrating.</figcaption>
+              <figcaption class="text-center mat-caption step-caption">Trying to build a website on your own that is simultaneously responsive, search optimized and user friendly can be frustrating.</figcaption>
+            </figure>
+            <figure class="step-figure" *ngIf="designStepOne=='what'">
+              <img class="step-img" src="/assets/imgs/design_station-02.jpg" alt="Cumberland Cloud Web Design">
+              <figcaption class="text-center mat-caption step-caption">That's where we come in. At the <strong>Cumberland Cloud</strong>, we offer an experienced and affordable approach to web design.</figcaption>
             </figure>
           </div>
 
-          <div id="hire-img" class="step-img-container">
-            <figure class="step-figure">
-              <img class="step-img" src="/assets/imgs/design_station-02.jpg" alt="Cumberland Cloud Web Design">
-              <figcaption class="text-center mat-caption">That's where we come in. At the <strong>Cumberland Cloud</strong>, we offer an experienced and affordable approach to web design.</figcaption>
-            </figure>
-          </div>
+          <section class="check-form">
+            <mat-radio-group [(ngModel)]="designStepOne">
+              <mat-radio-button value="who"></mat-radio-button>
+              <mat-radio-button value="why"></mat-radio-button>
+              <mat-radio-button value="what"></mat-radio-button>
+            </mat-radio-group>
+          </section>
         </div>
 
         <div class="step-actions">
@@ -99,29 +101,35 @@
       </mat-step>
 
       <mat-step id="design-step-two" class="step">
-        <ng-template matStepLabel>2. Design the Solution</ng-template>
+        <ng-template matStepLabel *ngIf="!mobileMode()">Design the Solution</ng-template>
 
         <div id="design-step" class="step-content">
-          <div id="requirements-img" class="step-img-container">
+          <div id="requirements-img" class="step-img-container" *ngIf="designStepTwo == 'session'">
             <figure class="step-figure">
               <img class="step-img" src="/assets/imgs/idea.jpg" alt="Brainstorming">
               <figcaption class="text-center mat-caption">Schedule a <i>free</i> design session to map out your idea with the development team before committing to a new project.</figcaption>
             </figure>
           </div>
-
-          <div id="initial-design-img" class="step-img-container">
+          <div id="initial-design-img" class="step-img-container" *ngIf="designStepTwo == 'specs'">
             <figure class="step-figure">
               <img class="step-img" src="/assets/imgs/design-02.jpg" alt="Hand drawn designs">
               <figcaption class="text-center mat-caption">With your direct input, low fidelity mockups of the webpage design will be created and the requirements of each page specified.</figcaption>
             </figure>
           </div>
-
-          <div id="refined-design-img" class="step-img-container">
+          <div id="refined-design-img" class="step-img-container" *ngIf="designStepTwo == 'hire'">
             <figure class="step-figure">
               <img class="step-img" src="/assets/imgs/adobe_xd.jpg" alt="Computer assisted design">
               <figcaption class="text-center mat-caption">These drafts will be transferred over into high fidelity <a href="https://en.wikipedia.org/wiki/Website_wireframe" target="_blank" rel="noopener noreferrer">wireframes</a> and handed over for your review.</figcaption>
             </figure>
           </div>
+          <section class="check-form">
+            <mat-radio-group [(ngModel)]="designStepTwo">
+              <mat-radio-button value="session"></mat-radio-button>
+              <mat-radio-button value="specs"></mat-radio-button>
+              <mat-radio-button value="hire"></mat-radio-button>
+            </mat-radio-group>
+          </section>
+
         </div>
 
         <div class="step-actions">
@@ -131,7 +139,7 @@
       </mat-step>
 
       <mat-step id="design-step-three" class="step">
-        <ng-template matStepLabel>3. Hire the Cumberland Cloud</ng-template>
+        <ng-template matStepLabel *ngIf="!mobileMode()">Hire the Cumberland Cloud</ng-template>
 
         <div id="hire-step" class="step-content">
           <div id="design-summary" class="blurb mat-body">
@@ -141,6 +149,11 @@
           <div id="construction-img">
             <img class="step-img" src="/assets/imgs/construction.jpg" alt="Baltimore Street, Cumberland, Maryland">
           </div>
+        </div>
+
+        <div class="step-actions">
+          <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
+          <button mat-icon-button color="accent" matStepperNext disabled><mat-icon>chevron_right</mat-icon></button>
         </div>
       </mat-step>
 
@@ -228,7 +241,7 @@
   <div id="deploy-popup" class="popup-content" *ngIf="popUpState == states.three">
     <mat-stepper class="stepper" [linear]="true" #deployStepper>
       <mat-step id="deploy-step-one" class="step">
-        <ng-template matStepLabel>1. Cloud Computing</ng-template>
+        <ng-template matStepLabel *ngIf="!mobileMode()">Cloud Computing</ng-template>
 
         <div id="cloud-computing" class="step-content">
           <div id="big-business-img" class="step-img-container">
@@ -253,7 +266,7 @@
       </mat-step>
 
       <mat-step id="deploy-step-two" class="step">
-        <ng-template matStepLabel>2. Serverless Hosting</ng-template>
+        <ng-template matStepLabel *ngIf="!mobileMode()">Serverless Hosting</ng-template>
 
         <div id="serverless" class="step-content">
           <div id="sharing-img" class="step-img-container">
@@ -286,7 +299,7 @@
       </mat-step>
 
       <mat-step id="deploy-step-three" class="step">
-        <ng-template matStepLabel>3. Automated Architecture</ng-template>
+        <ng-template matStepLabel *ngIf="!mobileMode()">Automated Architecture</ng-template>
 
         <div id="project-architecture" class="step-content">
           <div id="architecture-img" class="step-img-container">

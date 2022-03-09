@@ -51,8 +51,8 @@ enum States{
     Animations.getManualPositionTrigger({ top: '60%', left: '28%' },  
                                         [{ top: '60%', left: '-100%', right: '0%'}],
                                         'cloud_line_mobile_2', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '67%', right: '5%' },  
-                                        [{ top: '67%', left: '-100%', right: '0%'}],
+    Animations.getManualPositionTrigger({ top: '68%', right: '5%' },  
+                                        [{ top: '68%', left: '-100%', right: '0%'}],
                                         'cloud_line_mobile_3', AnimationPeriods.short),
 
     Animations.getManualFadeTrigger(AnimationPeriods.short)
