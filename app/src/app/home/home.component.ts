@@ -35,16 +35,25 @@ enum States{
                                         'cloud_btn_4', AnimationPeriods.short),              
     Animations.getManualPositionTrigger({ top: '35%', left: '7.5%' }, 
                                         [{ top: '81%', left: '77.5%', right: '0%' }],
-                                        'cloud_line_1', AnimationPeriods.short),
+                                        'cloud_line_desktop_1', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '55%', left: '12.5%' }, 
                                         [{ top: '61%', left: '77.5%', right: '0%' }],
-                                        'cloud_line_2', AnimationPeriods.short),
+                                        'cloud_line_desktop_2', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '35%', right: '7.5%' }, 
                                         [{ top: '41%', left: '77.5%', right: '0%' }],
-                                        'cloud_line_3', AnimationPeriods.short),
+                                        'cloud_line_desktop_3', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '55%', right: '15%' },  
                                         [{ top: '21%', left: '77.5%', right: '0%'}],
-                                        'cloud_line_4', AnimationPeriods.short),
+                                        'cloud_line_desktop_4', AnimationPeriods.short),
+    Animations.getManualPositionTrigger({ top: '30%', left: '33%' }, 
+                                        [{ top: '30%', left: '200%' }],
+                                        'cloud_line_mobile_1', AnimationPeriods.short),
+    Animations.getManualPositionTrigger({ top: '60%', left: '32%' },  
+                                        [{ top: '60%', left: '-100%', right: '0%'}],
+                                        'cloud_line_mobile_2', AnimationPeriods.short),
+    Animations.getManualPositionTrigger({ top: '65%', right: '5%' },  
+                                        [{ top: '65%', left: '-100%', right: '0%'}],
+                                        'cloud_line_mobile_3', AnimationPeriods.short),
 
     Animations.getManualFadeTrigger(AnimationPeriods.short)
   ]
@@ -68,12 +77,17 @@ export class HomeComponent implements OnInit {
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
   ];
-  public cloudLinePositionCntls: AnimationControl[] = [
+  public cloudLineDesktopPositionCntls: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
   ];
+  public cloudLineMobilePositionCntls: AnimationControl[] = [
+    new AnimationControl(AnimationTriggers.cntl_position),
+    new AnimationControl(AnimationTriggers.cntl_position),
+    new AnimationControl(AnimationTriggers.cntl_position)
+  ]
 
   public constructor(private meta: MetaService){
     this.meta.mediaBreakpoint.subscribe((size: string)=>{
@@ -86,17 +100,24 @@ export class HomeComponent implements OnInit {
     this.cloudFadeCntl.setState(FadeStates.out);
   }
 
-  public linesDisplayed(){
-    return !(this.screenSize == 'md' || this.screenSize == 'sm' || this.screenSize == 'xs');
+  public mobileMode(){
+    return (this.screenSize == 'md' || this.screenSize == 'sm' || this.screenSize == 'xs');
   }
 
   public display(){
     this.animating = true;
     this.centerPositionCntl.animatePosition(0);
     this.selectionPositionCntl.animatePosition(0);
-    this.cloudLinePositionCntls.forEach((cntl: AnimationControl)=>{ 
-      cntl.animatePosition(0); 
-    }); 
+    if(this.mobileMode()){
+      this.cloudLineMobilePositionCntls.forEach((cntl: AnimationControl)=>{ 
+        cntl.animatePosition(0); 
+      }); 
+    }
+    else{
+      this.cloudLineDesktopPositionCntls.forEach((cntl: AnimationControl)=>{ 
+        cntl.animatePosition(0); 
+      }); 
+    }
     setTimeout(()=>{
       this.moved = true;
     }, AnimationPeriods.short*500);
@@ -105,7 +126,7 @@ export class HomeComponent implements OnInit {
       this.cloudFadeCntl.prime();
       setTimeout(()=>{
         this.cloudBtnPositionCntls.forEach((cntl: AnimationControl)=>{ 
-          if(this.linesDisplayed()){
+          if(!this.mobileMode()){
             cntl.animatePosition(0)
           } else{
             cntl.animatePosition(1)

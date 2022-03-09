@@ -37,7 +37,6 @@
   top: 27.5%;
   left: 0%;
   right: 0%;
-  bottom: 35%;
 }
 #underline-lg{
   left: 15%;
@@ -88,6 +87,9 @@
 }
 
 @media(max-width:992px){
+  #btn-banner{
+    bottom: 25%;
+  }
   #selector{
     left: 85%;
   }
@@ -99,6 +101,9 @@
   }
 }
 @media(min-width:991px){
+  #btn-banner{
+    bottom: 35%;
+  }
   #selector{
     left: 70%;
   }

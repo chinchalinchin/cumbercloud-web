@@ -13,9 +13,9 @@
 
       <p class="mat-body selection-body text-center" [innerHTML]="getBlurb()"></p>
 
-      <div id="underline-lg" class="selection-underline" *ngIf="linesDisplayed()"></div>
-      <div id="underline-md" class="selection-underline" *ngIf="linesDisplayed()"></div>
-      <div id="underline-sm" class="selection-underline" *ngIf="linesDisplayed()"></div>
+      <div id="underline-lg" class="selection-underline" *ngIf="!mobileMode()"></div>
+      <div id="underline-md" class="selection-underline" *ngIf="!mobileMode()"></div>
+      <div id="underline-sm" class="selection-underline" *ngIf="!mobileMode()"></div>
     </div>
     <div id="selector" class="border-accent" *ngIf="animating"></div>
   </div>
@@ -37,9 +37,16 @@
     <mat-icon>cloud</mat-icon>
   </button>
 
-  <div id="cloud-line-1" class="cloud-line" [@cntl_position_cloud_line_1]="cloudLinePositionCntls[0].state" [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.four) && !selecting && moved" *ngIf="linesDisplayed()" (click)="setState(states.four)"></div>
-  <div id="cloud-line-2" class="cloud-line" [@cntl_position_cloud_line_2]="cloudLinePositionCntls[1].state" [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.three) && !selecting && moved" *ngIf="linesDisplayed()" (click)="setState(states.three)"></div>
-  <div id="cloud-line-3" class="cloud-line" [@cntl_position_cloud_line_3]="cloudLinePositionCntls[2].state" [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.two) && !selecting && moved" *ngIf="linesDisplayed()" (click)="setState(states.two)"></div>
-  <div id="cloud-line-4" class="cloud-line" [@cntl_position_cloud_line_4]="cloudLinePositionCntls[3].state" [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.one) && !selecting && moved" *ngIf="linesDisplayed()" (click)="setState(states.one)"></div>
+  <div id="cloud-line-desktop-1" class="cloud-line" [@cntl_position_cloud_line_desktop_1]="cloudLineDesktopPositionCntls[0].state" [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.four) && !selecting && moved" *ngIf="!mobileMode()" (click)="setState(states.four)"></div>
+  <div id="cloud-line-desktop-2" class="cloud-line" [@cntl_position_cloud_line_desktop_2]="cloudLineDesktopPositionCntls[1].state" [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.three) && !selecting && moved" *ngIf="!mobileMode()" (click)="setState(states.three)"></div>
+  <div id="cloud-line-desktop-3" class="cloud-line" [@cntl_position_cloud_line_desktop_3]="cloudLineDesktopPositionCntls[2].state" [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.two) && !selecting && moved" *ngIf="!mobileMode()" (click)="setState(states.two)"></div>
+  <div id="cloud-line-desktop-4" class="cloud-line" [@cntl_position_cloud_line_desktop_4]="cloudLineDesktopPositionCntls[3].state" [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.one) && !selecting && moved" *ngIf="!mobileMode()" (click)="setState(states.one)"></div>
 
+  <div id="cloud-line-mobile-1" class="cloud-line mat-body" *ngIf="mobileMode() && !moved" [@cntl_position_cloud_line_mobile_1]="cloudLineMobilePositionCntls[0].state">
+    For the button by itself
+  </div>
+  <div id="cloud-line-mobile-2" class="cloud-line mat-body" *ngIf="mobileMode() && !moved" [@cntl_position_cloud_line_mobile_2]="cloudLineMobilePositionCntls[1].state">
+    Incites the hand to push it.
+  </div>
+  <div id="cloud-line-mobile-3" class="cloud-line mat-body" *ngIf="mobileMode() && !moved" [@cntl_position_cloud_line_mobile_3]="cloudLineMobilePositionCntls[2].state">-<a href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html" target="_blank" rel="noopener noreferrer">Homer, probably</a></div>
 </div>
