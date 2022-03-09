@@ -9,29 +9,37 @@
       </div>
     </div>
 
-    <div class="h-align">
+    <div class="phase-sep">
       <div class="line left"></div>
     </div>
 
     <div id="phase-three" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.three)">
+        <button id="mobile-top-right-phase" mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.two)" *ngIf="mobileMode()">
+          <span class="mat-title">2. Develop</span>
+        </button>
+        <button id="desktop-top-right-phase" mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.three)" *ngIf="!mobileMode()">
           <span class="mat-title">3. Deploy</span>
         </button>
       </div>
     </div>
   </div>
 
-  <img class="center transparent" src="/assets/cartoons/cloud_globe.png">
+  <img id="center-img" class="center transparent" src="/assets/cartoons/cloud_globe.png">
 
   <div class="phase-container">
     <div id="phase-two" class="block">
       <div class="v-align">
-        <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.two)">
-          <span class="mat-title">2. Develop</span></button>
+        <button id="" mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.two)" *ngIf="!mobileMode()">
+          <span class="mat-title">2. Develop</span>
+        </button>
+        <button mat-stroked-button class="step-button mat-elevation-z1" (click)="expand(states.three)" *ngIf="mobileMode()">
+          <span class="mat-title">3. Deploy</span>
+        </button>
       </div>
     </div>
-    <div class="h-align">
+
+    <div class="phase-sep">
       <div class="line right"></div>
     </div>
 

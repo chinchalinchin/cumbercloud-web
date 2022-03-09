@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AnimationControl, Animations, AnimationTriggers, ExpandStates } from 'src/animations';
+import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, DESIGN_CHIPS, INFRASTRUCTURE_CHIPS, SOFTWARE_CHIPS, TECHNOLOGY_CHIPS } from '../app.config';
 
 enum PopupStates{
@@ -17,6 +18,7 @@ enum PopupStates{
   ]
 })
 export class DesignComponent {
+  public screenSize: string = '';
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public states = PopupStates;
   public popUpState: PopupStates = PopupStates.null;
@@ -26,13 +28,21 @@ export class DesignComponent {
   public softChips: ChipConfig[] = SOFTWARE_CHIPS;
   public techChips: ChipConfig[] = TECHNOLOGY_CHIPS;
 
-  constructor() { }
+  constructor(private meta: MetaService) {
+    this.meta.mediaBreakpoint.subscribe((size: string)=>{
+      this.screenSize = size;
+    })
+   }
 
   public expand(state: PopupStates): void{
     this.popUpState = state;
     this.popupExpandCntl.animate();
   }
 
+  public mobileMode(){
+    return this.screenSize == 'xs' || this.screenSize == 'sm' || this.screenSize == 'md';
+  }
+  
   public close(): void{
     this.popUpState = this.states.null;
     this.popupExpandCntl.prime();
