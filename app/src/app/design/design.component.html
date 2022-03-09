@@ -66,7 +66,7 @@
   <div id="design-popup" class="popup-content" *ngIf="popUpState == states.one">
     <mat-stepper class="stepper" [linear]="true" #designStepper>
 
-      <mat-step id="design-step-one" class="step">
+      <mat-step id="design-step-one" class="step design-step">
         <ng-template matStepLabel *ngIf="!mobileMode()">Identify the Problem</ng-template>
 
         <div id="problem-step" class="step-content">
@@ -103,7 +103,7 @@
       <mat-step id="design-step-two" class="step">
         <ng-template matStepLabel *ngIf="!mobileMode()">Design the Solution</ng-template>
 
-        <div id="design-step" class="step-content">
+        <div id="design-step" class="step-content design-step">
           <div id="requirements-img" class="step-img-container" *ngIf="designStepTwo == 'session'">
             <figure class="step-figure">
               <img class="step-img" src="/assets/imgs/idea.jpg" alt="Brainstorming">
@@ -142,12 +142,11 @@
         <ng-template matStepLabel *ngIf="!mobileMode()">Hire the Cumberland Cloud</ng-template>
 
         <div id="hire-step" class="step-content">
-          <div id="design-summary" class="blurb mat-body">
-            If you like what you've seen so far, we will move to the next stage. At this point, our development team will take over and get to work building your new home in the cloud.
-          </div>
-          
-          <div id="construction-img">
-            <img class="step-img" src="/assets/imgs/construction.jpg" alt="Baltimore Street, Cumberland, Maryland">
+          <div id="refined-design-img" class="step-img-container" >
+            <figure class="step-figure">
+              <img class="step-img" src="/assets/imgs/construction.jpg" alt="Your home in the clouds">
+              <figcaption class="text-center mat-caption">If you like what you've seen so far, we will move to the next stage. At this point, our development team will take over and get to work building your new home in the cloud..</figcaption>
+            </figure>
           </div>
         </div>
 
@@ -165,11 +164,11 @@
 
   <div id="develop-popup" class="popup-content" *ngIf="popUpState == states.two">
   
-    <div id="technology" class="step-content">
+    <div id="technology" class="step-content develop-step">
 
-      <div id="tools-two" class="v-align">
+      <div id="tools-two" class="tools-container">
         <div id="language-stack" style="margin-bottom: 2.5%;">
-          <h3 class="mat-title align-left">Language</h3>
+          <h3 class="mat-title" [class.align-left]="!mobileMode()" [class.text-center]="mobileMode()">Language</h3>
           <mat-chip-list aria-label="Infrastructure Stack" class="justify-chips">
             <mat-chip *ngFor="let chip of techChips" [matTooltip]="chip.tooltip" class="mat-elevation-z2">
               <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
@@ -180,7 +179,7 @@
         </div>
 
         <div id="design-stack" style="margin-bottom: 2.5%;">
-          <h3 class="mat-title align-left">Design</h3>
+          <h3 class="mat-title" [class.align-left]="!mobileMode()" [class.text-center]="mobileMode()">Design</h3>
           <mat-chip-list aria-label="Infrastructure Stack" class="justify-chips">
             <mat-chip *ngFor="let chip of designChips" [matTooltip]="chip.tooltip" class="mat-elevation-z2">
               <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
@@ -191,7 +190,7 @@
         </div>
 
         <div id="software-stack" >
-          <h3 class="mat-title align-left">Software</h3>
+          <h3 class="mat-title" [class.align-left]="!mobileMode()" [class.text-center]="mobileMode()">Software</h3>
           <mat-chip-list aria-label="Software Stack" class="justify-chips">
             <mat-chip *ngFor="let chip of softChips" [matTooltip]="chip.tooltip" class="mat-elevation-z2">
               <a [href]="chip.href" target="_blank" rel="noopener noreferrer">
@@ -203,26 +202,23 @@
       </div>
 
       <div id="tools-summary" class="text-center">
-        
-        <p class="mat-body">Using the industry's latest technology, our development team will transform your design specifications into a living, breathing web application.</p>
-
-        <div id="main-img-container">
-          <div class="v-align" style="width: 20%; height: 100%;">
-            <div class="sep">Develop</div>
+        <p class="mat-body" *ngIf="!mobileMode()">Using the industry's latest technology and processes, our development team will transform your design specifications into a living, breathing web application.</p>
+        <div id="img-container">
+          <div class="develop-line" *ngIf="!mobileMode()">
+            <div class="h-sep">Develop</div>
           </div>
-          <div style="width: 40%;">
+          <div [class.med-img]="!mobileMode()" [class.sm-img]="mobileMode()">
             <img class="main-img" src="/assets/imgs/design_team-02.jpg">
-          </div>
-          <div class="v-align" style="width: 20%; height: 100%;">
-            <div class="sep">Implement</div>
+          </div>            
+          <div class="develop-line" *ngIf="!mobileMode()">
+            <div class="h-sep">Implement</div>
           </div>
         </div>
-
       </div>
       
-      <div id="tools-one" class="v-align">
+      <div id="tools-one" class="tools-container">
         <div id="infrastructure-stack">
-          <h3 class="mat-title align-left">Infrastructure</h3>
+          <h3 class="mat-title" [class.align-left]="!mobileMode()" [class.text-center]="mobileMode()">Infrastructure</h3>
           <mat-chip-list aria-label="Infrastructure Stack">
             <mat-chip *ngFor="let chip of infraChips" [matTooltip]="chip.tooltip" class="mat-elevation-z2">
               <a [href]="chip.href" target="_blank" rel="noopener noreferrer">

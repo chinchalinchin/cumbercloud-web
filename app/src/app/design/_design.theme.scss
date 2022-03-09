@@ -35,7 +35,7 @@
   .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
     background-color: map-get($accent-palette, 300);
   }
-  .step-img, .main-img, .sep{
+  .step-img, .main-img, .h-sep, .v-sep{
     border-color: map-get($accent-palette, 900);
   }
 }

@@ -11,8 +11,8 @@ enum States{
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   animations:[
-    Animations.getManualPositionTrigger({ top: '40%', left: '48%'},
-                                        [{ top: '0%', left: '48%' }], 
+    Animations.getManualPositionTrigger({ top: '40%', left: '45%'},
+                                        [{ top: '0%', left: '45%' }], 
                                         'center', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '100%', left: '0%', right: '0%', bottom: '0%'},
                                         [{ top: '10%', left: '0%', right: '0%', bottom: '0%'}], 
@@ -45,10 +45,10 @@ enum States{
     Animations.getManualPositionTrigger({ top: '55%', right: '15%' },  
                                         [{ top: '21%', left: '77.5%', right: '0%'}],
                                         'cloud_line_desktop_4', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '32%', left: '30%' }, 
+    Animations.getManualPositionTrigger({ top: '32%', left: '25%' }, 
                                         [{ top: '32%', left: '200%' }],
                                         'cloud_line_mobile_1', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '60%', left: '28%' },  
+    Animations.getManualPositionTrigger({ top: '60%', left: '23%' },  
                                         [{ top: '60%', left: '-100%', right: '0%'}],
                                         'cloud_line_mobile_2', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '68%', right: '5%' },  
@@ -173,7 +173,7 @@ export class HomeComponent implements OnInit {
       case this.states.one:
           return "Web Design and Hosting";
       case this.states.two:
-          return "Cloud Cost Savings";
+          return "Cost Savings";
       case this.states.three:
           return "Professional Solutions";
       case this.states.four:
@@ -186,13 +186,13 @@ export class HomeComponent implements OnInit {
   public getSubtitle(): string{
     switch(this.state){
       case this.states.one:
-          return "Creating responsive sites built on modern infrastructure";
+          return "Responsive sites built on modern infrastructure";
       case this.states.two:
-          return "Bringing the cloud's economy of scale to small businesses";
+          return "The cloud's economy of scale";
       case this.states.three:
-          return "Drawing on years of industrial web development experience";
+          return "Years of web design and software experience";
       case this.states.four:
-          return "Letting user behavior drive the development process"
+          return "User driven development process"
       default:
           return "";
     }
@@ -203,7 +203,7 @@ export class HomeComponent implements OnInit {
       case this.states.one:
           return "The <strong>Cumberland Cloud</strong> offers custom web page design and cloud-based hosting for small business owners looking to expand their online footprint without breaking the bank.";
       case this.states.two:
-          return "We specialize in using the latest in serverless, low-maintenance cloud technology to architect cost-optimized web solutions. ";
+          return "We specialize in using the latest in serverless, low-maintenance cloud technology to architect cost-optimized web solutions that require litte-to-no overhead.";
       case this.states.three:
           return "Our team has a rich professional background in web development, with experience on production-scale projects from the leading names in the industry.";
       case this.states.four:
@@ -219,7 +219,7 @@ export class HomeComponent implements OnInit {
         if(this.moved) return "User-Friendly";
         return "Give me a page to land";
       case this.states.three:
-        if(this.moved) return "Technical Expertise";
+        if(this.moved) return "Expertise";
         return "And a button big enough";
       case this.states.two:
         if(this.moved) return "Affordable";
