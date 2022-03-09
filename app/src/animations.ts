@@ -173,16 +173,19 @@ export class Animations{
      * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
      * @returns animation expand trigger
      */
-    public static getManualExpandTrigger(toHeight: string, toWidth: string, animateLength: number = AnimationPeriods.short)
+    public static getManualExpandTrigger(toHeight: string, toWidth: string, animateLength: number = AnimationPeriods.short, tag: string | null = null)
     : AnimationTriggerMetadata {
-        return trigger(AnimationTriggers.cntl_expand,[
+        let triggerString : string = AnimationTriggers.cntl_expand;
+        if(tag){ triggerString = triggerString.concat("_", tag); }
+
+        return trigger(triggerString,[
             state(ExpandStates.open, style({ 
                 height: `${toHeight}`, width: `${toWidth}`, opacity: 1
             })),
             state(ExpandStates.closed, style({ 
                 height: '0', width: '0', opacity: 0 
             })),
-            transition(`${ExpandStates.open} <=> ${ExpandStates.closed}`,[
+            transition(`* <=> ${ExpandStates.closed}`,[
                 animate(`${animateLength}s`)
             ])
         ])
@@ -340,6 +343,10 @@ export class AnimationControl{
 
     public animatePosition(positionIndex: number){
         this.state = `${PositionStates.moved}_${positionIndex}`
+    }
+
+    public animateExpand(tag: string){
+        this.state = `${ExpandStates.open}_${tag}`
     }
 
     /**

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AnimationControl, Animations, AnimationTriggers, ExpandStates } from 'src/animations';
+import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, ExpandStates } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, DESIGN_CHIPS, INFRASTRUCTURE_CHIPS, SOFTWARE_CHIPS, TECHNOLOGY_CHIPS } from '../app.config';
 
@@ -14,12 +14,15 @@ enum PopupStates{
               './css/design.component.class.css',
               './css/design.component.native.css'],
   animations: [
-    Animations.getManualExpandTrigger('60%', '80%'),
+    Animations.getManualExpandTrigger('60%', '80%', AnimationPeriods.short, 'desktop'),
+    Animations.getManualExpandTrigger('100%', '100%', AnimationPeriods.short, 'mobile'),
+
   ]
 })
 export class DesignComponent {
   public screenSize: string = '';
-  public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public popupDesktopExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public popupMobileExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand)
   public states = PopupStates;
   public popUpState: PopupStates = PopupStates.null;
 
@@ -36,20 +39,39 @@ export class DesignComponent {
 
   public expand(state: PopupStates): void{
     this.popUpState = state;
-    this.popupExpandCntl.animate();
+    if(this.mobileMode()){
+      this.popupMobileExpandCntl.animate();
+    }
+    else{
+      this.popupDesktopExpandCntl.animate();
+
+    }
   }
 
   public mobileMode(){
     return this.screenSize == 'xs' || this.screenSize == 'sm' || this.screenSize == 'md';
   }
-  
+
+  public stepperOrientation(){
+    if(this.mobileMode()) return "vertical";
+    else return "horizontal";
+  }
+
   public close(): void{
     this.popUpState = this.states.null;
-    this.popupExpandCntl.prime();
+    if(this.popupDesktopExpandCntl.state == ExpandStates.open){
+      this.popupDesktopExpandCntl.prime();
+    }
+    if(this.popupMobileExpandCntl.state == ExpandStates.open){
+      this.popupMobileExpandCntl.prime();
+    }
   }
 
   public closed(): boolean{
-    return this.popupExpandCntl.state == ExpandStates.closed
+    if(this.mobileMode()){
+      return this.popupMobileExpandCntl.state == ExpandStates.closed
+    }
+    return this.popupDesktopExpandCntl.state == ExpandStates.closed
   }
   
   public getPopupTitle(): string{
