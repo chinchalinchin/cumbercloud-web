@@ -70,7 +70,7 @@
         <ng-template matStepLabel *ngIf="!mobileMode()">Identify the Problem</ng-template>
 
         <div id="problem-step" class="step-content">
-          <div id="small-business-img" class="step-img-container">
+          <div class="step-img-container">
             <figure class="step-figure" *ngIf="designStepOne=='who'">
               <img class="step-img"src="/assets/imgs/small_business.jpg" alt="Small business owner">
               <figcaption class="text-center mat-caption step-caption">You're a small business owner who needs a website in order to acquire new clients, nurture existing relationships and grow your brand.</figcaption>
@@ -240,19 +240,24 @@
         <ng-template matStepLabel *ngIf="!mobileMode()">Cloud Computing</ng-template>
 
         <div id="cloud-computing" class="step-content">
-          <div id="big-business-img" class="step-img-container">
-            <figure class="step-figure">
-              <img class="step-img" src="/assets/imgs/big_business.jpg" alt="The magic of the cloud">
+
+          <div class="step-img-container">
+            <figure class="step-figure" *ngIf="deployStepOne =='cloud'">
+              <img class="step-img" src="/assets/imgs/big_business.jpg" alt="Big business and the cloud">
               <figcaption class="text-center mat-caption">Since the early 2010s, large-scale businesses have been using the cloud to cut costs and simplify their technology needs.</figcaption>
             </figure>
-          </div>
-
-          <div id="cloud-img" class="step-img-container">
-            <figure class="step-figure">
+            <figure class="step-figure" *ngIf="deployStepOne == 'cumberland'">
               <img class="step-img" src="/assets/imgs/clouds-0002.jpg" alt="The magic of the cloud">
               <figcaption class="text-center mat-caption">The <strong>Cumberland Cloud</strong> is here to bring these cost-saving techniques and services to a wider audience.</figcaption>
             </figure>
           </div>
+
+          <section class="check-form">
+            <mat-radio-group [(ngModel)]="deployStepOne">
+              <mat-radio-button value="cloud"></mat-radio-button>
+              <mat-radio-button value="cumberland"></mat-radio-button>
+            </mat-radio-group>
+          </section>
 
         </div>
         <div class="step-actions">
@@ -265,27 +270,29 @@
         <ng-template matStepLabel *ngIf="!mobileMode()">Serverless Hosting</ng-template>
 
         <div id="serverless" class="step-content">
-          <div id="sharing-img" class="step-img-container">
-            <figure class="step-figure">
+          <div class="step-img-container">
+            <figure class="step-figure" *ngIf="deployStepTwo == 'pool'">
               <img class="step-img" src="/assets/imgs/hand_circle.jpg" alt="The power of sharing">
               <figcaption class="text-center mat-caption">The key idea behind the cloud is pooling the physical infrastructure a site owner needs to host a web application onto a single platform.</figcaption>
             </figure>
-          </div>
-
-          <div id="serverless-img" class="step-img-container">
-            <figure class="step-figure">
+            <figure class="step-figure" *ngIf="deployStepTwo == 'share'">
               <img class="step-img" src="/assets/imgs/separated.jpg" alt="Pay for what you use">
               <figcaption class="text-center mat-caption">This means the cloud manages the underlying servers, allowing the site owner to "rent" space and only pay for the capacity they use.</figcaption>
             </figure>
-          </div>
-
-          <div id="serverless-img" class="step-img-container">
-            <figure class="step-figure">
+            <figure class="step-figure" *ngIf="deployStepTwo == 'save'">
               <img class="step-img" src="/assets/imgs/professional.jpg" alt="Technical expertise">
               <figcaption class="text-center mat-caption">Taking advantage of this cost savings requires the technical expertise to build and manage a cloud environment. </figcaption>
             </figure>
           </div>
         </div>
+
+        <section class="check-form">
+          <mat-radio-group [(ngModel)]="deployStepTwo">
+            <mat-radio-button value="pool"></mat-radio-button>
+            <mat-radio-button value="share"></mat-radio-button>
+            <mat-radio-button value="save"></mat-radio-button>
+          </mat-radio-group>
+        </section>
 
         <div class="step-actions">
           <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
@@ -298,21 +305,25 @@
         <ng-template matStepLabel *ngIf="!mobileMode()">Automated Architecture</ng-template>
 
         <div id="project-architecture" class="step-content">
-          <div id="architecture-img" class="step-img-container">
-            <figure class="step-figure">
+          <div class="step-img-container">
+            <figure class="step-figure" *ngIf="deployStepThree == 'template'">
               <img class="step-img" src="" alt="">
               <figcaption class="text-center mat-caption">The <strong>Cumberland Cloud</strong> has created a wide variety of web templates that can be deployed onto the cloud in minutes, ranging from social media integrations, online stores, email notification services, and more.</figcaption>
             </figure>
-          </div>
-
-          <div id="architecture-img" class="step-img-container">
-            <figure class="step-figure">
+            <figure class="step-figure" *ngIf="deployStepThree == 'deploy'">
               <img class="step-img" src="" alt="">
               <figcaption class="text-center mat-caption">Once the specifications from the initial design session have been pinned and our developers have converted them into a working prototype, we will use our template library to quickly and securely deploy your new application to the cloud.</figcaption>
             </figure>
           </div>
-
         </div>
+
+        <section class="check-form">
+          <mat-radio-group [(ngModel)]="deployStepThree">
+            <mat-radio-button value="template"></mat-radio-button>
+            <mat-radio-button value="deploy"></mat-radio-button>
+          </mat-radio-group>
+        </section>
+        
         <div class="step-actions">
           <button mat-icon-button color="accent" matStepperPrevious><mat-icon>chevron_left</mat-icon></button>
           <button mat-icon-button color="accent" matStepperNext disabled><mat-icon>chevron_right</mat-icon></button>

@@ -5,6 +5,7 @@ export interface ChipConfig{
 };
 
 export const INFRASTRUCTURE_CHIPS: ChipConfig [] = [
+  { tooltip: 'API Gateway', href: 'https://aws.amazon.com/api-gateway/', svgIcon: 'apigateway' },
   { tooltip:'CloudFront', href: 'https://aws.amazon.com/cloudfront/', svgIcon: 'cloudfront'},
   { tooltip:'Cognito', href: 'https://aws.amazon.com/cognito', svgIcon: 'cognito'},
   { tooltip:'DynamoDB', href: 'https://aws.amazon.com/dynamodb/', svgIcon: 'dynamodb'},
@@ -25,7 +26,7 @@ export const SOFTWARE_CHIPS: ChipConfig[] = [
 ];
 
 export const TECHNOLOGY_CHIPS: ChipConfig[] =[
-  { tooltip: 'HTML5', href: "", svgIcon: "html" },
-  { tooltip: "Typescript", href: "", svgIcon:"typescript"},
-  { tooltip: "Python", href: "", svgIcon:"python"},
+  { tooltip: 'HTML5', href: "https://developer.mozilla.org/en-US/docs/Web/HTML", svgIcon: "html" },
+  { tooltip: "Typescript", href: "https://www.typescriptlang.org/", svgIcon:"typescript"},
+  { tooltip: "Python", href: "https://www.python.org/", svgIcon:"python"},
 ];

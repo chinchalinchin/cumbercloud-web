@@ -29,6 +29,9 @@ export class DesignComponent{
 
   public designStepOne: "who" | "what" | "why" = "who";
   public designStepTwo: "session" | "specs" | "hire" = "session";
+  public deployStepOne: "cloud" | "cumberland" = "cloud";
+  public deployStepTwo: "pool" | "share" | "save" = "pool";
+  public deployStepThree: "template" | "deploy" = "template";
   public infraChips: ChipConfig[] = INFRASTRUCTURE_CHIPS;
   public designChips: ChipConfig[] = DESIGN_CHIPS;
   public softChips: ChipConfig[] = SOFTWARE_CHIPS;
