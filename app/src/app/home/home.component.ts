@@ -171,7 +171,7 @@ export class HomeComponent implements OnInit {
       case this.states.three:
           return "Drawing on years of industrial web development experience";
       case this.states.four:
-          return "Letting the user behavior drive the development process"
+          return "Letting user behavior drive the development process"
       default:
           return "";
     }
@@ -182,7 +182,7 @@ export class HomeComponent implements OnInit {
       case this.states.one:
           return "The <strong>Cumberland Cloud</strong> offers custom web page design and cloud-based hosting for small business owners looking to expand their online footprint without breaking the bank.";
       case this.states.two:
-          return "We specialize in using the latest in serverless, low-maintenance cloud technology to architect cost-optimized web solutions.";
+          return "We specialize in using the latest in serverless, low-maintenance cloud technology to architect cost-optimized web solutions. ";
       case this.states.three:
           return "Our team has a rich professional background in web development, with experience on production-scale projects from the leading names in the industry.";
       case this.states.four:
@@ -195,10 +195,10 @@ export class HomeComponent implements OnInit {
   public getLine(state: States): string{
     switch(state){
       case this.states.four:
-        if(this.moved) return "Innovative";
+        if(this.moved) return "User-Friendly";
         return "Give me a page to land";
       case this.states.three:
-        if(this.moved) return "Proven";
+        if(this.moved) return "Technical Expertise";
         return "And a button big enough";
       case this.states.two:
         if(this.moved) return "Affordable";

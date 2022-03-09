@@ -345,10 +345,6 @@ export class AnimationControl{
         this.state = `${PositionStates.moved}_${positionIndex}`
     }
 
-    public animateExpand(tag: string){
-        this.state = `${ExpandStates.open}_${tag}`
-    }
-
     /**
      * Return {@link AnimationControl} to its initial {@link state} and prime for another animation based on the {@link animationType}
      */

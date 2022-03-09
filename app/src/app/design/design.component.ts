@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, ExpandStates } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, DESIGN_CHIPS, INFRASTRUCTURE_CHIPS, SOFTWARE_CHIPS, TECHNOLOGY_CHIPS } from '../app.config';
@@ -15,11 +15,12 @@ enum PopupStates{
               './css/design.component.native.css'],
   animations: [
     Animations.getManualExpandTrigger('60%', '80%', AnimationPeriods.short, 'desktop'),
-    Animations.getManualExpandTrigger('100%', '100%', AnimationPeriods.short, 'mobile'),
+    Animations.getManualExpandTrigger('70%', '100%', AnimationPeriods.short, 'mobile'),
 
   ]
 })
-export class DesignComponent {
+export class DesignComponent{
+  public inited: boolean = false;
   public screenSize: string = '';
   public popupDesktopExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public popupMobileExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand)
@@ -36,6 +37,10 @@ export class DesignComponent {
       this.screenSize = size;
     })
    }
+
+  ngAfterViewInit() {
+    this.inited = true;
+  }
 
   public expand(state: PopupStates): void{
     this.popUpState = state;
