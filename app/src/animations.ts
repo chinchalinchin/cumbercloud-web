@@ -40,14 +40,15 @@ export enum FadeStates { in="in", out="out" }
 /**
  * 
  */
-export enum SwipeStates { left="left", right="right"}
+export enum SwipeStates { left="left", right="right", 
+                            unswiped_left="unswiped_left", unswiped_right="unswiped_right"}
 /**
  * Enumeration of triggers for {@link Animations}.
  */
 export enum AnimationTriggers{
     expand="expand", scale="scale", highlight="highlight", 
     fade="fade", slide="slide", float="float",
-    swipe="swipe", unswipe="unswipe",
+    swipe="swipe",
     cntl_fade="cntl_fade", cntl_expand="cntl_expand",
     cntl_highlight="cntl_highlight", cntl_scale="cntl_scale",
     cntl_fold="cntl_fold", cntl_position="cntl_position"
@@ -212,28 +213,37 @@ export class Animations{
          return trigger(`${AnimationTriggers.cntl_position}_${tag}`, triggerConfig);
      }
 
-     public static getManualSwipeTrigger(animateLength: number = AnimationPeriods.medium)
+     public static getManualSwipeTrigger(animateLength: number = AnimationPeriods.short)
      : AnimationTriggerMetadata {
          return trigger(AnimationTriggers.swipe, [
-             state(SwipeStates.left, style({
-                 transform: 'translateX(-100%)'
-             })),
-             state(SwipeStates.right, style({
-                 transform: 'translateX(100%)'
-             })),
-             transition(`void <=> ${SwipeStates.left}`,
-                 animate(`${animateLength}s`)
-             ),
-             transition(`void <=> ${SwipeStates.right}`,
-                 animate(`${animateLength}s`)
-             ),
-             transition(`* => void`, 
-                animate(`${animateLength}s`, style({ 
-                    transform: 'translateX(0%)'
-                }))
-             )
+            state(SwipeStates.left, style({
+                transform: 'translateX(-200%)', opacity: 0
+            })),
+            state(SwipeStates.right, style({
+                transform: 'translateX(200%)', opacity: 0
+            })),
+            transition(`* => ${SwipeStates.left}`,
+                animate(`${animateLength}s`)
+            ),
+            transition(`* => ${SwipeStates.right}`,
+                animate(`${animateLength}s`)
+            ),
+            transition(`* => ${SwipeStates.unswiped_left}`,
+                animate(`${animateLength}s`, keyframes([
+                    style({ transform: 'translateX(-200%)', offset: 0 }),
+                    style({ transform: 'translateX(0%)', offset: 1})
+                ]))
+            ),
+            transition(`* => ${SwipeStates.unswiped_right}`, 
+                animate(`${animateLength}s`, keyframes([
+                    style({ transform: 'translateX(200%)', offset: 0 }),
+                    style({ transform: 'translateX(0%)', offset: 1})
+                ]))
+            )
+
        ]);
      }
+
      /**
       * # Description
       * Get animation trigger for sliding an element horizontally on and off screen over a specified time period. 
@@ -395,12 +405,6 @@ export class AnimationControl{
                 break;
             case AnimationTriggers.cntl_position:
                 this.state = PositionStates.unmoved;
-                break;
-            case AnimationTriggers.swipe:
-                this.state = '';
-                break;
-            case AnimationTriggers.unswipe:
-                this.state = '';
                 break;
         }
     }

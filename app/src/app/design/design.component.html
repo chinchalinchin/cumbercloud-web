@@ -68,7 +68,10 @@
 
       <mat-step id="design-step-one" class="step design-step">
         <ng-template matStepLabel *ngIf="!mobileMode()">Identify the Problem</ng-template>
-
+        <span>{{designStepOne}} 
+              {{designSwipeCntls[0].state ? designSwipeCntls[0].state : 'null' }} 
+              {{designSwipeCntls[1].state ? designSwipeCntls[1].state : 'null' }}
+              {{designSwipeCntls[2].state ? designSwipeCntls[2].state : 'null' }}</span>
         <div id="problem-step" class="step-content">
           <div class="step-img-container" (swipeleft)="swipeLeft('designStepOne')" (swiperight)="swipeRight('designStepOne')">
             <figure class="step-figure" *ngIf="designStepOne=='who'" [@swipe]="designSwipeCntls[0].state">

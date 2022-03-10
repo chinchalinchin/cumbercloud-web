@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, ExpandStates } from 'src/animations';
+import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, ExpandStates, SwipeStates } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, DESIGN_CHIPS, INFRASTRUCTURE_CHIPS, SOFTWARE_CHIPS, TECHNOLOGY_CHIPS } from '../app.config';
 
@@ -35,11 +35,11 @@ export class DesignComponent{
   public imgSlideCntl = new AnimationControl(AnimationTriggers.slide);
   public states = PopupStates;
   public popUpState: PopupStates = PopupStates.null;
-  public designStepOne: "who" | "what" | "why" | null = "who";
-  public designStepTwo: "session" | "specs" | "hire" | null= "session";
-  public deployStepOne: "cloud" | "cumberland" | null = "cloud";
-  public deployStepTwo: "pool" | "share" | "save" | null = "pool";
-  public deployStepThree: "template" | "deploy" | null = "template";
+  public designStepOne: "who" | "what" | "why" | "" = "who";
+  public designStepTwo: "session" | "specs" | "hire" | "" = "session";
+  public deployStepOne: "cloud" | "cumberland" | "" = "cloud";
+  public deployStepTwo: "pool" | "share" | "save" | "" = "pool";
+  public deployStepThree: "template" | "deploy" | "" = "template";
   public infraChips: ChipConfig[] = INFRASTRUCTURE_CHIPS;
   public designChips: ChipConfig[] = DESIGN_CHIPS;
   public softChips: ChipConfig[] = SOFTWARE_CHIPS;
@@ -71,34 +71,35 @@ export class DesignComponent{
   }
 
   public swipeRight(step: string){
-    let buffer: string | null = null;
     let next: any = '';
+    let nextIndex: number = -1;
+    let currentIndex: number = -1;
     switch(step){
       case "designStepOne":
-          buffer = this.designStepOne;
-          this.designStepOne = null;
-          switch(buffer){
+          switch(this.designStepOne){
             case "who":
-                next = "what";
-                break;
-            case "what":
-                next = "why";
+                this.designSwipeCntls[0].swipe(SwipeStates.right);
+                this.designSwipeCntls[1].swipe(SwipeStates.left);
+                next = "why"; currentIndex = 0; nextIndex = 1; 
                 break;
             case "why":
-                next = "who";
+                this.designSwipeCntls[1].swipe(SwipeStates.right);
+                this.designSwipeCntls[2].swipe(SwipeStates.left);
+                next = "what"; currentIndex = 1; nextIndex = 2;
                 break;
-            default:
-                next = "who";
+            case "what":
+                this.designSwipeCntls[2].swipe(SwipeStates.right);
+                this.designSwipeCntls[0].swipe(SwipeStates.left);
+                next = "who"; currentIndex = 2; nextIndex = 0;
                 break;
           }
           setTimeout(()=>{
-            this.designStepOne = next
+            this.designStepOne = next;
+            this.designSwipeCntls[nextIndex].swipe(SwipeStates.unswiped_left);
           }, AnimationPeriods.short*1000);
           break;
       case "deployStepOne": 
-          buffer = this.deployStepOne;
-          this.deployStepOne = null;
-          switch(buffer){
+          switch(this.deployStepOne){
             case "cloud":
               next = "cumberland"
               break;
@@ -114,9 +115,7 @@ export class DesignComponent{
           }, AnimationPeriods.short*1000);
           break;
       case "deployStepTwo":
-          buffer = this.deployStepTwo;
-          this.deployStepTwo = null;
-          switch(buffer){
+          switch(this.deployStepTwo){
             case "pool":
                 next = "share";
                 break;
@@ -132,8 +131,7 @@ export class DesignComponent{
           }, AnimationPeriods.short*1000);
           break;
       case "deployStepThree":
-          buffer = this.deployStepThree;
-          switch(buffer){
+          switch(this.deployStepThree){
             case "template":
               next = "deploy"
               break;
