@@ -38,11 +38,16 @@ export enum HighlightStates{  highlight="highlight", normal="normal"  }
  */
 export enum FadeStates { in="in", out="out" }
 /**
+ * 
+ */
+export enum SwipeStates { left="left", right="right"}
+/**
  * Enumeration of triggers for {@link Animations}.
  */
 export enum AnimationTriggers{
     expand="expand", scale="scale", highlight="highlight", 
     fade="fade", slide="slide", float="float",
+    swipe="swipe", unswipe="unswipe",
     cntl_fade="cntl_fade", cntl_expand="cntl_expand",
     cntl_highlight="cntl_highlight", cntl_scale="cntl_scale",
     cntl_fold="cntl_fold", cntl_position="cntl_position"
@@ -207,6 +212,28 @@ export class Animations{
          return trigger(`${AnimationTriggers.cntl_position}_${tag}`, triggerConfig);
      }
 
+     public static getManualSwipeTrigger(animateLength: number = AnimationPeriods.medium)
+     : AnimationTriggerMetadata {
+         return trigger(AnimationTriggers.swipe, [
+             state(SwipeStates.left, style({
+                 transform: 'translateX(-100%)'
+             })),
+             state(SwipeStates.right, style({
+                 transform: 'translateX(100%)'
+             })),
+             transition(`void <=> ${SwipeStates.left}`,
+                 animate(`${animateLength}s`)
+             ),
+             transition(`void <=> ${SwipeStates.right}`,
+                 animate(`${animateLength}s`)
+             ),
+             transition(`* => void`, 
+                animate(`${animateLength}s`, style({ 
+                    transform: 'translateX(0%)'
+                }))
+             )
+       ]);
+     }
      /**
       * # Description
       * Get animation trigger for sliding an element horizontally on and off screen over a specified time period. 
@@ -345,6 +372,10 @@ export class AnimationControl{
         this.state = `${PositionStates.moved}_${positionIndex}`
     }
 
+    public swipe(direction: SwipeStates){
+        this.state = direction;
+    }
+
     /**
      * Return {@link AnimationControl} to its initial {@link state} and prime for another animation based on the {@link animationType}
      */
@@ -365,7 +396,12 @@ export class AnimationControl{
             case AnimationTriggers.cntl_position:
                 this.state = PositionStates.unmoved;
                 break;
-
+            case AnimationTriggers.swipe:
+                this.state = '';
+                break;
+            case AnimationTriggers.unswipe:
+                this.state = '';
+                break;
         }
     }
 

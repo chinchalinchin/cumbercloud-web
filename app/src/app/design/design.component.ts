@@ -16,19 +16,25 @@ enum PopupStates{
   animations: [
     Animations.getManualExpandTrigger('60%', '80%', AnimationPeriods.short, 'desktop'),
     Animations.getManualExpandTrigger('70%', '100%', AnimationPeriods.short, 'mobile'),
-    Animations.getSlideTrigger(AnimationPeriods.short)
-
+    Animations.getManualSwipeTrigger(),
   ]
 })
 export class DesignComponent{
   public inited: boolean = false;
   public screenSize: string = '';
-  public popupDesktopExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
-  public popupMobileExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public popupDesktopExpandCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public popupMobileExpandCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public designSwipeCntls: AnimationControl[] = [
+    new AnimationControl(AnimationTriggers.swipe),
+    new AnimationControl(AnimationTriggers.swipe),
+    new AnimationControl(AnimationTriggers.swipe),
+    new AnimationControl(AnimationTriggers.swipe),
+    new AnimationControl(AnimationTriggers.swipe),
+    new AnimationControl(AnimationTriggers.swipe),
+  ];
   public imgSlideCntl = new AnimationControl(AnimationTriggers.slide);
   public states = PopupStates;
   public popUpState: PopupStates = PopupStates.null;
-
   public designStepOne: "who" | "what" | "why" | null = "who";
   public designStepTwo: "session" | "specs" | "hire" | null= "session";
   public deployStepOne: "cloud" | "cumberland" | null = "cloud";
@@ -68,6 +74,27 @@ export class DesignComponent{
     let buffer: string | null = null;
     let next: any = '';
     switch(step){
+      case "designStepOne":
+          buffer = this.designStepOne;
+          this.designStepOne = null;
+          switch(buffer){
+            case "who":
+                next = "what";
+                break;
+            case "what":
+                next = "why";
+                break;
+            case "why":
+                next = "who";
+                break;
+            default:
+                next = "who";
+                break;
+          }
+          setTimeout(()=>{
+            this.designStepOne = next
+          }, AnimationPeriods.short*1000);
+          break;
       case "deployStepOne": 
           buffer = this.deployStepOne;
           this.deployStepOne = null;
@@ -123,11 +150,6 @@ export class DesignComponent{
 
   public swipeLeft(step: string){
     console.log('step')
-  }
-
-  public stepperOrientation(){
-    if(this.mobileMode()) return "vertical";
-    else return "horizontal";
   }
 
   public close(): void{
