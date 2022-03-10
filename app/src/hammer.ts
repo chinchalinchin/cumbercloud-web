@@ -1,10 +1,16 @@
 import { HammerGestureConfig } from "@angular/platform-browser";
-import * as hammer from "hammerjs";
+import 'hammerjs';
  
-export class HammerConfig extends HammerGestureConfig {
-  overrides = <any>{
-    swipe: { direction: hammer.DIRECTION_HORIZONTAL },
-    pinch: { enable: false },
-    rotate: { enable: false }
-  };
+export class HammerConfig extends HammerGestureConfig  {
+  buildHammer(element: HTMLElement): HammerManager {
+     return new Hammer.Manager(element, {
+      touchAction: 'auto',
+      inputClass: Hammer.TouchInput,
+      recognizers: [
+        [Hammer.Swipe, {
+          direction: Hammer.DIRECTION_HORIZONTAL
+        }]
+      ]
+    });
+  }
 }
