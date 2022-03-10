@@ -16,6 +16,7 @@ enum PopupStates{
   animations: [
     Animations.getManualExpandTrigger('60%', '80%', AnimationPeriods.short, 'desktop'),
     Animations.getManualExpandTrigger('70%', '100%', AnimationPeriods.short, 'mobile'),
+    Animations.getSlideTrigger(AnimationPeriods.short)
 
   ]
 })
@@ -23,15 +24,16 @@ export class DesignComponent{
   public inited: boolean = false;
   public screenSize: string = '';
   public popupDesktopExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
-  public popupMobileExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand)
+  public popupMobileExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public imgSlideCntl = new AnimationControl(AnimationTriggers.slide);
   public states = PopupStates;
   public popUpState: PopupStates = PopupStates.null;
 
-  public designStepOne: "who" | "what" | "why" = "who";
-  public designStepTwo: "session" | "specs" | "hire" = "session";
-  public deployStepOne: "cloud" | "cumberland" = "cloud";
-  public deployStepTwo: "pool" | "share" | "save" = "pool";
-  public deployStepThree: "template" | "deploy" = "template";
+  public designStepOne: "who" | "what" | "why" | null = "who";
+  public designStepTwo: "session" | "specs" | "hire" | null= "session";
+  public deployStepOne: "cloud" | "cumberland" | null = "cloud";
+  public deployStepTwo: "pool" | "share" | "save" | null = "pool";
+  public deployStepThree: "template" | "deploy" | null = "template";
   public infraChips: ChipConfig[] = INFRASTRUCTURE_CHIPS;
   public designChips: ChipConfig[] = DESIGN_CHIPS;
   public softChips: ChipConfig[] = SOFTWARE_CHIPS;
@@ -60,6 +62,67 @@ export class DesignComponent{
 
   public mobileMode(){
     return this.screenSize == 'xs' || this.screenSize == 'sm' || this.screenSize == 'md';
+  }
+
+  public swipeRight(step: string){
+    let buffer: string | null = null;
+    let next: any = '';
+    switch(step){
+      case "deployStepOne": 
+          buffer = this.deployStepOne;
+          this.deployStepOne = null;
+          switch(buffer){
+            case "cloud":
+              next = "cumberland"
+              break;
+            case "cumberland":
+              next = "cloud"
+              break;
+            default: 
+              next = "cloud"
+              break;
+          }
+          setTimeout(()=>{
+            this.deployStepOne = next;
+          }, AnimationPeriods.short*1000);
+          break;
+      case "deployStepTwo":
+          buffer = this.deployStepTwo;
+          this.deployStepTwo = null;
+          switch(buffer){
+            case "pool":
+                next = "share";
+                break;
+            case "share":
+                next = "save"
+                break;
+            case "save":
+              next = "pool";
+              break;
+          }
+          setTimeout(()=>{
+            this.deployStepTwo = next;
+          }, AnimationPeriods.short*1000);
+          break;
+      case "deployStepThree":
+          buffer = this.deployStepThree;
+          switch(buffer){
+            case "template":
+              next = "deploy"
+              break;
+            case "deploy":
+              next = "template"
+              break;
+          }
+          setTimeout(()=>{
+            this.deployStepThree = next;
+          }, AnimationPeriods.short*1000);
+          break;
+    }
+  }
+
+  public swipeLeft(step: string){
+    console.log('step')
   }
 
   public stepperOrientation(){

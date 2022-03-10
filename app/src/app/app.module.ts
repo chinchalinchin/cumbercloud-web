@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // TODO: material module
@@ -29,6 +29,7 @@ import { SheetComponent } from './sheet/sheet.component';
 import { GrantComponent } from './team/members/grant/grant.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HammerConfig } from 'src/hammer';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTabsModule,
     MatTooltipModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: HammerConfig
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

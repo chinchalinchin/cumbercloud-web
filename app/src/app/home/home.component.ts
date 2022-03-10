@@ -225,7 +225,7 @@ export class HomeComponent implements OnInit {
         if(this.moved) return "Affordable";
         return "And I will move the world.";
       case this.states.one:
-        if(this.moved) return "Technical";
+        if(this.moved) return "Custom";
         return "<a href=\"https://www.cs.drexel.edu/~crorres/Archimedes/Lever/LeverQuotes_OLD.html\" target=\"_blank\" rel=\"noopener noreferrer\">- Archimedes, probably</a>";
       default:
         return ""
