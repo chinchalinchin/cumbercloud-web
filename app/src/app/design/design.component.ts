@@ -6,7 +6,6 @@ import { ChipConfig, DESIGN_CHIPS, INFRASTRUCTURE_CHIPS, SOFTWARE_CHIPS, TECHNOL
 enum PopupStates{
   one, two, three, four, null
 };
-
 @Component({
   selector: 'app-design',
   templateUrl: './design.component.html',
