@@ -1,4 +1,4 @@
-import { animate, AnimationTriggerMetadata, keyframes, state, style, transition, trigger } from "@angular/animations";
+import { animate, animateChild, AnimationTriggerMetadata, keyframes, query, state, style, transition, trigger } from "@angular/animations";
 
 interface KeyObject{
     [key: string]: any
@@ -97,14 +97,18 @@ export class Animations{
      * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
      * @returns animation scale trigger
      */
-    public static getManualScaleTrigger(scaleFactor: number, animateLength: number = AnimationPeriods.short)
+    public static getManualScaleTrigger(scaleFactor: number, tag:string="", animateLength: number = AnimationPeriods.short)
     : AnimationTriggerMetadata {
-        return trigger(AnimationTriggers.cntl_scale, [
+        let triggerTag: string = `${AnimationTriggers.cntl_scale}`;
+        if(tag){ triggerTag = `${triggerTag}_${tag}`}
+
+        return trigger(triggerTag, [
             state(ScaleStates.scale, style({
                 transform: `scale(${scaleFactor}, ${scaleFactor})`
             })),
             transition(`void <=> ${ScaleStates.scale}`, [
-                animate(`${animateLength}s`)
+                animate(`${animateLength}s`),
+                query('@*', animateChild(), { optional: true })
             ]),
             
         ])
@@ -124,7 +128,8 @@ export class Animations{
                  filter: `brightness(${highlightFactor})`
              })),
              transition(`void <=> ${ScaleStates.scale}`, [
-                 animate(`${animateLength}s`)
+                 animate(`${animateLength}s`),
+                 query('@*', animateChild(), { optional: true })
              ])
          ])
      }
@@ -145,7 +150,8 @@ export class Animations{
                 opacity: 0
             })),
             transition(`${FadeStates.in} <=> ${FadeStates.out}`, [
-                animate(`${animateLength}s`)
+                animate(`${animateLength}s`),
+                query('@*', animateChild(), { optional: true })
             ])
         ])
      }
@@ -167,7 +173,8 @@ export class Animations{
                  height: '0', opacity: 0 
              })),
              transition(`${ExpandStates.open} <=> ${ExpandStates.closed}`,[
-                 animate(`${animateLength}s`)
+                 animate(`${animateLength}s`),
+                 query('@*', animateChild(), { optional: true })
              ])
          ])
      }
@@ -192,7 +199,8 @@ export class Animations{
                 height: '0', width: '0', opacity: 0 
             })),
             transition(`* <=> ${ExpandStates.closed}`,[
-                animate(`${animateLength}s`)
+                animate(`${animateLength}s`),
+                query('@*', animateChild(), { optional: true })
             ])
         ])
     }
@@ -209,7 +217,10 @@ export class Animations{
              validated = validatePosition(pos)
              triggerConfig.push(state(`${PositionStates.moved}_${ind}`, style(validated)))
          })
-         triggerConfig.push(transition(`* <=> ${PositionStates.unmoved}`, [ animate(`${animateLength}s`)]))
+         triggerConfig.push(transition(`* <=> ${PositionStates.unmoved}`, [ 
+             animate(`${animateLength}s`),
+             query('@*', animateChild(), { optional: true })
+            ]))
          return trigger(`${AnimationTriggers.cntl_position}_${tag}`, triggerConfig);
      }
 
@@ -222,23 +233,31 @@ export class Animations{
             state(SwipeStates.right, style({
                 transform: 'translateX(200%)', opacity: 0
             })),
-            transition(`* => ${SwipeStates.left}`,
-                animate(`${animateLength}s`)
+            transition(`* => ${SwipeStates.left}`,[
+                    animate(`${animateLength}s`),
+                    query('@*', animateChild(), { optional: true })
+                ]
             ),
-            transition(`* => ${SwipeStates.right}`,
-                animate(`${animateLength}s`)
+            transition(`* => ${SwipeStates.right}`, [
+                    animate(`${animateLength}s`),
+                    query('@*', animateChild(), { optional: true })
+                ]
             ),
-            transition(`* => ${SwipeStates.unswiped_left}`,
-                animate(`${animateLength}s`, keyframes([
-                    style({ transform: 'translateX(-200%)', offset: 0 }),
-                    style({ transform: 'translateX(0%)', offset: 1})
-                ]))
+            transition(`* => ${SwipeStates.unswiped_left}`,[
+                    animate(`${animateLength}s`, keyframes([
+                        style({ transform: 'translateX(-200%)', offset: 0 }),
+                        style({ transform: 'translateX(0%)', offset: 1})
+                    ])),
+                    query('@*', animateChild(), { optional: true })
+                ]
             ),
-            transition(`* => ${SwipeStates.unswiped_right}`, 
-                animate(`${animateLength}s`, keyframes([
-                    style({ transform: 'translateX(200%)', offset: 0 }),
-                    style({ transform: 'translateX(0%)', offset: 1})
-                ]))
+            transition(`* => ${SwipeStates.unswiped_right}`, [
+                    animate(`${animateLength}s`, keyframes([
+                        style({ transform: 'translateX(200%)', offset: 0 }),
+                        style({ transform: 'translateX(0%)', offset: 1})
+                    ])),
+                    query('@*', animateChild(), { optional: true })
+                ]
             )
 
        ]);

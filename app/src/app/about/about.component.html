@@ -1,4 +1,11 @@
 <div id="about">
+
+  <div id="who-banner" class="banner"*ngIf="!mobileMode()" [@cntl_scale_banner]="whoBtnScaleCntl.state" (mouseenter)="animate('who')" (mouseleave)="prime('who')"> 
+    <div id="who-banner-text" class="fancy-text banner-content text-center" [@cntl_scale_text]="whoTxtScaleCntl.state">
+      {{ who ? 'a person' : 'who i am'}}
+    </div>
+  </div>
+
   <mat-card class="profile mat-elevation-z3">
     <div class="center">
       <div class="profile-container">
@@ -9,8 +16,8 @@
     <mat-card-title class="center">
       Grant Moore
     </mat-card-title>
-    <mat-card-subtitle class="center">
-      Solution Architect, DevOps Enginner & Full-Stack Developer
+    <mat-card-subtitle class="text-center">
+      Solution Architect, Developer & Designer
     </mat-card-subtitle>
 
     <div class="actions">
@@ -20,5 +27,10 @@
     </div>
   </mat-card>
 
+  <div id="what-banner" class="banner"  *ngIf="!mobileMode()" [@cntl_scale_banner]="whatBtnScaleCntl.state" (mouseenter)="animate('what')" (mouseleave)="prime('what')">
+    <div id="what-banner-text" class="fancy-text banner-content text-center" [@cntl_scale_text]="whatTxtScaleCntl.state">
+      {{ what ? 'things' : 'what i do'}}
+    </div>
+  </div>
 
 </div>
