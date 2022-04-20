@@ -4,6 +4,18 @@ export interface ChipConfig{
   svgIcon: string
 };
 
+export interface Experience{
+  company: string,
+  position: string,
+  years: string,
+}
+
+export interface Certification{
+  title: string,
+  src: string,
+  alt: string
+}
+
 export enum ResumePopUpStates{
   one = 0, 
   two = 1, 
@@ -50,26 +62,74 @@ export const TECHNOLOGY_CHIPS: ChipConfig[] =[
   { tooltip: "Python", href: "https://www.python.org/", svgIcon:"python"},
 ];
 
-export const EXPERIENCE : any = {
-  makpar: {
+export const EXPERIENCE_CONFIG : Experience[] = [
+  {
+    company: "Makpar, Inc.",
+    position: "DevOps Engineer",
+    years: "2021 - Current"
 
   },
-  ibm:{
-
+  {
+    company: "IBM",
+    position: "Full Stack Developer",
+    years: "2019 - 2021"
   },
-  frcc: {
-
+  {
+    company: "Front Range Community College",
+    position: "Mathematics Professor",
+    years: "2017 - 2018"
   },
-  uc: {
-
+  {
+    company: "University of Cincinnati",
+    position: "Adjunct Mathematics Professor",
+    years: "2017"
   },
-  fsu: {
-
+  {
+    company: "Frostburg State University",
+    position: "Adjunct Physics Professor",
+    years: "2015 - 2017"
   },
-  acm:{
-
+  {
+    company: "Allegany College of Maryland",
+    position: "Mathematics Professor",
+    years: "2015 - 2016"
   },
-  americorps:{
-
+  {
+    company: "Americorps",
+    position: "Mathematics Mentor",
+    years: "2014 - 2016"
   }
-}
+];
+
+export const CERTIFICATION_CONFIG: Certification[] = [
+  {
+    title: "AWS DevOps Engineer Professional",
+    src: "/assets/certs/AWS_DEVOPS.png",
+    alt: "Amazon Web Services DevOps Engineer Professional Certification"
+  },
+  {
+    title: "AWS Developer Associate",
+    src: "/assets/certs/AWS_DEVELOPER.png",
+    alt: "Amazon Web Services Developer Associate Certification"
+  },
+  {
+    title: "MTA Database Administration",
+    src: "/assets/certs/MTA_DATABASE.png",
+    alt: "Microsoft Technology Associate Database Administration Certification"
+  },
+  {
+    title: "MTA Software Development",
+    src: "/assets/certs/MTA_SOFTWARE.png",
+    alt: "Microsoft Technology Associate Software Development Fundamentals Certification"
+  },
+  {
+    title: "MTA Python Programming",
+    src: "/assets/certs/MTA_PYTHON.png",
+    alt: "Microsoft Technology Associate Introduction to Python Programming Certification"
+  },
+  {
+    title: "MTA Java Programming",
+    src: "/assets/certs/MTA_JAVA.png",
+    alt: "Microsoft Technology Associate Introduction to Java Programming Certification"
+  }
+];

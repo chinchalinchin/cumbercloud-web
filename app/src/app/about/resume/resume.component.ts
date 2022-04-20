@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AnimationControl, Animations, AnimationTriggers, ExpandStates, HighlightStates } from 'src/animations';
-import { ResumePopUpStates } from 'src/app/app.config';
+import { Certification, CERTIFICATION_CONFIG, Experience, EXPERIENCE_CONFIG, ResumePopUpStates } from 'src/app/app.config';
 import { MetaService } from 'src/services/meta.service';
 
 @Component({
@@ -18,6 +18,8 @@ export class ResumeComponent {
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public popUpStates = ResumePopUpStates;
   public popUpState: ResumePopUpStates = ResumePopUpStates.null;
+  public experience: Experience[] = EXPERIENCE_CONFIG;
+  public certifications: Certification[] = CERTIFICATION_CONFIG;
   public factHighlightCntls : AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_highlight),
     new AnimationControl(AnimationTriggers.cntl_highlight),
