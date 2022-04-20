@@ -31,9 +31,6 @@
 #btm-spacer{
   flex-grow: 1;
 }
-#master-button{
-
-}
 .nav-item{
   cursor: pointer;
   font-weight: 400;

@@ -24,9 +24,9 @@ import { HomeComponent } from './home/home.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
 import { DesignComponent } from './design/design.component';
-import { TeamComponent } from './team/team.component';
+import { AboutComponent } from './about/about.component';
 import { SheetComponent } from './sheet/sheet.component';
-import { GrantComponent } from './team/members/grant/grant.component';
+import { ResumeComponent } from './about/resume/resume.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
@@ -38,9 +38,9 @@ import { HammerConfig } from 'src/hammer';
     PricingComponent,
     ContactComponent,
     DesignComponent,
-    TeamComponent,
+    AboutComponent,
     SheetComponent,
-    GrantComponent,
+    ResumeComponent,
   ],
   imports: [
     AppRoutingModule,

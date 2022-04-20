@@ -6,15 +6,15 @@ enum popupStates{
   one, two, three, four, null
 }
 @Component({
-  selector: 'app-grant',
-  templateUrl: './grant.component.html',
-  styleUrls: ['./grant.component.css'],
+  selector: 'app-resume',
+  templateUrl: './resume.component.html',
+  styleUrls: ['./resume.component.css'],
   animations: [
     Animations.getManualExpandTrigger('60%', '80%'),
     Animations.getManualHighlightTrigger(1.25)
   ]
 })
-export class GrantComponent {
+export class ResumeComponent {
   public screenSize: string = '';
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public states = popupStates;

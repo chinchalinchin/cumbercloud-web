@@ -24,7 +24,7 @@ export class AppComponent {
   
   public navItems: NavConfig[] = [
     { path: '', title: 'Home' },
-    { path: 'team', title: 'Team' },
+    { path: 'about', title: 'About' },
     { path: 'design', title: 'Design' },
     { path: 'pricing', title: 'Pricing' },
     { path: 'contact', title: 'Contact' }
