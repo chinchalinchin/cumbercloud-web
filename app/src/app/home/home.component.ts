@@ -173,7 +173,7 @@ export class HomeComponent implements OnInit {
       case this.states.one:
           return "Web Design and Hosting";
       case this.states.two:
-          return "Cost Savings";
+          return "Cloud Computing Cost Savings";
       case this.states.three:
           return "Professional Solutions";
       case this.states.four:
@@ -188,7 +188,7 @@ export class HomeComponent implements OnInit {
       case this.states.one:
           return "Responsive sites built on modern infrastructure";
       case this.states.two:
-          return "The cloud's economy of scale";
+          return "Expert services at an affordable price";
       case this.states.three:
           return "Years of web design and software experience";
       case this.states.four:
@@ -203,11 +203,11 @@ export class HomeComponent implements OnInit {
       case this.states.one:
           return "The <strong>Cumberland Cloud</strong> offers custom web page design and cloud-based hosting for small business owners looking to expand their online footprint without breaking the bank.";
       case this.states.two:
-          return "We specialize in using the latest in serverless, low-maintenance cloud technology to architect cost-optimized web solutions that require litte-to-no overhead.";
+          return "We specialize in using the latest in serverless, low-maintenance cloud technology to architect cost-optimized web solutions that require litte-to-no overhead or recurring costs to maintain.";
       case this.states.three:
           return "Our team has a rich professional background in web development, with experience on production-scale projects from the leading names in the industry.";
       case this.states.four:
-          return "Every website we produce is built with your users in mind. Each detail is crafted to streamline the user experience and improve conversion."
+          return "Every website we produce is built with your users in mind. Each detail is crafted to streamline the user experience and improve conversion for your business."
       default:
           return "";
     }
@@ -216,16 +216,16 @@ export class HomeComponent implements OnInit {
   public getLine(state: States): string{
     switch(state){
       case this.states.four:
-        if(this.moved) return "User-Friendly";
+        if(this.moved) return "User Experience";
         return "Give me a page to land";
       case this.states.three:
-        if(this.moved) return "Expertise";
+        if(this.moved) return "Cloud Expertise";
         return "And a button big enough";
       case this.states.two:
-        if(this.moved) return "Affordable";
+        if(this.moved) return "Affordable Quality";
         return "And I will move the world.";
       case this.states.one:
-        if(this.moved) return "Custom";
+        if(this.moved) return "Custom Web Design";
         return "<a href=\"https://www.cs.drexel.edu/~crorres/Archimedes/Lever/LeverQuotes_OLD.html\" target=\"_blank\" rel=\"noopener noreferrer\">- Archimedes, probably</a>";
       default:
         return ""
