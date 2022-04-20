@@ -217,10 +217,16 @@ export class Animations{
              validated = validatePosition(pos)
              triggerConfig.push(state(`${PositionStates.moved}_${ind}`, style(validated)))
          })
-         triggerConfig.push(transition(`* <=> ${PositionStates.unmoved}`, [ 
+         positions.forEach((pos,ind)=>{ 
+            triggerConfig.push(transition(`${PositionStates.moved}_${ind} => *`, [
+                animate(`${animateLength}s`),
+                query('@*', animateChild(), { optional: true })
+            ]))
+        })
+         triggerConfig.push(transition(`${PositionStates.unmoved} => *`, [ 
              animate(`${animateLength}s`),
              query('@*', animateChild(), { optional: true })
-            ]))
+        ]))
          return trigger(`${AnimationTriggers.cntl_position}_${tag}`, triggerConfig);
      }
 

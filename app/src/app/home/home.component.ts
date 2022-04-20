@@ -173,7 +173,7 @@ export class HomeComponent implements OnInit {
       case this.states.one:
           return "Web Design and Hosting";
       case this.states.two:
-          return "Cloud Computing Cost Savings";
+          return "Cloud Cost Savings";
       case this.states.three:
           return "Professional Solutions";
       case this.states.four:

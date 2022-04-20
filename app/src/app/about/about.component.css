@@ -7,7 +7,7 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
-.profile{
+#profile-card{
   height: 70%;
 }
 .profile-container{
@@ -24,6 +24,9 @@
   padding: 2.5%;
   height: 2.5%;
   border-radius: 5%;
+}
+.banner-selected{
+  border-radius: 50%;
 }
 .sep{
   border-style: solid none none none;
@@ -46,4 +49,21 @@
   position: absolute;
   bottom: 1%;
   right: 2.5%;
+}
+
+@media(min-width: 991px){
+  #profile-card{
+    position: absolute;
+    width: 40%;
+  }
+  #who-banner{
+    position: absolute;
+    left: 5%;
+    width: 15%
+  }
+  #what-banner{
+    position: absolute;
+    right: 5%;
+    width: 15%;
+  }
 }
