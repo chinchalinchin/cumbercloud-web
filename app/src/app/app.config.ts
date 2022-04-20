@@ -4,6 +4,25 @@ export interface ChipConfig{
   svgIcon: string
 };
 
+export enum ResumePopUpStates{
+  one = 0, 
+  two = 1, 
+  three = 2, 
+  four = 3, 
+  null = -1
+}
+
+export enum ExperienceStates {
+  makpar = "makpar", 
+  ibm ="ibm", 
+  frcc ="frcc", 
+  uc="uc", 
+  fsu="fsu", 
+  acm="acm", 
+  americorps="americorps"
+}
+
+
 export const INFRASTRUCTURE_CHIPS: ChipConfig [] = [
   { tooltip: 'API Gateway', href: 'https://aws.amazon.com/api-gateway/', svgIcon: 'apigateway' },
   { tooltip:'CloudFront', href: 'https://aws.amazon.com/cloudfront/', svgIcon: 'cloudfront'},
@@ -30,3 +49,27 @@ export const TECHNOLOGY_CHIPS: ChipConfig[] =[
   { tooltip: "Typescript", href: "https://www.typescriptlang.org/", svgIcon:"typescript"},
   { tooltip: "Python", href: "https://www.python.org/", svgIcon:"python"},
 ];
+
+export const EXPERIENCE : any = {
+  makpar: {
+
+  },
+  ibm:{
+
+  },
+  frcc: {
+
+  },
+  uc: {
+
+  },
+  fsu: {
+
+  },
+  acm:{
+
+  },
+  americorps:{
+
+  }
+}

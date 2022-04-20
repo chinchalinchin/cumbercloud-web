@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatCheckboxModule } from '@angular/material/checkbox'; 
 import { MatChipsModule } from '@angular/material/chips'; 
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon'; 
 import { MatListModule } from '@angular/material/list'; 
 import { MatRadioModule } from '@angular/material/radio';
@@ -30,6 +31,7 @@ import { ResumeComponent } from './about/resume/resume.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
+import { ExperienceComponent } from './about/resume/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { HammerConfig } from 'src/hammer';
     AboutComponent,
     SheetComponent,
     ResumeComponent,
+    ExperienceComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -56,6 +59,7 @@ import { HammerConfig } from 'src/hammer';
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatDialogModule,
     MatIconModule,
     MatListModule,
     MatRadioModule,

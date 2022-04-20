@@ -1,4 +1,4 @@
-#team{
+#about{
   position: absolute;
   top: 40%;
   width: 100%;
@@ -7,7 +7,7 @@
   flex-direction: row;
   justify-content: center;
 }
-.member{
+.profile{
   height: 70%;
 }
 .profile-container{

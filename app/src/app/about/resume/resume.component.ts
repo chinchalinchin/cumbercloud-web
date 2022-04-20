@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AnimationControl, Animations, AnimationTriggers, ExpandStates, HighlightStates } from 'src/animations';
+import { ResumePopUpStates } from 'src/app/app.config';
 import { MetaService } from 'src/services/meta.service';
 
-enum popupStates{
-  one, two, three, four, null
-}
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
@@ -17,8 +16,8 @@ enum popupStates{
 export class ResumeComponent {
   public screenSize: string = '';
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
-  public states = popupStates;
-  public popUpState: popupStates = popupStates.null;
+  public popUpStates = ResumePopUpStates;
+  public popUpState: ResumePopUpStates = ResumePopUpStates.null;
   public factHighlightCntls : AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_highlight),
     new AnimationControl(AnimationTriggers.cntl_highlight),
@@ -26,7 +25,8 @@ export class ResumeComponent {
     new AnimationControl(AnimationTriggers.cntl_highlight),
   ]
 
-  constructor(private meta: MetaService) {
+  constructor(private meta: MetaService,
+              public dialog: MatDialog) {
     this.meta.mediaBreakpoint.subscribe((size: string)=>{
       console.log(size);
       this.screenSize = size;
@@ -34,79 +34,99 @@ export class ResumeComponent {
     this.popupExpandCntl.setState(ExpandStates.closed);
   }
 
+  public indexFromState(state: ResumePopUpStates){
+    switch(state){
+      case this.popUpStates.one:
+        return 0;
+      case this.popUpStates.two:
+        return 1;
+      case this.popUpStates.three:
+        return 2;
+      case this.popUpStates.four:
+        return 3;
+      default:
+        return 0;
+    }
+  }
+
+  public stateArray() {
+    return [this.popUpStates.one, this.popUpStates.two, this.popUpStates.three, this.popUpStates.four ]
+  }
+
   public mobileMode(){
     return this.screenSize == 'xs';
   }
 
-  public expand(state: popupStates): void{
+  public expandPopUp(state: ResumePopUpStates): void{
     this.popUpState = state;
     this.popupExpandCntl.animate();
   }
 
-  public close(): void{
-    this.popUpState = popupStates.null;
+  public closePopUp(): void{
+    this.popUpState = ResumePopUpStates.null;
     this.popupExpandCntl.prime();
   }
 
-  public closed(): boolean{
+  public isPopUpClosed(): boolean{
     return this.popupExpandCntl.state == ExpandStates.closed
   }
 
-  public highlighted(factIndex: number){
-    return this.factHighlightCntls[factIndex].state == HighlightStates.highlight;
+  public getPopupTitle(): string{
+    switch(this.popUpState){
+      case this.popUpStates.one:
+        return "Professional Experience"
+      case this.popUpStates.two:
+        return "Technical Certifications"
+      case this.popUpStates.three:
+        return "Academic Career"
+      case this.popUpStates.four:
+        return "Project Gallery"
+      default:
+        return ""
+    }
   }
 
-  public highlight(factIndex: number): void{
-    this.factHighlightCntls[factIndex].animate()
+  public isFactHighlighted(state: ResumePopUpStates){
+    return this.factHighlightCntls[this.indexFromState(state)].state == HighlightStates.highlight;
   }
 
-  public delight(factIndex: number): void{
-    this.factHighlightCntls[factIndex].prime()
+  public highlightFact(state: ResumePopUpStates): void{
+    this.factHighlightCntls[this.indexFromState(state)].animate()
   }
 
-  public getMessage(factIndex: number): string{
-    if(this.factHighlightCntls[factIndex].state == HighlightStates.normal){
-      switch(factIndex){
-        case 0:
+  public delightFact(state: ResumePopUpStates): void{
+    this.factHighlightCntls[this.indexFromState(state)].prime()
+  }
+
+  public getFactMessage(state: ResumePopUpStates): string{
+
+    if(this.factHighlightCntls[this.indexFromState(state)].state == HighlightStates.normal){
+      switch(state){
+        case this.popUpStates.one:
           return "Experience";
-        case 1:
+        case this.popUpStates.two:
           return "Certifications";
-        case 2:
+        case this.popUpStates.three:
           return "Education";
-        case 3:
+        case this.popUpStates.four:
           return "Portfolio";
         default:
           return "";
       }
     }
     else{
-      switch(factIndex){
-        case 0:
+      switch(state){
+        case this.popUpStates.one:
           return "Professional background";
-        case 1:
+        case this.popUpStates.two:
           return "Industry recognized expertise";
-        case 2:
+        case this.popUpStates.three:
           return "Diverse technical skill set";
-        case 3:
+        case this.popUpStates.four:
           return "Websites, applications & projects";
         default:
           return "";
       }
-    }
-  }
-
-  public getPopupTitle(): string{
-    switch(this.popUpState){
-      case this.states.one:
-        return "Professional Experience"
-      case this.states.two:
-        return "Technical Certifications"
-      case this.states.three:
-        return "Academic Career"
-      case this.states.four:
-        return "Project Gallery"
-      default:
-        return ""
     }
   }
 }
