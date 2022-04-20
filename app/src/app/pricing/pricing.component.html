@@ -4,29 +4,55 @@
     <mat-card-title>
       Project Quote Calculator
     </mat-card-title>
+    
     <mat-card-subtitle>
       Estimate your costs based on your needs
     </mat-card-subtitle>
-    <mat-card-content>
-      I want a website with the following features...
-      <section>
-        <mat-checkbox>online store</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>user accounts</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>data storage</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>forums</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>media streaming</mat-checkbox> <mat-icon>help_outline</mat-icon>
-      </section>
-      ..and the following criteria are <strong>very</strong> important...
-      <section>
-        <mat-checkbox>zero downtime</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>high availability</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>data security</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>data integrity</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>user analytics</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>low latency</mat-checkbox> <mat-icon>help_outline</mat-icon>
-        <mat-checkbox>search engine optimization</mat-checkbox> <mat-icon>help_outline</mat-icon>
 
-      </section>
+    <mat-card-content>
+      <mat-accordion displayMode="flat">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Core Features
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <section [formGroup]="featureFormGroup">
+            <div><mat-checkbox formControlName="design">Custom Design</mat-checkbox></div>
+            <div><mat-checkbox formControlName="store">Online Store</mat-checkbox></div>
+            <div><mat-checkbox formControlName="blog">Blog Posts</mat-checkbox></div>
+            <div><mat-checkbox formControlName="blog">User Accounts</mat-checkbox></div>
+            <div><mat-checkbox formControlName="blog">Forums</mat-checkbox></div>
+          </section>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Additional Specifications
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <section [formGroup]="specFormGroup">
+            <div><mat-checkbox formControlName="downtime">Zero Downtime</mat-checkbox></div>
+            <div><mat-checkbox formControlName="data">Data Storage & Access</mat-checkbox></div>
+            <div><mat-checkbox formControlName="media">Media Streaming</mat-checkbox></div>
+
+          </section>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Analytics
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <section [formGroup]="analyticsFormGroup">
+            <div><mat-checkbox formControlName="traffic">Traffic Statistics</mat-checkbox></div>
+            <div><mat-checkbox formControlName="demographics">User Demographics</mat-checkbox></div>
+            <div><mat-checkbox formControlName="seo">Search Engine Optimization</mat-checkbox></div>
+          </section>
+        </mat-expansion-panel>
+      </mat-accordion>
 
     </mat-card-content>
     <mat-card-actions align="end">

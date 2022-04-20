@@ -70,7 +70,7 @@ export class AboutComponent {
     return (this.screenSize == 'md' || this.screenSize == 'sm' || this.screenSize == 'xs');
   }
 
-  public animate(which : string){
+  public animate(which : string): void{
     this.toggleBanner(which)
     if(which === 'who'){
       this.whoBtnScaleCntl.animate();
@@ -88,7 +88,7 @@ export class AboutComponent {
     }
   }
 
-  public prime(which : string){
+  public prime(which : string): void{
     this.toggleBanner(which)
     if(which === 'who'){
       this.whoBtnScaleCntl.prime();

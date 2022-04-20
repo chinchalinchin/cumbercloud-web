@@ -7,7 +7,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatCardModule } from '@angular/material/card'; 
 import { MatCheckboxModule } from '@angular/material/checkbox'; 
-import { MatChipsModule } from '@angular/material/chips'; 
+import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon'; 
 import { MatListModule } from '@angular/material/list'; 
@@ -56,6 +57,7 @@ import { ExperienceComponent } from './about/resume/experience/experience.compon
 
     MatBottomSheetModule,
     MatButtonModule,
+    MatExpansionModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
