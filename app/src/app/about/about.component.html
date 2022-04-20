@@ -1,17 +1,29 @@
 
-<div [@cntl_position_who_1]="whoLinePositionCntls[0].state" style="position: absolute;">test here i am</div>
-<div [@cntl_position_who_2]="whoLinePositionCntls[1].state" style="position: absolute;">test here i am</div>
-<div [@cntl_position_who_3]="whoLinePositionCntls[2].state" style="position: absolute;">test here i am</div>
+<div [@cntl_position_who_1]="whoLinePositionCntls[0].state" style="position: absolute;" class="mat-h2">
+  mathematician
+</div>
+<div [@cntl_position_who_2]="whoLinePositionCntls[1].state" style="position: absolute;" class="mat-h2">
+  technologist
+</div>
+<div [@cntl_position_who_3]="whoLinePositionCntls[2].state" style="position: absolute;" class="mat-h2">
+  educator
+</div>
 
-<div [@cntl_position_what_1]="whatLinePositionCntls[0].state" style="position: absolute;">test here i am</div>
-<div [@cntl_position_what_2]="whatLinePositionCntls[1].state" style="position: absolute;">test here i am</div>
-<div [@cntl_position_what_3]="whatLinePositionCntls[2].state" style="position: absolute;">test here i am</div>
+<div [@cntl_position_what_1]="whatLinePositionCntls[0].state" style="position: absolute;" class="mat-h2">
+  test driven development
+</div>
+<div [@cntl_position_what_2]="whatLinePositionCntls[1].state" style="position: absolute;" class="mat-h2">
+  cloud architecture
+</div>
+<div [@cntl_position_what_3]="whatLinePositionCntls[2].state" style="position: absolute;" class="mat-h2">
+  scrum master
+</div>
 
 <div id="about">
 
   <div id="who-banner" class="banner" [class.banner-selected]="who" *ngIf="!mobileMode()" [@cntl_scale_banner]="whoBtnScaleCntl.state" (mouseenter)="animate('who')" (mouseleave)="prime('who')"> 
     <div id="who-banner-text" class="fancy-text banner-content text-center" [class.banner-highlight]="who" [@cntl_scale_text]="whoTxtScaleCntl.state">
-      {{ who ? 'a person' : 'who i am'}}
+      {{ who ? 'personas' : 'who i am'}}
     </div>
   </div>
 
@@ -37,7 +49,7 @@
 
   <div id="what-banner" class="banner" [class.banner-selected]="what" *ngIf="!mobileMode()" [@cntl_scale_banner]="whatBtnScaleCntl.state" (mouseenter)="animate('what')" (mouseleave)="prime('what')">
     <div id="what-banner-text" class="fancy-text banner-content text-center" [class.banner-highlight]="what" [@cntl_scale_text]="whatTxtScaleCntl.state">
-      {{ what ? 'things' : 'what i do'}}
+      {{ what ? 'proficiencies' : 'what i do'}}
     </div>
   </div>
 </div>
