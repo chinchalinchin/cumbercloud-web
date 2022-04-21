@@ -1,15 +1,16 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatAccordion } from '@angular/material/expansion';
 
+enum ButtonStyle{
+  primary="primary", accent="accent", none=""
+}
 @Component({
   selector: 'app-pricing',
   templateUrl: './pricing.component.html',
   styleUrls: ['./pricing.component.css']
 })
 export class PricingComponent{
-  @ViewChild(MatAccordion) accordion!: MatAccordion;
-
+  public buttonStyle: ButtonStyle = ButtonStyle.none;
   public featureFormGroup : FormGroup;
   public specFormGroup: FormGroup;
   public analyticsFormGroup: FormGroup;
@@ -35,8 +36,9 @@ export class PricingComponent{
     })
   }
 
-  ngAfterViewInit(): void {
-    this.accordion.closeAll()
+  public toggleButtonStyle(){
+    if(this.buttonStyle === ButtonStyle.none) { this.buttonStyle = ButtonStyle.accent; }
+    else if(this.buttonStyle === ButtonStyle.accent) { this.buttonStyle = ButtonStyle.none; }
   }
 
 }

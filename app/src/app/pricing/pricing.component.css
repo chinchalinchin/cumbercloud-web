@@ -18,3 +18,17 @@
   border-style: solid;
   border-width: 1px;
 }
+#calc-btn{
+  position: absolute;
+  right: 2.5%;
+}
+@media(min-width:991px){
+  #calc-btn{
+    top: 2.5%;
+  }
+}
+@media(max-width:992px){
+  #calc-btn{
+    bottom: 2.5%;
+  }
+}

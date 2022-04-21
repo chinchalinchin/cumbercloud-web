@@ -1,6 +1,7 @@
 <div class="pricing">
 
   <mat-card id="calc-card" class="mat-elevation-z8">
+
     <mat-card-title>
       Project Quote Calculator
     </mat-card-title>
@@ -18,11 +19,26 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <section [formGroup]="featureFormGroup">
-            <div><mat-checkbox formControlName="design">Custom Design</mat-checkbox></div>
-            <div><mat-checkbox formControlName="store">Online Store</mat-checkbox></div>
-            <div><mat-checkbox formControlName="blog">Blog Posts</mat-checkbox></div>
-            <div><mat-checkbox formControlName="blog">User Accounts</mat-checkbox></div>
-            <div><mat-checkbox formControlName="blog">Forums</mat-checkbox></div>
+            <div>
+              <mat-checkbox formControlName="design">Custom Design</mat-checkbox>
+              <mat-icon *ngIf="featureFormGroup.controls['design'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox formControlName="store">Online Store</mat-checkbox>
+              <mat-icon *ngIf="featureFormGroup.controls['store'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox formControlName="blog">Blog Posts</mat-checkbox>
+              <mat-icon *ngIf="featureFormGroup.controls['blog'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox formControlName="account">User Accounts</mat-checkbox>
+              <mat-icon *ngIf="featureFormGroup.controls['account'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox formControlName="forum">Forums</mat-checkbox>
+              <mat-icon *ngIf="featureFormGroup.controls['forum'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
           </section>
         </mat-expansion-panel>
 
@@ -33,9 +49,18 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <section [formGroup]="specFormGroup">
-            <div><mat-checkbox formControlName="downtime">Zero Downtime</mat-checkbox></div>
-            <div><mat-checkbox formControlName="data">Data Storage & Access</mat-checkbox></div>
-            <div><mat-checkbox formControlName="media">Media Streaming</mat-checkbox></div>
+            <div>
+              <mat-checkbox formControlName="downtime">Zero Downtime</mat-checkbox>
+              <mat-icon *ngIf="specFormGroup.controls['downtime'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox formControlName="data">Data Storage & Access</mat-checkbox>
+              <mat-icon *ngIf="specFormGroup.controls['data'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox formControlName="media">Media Streaming</mat-checkbox>
+              <mat-icon *ngIf="specFormGroup.controls['media'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
 
           </section>
         </mat-expansion-panel>
@@ -47,16 +72,26 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <section [formGroup]="analyticsFormGroup">
-            <div><mat-checkbox formControlName="traffic">Traffic Statistics</mat-checkbox></div>
-            <div><mat-checkbox formControlName="demographics">User Demographics</mat-checkbox></div>
-            <div><mat-checkbox formControlName="seo">Search Engine Optimization</mat-checkbox></div>
+            <div>
+              <mat-checkbox formControlName="traffic">Traffic Statistics</mat-checkbox>
+              <mat-icon *ngIf="analyticsFormGroup.controls['traffic'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox formControlName="demographics">User Demographics</mat-checkbox>
+              <mat-icon *ngIf="analyticsFormGroup.controls['demographics'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox formControlName="seo">Search Engine Optimization</mat-checkbox>
+              <mat-icon *ngIf="analyticsFormGroup.controls['seo'].value" style="float: right;" color="accent">label</mat-icon>
+            </div>
           </section>
         </mat-expansion-panel>
       </mat-accordion>
-
     </mat-card-content>
-    <mat-card-actions align="end">
-      <button mat-icon-button><mat-icon>add</mat-icon></button>
-    </mat-card-actions>
+
+    <button mat-icon-button id="calc-btn" [color]="buttonStyle" (mouseenter)="toggleButtonStyle()" (mouseleave)="toggleButtonStyle()">
+      <mat-icon>add_box</mat-icon>
+    </button>
   </mat-card>
+  
 </div>
