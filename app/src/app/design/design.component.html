@@ -1,0 +1,17 @@
+<div id="design">
+    <div id="chip-container">
+        <mat-chip-list id="tool-chip-list">
+            <mat-chip id="tool-chip" *ngFor="let tool of tools">
+                <a [href]="tool.href" target="_blank" style="margin-left: auto; margin-right: auto;">
+                    <mat-icon id="tool" [svgIcon]="tool.svgIcon" [matTooltip] ="tool.tooltip"></mat-icon>
+                </a>
+            </mat-chip>
+        </mat-chip-list>
+    </div>
+
+    <div id="design-sandbox">
+
+        <img id="pipeline" src="/assets/diagrams/aws_cicd.png">
+
+    </div>
+</div>

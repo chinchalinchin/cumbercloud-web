@@ -1,21 +1,24 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, ExpandStates, SwipeStates } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ChipConfig, DESIGN_CHIPS, INFRASTRUCTURE_CHIPS, SOFTWARE_CHIPS, TECHNOLOGY_CHIPS } from '../app.config';
+import { ChipConfig, INFRASTRUCTURE_CHIPS, TOOL_CHIPS } from '../app.config';
 
-enum PopupStates{
-  one, two, three, four, null
-};
 @Component({
   selector: 'app-design',
   templateUrl: './design.component.html',
   styleUrls: [ './design.component.css' ],
-  animations: [ ]
+  animations: [
+
+  ]
 })
 export class DesignComponent{
   public screenSize: string = '';
+  public infrastructure: ChipConfig[] = INFRASTRUCTURE_CHIPS;
+  public tools: ChipConfig[] = TOOL_CHIPS;
 
-  constructor(private meta: MetaService) {
+  constructor(private meta: MetaService,
+              public dialog: MatDialog) {
     this.meta.mediaBreakpoint.subscribe((size: string)=>{
       this.screenSize = size;
     })

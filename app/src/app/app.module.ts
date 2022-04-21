@@ -33,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
 import { ExperienceComponent } from './about/resume/experience/experience.component';
+import { ToolComponent } from './design/tool/tool.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ExperienceComponent } from './about/resume/experience/experience.compon
     SheetComponent,
     ResumeComponent,
     ExperienceComponent,
+    ToolComponent,
   ],
   imports: [
     AppRoutingModule,

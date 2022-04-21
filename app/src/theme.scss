@@ -5,6 +5,7 @@
 @use './app/app.theme' as app;
 @use './app/home/home.theme' as home;
 @use './app/design/design.theme' as design;
+@use './app/design/tool/tool.theme' as tool;
 @use './app/about/about.theme' as about;
 @use './app/sheet/sheet.theme' as sheet;
 @use './app/about/resume/resume.theme' as resume;
@@ -118,6 +119,7 @@ $cc-theme: mat-light-theme(
 @include global.theme($cc-theme);
 @include app.theme($cc-theme);
 @include design.theme($cc-theme);
+@include tool.theme($cc-theme);
 @include home.theme($cc-theme);
 @include about.theme($cc-theme);
 @include sheet.theme($cc-theme);
