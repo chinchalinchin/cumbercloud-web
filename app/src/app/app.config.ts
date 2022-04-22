@@ -48,7 +48,6 @@ export const TOOL_CHIPS: ChipConfig[] = [
   { tooltip: 'Adobe XD', href: 'https://www.adobe.com/products/xd.html', svgIcon: 'xd'},
   { tooltip: 'GNU Image Manipulation Program', href: 'https://www.gimp.org/', svgIcon: 'gimp'},
   { tooltip: 'Diagrams', href: 'https://www.diagrams.net/', svgIcon: 'drawio'},
-  { tooltip: 'HTML5', href: "https://developer.mozilla.org/en-US/docs/Web/HTML", svgIcon: "html" },
   { tooltip: "Typescript", href: "https://www.typescriptlang.org/", svgIcon:"typescript"},
   { tooltip: "Python", href: "https://www.python.org/", svgIcon:"python"},
   { tooltip: 'Angular', href: 'https://angular.io/', svgIcon: 'angular'},

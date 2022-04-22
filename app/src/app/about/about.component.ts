@@ -7,7 +7,7 @@ import { MetaService } from 'src/services/meta.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
   animations: [
-    Animations.getManualScaleTrigger(1.25, 'banner'),
+    Animations.getManualScaleTrigger(1.15, 'banner'),
     Animations.getManualScaleTrigger(0.5, 'text'),
     Animations.getManualPositionTrigger({ top: '40%', left: '7.5%'},
                                         [{ top: '57.5%', left: '7.5%' },
@@ -38,14 +38,14 @@ import { MetaService } from 'src/services/meta.service';
 export class AboutComponent {
 
   public screenSize: string = '';
-  public whoBtnScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
+  public whoBnrScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
   public whoTxtScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
   public whoLinePositionCntls: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
   ];
-  public whatBtnScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
+  public whatBnrScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
   public whatTxtScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
   public whatLinePositionCntls: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_position),
@@ -72,38 +72,44 @@ export class AboutComponent {
 
   public animate(which : string): void{
     this.toggleBanner(which)
-    if(which === 'who'){
-      this.whoBtnScaleCntl.animate();
-      this.whoTxtScaleCntl.animate();
-      this.whoLinePositionCntls.forEach((cntl: AnimationControl)=>{
-        cntl.animatePosition(0)
-      })
-    }
-    else if(which === 'what'){
-      this.whatBtnScaleCntl.animate();
-      this.whatTxtScaleCntl.animate();
-      this.whatLinePositionCntls.forEach((cntl: AnimationControl)=>{
-        cntl.animatePosition(0)
-      })
-    }
+    setTimeout(()=>{
+      if(which === 'who'){
+        this.whoBnrScaleCntl.animate();
+        this.whoTxtScaleCntl.animate();
+        this.whoLinePositionCntls.forEach((cntl: AnimationControl)=>{
+          cntl.animatePosition(0)
+        })
+      }
+      else if(which === 'what'){
+        this.whatBnrScaleCntl.animate();
+        this.whatTxtScaleCntl.animate();
+        this.whatLinePositionCntls.forEach((cntl: AnimationControl)=>{
+          cntl.animatePosition(0)
+        })
+      }
+    }, 100)
   }
 
   public prime(which : string): void{
-    this.toggleBanner(which)
     if(which === 'who'){
-      this.whoBtnScaleCntl.prime();
+      this.whoBnrScaleCntl.prime();
       this.whoTxtScaleCntl.prime();
       this.whoLinePositionCntls.forEach((cntl: AnimationControl)=>{
         cntl.animatePosition(1);
       })
     }
     else if(which === 'what'){
-      this.whatBtnScaleCntl.prime();
+      this.whatBnrScaleCntl.prime();
       this.whatTxtScaleCntl.prime();
       this.whatLinePositionCntls.forEach((cntl: AnimationControl)=>{
         cntl.animatePosition(1);
       })
     }
+    setTimeout(()=>{
+      this.toggleBanner(which)
+
+    }, AnimationPeriods.short*1000)
+
   }
 
 }

@@ -26,6 +26,9 @@
     .text-primary {
       color: map-get($primary-palette, 500);
     }
+    .text-primary-light{
+      color: map-get($primary-palette, 50);
+    }
     .btn-primary-theme{
       color: map-get($primary-palette, default-contrast);
       background-color: map-get($primary-palette, 500);

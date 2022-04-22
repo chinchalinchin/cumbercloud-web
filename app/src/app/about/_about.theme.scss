@@ -10,11 +10,20 @@
   .profile-pic, .sep{
     border-color: map-get($accent-palette, 900);
   }
-  .banner{
-    background-color: map-get($primary-palette, 50);
-  }
-  .banner-highlight{
+  .highlight{
     color: map-get($accent-palette, 300);
+  }
+  .cloud-svg-light{
+    fill: map-get($primary-palette,400);
+  }
+  .cloud-svg-select{
+    fill: map-get($primary-palette, 100)
+  }
+  .cloud-svg-dark{
+    fill: map-get($primary-palette, 700);
+  }
+  .cloud-border{
+    fill: #1D1D1B
   }
 }
 

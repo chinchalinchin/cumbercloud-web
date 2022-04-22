@@ -28,21 +28,10 @@
 .banner-selected{
   border-radius: 50%;
 }
-.sep{
-  border-style: solid none none none;
-  border-width: 2px;
-  width: 34%;
-}
 .center{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
-}
-.spaced{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   width: 100%;
 }
 .actions{
@@ -58,12 +47,26 @@
   }
   #who-banner{
     position: absolute;
-    left: 5%;
-    width: 15%
+    top: 10%;
+    left: 3.5%;
+    width: 20%;
+    height: 20%;
+  }
+  #who-cloud{
+    position: absolute;
+    top: 25%;
+    left: -2.5%;
   }
   #what-banner{
     position: absolute;
-    right: 5%;
-    width: 15%;
+    top: 10%;
+    right: 2%;
+    width: 20%;
+    height: 20%;
+  }
+  #what-cloud{
+    position: absolute;
+    top: 25%;
+    right: -2.5%;
   }
 }

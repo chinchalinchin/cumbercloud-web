@@ -1,9 +1,9 @@
 <div id="design">
     <div id="chip-container">
         <mat-chip-list id="tool-chip-list">
-            <mat-chip id="tool-chip" *ngFor="let tool of tools">
+            <mat-chip id="tool-chip" *ngFor="let tool of tools" [disabled]="isChipDisabled(tool.svgIcon)">
                 <a [href]="tool.href" target="_blank" style="margin-left: auto; margin-right: auto;">
-                    <mat-icon id="tool" [svgIcon]="tool.svgIcon" [matTooltip] ="tool.tooltip"></mat-icon>
+                    <mat-icon id="tool" [svgIcon]="tool.svgIcon" [matTooltip] ="tool.tooltip"[matTooltipDisabled]="isChipDisabled(tool.svgIcon)"></mat-icon>
                 </a>
             </mat-chip>
         </mat-chip-list>
@@ -11,7 +11,6 @@
 
     <div id="design-sandbox">
 
-        <img id="pipeline" src="/assets/diagrams/aws_cicd.png">
 
     </div>
 </div>
