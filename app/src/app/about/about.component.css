@@ -9,6 +9,8 @@
 }
 #profile-card{
   height: 70%;
+  border: solid;
+  border-width: 1px;
 }
 .profile-container{
   width: 30%;;
@@ -41,32 +43,55 @@
 }
 
 @media(min-width: 991px){
+  .animation{
+    position: absolute
+  }
   #profile-card{
     position: absolute;
     width: 40%;
   }
   #who-banner{
-    position: absolute;
     top: 10%;
     left: 3.5%;
     width: 20%;
     height: 20%;
   }
   #who-cloud{
-    position: absolute;
     top: 25%;
     left: -2.5%;
   }
+  #mathematician-text{
+    top: 57.5%;
+    left: 10%;
+  }
+  #technologist-text{
+    top: 68.5%;
+    left: 10%;
+  }
+  #educator-text{
+    top: 80%;
+    left: 10%;
+  }
   #what-banner{
-    position: absolute;
     top: 10%;
     right: 2%;
     width: 20%;
     height: 20%;
   }
   #what-cloud{
-    position: absolute;
     top: 25%;
     right: -2.5%;
+  }
+  #develop-text{
+    top: 57.5%;
+    right: 7.5%;
+  }
+  #architect-text{
+    top: 68.5%;
+    right: 7.5%;
+  }
+  #design-text{
+    top: 80%;
+    right: 7.5%;
   }
 }

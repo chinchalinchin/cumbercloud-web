@@ -46,7 +46,7 @@ export enum SwipeStates { left="left", right="right",
  * Enumeration of triggers for {@link Animations}.
  */
 export enum AnimationTriggers{
-    expand="expand", scale="scale", highlight="highlight", 
+    expand="expand", enlarge="enlarge", scale="scale", highlight="highlight", 
     fade="fade", slide="slide", float="float",
     swipe="swipe",
     cntl_fade="cntl_fade", cntl_expand="cntl_expand",
@@ -210,23 +210,24 @@ export class Animations{
      */
      public static getManualPositionTrigger(start: Position, positions: Position[], tag: string, animateLength: number = AnimationPeriods.short)
      : AnimationTriggerMetadata {
-         let triggerConfig : any[] = []
-         let validated = validatePosition(start)
-         triggerConfig.push(state(`${PositionStates.unmoved}`, style(validated)))
-         positions.forEach((pos,ind)=>{ 
-             validated = validatePosition(pos)
-             triggerConfig.push(state(`${PositionStates.moved}_${ind}`, style(validated)))
-         })
-         positions.forEach((pos,ind)=>{ 
-            triggerConfig.push(transition(`${PositionStates.moved}_${ind} => *`, [
-                animate(`${animateLength}s`),
-                query('@*', animateChild(), { optional: true })
+        let triggerConfig : any[] = []
+        let validated = validatePosition(start)
+        triggerConfig.push(state(`${PositionStates.unmoved}`, style(validated)))
+        positions.forEach((pos,ind)=>{ 
+            validated = validatePosition(pos)
+            triggerConfig.push(state(`${PositionStates.moved}_${ind}`, style(validated)))
+        })
+        positions.forEach((pos,ind)=>{ 
+        triggerConfig.push(transition(`${PositionStates.moved}_${ind} => *`, [
+            animate(`${animateLength}s`),
+            query('@*', animateChild(), { optional: true })
             ]))
         })
-         triggerConfig.push(transition(`${PositionStates.unmoved} => *`, [ 
-             animate(`${animateLength}s`),
-             query('@*', animateChild(), { optional: true })
+        triggerConfig.push(transition(`${PositionStates.unmoved} => *`, [ 
+            animate(`${animateLength}s`),
+            query('@*', animateChild(), { optional: true })
         ]))
+        triggerConfig.push(transition(':leave', []))
          return trigger(`${AnimationTriggers.cntl_position}_${tag}`, triggerConfig);
      }
 
@@ -340,13 +341,44 @@ export class Animations{
      : AnimationTriggerMetadata {
         return trigger(AnimationTriggers.expand,[
           transition(':enter',[
-              animate(`${animateLength}s`, style({  height: `${toHeight}`}))
+              animate(`${animateLength}s`, keyframes([
+                  style({ height: '0%', offset: 0 }), 
+                  style({ height: `${toHeight}`, offset: 1})
+            ])),
+              query('@*', animateChild(), { optional: true })
           ]),
           transition(':leave',[
-              animate(`${animateLength}s`, style({  height: 0 }))
+              animate(`${animateLength}s`, style({  height: 0 })),
+              query('@*', animateChild(), { optional: true })
+
           ])
         ])
       }
+
+      /**
+     * # Description
+     * Get animation trigger for expanding an element to a given width over a specific time period.
+     * @param toWidth width expressed in CSS units (e.g. %, px, em, etc.)
+     * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
+     * @returns animation expand trigger
+     */
+     public static getEnlargeTrigger(toWidth: string, animateLength: number = AnimationPeriods.short)
+     : AnimationTriggerMetadata {
+        return trigger(AnimationTriggers.enlarge,[
+          transition(':enter',[
+            animate(`${animateLength}s`, keyframes([
+                style({ width: '0%', offset: 0}),
+                style({ width: `${toWidth}`, offset: 1})
+            ])),
+            query('@*', animateChild(), { optional: true })
+          ]),
+          transition(':leave',[
+            animate(`${animateLength}s`, style({  width: 0 })),
+            query('@*', animateChild(), { optional: true })
+          ])
+        ])
+      }
+
 
      /**
       * # Description
@@ -358,10 +390,15 @@ export class Animations{
       : AnimationTriggerMetadata {
         return trigger(AnimationTriggers.fade, [
           transition(':enter',[
-              animate(`${animateLength}s`, style({  opacity: 1}))
+              animate(`${animateLength}s`, keyframes([
+                style({ opacity: 0, offset: 0}),
+                style({ opacity: 1, offset: 1})
+            ])),
+              query('@*', animateChild(), { optional: true })
           ]),
           transition(':leave',[
-              animate(`${animateLength}s`, style({  opacity: 0 }))
+              animate(`${animateLength}s`, style({  opacity: 0 })),
+              query('@*', animateChild(), { optional: true })
           ])
         ])
       }

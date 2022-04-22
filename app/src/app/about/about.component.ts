@@ -21,18 +21,35 @@ import { MetaService } from 'src/services/meta.service';
                                         [{ top: '80%', left: '7.5%' },
                                          { top: '40%', left: '7.5%'}], 
                                         'who_3', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '40%', right: '7.5%'},
-                                        [{ top: '57.5%', right: '7.5%' },
-                                         { top: '40%', right: '7.5%'}], 
+    Animations.getManualPositionTrigger({ bottom: '-20%', left: '7.5%'},
+                                        [{ bottom: '-10%', left: '7.5%' },
+                                         { bottom: '-20%', left: '7.5%'}], 
+                                        'who_grass', AnimationPeriods.short),
+    Animations.getManualPositionTrigger({ bottom: '-15%', left: '10%'},
+                                        [{ bottom: '0%', left: '10%' },
+                                         { bottom: '-15%', left: '10%'}], 
+                                        'who_flower', AnimationPeriods.short),
+    Animations.getManualPositionTrigger({ top: '40%', right: '5%'},
+                                        [{ top: '57.5%', right: '5%' },
+                                         { top: '40%', right: '5%'}], 
                                         'what_1', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '40%', right: '7.5%'},
-                                        [{ top: '68.75%', right: '7.5%' },
-                                         { top: '40%', right: '7.5%'}], 
+    Animations.getManualPositionTrigger({ top: '40%', right: '5%'},
+                                        [{ top: '68.75%', right: '5%' },
+                                         { top: '40%', right: '5%'}], 
                                         'what_2', AnimationPeriods.short),
-    Animations.getManualPositionTrigger({ top: '40%', right: '7.5%'},
-                                        [{ top: '80%', right: '7.5%' },
-                                         { top: '40%', right: '7.5%'}], 
+    Animations.getManualPositionTrigger({ top: '40%', right: '5%'},
+                                        [{ top: '80%', right: '5%' },
+                                         { top: '40%', right: '5%'}], 
                                         'what_3', AnimationPeriods.short),
+    Animations.getManualPositionTrigger({ bottom: '-20%', right: '7.5%'},
+                                        [{ bottom: '-10%', right: '7.5%' },
+                                         { bottom: '-20%', right: '7.5%'}], 
+                                        'what_grass', AnimationPeriods.short),
+    Animations.getManualPositionTrigger({ bottom: '-15%', right: '10%'},
+                                        [{ bottom: '0%', right: '10%' },
+                                         { bottom: '-15%', right: '10%'}], 
+                                        'what_flower', AnimationPeriods.short),
+    Animations.getFadeTrigger()
   ]
 })
 export class AboutComponent {
@@ -40,20 +57,25 @@ export class AboutComponent {
   public screenSize: string = '';
   public whoBnrScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
   public whoTxtScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
-  public whoLinePositionCntls: AnimationControl[] = [
+  public whoPositionCntls: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
   ];
+  public whoGrassPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
+  public whoFlowerPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
   public whatBnrScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
   public whatTxtScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
-  public whatLinePositionCntls: AnimationControl[] = [
+  public whatPositionCntls: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
     new AnimationControl(AnimationTriggers.cntl_position),
   ];
+  public whatGrassPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
+  public whatFlowerPositionCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
   public who: boolean = false;
-  public what: boolean = false
+  public what: boolean = false;
+  public unfolded: boolean = false;
 
   constructor(private meta: MetaService) {
     this.meta.mediaBreakpoint.subscribe((size: string)=>{
@@ -72,44 +94,54 @@ export class AboutComponent {
 
   public animate(which : string): void{
     this.toggleBanner(which)
+    if(which === 'who'){
+      this.whoBnrScaleCntl.animate();
+      this.whoTxtScaleCntl.animate();
+      this.whoPositionCntls.forEach((cntl: AnimationControl)=>{
+        cntl.animatePosition(0)
+      })
+      setTimeout(()=>{
+        this.whoGrassPositionCntl.animatePosition(0)
+        this.whoFlowerPositionCntl.animatePosition(0)
+      }, AnimationPeriods.short*500)
+    }
+    else if(which === 'what'){
+      this.whatBnrScaleCntl.animate();
+      this.whatTxtScaleCntl.animate();
+      this.whatPositionCntls.forEach((cntl: AnimationControl)=>{
+        cntl.animatePosition(0)
+      })
+      setTimeout(()=>{
+        this.whatGrassPositionCntl.animatePosition(0)
+        this.whatFlowerPositionCntl.animatePosition(0)
+      }, AnimationPeriods.short*500)
+    }
     setTimeout(()=>{
-      if(which === 'who'){
-        this.whoBnrScaleCntl.animate();
-        this.whoTxtScaleCntl.animate();
-        this.whoLinePositionCntls.forEach((cntl: AnimationControl)=>{
-          cntl.animatePosition(0)
-        })
-      }
-      else if(which === 'what'){
-        this.whatBnrScaleCntl.animate();
-        this.whatTxtScaleCntl.animate();
-        this.whatLinePositionCntls.forEach((cntl: AnimationControl)=>{
-          cntl.animatePosition(0)
-        })
-      }
-    }, 100)
+      this.unfolded = true;
+    }, AnimationPeriods.short*500)
   }
 
   public prime(which : string): void{
-    if(which === 'who'){
-      this.whoBnrScaleCntl.prime();
-      this.whoTxtScaleCntl.prime();
-      this.whoLinePositionCntls.forEach((cntl: AnimationControl)=>{
-        cntl.animatePosition(1);
-      })
-    }
-    else if(which === 'what'){
-      this.whatBnrScaleCntl.prime();
-      this.whatTxtScaleCntl.prime();
-      this.whatLinePositionCntls.forEach((cntl: AnimationControl)=>{
-        cntl.animatePosition(1);
-      })
-    }
-    setTimeout(()=>{
+    this.unfolded = false;
       this.toggleBanner(which)
-
-    }, AnimationPeriods.short*1000)
-
+      if(which === 'who'){
+        this.whoBnrScaleCntl.prime();
+        this.whoTxtScaleCntl.prime();
+        this.whoPositionCntls.forEach((cntl: AnimationControl)=>{
+          cntl.animatePosition(1);
+        })
+        this.whoGrassPositionCntl.animatePosition(1);
+        this.whoFlowerPositionCntl.animatePosition(1);
+      }
+      else if(which === 'what'){
+        this.whatBnrScaleCntl.prime();
+        this.whatTxtScaleCntl.prime();
+        this.whatPositionCntls.forEach((cntl: AnimationControl)=>{
+          cntl.animatePosition(1);
+        })
+        this.whatGrassPositionCntl.animatePosition(1);
+        this.whatFlowerPositionCntl.animatePosition(1)
+      }
   }
 
 }
