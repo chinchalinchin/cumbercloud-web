@@ -12,8 +12,16 @@
     flex-direction: row;
     justify-content: center;
 }
-#separate-img{
+#splash-img{
     border-radius: 20%;
+}
+#splash-bubble{
+    top: 52%;
+    left: 58%;
+}
+#design-title{
+    top: 23.5%;
+    left: 29%;
 }
 #design-phase{
     left: 5%;
@@ -21,6 +29,10 @@
 #design-phase-bg{
     left: 2.5%;
     right: 82.5%;
+}
+#develop-title{
+    top: 23.5%;
+    left: 42.5%;
 }
 #develop-phase{
     left: 25%;

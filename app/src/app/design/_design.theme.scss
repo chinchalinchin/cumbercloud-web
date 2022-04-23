@@ -13,6 +13,12 @@
   .splash{
     background-color: rgba(map-get($primary-palette, 50), 0.5);;
   }
+  .bubble{
+    fill: map-get($primary-palette, 700);
+  }
+  .bubble-light{
+    fill: map-get($primary-palette, 300);
+  }
 }
 
 @mixin theme($theme) {

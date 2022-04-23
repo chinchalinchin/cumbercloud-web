@@ -38,6 +38,10 @@ export enum HighlightStates{  highlight="highlight", normal="normal"  }
  */
 export enum FadeStates { in="in", out="out" }
 /**
+ * Enumeration of {@link Animations} fade states
+ */
+ export enum SkewStates { skewed="skewed", normal="normal" }
+/**
  * 
  */
 export enum SwipeStates { left="left", right="right", 
@@ -51,7 +55,8 @@ export enum AnimationTriggers{
     swipe="swipe",
     cntl_fade="cntl_fade", cntl_expand="cntl_expand",
     cntl_highlight="cntl_highlight", cntl_scale="cntl_scale",
-    cntl_fold="cntl_fold", cntl_position="cntl_position"
+    cntl_fold="cntl_fold", cntl_position="cntl_position",
+    cntl_skew="cntl_skew"
 }
 /**
  * Enumeration of animation lengths for {@link Animations}
@@ -113,6 +118,30 @@ export class Animations{
             
         ])
     }
+
+     /**
+     * # Description
+     * Get animation trigger for skewing an element by a given factor over a specified time period
+     * @param skewFactor skew factor expressed as an angle measured in degrees
+     * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
+     * @returns animation skew trigger
+     */
+      public static getManualSkewTrigger(skewFactor: number, tag:string="", animateLength: number = AnimationPeriods.short)
+      : AnimationTriggerMetadata {
+          let triggerTag: string = `${AnimationTriggers.cntl_scale}`;
+          if(tag){ triggerTag = `${triggerTag}_${tag}`}
+  
+          return trigger(triggerTag, [
+              state(ScaleStates.scale, style({
+                  transform: `skew(${skewFactor}deg, ${skewFactor}deg)`
+              })),
+              transition(`void <=> ${ScaleStates.scale}`, [
+                  animate(`${animateLength}s`),
+                  query('@*', animateChild(), { optional: true })
+              ]),
+              
+          ])
+      }
 
     /**
      * # Description
@@ -465,6 +494,10 @@ export class AnimationControl{
             case AnimationTriggers.cntl_position:
                 this.state = PositionStates.moved;
                 break;
+            case AnimationTriggers.cntl_skew:
+                this.state = SkewStates.skewed;
+                break;
+
         }
     }
 
@@ -495,6 +528,9 @@ export class AnimationControl{
                 break;
             case AnimationTriggers.cntl_position:
                 this.state = PositionStates.unmoved;
+                break;
+            case AnimationTriggers.cntl_skew:
+                this.state = SkewStates.normal;
                 break;
         }
     }

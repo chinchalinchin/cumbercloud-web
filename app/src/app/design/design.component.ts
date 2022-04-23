@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, FadeStates } from 'src/animations';
+import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, FadeStates, ScaleStates } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, TOOL_CHIPS } from '../app.config';
 
@@ -18,15 +18,17 @@ enum Splash{
   animations: [
     Animations.getScaleTrigger(1),
     Animations.getManualScaleTrigger(1.15),
+    Animations.getManualScaleTrigger(1.10, 'slow', AnimationPeriods.medium),
     Animations.getManualFadeTrigger(),
   ]
 })
 export class DesignComponent implements OnInit{
   public phases: any = Phases;
-  //public phase: Phases = Phases.none;
-  public phase: Phases = Phases.design;
+  public phase: Phases = Phases.none;
   public splashes: any = Splash;
   public splash: Splash = Splash.untouched;
+  public oscillating: boolean = false;
+  public lured: boolean = false;
   public screenSize: string = '';
   public tools: ChipConfig[] = TOOL_CHIPS;
   public phaseIcons : any[] = [
@@ -44,18 +46,34 @@ export class DesignComponent implements OnInit{
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade)
   ];
+  public designLinesFadeCntl: AnimationControl[] = [
+    new AnimationControl(AnimationTriggers.cntl_fade),
+    new AnimationControl(AnimationTriggers.cntl_fade),
+    new AnimationControl(AnimationTriggers.cntl_fade)
+  ];
+  public developLinesFadeCntl: AnimationControl[] = [
+    new AnimationControl(AnimationTriggers.cntl_fade),
+    new AnimationControl(AnimationTriggers.cntl_fade),
+    new AnimationControl(AnimationTriggers.cntl_fade)
+  ];
   public splashSrcFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
-  public splashSrcScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
+  public lureScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
 
   constructor(private meta: MetaService,
               public dialog: MatDialog) {
     this.meta.mediaBreakpoint.subscribe((size: string)=>{
       this.screenSize = size;
-    })
+    });
     this.splashLines1FadeCntl.forEach((cntl:AnimationControl)=>{
       cntl.setState(FadeStates.out);
-    })
+    });
     this.splashLines2FadeCntl.forEach((cntl:AnimationControl)=>{
+      cntl.setState(FadeStates.out);
+    });
+    this.designLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+      cntl.setState(FadeStates.out);
+    })
+    this.developLinesFadeCntl.forEach((cntl:AnimationControl)=>{
       cntl.setState(FadeStates.out);
     })
    }
@@ -67,6 +85,10 @@ export class DesignComponent implements OnInit{
         if(ind===this.splashLines1FadeCntl.length - 1){
           setTimeout(()=>{
             this.phase = Phases.splash;
+            setTimeout(()=>{
+              this.oscillate();
+              this.oscillating = true;
+            }, AnimationPeriods.short*1000);
           }, AnimationPeriods.medium*1000);
         }
       }, AnimationPeriods.medium*1000*ind);
@@ -89,6 +111,22 @@ export class DesignComponent implements OnInit{
         return false;
       default:
         return true;
+    }
+  }
+
+  public oscillated(){ return this.lureScaleCntl.state === ScaleStates.scale; }
+  
+  public oscillate(){
+    if(this.lureScaleCntl.state === ScaleStates.normal){
+      this.lureScaleCntl.animate();
+    }
+    else if(this.lureScaleCntl.state === ScaleStates.scale){
+      this.lureScaleCntl.prime();
+    }
+    if(!this.lured){
+      setTimeout(()=>{
+        this.oscillate();
+      }, AnimationPeriods.medium*1000)
     }
   }
 
@@ -122,11 +160,27 @@ export class DesignComponent implements OnInit{
         break;
       case Phases.splash:
         this.phase = Phases.design;
+        this.designLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
+          setTimeout(()=>{
+            cntl.prime();
+          }, AnimationPeriods.medium*1500*ind)
+        });
         break;
       case Phases.design:
+        this.designLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+          cntl.animate();
+        });
         this.phase = Phases.develop;
+        this.developLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
+          setTimeout(()=>{
+            cntl.prime();
+          }, AnimationPeriods.medium*1500*ind)
+        });
         break;
       case Phases.develop:
+        this.developLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+          cntl.animate();
+        })
         this.phase = Phases.deploy;
         break;
       case Phases.deploy:
@@ -144,10 +198,23 @@ export class DesignComponent implements OnInit{
         this.phase = Phases.splash;
         break;
       case Phases.develop:
+        this.developLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
+            cntl.animate();
+        });
         this.phase = Phases.design;
+        this.designLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
+          setTimeout(()=>{
+            cntl.prime();
+          }, AnimationPeriods.medium*1500*ind)
+        });
         break;
       case Phases.deploy:
         this.phase = Phases.develop;
+        this.developLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
+          setTimeout(()=>{
+            cntl.prime();
+          }, AnimationPeriods.medium*1500*ind)
+        });
         break;
       case Phases.deliver:
         this.phase = Phases.deploy;
@@ -156,7 +223,7 @@ export class DesignComponent implements OnInit{
   }
 
   public touchSplash(): void{ 
-    if(this.splash === Splash.untouched){
+    if(this.splash === Splash.untouched && this.lured){
       this.splashSrcFadeCntl.animate();
       setTimeout(()=>{
         this.splash = Splash.touched; 
@@ -172,15 +239,6 @@ export class DesignComponent implements OnInit{
         }, AnimationPeriods.medium*1500)
       }, AnimationPeriods.medium*1000)
     }
-    else if(this.splash === Splash.touched){
-      this.splashSrcScaleCntl.animate();
-    }
-  }
-
-  public normalizeSplash(): void{
-    if(this.splash === Splash.touched){
-      this.splashSrcScaleCntl.prime();
-    }
   }
 
   public splashSrc(): string{
@@ -188,9 +246,13 @@ export class DesignComponent implements OnInit{
       case Splash.untouched:
         return "/assets/imgs/separated.jpg";
       case Splash.touched:
-        return "/assets/imgs/design-03.jpg";
+        return "/assets/imgs/cloud_tunnel.jpg";
       default:
         return "/assets/imgs/separated.jpg";
     }
+  }
+
+  public lure(){
+    this.lured = true;
   }
 }
