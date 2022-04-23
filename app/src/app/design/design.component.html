@@ -193,15 +193,17 @@
     <div class="v-align splash" style="margin-top: 1%; z-index:0;">
         <div class="space-flex">
             <div id="first-splash" class="splash-banner" style="text-align: left; margin-left: 5%;">
-                <div class="mat-h1" [@cntl_fade]="splashLines1FadeCntl[0].state">what sets</div>
-                <div class="fancy-text" [@cntl_fade]="splashLines1FadeCntl[1].state">the cumberland cloud</div>
-                <div class="mat-h1" [@cntl_fade]="splashLines1FadeCntl[2].state">apart...</div>
+                <div class="mat-h1" [@cntl_fade]="splashLines1FadeCntl[0].state" *ngIf="phasedIn(phases.none)">what sets</div>
+                <div class="fancy-text" [@cntl_fade]="splashLines1FadeCntl[1].state" *ngIf="phasedIn(phases.none)">the cumberland cloud</div>
+                <div class="mat-h1" [@cntl_fade]="splashLines1FadeCntl[2].state" *ngIf="phasedIn(phases.none)">apart...</div>
             </div>
-            <img id="separate-img" class="mat-elevation-z4" src="/assets/imgs/separated.jpg" width="30%" [@scale] *ngIf="phasedIn(phases.splash)">
+            <div class="v-align" style="width: 30%; height: 100%;" [@cntl_fade]="splashSrcFadeCntl.state">
+                <img id="separate-img" class="mat-elevation-z4" src="/assets/imgs/separated.jpg" width="100%" height="90%" [@scale] *ngIf="phasedIn(phases.splash)" (mouseenter)="touchSplash()">
+            </div>
             <div id="second-splash" class="splash-banner" style="text-align: right; margin-right: 5%;">
-                <div class="mat-h1">...is our approach to crafting</div>
-                <div class="fancy-text">a truly unique</div>
-                <div class="mat-h1">user experience.</div>
+                <div class="mat-h1" [@cntl_fade]="splashLines2FadeCntl[0].state" *ngIf="phasedIn(phases.splash)">...is our approach to crafting</div>
+                <div class="fancy-text" [@cntl_fade]="splashLines2FadeCntl[1].state" *ngIf="phasedIn(phases.splash)">a truly unique</div>
+                <div class="mat-h1" [@cntl_fade]="splashLines2FadeCntl[2].state" *ngIf="phasedIn(phases.splash)">user experience.</div>
             </div>
         </div>
     </div>
@@ -213,7 +215,7 @@
             </button>
         </div>
         <div>
-            <button mat-mini-fab [disabled]="[phases.none,phases.deliver].includes(phase)" (click)="increment()">
+            <button mat-mini-fab [disabled]="[phases.none,phases.deliver].includes(phase) || splash !== splashes.touched" (click)="increment()">
                 <mat-icon>arrow_forward</mat-icon>
             </button>
         </div>

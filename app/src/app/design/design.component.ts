@@ -21,8 +21,9 @@ enum Splash{
   ]
 })
 export class DesignComponent implements OnInit{
-  public phases = Phases;
+  public phases: any = Phases;
   public phase: Phases = Phases.none;
+  public splashes: any = Splash;
   public splash: Splash = Splash.untouched;
   public screenSize: string = '';
   public infrastructure: ChipConfig[] = INFRASTRUCTURE_CHIPS;
@@ -42,6 +43,7 @@ export class DesignComponent implements OnInit{
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade)
   ];
+  public splashSrcFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade)
 
   constructor(private meta: MetaService,
               public dialog: MatDialog) {
@@ -49,7 +51,10 @@ export class DesignComponent implements OnInit{
       this.screenSize = size;
     })
     this.splashLines1FadeCntl.forEach((cntl:AnimationControl)=>{
-      cntl.setState(FadeStates.out)
+      cntl.setState(FadeStates.out);
+    })
+    this.splashLines2FadeCntl.forEach((cntl:AnimationControl)=>{
+      cntl.setState(FadeStates.out);
     })
    }
 
@@ -60,9 +65,9 @@ export class DesignComponent implements OnInit{
         if(ind===this.splashLines1FadeCntl.length - 1){
           setTimeout(()=>{
             this.phase = Phases.splash;
-          }, AnimationPeriods.short*1000);
+          }, AnimationPeriods.medium*1000);
         }
-      }, AnimationPeriods.short*1500*ind);
+      }, AnimationPeriods.medium*1000*ind);
     })
   }
 
@@ -85,10 +90,12 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public phasedIn(phase: Phases){
+  public phasedIn(phase: Phases): boolean{
     switch(this.phase){
+      case Phases.none:
+        return phase === Phases.none;
       case Phases.splash:
-        return phase === Phases.splash;
+        return [Phases.splash, Phases.none].includes(phase);
       case Phases.design:
         return phase === Phases.design;
       case Phases.develop:
@@ -102,7 +109,7 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public increment(){
+  public increment(): void{
     switch(this.phase){
       case Phases.none:
         this.phase = Phases.splash;
@@ -122,7 +129,7 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public decrement(){
+  public decrement(): void{
     switch(this.phase){
       case Phases.splash:
         this.phase = Phases.none;
@@ -139,6 +146,37 @@ export class DesignComponent implements OnInit{
       case Phases.deliver:
         this.phase = Phases.deploy;
         break;
+    }
+  }
+
+  public touchSplash(): void{ 
+    this.splashSrcFadeCntl.animate();
+    setTimeout(()=>{
+      this.splashSrcFadeCntl.prime();
+      setTimeout(()=>{
+        this.splashLines2FadeCntl.forEach((cntl: AnimationControl, ind: number)=>{
+          setTimeout(()=>{
+            cntl.prime();
+            if(ind===this.splashLines1FadeCntl.length - 1){
+              setTimeout(()=>{
+                this.splash = Splash.touched; 
+              }, AnimationPeriods.medium*1000);
+            }
+
+          }, AnimationPeriods.medium*1500*ind);
+        })
+      }, AnimationPeriods.medium*1500)
+    }, AnimationPeriods.medium*1000)
+  }
+
+  public splashSrc(): string{
+    switch(this.splash){
+      case Splash.untouched:
+        return "/assets/imgs/separated.jpg";
+      case Splash.touched:
+        return "/assets/imgs/separated.jpg";
+      default:
+        return "/assets/imgs/separated.jpg";
     }
   }
 }
