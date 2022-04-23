@@ -402,6 +402,27 @@ export class Animations{
           ])
         ])
       }
+
+      /**
+     * # Description
+     * Get animation trigger for scaling an element by a given factor over a specified time period
+     * @param scaleFactor scale factor expressed as a ratio of initial height (e.g. 0.5, 1, 1.25, etc.)
+     * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
+     * @returns animation scale trigger
+     */
+    public static getScaleTrigger(scaleFactor: number, tag:string="", animateLength: number = AnimationPeriods.short)
+    : AnimationTriggerMetadata {
+        return trigger(`${AnimationTriggers.scale}`, [
+            transition(`:enter`, [
+                animate(`${animateLength}s`, keyframes([
+                    style({ transform: 'scale(0, 0)', offset: 0}),
+                    style({transform: `scale(${scaleFactor}, ${scaleFactor})`, offset: 1})
+                ])),
+                query('@*', animateChild(), { optional: true })
+            ]),
+            
+        ])
+    }
 }
 
 /**

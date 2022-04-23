@@ -53,6 +53,10 @@ export const TOOL_CHIPS: ChipConfig[] = [
   { tooltip: 'Angular', href: 'https://angular.io/', svgIcon: 'angular'},
   { tooltip: 'Django', href: 'https://www.djangoproject.com/', svgIcon: 'django'},
   { tooltip: 'Docker', href: 'https://www.docker.com/', svgIcon: 'docker'},
+  { tooltip: 'CloudFront', href: 'https://aws.amazon.com/cloudfront/', svgIcon: 'cloudfront'},
+  { tooltip: 'S3', href: 'https://aws.amazon.com/S3/', svgIcon: 's3'},
+  { tooltip: 'Lambda', href: 'https://aws.amazon.com/lambda/', svgIcon: 'lambda'},
+  { tooltip: 'API Gateway', href: 'https://aws.amazon.com/api-gateway/', svgIcon: 'apigateway' },
 ]
 
 export const EXPERIENCE_CONFIG : Experience[] = [
