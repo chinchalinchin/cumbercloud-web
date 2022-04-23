@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, FadeStates } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ChipConfig, INFRASTRUCTURE_CHIPS, TOOL_CHIPS } from '../app.config';
+import { ChipConfig, TOOL_CHIPS } from '../app.config';
 
 enum Phases{
   none="none", splash="splash", design="design", develop="develop", deploy="deploy", deliver="deliver"
@@ -26,7 +26,6 @@ export class DesignComponent implements OnInit{
   public splashes: any = Splash;
   public splash: Splash = Splash.untouched;
   public screenSize: string = '';
-  public infrastructure: ChipConfig[] = INFRASTRUCTURE_CHIPS;
   public tools: ChipConfig[] = TOOL_CHIPS;
   public phaseIcons : any[] = [
     ['xd', 'gimp', 'drawio'],
@@ -90,19 +89,23 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public phasedIn(phase: Phases): boolean{
+  public phasedIn(phase: Phases, strict: boolean = false): boolean{
     switch(this.phase){
       case Phases.none:
         return phase === Phases.none;
       case Phases.splash:
+        if(strict) return phase === Phases.splash;
         return [Phases.splash, Phases.none].includes(phase);
       case Phases.design:
         return phase === Phases.design;
       case Phases.develop:
+        if(strict) return phase === Phases.develop;
         return [Phases.design, Phases.develop].includes(phase);
       case Phases.deploy:
+        if(strict) return phase === Phases.deploy;
         return [Phases.design, Phases.develop, Phases.deploy].includes(phase);
       case Phases.deliver:
+        if(strict) return phase === Phases.deliver;
         return [Phases.design, Phases.develop, Phases.deploy, Phases.deliver].includes(phase);
       default:
         return false
@@ -150,23 +153,22 @@ export class DesignComponent implements OnInit{
   }
 
   public touchSplash(): void{ 
-    this.splashSrcFadeCntl.animate();
-    setTimeout(()=>{
-      this.splashSrcFadeCntl.prime();
+    if(this.splash === Splash.untouched){
+      this.splashSrcFadeCntl.animate();
       setTimeout(()=>{
-        this.splashLines2FadeCntl.forEach((cntl: AnimationControl, ind: number)=>{
-          setTimeout(()=>{
-            cntl.prime();
-            if(ind===this.splashLines1FadeCntl.length - 1){
-              setTimeout(()=>{
-                this.splash = Splash.touched; 
-              }, AnimationPeriods.medium*1000);
-            }
-
-          }, AnimationPeriods.medium*1500*ind);
-        })
-      }, AnimationPeriods.medium*1500)
-    }, AnimationPeriods.medium*1000)
+        this.splash = Splash.touched; 
+        setTimeout(()=>{
+          this.splashSrcFadeCntl.prime();
+        }, AnimationPeriods.medium*500)
+        setTimeout(()=>{
+          this.splashLines2FadeCntl.forEach((cntl: AnimationControl, ind: number)=>{
+            setTimeout(()=>{
+              cntl.prime();
+            }, AnimationPeriods.medium*1500*ind);
+          })
+        }, AnimationPeriods.medium*1500)
+      }, AnimationPeriods.medium*1000)
+    }
   }
 
   public splashSrc(): string{
@@ -174,7 +176,7 @@ export class DesignComponent implements OnInit{
       case Splash.untouched:
         return "/assets/imgs/separated.jpg";
       case Splash.touched:
-        return "/assets/imgs/separated.jpg";
+        return "/assets/graphics/cloud_design-01.png";
       default:
         return "/assets/imgs/separated.jpg";
     }

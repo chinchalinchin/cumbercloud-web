@@ -34,16 +34,6 @@ export enum ExperienceStates {
   americorps="americorps"
 }
 
-
-export const INFRASTRUCTURE_CHIPS: ChipConfig [] = [
-  { tooltip: 'API Gateway', href: 'https://aws.amazon.com/api-gateway/', svgIcon: 'apigateway' },
-  { tooltip: 'CloudFront', href: 'https://aws.amazon.com/cloudfront/', svgIcon: 'cloudfront'},
-  { tooltip: 'Cognito', href: 'https://aws.amazon.com/cognito', svgIcon: 'cognito'},
-  { tooltip: 'DynamoDB', href: 'https://aws.amazon.com/dynamodb/', svgIcon: 'dynamodb'},
-  { tooltip: 'Lambda', href: 'https://aws.amazon.com/lambda/', svgIcon: 'lambda'},
-  { tooltip: 'S3', href: 'https://aws.amazon.com/S3/', svgIcon: 's3'},
-];
-
 export const TOOL_CHIPS: ChipConfig[] = [
   { tooltip: 'Adobe XD', href: 'https://www.adobe.com/products/xd.html', svgIcon: 'xd'},
   { tooltip: 'GNU Image Manipulation Program', href: 'https://www.gimp.org/', svgIcon: 'gimp'},

@@ -44,6 +44,10 @@
 
 <div id="develop-phase-bg" class="placard animation mat-elevation-z3" [@scale] *ngIf="phasedIn(phases.develop)"></div>
 
+<div id="develop-phase-txt" class="animation" style="top: 10%;" *ngIf="phasedIn(phases.develop, true)">
+testing testing
+</div>
+
 <button mat-icon-button class="animation" style="top: 71.5%; left: 28.5%" *ngIf="phasedIn(phases.develop)" [@scale] color="accent">
     <mat-icon>looks_two</mat-icon>
 </button>
@@ -198,7 +202,7 @@
                 <div class="mat-h1" [@cntl_fade]="splashLines1FadeCntl[2].state" *ngIf="phasedIn(phases.none)">apart...</div>
             </div>
             <div class="v-align" style="width: 30%; height: 100%;" [@cntl_fade]="splashSrcFadeCntl.state">
-                <img id="separate-img" class="mat-elevation-z4" src="/assets/imgs/separated.jpg" width="100%" height="90%" [@scale] *ngIf="phasedIn(phases.splash)" (mouseenter)="touchSplash()">
+                <img id="separate-img" class="mat-elevation-z4" [src]="splashSrc()" width="100%" height="90%" [@scale] *ngIf="phasedIn(phases.splash)" (mouseenter)="touchSplash()">
             </div>
             <div id="second-splash" class="splash-banner" style="text-align: right; margin-right: 5%;">
                 <div class="mat-h1" [@cntl_fade]="splashLines2FadeCntl[0].state" *ngIf="phasedIn(phases.splash)">...is our approach to crafting</div>
