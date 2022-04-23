@@ -1,5 +1,9 @@
 <div id="design-phase-bg" class="placard animation" *ngIf="phasedIn(phases.design)" [@scale]></div>
 
+<button mat-icon-button class="animation" style="top: 71.5%; left: 8.5%" *ngIf="phasedIn(phases.design)" [@scale] color="accent">
+    <mat-icon>looks_one</mat-icon>
+</button>
+
 <svg x="0px" y="0px" viewBox="0 0 501.551 501.551" id="design-phase" class="animation" width="10%" [@scale] *ngIf="phasedIn(phases.design)">
     <path style="fill:#F2F2F2;" d="M337.502,0H58.514C47.02,0,37.616,9.404,37.616,20.898v459.755c0,11.494,9.404,20.898,20.898,20.898
 	h384.522c11.494,0,20.898-9.404,20.898-20.898v-354.22L337.502,0z"/>
@@ -39,6 +43,10 @@
 
 <div id="develop-phase-bg" class="placard animation" [@scale] *ngIf="phasedIn(phases.develop)"></div>
 
+<button mat-icon-button class="animation" style="top: 71.5%; left: 28.5%" *ngIf="phasedIn(phases.develop)" [@scale] color="accent">
+    <mat-icon>looks_two</mat-icon>
+</button>
+
 <svg x="0px" y="0px" viewBox="0 0 512 512" id="develop-phase" class="animation" width="10%" [@scale] *ngIf="phasedIn(phases.develop)">
     <rect x="160" y="357.416" style="fill:#333333;" width="192" height="108.336"/>
     <polygon points="160,376.152 274.24,376.152 160,434.056 "/>
@@ -57,6 +65,10 @@
 </svg>
 
 <div id="deploy-phase-bg" class="placard animation" [@scale] *ngIf="phasedIn(phases.deploy)"></div>
+
+<button mat-icon-button class="animation" style="top: 71.5%; left: 68.5%" *ngIf="phasedIn(phases.deploy)" [@scale] color="accent">
+    <mat-icon>looks_3</mat-icon>
+</button>
 
 <svg x="0px" y="0px" viewBox="0 0 496 496" id="deploy-phase" class="animation" width="10%" [@scale] *ngIf="phasedIn(phases.deploy)">
     <path style="fill:#4CA1A5;" d="M474.8,180c0.8-4.8,1.6-10.4,1.6-15.2c0-43.2-34.4-78.4-76.8-80C388.4,36,345.2,0,293.2,0
@@ -102,6 +114,10 @@
 </svg>
 
 <div id="deliver-phase-bg" class="placard animation" [@scale] *ngIf="phasedIn(phases.deliver)"></div>
+
+<button mat-icon-button class="animation" style="top: 71.5%; left: 88.5%" *ngIf="phasedIn(phases.deliver)" [@scale] color="accent">
+    <mat-icon>looks_4</mat-icon>
+</button>
 
 <svg x="0px" y="0px" viewBox="0 0 512 512" id="deliver-phase" class="animation" width="10%" [@scale] *ngIf="phasedIn(phases.deliver)">
     <path style="fill:#FFD652;" d="M484.982,331.558h-35.35v-94.442c0-13.112-10.63-23.742-23.742-23.742H306.833

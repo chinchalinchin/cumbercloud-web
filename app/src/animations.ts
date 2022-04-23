@@ -420,6 +420,13 @@ export class Animations{
                 ])),
                 query('@*', animateChild(), { optional: true })
             ]),
+            transition(`:leave`, [
+                animate(`${animateLength}s`, keyframes([
+                    style({transform: `scale(${scaleFactor}, ${scaleFactor})`, offset: 0}),
+                    style({ transform: 'scale(0, 0)', offset: 1})
+                ])),
+                query('@*', animateChild(), { optional: true })
+            ]),
             
         ])
     }

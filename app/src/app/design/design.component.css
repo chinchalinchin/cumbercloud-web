@@ -13,32 +13,32 @@
     justify-content: center;
 }
 #design-phase{
-    left: 10%;
+    left: 5%;
 }
 #design-phase-bg{
-    left: 7.5%;
-    right: 77.5%;
+    left: 2.5%;
+    right: 82.5%;
 }
 #develop-phase{
-    left: 30%;
+    left: 25%;
 }
 #develop-phase-bg{
-    left: 27.5%;
-    right: 57.5%;
+    left: 22.5%;
+    right: 62.5%;
 }
 #deploy-phase{
-    left: 60%;
+    left: 65%;
 }
 #deploy-phase-bg{
-    left: 57.5%;
-    right: 27.5%;
+    left: 62.5%;
+    right: 22.5%;
 }
 #deliver-phase{
-    left: 80%;
+    left: 85%;
 }
 #deliver-phase-bg{
-    left: 77.5%;
-    right: 7.5%;
+    left: 82.5%;
+    right: 2.5%;
 }
 .animation{
     position: absolute;
