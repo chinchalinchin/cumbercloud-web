@@ -17,12 +17,14 @@ enum Splash{
   styleUrls: [ './design.component.css' ],
   animations: [
     Animations.getScaleTrigger(1),
+    Animations.getManualScaleTrigger(1.15),
     Animations.getManualFadeTrigger(),
   ]
 })
 export class DesignComponent implements OnInit{
   public phases: any = Phases;
-  public phase: Phases = Phases.none;
+  //public phase: Phases = Phases.none;
+  public phase: Phases = Phases.design;
   public splashes: any = Splash;
   public splash: Splash = Splash.untouched;
   public screenSize: string = '';
@@ -42,7 +44,8 @@ export class DesignComponent implements OnInit{
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade)
   ];
-  public splashSrcFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade)
+  public splashSrcFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
+  public splashSrcScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
 
   constructor(private meta: MetaService,
               public dialog: MatDialog) {
@@ -169,6 +172,15 @@ export class DesignComponent implements OnInit{
         }, AnimationPeriods.medium*1500)
       }, AnimationPeriods.medium*1000)
     }
+    else if(this.splash === Splash.touched){
+      this.splashSrcScaleCntl.animate();
+    }
+  }
+
+  public normalizeSplash(): void{
+    if(this.splash === Splash.touched){
+      this.splashSrcScaleCntl.prime();
+    }
   }
 
   public splashSrc(): string{
@@ -176,7 +188,7 @@ export class DesignComponent implements OnInit{
       case Splash.untouched:
         return "/assets/imgs/separated.jpg";
       case Splash.touched:
-        return "/assets/graphics/cloud_design-01.png";
+        return "/assets/imgs/design-03.jpg";
       default:
         return "/assets/imgs/separated.jpg";
     }
