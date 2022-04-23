@@ -10,6 +10,9 @@
   .placard{
     background-color: map-get($primary-palette, 200);
   }
+  .splash{
+    background-color: rgba(map-get($primary-palette, 50), 0.5);;
+  }
 }
 
 @mixin theme($theme) {

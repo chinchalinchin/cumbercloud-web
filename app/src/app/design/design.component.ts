@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers } from 'src/animations';
+import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, FadeStates } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, INFRASTRUCTURE_CHIPS, TOOL_CHIPS } from '../app.config';
 
 enum Phases{
-  none="none", design="design", develop="develop", deploy="deploy", deliver="deliver"
+  none="none", splash="splash", design="design", develop="develop", deploy="deploy", deliver="deliver"
+}
+enum Splash{
+  untouched="untouched", touched="touched"
 }
 
 @Component({
@@ -13,12 +16,14 @@ enum Phases{
   templateUrl: './design.component.html',
   styleUrls: [ './design.component.css' ],
   animations: [
-    Animations.getScaleTrigger(1)
+    Animations.getScaleTrigger(1),
+    Animations.getManualFadeTrigger(),
   ]
 })
-export class DesignComponent{
+export class DesignComponent implements OnInit{
   public phases = Phases;
   public phase: Phases = Phases.none;
+  public splash: Splash = Splash.untouched;
   public screenSize: string = '';
   public infrastructure: ChipConfig[] = INFRASTRUCTURE_CHIPS;
   public tools: ChipConfig[] = TOOL_CHIPS;
@@ -27,13 +32,39 @@ export class DesignComponent{
     ['typescript', 'python', 'angular', 'django'],
     ['docker', 'cloudfront', 's3', 'lambda', 'apigateway']
   ]
+  public splashLines1FadeCntl: AnimationControl[] = [
+    new AnimationControl(AnimationTriggers.cntl_fade),
+    new AnimationControl(AnimationTriggers.cntl_fade),
+    new AnimationControl(AnimationTriggers.cntl_fade)
+  ];
+  public splashLines2FadeCntl: AnimationControl[] = [
+    new AnimationControl(AnimationTriggers.cntl_fade),
+    new AnimationControl(AnimationTriggers.cntl_fade),
+    new AnimationControl(AnimationTriggers.cntl_fade)
+  ];
 
   constructor(private meta: MetaService,
               public dialog: MatDialog) {
     this.meta.mediaBreakpoint.subscribe((size: string)=>{
       this.screenSize = size;
     })
+    this.splashLines1FadeCntl.forEach((cntl:AnimationControl)=>{
+      cntl.setState(FadeStates.out)
+    })
    }
+
+  ngOnInit(){
+    this.splashLines1FadeCntl.forEach((cntl: AnimationControl, ind: number)=>{
+      setTimeout(()=>{
+        cntl.prime();
+        if(ind===this.splashLines1FadeCntl.length - 1){
+          setTimeout(()=>{
+            this.phase = Phases.splash;
+          }, AnimationPeriods.short*1000);
+        }
+      }, AnimationPeriods.short*1500*ind);
+    })
+  }
 
   public mobileMode(): boolean{
     return this.screenSize == 'xs' || this.screenSize == 'sm' || this.screenSize == 'md';
@@ -56,6 +87,8 @@ export class DesignComponent{
 
   public phasedIn(phase: Phases){
     switch(this.phase){
+      case Phases.splash:
+        return phase === Phases.splash;
       case Phases.design:
         return phase === Phases.design;
       case Phases.develop:
@@ -72,6 +105,9 @@ export class DesignComponent{
   public increment(){
     switch(this.phase){
       case Phases.none:
+        this.phase = Phases.splash;
+        break;
+      case Phases.splash:
         this.phase = Phases.design;
         break;
       case Phases.design:
@@ -88,8 +124,11 @@ export class DesignComponent{
 
   public decrement(){
     switch(this.phase){
-      case Phases.design:
+      case Phases.splash:
         this.phase = Phases.none;
+        break;
+      case Phases.design:
+        this.phase = Phases.splash;
         break;
       case Phases.develop:
         this.phase = Phases.design;
