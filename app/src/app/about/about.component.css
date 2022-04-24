@@ -7,6 +7,21 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+#about-bg{
+  position: absolute;
+  top: 55%;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+}
+#placeholder{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  border-style:dotted;
+  border-width: 1px 0 0 0;
+}
 #profile-card{
   height: 70%;
   border: solid;

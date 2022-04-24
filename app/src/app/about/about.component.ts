@@ -49,7 +49,8 @@ import { MetaService } from 'src/services/meta.service';
                                         [{ bottom: '0%', right: '10%' },
                                          { bottom: '-15%', right: '10%'}], 
                                         'what_flower', AnimationPeriods.short),
-    Animations.getFadeTrigger()
+    Animations.getFadeTrigger(),
+    Animations.getExpandTrigger('100%')
   ]
 })
 export class AboutComponent {

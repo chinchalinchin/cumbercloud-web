@@ -394,9 +394,12 @@ export class Animations{
      * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
      * @returns animation expand trigger
      */
-     public static getEnlargeTrigger(toWidth: string, animateLength: number = AnimationPeriods.short)
+     public static getEnlargeTrigger(toWidth: string, tag: string = "", animateLength: number = AnimationPeriods.short)
      : AnimationTriggerMetadata {
-        return trigger(AnimationTriggers.enlarge,[
+        let triggerString : string = AnimationTriggers.enlarge;
+        if(tag){ triggerString = triggerString.concat("_", tag); }
+
+        return trigger(triggerString,[
           transition(':enter',[
             animate(`${animateLength}s`, keyframes([
                 style({ width: '0%', offset: 0}),
@@ -444,11 +447,14 @@ export class Animations{
      */
     public static getScaleTrigger(scaleFactor: number, tag:string="", animateLength: number = AnimationPeriods.short)
     : AnimationTriggerMetadata {
-        return trigger(`${AnimationTriggers.scale}`, [
+        let triggerString : string = AnimationTriggers.scale;
+        if(tag){ triggerString = triggerString.concat("_", tag); }
+
+        return trigger(triggerString, [
             transition(`:enter`, [
                 animate(`${animateLength}s`, keyframes([
                     style({ transform: 'scale(0, 0)', offset: 0}),
-                    style({transform: `scale(${scaleFactor}, ${scaleFactor})`, offset: 1})
+                    style({ transform: `scale(${scaleFactor}, ${scaleFactor})`, offset: 1})
                 ])),
                 query('@*', animateChild(), { optional: true })
             ]),

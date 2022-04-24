@@ -1,19 +1,21 @@
-<div id="mathematician-text" class="animation mat-h2 text-primary-light" *ngIf="unfolded && who" [@fade]>
+<div id="about-bg"><div id="placeholder" [@expand]></div></div>
+
+<div id="mathematician-text" class="animation mat-h2 text-default" *ngIf="unfolded && who" [@fade]>
   mathematician
 </div>
-<div id="technologist-text" class="animation mat-h2 text-primary-light" *ngIf="unfolded && who" [@fade]>
+<div id="technologist-text" class="animation mat-h2 text-default" *ngIf="unfolded && who" [@fade]>
   technologist
 </div>
-<div id="educator-text" class="animation mat-h2 text-primary-light" *ngIf="unfolded && who" [@fade]>
+<div id="educator-text" class="animation mat-h2 text-default" *ngIf="unfolded && who" [@fade]>
   educator
 </div>
-<div id="development-text" class="animation mat-h2 text-primary-light" *ngIf="unfolded && what" [@fade]>
+<div id="development-text" class="animation mat-h2 text-default" *ngIf="unfolded && what" [@fade]>
   test driven development
 </div>
-<div id="architecture-text" class="animation mat-h2 text-primary-light" *ngIf="unfolded && what" [@fade]>
+<div id="architecture-text" class="animation mat-h2 text-default" *ngIf="unfolded && what" [@fade]>
   cloud architecture
 </div>
-<div id="design-text" class="animation mat-h2 text-primary-light" *ngIf="unfolded && what" [@fade]>
+<div id="design-text" class="animation mat-h2 text-default" *ngIf="unfolded && what" [@fade]>
   website design
 </div>
 <div id="mathematician-droplet" aria-labelledby="mathematician-text" class="animation" *ngIf="!mobileMode()" [@cntl_position_who_1]="whoPositionCntls[0].state">

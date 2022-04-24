@@ -24,7 +24,9 @@ enum Splash{
     Animations.getManualScaleTrigger(1.15),
     Animations.getManualScaleTrigger(1.10, 'slow', AnimationPeriods.medium),
     Animations.getManualFadeTrigger(),
-    Animations.getEnlargeTrigger('5%')
+    Animations.getEnlargeTrigger('5%'),
+    Animations.getEnlargeTrigger('17%', 'large'),
+    Animations.getEnlargeTrigger('100%', 'full')
   ]
 })
 export class DesignComponent implements OnInit{
@@ -77,6 +79,7 @@ export class DesignComponent implements OnInit{
     new AnimationControl(AnimationTriggers.cntl_fade),
   ];
   public splashSrcFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
+  public splashSrcDetonateCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
   public lureScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
 
   constructor(private meta: MetaService,
@@ -168,8 +171,7 @@ export class DesignComponent implements OnInit{
         if(strict) return phase === Phases.deliver;
         return [Phases.deploy, Phases.deliver].includes(phase);
       case Phases.done:
-        if(strict) return phase === Phases.done;
-        return [Phases.design, Phases.develop, Phases.deploy, Phases.deliver].includes(phase);
+        return phase === Phases.done;
       default:
         return false
     }
@@ -189,6 +191,7 @@ export class DesignComponent implements OnInit{
             }, AnimationPeriods.medium*1500*ind)
           });
         }, AnimationPeriods.medium*1000);
+
         break;
       case Phases.design:
         this.designLinesFadeCntl.forEach((cntl:AnimationControl)=>{
@@ -234,6 +237,7 @@ export class DesignComponent implements OnInit{
           cntl.animate();
         });
         this.phase = Phases.done;
+        break;
     }
   }
 
@@ -286,6 +290,13 @@ export class DesignComponent implements OnInit{
         break;
       case Phases.done:
         this.phase = Phases.deliver;
+        setTimeout(()=>{
+          this.deliverLinesFadeCntl.forEach((cntl:AnimationControl,ind:number)=>{
+            setTimeout(()=>{
+              cntl.prime();
+            }, AnimationPeriods.medium*1500*ind);
+          })
+        }, AnimationPeriods.medium*1000)
         break;
     }
   }

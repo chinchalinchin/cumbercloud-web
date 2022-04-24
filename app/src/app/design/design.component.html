@@ -18,13 +18,13 @@
 <div id="splash-txt" class="animation mat-caption" *ngIf="oscillations > 3 && !lured" style="top: 59.5%; left: 58.5%;">I know!</div>
 
 <!-- Design Animations-->
-<div id="design-phase-bg" class="placard animation mat-elevation-z3" *ngIf="phasedIn(phases.design)" [@scale]></div>
+<div id="design-phase-svg-bg" class="placard animation mat-elevation-z3" *ngIf="phasedIn(phases.design)" [@scale]></div>
 
-<div id="design-title" class="animation mat-h1" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[0].state">Design</div>
-<div id="design-title-underline" class="underline animation" *ngIf="phasedIn(phases.design, true)" [@enlarge]></div>
+<div id="design-phase-title" class="animation mat-h1" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[0].state">Design</div>
+<div id="design-phase-title-underline" class="underline animation" *ngIf="phasedIn(phases.design, true)" [@enlarge]></div>
 
-<div id="design-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[0].state">
-    the process starts when you schedule a <i>free</i> design session.
+<div id="design-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)">
+    <span [@cntl_fade]="designLinesFadeCntl[0].state">the process starts when you schedule a <i>free</i> design session.</span>
 </div>
 
 <div id="design-phase-txt-line-2" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[1].state">
@@ -123,7 +123,6 @@
 <!-- Deploy Animations -->
 <div id="deploy-phase-bg" class="placard animation mat-elevation-z3" [@scale] *ngIf="phasedIn(phases.deploy)"></div>
 
-
 <div id="deploy-title" class="animation mat-h1" *ngIf="phasedIn(phases.deploy, true)" [@cntl_fade]="deployLinesFadeCntl[0].state">
     Deploy
 </div>
@@ -192,12 +191,18 @@
 <!-- Deliver Animations -->
 <div id="deliver-phase-bg" class="placard animation mat-elevation-z3" [@scale] *ngIf="phasedIn(phases.deliver)"></div>
 
+<div id="deliver-title" class="animation mat-h1" *ngIf="phasedIn(phases.deliver, true)" [@cntl_fade]="deliverLinesFadeCntl[0].state">
+    Deliver
+</div>
+
+<div id="deliver-title-underline" class="underline animation" *ngIf="phasedIn(phases.deliver, true)" [@enlarge_large]></div>
+
 <div id="deliver-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.deliver, true)" [@cntl_fade]="deliverLinesFadeCntl[0].state">
     Before deployment, we <a href="https://jmeter.apache.org/" target="_blank">performance test</a> and <a href="https://snyk.io/" target="_blank">scan for security vulnerabilities.</a>
 </div>
 
 <div id="deliver-phase-txt-line-2" class="animation mat-h2" *ngIf="phasedIn(phases.deliver, true)" [@cntl_fade]="deliverLinesFadeCntl[1].state">
-    After deployment, we put in place <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html" target="_blank">monitoring</a> and <a href="https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/failover-with-aws.html" target="_blank">failover</a>.
+    After deployment, we put in place <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html" target="_blank">monitoring</a> and <a href="https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/failover-with-aws.html" target="_blank">failover</a> procedures.
 </div>
 
 <div id="deliver-phase-txt-line-3" class="animation mat-h2" *ngIf="phasedIn(phases.deliver, true)" [@cntl_fade]="deliverLinesFadeCntl[2].state">
@@ -310,7 +315,7 @@
 
     <div id="actions">
         <div>
-            <button mat-mini-fab [disabled]="[phases.none,phases.splash].includes(phase)" (click)="decrementPhase()">
+            <button mat-mini-fab [disabled]="[phases.none,phases.splash,phases.done].includes(phase)" (click)="decrementPhase()">
                 <mat-icon>arrow_back</mat-icon>
             </button>
         </div>

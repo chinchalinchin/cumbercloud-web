@@ -20,6 +20,9 @@
     .bg-primary {
       background-color: map-get($primary-palette, 500);
     }
+    .text-default{
+      color: map-get($primary-palette, lighter-contrast)
+    }
     .text-white {
       color: map-get($primary-palette, default-contrast);
     }

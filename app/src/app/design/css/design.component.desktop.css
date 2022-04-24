@@ -21,11 +21,11 @@
     }
     
     /* Design */
-    #design-title{
+    #design-phase-title{
         top: 24.5%;
         left: 29%;
     }
-    #design-title-underline{
+    #design-phase-title-underline{
         top: 28%;
         left: 29.25%;
         width: 5%;
@@ -34,13 +34,14 @@
     #design-phase{
         left: 5%;
     }
-    #design-phase-bg{
+    #design-phase-svg-bg{
         left: 2.5%;
         right: 82.5%;
     }
     #design-phase-txt-line-1{
         left: 25%; 
         top: 45%;
+        width: 100%;
     }
     #design-phase-txt-line-2{
         left: 30%; 
@@ -139,6 +140,16 @@
     #deliver-phase-numeral{
         top: 71.5%; 
         left: 88.5%
+    }
+    #deliver-title{
+        top: 24.5%;
+        left: 48.25%;
+    }
+    #deliver-title-underline{
+        top: 28%;
+        left: 42.25%;
+        width: 17%;
+        height: 1%;
     }
     /* Misc. */
     .placard{
