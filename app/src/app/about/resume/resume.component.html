@@ -26,7 +26,7 @@
 
 <div id="popup" [@cntl_expand]="popupExpandCntl.state">
   <div id="popup-toolbar">
-    <h2 id="popup-header" class="v-align mat-title">{{getPopupTitle()}}</h2>
+    <div id="popup-header" class="v-align mat-title">{{getPopupTitle()}}</div>
     <div>
       <button mat-icon-button (click)="closePopUp()" color="warn" *ngIf="!isPopUpClosed()">
         <mat-icon>close</mat-icon>
