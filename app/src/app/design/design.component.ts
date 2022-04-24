@@ -24,6 +24,7 @@ enum Splash{
     Animations.getManualScaleTrigger(1.15),
     Animations.getManualScaleTrigger(1.10, 'slow', AnimationPeriods.medium),
     Animations.getManualFadeTrigger(),
+    Animations.getEnlargeTrigger('5%')
   ]
 })
 export class DesignComponent implements OnInit{
@@ -167,6 +168,7 @@ export class DesignComponent implements OnInit{
         if(strict) return phase === Phases.deliver;
         return [Phases.deploy, Phases.deliver].includes(phase);
       case Phases.done:
+        if(strict) return phase === Phases.done;
         return [Phases.design, Phases.develop, Phases.deploy, Phases.deliver].includes(phase);
       default:
         return false

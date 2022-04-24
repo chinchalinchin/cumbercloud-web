@@ -25,6 +25,12 @@
         top: 24.5%;
         left: 29%;
     }
+    #design-title-underline{
+        top: 28%;
+        left: 29.25%;
+        width: 5%;
+        height: 1%;
+    }
     #design-phase{
         left: 5%;
     }
@@ -52,6 +58,12 @@
     #develop-title{
         top: 24.5%;
         left: 42.5%;
+    }
+    #develop-title-underline{
+        top: 28%;
+        left: 42.75%;
+        width: 6%;
+        height: 1%;
     }
     #develop-phase{
         left: 25%;
@@ -83,6 +95,12 @@
     #deploy-title{
         top: 24.5%;
         left: 61.5%;
+    }
+    #deploy-title-underline{
+        top: 28%;
+        left: 61.75%;
+        width: 5%;
+        height: 1%;
     }
     #deploy-phase-bg{
         left: 62.5%;

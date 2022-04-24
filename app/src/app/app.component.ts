@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { AnimationControl, Animations, AnimationTriggers } from 'src/animations';
 import { SheetComponent } from './sheet/sheet.component';
 
@@ -16,12 +18,10 @@ interface NavConfig{
 })
 export class AppComponent {
   public title: String = 'cumberland cloud';
-
+  public selectedNav!: NavConfig;
   public menuDisplayed: boolean = false;
   public sheetDisplayed: boolean = false;
-
   public menuFoldCntl = new AnimationControl(AnimationTriggers.cntl_expand);
-  
   public navItems: NavConfig[] = [
     { path: '', title: 'Home' },
     { path: 'about', title: 'About' },
@@ -30,12 +30,18 @@ export class AppComponent {
     { path: 'contact', title: 'Contact' }
   ];
 
-  public constructor(private _bottomSheet: MatBottomSheet){ }
-
-  public selectedNav: NavConfig = this.navItems[0];
-
-  public navigate(nav: NavConfig){
-    this.selectedNav = nav;
+  public constructor(private _bottomSheet: MatBottomSheet,
+                      private router: Router){
+    this.router.events
+      .pipe(
+        filter((event: any) => event instanceof NavigationEnd)
+      )
+      .subscribe(event => {
+        if(this. menuDisplayed) { this.toggleMenu(); }
+        this.selectedNav = this.navItems.filter((nav: NavConfig)=>{ 
+          return nav.path == event.url.replace('/','');
+        })[0]            
+      });
   }
 
   public toggleMenu(){

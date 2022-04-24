@@ -21,6 +21,7 @@
 <div id="design-phase-bg" class="placard animation mat-elevation-z3" *ngIf="phasedIn(phases.design)" [@scale]></div>
 
 <div id="design-title" class="animation mat-h1" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[0].state">Design</div>
+<div id="design-title-underline" class="underline animation" *ngIf="phasedIn(phases.design, true)" [@enlarge]></div>
 
 <div id="design-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[0].state">
     the process starts when you schedule a <i>free</i> design session.
@@ -76,9 +77,14 @@
 </svg>
 
 <!-- Develop Animations-->
-<div id="develop-title" class="animation mat-h1" *ngIf="phasedIn(phases.develop, true)" [@cntl_fade]="developLinesFadeCntl[0].state">Develop</div>
-
 <div id="develop-phase-bg" class="placard animation mat-elevation-z3" [@scale] *ngIf="phasedIn(phases.develop)"></div>
+
+<div id="develop-title" class="animation mat-h1" *ngIf="phasedIn(phases.develop, true)" [@cntl_fade]="developLinesFadeCntl[0].state">
+    Develop
+</div>
+
+<div id="develop-title-underline" class="underline animation" *ngIf="phasedIn(phases.develop, true)" [@enlarge]></div>
+
 
 <div id="develop-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.develop, true)" [@cntl_fade]="developLinesFadeCntl[0].state">
     We use the latest libraries to create <a href="https://en.wikipedia.org/wiki/Single-page_application" target="_blank">reactive, responsive</a> web applications.
@@ -118,7 +124,11 @@
 <div id="deploy-phase-bg" class="placard animation mat-elevation-z3" [@scale] *ngIf="phasedIn(phases.deploy)"></div>
 
 
-<div id="deploy-title" class="animation mat-h1" *ngIf="phasedIn(phases.deploy, true)" [@cntl_fade]="deployLinesFadeCntl[0].state">Deploy</div>
+<div id="deploy-title" class="animation mat-h1" *ngIf="phasedIn(phases.deploy, true)" [@cntl_fade]="deployLinesFadeCntl[0].state">
+    Deploy
+</div>
+
+<div id="deploy-title-underline" class="underline animation" *ngIf="phasedIn(phases.deploy, true)" [@enlarge]></div>
 
 <div id="deploy-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" [@cntl_fade]="deployLinesFadeCntl[0].state">
     When development is complete, we upload your site to the cloud using <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code" target="_blank">infrastructure as code</a> (<i style="font-size: small;">IaC</i>).
