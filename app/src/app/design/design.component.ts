@@ -14,7 +14,11 @@ enum Splash{
 @Component({
   selector: 'app-design',
   templateUrl: './design.component.html',
-  styleUrls: [ './design.component.css' ],
+  styleUrls: [
+    './css/design.component.css', 
+    './css/design.component.desktop.css', 
+    './css/design.component.mobile.css'
+  ],
   animations: [
     Animations.getScaleTrigger(1),
     Animations.getManualScaleTrigger(1.15),
@@ -86,9 +90,9 @@ export class DesignComponent implements OnInit{
           setTimeout(()=>{
             this.phase = Phases.splash;
             setTimeout(()=>{
-              this.oscillate();
+              this.oscillateLure();
               this.oscillating = true;
-            }, AnimationPeriods.short*1000);
+            }, AnimationPeriods.medium*1000);
           }, AnimationPeriods.medium*1000);
         }
       }, AnimationPeriods.medium*1000*ind);
@@ -114,9 +118,9 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public oscillated(){ return this.lureScaleCntl.state === ScaleStates.scale; }
+  public lureOscillated(){ return this.lureScaleCntl.state === ScaleStates.scale; }
   
-  public oscillate(){
+  public oscillateLure(){
     if(this.lureScaleCntl.state === ScaleStates.normal){
       this.lureScaleCntl.animate();
     }
@@ -125,7 +129,7 @@ export class DesignComponent implements OnInit{
     }
     if(!this.lured){
       setTimeout(()=>{
-        this.oscillate();
+        this.oscillateLure();
       }, AnimationPeriods.medium*1000)
     }
   }
@@ -153,7 +157,7 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public increment(): void{
+  public incrementPhase(): void{
     switch(this.phase){
       case Phases.none:
         this.phase = Phases.splash;
@@ -189,7 +193,7 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public decrement(): void{
+  public decrementPhase(): void{
     switch(this.phase){
       case Phases.splash:
         this.phase = Phases.none;
@@ -252,7 +256,5 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public lure(){
-    this.lured = true;
-  }
+  public lure(){ this.lured = true; }
 }

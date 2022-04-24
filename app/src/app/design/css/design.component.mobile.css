@@ -1,0 +1,32 @@
+@media(max-width:992px){
+    #splash-img-container{
+        width: 100%;
+        height: 100%;
+    }
+    #splash-img{
+        border-radius: 20%;
+        width: 100%;
+        height: 90%;
+    }
+    #splash{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+        width: 100%;
+    }
+    #first-splash{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    #actions{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 1.5%;
+        margin-left: 1.5%;
+        margin-top: -1.5%;
+    }
+}

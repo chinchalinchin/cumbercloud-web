@@ -1,5 +1,11 @@
 import { animate, animateChild, AnimationTriggerMetadata, keyframes, query, state, style, transition, trigger } from "@angular/animations";
 
+
+export interface Position{
+    top?: string, bottom?: string,
+    left?: string, right?: string,
+}
+
 interface KeyObject{
     [key: string]: any
 }
@@ -13,10 +19,8 @@ function validatePosition(position: Position): KeyObject{
     return parsed_position;
 }
 
-export interface Position{
-    top?: string, bottom?: string,
-    left?: string, right?: string,
-}
+/// TODO?: It would be easier to just use a catchall binary variable for all of these...
+
 /**
  * Enumeration of {@link Animations} expand animation states.
  */
@@ -51,8 +55,7 @@ export enum SwipeStates { left="left", right="right",
  */
 export enum AnimationTriggers{
     expand="expand", enlarge="enlarge", scale="scale", highlight="highlight", 
-    fade="fade", slide="slide", float="float",
-    swipe="swipe",
+    fade="fade", slide="slide", float="float", swipe="swipe",
     cntl_fade="cntl_fade", cntl_expand="cntl_expand",
     cntl_highlight="cntl_highlight", cntl_scale="cntl_scale",
     cntl_fold="cntl_fold", cntl_position="cntl_position",
@@ -247,17 +250,17 @@ export class Animations{
             triggerConfig.push(state(`${PositionStates.moved}_${ind}`, style(validated)))
         })
         positions.forEach((pos,ind)=>{ 
-        triggerConfig.push(transition(`${PositionStates.moved}_${ind} => *`, [
-            animate(`${animateLength}s`),
-            query('@*', animateChild(), { optional: true })
-            ]))
+            triggerConfig.push(transition(`${PositionStates.moved}_${ind} => *`, [
+                animate(`${animateLength}s`),
+                query('@*', animateChild(), { optional: true })
+                ]))
         })
         triggerConfig.push(transition(`${PositionStates.unmoved} => *`, [ 
             animate(`${animateLength}s`),
             query('@*', animateChild(), { optional: true })
         ]))
         triggerConfig.push(transition(':leave', []))
-         return trigger(`${AnimationTriggers.cntl_position}_${tag}`, triggerConfig);
+        return trigger(`${AnimationTriggers.cntl_position}_${tag}`, triggerConfig);
      }
 
      public static getManualSwipeTrigger(animateLength: number = AnimationPeriods.short)

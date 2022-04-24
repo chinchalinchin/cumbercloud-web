@@ -10,14 +10,20 @@
   .placard{
     background-color: map-get($primary-palette, 200);
   }
-  .splash{
+  .splash-bg{
     background-color: rgba(map-get($primary-palette, 50), 0.5);;
   }
   .bubble{
     fill: map-get($primary-palette, 700);
   }
-  .bubble-light{
+  .bubble-select{
     fill: map-get($primary-palette, 300);
+  }
+  .exclaim{
+    fill: map-get($primary-palette, 200);
+  }
+  .exclaim-select{
+    fill: map-get($warn-palette, 300);
   }
 }
 

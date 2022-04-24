@@ -121,9 +121,11 @@ export class HomeComponent implements OnInit {
     setTimeout(()=>{
       this.moved = true;
     }, AnimationPeriods.short*500);
+    
     setTimeout(()=>{
       this.centerFadeCntl.animate();
       this.cloudFadeCntl.prime();
+
       setTimeout(()=>{
         this.cloudBtnPositionCntls.forEach((cntl: AnimationControl)=>{ 
           if(!this.mobileMode()){
@@ -132,9 +134,11 @@ export class HomeComponent implements OnInit {
             cntl.animatePosition(1)
           }        
         });
+
         setTimeout(()=>{
           this.animated = true;
         }, AnimationPeriods.short*1000);
+
       }, AnimationPeriods.short*500);
     }, AnimationPeriods.short*500);
   }

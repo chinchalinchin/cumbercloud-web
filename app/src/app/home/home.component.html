@@ -20,7 +20,7 @@
     <div id="selector" class="border-accent" *ngIf="animating"></div>
   </div>
 
-  <button mat-fab color="primary" [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()" matTooltip="The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character" matTooltipShowDelay="3000" *ngIf="!animated">
+  <button mat-fab color="primary" [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()" matTooltip="The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character" matTooltipShowDelay="3000" [disabled]="animated" style="position: absolute; top: 0%; left: 45%;">
     <mat-icon>touch_app</mat-icon>
   </button>
 
