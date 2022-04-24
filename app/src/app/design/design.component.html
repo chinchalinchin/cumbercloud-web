@@ -1,6 +1,6 @@
 <!--Animation Elements; absolute position and existence on screen determined by phase-->
 <!--Splash Animations-->
-<svg x="0px" y="0px" viewBox="0 0 508 508" id="splash-bubble" class="animation" width="3%" *ngIf="phasedIn(phases.splash) && !lured && oscillating" [@cntl_scale_slow]="lureScaleCntl.state" [@scale] (mouseenter)="lure()">
+<svg x="0px" y="0px" viewBox="0 0 508 508" id="splash-bubble" class="animation" width="3%" *ngIf="phasedIn(phases.splash) && !lured && oscillating && !mobileMode()" [@cntl_scale_slow]="lureScaleCntl.state" [@scale] (mouseenter)="lure()">
     <path [class.bubble]="!lureOscillated()" [class.bubble-select]="lureOscillated()" d="M508,254c0,91.6-48.4,171.6-120.8,216.4c-9.6,6-20,11.6-30.4,16c-31.2,14-66,21.6-102.8,21.6
         s-71.2-7.6-102.4-21.6c-10.4-4.8-20.8-10-30.4-16C48.4,425.6,0,345.6,0,254C0,113.6,113.6,0,254,0S508,113.6,508,254z"/>
     <path style="fill:#FFFFFF;" d="M408,213.6c3.6-5.6,5.6-12,5.6-19.2c0-20.4-16.4-36.8-36.8-36.8c-2,0-4,0-5.6,0.4
@@ -15,24 +15,26 @@
     </g>
 </svg>
 
+<div id="splash-txt" class="animation mat-caption" *ngIf="oscillations > 4 && !lured" style="top: 59.5%; left: 58.5%;">I know!</div>
+
 <!-- Design Animations-->
 <div id="design-phase-bg" class="placard animation mat-elevation-z3" *ngIf="phasedIn(phases.design)" [@scale]></div>
 
 <div id="design-title" class="animation mat-h1" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[0].state">Design</div>
 
-<div id="design-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)" style="left: 35%; top: 45%;" [@cntl_fade]="designLinesFadeCntl[0].state">
+<div id="design-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[0].state">
     the process starts when you schedule a free design session
 </div>
 
-<div id="design-phase-txt-line-2" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)" style="left: 40%; top: 57.5%;" [@cntl_fade]="designLinesFadeCntl[1].state">
+<div id="design-phase-txt-line-2" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[1].state">
     your ideas will be transformed into <a href="https://swagger.io/specification/" target="_blank">technical specifications</a> and <a href="https://en.wikipedia.org/wiki/Website_wireframe" target="_blank">wireframes</a>
 </div>
 
-<div id="design-phase-txt-line-3" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)" style="left: 45%; top: 70%;" [@cntl_fade]="designLinesFadeCntl[2].state">
-    after the design is tailored to your liking, development will start.
+<div id="design-phase-txt-line-3" class="animation mat-h2" *ngIf="phasedIn(phases.design, true)" [@cntl_fade]="designLinesFadeCntl[2].state">
+    after the design is tailored to your liking and approved, development will start.
 </div>
 
-<button mat-icon-button class="animation" style="top: 71.5%; left: 8.5%" *ngIf="phasedIn(phases.design)" [@scale] color="accent">
+<button id="design-phase-numeral" mat-icon-button class="animation" *ngIf="phasedIn(phases.design)" [@scale] color="accent">
     <mat-icon>looks_one</mat-icon>
 </button>
 
@@ -114,6 +116,19 @@
 
 <!-- Deploy Animations -->
 <div id="deploy-phase-bg" class="placard animation mat-elevation-z3" [@scale] *ngIf="phasedIn(phases.deploy)"></div>
+
+<div id="deploy-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" style="right: 45%; top: 45%" [@cntl_fade]="deployLinesFadeCntl[0].state">
+    When development is complete we upload your site to the cloud
+</div>
+
+<div id="deploy-phase-txt-line-2" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" style="right: 55%; top: 57.5%" [@cntl_fade]="deployLinesFadeCntl[1].state">
+    We curate a repository of application template that can be deployed in minutes.
+</div>
+
+<div id="deploy-phase-txt-line-3" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" style="right: 65%; top: 70%;"
+[@cntl_fade]="deployLinesFadeCntl[2].state">
+    using our curated library of application templates.
+</div>
 
 <button mat-icon-button class="animation" style="top: 71.5%; left: 68.5%" *ngIf="phasedIn(phases.deploy)" [@scale] color="accent">
     <mat-icon>looks_3</mat-icon>
@@ -228,7 +243,7 @@
 <!--Regular Elements-->
 <div id="design">
     <div id="navigator" class="center-flex">
-        <div id="chip-container" class="center-flex" *ngIf="phasedIn(phases.design)">
+        <div id="chip-container" class="center-flex" *ngIf="phasedIn(phases.design) || phasedIn(phases.deploy)">
             <mat-chip-list id="tool-chip-list">
                 <mat-chip id="tool-chip" *ngFor="let tool of tools" [disabled]="isChipDisabled(tool.svgIcon)">
                     <a [href]="tool.href" target="_blank" style="margin-left: auto; margin-right: auto;">
@@ -252,7 +267,7 @@
                     apart...
                 </div>
             </div>
-            <div id="splash-img-container" class="v-align" [@cntl_fade]="splashSrcFadeCntl.state">
+            <div id="splash-img-container" [class.v-align]="!mobileMode()" [@cntl_fade]="splashSrcFadeCntl.state">
                 <img id="splash-img" class="mat-elevation-z4" [src]="splashSrc()" [@scale] *ngIf="phasedIn(phases.splash)" (mouseenter)="touchSplash()">
             </div>
             <div id="second-splash" class="splash-banner">
