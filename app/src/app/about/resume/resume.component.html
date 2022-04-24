@@ -42,7 +42,9 @@
           <mat-icon mat-list-icon color="accent" style="opacity: 0.5;">label_important</mat-icon>
           <div mat-line>{{exp.position}}</div>
           <div mat-line>{{exp.years}}</div>
-          <mat-icon color="accent">info</mat-icon>
+          <button mat-icon-button color="accent" (click)="openExperience(exp)">
+            <mat-icon>info</mat-icon>
+          </button>
         </mat-list-item>
         <mat-divider></mat-divider>
       </div>

@@ -8,6 +8,9 @@ export interface Experience{
   company: string,
   position: string,
   years: string,
+  responsibilities: string[],
+  accomplishments?: string[],
+  links?: string[]
 }
 
 export interface Certification{
@@ -53,38 +56,92 @@ export const EXPERIENCE_CONFIG : Experience[] = [
   {
     company: "Makpar, Inc.",
     position: "DevOps Engineer",
-    years: "2021 - Current"
-
+    years: "2021 - Current",
+    responsibilities: [
+      "Oversaw development operations for the <b>Innovation Lab</b>",
+      "Led a Scrum team in a fast-paced environment ",
+      "Built prototype, proof-of-concept applications",
+      "Provided solution proposals for prospective clients"
+    ],
+    accomplishments: [
+      "Won multiple contract bids via code challenges",
+      "Designed and implemented a multi-environment cloud architecture",
+      "Practiced the displicine of test-driven development"
+    ],
+    links:[
+      "https://makpar.com",
+      "https://www.tripointsolutions.com/announcements/tripoint-solutions-select-as-a-new-supplier-for-comet",
+      "https://laboratory-dev.makpar-innovation.net",
+      "https://documentation.makpar-innovation.net"
+    ]
   },
   {
     company: "IBM",
     position: "Full Stack Developer",
-    years: "2019 - 2021"
+    years: "2019 - 2021",
+    responsibilities: [
+      "Worked in a Scrum team to develop web applications",
+      "Designed and implemented frontend user interfaces",
+      "Managed development pipelines for continuous deployment"
+    ],
+    accomplishments: [
+      "Vital in the migration of GSA's COMET portfolio to the cloud",
+      "Modernized and containerized multiple legacy applications",
+      "Trained new developers in the <b>Innovation Garage</b>"
+    ],
+    links:[
+      "https://buy.gsa.gov",
+      "https://calc.gsa.gov",
+      "https://sam.gov"
+    ]
   },
   {
     company: "Front Range Community College",
     position: "Mathematics Professor",
-    years: "2017 - 2018"
+    years: "2017 - 2018",
+    responsibilities: [
+      "MAT 050 Quantitative Literary", 
+      "MAT 120 Math For Liberal Arts", 
+      "MAT 125 Survey of Calculus", 
+      "MAT 135 Introduction to Statistics", 
+      "MAT 201 Calculus I"],
   },
   {
     company: "University of Cincinnati",
     position: "Adjunct Mathematics Professor",
-    years: "2017"
+    years: "2017",
+    responsibilities: [
+      "MATH 0080 Fundamentals of Algebra", 
+      "MATH 1008 Quantitative Logic", 
+      "BANA 2081 Business Analytics"
+    ],
   },
   {
     company: "Frostburg State University",
     position: "Adjunct Physics Professor",
-    years: "2015 - 2017"
+    years: "2015 - 2017",
+    responsibilities: [
+      "PHYS 215 General Physics I", 
+      "PHYS 216 General Physics II", 
+      "PHYS 261 Principle of Physics I: Introduction to Mechanics"
+    ]
   },
   {
     company: "Allegany College of Maryland",
     position: "Mathematics Professor",
-    years: "2015 - 2016"
+    years: "2015 - 2016",
+    responsibilities: [
+      "MATH 83 Basic Arithmetic", 
+      "MATH 90 Pre-Algebra",
+      "MATH 93 Intermediate Algebra"
+    ],
   },
   {
     company: "Americorps",
     position: "Mathematics Mentor",
-    years: "2014 - 2016"
+    years: "2014 - 2016",
+    responsibilities: [],
+    accomplishments: []
   }
 ];
 

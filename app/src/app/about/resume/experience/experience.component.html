@@ -1,1 +1,27 @@
-<p>experience works!</p>
+<div>
+    <div class="mat-h1">
+        {{data.company}}
+        <span class="mat-h2" style="float: right;">
+            {{data.position}}
+        </span>
+    </div>
+    <div class="mat-h3" style="text-align: right;">{{data.years}}</div>
+
+    <div class="mat-h4">Responsibilities</div>
+    <mat-divider></mat-divider>
+    <mat-list>
+        <mat-list-item *ngFor="let res of data.responsibilities">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            <div mat-line [innerHTML]="res"></div>
+        </mat-list-item>
+    </mat-list>
+
+    <div class="mat-h4" *ngIf="data.accomplishments">Accomplishments</div>
+    <mat-divider *ngIf="data.accomplishments"></mat-divider>
+    <mat-list *ngIf="data.accomplishments">
+        <mat-list-item *ngFor="let acc of data.accomplishments">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            <div mat-line [innerHTML]="acc"></div>
+        </mat-list-item>
+    </mat-list>
+</div>

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AnimationControl, Animations, AnimationTriggers, ExpandStates, HighlightStates } from 'src/animations';
 import { Certification, CERTIFICATION_CONFIG, Experience, EXPERIENCE_CONFIG, ResumePopUpStates } from 'src/app/app.config';
 import { MetaService } from 'src/services/meta.service';
+import { ExperienceComponent } from './experience/experience.component';
 
 @Component({
   selector: 'app-resume',
@@ -30,7 +31,6 @@ export class ResumeComponent {
   constructor(private meta: MetaService,
               public dialog: MatDialog) {
     this.meta.mediaBreakpoint.subscribe((size: string)=>{
-      console.log(size);
       this.screenSize = size;
     }) 
     this.popupExpandCntl.setState(ExpandStates.closed);
@@ -101,7 +101,6 @@ export class ResumeComponent {
   }
 
   public getFactMessage(state: ResumePopUpStates): string{
-
     if(this.factHighlightCntls[this.indexFromState(state)].state == HighlightStates.normal){
       switch(state){
         case this.popUpStates.one:
@@ -130,5 +129,15 @@ export class ResumeComponent {
           return "";
       }
     }
+  }
+
+  public openExperience(exp: Experience){
+    this.dialog.open(ExperienceComponent, {
+      data: exp,
+      width: '80%',
+      height: '80%',
+      panelClass: 'experience-bg'
+    });
+
   }
 }

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, DomSanitizer, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HammerConfig } from 'src/hammer';
 
 // TODO: material module
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
@@ -10,6 +13,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon'; 
 import { MatListModule } from '@angular/material/list'; 
 import { MatRadioModule } from '@angular/material/radio';
@@ -29,11 +33,7 @@ import { DesignComponent } from './design/design.component';
 import { AboutComponent } from './about/about.component';
 import { SheetComponent } from './sheet/sheet.component';
 import { ResumeComponent } from './about/resume/resume.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HammerConfig } from 'src/hammer';
 import { ExperienceComponent } from './about/resume/experience/experience.component';
-import { ToolComponent } from './design/tool/tool.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,6 @@ import { ToolComponent } from './design/tool/tool.component';
     SheetComponent,
     ResumeComponent,
     ExperienceComponent,
-    ToolComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -64,6 +63,7 @@ import { ToolComponent } from './design/tool/tool.component';
     MatCheckboxModule,
     MatChipsModule,
     MatDialogModule,
+    MatDividerModule,
     MatIconModule,
     MatListModule,
     MatRadioModule,

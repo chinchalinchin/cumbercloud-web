@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, FadeStates, ScaleStates } from 'src/animations';
+import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, ScaleStates } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, TOOL_CHIPS } from '../app.config';
 
