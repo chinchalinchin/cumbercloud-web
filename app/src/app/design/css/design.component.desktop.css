@@ -19,17 +19,10 @@
         top: 51%;
         left: 58%;
     }
-    #first-splash{
-        text-align: left; 
-        margin-left: 5%;
-    }
-    #second-splash{
-        text-align: right; 
-        margin-right: 5%;
-    }
+    
     /* Design */
     #design-title{
-        top: 23.5%;
+        top: 24.5%;
         left: 29%;
     }
     #design-phase{
@@ -57,7 +50,7 @@
     }
     /* Develop */
     #develop-title{
-        top: 23.5%;
+        top: 24.5%;
         left: 42.5%;
     }
     #develop-phase{
@@ -67,13 +60,55 @@
         left: 22.5%;
         right: 62.5%;
     }
-    /* Deploy */
+    #develop-phase-txt-line-1{
+        left: 45%; 
+        top: 45%
+    }
+    #develop-phase-txt-line-2{
+        left: 55%; 
+        top: 57.5%
+    }
+    #develop-phase-txt-line-3{
+        left: 65%; 
+        top: 70%;
+    }
+    #develop-phase-numeral{
+        top: 71.5%; 
+        left: 28.5%;
+    }
+    /* Deploy (and a little bit of Deliver..) */
     #deploy-phase{
         left: 65%;
+    }
+    #deploy-title{
+        top: 24.5%;
+        left: 61.5%;
     }
     #deploy-phase-bg{
         left: 62.5%;
         right: 22.5%;
+    }
+    #deploy-phase-txt-line-1, #deliver-phase-txt-line-1{
+        text-align: right; 
+        left: 1%;
+        right: 42.5%; 
+        top: 45%
+    }
+    #deploy-phase-txt-line-2, #deliver-phase-txt-line-2{
+        text-align: right; 
+        left: 1%;
+        right: 42.5%; 
+        top: 57.5%
+    }
+    #deploy-phase-txt-line-3, #deliver-phase-txt-line-3{
+        text-align: right; 
+        left: 1%;
+        right: 42.5%; 
+        top: 70%;
+    }
+    #deploy-phase-numeral{
+        top: 71.5%; 
+        left: 68.5%
     }
     /* Deliver */
     #deliver-phase{
@@ -82,6 +117,10 @@
     #deliver-phase-bg{
         left: 82.5%;
         right: 2.5%;
+    }
+    #deliver-phase-numeral{
+        top: 71.5%; 
+        left: 88.5%
     }
     /* Misc. */
     .placard{

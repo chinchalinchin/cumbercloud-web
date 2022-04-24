@@ -14,13 +14,13 @@
     background-color: rgba(map-get($primary-palette, 50), 0.5);;
   }
   .bubble{
-    fill: map-get($primary-palette, 700);
+    fill: map-get($primary-palette, 500);
   }
   .bubble-select{
-    fill: map-get($primary-palette, 300);
+    fill: map-get($primary-palette, 900);
   }
   .exclaim{
-    fill: map-get($primary-palette, 200);
+    fill: map-get($accent-palette, 500);
   }
   .exclaim-select{
     fill: map-get($warn-palette, 300);

@@ -71,6 +71,10 @@ export class DesignComponent implements OnInit{
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade)
   ];
+  public doneLinesFadeCntl: AnimationControl[] = [
+    new AnimationControl(AnimationTriggers.cntl_fade),
+    new AnimationControl(AnimationTriggers.cntl_fade),
+  ];
   public splashSrcFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
   public lureScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
 
@@ -120,6 +124,8 @@ export class DesignComponent implements OnInit{
       case Phases.deploy:
         return !this.phaseIcons[2].includes(chipIcon);
       case Phases.deliver:
+        return false;
+      case Phases.done:
         return false;
       default:
         return true;
@@ -221,6 +227,11 @@ export class DesignComponent implements OnInit{
           })
         }, AnimationPeriods.medium*1000);
         break;
+      case Phases.deliver:
+        this.deliverLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+          cntl.animate();
+        });
+        this.phase = Phases.done;
     }
   }
 
@@ -234,7 +245,7 @@ export class DesignComponent implements OnInit{
         break;
       case Phases.develop:
         this.developLinesFadeCntl.forEach((cntl:AnimationControl)=>{
-            cntl.animate();
+          cntl.animate();
         });
         this.phase = Phases.design;
         setTimeout(()=>{
@@ -243,7 +254,7 @@ export class DesignComponent implements OnInit{
               cntl.prime();
             }, AnimationPeriods.medium*1500*ind)
           });
-        },AnimationPeriods.medium*1000);
+        }, AnimationPeriods.medium*1000);
         break;
       case Phases.deploy:
         this.deployLinesFadeCntl.forEach((cntl:AnimationControl)=>{
@@ -259,6 +270,9 @@ export class DesignComponent implements OnInit{
         }, AnimationPeriods.medium*1000);
         break;
       case Phases.deliver:
+        this.deliverLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+          cntl.animate();
+        })
         this.phase = Phases.deploy;
         setTimeout(()=>{
           this.deployLinesFadeCntl.forEach((cntl:AnimationControl, ind:number)=>{
@@ -267,6 +281,9 @@ export class DesignComponent implements OnInit{
             }, AnimationPeriods.medium*1500*ind)
           });
         }, AnimationPeriods.medium*1000);
+        break;
+      case Phases.done:
+        this.phase = Phases.deliver;
         break;
     }
   }
