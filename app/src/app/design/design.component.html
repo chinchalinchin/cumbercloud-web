@@ -117,17 +117,17 @@
 <!-- Deploy Animations -->
 <div id="deploy-phase-bg" class="placard animation mat-elevation-z3" [@scale] *ngIf="phasedIn(phases.deploy)"></div>
 
-<div id="deploy-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" style="right: 45%; top: 45%" [@cntl_fade]="deployLinesFadeCntl[0].state">
-    When development is complete we upload your site to the cloud
+<div id="deploy-phase-txt-line-1" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" style="text-align: right; left: 5%; right: 42.5%; top: 45%" [@cntl_fade]="deployLinesFadeCntl[0].state">
+    When development is complete we upload your site to the cloud using <a href="" target="_blank">infrastructure as code.</a>
 </div>
 
-<div id="deploy-phase-txt-line-2" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" style="right: 55%; top: 57.5%" [@cntl_fade]="deployLinesFadeCntl[1].state">
-    We curate a repository of application template that can be deployed in minutes.
+<div id="deploy-phase-txt-line-2" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" style="text-align: right; left: 10%; right: 42.5%; top: 57.5%" [@cntl_fade]="deployLinesFadeCntl[1].state">
+    We curate a <a href="" target="_blank">repository</a> of application templates, all of which can be deployed in minutes.
 </div>
 
-<div id="deploy-phase-txt-line-3" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" style="right: 65%; top: 70%;"
+<div id="deploy-phase-txt-line-3" class="animation mat-h2" *ngIf="phasedIn(phases.deploy, true)" style="text-align: right; left: 15%; right: 42.5%; top: 70%;"
 [@cntl_fade]="deployLinesFadeCntl[2].state">
-    using our curated library of application templates.
+    Whatever your use case, we have the capability of supporting it.
 </div>
 
 <button mat-icon-button class="animation" style="top: 71.5%; left: 68.5%" *ngIf="phasedIn(phases.deploy)" [@scale] color="accent">
