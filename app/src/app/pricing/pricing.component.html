@@ -1,7 +1,5 @@
 <div class="pricing">
-
   <mat-card id="calc-card" class="mat-elevation-z8">
-
     <mat-card-title>
       Project Quote Calculator
     </mat-card-title>
@@ -12,86 +10,57 @@
 
     <mat-card-content>
       <mat-accordion displayMode="flat">
-        <mat-expansion-panel>
+        <mat-expansion-panel (opened)="setFocus(pricingGroups.core)" (closed)="removeFocus()" *ngIf="!focusing || focused(pricingGroups.core)" [@expand_full]>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Core Features
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <section [formGroup]="featureFormGroup">
-            <div>
-              <mat-checkbox formControlName="design">Custom Design</mat-checkbox>
-              <mat-icon *ngIf="featureFormGroup.controls['design'].value" style="float: right;" color="accent">label</mat-icon>
-            </div>
-            <div>
-              <mat-checkbox formControlName="store">Online Store</mat-checkbox>
-              <mat-icon *ngIf="featureFormGroup.controls['store'].value" style="float: right;" color="accent">label</mat-icon>
-            </div>
-            <div>
-              <mat-checkbox formControlName="blog">Blog Posts</mat-checkbox>
-              <mat-icon *ngIf="featureFormGroup.controls['blog'].value" style="float: right;" color="accent">label</mat-icon>
-            </div>
-            <div>
-              <mat-checkbox formControlName="account">User Accounts</mat-checkbox>
-              <mat-icon *ngIf="featureFormGroup.controls['account'].value" style="float: right;" color="accent">label</mat-icon>
-            </div>
-            <div>
-              <mat-checkbox formControlName="forum">Forums</mat-checkbox>
-              <mat-icon *ngIf="featureFormGroup.controls['forum'].value" style="float: right;" color="accent">label</mat-icon>
+          <section [formGroup]="coreFormGroup">
+            <div *ngFor="let conf of coreConfig">
+              <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
+              <mat-icon *ngIf="groupField(pricingGroups.core, conf.key)" style="float: right;" color="accent">label</mat-icon>
             </div>
           </section>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <mat-expansion-panel (opened)="setFocus(pricingGroups.addon)" (closed)="removeFocus()" *ngIf="!focusing || focused(pricingGroups.addon)" [@expand_full]>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Additional Specifications
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <section [formGroup]="specFormGroup">
-            <div>
-              <mat-checkbox formControlName="downtime">Zero Downtime</mat-checkbox>
-              <mat-icon *ngIf="specFormGroup.controls['downtime'].value" style="float: right;" color="accent">label</mat-icon>
+          <section [formGroup]="addOnFormGroup">
+            <div *ngFor="let conf of addOnConfig">
+              <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
+              <mat-icon *ngIf="groupField(pricingGroups.addon, conf.key)" style="float: right;" color="accent">label</mat-icon>
             </div>
-            <div>
-              <mat-checkbox formControlName="data">Data Storage & Access</mat-checkbox>
-              <mat-icon *ngIf="specFormGroup.controls['data'].value" style="float: right;" color="accent">label</mat-icon>
-            </div>
-            <div>
-              <mat-checkbox formControlName="media">Media Streaming</mat-checkbox>
-              <mat-icon *ngIf="specFormGroup.controls['media'].value" style="float: right;" color="accent">label</mat-icon>
-            </div>
-
           </section>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <mat-expansion-panel (opened)="setFocus(pricingGroups.analytics)" (closed)="removeFocus()" *ngIf="!focusing || focused(pricingGroups.analytics)" [@expand_full]>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Analytics
             </mat-panel-title>
           </mat-expansion-panel-header>
           <section [formGroup]="analyticsFormGroup">
-            <div>
-              <mat-checkbox formControlName="traffic">Traffic Statistics</mat-checkbox>
-              <mat-icon *ngIf="analyticsFormGroup.controls['traffic'].value" style="float: right;" color="accent">label</mat-icon>
-            </div>
-            <div>
-              <mat-checkbox formControlName="demographics">User Demographics</mat-checkbox>
-              <mat-icon *ngIf="analyticsFormGroup.controls['demographics'].value" style="float: right;" color="accent">label</mat-icon>
-            </div>
-            <div>
-              <mat-checkbox formControlName="seo">Search Engine Optimization</mat-checkbox>
-              <mat-icon *ngIf="analyticsFormGroup.controls['seo'].value" style="float: right;" color="accent">label</mat-icon>
+            <div *ngFor="let conf of analyticsConfig">
+              <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
+              <mat-icon *ngIf="groupField(pricingGroups.analytics, conf.key)" style="float: right;" color="accent">label</mat-icon>
             </div>
           </section>
         </mat-expansion-panel>
       </mat-accordion>
     </mat-card-content>
 
-    <button mat-icon-button id="calc-btn" [color]="buttonStyle" (mouseenter)="toggleButtonStyle()" (mouseleave)="toggleButtonStyle()">
+    <button mat-icon-button id="calc-btn" [color]="buttonStyle" (mouseenter)="toggleButtonStyle()" (mouseleave)="toggleButtonStyle()" (click)="calculate()">
       <mat-icon>add_box</mat-icon>
     </button>
   </mat-card>
   
+</div>
+
+<div id="cost-breakdown-popup" [@expand_popup] *ngIf="calculated">
+
 </div>

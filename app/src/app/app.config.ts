@@ -35,6 +35,7 @@ export interface PricingParameter{
 
 export interface Fee{
   cloudfront?: number,
+  cognito?:number,
   lambda?: number,
   ses?: number,
   dynamodb?: number,
@@ -320,7 +321,7 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
   },
   {
     key: 'SCHEDULE',
-    name: 'Appointment Scheduling & Notifications',
+    name: 'Scheduling & Notifications',
     parameter: {
       type: 'null'
     },
@@ -335,7 +336,7 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
   }
 ];
 
-export const ADDON_PRICING_CONFIG = [
+export const ADDON_PRICING_CONFIG: Pricing[] = [
   {
     key: 'STORAGE',
     name: 'Document & Data Storage',
@@ -361,6 +362,59 @@ export const ADDON_PRICING_CONFIG = [
     fees: {
       lambda: 0,
       cognito: 0
-    }
+    },
+    rate: 1000,
+    tooltip: '',
+    description: ''
+  },
+  {
+    key: 'EMAIL',
+    name: 'Personal Email Domain',
+    parameter: {
+      type: 'null'
+    },
+    fees:{
+      ses: 0,
+    },
+    rate: 500,
+    tooltip: '',
+    description: ''
+  }
+];
+
+export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
+  {
+    key: "SEO",
+    name: "Search Engine Optimization",
+    parameter:{
+      type: 'number',
+      label: 'Number of pages'
+    },
+    fees: { },
+    rate: 100,
+    tooltip: '', 
+    description: ''
+  },
+  {
+    key: "DEMO",
+    name: "User Traffic Demographics",
+    parameter:{
+      type: 'null'
+    },
+    fees: { },
+    rate: 100,
+    tooltip: '',
+    description: ''
+  },
+  {
+    key: "META",
+    name: "Metadata Extraction",
+    parameter: {
+      type: 'null'
+    },
+    fees: { },
+    rate: 1000,
+    tooltip: '',
+    description: ''
   }
 ];
