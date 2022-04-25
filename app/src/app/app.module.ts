@@ -34,6 +34,7 @@ import { AboutComponent } from './about/about.component';
 import { SheetComponent } from './sheet/sheet.component';
 import { ResumeComponent } from './about/resume/resume.component';
 import { ExperienceComponent } from './about/resume/experience/experience.component';
+import { assetSrcs } from './app.config';
 
 @NgModule({
   declarations: [
@@ -117,5 +118,9 @@ export class AppModule {
                                       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/typescript.svg'));
     this.matIconRegistry.addSvgIcon('xd', 
                                       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/adobe-xd.svg'));
+    assetSrcs.forEach((thisSrc:string)=>{
+      let img = new Image();
+      img.src = thisSrc;
+    })
   }
 }

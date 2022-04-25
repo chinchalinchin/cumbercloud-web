@@ -1,3 +1,12 @@
+export const assetSrcs=[
+  "/assets/banners/money-banner.jpg",
+  "/assets/banners/circuitry-banner.jpg",
+  "/assets/banners/expertise-banner.jpg",
+  "/assets/banners/human_centric_design-banner.jpg",
+  "/assets/imgs/separated.jpg",
+  "/assets/imgs/cloud_tunnel.jpg"
+]
+
 export interface ChipConfig{
   tooltip: string,
   href: string,
