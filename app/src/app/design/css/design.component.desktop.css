@@ -12,7 +12,6 @@
         height: 90%;
     }
     #splash-img-container{
-        width: 30%;
         height: 100%;
     }
     #splash-bubble{
@@ -152,6 +151,11 @@
         height: 1%;
     }
     /* Misc. */
+    #final-img{
+        height: 100%;
+        margin-left: auto;
+        margin-bottom: auto;
+    }
     .placard{
         top: 45%;
         bottom: 22.5%;

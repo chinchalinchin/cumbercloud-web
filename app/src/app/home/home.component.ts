@@ -160,15 +160,15 @@ export class HomeComponent implements OnInit {
   public getSrc(): string{
     switch(this.state){
       case this.states.one:
-          return "/assets/banners/circuitry-banner.jpg";
+          return "/assets/imgs/circuitry-banner.jpg";
       case this.states.two:
-          return "/assets/banners/money-banner.jpg"
+          return "/assets/imgs/money-banner.jpg"
       case this.states.three:
-          return "/assets/banners/expertise-banner.jpg"
+          return "/assets/imgs/expertise-banner.jpg"
       case this.states.four:
-          return "/assets/banners/human_centric_design-banner.jpg"
+          return "/assets/imgs/human_centric_design-banner.jpg"
       default:
-          return "/assets/banners/clouds-banner.jpg";
+          return "/assets/imgs/circuitry-banner.jpg";
     }
   }
 

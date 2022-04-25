@@ -369,9 +369,12 @@ export class Animations{
      * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
      * @returns animation expand trigger
      */
-     public static getExpandTrigger(toHeight: string, animateLength: number = AnimationPeriods.short)
+     public static getExpandTrigger(toHeight: string, tag: string = "", animateLength: number = AnimationPeriods.short)
      : AnimationTriggerMetadata {
-        return trigger(AnimationTriggers.expand,[
+        let triggerString : string = AnimationTriggers.expand;
+        if(tag){ triggerString = triggerString.concat("_", tag); }
+
+        return trigger(triggerString,[
           transition(':enter',[
               animate(`${animateLength}s`, keyframes([
                   style({ height: '0%', offset: 0 }), 

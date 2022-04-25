@@ -1,8 +1,8 @@
 export const assetSrcs=[
-  "/assets/banners/money-banner.jpg",
-  "/assets/banners/circuitry-banner.jpg",
-  "/assets/banners/expertise-banner.jpg",
-  "/assets/banners/human_centric_design-banner.jpg",
+  "/assets/imgs/money-banner.jpg",
+  "/assets/imgs/circuitry-banner.jpg",
+  "/assets/imgs/expertise-banner.jpg",
+  "/assets/imgs/human_centric_design-banner.jpg",
   "/assets/imgs/separated.jpg",
   "/assets/imgs/cloud_tunnel.jpg"
 ]
@@ -72,14 +72,14 @@ export const EXPERIENCE_CONFIG : Experience[] = [
     years: "2021 - Current",
     responsibilities: [
       "Oversaw development operations for the <b>Innovation Lab</b>",
-      "Led a Scrum team in a fast-paced environment ",
+      "Led a Scrum team in a fast-paced environment",
       "Built prototype, proof-of-concept applications",
       "Provided solution proposals for prospective clients"
     ],
     accomplishments: [
       "Won multiple contract bids via code challenges",
       "Designed and implemented a multi-environment cloud architecture",
-      "Practiced the displicine of test-driven development"
+      "Enforced test-driven development through CI/CD best practices"
     ],
     links:[
       {

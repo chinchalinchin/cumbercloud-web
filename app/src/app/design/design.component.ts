@@ -26,7 +26,8 @@ enum Splash{
     Animations.getManualFadeTrigger(),
     Animations.getEnlargeTrigger('5%'),
     Animations.getEnlargeTrigger('17%', 'large'),
-    Animations.getEnlargeTrigger('100%', 'full')
+    Animations.getEnlargeTrigger('100%', 'full'),
+    Animations.getExpandTrigger('100%', 'full')
   ]
 })
 export class DesignComponent implements OnInit{
