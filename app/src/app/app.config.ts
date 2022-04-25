@@ -13,13 +13,17 @@ export interface ChipConfig{
   svgIcon: string
 };
 
+export interface Link{
+  href: string,
+  display: string
+}
 export interface Experience{
   company: string,
   position: string,
   years: string,
   responsibilities: string[],
   accomplishments?: string[],
-  links?: string[]
+  links?: Link[]
 }
 
 export interface Certification{
@@ -78,10 +82,22 @@ export const EXPERIENCE_CONFIG : Experience[] = [
       "Practiced the displicine of test-driven development"
     ],
     links:[
-      "https://makpar.com",
-      "https://www.tripointsolutions.com/announcements/tripoint-solutions-select-as-a-new-supplier-for-comet",
-      "https://laboratory-dev.makpar-innovation.net",
-      "https://documentation.makpar-innovation.net"
+      {
+        href: "https://makpar.com",
+        display: "Makpar Corporation"
+      },
+      {
+        href: "https://laboratory-dev.makpar-innovation.net",
+        display: "Innovation Lab Dev Site"
+      },
+      {
+        href: "https://documentation.makpar-innovation.net",
+        display: "Innovation Lab Documentation"
+      },
+      {
+        href: "https://www.tripointsolutions.com/announcements/tripoint-solutions-select-as-a-new-supplier-for-comet",
+        display: "COMET Contract Award, 2022"
+      },
     ]
   },
   {
@@ -99,9 +115,18 @@ export const EXPERIENCE_CONFIG : Experience[] = [
       "Trained new developers in the <b>Innovation Garage</b>"
     ],
     links:[
-      "https://buy.gsa.gov",
-      "https://calc.gsa.gov",
-      "https://sam.gov"
+      {
+        href: "https://buy.gsa.gov",
+        display: "Buy@GSA"
+      },
+      {
+        href: "https://calc.gsa.gov",
+        display: "CALC"
+      },
+      {
+        href: "https://sam.gov",
+        display: "SAM"
+      }
     ]
   },
   {

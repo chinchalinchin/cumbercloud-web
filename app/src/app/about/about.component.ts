@@ -124,25 +124,25 @@ export class AboutComponent {
 
   public prime(which : string): void{
     this.unfolded = false;
-      this.toggleBanner(which)
-      if(which === 'who'){
-        this.whoBnrScaleCntl.prime();
-        this.whoTxtScaleCntl.prime();
-        this.whoPositionCntls.forEach((cntl: AnimationControl)=>{
-          cntl.animatePosition(1);
-        })
-        this.whoGrassPositionCntl.animatePosition(1);
-        this.whoFlowerPositionCntl.animatePosition(1);
-      }
-      else if(which === 'what'){
-        this.whatBnrScaleCntl.prime();
-        this.whatTxtScaleCntl.prime();
-        this.whatPositionCntls.forEach((cntl: AnimationControl)=>{
-          cntl.animatePosition(1);
-        })
-        this.whatGrassPositionCntl.animatePosition(1);
-        this.whatFlowerPositionCntl.animatePosition(1)
-      }
+    this.toggleBanner(which)
+    if(which === 'who'){
+      this.whoBnrScaleCntl.prime();
+      this.whoTxtScaleCntl.prime();
+      this.whoPositionCntls.forEach((cntl: AnimationControl)=>{
+        cntl.animatePosition(1);
+      })
+      this.whoGrassPositionCntl.animatePosition(1);
+      this.whoFlowerPositionCntl.animatePosition(1);
+    }
+    else if(which === 'what'){
+      this.whatBnrScaleCntl.prime();
+      this.whatTxtScaleCntl.prime();
+      this.whatPositionCntls.forEach((cntl: AnimationControl)=>{
+        cntl.animatePosition(1);
+      })
+      this.whatGrassPositionCntl.animatePosition(1);
+      this.whatFlowerPositionCntl.animatePosition(1)
+    }
   }
 
 }

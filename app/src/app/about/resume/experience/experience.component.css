@@ -1,0 +1,10 @@
+@media(min-width:991px){
+    #position{
+        float: right;
+    }
+}
+@media(max-width:992px){
+    #position{
+
+    }
+}

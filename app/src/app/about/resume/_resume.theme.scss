@@ -25,8 +25,9 @@
   #popup{
     background-color: map-get($primary-palette, lighter);
   }
-  #popup-header{
-    color: map-get($accent-palette, darker)
+  #popup-toolbar{
+    color: map-get($accent-palette, darker);
+    background-color: map-get($primary-palette, 100);
   }
   #title{
     background: map-get($primary-palette, 50);

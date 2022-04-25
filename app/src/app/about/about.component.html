@@ -4,10 +4,10 @@
   mathematician
 </div>
 <div id="technologist-text" class="animation mat-h2 text-default" *ngIf="unfolded && who" [@fade]>
-  technologist
+  engineer
 </div>
 <div id="educator-text" class="animation mat-h2 text-default" *ngIf="unfolded && who" [@fade]>
-  educator
+  teacher
 </div>
 <div id="development-text" class="animation mat-h2 text-default" *ngIf="unfolded && what" [@fade]>
   test driven development
@@ -284,7 +284,7 @@
 
 <div id="about">
 
-  <div id="who-banner" class="animation" *ngIf="!mobileMode()" (mouseenter)="animate('who')" (mouseleave)="prime('who')"> 
+  <div id="who-banner" class="animation" *ngIf="!mobileMode()" (mouseenter)="animate('who')"> 
     <div id="who-banner-text" class="fancy-text banner-content text-center text-primary-light" [class.highlight]="who" [@cntl_scale_text]="whoTxtScaleCntl.state">
       {{ who ? 'personas' : 'who i am'}}
     </div>
@@ -312,7 +312,7 @@
     </div>
   </mat-card>
 
-  <div id="what-banner" class="animation" *ngIf="!mobileMode()" (mouseenter)="animate('what')" (mouseleave)="prime('what')">
+  <div id="what-banner" class="animation" *ngIf="!mobileMode()" (mouseenter)="animate('what')">
     <div id="what-banner-text" class="fancy-text banner-content text-center text-primary-light" [class.highlight]="what" [@cntl_scale_text]="whatTxtScaleCntl.state">
       {{ what ? 'proficiencies' : 'what i do'}}
     </div>
