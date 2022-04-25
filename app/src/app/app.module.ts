@@ -35,6 +35,7 @@ import { SheetComponent } from './sheet/sheet.component';
 import { ResumeComponent } from './about/resume/resume.component';
 import { ExperienceComponent } from './about/resume/experience/experience.component';
 import { assetSrcs } from './app.config';
+import { RateComponent } from './pricing/rate/rate.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { assetSrcs } from './app.config';
     SheetComponent,
     ResumeComponent,
     ExperienceComponent,
+    RateComponent,
   ],
   imports: [
     AppRoutingModule,

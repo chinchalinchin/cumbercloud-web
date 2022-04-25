@@ -23,7 +23,6 @@
   border-width: 1px 0 0 0;
 }
 #profile-card{
-  height: 70%;
   border: solid;
   border-width: 1px;
 }
@@ -57,6 +56,14 @@
   right: 2.5%;
 }
 
+@media(max-width: 992px){
+  #profile-card{
+    height: 80%;
+  }
+  .mobile-title{
+    padding-top: -5%;
+  }
+}
 @media(min-width: 991px){
   .animation{
     position: absolute
@@ -64,6 +71,7 @@
   #profile-card{
     position: absolute;
     width: 40%;
+    height: 70%;
   }
   #who-banner{
     top: 10%;

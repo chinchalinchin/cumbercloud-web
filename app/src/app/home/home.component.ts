@@ -49,16 +49,20 @@ enum States{
                                         [{ top: '32%', left: '200%' }],
                                         'cloud_line_mobile_1', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '60%', left: '23%' },  
-                                        [{ top: '60%', left: '-100%', right: '0%'}],
+                                        [{ top: '60%', left: '-100%'}],
                                         'cloud_line_mobile_2', AnimationPeriods.short),
     Animations.getManualPositionTrigger({ top: '68%', right: '5%' },  
-                                        [{ top: '68%', left: '-100%', right: '0%'}],
+                                        [{ top: '68%', left: '-100%'}],
                                         'cloud_line_mobile_3', AnimationPeriods.short),
 
-    Animations.getManualFadeTrigger(AnimationPeriods.short)
+    Animations.getManualFadeTrigger(AnimationPeriods.short),
+    Animations.getSlideTrigger(),
+    Animations.getSlideTrigger(true,'reverse'),
+    Animations.getScaleTrigger(1)
   ]
 })
 export class HomeComponent implements OnInit {
+  public pressable: boolean = false;
   public animating: boolean = false;
   public selecting: boolean = false;
   public moved: boolean = false;
@@ -98,6 +102,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void { 
     this.cloudFadeCntl.setState(FadeStates.out);
+    setTimeout(()=>{
+      this.pressable = true;
+    }, AnimationPeriods.medium*1000);
   }
 
   public mobileMode(){

@@ -1,6 +1,6 @@
 #selection-menu, #selection, #selector, #home, #btn-banner,
 #underline-lg, #underline-md, #underline-sm,
-.cloud-line{
+.cloud-line, .start-button{
   position: absolute;
 }
 #home{
@@ -99,6 +99,10 @@
   .selection-body{
     margin-top: 10%;
   }
+  .start-button{
+    top: 0%; 
+    left: 42.5%;
+  }
 }
 @media(min-width:991px){
   #btn-banner{
@@ -112,5 +116,9 @@
   }
   .selection-body{
     margin-top: 2.5%;
+  }
+  .start-button{
+    top: 0%; 
+    left: 45%;
   }
 }

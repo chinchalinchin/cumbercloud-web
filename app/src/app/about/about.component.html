@@ -1,4 +1,4 @@
-<div id="about-bg"><div id="placeholder" [@expand]></div></div>
+<div id="about-bg" *ngIf="!mobileMode()"><div id="placeholder" [@expand]></div></div>
 
 <div id="mathematician-text" class="animation mat-h2 text-default" *ngIf="unfolded && who" [@fade]>
   mathematician
@@ -304,6 +304,15 @@
     <mat-card-subtitle class="text-center">
       Solution Architect, Developer & Designer
     </mat-card-subtitle>
+    
+    <mat-card-content *ngIf="mobileMode()">
+      <p>
+        Hi! I build web applications for a living. Over the years, I have gotten pretty good at it. In fact, I would go so far as to call the site you are currently on "not entirely ugly".
+      </p>
+      <p>
+        Read on for more information about yours truly...
+      </p>
+    </mat-card-content>
 
     <div class="actions">
       <button mat-icon-button routerLink="/about/resume">

@@ -308,25 +308,31 @@ export class Animations{
       * @param animateLength animation length expressed in seconds (e.g. 0.5, 1, 2, etc.). Common constants are statically accessible through {@link AnimationPeriods}.
       * @returns animation slide trigger
       */
-    public static getSlideTrigger(animateLength: number = AnimationPeriods.medium)
+    public static getSlideTrigger(reversed: boolean = false, tag: string = "", animateLength: number = AnimationPeriods.medium)
     : AnimationTriggerMetadata {
-        return trigger(AnimationTriggers.slide, [
+        let triggerString : string = AnimationTriggers.slide;
+        if(tag){ triggerString = triggerString.concat("_", tag); }
+
+        let first_reversal: string = reversed ? '' : '-';
+        let second_reversal: string = reversed ? '-' : '';
+
+        return trigger(triggerString, [
           transition(':enter',
               animate(`${animateLength}s`, keyframes([
-                  style({ transform: 'translateX(-100%)', offset: 0}),
-                  style({ transform: 'translateX(-75%)', offset: 0.25}),
-                  style({ transform: 'translateX(-50%)', offset: 0.50}),
-                  style({ transform: 'translateX(-25%)', offset: 0.75}),
+                  style({ transform: `translateX(${first_reversal}150%)`, offset: 0}),
+                  style({ transform: `translateX(${first_reversal}110%)`, offset: 0.25}),
+                  style({ transform: `translateX(${first_reversal}70%)`, offset: 0.50}),
+                  style({ transform: `translateX(${first_reversal}30%)`, offset: 0.75}),
                   style({ transform: 'translateX(0%)', offset: 1})
               ]))
           ),
           transition(':leave', 
               animate(`${animateLength}s`, keyframes([
-                  style({ transform: 'translateX(100%)', offset: 0}),
-                  style({ transform: 'translateX(75%)', offset: 0.25}),
-                  style({ transform: 'translateX(50%)', offset: 0.50}),
-                  style({ transform: 'translateX(25%)', offset: 0.75}),
-                  style({ transform: 'translateX(0%)', offset: 1}) 
+                  style({ transform: `translateX(${second_reversal}150%)`, offset: 0}),
+                  style({ transform: `translateX(${second_reversal}110%)`, offset: 0.25}),
+                  style({ transform: `translateX(${second_reversal}70%)`, offset: 0.50}),
+                  style({ transform: `translateX(${second_reversal}30%)`, offset: 0.75}),
+                  style({ transform: `translateX(${second_reversal}0%)`, offset: 1}) 
               ]))
           )
     ])

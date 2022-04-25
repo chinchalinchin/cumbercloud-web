@@ -69,12 +69,12 @@ mat-card img{
 
 /* Track */
 ::-webkit-scrollbar-track {
-  border-radius: 5px;
+  border-radius: 2.5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  border-radius: 5px;
+  border-radius: 2.5px;
 }
 
 @media(min-width:431px) {

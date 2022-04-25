@@ -55,6 +55,8 @@ import { MetaService } from 'src/services/meta.service';
 })
 export class AboutComponent {
 
+  public whoAnimated: boolean = false;
+  public whatAnimated: boolean = false;
   public screenSize: string = '';
   public whoBnrScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
   public whoTxtScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
@@ -85,8 +87,8 @@ export class AboutComponent {
   }
 
   private toggleBanner(which: string): void {
-    if(which==='who') { this.who = !this.who; }
-    else if (which === 'what') { this.what = !this.what; }
+    if(which==='who' && !this.whoAnimated) { this.who = !this.who; }
+    else if (which === 'what' && !this.whatAnimated) { this.what = !this.what; }
   }
 
   public mobileMode(): boolean{
@@ -95,7 +97,8 @@ export class AboutComponent {
 
   public animate(which : string): void{
     this.toggleBanner(which)
-    if(which === 'who'){
+    if(which === 'who' && !this.whoAnimated){
+      this.whoAnimated = true;
       this.whoBnrScaleCntl.animate();
       this.whoTxtScaleCntl.animate();
       this.whoPositionCntls.forEach((cntl: AnimationControl)=>{
@@ -106,7 +109,8 @@ export class AboutComponent {
         this.whoFlowerPositionCntl.animatePosition(0)
       }, AnimationPeriods.short*500)
     }
-    else if(which === 'what'){
+    else if(which === 'what' && !this.whatAnimated){
+      this.whatAnimated = true;
       this.whatBnrScaleCntl.animate();
       this.whatTxtScaleCntl.animate();
       this.whatPositionCntls.forEach((cntl: AnimationControl)=>{
