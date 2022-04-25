@@ -1,11 +1,6 @@
-export const assetSrcs=[
-  "/assets/imgs/money-banner.jpg",
-  "/assets/imgs/circuitry-banner.jpg",
-  "/assets/imgs/expertise-banner.jpg",
-  "/assets/imgs/human_centric_design-banner.jpg",
-  "/assets/imgs/separated.jpg",
-  "/assets/imgs/cloud_tunnel.jpg"
-]
+/////////////
+// INTERFACES
+/////////////
 
 export interface ChipConfig{
   tooltip: string,
@@ -34,20 +29,17 @@ export interface PricingParameter{
 }
 
 export interface Fee{
-  cloudfront?: number,
-  cognito?:number,
-  lambda?: number,
-  ses?: number,
-  dynamodb?: number,
-  stripe?: number,
-  fargate?: number
+  service: string,
+  rate: number,
+  justification: string,
+  basis: string,
 }
 
 export interface Pricing{
   key: string,
   name: string,
   parameter: PricingParameter,
-  fees: Fee,
+  fees: Fee[],
   rate: number,
   tooltip: string,
   description: string
@@ -58,6 +50,10 @@ export interface Certification{
   src: string,
   alt: string
 }
+
+////////
+// ENUMS
+////////
 
 export enum ResumePopUpStates{
   one = 0, 
@@ -77,6 +73,19 @@ export enum ExperienceStates {
   americorps="americorps"
 }
 
+////////////
+// CONSTANTS
+////////////
+
+export const assetSrcs=[
+  "/assets/imgs/money-banner.jpg",
+  "/assets/imgs/circuitry-banner.jpg",
+  "/assets/imgs/expertise-banner.jpg",
+  "/assets/imgs/human_centric_design-banner.jpg",
+  "/assets/imgs/separated.jpg",
+  "/assets/imgs/cloud_tunnel.jpg"
+];
+
 export const TOOL_CHIPS: ChipConfig[] = [
   { tooltip: 'Adobe XD', href: 'https://www.adobe.com/products/xd.html', svgIcon: 'xd'},
   { tooltip: 'GNU Image Manipulation Program', href: 'https://www.gimp.org/', svgIcon: 'gimp'},
@@ -90,7 +99,7 @@ export const TOOL_CHIPS: ChipConfig[] = [
   { tooltip: 'S3', href: 'https://aws.amazon.com/S3/', svgIcon: 's3'},
   { tooltip: 'Lambda', href: 'https://aws.amazon.com/lambda/', svgIcon: 'lambda'},
   { tooltip: 'API Gateway', href: 'https://aws.amazon.com/api-gateway/', svgIcon: 'apigateway' },
-]
+];
 
 export const EXPERIENCE_CONFIG : Experience[] = [
   {
@@ -248,9 +257,14 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       label: 'Number of pages'
     },
     rate: 250,
-    fees:{
-      cloudfront: 0
-    },
+    fees:[
+      {
+        service: "AWS CloudFront",
+        rate: 0,
+        justification: "",
+        basis: ""
+      }
+    ],
     tooltip: '',
     description: ''
   },
@@ -262,10 +276,20 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       label: 'Complexity and variety of data',
       states: 5
     },
-    fees: {
-      lambda: 0,
-      dynamodb: 0
-    },
+    fees: [
+      {
+        service: 'AWS Lambda',
+        rate: 0,
+        justification: "",
+        basis: ""
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 0,
+        justification: "",
+        basis: ""
+      }
+    ],
     rate: 1000,
     tooltip: '',
     description: ''
@@ -278,10 +302,20 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       label: 'Complexity of inventory',
       states: 5
     },
-    fees: {
-      lambda: 0,
-      dynamodb: 0
-    },
+    fees: [
+      {
+        service: 'AWS Lambda',
+        rate: 0,
+        justification: "",
+        basis: ""
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 0,
+        justification: "",
+        basis: ""
+      }
+    ],
     rate: 2500,
     tooltip: '',
     description: ''
@@ -294,11 +328,26 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       label: 'Complexity of transactions',
       states: 5
     },
-    fees: {
-      lambda: 0,
-      dynamodb: 0,
-      stripe: 0
-    },
+    fees: [
+      {
+        service: 'AWS Lambda',
+        rate: 0,
+        justification: "",
+        basis: ""
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 0,
+        justification: "",
+        basis: ""
+      },
+      {
+        service: "Stripe",
+        rate: 0,
+        justification: "",
+        basis: "Per transaction"
+      }
+    ],
     rate: 1000,
     tooltip: '',
     description: ''
@@ -311,10 +360,20 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       label: 'Complexity of form',
       states: 5
     },
-    fees: {
-      lambda: 0,
-      dynamodb: 0
-    },
+    fees: [
+      {
+        service: 'AWS Lambda',
+        rate: 0,
+        justification: "",
+        basis: ""
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 0,
+        justification: "",
+        basis: ""
+      }
+    ],
     rate: 500,
     tooltip: '',
     description: ''
@@ -325,11 +384,26 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     parameter: {
       type: 'null'
     },
-    fees: {
-      lambda: 0,
-      dynamodb: 0,
-      ses: 0
-    },
+    fees: [
+      {
+        service: 'AWS Lambda',
+        rate: 0,
+        justification: "",
+        basis: ""
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 0,
+        justification: "",
+        basis: ""
+      },
+      {
+        service: 'AWS Simple Email Service',
+        rate: 0,
+        justification: "",
+        basis: ""
+      }
+    ],
     rate: 1000,
     tooltip: '',
     description: ''
@@ -345,10 +419,20 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
       label: 'Amount of data',
       states: 5
     },
-    fees: {
-      lambda: 0,
-      dynamodb: 0
-    },
+    fees: [
+      {
+        service: 'AWS Lambda',
+        rate: 0,
+        justification: "",
+        basis: ""
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 0,
+        justification: "",
+        basis: ""
+      }
+    ],
     rate: 2000,
     tooltip: '',
     description: ''
@@ -359,10 +443,20 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
     parameter: {
       type: 'null'
     },
-    fees: {
-      lambda: 0,
-      cognito: 0
-    },
+    fees: [
+      {
+        service: 'AWS Lambda',
+        rate: 0,
+        justification: "",
+        basis: ""
+      },
+      {
+        service: "AWS Cognito",
+        rate: 0,
+        justification: "",
+        basis: ""
+      }
+    ],
     rate: 1000,
     tooltip: '',
     description: ''
@@ -373,9 +467,14 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
     parameter: {
       type: 'null'
     },
-    fees:{
-      ses: 0,
-    },
+    fees: [
+      {
+        service: 'AWS Simple Email Service',
+        rate: 0,
+        justification: "",
+        basis: ""
+      }
+    ],
     rate: 500,
     tooltip: '',
     description: ''
@@ -390,7 +489,7 @@ export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
       type: 'number',
       label: 'Number of pages'
     },
-    fees: { },
+    fees: [],
     rate: 100,
     tooltip: '', 
     description: ''
@@ -401,7 +500,7 @@ export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
     parameter:{
       type: 'null'
     },
-    fees: { },
+    fees: [],
     rate: 100,
     tooltip: '',
     description: ''
@@ -412,7 +511,7 @@ export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
     parameter: {
       type: 'null'
     },
-    fees: { },
+    fees: [],
     rate: 1000,
     tooltip: '',
     description: ''

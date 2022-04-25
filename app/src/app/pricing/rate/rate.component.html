@@ -1,3 +1,14 @@
-<div>
-    {{config.name}}
-</div>
+<mat-card id="rate-input">
+    <mat-card-title>{{config.name}}</mat-card-title>
+    <mat-card-content>
+        <div id="number-input" *ngIf="config.parameter.type === 'number'">
+            <mat-form-field appearance="fill" color="accent">
+                <mat-label>{{config.parameter.label}}</mat-label>
+                <input matInput type="number">
+            </mat-form-field>
+        </div>
+        <div id="slider-input" *ngIf="config.parameter.type === 'slider'">
+            <mat-slider color="warn" min="1" [max]="config.parameter.states" [thumbLabel]="true"></mat-slider>
+        </div>
+    </mat-card-content>
+</mat-card>

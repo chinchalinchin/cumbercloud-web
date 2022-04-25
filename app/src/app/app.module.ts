@@ -15,9 +15,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon'; 
+import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list'; 
 import { MatRadioModule } from '@angular/material/radio';
-import { MatRippleModule } from '@angular/material/core';  
+import { MatRippleModule } from '@angular/material/core'; 
+import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper'; 
 import { MatTabsModule } from '@angular/material/tabs'; 
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -68,10 +70,12 @@ import { RateComponent } from './pricing/rate/rate.component';
     MatDialogModule,
     MatDividerModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatRadioModule,
     MatRippleModule,
     MatStepperModule,
+    MatSliderModule,
     MatTabsModule,
     MatTooltipModule,
   ],
