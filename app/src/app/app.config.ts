@@ -17,6 +17,7 @@ export interface Link{
   href: string,
   display: string
 }
+
 export interface Experience{
   company: string,
   position: string,
@@ -24,6 +25,31 @@ export interface Experience{
   responsibilities: string[],
   accomplishments?: string[],
   links?: Link[]
+}
+
+export interface PricingParameter{
+  type: string,
+  label?: string,
+  states?: number
+}
+
+export interface Fee{
+  cloudfront?: number,
+  lambda?: number,
+  ses?: number,
+  dynamodb?: number,
+  stripe?: number,
+  fargate?: number
+}
+
+export interface Pricing{
+  key: string,
+  name: string,
+  parameter: PricingParameter,
+  fees: Fee,
+  rate: number,
+  tooltip: string,
+  description: string
 }
 
 export interface Certification{
@@ -209,5 +235,132 @@ export const CERTIFICATION_CONFIG: Certification[] = [
     title: "MTA Java Programming",
     src: "/assets/certs/MTA_JAVA.png",
     alt: "Microsoft Technology Associate Introduction to Java Programming Certification"
+  }
+];
+
+export const CORE_PRICING_CONFIG: Pricing[] = [
+  { 
+    key: 'ADVERT',
+    name: 'Advertising & Branding',
+    parameter:{
+      type: 'number',
+      label: 'Number of pages'
+    },
+    rate: 250,
+    fees:{
+      cloudfront: 0
+    },
+    tooltip: '',
+    description: ''
+  },
+  {
+    key: 'DATA',
+    name: 'Data Aggregration & Indexing',
+    parameter: {
+      type: 'slider',
+      label: 'Complexity and variety of data',
+      states: 5
+    },
+    fees: {
+      lambda: 0,
+      dynamodb: 0
+    },
+    rate: 1000,
+    tooltip: '',
+    description: ''
+  },
+  {
+    key: 'INVENT',
+    name: 'Inventory Management',
+    parameter: {
+      type: 'slider',
+      label: 'Complexity of inventory',
+      states: 5
+    },
+    fees: {
+      lambda: 0,
+      dynamodb: 0
+    },
+    rate: 2500,
+    tooltip: '',
+    description: ''
+  },
+  {
+    key: 'MARKET',
+    name: 'Online Marketplace',
+    parameter:{
+      type: 'slider',
+      label: 'Complexity of transactions',
+      states: 5
+    },
+    fees: {
+      lambda: 0,
+      dynamodb: 0,
+      stripe: 0
+    },
+    rate: 1000,
+    tooltip: '',
+    description: ''
+  },
+  {
+    key: 'FORM',
+    name: 'Form Validation & Processing',
+    parameter:{
+      type: 'slider',
+      label: 'Complexity of form',
+      states: 5
+    },
+    fees: {
+      lambda: 0,
+      dynamodb: 0
+    },
+    rate: 500,
+    tooltip: '',
+    description: ''
+  },
+  {
+    key: 'SCHEDULE',
+    name: 'Appointment Scheduling & Notifications',
+    parameter: {
+      type: 'null'
+    },
+    fees: {
+      lambda: 0,
+      dynamodb: 0,
+      ses: 0
+    },
+    rate: 1000,
+    tooltip: '',
+    description: ''
+  }
+];
+
+export const ADDON_PRICING_CONFIG = [
+  {
+    key: 'STORAGE',
+    name: 'Document & Data Storage',
+    parameter: {
+      type: 'slider',
+      label: 'Amount of data',
+      states: 5
+    },
+    fees: {
+      lambda: 0,
+      dynamodb: 0
+    },
+    rate: 2000,
+    tooltip: '',
+    description: ''
+  },
+  {
+    key: 'SSO',
+    name: 'Single Sign-On',
+    parameter: {
+      type: 'null'
+    },
+    fees: {
+      lambda: 0,
+      cognito: 0
+    }
   }
 ];
