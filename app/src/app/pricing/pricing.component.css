@@ -25,8 +25,6 @@
 #cost-breakdown-popup{
   position: absolute;
   top: 27.5%;
-  right: 10%;
-  width: 80%; 
   height: 67.5%;
   border-radius: 5px;
 }
@@ -34,9 +32,17 @@
   #calc-btn{
     top: 2.5%;
   }
+  #cost-breakdown-popup{
+    right: 10%;
+    width: 80%; 
+  }
 }
 @media(max-width:992px){
   #calc-btn{
     bottom: 2.5%;
+  }
+  #cost-breakdown-popup{
+    right: 2.5%;
+    width: 95%;
   }
 }

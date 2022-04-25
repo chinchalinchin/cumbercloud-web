@@ -62,5 +62,5 @@
 </div>
 
 <div id="cost-breakdown-popup" [@expand_popup] *ngIf="calculated">
-
+  <app-rate *ngFor="let config of enabledConfig" [config]="config"></app-rate>
 </div>

@@ -100,6 +100,7 @@ export class PricingComponent{
   }
 
   public calculate(): void{
+    this.parseEnabledCalculations();
     this.calculated = true;
   }
 

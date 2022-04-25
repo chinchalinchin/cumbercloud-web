@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Pricing } from 'src/app/app.config';
 
 @Component({
   selector: 'app-rate',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rate.component.css']
 })
 export class RateComponent implements OnInit {
+
+  @Input()
+  public config!: Pricing;
 
   constructor() { }
 

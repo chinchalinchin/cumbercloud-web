@@ -7,20 +7,22 @@
   $accent-palette: map.get($color-config, 'accent');
   $warn-palette: map.get($color-config, 'warn');
 
-  .factoid{
-    background-color: rgba(map-get($primary-palette, 700), 1);
-    color: rgba(map-get($primary-palette, darker-contrast), 1);
-    //background: linear-gradient(90deg, map-get($primary-palette, 900) 0%, map-get($primary-palette, 50) 90%);
-  }
   .facts-container{
     background-color: rgba(map-get($primary-palette, 50), 0.5);
   }
-  .highlighted{
-    color: rgb(map-get($accent-palette, 900), 1);
-
+  .regular{
+    background-color: map-get($primary-palette, 700);
+    color: map-get($primary-palette, 50);
+  }
+  .invert{
+    background-color: map-get($primary-palette, 50);
+    color: map-get($primary-palette, 700);
   }
   .toggle{
-    background-color: rgba(map-get($primary-palette, lighter), 1);
+    background-color: map-get($primary-palette, darker);
+  }
+  .toggle-invert{
+    background-color: map-get($primary-palette, lighter);
   }
   #popup{
     background-color: map-get($primary-palette, lighter);

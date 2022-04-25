@@ -56,8 +56,8 @@ enum States{
                                         'cloud_line_mobile_3', AnimationPeriods.short),
 
     Animations.getManualFadeTrigger(AnimationPeriods.short),
-    Animations.getSlideTrigger(),
-    Animations.getSlideTrigger(true,'reverse'),
+    Animations.getSlideTrigger(false,'', AnimationPeriods.short),
+    Animations.getSlideTrigger(true,'reverse', AnimationPeriods.short),
     Animations.getScaleTrigger(1)
   ]
 })
@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
     this.cloudFadeCntl.setState(FadeStates.out);
     setTimeout(()=>{
       this.pressable = true;
-    }, AnimationPeriods.medium*1000);
+    }, AnimationPeriods.short*1000);
   }
 
   public mobileMode(){
