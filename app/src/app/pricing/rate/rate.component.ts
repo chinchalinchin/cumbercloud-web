@@ -8,6 +8,9 @@ import { Pricing } from 'src/app/app.config';
 })
 export class RateComponent implements OnInit {
 
+  public numberValue: number = 1;
+  public sliderValue: number = 1;
+
   @Input()
   public config!: Pricing;
 

@@ -26,6 +26,8 @@ export interface PricingParameter{
   type: string,
   label?: string,
   states?: number
+  state_descriptions?: string[],
+  state_titles?: string[]
 }
 
 export interface Fee{
@@ -269,38 +271,22 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     description: ''
   },
   {
-    key: 'DATA',
-    name: 'Data Aggregration & Indexing',
-    parameter: {
-      type: 'slider',
-      label: 'Complexity and variety of data',
-      states: 5
-    },
-    fees: [
-      {
-        service: 'AWS Lambda',
-        rate: 0,
-        justification: "",
-        basis: ""
-      },
-      {
-        service: "AWS DynamoDB",
-        rate: 0,
-        justification: "",
-        basis: ""
-      }
-    ],
-    rate: 1000,
-    tooltip: '',
-    description: ''
-  },
-  {
     key: 'INVENT',
     name: 'Inventory Management',
     parameter: {
       type: 'slider',
       label: 'Complexity of inventory',
-      states: 5
+      states: 3,
+      state_descriptions: [
+        "Accessed infrequently by select users and contains less than ten thousand records.",
+        "Accessed daily by a group of users and contains on the order of a hundred thousand records.",
+        "Accessed multiple times a day by a community of users and contains millions of records."
+      ],
+      state_titles: [
+        "Small",
+        "Medium",
+        "Large"
+      ]
     },
     fees: [
       {
@@ -326,7 +312,18 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     parameter:{
       type: 'slider',
       label: 'Complexity of transactions',
-      states: 5
+      states: 3,
+      state_descriptions:[
+        "Basic transaction order flow. Order is processed as soon as it is received.",
+        "Asynchronous transaction order flow. Order is not processed until conditions are met.",
+        "Intensive transaction order flow with multiple parties. Numerous transactions in small time frames. Order history must be consistent and immutable."
+
+      ],
+      state_titles:[
+        "Simple",
+        "Complex",
+        "Network"
+      ]
     },
     fees: [
       {
@@ -358,7 +355,17 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     parameter:{
       type: 'slider',
       label: 'Complexity of form',
-      states: 5
+      states: 3,
+      state_descriptions: [
+        "A simple form for collecting user data or submissions. Form contains less than twenty fields.",
+        "A form with conditional elements and nested sub-forms. Form contains less than a hundred fields.",
+        "A form with multiple nested relationships or unstructured data. Form contains more than a hundred fields."
+      ],
+      state_titles: [
+        "Basic",
+        "Complex",
+        "Unstructured"
+      ]
     },
     fees: [
       {

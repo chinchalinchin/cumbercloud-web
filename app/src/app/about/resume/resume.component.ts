@@ -118,11 +118,11 @@ export class ResumeComponent {
     else{
       switch(state){
         case this.popUpStates.one:
-          return "Professional background";
+          return "Professional career";
         case this.popUpStates.two:
-          return "Industry recognized expertise";
+          return "Industry recognized accolades";
         case this.popUpStates.three:
-          return "Diverse technical skill set";
+          return "Diverse technical background";
         case this.popUpStates.four:
           return "Websites, applications & projects";
         default:

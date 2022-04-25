@@ -1,14 +1,33 @@
 <mat-card id="rate-input">
     <mat-card-title>{{config.name}}</mat-card-title>
+    <mat-card-subtitle *ngIf="config.parameter.type === 'slider'">
+        {{config.parameter.label}}
+    </mat-card-subtitle>
     <mat-card-content>
         <div id="number-input" *ngIf="config.parameter.type === 'number'">
             <mat-form-field appearance="fill" color="accent">
                 <mat-label>{{config.parameter.label}}</mat-label>
-                <input matInput type="number">
+                <input matInput type="number" [(ngModel)]="numberValue">
             </mat-form-field>
         </div>
+
         <div id="slider-input" *ngIf="config.parameter.type === 'slider'">
-            <mat-slider color="warn" min="1" [max]="config.parameter.states" [thumbLabel]="true"></mat-slider>
+            <div id="slider-container">
+                <div id="slider">
+                    <mat-slider #slider color="warn" min="1" [max]="config.parameter.states" [thumbLabel]="true" [(ngModel)]="sliderValue"></mat-slider>
+                </div>
+                <div id="slider-state" class="slider-widget mat-elevation-z2" *ngIf="config.parameter.state_descriptions">
+                    <h3 class="mat-h3" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
+                        {{config.parameter.state_titles[sliderValue-1]}}
+                    </h3>
+                    <p class="mat-body" style="margin-left: 5%;">
+                        {{config.parameter.state_descriptions[sliderValue-1]}}
+                    </p>
+                </div>
+                <div id="slider-output">
+
+                </div>
+            </div>
         </div>
     </mat-card-content>
 </mat-card>
