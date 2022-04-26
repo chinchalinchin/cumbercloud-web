@@ -21,6 +21,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatRippleModule } from '@angular/material/core'; 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper'; 
+import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs'; 
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -77,6 +78,7 @@ import { RateComponent } from './pricing/rate/rate.component';
     MatStepperModule,
     MatSliderModule,
     MatTabsModule,
+    MatTableModule,
     MatTooltipModule,
   ],
   providers: [{

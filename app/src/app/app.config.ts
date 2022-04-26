@@ -367,9 +367,9 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       },
       {
         service: "Stripe",
-        rate: 2.9,
+        rate: 0.029,
         justification: "Payment Processing",
-        basis: "% Per Transaction",
+        basis: "Per Transaction",
         href: "https://stripe.com/pricing"
       }
     ],

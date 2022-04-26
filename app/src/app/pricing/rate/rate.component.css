@@ -2,6 +2,9 @@
 mat-slider{
     width: 80%;
 }
+.mat-header-row{
+    border-radius: 5px 5px 0 0;
+}
 #rate-input{
     margin: 0.5%;
 }
@@ -14,16 +17,17 @@ mat-slider{
     border-radius: 7.5%;
 }
 @media(min-width: 991px){
-    .element-container{
+    #root-container{
+        display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 60%;
+        width: 100%;
     }
-    .element-input{
-        width: 30%;
+    .element{
+        max-width: 50%;
     }
-    .element-output{
-        width: 20%;
+    .element-container{
+        flex-direction: row;
     }
     .element-widget{
         max-width: 40%;
@@ -34,9 +38,6 @@ mat-slider{
         flex-direction: column;
         justify-content: center;
         height: 100%;
-        width: 100%;
-    }
-    .element{
         width: 100%;
     }
     .element-widget{
