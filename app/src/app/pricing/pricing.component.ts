@@ -33,8 +33,11 @@ export class PricingComponent{
   public buttonStyle: ButtonStyle = ButtonStyle.none;
   public pricingGroups: any = PricingGroups; 
   public coreFormGroup : FormGroup;
+  public coreChecked: number = 0
   public addOnFormGroup: FormGroup;
+  public addOnChecked : number = 0;
   public analyticsFormGroup: FormGroup;
+  public analyticsChecked: number = 0;
   public total: number = 0;
 
   constructor(private forms: FormBuilder) { 
@@ -97,6 +100,35 @@ export class PricingComponent{
     }
   }
 
+  public renderBadges(group: PricingGroups){
+    switch(group){
+      case this.pricingGroups.core:
+        this.coreChecked = 0;
+        Object.keys(this.coreFormGroup.controls).forEach((key: string)=>{
+          if(this.coreFormGroup.controls[key].value){
+            this.coreChecked++;
+          }
+        })
+        break;
+      case this.pricingGroups.addon:
+        this.addOnChecked = 0;
+        Object.keys(this.addOnFormGroup.controls).forEach((key: string)=>{
+          if(this.addOnFormGroup.controls[key].value){
+            this.addOnChecked++;
+          }
+        })
+        break;
+      case this.pricingGroups.analytics:
+        this.analyticsChecked = 0;
+        Object.keys(this.analyticsFormGroup.controls).forEach((key: string)=>{
+          if(this.analyticsFormGroup.controls[key].value){
+            this.analyticsChecked++;
+          }
+        })
+        break;
+    }
+  }
+
   public toggleButtonStyle(): void{
     if(this.buttonStyle === ButtonStyle.none) { this.buttonStyle = ButtonStyle.accent; }
     else if(this.buttonStyle === ButtonStyle.accent) { this.buttonStyle = ButtonStyle.none; }
@@ -125,6 +157,9 @@ export class PricingComponent{
     this.enabledConfig = [];
     this.enabledCalc = [];
     this.calculated = false;
+    this.coreChecked = 0;
+    this.addOnChecked = 0;
+    this.analyticsChecked = 0;
     this.coreFormGroup.reset();
     this.addOnFormGroup.reset();
     this.analyticsFormGroup.reset();

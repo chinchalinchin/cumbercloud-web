@@ -22,8 +22,8 @@
                 </p>
             </div>
             <div id="number-output" class="element-output mat-elevation-z3">
-                <h2 class="mat-h2 text-primary-dark">Estimate</h2>
-                <p class="mat-body text-primary-dark" style="text-align: center; padding-top: 7.5%;">
+                <h2 class="mat-h2">Estimate</h2>
+                <p class="mat-body-2" style="text-align: center; padding-top: 7.5%;font-size:larger;">
                     {{total | currency}}
                 </p>
             </div>
@@ -31,7 +31,7 @@
 
         <div id="slider-element" class="element-container" *ngIf="config.parameter.type === 'slider'">
             <div id="slider" class="element">
-                <mat-slider #slider color="warn" min="1" [max]="config.parameter.states" [thumbLabel]="true" [(ngModel)]="sliderValue"></mat-slider>
+                <mat-slider #slider color="warn" step="1" min="1" [max]="config.parameter.states" [thumbLabel]="true" [(ngModel)]="sliderValue" (ngModelChange)="recalculate($event)"></mat-slider>
             </div>
             <div id="slider-state" class="element-widget mat-elevation-z2" *ngIf="config.parameter.state_descriptions">
                 <h2 class="mat-h2" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
@@ -41,12 +41,38 @@
                     {{config.parameter.state_descriptions[sliderValue-1]}}
                 </p>
             </div>
+            <div id="slider-output" class="element-output mat-elevation-z3">
+                <h2 class="mat-h2">Estimate</h2>
+                <p class="mat-body-2" style="text-align: center; padding-top: 7.5%;font-size:larger;">
+                    {{total | currency}}
+                </p>
+            </div>
+        </div>
+
+        <div id="null-element" class="element-container" *ngIf="config.parameter.type === 'null' ">
+            <div id="null-state" class="element-widget mat-elevation-z2" *ngIf="config.parameter.state_descriptions">
+                <h2 class="mat-h2" style="margin-top: 1%" *ngIf="config.parameter.state_titles">
+                    {{config.parameter.state_titles[0]}}
+                </h2>
+                <p class="mat-body" style="margin-left: 5%;">
+                    {{config.parameter.state_descriptions[0]}}
+                </p>
+            </div>
+            <div id="null-output" class="element-output mat-elevation-z3">
+                <h2 class="mat-h2">Estimate</h2>
+                <p class="mat-body-2" style="text-align: center; padding-top: 7.5%;font-size:larger;">
+                    {{total | currency}}
+                </p>
+            </div>
         </div>
 
         <mat-divider *ngIf="config.fees.length>0"></mat-divider>
 
-        <h2 class="mat-h2" style="padding-top: 1%" *ngIf="config.fees.length>0">
+        <h2 class="mat-h3" style="padding-top: 1%" *ngIf="config.fees.length>0">
             Recurring Fees
+            <button mat-icon-button color="accent" style="float: right;">
+                <mat-icon>info</mat-icon>
+            </button>
         </h2>
 
         <div id="fee-element" *ngIf="config.fees.length>0">

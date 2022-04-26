@@ -35,12 +35,19 @@ export class RateComponent implements OnInit{
     return this.config.parameter.type === 'number';
   }
 
+  private isNull(): boolean {
+    return this.config.parameter.type === 'null';
+  }
+
   public calculate(): void{
     if(this.isSlider()){
       this.total = this.sliderValue*this.config.rate;
     }
     else if(this.isNumber()){
       this.total = this.numberValue*this.config.rate;
+    }
+    else if(this.isNull()){
+      this.total = this.config.rate;
     }
     this.totalChanged.emit({
       key: this.config.key,

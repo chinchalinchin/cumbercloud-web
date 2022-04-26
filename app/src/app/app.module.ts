@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
 
 // TODO: material module
+import  {MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatCardModule } from '@angular/material/card'; 
@@ -62,6 +63,7 @@ import { RateComponent } from './pricing/rate/rate.component';
     ReactiveFormsModule,
     HammerModule,
 
+    MatBadgeModule,
     MatBottomSheetModule,
     MatButtonModule,
     MatExpansionModule,

@@ -12,13 +12,15 @@
       <mat-accordion displayMode="flat">
         <mat-expansion-panel (opened)="setFocus(pricingGroups.core)" (closed)="removeFocus()" *ngIf="!focusing || focused(pricingGroups.core)" [@expand_full]>
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              Core Features
+            <mat-panel-title style="padding: 1%;">
+              <span [matBadge]="coreChecked" matBadgeColor="accent" [matBadgeHidden] = "coreChecked === 0" matBadgePosition="below" matBadgeSize="small">
+                Core Features
+              </span>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <section [formGroup]="coreFormGroup">
             <div *ngFor="let conf of coreConfig">
-              <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
+              <mat-checkbox [formControlName]="conf.key" (change)="renderBadges(pricingGroups.core)">{{conf.name}}</mat-checkbox>
               <mat-icon *ngIf="groupField(pricingGroups.core, conf.key)" style="float: right;" color="accent" [matTooltip]="conf.tooltip">info</mat-icon>
             </div>
           </section>
@@ -26,13 +28,15 @@
 
         <mat-expansion-panel (opened)="setFocus(pricingGroups.addon)" (closed)="removeFocus()" *ngIf="!focusing || focused(pricingGroups.addon)" [@expand_full]>
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              Additional Specifications
+            <mat-panel-title style="padding: 1%;">
+              <span [matBadge]="addOnChecked" matBadgeColor="accent" [matBadgeHidden] = "addOnChecked === 0" matBadgePosition="below" matBadgeSize="small">
+                Additional Specifications
+              </span>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <section [formGroup]="addOnFormGroup">
             <div *ngFor="let conf of addOnConfig">
-              <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
+              <mat-checkbox [formControlName]="conf.key" (change)="renderBadges(pricingGroups.addon)">{{conf.name}}</mat-checkbox>
               <mat-icon *ngIf="groupField(pricingGroups.addon, conf.key)" style="float: right;" color="accent" [matTooltip]="conf.tooltip">info</mat-icon>
             </div>
           </section>
@@ -40,13 +44,15 @@
 
         <mat-expansion-panel (opened)="setFocus(pricingGroups.analytics)" (closed)="removeFocus()" *ngIf="!focusing || focused(pricingGroups.analytics)" [@expand_full]>
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              Analytics
+            <mat-panel-title style="padding: 1%;">
+              <span [matBadge]="analyticsChecked" matBadgeColor="accent" [matBadgeHidden] = "analyticsChecked === 0" matBadgePosition="below" matBadgeSize="small">
+                Analytics
+              </span>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <section [formGroup]="analyticsFormGroup">
             <div *ngFor="let conf of analyticsConfig">
-              <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
+              <mat-checkbox [formControlName]="conf.key" (change)="renderBadges(pricingGroups.analytics)">{{conf.name}}</mat-checkbox>
               <mat-icon *ngIf="groupField(pricingGroups.analytics, conf.key)" style="float: right;" color="accent" [matTooltip]="conf.tooltip">info</mat-icon>
             </div>
           </section>
@@ -63,8 +69,9 @@
 
 <div id="cost-breakdown-popup" [@expand_popup] *ngIf="calculated">
   <div id="popup-toolbar">
-    <div>
-      {{total | currency }}
+    <div id="total-badge" class="mat-elevation-z1">
+      <span style="float:left; padding-left: 10%;">Total:</span>
+      {{ total | currency }}
     </div>
     <button mat-icon-button color="warn" (click)="uncalculate()">
       <mat-icon>close</mat-icon>

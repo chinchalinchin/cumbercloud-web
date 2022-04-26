@@ -328,8 +328,8 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       label: 'Complexity of transactions',
       states: 3,
       state_descriptions:[
-        "Basic transaction order flow. Order is processed as soon as it is received.",
-        "Asynchronous transaction order flow. Order is not processed until conditions are met.",
+        "Basic transaction order flow. Orders are processed as soon as they are received.",
+        "Asynchronous transaction order flow. Orders are not processed until conditions are met.",
         "Intensive transaction order flow with multiple parties. Numerous transactions in small time frames. Order history must be consistent and immutable."
 
       ],
