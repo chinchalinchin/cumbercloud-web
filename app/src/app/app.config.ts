@@ -34,7 +34,7 @@ export interface Fee{
   service: string,
   rate: number,
   justification: string,
-  basis: string,,
+  basis: string,
   href: string
 }
 
