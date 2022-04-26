@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Animations } from 'src/animations';
 import { ADDON_PRICING_CONFIG, ANALYTICS_PRICING_CONFIG, CORE_PRICING_CONFIG, Pricing } from '../app.config';
+import { RateEvent } from './rate/rate.component';
 
 enum ButtonStyle{
   primary="primary", accent="accent", none=""
@@ -28,11 +29,13 @@ export class PricingComponent{
   public addOnConfig: Pricing[] = ADDON_PRICING_CONFIG;
   public analyticsConfig: Pricing[] = ANALYTICS_PRICING_CONFIG;
   public enabledConfig: Pricing[] = [];
+  public enabledCalc: RateEvent[] = [];
   public buttonStyle: ButtonStyle = ButtonStyle.none;
   public pricingGroups: any = PricingGroups; 
   public coreFormGroup : FormGroup;
   public addOnFormGroup: FormGroup;
   public analyticsFormGroup: FormGroup;
+  public total: number = 0;
 
   constructor(private forms: FormBuilder) { 
     this.coreFormGroup = this.forms.group({});
@@ -65,6 +68,20 @@ export class PricingComponent{
         this.enabledConfig.push(conf);
       }
     })
+  }
+
+  private calculateOverallTotal(): void{
+    this.total = 0;
+    this.enabledCalc.forEach((info: RateEvent)=>{
+      this.total = this.total + info.total;
+    })
+  }
+
+  public appendToCalculation(event: RateEvent): void{
+    let search_index : number = this.enabledCalc.findIndex(enabled_event => enabled_event.key === event.key);
+    if(search_index>-1){ this.enabledCalc[search_index] = event; }
+    else{ this.enabledCalc.push(event); }
+    this.calculateOverallTotal();
   }
 
   public groupField(group: PricingGroups, field: string): boolean{
@@ -106,6 +123,7 @@ export class PricingComponent{
 
   public uncalculate(): void{
     this.enabledConfig = [];
+    this.enabledCalc = [];
     this.calculated = false;
     this.coreFormGroup.reset();
     this.addOnFormGroup.reset();

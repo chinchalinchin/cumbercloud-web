@@ -32,6 +32,12 @@
     .text-primary-light{
       color: map-get($primary-palette, 50);
     }
+    .text-primary-dark{
+      color: map-get($primary-palette, 800);
+    }
+    .text-accent{
+      color: map-get($accent-palette, 500);
+    }
     .btn-primary-theme{
       color: map-get($primary-palette, default-contrast);
       background-color: map-get($primary-palette, 500);

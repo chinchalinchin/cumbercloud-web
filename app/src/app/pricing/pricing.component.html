@@ -63,11 +63,14 @@
 
 <div id="cost-breakdown-popup" [@expand_popup] *ngIf="calculated">
   <div id="popup-toolbar">
+    <div>
+      {{total | currency }}
+    </div>
     <button mat-icon-button color="warn" (click)="uncalculate()">
       <mat-icon>close</mat-icon>
     </button>
   </div>
   <div id="popup-content">
-    <app-rate *ngFor="let config of enabledConfig" [config]="config"></app-rate>
+    <app-rate *ngFor="let config of enabledConfig" [config]="config" (totalChanged)="appendToCalculation($event)"></app-rate>
   </div>
 </div>

@@ -541,7 +541,7 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
   },
   {
     key: 'EMAIL',
-    name: 'Personal Email Domain',
+    name: 'Email Domain',
     parameter: {
       type: 'null',
       state_descriptions: [
