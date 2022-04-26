@@ -7,7 +7,9 @@ mat-slider{
 }
 
 #rate{
-    margin: 0.5%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-bottom: 0.5%;
 }
 .element-container{
     display: flex;
@@ -16,7 +18,7 @@ mat-slider{
 .element-widget{
     padding-left: 2.5%;
     padding-right: 2.5%;
-    border-radius: 7.5%;
+    border-radius: 25px;
 }
 @media(min-width: 991px){
     .element{

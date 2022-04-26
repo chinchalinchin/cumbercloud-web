@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 
-Description: "Resources for hosting a website statically through an S3 bucket CloudFront distribution."
+Description: "Resources for statically hosting a website through an S3 CloudFront distribution and delivering continuous updates to the static content through a CICD pipeline."
 
 Parameters:
   applicationName:

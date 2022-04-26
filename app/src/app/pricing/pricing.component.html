@@ -19,9 +19,7 @@
           <section [formGroup]="coreFormGroup">
             <div *ngFor="let conf of coreConfig">
               <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
-              <!--
-              <mat-icon *ngIf="groupField(pricingGroups.core, conf.key)" style="float: right;" color="accent">label</mat-icon>
-              -->
+              <mat-icon *ngIf="groupField(pricingGroups.core, conf.key)" style="float: right;" color="accent" [matTooltip]="conf.tooltip">info</mat-icon>
             </div>
           </section>
         </mat-expansion-panel>
@@ -35,9 +33,7 @@
           <section [formGroup]="addOnFormGroup">
             <div *ngFor="let conf of addOnConfig">
               <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
-              <!--
-              <mat-icon *ngIf="groupField(pricingGroups.addon, conf.key)" style="float: right;" color="accent">label</mat-icon>
-              -->
+              <mat-icon *ngIf="groupField(pricingGroups.addon, conf.key)" style="float: right;" color="accent" [matTooltip]="conf.tooltip">info</mat-icon>
             </div>
           </section>
         </mat-expansion-panel>
@@ -51,7 +47,7 @@
           <section [formGroup]="analyticsFormGroup">
             <div *ngFor="let conf of analyticsConfig">
               <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
-              <mat-icon *ngIf="groupField(pricingGroups.analytics, conf.key)" style="float: right;" color="accent">label</mat-icon>
+              <mat-icon *ngIf="groupField(pricingGroups.analytics, conf.key)" style="float: right;" color="accent" [matTooltip]="conf.tooltip">info</mat-icon>
             </div>
           </section>
         </mat-expansion-panel>
@@ -71,5 +67,7 @@
       <mat-icon>close</mat-icon>
     </button>
   </div>
-  <app-rate *ngFor="let config of enabledConfig" [config]="config"></app-rate>
+  <div id="popup-content">
+    <app-rate *ngFor="let config of enabledConfig" [config]="config"></app-rate>
+  </div>
 </div>

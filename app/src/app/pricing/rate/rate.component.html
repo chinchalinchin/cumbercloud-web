@@ -4,7 +4,6 @@
         {{config.parameter.label}}
     </mat-card-subtitle>
     <mat-card-content>
-        <div class="v-align">
         <div id="number-element" class="element-container" *ngIf="config.parameter.type === 'number'">
             <div id="number" class="element">
                 <mat-form-field appearance="fill" color="warn">
@@ -23,7 +22,6 @@
                 </p>
             </div>
         </div>
-        </div>
 
         <div id="slider-element" class="element-container" *ngIf="config.parameter.type === 'slider'">
             <div id="slider" class="element">
@@ -39,9 +37,13 @@
             </div>
         </div>
 
-        <mat-divider></mat-divider>
+        <mat-divider *ngIf="config.fees.length>0"></mat-divider>
 
-        <div id="fee-element" *ngIf="config.fees" style="padding-top: 1%;">
+        <h2 class="mat-h2" style="padding-top: 1%" *ngIf="config.fees.length>0">
+            Fees
+        </h2>
+
+        <div id="fee-element" *ngIf="config.fees.length>0">
             <mat-table [dataSource]="config.fees" class="mat-elevation-z3">
                 <ng-container matColumnDef="service">
                     <mat-header-cell *matHeaderCellDef>Service</mat-header-cell>

@@ -45,7 +45,6 @@ export interface Pricing{
   fees: Fee[],
   rate: number,
   tooltip: string,
-  description: string
 }
 
 export interface Certification{
@@ -258,7 +257,6 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     parameter:{
       type: 'number',
       label: 'Number of pages',
-      states: 100,
       state_descriptions:[
         "Static content can be hosted on the cloud for practically free these days, so the main expense here comes from the design and implementation of the content itself."
       ],
@@ -271,13 +269,12 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       {
         service: "AWS CloudFront",
         rate: 0.085,
-        justification: "",
+        justification: "Website Hosting",
         basis: "Per GB transferred to the internet",
         href: "https://aws.amazon.com/cloudfront/pricing/"
       }
     ],
-    tooltip: '',
-    description: ''
+    tooltip: 'Charges per page',
   },
   {
     key: 'INVENT',
@@ -321,8 +318,7 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       }
     ],
     rate: 2500,
-    tooltip: '',
-    description: ''
+    tooltip: 'Charges based on complexity',
   },
   {
     key: 'MARKET',
@@ -347,7 +343,7 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       {
         service: 'AWS Lambda',
         rate: 0.20,
-        justification: "",
+        justification: "Business Logic",
         basis: "Per 1 Million Requests",
         href: "https://aws.amazon.com/lambda/pricing/"
       },
@@ -374,8 +370,7 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       }
     ],
     rate: 1000,
-    tooltip: '',
-    description: ''
+    tooltip: 'Charges based on complexity',
   },
   {
     key: 'FORM',
@@ -399,7 +394,7 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       {
         service: 'AWS Lambda',
         rate: 0.20,
-        justification: "",
+        justification: "Business Logic",
         basis: "Per 1 Million Requests",
         href: "https://aws.amazon.com/lambda/pricing/"
       },
@@ -419,20 +414,25 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       }
     ],
     rate: 500,
-    tooltip: '',
-    description: ''
+    tooltip: 'Charges based on complexity',
   },
   {
     key: 'SCHEDULE',
     name: 'Scheduling & Notifications',
     parameter: {
-      type: 'null'
+      type: 'null',
+      state_descriptions: [
+        "Setting up scheduled jobs and notifications services in the cloud is a standard use-case and easy to implement."
+      ],
+      state_titles: [
+        "Description"
+      ]
     },
     fees: [
       {
         service: 'AWS Lambda',
         rate: 0.20,
-        justification: "",
+        justification: "Business Logic",
         basis: "Per 1 Million Requests",
         href: "https://aws.amazon.com/lambda/pricing/"
       },
@@ -459,8 +459,7 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       }
     ],
     rate: 1000,
-    tooltip: '',
-    description: ''
+    tooltip: 'Charge based on implementation effort',
   }
 ];
 
@@ -470,14 +469,24 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
     name: 'Document & Data Storage',
     parameter: {
       type: 'slider',
-      label: 'Amount of data',
-      states: 5
+      label: 'Complexity of data',
+      states: 3,
+      state_descriptions:[
+        "Your data is scalar, i.e. all values can be inputted into an Excel spreadsheet",
+        "Your data includes images, videos and other forms of media.",
+        "Your data is aggregated from multiple sources. Note, depending on the complexity and the desired outcome, this may require other services and extra effort."
+      ],
+      state_titles:[
+        "Easy",
+        "Medium",
+        "Hard"
+      ]
     },
     fees: [
       {
         service: 'AWS Lambda',
         rate: 0.20,
-        justification: "",
+        justification: "Business Logic",
         basis: "Per 1 Million Requests",
         href: "https://aws.amazon.com/lambda/pricing/"
       },
@@ -497,21 +506,26 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
       },
     ],
     rate: 2000,
-    tooltip: '',
-    description: ''
+    tooltip: 'Charges based on amount of data',
   },
   {
     key: 'SSO',
     name: 'Single Sign-On',
     parameter: {
-      type: 'null'
+      type: 'null',
+      state_descriptions:[
+        "Integrating with identity providers like Google, Facebook or Microsoft has never been easier. Most platforms offer this capability out of the box."
+      ],
+      state_titles: [
+        "Description"
+      ]
     },
     fees: [
       {
         service: 'AWS Lambda',
         rate: 0.20,
         justification: "Per 1 Million Requets",
-        basis: "",
+        basis: "Business Logic",
         href: "https://aws.amazon.com/lambda/pricing/"
       },
       {
@@ -523,16 +537,28 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
       }
     ],
     rate: 1000,
-    tooltip: '',
-    description: ''
+    tooltip: 'Charges based on number of users',
   },
   {
     key: 'EMAIL',
     name: 'Personal Email Domain',
     parameter: {
-      type: 'null'
+      type: 'null',
+      state_descriptions: [
+        "Most cloud-based email services can be configured without hassle."
+      ],
+      state_titles:[
+        "Description"
+      ]
     },
     fees: [
+      {
+        service: 'AWS Lambda',
+        rate: 0.20,
+        justification: "Per 1 Million Requets",
+        basis: "Business Logic",
+        href: "https://aws.amazon.com/lambda/pricing/"
+      },
       {
         service: 'AWS Simple Email Service',
         rate: 0.10,
@@ -541,9 +567,8 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
         href: "https://aws.amazon.com/ses/pricing/"
       }
     ],
-    rate: 500,
-    tooltip: '',
-    description: ''
+    rate: 1000,
+    tooltip: 'Charges based on amount of email traffic',
   }
 ];
 
@@ -553,33 +578,33 @@ export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
     name: "Search Engine Optimization",
     parameter:{
       type: 'number',
-      label: 'Number of pages'
+      label: 'Number of pages',
+      state_descriptions:[
+        "Assuming static content, SEO is a one-time process. If you are updating content on a regular basis, SEO becomes more complex. All of our custom pages are automatically SEO'ed by default, but if you are using a CMS like WordPress or Drupal, this process will involve several manual steps each time content is updated."
+      ],
+      state_titles: [
+        "Description"
+      ]
     },
     fees: [],
     rate: 100,
-    tooltip: '', 
-    description: ''
+    tooltip: 'Charges based on number of pages optimized', 
   },
   {
     key: "DEMO",
     name: "User Traffic Demographics",
     parameter:{
-      type: 'null'
+      type: 'number',
+      label: 'Number of pages',
+      state_descriptions:[
+        "Measuring user traffic on a domain and generating demographics is straight-forward. If you require more in-depth analytics, such as how long a user interacts with a particular element on your website or which elements are most likely to lead to conversion, this will require a more thorough accounting of your website."
+      ],
+      state_titles:[
+        "Description"
+      ]
     },
     fees: [],
     rate: 100,
-    tooltip: '',
-    description: ''
-  },
-  {
-    key: "META",
-    name: "Metadata Extraction",
-    parameter: {
-      type: 'null'
-    },
-    fees: [],
-    rate: 1000,
-    tooltip: '',
-    description: ''
+    tooltip: 'Charges based on number of pages',
   }
 ];
