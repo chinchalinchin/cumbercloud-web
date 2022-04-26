@@ -19,7 +19,9 @@
           <section [formGroup]="coreFormGroup">
             <div *ngFor="let conf of coreConfig">
               <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
+              <!--
               <mat-icon *ngIf="groupField(pricingGroups.core, conf.key)" style="float: right;" color="accent">label</mat-icon>
+              -->
             </div>
           </section>
         </mat-expansion-panel>
@@ -33,7 +35,9 @@
           <section [formGroup]="addOnFormGroup">
             <div *ngFor="let conf of addOnConfig">
               <mat-checkbox [formControlName]="conf.key">{{conf.name}}</mat-checkbox>
+              <!--
               <mat-icon *ngIf="groupField(pricingGroups.addon, conf.key)" style="float: right;" color="accent">label</mat-icon>
+              -->
             </div>
           </section>
         </mat-expansion-panel>
@@ -62,5 +66,10 @@
 </div>
 
 <div id="cost-breakdown-popup" [@expand_popup] *ngIf="calculated">
+  <div id="popup-toolbar">
+    <button mat-icon-button color="warn" (click)="uncalculate()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
   <app-rate *ngFor="let config of enabledConfig" [config]="config"></app-rate>
 </div>

@@ -29,6 +29,12 @@
   border-radius: 5px;
   overflow-y: auto;
 }
+#popup-toolbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
 @media(min-width:991px){
   #calc-btn{
     top: 2.5%;

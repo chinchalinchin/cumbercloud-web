@@ -34,7 +34,8 @@ export interface Fee{
   service: string,
   rate: number,
   justification: string,
-  basis: string,
+  basis: string,,
+  href: string
 }
 
 export interface Pricing{
@@ -252,19 +253,27 @@ export const CERTIFICATION_CONFIG: Certification[] = [
 
 export const CORE_PRICING_CONFIG: Pricing[] = [
   { 
-    key: 'ADVERT',
-    name: 'Advertising & Branding',
+    key: 'DESIGN',
+    name: 'Design & Hosting',
     parameter:{
       type: 'number',
-      label: 'Number of pages'
+      label: 'Number of pages',
+      states: 100,
+      state_descriptions:[
+        "Static content can be hosted on the cloud for practically free these days, so the main expense here comes from the design and implementation of the content itself."
+      ],
+      state_titles:[
+        "Description"
+      ]
     },
     rate: 250,
     fees:[
       {
         service: "AWS CloudFront",
-        rate: 0,
+        rate: 0.085,
         justification: "",
-        basis: ""
+        basis: "Per GB transferred to the internet",
+        href: "https://aws.amazon.com/cloudfront/pricing/"
       }
     ],
     tooltip: '',
@@ -291,15 +300,24 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0,
-        justification: "",
-        basis: ""
+        rate: 0.20,
+        justification: "Business Logic",
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/lambda/pricing/"
       },
       {
         service: "AWS DynamoDB",
-        rate: 0,
-        justification: "",
-        basis: ""
+        rate: 0.25,
+        justification: "Data Storage",
+        basis: "Per GB Per Month",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 1.25,
+        justification: "Data Access",
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
       }
     ],
     rate: 2500,
@@ -328,21 +346,31 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0,
+        rate: 0.20,
         justification: "",
-        basis: ""
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/lambda/pricing/"
       },
       {
         service: "AWS DynamoDB",
-        rate: 0,
-        justification: "",
-        basis: ""
+        rate: 0.25,
+        justification: "Data Storage",
+        basis: "Per GB Per Month",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 1.25,
+        justification: "Data Access",
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
       },
       {
         service: "Stripe",
-        rate: 0,
-        justification: "",
-        basis: "Per transaction"
+        rate: 2.9,
+        justification: "Payment Processing",
+        basis: "% Per Transaction",
+        href: "https://stripe.com/pricing"
       }
     ],
     rate: 1000,
@@ -359,7 +387,7 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       state_descriptions: [
         "A simple form for collecting user data or submissions. Form contains less than twenty fields.",
         "A form with conditional elements and nested sub-forms. Form contains less than a hundred fields.",
-        "A form with multiple nested relationships or unstructured data. Form contains more than a hundred fields."
+        "A form with multiple nested relationships or a form of unstructured data. Form contains more than a hundred fields."
       ],
       state_titles: [
         "Basic",
@@ -370,15 +398,24 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0,
+        rate: 0.20,
         justification: "",
-        basis: ""
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/lambda/pricing/"
       },
       {
         service: "AWS DynamoDB",
-        rate: 0,
-        justification: "",
-        basis: ""
+        rate: 0.25,
+        justification: "Data Storage",
+        basis: "Per GB Per Month",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 1.25,
+        justification: "Data Access",
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
       }
     ],
     rate: 500,
@@ -394,21 +431,31 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0,
+        rate: 0.20,
         justification: "",
-        basis: ""
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/lambda/pricing/"
       },
       {
         service: "AWS DynamoDB",
-        rate: 0,
-        justification: "",
-        basis: ""
+        rate: 0.25,
+        justification: "Data Storage",
+        basis: "Per GB Per Month",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 1.25,
+        justification: "Data Access",
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
       },
       {
         service: 'AWS Simple Email Service',
-        rate: 0,
-        justification: "",
-        basis: ""
+        rate: 0.10,
+        justification: "Email Server",
+        basis: "Per 1000 Emails",
+        href: "https://aws.amazon.com/ses/pricing/"
       }
     ],
     rate: 1000,
@@ -429,16 +476,25 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0,
+        rate: 0.20,
         justification: "",
-        basis: ""
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/lambda/pricing/"
       },
       {
         service: "AWS DynamoDB",
-        rate: 0,
-        justification: "",
-        basis: ""
-      }
+        rate: 0.25,
+        justification: "Data Storage",
+        basis: "Per GB Per Month",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+      },
+      {
+        service: "AWS DynamoDB",
+        rate: 1.25,
+        justification: "Data Access",
+        basis: "Per 1 Million Requests",
+        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+      },
     ],
     rate: 2000,
     tooltip: '',
@@ -453,15 +509,17 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0,
-        justification: "",
-        basis: ""
+        rate: 0.20,
+        justification: "Per 1 Million Requets",
+        basis: "",
+        href: "https://aws.amazon.com/lambda/pricing/"
       },
       {
         service: "AWS Cognito",
-        rate: 0,
-        justification: "",
-        basis: ""
+        rate: 0.0055,
+        justification: "User Accounts",
+        basis: "Per Monthly Active User",
+        href: "https://aws.amazon.com/cognito/pricing/"
       }
     ],
     rate: 1000,
@@ -477,9 +535,10 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
     fees: [
       {
         service: 'AWS Simple Email Service',
-        rate: 0,
-        justification: "",
-        basis: ""
+        rate: 0.10,
+        justification: "Email Server",
+        basis: "Per 1000 Emails",
+        href: "https://aws.amazon.com/ses/pricing/"
       }
     ],
     rate: 500,

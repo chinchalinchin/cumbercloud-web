@@ -104,4 +104,12 @@ export class PricingComponent{
     this.calculated = true;
   }
 
+  public uncalculate(): void{
+    this.enabledConfig = [];
+    this.calculated = false;
+    this.coreFormGroup.reset();
+    this.addOnFormGroup.reset();
+    this.analyticsFormGroup.reset();
+  }
+
 }

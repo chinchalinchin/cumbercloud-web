@@ -5,40 +5,41 @@ mat-slider{
 #rate-input{
     margin: 0.5%;
 }
-#slider-container{
+.element-container{
     display: flex;
-    width: 100%;
 }
-.slider-widget{
+.element-widget{
     padding-left: 2.5%;
     padding-right: 2.5%;
     border-radius: 7.5%;
 }
 @media(min-width: 991px){
-    #slider-container{
+    .element-container{
         flex-direction: row;
         justify-content: space-between;
+        width: 60%;
     }
-    #slider{
+    .element-input{
         width: 30%;
     }
-    #slider-output{
+    .element-output{
         width: 20%;
     }
-    .slider-widget{
+    .element-widget{
         max-width: 40%;
     }    
 }
 @media(max-width: 992px){
-    #slider-container{
+    .element-container{
         flex-direction: column;
         justify-content: center;
         height: 100%;
-    }
-    #slider{
         width: 100%;
     }
-    .slider-widget{
+    .element{
+        width: 100%;
+    }
+    .element-widget{
         width: 90%;
     }
 }

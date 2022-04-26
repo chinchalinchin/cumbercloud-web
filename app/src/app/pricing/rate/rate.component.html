@@ -4,30 +4,40 @@
         {{config.parameter.label}}
     </mat-card-subtitle>
     <mat-card-content>
-        <div id="number-input" *ngIf="config.parameter.type === 'number'">
-            <mat-form-field appearance="fill" color="accent">
-                <mat-label>{{config.parameter.label}}</mat-label>
-                <input matInput type="number" [(ngModel)]="numberValue">
-            </mat-form-field>
+        <div id="number-element" class="element" *ngIf="config.parameter.type === 'number'">
+            <div id="number-container" class="element-container">
+                <div id="number" class="element">
+                    <mat-form-field appearance="fill" color="warn">
+                        <mat-label>{{config.parameter.label}}</mat-label>
+                        <input matInput type="number" [(ngModel)]="numberValue">
+                    </mat-form-field>
+                </div>
+                <div id="number-state" class="element-widget mat-elevation-z3" *ngIf="config.parameter.state_descriptions">
+                    <h2 class="mat-h2" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
+                        {{config.parameter.state_titles[0]}}
+                    </h2>
+                    <p class="mat-body" style="margin-left: 5%;">
+                        {{config.parameter.state_descriptions[0]}}
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div id="slider-input" *ngIf="config.parameter.type === 'slider'">
-            <div id="slider-container">
-                <div id="slider">
+        <div id="slider-element" class="element" *ngIf="config.parameter.type === 'slider'">
+            <div id="slider-container" class="element-container">
+                <div id="slider" class="element">
                     <mat-slider #slider color="warn" min="1" [max]="config.parameter.states" [thumbLabel]="true" [(ngModel)]="sliderValue"></mat-slider>
                 </div>
-                <div id="slider-state" class="slider-widget mat-elevation-z2" *ngIf="config.parameter.state_descriptions">
-                    <h3 class="mat-h3" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
+                <div id="slider-state" class="element-widget mat-elevation-z2" *ngIf="config.parameter.state_descriptions">
+                    <h2 class="mat-h2" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
                         {{config.parameter.state_titles[sliderValue-1]}}
-                    </h3>
+                    </h2>
                     <p class="mat-body" style="margin-left: 5%;">
                         {{config.parameter.state_descriptions[sliderValue-1]}}
                     </p>
                 </div>
-                <div id="slider-output">
-
-                </div>
             </div>
         </div>
+
     </mat-card-content>
 </mat-card>
