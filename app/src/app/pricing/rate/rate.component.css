@@ -5,11 +5,13 @@ mat-slider{
 .mat-header-row{
     border-radius: 5px 5px 0 0;
 }
-#rate-input{
+
+#rate{
     margin: 0.5%;
 }
 .element-container{
     display: flex;
+    padding-bottom: 1%;
 }
 .element-widget{
     padding-left: 2.5%;
@@ -17,20 +19,15 @@ mat-slider{
     border-radius: 7.5%;
 }
 @media(min-width: 991px){
-    #root-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-    }
     .element{
-        max-width: 50%;
+        width: 35%;
     }
     .element-container{
         flex-direction: row;
+        justify-content: flex-start;
     }
     .element-widget{
-        max-width: 40%;
+        width: 50%;
     }    
 }
 @media(max-width: 992px){

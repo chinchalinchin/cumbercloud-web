@@ -7,7 +7,6 @@ import { Pricing } from 'src/app/app.config';
   styleUrls: ['./rate.component.css']
 })
 export class RateComponent implements OnInit {
-  public displayedColumns: string[] = ['service', 'rate', 'basis'];
   public numberValue: number = 1;
   public sliderValue: number = 1;
 

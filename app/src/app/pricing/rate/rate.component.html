@@ -1,67 +1,77 @@
-<mat-card id="rate-input">
+<mat-card id="rate">
     <mat-card-title>{{config.name}}</mat-card-title>
     <mat-card-subtitle *ngIf="config.parameter.type === 'slider'">
         {{config.parameter.label}}
     </mat-card-subtitle>
     <mat-card-content>
-        <div id="root-container">
-            <div id="number-element" class="element" *ngIf="config.parameter.type === 'number'">
-                <div id="number-container" class="element-container">
-                    <div id="number" class="fill">
-                        <mat-form-field appearance="fill" color="warn">
-                            <mat-label>
-                                {{config.parameter.label}}
-                            </mat-label>
-                            <input matInput type="number" [(ngModel)]="numberValue">
-                        </mat-form-field>
-                    </div>
-                    <div id="number-state" class="element-widget mat-elevation-z3" *ngIf="config.parameter.state_descriptions">
-                        <h2 class="mat-h2" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
-                            {{config.parameter.state_titles[0]}}
-                        </h2>
-                        <p class="mat-body" style="margin-left: 5%;">
-                            {{config.parameter.state_descriptions[0]}}
-                        </p>
-                    </div>
-                </div>
+        <div class="v-align">
+        <div id="number-element" class="element-container" *ngIf="config.parameter.type === 'number'">
+            <div id="number" class="element">
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>
+                        {{config.parameter.label}}
+                    </mat-label>
+                    <input matInput type="number" [(ngModel)]="numberValue">
+                </mat-form-field>
             </div>
+            <div id="number-state" class="element-widget mat-elevation-z3" *ngIf="config.parameter.state_descriptions">
+                <h2 class="mat-h2" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
+                    {{config.parameter.state_titles[0]}}
+                </h2>
+                <p class="mat-body" style="margin-left: 5%;">
+                    {{config.parameter.state_descriptions[0]}}
+                </p>
+            </div>
+        </div>
+        </div>
 
-            <div id="slider-element" class="element" *ngIf="config.parameter.type === 'slider'">
-                <div id="slider-container" class="element-container">
-                    <div id="slider" class="fill">
-                        <mat-slider #slider color="warn" min="1" [max]="config.parameter.states" [thumbLabel]="true" [(ngModel)]="sliderValue"></mat-slider>
-                    </div>
-                    <div id="slider-state" class="element-widget mat-elevation-z2" *ngIf="config.parameter.state_descriptions">
-                        <h2 class="mat-h2" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
-                            {{config.parameter.state_titles[sliderValue-1]}}
-                        </h2>
-                        <p class="mat-body" style="margin-left: 5%;">
-                            {{config.parameter.state_descriptions[sliderValue-1]}}
-                        </p>
-                    </div>
-                </div>
+        <div id="slider-element" class="element-container" *ngIf="config.parameter.type === 'slider'">
+            <div id="slider" class="element">
+                <mat-slider #slider color="warn" min="1" [max]="config.parameter.states" [thumbLabel]="true" [(ngModel)]="sliderValue"></mat-slider>
             </div>
+            <div id="slider-state" class="element-widget mat-elevation-z2" *ngIf="config.parameter.state_descriptions">
+                <h2 class="mat-h2" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
+                    {{config.parameter.state_titles[sliderValue-1]}}
+                </h2>
+                <p class="mat-body" style="margin-left: 5%;">
+                    {{config.parameter.state_descriptions[sliderValue-1]}}
+                </p>
+            </div>
+        </div>
 
-            <div id="fee-element" class="element" *ngIf="config.fees">
-                <mat-table [dataSource]="config.fees" class="mat-elevation-z3">
-                    <ng-container matColumnDef="service">
-                        <mat-header-cell *matHeaderCellDef>Service</mat-header-cell>
-                        <mat-cell *matCellDef="let fee">{{fee.service}}</mat-cell>
-                    </ng-container>
-                    <ng-container matColumnDef="rate">
-                        <mat-header-cell *matHeaderCellDef>Rate</mat-header-cell>
-                        <mat-cell *matCellDef="let fee">
-                            {{ fee.service === 'Stripe' ? (fee.rate | percent: '1.2-3') : (fee.rate | currency) }}
-                        </mat-cell>
-                    </ng-container>
-                    <ng-container matColumnDef="basis">
-                        <mat-header-cell *matHeaderCellDef>Basis</mat-header-cell>
-                        <mat-cell *matCellDef="let fee">{{fee.basis}}</mat-cell>
-                    </ng-container>
-                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                </mat-table>
-            </div>
+        <mat-divider></mat-divider>
+
+        <div id="fee-element" *ngIf="config.fees" style="padding-top: 1%;">
+            <mat-table [dataSource]="config.fees" class="mat-elevation-z3">
+                <ng-container matColumnDef="service">
+                    <mat-header-cell *matHeaderCellDef>Service</mat-header-cell>
+                    <mat-cell *matCellDef="let fee">{{fee.service}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="rate">
+                    <mat-header-cell *matHeaderCellDef>Rate</mat-header-cell>
+                    <mat-cell *matCellDef="let fee">
+                        {{ fee.service === 'Stripe' ? (fee.rate | percent: '1.2-3') : (fee.rate | currency) }}
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="basis">
+                    <mat-header-cell *matHeaderCellDef>Basis</mat-header-cell>
+                    <mat-cell *matCellDef="let fee">{{fee.basis}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="reason">
+                    <mat-header-cell *matHeaderCellDef>Reason</mat-header-cell>
+                    <mat-cell *matCellDef="let fee">{{fee.justification}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="href">
+                    <mat-header-cell *matHeaderCellDef>Reference</mat-header-cell>
+                    <mat-cell *matCellDef="let fee">
+                        <a [href]="fee.href" target="_blank"><mat-icon>link</mat-icon></a>
+                    </mat-cell>
+                </ng-container>
+
+
+                <mat-header-row *matHeaderRowDef="['service', 'rate', 'basis', 'reason', 'href']"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: ['service', 'rate', 'basis', 'reason', 'href'];"></mat-row>
+            </mat-table>
         </div>
     </mat-card-content>
 </mat-card>
