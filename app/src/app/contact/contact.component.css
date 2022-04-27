@@ -13,3 +13,43 @@
     border-width: 1px;
     padding-bottom: 0.5%;
 }
+#contact-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.space{
+    margin-left: 2%;
+}
+.content{
+    overflow-y: auto; 
+    height: 83.5%;
+}
+@media(min-width:991px){
+    .name-field{
+        width: 25%;
+    }
+    .email-field{
+        width: 35%;
+        margin-left: 2%;
+    }
+    #personal-info{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+@media(max-width:992px){
+    .name-field{
+        width: 50%;
+    }
+    .email-field{
+        width: 75%;
+    }
+    #personal-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}

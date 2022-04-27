@@ -87,13 +87,15 @@ export enum ExperienceStates {
 // CONSTANTS
 ////////////
 
-export const assetSrcs=[
+export const ASSET_SRCS=[
   "/assets/imgs/money-banner.jpg",
   "/assets/imgs/circuitry-banner.jpg",
   "/assets/imgs/expertise-banner.jpg",
   "/assets/imgs/human_centric_design-banner.jpg",
   "/assets/imgs/separated.jpg",
-  "/assets/imgs/cloud_tunnel.jpg"
+  "/assets/imgs/cloud_tunnel.jpg",
+  "/assets/imgs/under_construction.jpg",
+  "/assets/people/grant/profile.jpg"
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [
@@ -619,15 +621,15 @@ export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
 
 export const REASON_CONFIG: ContactReason[]=[
   {
-    reason: "I need a new website for my business or organization.",
+    reason: "new website for my business.",
     key: "NEW_WEB"
   },
   {
-    reason: "I need a new application for my business or organization.",
+    reason: "new application for my business.",
     key: "NEW_APP"
   },
   {
-    reason: "I have an existing website I need serviced.",
+    reason: "existing website serviced.",
     key: "OLD_WEB",
     option_text: "How is the website hosted?",
     options_exclusive: true,
@@ -640,7 +642,7 @@ export const REASON_CONFIG: ContactReason[]=[
     ]
   },
   {
-    reason: "I have an existing application I need serviced.",
+    reason: "existing application serviced.",
     key: "OLD_APP",
     option_text: "What are the components of your application?",
     options_exclusive: false,
@@ -655,7 +657,7 @@ export const REASON_CONFIG: ContactReason[]=[
     ]
   },
   {
-    reason: "I have an existing website I need migrated to the cloud.",
+    reason: "existing website migrated to the cloud.",
     key: "MIGRATE_WEB",
     option_text: "How is the website hosted?",
     options_exclusive: false,
@@ -667,7 +669,7 @@ export const REASON_CONFIG: ContactReason[]=[
     ]
   },
   {
-    reason: "I have an existing application I need migrated to the cloud.",
+    reason: "existing application migrated to the cloud.",
     key: "MIGRATE_APP",
     option_text: "Does the application need modernized?",
     options_exclusive: true,

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
+import { ASSET_SRCS } from './app.config';
 
 // TODO: material module
 import { MatBadgeModule } from '@angular/material/badge';
@@ -39,7 +40,6 @@ import { AboutComponent } from './about/about.component';
 import { SheetComponent } from './sheet/sheet.component';
 import { ResumeComponent } from './about/resume/resume.component';
 import { ExperienceComponent } from './about/resume/experience/experience.component';
-import { assetSrcs } from './app.config';
 import { RateComponent } from './pricing/rate/rate.component';
 
 @NgModule({
@@ -131,7 +131,7 @@ export class AppModule {
     this.matIconRegistry.addSvgIcon('xd', 
                                       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/adobe-xd.svg'));
     // ensure assets have been initialized on application load 
-    assetSrcs.forEach((thisSrc:string)=>{
+    ASSET_SRCS.forEach((thisSrc:string)=>{
       let img = new Image();
       img.src = thisSrc;
     })

@@ -14,18 +14,6 @@
   justify-content: center;
   align-content: center;
 }
-#construction-img{
-  width: 50%;
-  height: auto;
-  margin: auto;
-  border-radius: 25px;
-  border-width: 2px;
-}
-#construction-btn{
-  position: absolute;
-  left: 67.5%;
-  bottom: 10%;
-}
 #banner{
   position: absolute; 
   top: 10%;
@@ -79,4 +67,32 @@
   background-size: cover;
   background-position: center;
   opacity: 50%;
+}
+@media(min-width: 991px){
+  #construction-img{
+    width: 50%;
+    height: auto;
+    margin: auto;
+    border-radius: 25px;
+    border-width: 2px;
+  }
+  #construction-btn{
+    position: absolute;
+    left: 67.5%;
+    bottom: 10%;
+  }
+}
+@media(max-width: 991px){
+  #construction-img{
+    width: 150%;
+    height: auto;
+    margin: auto;
+    border-radius: 25px;
+    border-width: 2px;
+  }
+  #construction-btn{
+    position: absolute;
+    left: 70%;
+    bottom: 24%;
+  }
 }

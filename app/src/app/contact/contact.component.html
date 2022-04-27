@@ -1,43 +1,47 @@
 <div id="contact">
     <mat-card id="contact-card" class="mat-elevation-z8">
         <mat-card-title>Contact Form</mat-card-title>
-        <mat-card-content>
-            <form [formGroup]="contactGroup">
-                <mat-form-field id="first-name-field" color="warn">
-                    <mat-label>First Name</mat-label>
-                    <input matInput type="text" formControlName="first">
-                    <button *ngIf="contactGroup.controls['first'].value" matSuffix mat-icon-button aria-label="Clear">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                </mat-form-field>
+        <mat-card-subtitle>Submit the form below or email <a class="link" href="mailto:design@cumberland-cloud.com">design@cumberland-cloud.com</a> to contact the <strong>Cumberland Cloud</strong></mat-card-subtitle>
+        <mat-divider></mat-divider>
+        <mat-card-content class="content">
+            <form [formGroup]="contactGroup" id="contact-form" >
+                <div id="personal-info">
+                    <mat-form-field id="first-name-field" color="warn" class="name-field">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text" formControlName="first">
+                        <button *ngIf="contactGroup.controls['first'].value" matSuffix mat-icon-button aria-label="Clear">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+    
+                    <mat-form-field id="last-name-field" color="warn" class="name-field" [class.space]="!mobileMode()">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text" formControlName="last">
+                        <button *ngIf="contactGroup.controls['last'].value" matSuffix mat-icon-button aria-label="Clear">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+    
+                    <mat-form-field id="email-field" color="warn" class="email-field">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email">
+                        <button *ngIf="contactGroup.controls['email'].value" matSuffix mat-icon-button aria-label="Clear">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                        <mat-error *ngIf="contactGroup.controls['email'].hasError('email') && !contactGroup.controls['email'].hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="contactGroup.controls['email'].hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
 
-                <mat-form-field id="last-name-field" color="warn">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput type="text" formControlName="last">
-                    <button *ngIf="contactGroup.controls['last'].value" matSuffix mat-icon-button aria-label="Clear">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                </mat-form-field>
-
-                <mat-form-field id="email-field" color="warn">
-                    <mat-label>Email</mat-label>
-                    <input matInput type="email" formControlName="email">
-                    <button *ngIf="contactGroup.controls['email'].value" matSuffix mat-icon-button aria-label="Clear">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                    <mat-error *ngIf="contactGroup.controls['email'].hasError('email') && !contactGroup.controls['email'].hasError('required')">
-                        Please enter a valid email address
-                    </mat-error>
-                    <mat-error *ngIf="contactGroup.controls['email'].hasError('required')">
-                        Email is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-
-                <mat-form-field id="reason-field" color="warn" appearance="fill">
+                <mat-form-field id="reason-field" color="warn" appearance="fill" style="margin-right: 1%;">
                     <mat-label>Reason</mat-label>
                     <mat-select formControlName="reason" required>
                       <mat-option>
-                          Select a reason
+                          I want a...
                      </mat-option>
                       <mat-option *ngFor="let conf of reasonConfig" [value]="conf">
                         {{conf.reason}}
@@ -48,14 +52,19 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-form-field id="subreason-field" color="warn" appearance="fill" *ngIf="contactGroup.controls['reason'].value && contactGroup.controls['reason'].value.options">
-                    <mat-label>More Details</mat-label>
+                <h4 class="mat-h4" *ngIf="contactGroup.controls['reason'].value">{{contactGroup.controls['reason'].value.option_text}}</h4>
+                <mat-form-field id="subreason-field" color="warn" appearance="fill" *ngIf="contactGroup.controls['reason'].value && contactGroup.controls['reason'].value.options" style="margin-right: 1%;">
+                    <mat-label>Details</mat-label>
                     <mat-select formControlName="subreason">
-                        <mat-option *ngFor="let conf of contactGroup.controls['reason'].value.options">
+                        <mat-option *ngFor="let conf of contactGroup.controls['reason'].value.options" [value]="conf">
                             {{conf}}
                         </mat-option>
                     </mat-select>
+                </mat-form-field>
 
+                <mat-form-field color="warn" appearance="fill" style="margin-right: 1%;">
+                    <mat-label>Leave a comment</mat-label>
+                    <textarea matInput formControlName="message" placeholder="Ex. I want to upload inventory spreadsheets..."></textarea>
                 </mat-form-field>
 
             </form>
