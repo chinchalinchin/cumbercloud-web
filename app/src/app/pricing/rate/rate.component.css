@@ -20,30 +20,50 @@ mat-slider{
     padding-right: 2.5%;
     border-radius: 25px;
 }
+.compound-element{
+    display: flex;
+    flex-direction: row;
+}
 @media(min-width: 991px){
     .element{
-        min-width: 25%;
+        min-width: 45%;
     }
     .element-container{
         flex-direction: row;
+        justify-content: flex-start;
+    }
+    .compound-element{
+        width: 60%;
         justify-content: flex-start;
     }
     .element-widget{
         width: 35%;
     }
     .element-output{
-        width: 25%;
+        width: 45%;
         margin-left: 5%;
+        margin-right: 5%;
     }  
 }
 @media(max-width: 992px){
+    .element{
+        width: 45%;
+    }
     .element-container{
         flex-direction: column;
         justify-content: center;
         height: 100%;
         width: 100%;
     }
+    .compound-element{
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 1%;
+    }
     .element-widget{
-        width: 90%;
+        width: 95%;
+    }
+    .element-output{
+        width: 45%;
     }
 }

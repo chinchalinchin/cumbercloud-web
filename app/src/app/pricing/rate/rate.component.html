@@ -5,13 +5,21 @@
     </mat-card-subtitle>
     <mat-card-content>
         <div id="number-element" class="element-container" *ngIf="config.parameter.type === 'number'">
-            <div id="number" class="element">
-                <mat-form-field appearance="fill" color="warn">
-                    <mat-label>
-                        {{config.parameter.label}}
-                    </mat-label>
-                    <input matInput type="number" [(ngModel)]="numberValue" (ngModelChange)="recalculate($event)">
-                </mat-form-field>
+            <div class="compound-element">
+                <div id="number" class="element">
+                    <mat-form-field color="warn">
+                        <mat-label>
+                            {{config.parameter.label}}
+                        </mat-label>
+                        <input matInput type="number" [(ngModel)]="numberValue" (ngModelChange)="recalculate($event)">
+                    </mat-form-field>
+                </div>
+                <div id="number-output" class="element-output mat-elevation-z3">
+                    <h2 class="mat-h2">Estimate</h2>
+                    <p class="mat-body-2" style="text-align: center; padding-top: 7.5%;font-size:larger;">
+                        {{total | currency}}
+                    </p>
+                </div>
             </div>
             <div id="number-state" class="element-widget mat-elevation-z3" *ngIf="config.parameter.state_descriptions">
                 <h2 class="mat-h2" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
@@ -21,17 +29,19 @@
                     {{config.parameter.state_descriptions[0]}}
                 </p>
             </div>
-            <div id="number-output" class="element-output mat-elevation-z3">
-                <h2 class="mat-h2">Estimate</h2>
-                <p class="mat-body-2" style="text-align: center; padding-top: 7.5%;font-size:larger;">
-                    {{total | currency}}
-                </p>
-            </div>
         </div>
 
         <div id="slider-element" class="element-container" *ngIf="config.parameter.type === 'slider'">
-            <div id="slider" class="element">
-                <mat-slider #slider color="warn" step="1" min="1" [max]="config.parameter.states" [thumbLabel]="true" [(ngModel)]="sliderValue" (ngModelChange)="recalculate($event)"></mat-slider>
+            <div class="compound-element">
+                <div id="slider" class="element">
+                    <mat-slider #slider color="warn" step="1" min="1" [max]="config.parameter.states" [thumbLabel]="true" [(ngModel)]="sliderValue" (ngModelChange)="recalculate($event)"></mat-slider>
+                </div>
+                <div id="slider-output" class="element-output mat-elevation-z3">
+                    <h2 class="mat-h2">Estimate</h2>
+                    <p class="mat-body-2" style="text-align: center; padding-top: 7.5%;font-size:larger;">
+                        {{total | currency}}
+                    </p>
+                </div>
             </div>
             <div id="slider-state" class="element-widget mat-elevation-z2" *ngIf="config.parameter.state_descriptions">
                 <h2 class="mat-h2" style="margin-top: 1%;" *ngIf="config.parameter.state_titles">
@@ -39,12 +49,6 @@
                 </h2>
                 <p class="mat-body" style="margin-left: 5%;">
                     {{config.parameter.state_descriptions[sliderValue-1]}}
-                </p>
-            </div>
-            <div id="slider-output" class="element-output mat-elevation-z3">
-                <h2 class="mat-h2">Estimate</h2>
-                <p class="mat-body-2" style="text-align: center; padding-top: 7.5%;font-size:larger;">
-                    {{total | currency}}
                 </p>
             </div>
         </div>
@@ -70,9 +74,7 @@
 
         <h2 class="mat-h3" style="padding-top: 1%" *ngIf="config.fees.length>0">
             Recurring Fees
-            <button mat-icon-button color="accent" style="float: right;">
-                <mat-icon>info</mat-icon>
-            </button>
+            <mat-icon style="margin-left: 2%" color="accent" matTooltip="These charges are incurred on the indicated basis after development is complete and you assume control of your application.">info</mat-icon>
         </h2>
 
         <div id="fee-element" *ngIf="config.fees.length>0">

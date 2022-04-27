@@ -28,6 +28,7 @@ img {
   flex-direction: row;
   justify-content: space-between;
   height: 10%;
+  border-radius: 10px;
 }
 #popup-header{
   margin-left: 1%;
@@ -73,6 +74,7 @@ img {
 .popup-content{
   height: 90%;
   overflow-y: auto;
+  border-radius: 0 0 10px 10px;
 }
 .img-container{
   height: 100%;

@@ -160,6 +160,7 @@ export class PricingComponent{
     this.coreChecked = 0;
     this.addOnChecked = 0;
     this.analyticsChecked = 0;
+    this.total = 0;
     this.coreFormGroup.reset();
     this.addOnFormGroup.reset();
     this.analyticsFormGroup.reset();

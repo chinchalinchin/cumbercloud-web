@@ -1,18 +1,18 @@
-<div class="pricing">
-  <mat-card id="calc-card" class="mat-elevation-z8" style="padding-bottom: 0.5%;">
+<div id="pricing">
+  <mat-card id="calc-card" class="mat-elevation-z8">
     <mat-card-title>
       Project Quote Calculator
     </mat-card-title>
     
     <mat-card-subtitle>
-      Estimate your costs based on your needs
+      Estimate your costs based on your project
     </mat-card-subtitle>
 
     <mat-card-content>
       <mat-accordion displayMode="flat">
         <mat-expansion-panel (opened)="setFocus(pricingGroups.core)" (closed)="removeFocus()" *ngIf="!focusing || focused(pricingGroups.core)" [@expand_full]>
           <mat-expansion-panel-header>
-            <mat-panel-title style="padding: 1%;">
+            <mat-panel-title class="panel-title">
               <span [matBadge]="coreChecked" matBadgeColor="accent" [matBadgeHidden] = "coreChecked === 0" matBadgePosition="below" matBadgeSize="small">
                 Core Features
               </span>
@@ -28,7 +28,7 @@
 
         <mat-expansion-panel (opened)="setFocus(pricingGroups.addon)" (closed)="removeFocus()" *ngIf="!focusing || focused(pricingGroups.addon)" [@expand_full]>
           <mat-expansion-panel-header>
-            <mat-panel-title style="padding: 1%;">
+            <mat-panel-title class="panel-title">
               <span [matBadge]="addOnChecked" matBadgeColor="accent" [matBadgeHidden] = "addOnChecked === 0" matBadgePosition="below" matBadgeSize="small">
                 Additional Specifications
               </span>
@@ -44,7 +44,7 @@
 
         <mat-expansion-panel (opened)="setFocus(pricingGroups.analytics)" (closed)="removeFocus()" *ngIf="!focusing || focused(pricingGroups.analytics)" [@expand_full]>
           <mat-expansion-panel-header>
-            <mat-panel-title style="padding: 1%;">
+            <mat-panel-title class="panel-title">
               <span [matBadge]="analyticsChecked" matBadgeColor="accent" [matBadgeHidden] = "analyticsChecked === 0" matBadgePosition="below" matBadgeSize="small">
                 Analytics
               </span>
@@ -60,8 +60,8 @@
       </mat-accordion>
     </mat-card-content>
 
-    <button mat-icon-button id="calc-btn" [color]="buttonStyle" (mouseenter)="toggleButtonStyle()" (mouseleave)="toggleButtonStyle()" (click)="calculate()">
-      <mat-icon>add_box</mat-icon>
+    <button mat-mini-fab id="calc-btn" color="primary" (click)="calculate()">
+      <mat-icon>add</mat-icon>
     </button>
   </mat-card>
   

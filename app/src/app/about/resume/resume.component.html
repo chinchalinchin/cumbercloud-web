@@ -41,7 +41,7 @@
       <div *ngFor="let exp of experience">
         <div mat-subheader>{{exp.company}}</div>
         <mat-list-item>
-          <mat-icon mat-list-icon color="accent" style="opacity: 0.5;">label_important</mat-icon>
+          <mat-icon mat-list-icon color="primary">label_important</mat-icon>
           <div mat-line>{{exp.position}}</div>
           <div mat-line>{{exp.years}}</div>
           <button mat-icon-button color="accent" (click)="openExperience(exp)">

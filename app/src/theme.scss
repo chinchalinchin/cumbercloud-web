@@ -10,6 +10,7 @@
 @use './app/about/resume/experience/experience.theme' as experience;
 @use './app/pricing/pricing.theme' as pricing;
 @use './app/pricing/rate/rate.theme' as rate;
+@use './app/contact/contact.theme' as contact;
 @use './app/sheet/sheet.theme' as sheet;
 
 @import '~@angular/material/theming';
@@ -127,4 +128,5 @@ $cc-theme: mat-light-theme(
 @include sheet.theme($cc-theme);
 @include pricing.theme($cc-theme);
 @include rate.theme($cc-theme);
+@include contact.theme($cc-theme);
 @include resume.theme($cc-theme);

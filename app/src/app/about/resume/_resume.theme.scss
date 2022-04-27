@@ -27,6 +27,9 @@
   #popup{
     background-color: map-get($primary-palette, lighter);
   }
+  .popup-content{
+    background-color: map-get($primary-palette, 50);
+  }
   #popup-toolbar{
     color: map-get($accent-palette, darker);
     background-color: map-get($primary-palette, 100);
