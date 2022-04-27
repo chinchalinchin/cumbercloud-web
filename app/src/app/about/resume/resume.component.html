@@ -54,16 +54,26 @@
   </div>
 
   <div id="certifications-popup" class="popup-content" *ngIf="popUpState == popUpStates.two">
-    <mat-tab-group animationDuration="1000ms" style="height: 100%;">
+    <mat-tab-group animationDuration="1000ms" style="height: 100%;" [(selectedIndex)]="selectedCertTab">
       <mat-tab *ngFor="let cert of certifications" [label]="cert.title">
-        <div class="img-container">
+        <div class="img-container" (swipeleft)="incrementCertTab()" (swiperight)="decrementCertTab()">
           <img [src]="cert.src" [alt]="cert.alt">
         </div>
       </mat-tab>
     </mat-tab-group>
   </div>
 
-  <div id="education-popup" class="popup-content" *ngIf="popUpState == popUpStates.three">education</div>
+  <div id="education-popup" class="popup-content" *ngIf="popUpState == popUpStates.three">
+    <div id="degree-container">
+      <div class="degree-img">
+        <img src="/assets/certs/frostburg_degree.png">
+      </div>
+      <div class="degree-img">
+        <img src="/assets/certs/towson_degree.png">
+      </div>
+
+    </div>
+  </div>
 
   <div id="portfolio-popup" class="popup-content" *ngIf="popUpState == popUpStates.four">
     <mat-tab-group animationDuration="1000ms" style="height: 100%;">

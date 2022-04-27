@@ -16,6 +16,7 @@ import { ExperienceComponent } from './experience/experience.component';
 })
 export class ResumeComponent {
   public screenSize: string = '';
+  public selectedCertTab: number = 0;
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public popUpStates = ResumePopUpStates;
   public popUpState: ResumePopUpStates = ResumePopUpStates.null;
@@ -56,7 +57,7 @@ export class ResumeComponent {
   }
 
   public mobileMode(){
-    return this.screenSize == 'xs';
+    return (this.screenSize == 'md' || this.screenSize == 'sm' || this.screenSize == 'xs');
   }
 
   public expandPopUp(state: ResumePopUpStates): void{
@@ -134,10 +135,24 @@ export class ResumeComponent {
   public openExperience(exp: Experience){
     this.dialog.open(ExperienceComponent, {
       data: exp,
-      width: '80%',
-      height: '80%',
+      width: '85%',
+      height: '95%',
       panelClass: 'experience-bg'
     });
 
+  }
+
+  public incrementCertTab(){
+    this.selectedCertTab++;
+    if(this.selectedCertTab>this.certifications.length-1){
+      this.selectedCertTab = 0;
+    }
+  }
+
+  public decrementCertTab(){
+    this.selectedCertTab--;
+    if(this.selectedCertTab<0){
+      this.selectedCertTab = this.certifications.length-1;
+    }
   }
 }

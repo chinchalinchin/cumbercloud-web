@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatAccordion } from '@angular/material/expansion';
 import { Animations } from 'src/animations';
 import { ADDON_PRICING_CONFIG, ANALYTICS_PRICING_CONFIG, CORE_PRICING_CONFIG, Pricing } from '../app.config';
 import { RateEvent } from './rate/rate.component';
@@ -22,6 +23,8 @@ enum PricingGroups{
   ]
 })
 export class PricingComponent{
+  @ViewChild(MatAccordion) accordion!: MatAccordion;
+
   public focusing: boolean = false;
   public focus?: PricingGroups;
   public calculated: boolean = false;
@@ -164,6 +167,7 @@ export class PricingComponent{
     this.coreFormGroup.reset();
     this.addOnFormGroup.reset();
     this.analyticsFormGroup.reset();
+    this.accordion.closeAll();
   }
 
 }
