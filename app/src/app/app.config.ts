@@ -55,6 +55,7 @@ export interface Certification{
 
 export interface ContactReason{
   reason: string,
+  key: string,
   option_text?: string,
   options_exclusive?: boolean,
   options?: string[]
@@ -618,13 +619,16 @@ export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
 
 export const REASON_CONFIG: ContactReason[]=[
   {
-    reason: "I need a new website for my business or organization."
+    reason: "I need a new website for my business or organization.",
+    key: "NEW_WEB"
   },
   {
-    reason: "I need a new application for my business or organization."
+    reason: "I need a new application for my business or organization.",
+    key: "NEW_APP"
   },
   {
     reason: "I have an existing website I need serviced.",
+    key: "OLD_WEB",
     option_text: "How is the website hosted?",
     options_exclusive: true,
     options: [
@@ -637,6 +641,7 @@ export const REASON_CONFIG: ContactReason[]=[
   },
   {
     reason: "I have an existing application I need serviced.",
+    key: "OLD_APP",
     option_text: "What are the components of your application?",
     options_exclusive: false,
     options: [
@@ -651,6 +656,7 @@ export const REASON_CONFIG: ContactReason[]=[
   },
   {
     reason: "I have an existing website I need migrated to the cloud.",
+    key: "MIGRATE_WEB",
     option_text: "How is the website hosted?",
     options_exclusive: false,
     options: [
@@ -662,6 +668,7 @@ export const REASON_CONFIG: ContactReason[]=[
   },
   {
     reason: "I have an existing application I need migrated to the cloud.",
+    key: "MIGRATE_APP",
     option_text: "Does the application need modernized?",
     options_exclusive: true,
     options:[

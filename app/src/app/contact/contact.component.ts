@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContactReason, REASON_CONFIG } from '../app.config';
 
@@ -7,7 +7,7 @@ import { ContactReason, REASON_CONFIG } from '../app.config';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
 
   public contactGroup: FormGroup;
   public reasonConfig: ContactReason[] = REASON_CONFIG;
@@ -17,11 +17,13 @@ export class ContactComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       first: new FormControl('', [Validators.required]),
       last: new FormControl('', [Validators.required]),
-      reason: new FormControl('', [Validators.required])
+      reason: new FormControl('', [Validators.required]),
+      subreason: new FormControl('')
     })
   }
 
-  ngOnInit(): void {
+  public findReason(reasonKey: string){
+    return this.reasonConfig.filter(element => element.key == reasonKey).pop();
   }
 
 }

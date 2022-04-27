@@ -36,14 +36,26 @@
                 <mat-form-field id="reason-field" color="warn" appearance="fill">
                     <mat-label>Reason</mat-label>
                     <mat-select formControlName="reason" required>
-                      <mat-option>--</mat-option>
-                      <mat-option *ngFor="let conf of reasonConfig" [value]="conf.reason">
+                      <mat-option>
+                          Select a reason
+                     </mat-option>
+                      <mat-option *ngFor="let conf of reasonConfig" [value]="conf">
                         {{conf.reason}}
                       </mat-option>
                     </mat-select>
                     <mat-error *ngIf="contactGroup.controls['reason'].hasError('required')">
                         Please choose a reason
                     </mat-error>
+                </mat-form-field>
+
+                <mat-form-field id="subreason-field" color="warn" appearance="fill" *ngIf="contactGroup.controls['reason'].value && contactGroup.controls['reason'].value.options">
+                    <mat-label>More Details</mat-label>
+                    <mat-select formControlName="subreason">
+                        <mat-option *ngFor="let conf of contactGroup.controls['reason'].value.options">
+                            {{conf}}
+                        </mat-option>
+                    </mat-select>
+
                 </mat-form-field>
 
             </form>
