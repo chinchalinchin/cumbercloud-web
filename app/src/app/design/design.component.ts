@@ -1,36 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers, ScaleStates } from 'src/animations';
+import {
+  AnimationControl,
+  AnimationPeriods,
+  Animations,
+  AnimationTriggers,
+  ScaleStates,
+} from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, TOOL_CHIPS } from '../app.config';
 
-enum Phases{
-  none="none", splash="splash", design="design", develop="develop", deploy="deploy", deliver="deliver", done="done"
+enum Phases {
+  none = 'none',
+  splash = 'splash',
+  design = 'design',
+  develop = 'develop',
+  deploy = 'deploy',
+  deliver = 'deliver',
+  done = 'done',
 }
-enum Splash{
-  untouched="untouched", touched="touched"
+enum Splash {
+  untouched = 'untouched',
+  touched = 'touched',
 }
 
 @Component({
   selector: 'app-design',
   templateUrl: './design.component.html',
   styleUrls: [
-    './css/design.component.css', 
-    './css/design.component.desktop.css', 
-    './css/design.component.mobile.css'
+    './css/design.component.css',
+    './css/design.component.desktop.css',
+    './css/design.component.mobile.css',
   ],
   animations: [
     Animations.getScaleTrigger(1),
     Animations.getManualScaleTrigger(1.15),
-    Animations.getManualScaleTrigger(1.10, 'slow', AnimationPeriods.medium),
+    Animations.getManualScaleTrigger(1.1, 'slow', AnimationPeriods.medium),
     Animations.getManualFadeTrigger(),
     Animations.getEnlargeTrigger('5%'),
     Animations.getEnlargeTrigger('17%', 'large'),
     Animations.getEnlargeTrigger('100%', 'full'),
-    Animations.getExpandTrigger('100%', 'full')
-  ]
+    Animations.getExpandTrigger('100%', 'full'),
+  ],
 })
-export class DesignComponent implements OnInit{
+export class DesignComponent implements OnInit {
   public phases: any = Phases;
   public phase: Phases = Phases.none;
   public splashes: any = Splash;
@@ -40,52 +53,57 @@ export class DesignComponent implements OnInit{
   public lured: boolean = false;
   public screenSize: string = '';
   public tools: ChipConfig[] = TOOL_CHIPS;
-  public phaseIcons : any[] = [
+  public phaseIcons: any[] = [
     ['xd', 'gimp', 'drawio'],
     ['typescript', 'python', 'angular', 'django'],
-    ['docker', 'cloudfront', 's3', 'lambda', 'apigateway']
-  ]
+    ['docker', 'cloudfront', 's3', 'lambda', 'apigateway'],
+  ];
   public splashLines1FadeCntl: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade),
-    new AnimationControl(AnimationTriggers.cntl_fade)
+    new AnimationControl(AnimationTriggers.cntl_fade),
   ];
   public splashLines2FadeCntl: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade),
-    new AnimationControl(AnimationTriggers.cntl_fade)
+    new AnimationControl(AnimationTriggers.cntl_fade),
   ];
   public designLinesFadeCntl: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade),
-    new AnimationControl(AnimationTriggers.cntl_fade)
+    new AnimationControl(AnimationTriggers.cntl_fade),
   ];
   public developLinesFadeCntl: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade),
-    new AnimationControl(AnimationTriggers.cntl_fade)
+    new AnimationControl(AnimationTriggers.cntl_fade),
   ];
   public deployLinesFadeCntl: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade),
-    new AnimationControl(AnimationTriggers.cntl_fade)
+    new AnimationControl(AnimationTriggers.cntl_fade),
   ];
   public deliverLinesFadeCntl: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade),
-    new AnimationControl(AnimationTriggers.cntl_fade)
+    new AnimationControl(AnimationTriggers.cntl_fade),
   ];
   public doneLinesFadeCntl: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_fade),
     new AnimationControl(AnimationTriggers.cntl_fade),
   ];
-  public splashSrcFadeCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_fade);
-  public splashSrcDetonateCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
-  public lureScaleCntl: AnimationControl = new AnimationControl(AnimationTriggers.cntl_scale);
+  public splashSrcFadeCntl: AnimationControl = new AnimationControl(
+    AnimationTriggers.cntl_fade
+  );
+  public splashSrcDetonateCntl: AnimationControl = new AnimationControl(
+    AnimationTriggers.cntl_scale
+  );
+  public lureScaleCntl: AnimationControl = new AnimationControl(
+    AnimationTriggers.cntl_scale
+  );
 
-  constructor(private meta: MetaService,
-              public dialog: MatDialog) {
-    this.meta.mediaBreakpoint.subscribe((size: string)=>{
+  constructor(private meta: MetaService, public dialog: MatDialog) {
+    this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
     this.splashLines1FadeCntl
@@ -94,34 +112,38 @@ export class DesignComponent implements OnInit{
       .concat(this.developLinesFadeCntl)
       .concat(this.deployLinesFadeCntl)
       .concat(this.deliverLinesFadeCntl)
-        .forEach((cntl:AnimationControl)=>{
-          cntl.animate();
-        });
-   }
+      .forEach((cntl: AnimationControl) => {
+        cntl.animate();
+      });
+  }
 
-  ngOnInit(){
-    this.splashLines1FadeCntl.forEach((cntl: AnimationControl, ind: number)=>{
-      setTimeout(()=>{
+  ngOnInit() {
+    this.splashLines1FadeCntl.forEach((cntl: AnimationControl, ind: number) => {
+      setTimeout(() => {
         cntl.prime();
-        if(ind===this.splashLines1FadeCntl.length - 1){
-          setTimeout(()=>{
+        if (ind === this.splashLines1FadeCntl.length - 1) {
+          setTimeout(() => {
             this.phase = Phases.splash;
-            setTimeout(()=>{
+            setTimeout(() => {
               this.oscillateLure();
               this.oscillating = true;
-            }, AnimationPeriods.medium*1000);
-          }, AnimationPeriods.medium*1000);
+            }, AnimationPeriods.medium * 1000);
+          }, AnimationPeriods.medium * 1000);
         }
-      }, AnimationPeriods.medium*1000*ind);
-    })
+      }, AnimationPeriods.medium * 1000 * ind);
+    });
   }
 
-  public mobileMode(): boolean{
-    return this.screenSize == 'xs' || this.screenSize == 'sm' || this.screenSize == 'md';
+  public mobileMode(): boolean {
+    return (
+      this.screenSize == 'xs' ||
+      this.screenSize == 'sm' ||
+      this.screenSize == 'md'
+    );
   }
 
-  public isChipDisabled(chipIcon: string): boolean{
-    switch(this.phase){
+  public isChipDisabled(chipIcon: string): boolean {
+    switch (this.phase) {
       case Phases.design:
         return !this.phaseIcons[0].includes(chipIcon);
       case Phases.develop:
@@ -137,104 +159,113 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public lureOscillated(){ return this.lureScaleCntl.state === ScaleStates.scale; }
-  
-  public oscillateLure(){
-    if(this.lureScaleCntl.state === ScaleStates.normal){
+  public lureOscillated() {
+    return this.lureScaleCntl.state === ScaleStates.scale;
+  }
+
+  public oscillateLure() {
+    if (this.lureScaleCntl.state === ScaleStates.normal) {
       this.oscillations++;
       this.lureScaleCntl.animate();
-    }
-    else if(this.lureScaleCntl.state === ScaleStates.scale){
+    } else if (this.lureScaleCntl.state === ScaleStates.scale) {
       this.lureScaleCntl.prime();
     }
-    if(!this.lured){
-      setTimeout(()=>{
+    if (!this.lured) {
+      setTimeout(() => {
         this.oscillateLure();
-      }, AnimationPeriods.medium*1000)
+      }, AnimationPeriods.medium * 1000);
     }
   }
 
-  public phasedIn(phase: Phases, strict: boolean = false): boolean{
-    switch(this.phase){
+  public phasedIn(phase: Phases, strict: boolean = false): boolean {
+    switch (this.phase) {
       case Phases.none:
         return phase === Phases.none;
       case Phases.splash:
-        if(strict) return phase === Phases.splash;
+        if (strict) return phase === Phases.splash;
         return [Phases.splash, Phases.none].includes(phase);
       case Phases.design:
         return phase === Phases.design;
       case Phases.develop:
-        if(strict) return phase === Phases.develop;
+        if (strict) return phase === Phases.develop;
         return [Phases.design, Phases.develop].includes(phase);
       case Phases.deploy:
         return phase === Phases.deploy;
       case Phases.deliver:
-        if(strict) return phase === Phases.deliver;
+        if (strict) return phase === Phases.deliver;
         return [Phases.deploy, Phases.deliver].includes(phase);
       case Phases.done:
         return phase === Phases.done;
       default:
-        return false
+        return false;
     }
   }
 
-  public incrementPhase(): void{
-    switch(this.phase){
+  public incrementPhase(): void {
+    switch (this.phase) {
       case Phases.none:
         this.phase = Phases.splash;
         break;
       case Phases.splash:
         this.phase = Phases.design;
-        setTimeout(()=>{
-          this.designLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
-            setTimeout(()=>{
-              cntl.prime();
-            }, AnimationPeriods.medium*1500*ind)
-          });
-        }, AnimationPeriods.medium*1000);
+        setTimeout(() => {
+          this.designLinesFadeCntl.forEach(
+            (cntl: AnimationControl, ind: number) => {
+              setTimeout(() => {
+                cntl.prime();
+              }, AnimationPeriods.medium * 1500 * ind);
+            }
+          );
+        }, AnimationPeriods.medium * 1000);
 
         break;
       case Phases.design:
-        this.designLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+        this.designLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.develop;
-        setTimeout(()=>{
-          this.developLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
-            setTimeout(()=>{
-              cntl.prime();
-            }, AnimationPeriods.medium*1500*ind)
-          });
-        }, AnimationPeriods.medium*1000);
+        setTimeout(() => {
+          this.developLinesFadeCntl.forEach(
+            (cntl: AnimationControl, ind: number) => {
+              setTimeout(() => {
+                cntl.prime();
+              }, AnimationPeriods.medium * 1500 * ind);
+            }
+          );
+        }, AnimationPeriods.medium * 1000);
         break;
       case Phases.develop:
-        this.developLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+        this.developLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
-        })
+        });
         this.phase = Phases.deploy;
-        setTimeout(()=>{
-          this.deployLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
-            setTimeout(()=>{
+        setTimeout(() => {
+          this.deployLinesFadeCntl.forEach(
+            (cntl: AnimationControl, ind: number) => {
+              setTimeout(() => {
                 cntl.prime();
-            }, AnimationPeriods.medium*1500*ind)
-          })
-        }, AnimationPeriods.medium*1000);
+              }, AnimationPeriods.medium * 1500 * ind);
+            }
+          );
+        }, AnimationPeriods.medium * 1000);
         break;
       case Phases.deploy:
-        this.deployLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+        this.deployLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.deliver;
-        setTimeout(()=>{
-          this.deliverLinesFadeCntl.forEach((cntl:AnimationControl, ind:number)=>{
-            setTimeout(()=>{
-              cntl.prime();
-            }, AnimationPeriods.medium*1500*ind);
-          })
-        }, AnimationPeriods.medium*1000);
+        setTimeout(() => {
+          this.deliverLinesFadeCntl.forEach(
+            (cntl: AnimationControl, ind: number) => {
+              setTimeout(() => {
+                cntl.prime();
+              }, AnimationPeriods.medium * 1500 * ind);
+            }
+          );
+        }, AnimationPeriods.medium * 1000);
         break;
       case Phases.deliver:
-        this.deliverLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+        this.deliverLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.done;
@@ -242,8 +273,8 @@ export class DesignComponent implements OnInit{
     }
   }
 
-  public decrementPhase(): void{
-    switch(this.phase){
+  public decrementPhase(): void {
+    switch (this.phase) {
       case Phases.splash:
         this.phase = Phases.none;
         break;
@@ -251,89 +282,104 @@ export class DesignComponent implements OnInit{
         this.phase = Phases.splash;
         break;
       case Phases.develop:
-        this.developLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+        this.developLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.design;
-        setTimeout(()=>{
-          this.designLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
-            setTimeout(()=>{
-              cntl.prime();
-            }, AnimationPeriods.medium*1500*ind)
-          });
-        }, AnimationPeriods.medium*1000);
+        setTimeout(() => {
+          this.designLinesFadeCntl.forEach(
+            (cntl: AnimationControl, ind: number) => {
+              setTimeout(() => {
+                cntl.prime();
+              }, AnimationPeriods.medium * 1500 * ind);
+            }
+          );
+        }, AnimationPeriods.medium * 1000);
         break;
       case Phases.deploy:
-        this.deployLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+        this.deployLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.develop;
-        setTimeout(()=>{
-          this.developLinesFadeCntl.forEach((cntl:AnimationControl, ind: number)=>{
-            setTimeout(()=>{
-              cntl.prime();
-            }, AnimationPeriods.medium*1500*ind)
-          });
-        }, AnimationPeriods.medium*1000);
+        setTimeout(() => {
+          this.developLinesFadeCntl.forEach(
+            (cntl: AnimationControl, ind: number) => {
+              setTimeout(() => {
+                cntl.prime();
+              }, AnimationPeriods.medium * 1500 * ind);
+            }
+          );
+        }, AnimationPeriods.medium * 1000);
         break;
       case Phases.deliver:
-        this.deliverLinesFadeCntl.forEach((cntl:AnimationControl)=>{
+        this.deliverLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
-        })
+        });
         this.phase = Phases.deploy;
-        setTimeout(()=>{
-          this.deployLinesFadeCntl.forEach((cntl:AnimationControl, ind:number)=>{
-            setTimeout(()=>{
-              cntl.prime();
-            }, AnimationPeriods.medium*1500*ind)
-          });
-        }, AnimationPeriods.medium*1000);
+        setTimeout(() => {
+          this.deployLinesFadeCntl.forEach(
+            (cntl: AnimationControl, ind: number) => {
+              setTimeout(() => {
+                cntl.prime();
+              }, AnimationPeriods.medium * 1500 * ind);
+            }
+          );
+        }, AnimationPeriods.medium * 1000);
         break;
       case Phases.done:
         this.phase = Phases.deliver;
-        setTimeout(()=>{
-          this.deliverLinesFadeCntl.forEach((cntl:AnimationControl,ind:number)=>{
-            setTimeout(()=>{
-              cntl.prime();
-            }, AnimationPeriods.medium*1500*ind);
-          })
-        }, AnimationPeriods.medium*1000)
+        setTimeout(() => {
+          this.deliverLinesFadeCntl.forEach(
+            (cntl: AnimationControl, ind: number) => {
+              setTimeout(() => {
+                cntl.prime();
+              }, AnimationPeriods.medium * 1500 * ind);
+            }
+          );
+        }, AnimationPeriods.medium * 1000);
         break;
     }
   }
 
-  public touchSplash(): void{ 
-    if(this.splash === Splash.untouched && this.lured){
+  public touchSplash(): void {
+    if (this.splash === Splash.untouched && this.lured) {
       this.splashSrcFadeCntl.animate();
-      setTimeout(()=>{
-        this.splash = Splash.touched; 
-        setTimeout(()=>{
+      setTimeout(() => {
+        this.splash = Splash.touched;
+        setTimeout(() => {
           this.splashSrcFadeCntl.prime();
-        }, AnimationPeriods.medium*500)
-        setTimeout(()=>{
-          this.splashLines2FadeCntl.forEach((cntl: AnimationControl, ind: number)=>{
-            let inc: number;
-            if(ind===0){ inc= 750; }
-            else{ inc = 1250; }
-            setTimeout(()=>{
-              cntl.prime();
-            }, AnimationPeriods.medium*inc*ind);
-          })
-        }, AnimationPeriods.medium*1000)
-      }, AnimationPeriods.medium*1000)
+        }, AnimationPeriods.medium * 500);
+        setTimeout(() => {
+          this.splashLines2FadeCntl.forEach(
+            (cntl: AnimationControl, ind: number) => {
+              let inc: number;
+              if (ind === 0) {
+                inc = 750;
+              } else {
+                inc = 1250;
+              }
+              setTimeout(() => {
+                cntl.prime();
+              }, AnimationPeriods.medium * inc * ind);
+            }
+          );
+        }, AnimationPeriods.medium * 1000);
+      }, AnimationPeriods.medium * 1000);
     }
   }
 
-  public splashSrc(): string{
-    switch(this.splash){
+  public splashSrc(): string {
+    switch (this.splash) {
       case Splash.untouched:
-        return "/assets/imgs/separated.jpg";
+        return '/assets/imgs/separated.jpg';
       case Splash.touched:
-        return "/assets/imgs/cloud_tunnel.jpg";
+        return '/assets/imgs/cloud_tunnel.jpg';
       default:
-        return "/assets/imgs/separated.jpg";
+        return '/assets/imgs/separated.jpg';
     }
   }
 
-  public lure(){ this.lured = true; }
+  public lure() {
+    this.lured = true;
+  }
 }

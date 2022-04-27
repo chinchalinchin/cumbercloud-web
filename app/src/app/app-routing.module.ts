@@ -10,21 +10,17 @@ import { AboutComponent } from './about/about.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'pricing', component: PricingComponent },
-  
+
   // TODO: lazy-loading routing module
-  { path: 'about', component: AboutComponent }, 
-  { path: 'about/resume', component: ResumeComponent},
+  { path: 'about', component: AboutComponent },
+  { path: 'about/resume', component: ResumeComponent },
 
   { path: 'contact', component: ContactComponent },
-  { path: 'design', component: DesignComponent }
+  { path: 'design', component: DesignComponent },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(appRoutes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -1,121 +1,225 @@
-@use '~@angular/material' as mat;
-@use 'sass:map';
+@use "~@angular/material" as mat;
+@use "sass:map";
 
-@use './global.scss' as global;
-@use './app/app.theme' as app;
-@use './app/home/home.theme' as home;
-@use './app/design/design.theme' as design;
-@use './app/about/about.theme' as about;
-@use './app/about/resume/resume.theme' as resume;
-@use './app/about/resume/experience/experience.theme' as experience;
-@use './app/pricing/pricing.theme' as pricing;
-@use './app/pricing/rate/rate.theme' as rate;
-@use './app/contact/contact.theme' as contact;
-@use './app/sheet/sheet.theme' as sheet;
+@use "./global.scss" as global;
+@use "./app/app.theme" as app;
+@use "./app/home/home.theme" as home;
+@use "./app/design/design.theme" as design;
+@use "./app/about/about.theme" as about;
+@use "./app/about/resume/resume.theme" as resume;
+@use "./app/about/resume/experience/experience.theme" as experience;
+@use "./app/pricing/pricing.theme" as pricing;
+@use "./app/pricing/rate/rate.theme" as rate;
+@use "./app/contact/contact.theme" as contact;
+@use "./app/sheet/sheet.theme" as sheet;
 
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 @include mat-core();
 
 $primary-palette: (
-  50 : #e3f4fb, 100 : #b8e3f5, 200 : #89d0ef,
-  300 : #59bde9, 400 : #36afe4, 500 : #12a1df,
-  600 : #1099db, 700 : #0d8fd7, 800 : #0a85d2,
-  900 : #0574ca, A100 : #f3f9ff,
-  A200 : #c0e1ff, A400 : #8dc8ff, A700 : #74bbff,
+  50: #e3f4fb,
+  100: #b8e3f5,
+  200: #89d0ef,
+  300: #59bde9,
+  400: #36afe4,
+  500: #12a1df,
+  600: #1099db,
+  700: #0d8fd7,
+  800: #0a85d2,
+  900: #0574ca,
+  A100: #f3f9ff,
+  A200: #c0e1ff,
+  A400: #8dc8ff,
+  A700: #74bbff,
   contrast: (
-      50 : #000000, 100 : #000000, 200 : #000000,
-      300 : #000000, 400 : #000000, 500 : #ffffff,
-      600 : #ffffff, 700 : #ffffff, 800 : #ffffff,
-      900 : #ffffff, A100 : #000000, A200 : #000000,
-      A400 : #000000, A700 : #000000,
-  )
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
 $complementary-palette: (
-  50 : #fbeae1, 100 : #f5cab3, 200 : #eea680,
-  300 : #e7824d, 400 : #e16827, 500 : #dc4d01,
-  600 : #d84601, 700 : #d33d01, 800 : #ce3401,
-  900 : #c52500, A100 : #ffefed, A200 : #ffc3ba,
-  A400 : #ff9687, A700 : #ff7f6e,
+  50: #fbeae1,
+  100: #f5cab3,
+  200: #eea680,
+  300: #e7824d,
+  400: #e16827,
+  500: #dc4d01,
+  600: #d84601,
+  700: #d33d01,
+  800: #ce3401,
+  900: #c52500,
+  A100: #ffefed,
+  A200: #ffc3ba,
+  A400: #ff9687,
+  A700: #ff7f6e,
   contrast: (
-      50 : #000000, 100 : #000000, 200 : #000000,
-      300 : #000000, 400 : #000000, 500 : #ffffff,
-      600 : #ffffff, 700 : #ffffff, 800 : #ffffff,
-      900 : #ffffff, A100 : #000000, A200 : #000000,
-      A400 : #000000, A700 : #000000,
-  )
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
-$analogous-palette:(
-  50 : #e6f9f4, 100 : #c0efe5, 200 : #96e5d3,
-  300 : #6cdbc1, 400 : #4dd3b4, 500 : #2dcba7,
-  600 : #28c69f, 700 : #22be96, 800 : #1cb88c,
-  900 : #11ac7c, A100 : #dbfff3, A200 : #a8ffe2,
-  A400 : #75ffd0, A700 : #5cffc8,
+$analogous-palette: (
+  50: #e6f9f4,
+  100: #c0efe5,
+  200: #96e5d3,
+  300: #6cdbc1,
+  400: #4dd3b4,
+  500: #2dcba7,
+  600: #28c69f,
+  700: #22be96,
+  800: #1cb88c,
+  900: #11ac7c,
+  A100: #dbfff3,
+  A200: #a8ffe2,
+  A400: #75ffd0,
+  A700: #5cffc8,
   contrast: (
-      50 : #000000, 100 : #000000, 200 : #000000,
-      300 : #000000, 400 : #000000, 500 : #000000,
-      600 : #000000, 700 : #000000, 800 : #000000,
-      900 : #ffffff, A100 : #000000, A200 : #000000,
-      A400 : #000000, A700 : #000000,
-  )
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
-$analogous-alt-palette:(
-  50 : #e0e8f8, 100 : #b3c5ec, 200 : #809fe0,
-  300 : #4d79d4, 400 : #265cca, 500 : #003fc1,
-  600 : #0039bb, 700 : #0031b3, 800 : #0029ab,
-  900 : #001b9e, A100 : #c9ceff, A200 : #96a0ff,
-  A400 : #6373ff, A700 : #495cff,
+$analogous-alt-palette: (
+  50: #e0e8f8,
+  100: #b3c5ec,
+  200: #809fe0,
+  300: #4d79d4,
+  400: #265cca,
+  500: #003fc1,
+  600: #0039bb,
+  700: #0031b3,
+  800: #0029ab,
+  900: #001b9e,
+  A100: #c9ceff,
+  A200: #96a0ff,
+  A400: #6373ff,
+  A700: #495cff,
   contrast: (
-      50 : #000000, 100 : #000000, 200 : #000000,
-      300 : #ffffff, 400 : #ffffff, 500 : #ffffff,
-      600 : #ffffff, 700 : #ffffff, 800 : #ffffff,
-      900 : #ffffff, A100 : #000000, A200 : #000000,
-      A400 : #ffffff, A700 : #ffffff,
-  )
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
 );
 
 $triadic-palette: (
-  50 : #efeafb, 100 : #d7cbf5, 200 : #bca8ef,
-  300 : #a185e8, 400 : #8c6be3, 500 : #7851de,
-  600 : #704ada, 700 : #6540d5, 800 : #5b37d1,
-  900 : #4827c8, A100 : #ffffff, A200 : #dbd3ff,
-  A400 : #b1a0ff, A700 : #9d86ff,
+  50: #efeafb,
+  100: #d7cbf5,
+  200: #bca8ef,
+  300: #a185e8,
+  400: #8c6be3,
+  500: #7851de,
+  600: #704ada,
+  700: #6540d5,
+  800: #5b37d1,
+  900: #4827c8,
+  A100: #ffffff,
+  A200: #dbd3ff,
+  A400: #b1a0ff,
+  A700: #9d86ff,
   contrast: (
-      50 : #000000, 100 : #000000, 200 : #000000,
-      300 : #000000, 400 : #000000, 500 : #ffffff,
-      600 : #ffffff, 700 : #ffffff, 800 : #ffffff,
-      900 : #ffffff, A100 : #000000, A200 : #000000,
-      A400 : #000000, A700 : #000000,
-  )
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
 $triadic-alt-palette: (
-  50 : #f8e0f3, 100 : #edb3e1, 200 : #e280cd,
-  300 : #d64db9, 400 : #cd26aa, 500 : #c4009b,
-  600 : #be0093, 700 : #b60089, 800 : #af007f,
-  900 : #a2006d, A100 : #ffccec, A200 : #ff99d9,
-  A400 : #ff66c6, A700 : #ff4dbc,
+  50: #f8e0f3,
+  100: #edb3e1,
+  200: #e280cd,
+  300: #d64db9,
+  400: #cd26aa,
+  500: #c4009b,
+  600: #be0093,
+  700: #b60089,
+  800: #af007f,
+  900: #a2006d,
+  A100: #ffccec,
+  A200: #ff99d9,
+  A400: #ff66c6,
+  A700: #ff4dbc,
   contrast: (
-      50 : #000000, 100 : #000000, 200 : #000000,
-      300 : #000000, 400 : #ffffff, 500 : #ffffff,
-      600 : #ffffff, 700 : #ffffff, 800 : #ffffff,
-      900 : #ffffff, A100 : #000000, A200 : #000000,
-      A400 : #000000, A700 : #000000,
-  )
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
 );
 
 $cc-primary: mat-palette($primary-palette);
 $cc-complement: mat-palette($analogous-alt-palette);
 $cc-warn: mat-palette($triadic-alt-palette);
 
-$cc-theme: mat-light-theme(
-    $cc-primary,
-    $cc-complement,
-    $cc-warn,
-);
+$cc-theme: mat-light-theme($cc-primary, $cc-complement, $cc-warn);
 
 @include angular-material-theme($cc-theme);
 

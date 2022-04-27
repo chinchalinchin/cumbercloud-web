@@ -1,69 +1,69 @@
+mat-slider {
+  width: 80%;
+}
+.mat-header-row {
+  border-radius: 5px 5px 0 0;
+}
 
-mat-slider{
-    width: 80%;
+#rate {
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  margin-bottom: 0.5%;
 }
-.mat-header-row{
-    border-radius: 5px 5px 0 0;
+.element-container {
+  display: flex;
+  padding-bottom: 1%;
 }
-
-#rate{
-    margin-left: 0.5%;
-    margin-right: 0.5%;
-    margin-bottom: 0.5%;
+.element-widget,
+.element-output {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  border-radius: 25px;
 }
-.element-container{
-    display: flex;
-    padding-bottom: 1%;
+.compound-element {
+  display: flex;
+  flex-direction: row;
 }
-.element-widget, .element-output{
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-    border-radius: 25px;
-}
-.compound-element{
-    display: flex;
+@media (min-width: 991px) {
+  .element {
+    min-width: 45%;
+  }
+  .element-container {
     flex-direction: row;
+    justify-content: flex-start;
+  }
+  .compound-element {
+    width: 60%;
+    justify-content: flex-start;
+  }
+  .element-widget {
+    width: 35%;
+  }
+  .element-output {
+    width: 45%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
-@media(min-width: 991px){
-    .element{
-        min-width: 45%;
-    }
-    .element-container{
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-    .compound-element{
-        width: 60%;
-        justify-content: flex-start;
-    }
-    .element-widget{
-        width: 35%;
-    }
-    .element-output{
-        width: 45%;
-        margin-left: 5%;
-        margin-right: 5%;
-    }  
-}
-@media(max-width: 992px){
-    .element{
-        width: 45%;
-    }
-    .element-container{
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
-    }
-    .compound-element{
-        width: 100%;
-        justify-content: space-between;
-        margin-bottom: 1%;
-    }
-    .element-widget{
-        width: 95%;
-    }
-    .element-output{
-        width: 45%;
-    }
+@media (max-width: 992px) {
+  .element {
+    width: 45%;
+  }
+  .element-container {
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  .compound-element {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1%;
+  }
+  .element-widget {
+    width: 95%;
+  }
+  .element-output {
+    width: 45%;
+  }
 }
