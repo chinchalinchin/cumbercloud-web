@@ -64,15 +64,18 @@
   </div>
 
   <div id="education-popup" class="popup-content" *ngIf="popUpState == popUpStates.three">
-    <div id="degree-container">
-      <div class="degree-img">
-        <img src="/assets/certs/frostburg_degree.png">
-      </div>
-      <div class="degree-img">
-        <img src="/assets/certs/towson_degree.png">
-      </div>
-
-    </div>
+    <mat-tab-group animationDuration="1000ms" style="height: 100%" [(selectedIndex)]="selectedEducationTab">
+      <mat-tab label="Bachelor of Science">
+        <div class="img-container" (swipeleft)="incrementEdTab()" (swiperight)="decrementEdTab()">
+          <img src="/assets/certs/frostburg_degree.png" alt="Bachelor of Science, Frostburg State University">
+        </div>
+      </mat-tab>
+      <mat-tab label="Master of Science">
+        <div id="towson-degree" class="img-container" (swipeleft)="incrementEdTab()" (swiperight)="decrementEdTab()">
+          <img src="/assets/certs/towson_degree.png" alt="Master of Science, Towson University">
+        </div>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 
   <div id="portfolio-popup" class="popup-content" *ngIf="popUpState == popUpStates.four">

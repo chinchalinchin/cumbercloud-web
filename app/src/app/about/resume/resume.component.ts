@@ -17,6 +17,7 @@ import { ExperienceComponent } from './experience/experience.component';
 export class ResumeComponent {
   public screenSize: string = '';
   public selectedCertTab: number = 0;
+  public selectedEducationTab: number = 0;
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public popUpStates = ResumePopUpStates;
   public popUpState: ResumePopUpStates = ResumePopUpStates.null;
@@ -153,6 +154,20 @@ export class ResumeComponent {
     this.selectedCertTab--;
     if(this.selectedCertTab<0){
       this.selectedCertTab = this.certifications.length-1;
+    }
+  }
+
+  public incrementEdTab(){
+    this.selectedEducationTab++;
+    if(this.selectedEducationTab>1){
+      this.selectedEducationTab = 0;
+    }
+  }
+
+  public decrementEdTab(){
+    this.selectedEducationTab--;
+    if(this.selectedEducationTab<0){
+      this.selectedEducationTab = 1;
     }
   }
 }
