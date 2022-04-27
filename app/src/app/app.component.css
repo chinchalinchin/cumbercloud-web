@@ -5,6 +5,27 @@
   display: flex; 
   flex-direction: column;
 }
+#under-construction{
+  position: absolute;
+  width: 100%; 
+  height: 100%;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+#construction-img{
+  width: 50%;
+  height: auto;
+  margin: auto;
+  border-radius: 25px;
+  border-width: 2px;
+}
+#construction-btn{
+  position: absolute;
+  left: 67.5%;
+  bottom: 10%;
+}
 #banner{
   position: absolute; 
   top: 10%;

@@ -17,6 +17,7 @@ interface NavConfig{
   ]
 })
 export class AppComponent {
+  public underConstruction: boolean = true;
   public title: String = 'cumberland cloud';
   public selectedNav!: NavConfig;
   public menuDisplayed: boolean = false;
