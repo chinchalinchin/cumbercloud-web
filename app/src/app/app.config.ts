@@ -53,6 +53,13 @@ export interface Certification{
   alt: string
 }
 
+export interface ContactReason{
+  reason: string,
+  option_text?: string,
+  options_exclusive?: boolean,
+  options?: string[]
+}
+
 ////////
 // ENUMS
 ////////
@@ -607,4 +614,60 @@ export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
     rate: 100,
     tooltip: 'Charges based on number of pages',
   }
+];
+
+export const REASON_CONFIG: ContactReason[]=[
+  {
+    reason: "I need a new website for my business or organization."
+  },
+  {
+    reason: "I need a new application for my business or organization."
+  },
+  {
+    reason: "I have an existing website I need serviced.",
+    option_text: "How is the website hosted?",
+    options_exclusive: true,
+    options: [
+      "WordPress",
+      "Wix",
+      "Squarespace",
+      "Cloud (AWS, Azure, etc.)",
+      "Other"
+    ]
+  },
+  {
+    reason: "I have an existing application I need serviced.",
+    option_text: "What are the components of your application?",
+    options_exclusive: false,
+    options: [
+      "Database Server",
+      "Web Server",
+      "Container Cluster",
+      "Content Management System (e.g. Drupal, WordPress, etc.)",
+      "Single Sign-On",
+      "Search Engine",
+      "Machine Learning"
+    ]
+  },
+  {
+    reason: "I have an existing website I need migrated to the cloud.",
+    option_text: "How is the website hosted?",
+    options_exclusive: false,
+    options: [
+      "WordPress",
+      "Wix",
+      "Squarespace",
+      "Other"
+    ]
+  },
+  {
+    reason: "I have an existing application I need migrated to the cloud.",
+    option_text: "Does the application need modernized?",
+    options_exclusive: true,
+    options:[
+      "yes",
+      "no"
+    ]
+  }
+
 ];

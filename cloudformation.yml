@@ -125,7 +125,7 @@ Resources:
   
   CodeBuildExecutor:
     Type: AWS::IAM::Role
-    Description: Role to allow the pipeline's CodeBuild stage to access other AWS Services
+    Description: Role to allow the CodeBuild stage to access other AWS Services
     Properties:
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
@@ -191,7 +191,7 @@ Resources:
 
   CodePipelineExecutor:
     Type: AWS::IAM::Role
-    Description: Role to allow Innolab Pipeline access to other AWS Services
+    Description: Role to allow the CodePipeline to access to other AWS Services
     Properties:
       AssumeRolePolicyDocument:
         Version: "2012-10-17"

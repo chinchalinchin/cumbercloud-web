@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
 
 // TODO: material module
-import  {MatBadgeModule } from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatCardModule } from '@angular/material/card'; 
@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list'; 
 import { MatRadioModule } from '@angular/material/radio';
 import { MatRippleModule } from '@angular/material/core'; 
+import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper'; 
 import { MatTableModule } from '@angular/material/table';
@@ -77,6 +78,7 @@ import { RateComponent } from './pricing/rate/rate.component';
     MatListModule,
     MatRadioModule,
     MatRippleModule,
+    MatSelectModule,
     MatStepperModule,
     MatSliderModule,
     MatTabsModule,
@@ -128,6 +130,7 @@ export class AppModule {
                                       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/typescript.svg'));
     this.matIconRegistry.addSvgIcon('xd', 
                                       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/adobe-xd.svg'));
+    // ensure assets have been initialized on application load 
     assetSrcs.forEach((thisSrc:string)=>{
       let img = new Image();
       img.src = thisSrc;
