@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, DomSanitizer, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  DomSanitizer,
+  HammerModule,
+  HAMMER_GESTURE_CONFIG,
+} from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
-import { MatIconRegistry } from '@angular/material/icon'; 
+import { MatIconRegistry } from '@angular/material/icon';
 
 import { ASSET_CONFIG, ICON_CONFIG, IconConfig } from './app.config';
 import { AppRoutingModule } from './app-routing.module';
@@ -44,31 +49,40 @@ import { MetaService } from 'src/services/meta.service';
     HammerModule,
     MaterialModule,
   ],
-  providers: [{
-    provide: HAMMER_GESTURE_CONFIG,
-    useClass: HammerConfig
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { 
-  constructor(private matIconRegistry: MatIconRegistry, 
-              private domSanitizer: DomSanitizer,
-              private meta: MetaService){
-    ICON_CONFIG.forEach((conf: IconConfig)=>{
-      this.addIconToRegistry(conf.name, conf.src)
+export class AppModule {
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+    private meta: MetaService
+  ) {
+    ICON_CONFIG.forEach((conf: IconConfig) => {
+      this.addIconToRegistry(conf.name, conf.src);
     });
-    ASSET_CONFIG.forEach((thisSrc:string)=>{
+    ASSET_CONFIG.forEach((thisSrc: string) => {
       let img = new Image();
       img.src = thisSrc;
     });
   }
 
-  public addIconToRegistry(name: string, resourceUrl: string){
-    if(this.meta.isBrowser()){
-      this.matIconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl(resourceUrl)); 
-    }
-    else{
-      this.matIconRegistry.addSvgIconLiteral(name, this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>'));
+  public addIconToRegistry(name: string, resourceUrl: string) {
+    if (this.meta.isBrowser()) {
+      this.matIconRegistry.addSvgIcon(
+        name,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(resourceUrl)
+      );
+    } else {
+      this.matIconRegistry.addSvgIconLiteral(
+        name,
+        this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>')
+      );
     }
   }
 }

@@ -3,7 +3,12 @@ import { ServerModule } from '@angular/platform-server';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule, DomSanitizer, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  DomSanitizer,
+  HammerModule,
+  HAMMER_GESTURE_CONFIG,
+} from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
@@ -23,7 +28,7 @@ import { ASSET_CONFIG, IconConfig, ICON_CONFIG } from './app.config';
 import { MaterialModule } from './material.module';
 
 @NgModule({
-  declarations:[
+  declarations: [
     AppComponent,
     HomeComponent,
     PricingComponent,
@@ -44,34 +49,42 @@ import { MaterialModule } from './material.module';
     ReactiveFormsModule,
     HammerModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
   ],
-  providers: [{
-    provide: HAMMER_GESTURE_CONFIG,
-    useClass: HammerConfig
-  }],
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {
-
-  constructor(private matIconRegistry: MatIconRegistry, 
-              private domSanitizer: DomSanitizer, 
-              private meta: MetaService){  
-    ICON_CONFIG.forEach((conf: IconConfig)=>{
-      this.addIconToRegistry(conf.name, conf.src)
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+    private meta: MetaService
+  ) {
+    ICON_CONFIG.forEach((conf: IconConfig) => {
+      this.addIconToRegistry(conf.name, conf.src);
     });
-    ASSET_CONFIG.forEach((thisSrc:string)=>{
+    ASSET_CONFIG.forEach((thisSrc: string) => {
       let img = new Image();
       img.src = thisSrc;
     });
   }
 
-  public addIconToRegistry(name: string, resourceUrl: string){
-    if(this.meta.isBrowser()){
-      this.matIconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl(resourceUrl)); 
-    }
-    else{
-      this.matIconRegistry.addSvgIconLiteral(name, this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>'));
+  public addIconToRegistry(name: string, resourceUrl: string) {
+    if (this.meta.isBrowser()) {
+      this.matIconRegistry.addSvgIcon(
+        name,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(resourceUrl)
+      );
+    } else {
+      this.matIconRegistry.addSvgIconLiteral(
+        name,
+        this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>')
+      );
     }
   }
 }
