@@ -4,31 +4,27 @@ import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
 import { takeUntil, debounceTime } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class MetaService implements OnDestroy{
+export class MetaService implements OnDestroy {
   private unsubscriber: Subject<any> = new Subject();
   public screenWidth: BehaviorSubject<number> = new BehaviorSubject(0);
   public mediaBreakpoint: BehaviorSubject<string> = new BehaviorSubject('');
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { 
-    if(this.isBrowser()){
-      console.log('browser')
-    }
-    else if(this.isServer()){
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (this.isBrowser()) {
+      console.log('browser');
+    } else if (this.isServer()) {
       console.log('server');
+    } else {
+      console.log('?');
     }
-    else{
-      console.log("?")
-    }
-    if(this.isBrowser()){
+    if (this.isBrowser()) {
       this.setScreenWidth(window.innerWidth);
       this.setMediaBreakpoint(window.innerWidth);
       fromEvent(window, 'resize')
-        .pipe(
-          debounceTime(100),
-          takeUntil(this.unsubscriber)
-        ).subscribe((evt: any) => {
+        .pipe(debounceTime(100), takeUntil(this.unsubscriber))
+        .subscribe((evt: any) => {
           this.setScreenWidth(evt.target.innerWidth);
           this.setMediaBreakpoint(evt.target.innerWidth);
         });
@@ -60,8 +56,11 @@ export class MetaService implements OnDestroy{
     }
   }
 
-  public isBrowser() { return isPlatformBrowser(this.platformId); }
+  public isBrowser() {
+    return isPlatformBrowser(this.platformId);
+  }
 
-  public isServer() { return isPlatformServer(this.platformId); }
-  
+  public isServer() {
+    return isPlatformServer(this.platformId);
+  }
 }

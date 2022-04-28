@@ -22,7 +22,7 @@ import { ASSET_CONFIG, IconConfig, ICON_CONFIG } from './app.config';
 import { MaterialModule } from './material.module';
 
 @NgModule({
-  declarations:[
+  declarations: [
     AppComponent,
     HomeComponent,
     PricingComponent,
@@ -42,26 +42,32 @@ import { MaterialModule } from './material.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
   ],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {
-
-  constructor(private matIconRegistry: MatIconRegistry, 
-              private domSanitizer: DomSanitizer, 
-              private meta: MetaService){  
-    ICON_CONFIG.forEach((conf: IconConfig)=>{
-      this.addIconToRegistry(conf.name, conf.src)
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+    private meta: MetaService
+  ) {
+    ICON_CONFIG.forEach((conf: IconConfig) => {
+      this.addIconToRegistry(conf.name, conf.src);
     });
   }
 
-  public addIconToRegistry(name: string, resourceUrl: string){
-    if(this.meta.isBrowser()){
-      this.matIconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl(resourceUrl)); 
-    }
-    else{
-      this.matIconRegistry.addSvgIconLiteral(name, this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>'));
+  public addIconToRegistry(name: string, resourceUrl: string) {
+    if (this.meta.isBrowser()) {
+      this.matIconRegistry.addSvgIcon(
+        name,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(resourceUrl)
+      );
+    } else {
+      this.matIconRegistry.addSvgIconLiteral(
+        name,
+        this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>')
+      );
     }
   }
 }
