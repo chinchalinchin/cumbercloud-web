@@ -1,12 +1,6 @@
-import { 
-  Component,
-  Renderer2 
-} from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { 
-  NavigationEnd, 
-  Router 
-} from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import {
   AnimationControl,
@@ -14,10 +8,7 @@ import {
   AnimationTriggers,
 } from 'src/animations';
 import { SeoService } from 'src/services/seo.service';
-import { 
-  NavConfig,
-  NAV_CONFIG 
-} from './app.config';
+import { NavConfig, NAV_CONFIG } from './app.config';
 import { SheetComponent } from './sheet/sheet.component';
 
 @Component({
@@ -34,13 +25,13 @@ export class AppComponent {
   public sheetDisplayed: boolean = false;
   public menuFoldCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public pageConfig: NavConfig[] = NAV_CONFIG;
-  public navConfig: NavConfig[] = NAV_CONFIG.filter((element)=> element.menu);
+  public navConfig: NavConfig[] = NAV_CONFIG.filter((element) => element.menu);
 
   public constructor(
     private _bottomSheet: MatBottomSheet,
     private router: Router,
     private renderer: Renderer2,
-    private seo: SeoService,
+    private seo: SeoService
   ) {
     this.router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
@@ -49,13 +40,16 @@ export class AppComponent {
           this.toggleMenu();
         }
         let data = this.findBreadCrumbsByPath(event.url);
-        this.seo.setJsonLd(this.renderer, data ? data : {})
-        this.selectedNav = this.navConfig.filter((nav: NavConfig) => nav.path === event.url).pop();
+        this.seo.setJsonLd(this.renderer, data ? data : {});
+        this.selectedNav = this.navConfig
+          .filter((nav: NavConfig) => nav.path === event.url)
+          .pop();
       });
   }
 
-  private findBreadCrumbsByPath(path: string): any{
-    return this.pageConfig.filter((nav:NavConfig)=> nav.path === path).pop()?.data
+  private findBreadCrumbsByPath(path: string): any {
+    return this.pageConfig.filter((nav: NavConfig) => nav.path === path).pop()
+      ?.data;
   }
 
   public toggleMenu() {
