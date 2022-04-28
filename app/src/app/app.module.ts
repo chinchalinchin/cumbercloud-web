@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
 import { MatIconRegistry } from '@angular/material/icon';
-import { ASSET_CONFIG, ICON_CONFIG, IconConfig } from './app.config';
+import { ASSET_CONFIG, ICON_CONFIG, IconConfig, AssetConfig } from './app.config';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
@@ -65,9 +65,9 @@ export class AppModule {
     ICON_CONFIG.forEach((conf: IconConfig) => {
       this.addIconToRegistry(conf.name, conf.src);
     });
-    ASSET_CONFIG.forEach((thisSrc: string) => {
+    ASSET_CONFIG.forEach((conf: AssetConfig) => {
       let img = new Image();
-      img.src = thisSrc;
+      img.src = conf.src;
     });
   }
 

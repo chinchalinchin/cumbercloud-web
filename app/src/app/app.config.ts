@@ -2,6 +2,19 @@
 // INTERFACES
 /////////////
 
+export interface AssetConfig{
+  src: string;
+  alt: string;
+}
+
+export interface NavConfig {
+  path: string;
+  nav_title: string;
+  page_title: string;
+  menu: boolean;
+  data: any;
+}
+
 export interface IconConfig {
   src: string;
   name: string;
@@ -92,15 +105,139 @@ export enum ExperienceStates {
 // CONFIGURATION
 ////////////////
 
-export const ASSET_CONFIG = [
-  '/assets/imgs/money-banner.jpg',
-  '/assets/imgs/circuitry-banner.jpg',
-  '/assets/imgs/expertise-banner.jpg',
-  '/assets/imgs/human_centric_design-banner.jpg',
-  '/assets/imgs/separated.jpg',
-  '/assets/imgs/cloud_tunnel.jpg',
-  '/assets/imgs/under_construction.jpg',
-  '/assets/people/grant/profile.jpg',
+export const NAV_CONFIG: NavConfig[] =[
+  { 
+    path: '/', 
+    nav_title: 'Home',
+    page_title: '',
+    menu: true,
+    data:[
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        'url': 'https://cumberland-cloud.com',
+        'logo': 'https://cumberland-cloud.com/assets/icons/cloud-03.svg'
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "image": [
+          "https://cumberland-cloud.com/assets/imgs/circuitry-banner.jpg",
+          "https://cumberland-cloud.com/assets/imgs/expertise-banner.jpg",
+          "https://cumberland-cloud.com/assets/imgs/human_centric_design-banner.jpg"
+         ],
+        "name": "The Cumberland Cloud",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "401 North Mechanic Street",
+          "addressLocality": "Cumberland",
+          "addressRegion": "MD",
+          "postalCode": "21502",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 39.656087,
+          "longitude": -78.76781
+        },
+        "url": "http://www.cumberland-cloud.com",
+        "telephone": "+13016979801",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "08:30",
+            "closes": "17:30"
+          }
+        ]
+      }
+    ]
+  },
+  { 
+    path: '/about', 
+    nav_title: 'About',
+    page_title: '',
+    menu: true,
+    data:{
+
+    }
+  },
+  { 
+    path: '/design', 
+    nav_title: 'Design',
+    page_title: '',
+    menu: true,
+    data: {
+
+    }
+  },
+  { 
+    path: '/pricing', 
+    nav_title: 'Pricing',
+    page_title: '',
+    menu: true,
+    data: {
+
+    }
+  },
+  { 
+    path: '/contact', 
+    nav_title: 'Contact',
+    page_title: '',
+    menu: true,
+    data: {
+
+    }
+  },
+  {
+    path: '/about/resume',
+    nav_title: 'Resume',
+    page_title: '',
+    menu: false,
+    data: {
+
+    }
+  }
+];
+export const ASSET_CONFIG: AssetConfig[] = [
+  {
+    src: '/assets/imgs/money-banner.jpg',
+    alt: 'Money, Money, Money'
+  },
+  {
+    src: '/assets/imgs/circuitry-banner.jpg',
+    alt: 'Cloud Computing'
+  },
+  {
+    src: '/assets/imgs/expertise-banner.jpg',
+    alt: 'Expert Services'
+  },
+  {
+    src: '/assets/imgs/human_centric_design-banner.jpg',
+    alt: 'Human Centered Design'
+  },
+  {
+    src: '/assets/imgs/separated.jpg',
+    alt: 'Cumberland Cloud Stands Apart'
+  },
+  {
+    src: '/assets/imgs/cloud_tunnel.jpg',
+    alt: 'Tunnel To The Clouds'
+  },
+  {
+    src: '/assets/imgs/under_construction.jpg',
+    alt: 'Site Under Construction'
+  },
+  {
+    src: '/assets/people/grant/profile.jpg',
+    alt: 'Grant Moore: Solution Architect, Developer & Designer'
+  }
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [

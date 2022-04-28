@@ -48,11 +48,11 @@
   <div id="nav-menu" [@cntl_fold]="menuFoldCntl.state">
     <div
       class="nav-item"
-      *ngFor="let item of navItems"
-      [ngClass]="{ selected: item == this.selectedNav }"
-      [routerLink]="item.path"
+      *ngFor="let conf of navConfig"
+      [ngClass]="{ selected: conf == this.selectedNav }"
+      [routerLink]="conf.path"
     >
-      {{ item.title }}
+      {{ conf.nav_title }}
     </div>
   </div>
 
