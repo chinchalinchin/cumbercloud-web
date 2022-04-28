@@ -4,9 +4,9 @@ import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
 import { takeUntil, debounceTime } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class MetaService implements OnDestroy{
+export class MetaService implements OnDestroy {
   private unsubscriber: Subject<any> = new Subject();
   public screenWidth: BehaviorSubject<number> = new BehaviorSubject(0);
   public mediaBreakpoint: BehaviorSubject<string> = new BehaviorSubject('');

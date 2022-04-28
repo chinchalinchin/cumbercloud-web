@@ -1,26 +1,26 @@
-@media(max-width:992px){
-    #splash-img-container{
-        width: 100%;
-    }
-    #splash-img{
-        border-radius: 20%;
-        width: 100%;
-        height: 90%;
-    }
-    #splash{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        height: 100%;
-        width: 100%;
-    }
-    .splash-banner{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        width: 100%;
-    }
-    .splash-bg{
-        bottom: 20%;
-    }
+@media (max-width: 992px) {
+  #splash-img-container {
+    width: 100%;
+  }
+  #splash-img {
+    border-radius: 20%;
+    width: 100%;
+    height: 90%;
+  }
+  #splash {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  .splash-banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .splash-bg {
+    bottom: 20%;
+  }
 }

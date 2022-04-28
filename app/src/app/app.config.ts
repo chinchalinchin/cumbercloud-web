@@ -13,79 +13,79 @@ export interface ChipConfig{
   svgIcon: string
 };
 
-export interface Link{
-  href: string,
-  display: string
+export interface Link {
+  href: string;
+  display: string;
 }
 
-export interface Experience{
-  company: string,
-  position: string,
-  years: string,
-  responsibilities: string[],
-  accomplishments?: string[],
-  links?: Link[]
+export interface Experience {
+  company: string;
+  position: string;
+  years: string;
+  responsibilities: string[];
+  accomplishments?: string[];
+  links?: Link[];
 }
 
-export interface PricingParameter{
-  type: string,
-  label?: string,
-  states?: number
-  state_descriptions?: string[],
-  state_titles?: string[]
+export interface PricingParameter {
+  type: string;
+  label?: string;
+  states?: number;
+  state_descriptions?: string[];
+  state_titles?: string[];
 }
 
-export interface Fee{
-  service: string,
-  rate: number,
-  justification: string,
-  basis: string,
-  href: string
+export interface Fee {
+  service: string;
+  rate: number;
+  justification: string;
+  basis: string;
+  href: string;
 }
 
-export interface Pricing{
-  key: string,
-  name: string,
-  parameter: PricingParameter,
-  fees: Fee[],
-  rate: number,
-  tooltip: string,
+export interface Pricing {
+  key: string;
+  name: string;
+  parameter: PricingParameter;
+  fees: Fee[];
+  rate: number;
+  tooltip: string;
 }
 
-export interface Certification{
-  title: string,
-  src: string,
-  alt: string
+export interface Certification {
+  title: string;
+  src: string;
+  alt: string;
 }
 
-export interface ContactReason{
-  reason: string,
-  key: string,
-  option_text?: string,
-  options_exclusive?: boolean,
-  options?: string[]
+export interface ContactReason {
+  reason: string;
+  key: string;
+  option_text?: string;
+  options_exclusive?: boolean;
+  options?: string[];
 }
 
 ////////
 // ENUMS
 ////////
 
-export enum ResumePopUpStates{
-  one = 0, 
-  two = 1, 
-  three = 2, 
-  four = 3, 
-  null = -1
+export enum ResumePopUpStates {
+  one = 0,
+  two = 1,
+  three = 2,
+  four = 3,
+  null = -1,
 }
 
 export enum ExperienceStates {
-  makpar = "makpar", 
-  ibm ="ibm", 
-  frcc ="frcc", 
-  uc="uc", 
-  fsu="fsu", 
-  acm="acm", 
-  americorps="americorps"
+  makpar = 'makpar',
+  ibm = 'ibm',
+  frcc = 'frcc',
+  uc = 'uc',
+  fsu = 'fsu',
+  acm = 'acm',
+  americorps = 'americorps',
 }
 
 ////////////////
@@ -104,18 +104,46 @@ export const ASSET_CONFIG=[
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [
-  { tooltip: 'Adobe XD', href: 'https://www.adobe.com/products/xd.html', svgIcon: 'xd'},
-  { tooltip: 'GNU Image Manipulation Program', href: 'https://www.gimp.org/', svgIcon: 'gimp'},
-  { tooltip: 'Diagrams', href: 'https://www.diagrams.net/', svgIcon: 'drawio'},
-  { tooltip: "Typescript", href: "https://www.typescriptlang.org/", svgIcon:"typescript"},
-  { tooltip: "Python", href: "https://www.python.org/", svgIcon:"python"},
-  { tooltip: 'Angular', href: 'https://angular.io/', svgIcon: 'angular'},
-  { tooltip: 'Django', href: 'https://www.djangoproject.com/', svgIcon: 'django'},
-  { tooltip: 'Docker', href: 'https://www.docker.com/', svgIcon: 'docker'},
-  { tooltip: 'CloudFront', href: 'https://aws.amazon.com/cloudfront/', svgIcon: 'cloudfront'},
-  { tooltip: 'S3', href: 'https://aws.amazon.com/S3/', svgIcon: 's3'},
-  { tooltip: 'Lambda', href: 'https://aws.amazon.com/lambda/', svgIcon: 'lambda'},
-  { tooltip: 'API Gateway', href: 'https://aws.amazon.com/api-gateway/', svgIcon: 'apigateway' },
+  {
+    tooltip: 'Adobe XD',
+    href: 'https://www.adobe.com/products/xd.html',
+    svgIcon: 'xd',
+  },
+  {
+    tooltip: 'GNU Image Manipulation Program',
+    href: 'https://www.gimp.org/',
+    svgIcon: 'gimp',
+  },
+  { tooltip: 'Diagrams', href: 'https://www.diagrams.net/', svgIcon: 'drawio' },
+  {
+    tooltip: 'Typescript',
+    href: 'https://www.typescriptlang.org/',
+    svgIcon: 'typescript',
+  },
+  { tooltip: 'Python', href: 'https://www.python.org/', svgIcon: 'python' },
+  { tooltip: 'Angular', href: 'https://angular.io/', svgIcon: 'angular' },
+  {
+    tooltip: 'Django',
+    href: 'https://www.djangoproject.com/',
+    svgIcon: 'django',
+  },
+  { tooltip: 'Docker', href: 'https://www.docker.com/', svgIcon: 'docker' },
+  {
+    tooltip: 'CloudFront',
+    href: 'https://aws.amazon.com/cloudfront/',
+    svgIcon: 'cloudfront',
+  },
+  { tooltip: 'S3', href: 'https://aws.amazon.com/S3/', svgIcon: 's3' },
+  {
+    tooltip: 'Lambda',
+    href: 'https://aws.amazon.com/lambda/',
+    svgIcon: 'lambda',
+  },
+  {
+    tooltip: 'API Gateway',
+    href: 'https://aws.amazon.com/api-gateway/',
+    svgIcon: 'apigateway',
+  },
 ];
 
 export const ICON_CONFIG: IconConfig[]=[
@@ -191,174 +219,173 @@ export const ICON_CONFIG: IconConfig[]=[
 
 export const EXPERIENCE_CONFIG : Experience[] = [
   {
-    company: "Makpar, Inc.",
-    position: "DevOps Engineer",
-    years: "2021 - Current",
+    company: 'Makpar, Inc.',
+    position: 'DevOps Engineer',
+    years: '2021 - Current',
     responsibilities: [
-      "Oversaw development operations for the <b>Innovation Lab</b>",
-      "Led a Scrum team in a fast-paced environment",
-      "Built prototype, proof-of-concept applications",
-      "Provided solution proposals for prospective clients"
+      'Oversaw development operations for the <b>Innovation Lab</b>',
+      'Led a Scrum team in a fast-paced environment',
+      'Built prototype, proof-of-concept applications',
+      'Provided solution proposals for prospective clients',
     ],
     accomplishments: [
-      "Won multiple contract bids via code challenges",
-      "Designed and implemented a multi-environment cloud architecture",
-      "Enforced test-driven development through CI/CD best practices"
+      'Won multiple contract bids via code challenges',
+      'Designed and implemented a multi-environment cloud architecture',
+      'Enforced test-driven development through CI/CD best practices',
     ],
-    links:[
+    links: [
       {
-        href: "https://makpar.com",
-        display: "Makpar Corporation"
+        href: 'https://makpar.com',
+        display: 'Makpar Corporation',
       },
       {
-        href: "https://laboratory-dev.makpar-innovation.net",
-        display: "Innovation Lab Dev Site"
+        href: 'https://laboratory-dev.makpar-innovation.net',
+        display: 'Innovation Lab Dev Site',
       },
       {
-        href: "https://documentation.makpar-innovation.net",
-        display: "Innovation Lab Documentation"
+        href: 'https://documentation.makpar-innovation.net',
+        display: 'Innovation Lab Documentation',
       },
       {
-        href: "https://www.tripointsolutions.com/announcements/tripoint-solutions-select-as-a-new-supplier-for-comet",
-        display: "COMET Contract Award, 2022"
+        href: 'https://www.tripointsolutions.com/announcements/tripoint-solutions-select-as-a-new-supplier-for-comet',
+        display: 'COMET Contract Award, 2022',
       },
-    ]
+    ],
   },
   {
-    company: "IBM",
-    position: "Full Stack Developer",
-    years: "2019 - 2021",
+    company: 'IBM',
+    position: 'Full Stack Developer',
+    years: '2019 - 2021',
     responsibilities: [
-      "Worked in a Scrum team to develop web applications",
-      "Designed and implemented frontend user interfaces",
-      "Managed development pipelines for continuous deployment"
+      'Worked in a Scrum team to develop web applications',
+      'Designed and implemented frontend user interfaces',
+      'Managed development pipelines for continuous deployment',
     ],
     accomplishments: [
       "Vital in the migration of GSA's COMET portfolio to the cloud",
-      "Modernized and containerized multiple legacy applications",
-      "Trained new developers in the <b>Innovation Garage</b>"
+      'Modernized and containerized multiple legacy applications',
+      'Trained new developers in the <b>Innovation Garage</b>',
     ],
-    links:[
+    links: [
       {
-        href: "https://buy.gsa.gov",
-        display: "Buy@GSA"
+        href: 'https://buy.gsa.gov',
+        display: 'Buy@GSA',
       },
       {
-        href: "https://calc.gsa.gov",
-        display: "CALC"
+        href: 'https://calc.gsa.gov',
+        display: 'CALC',
       },
       {
-        href: "https://sam.gov",
-        display: "SAM"
-      }
-    ]
-  },
-  {
-    company: "Front Range Community College",
-    position: "Mathematics Professor",
-    years: "2017 - 2018",
-    responsibilities: [
-      "MAT 050 Quantitative Literary", 
-      "MAT 120 Math For Liberal Arts", 
-      "MAT 125 Survey of Calculus", 
-      "MAT 135 Introduction to Statistics", 
-      "MAT 201 Calculus I"],
-  },
-  {
-    company: "University of Cincinnati",
-    position: "Adjunct Mathematics Professor",
-    years: "2017",
-    responsibilities: [
-      "MATH 0080 Fundamentals of Algebra", 
-      "MATH 1008 Quantitative Logic", 
-      "BANA 2081 Business Analytics"
+        href: 'https://sam.gov',
+        display: 'SAM',
+      },
     ],
   },
   {
-    company: "Frostburg State University",
-    position: "Adjunct Physics Professor",
-    years: "2015 - 2017",
+    company: 'Front Range Community College',
+    position: 'Mathematics Professor',
+    years: '2017 - 2018',
     responsibilities: [
-      "PHYS 215 General Physics I", 
-      "PHYS 216 General Physics II", 
-      "PHYS 261 Principle of Physics I: Introduction to Mechanics"
-    ]
-  },
-  {
-    company: "Allegany College of Maryland",
-    position: "Mathematics Professor",
-    years: "2015 - 2016",
-    responsibilities: [
-      "MATH 83 Basic Arithmetic", 
-      "MATH 90 Pre-Algebra",
-      "MATH 93 Intermediate Algebra"
+      'MAT 050 Quantitative Literary',
+      'MAT 120 Math For Liberal Arts',
+      'MAT 125 Survey of Calculus',
+      'MAT 135 Introduction to Statistics',
+      'MAT 201 Calculus I',
     ],
   },
   {
-    company: "Americorps",
-    position: "Mathematics Mentor",
-    years: "2014 - 2016",
+    company: 'University of Cincinnati',
+    position: 'Adjunct Mathematics Professor',
+    years: '2017',
+    responsibilities: [
+      'MATH 0080 Fundamentals of Algebra',
+      'MATH 1008 Quantitative Logic',
+      'BANA 2081 Business Analytics',
+    ],
+  },
+  {
+    company: 'Frostburg State University',
+    position: 'Adjunct Physics Professor',
+    years: '2015 - 2017',
+    responsibilities: [
+      'PHYS 215 General Physics I',
+      'PHYS 216 General Physics II',
+      'PHYS 261 Principle of Physics I: Introduction to Mechanics',
+    ],
+  },
+  {
+    company: 'Allegany College of Maryland',
+    position: 'Mathematics Professor',
+    years: '2015 - 2016',
+    responsibilities: [
+      'MATH 83 Basic Arithmetic',
+      'MATH 90 Pre-Algebra',
+      'MATH 93 Intermediate Algebra',
+    ],
+  },
+  {
+    company: 'Americorps',
+    position: 'Mathematics Mentor',
+    years: '2014 - 2016',
     responsibilities: [],
-    accomplishments: []
-  }
+    accomplishments: [],
+  },
 ];
 
 export const CERTIFICATION_CONFIG: Certification[] = [
   {
-    title: "AWS DevOps Engineer Professional",
-    src: "/assets/certs/AWS_DEVOPS.png",
-    alt: "Amazon Web Services DevOps Engineer Professional Certification"
+    title: 'AWS DevOps Engineer Professional',
+    src: '/assets/certs/AWS_DEVOPS.png',
+    alt: 'Amazon Web Services DevOps Engineer Professional Certification',
   },
   {
-    title: "AWS Developer Associate",
-    src: "/assets/certs/AWS_DEVELOPER.png",
-    alt: "Amazon Web Services Developer Associate Certification"
+    title: 'AWS Developer Associate',
+    src: '/assets/certs/AWS_DEVELOPER.png',
+    alt: 'Amazon Web Services Developer Associate Certification',
   },
   {
-    title: "MTA Database Administration",
-    src: "/assets/certs/MTA_DATABASE.png",
-    alt: "Microsoft Technology Associate Database Administration Certification"
+    title: 'MTA Database Administration',
+    src: '/assets/certs/MTA_DATABASE.png',
+    alt: 'Microsoft Technology Associate Database Administration Certification',
   },
   {
-    title: "MTA Software Development",
-    src: "/assets/certs/MTA_SOFTWARE.png",
-    alt: "Microsoft Technology Associate Software Development Fundamentals Certification"
+    title: 'MTA Software Development',
+    src: '/assets/certs/MTA_SOFTWARE.png',
+    alt: 'Microsoft Technology Associate Software Development Fundamentals Certification',
   },
   {
-    title: "MTA Python Programming",
-    src: "/assets/certs/MTA_PYTHON.png",
-    alt: "Microsoft Technology Associate Introduction to Python Programming Certification"
+    title: 'MTA Python Programming',
+    src: '/assets/certs/MTA_PYTHON.png',
+    alt: 'Microsoft Technology Associate Introduction to Python Programming Certification',
   },
   {
-    title: "MTA Java Programming",
-    src: "/assets/certs/MTA_JAVA.png",
-    alt: "Microsoft Technology Associate Introduction to Java Programming Certification"
-  }
+    title: 'MTA Java Programming',
+    src: '/assets/certs/MTA_JAVA.png',
+    alt: 'Microsoft Technology Associate Introduction to Java Programming Certification',
+  },
 ];
 
 export const CORE_PRICING_CONFIG: Pricing[] = [
-  { 
+  {
     key: 'DESIGN',
     name: 'Design & Hosting',
-    parameter:{
+    parameter: {
       type: 'number',
       label: 'Number of pages',
-      state_descriptions:[
-        "Static content can be hosted on the cloud for practically free these days, so the main expense here comes from the design and implementation of the content itself."
+      state_descriptions: [
+        'Static content can be hosted on the cloud for practically free these days, so the main expense here comes from the design and implementation of the content itself.',
       ],
-      state_titles:[
-        "Description"
-      ]
+      state_titles: ['Description'],
     },
     rate: 250,
-    fees:[
+    fees: [
       {
-        service: "AWS CloudFront",
+        service: 'AWS CloudFront',
         rate: 0.085,
-        justification: "Website Hosting",
-        basis: "Per GB transferred to the internet",
-        href: "https://aws.amazon.com/cloudfront/pricing/"
-      }
+        justification: 'Website Hosting',
+        basis: 'Per GB transferred to the internet',
+        href: 'https://aws.amazon.com/cloudfront/pricing/',
+      },
     ],
     tooltip: 'Charges per page',
   },
@@ -370,38 +397,34 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
       label: 'Complexity of inventory',
       states: 3,
       state_descriptions: [
-        "Accessed infrequently by select users and contains less than ten thousand records.",
-        "Accessed daily by a group of users and contains on the order of a hundred thousand records.",
-        "Accessed multiple times a day by a community of users and contains millions of records."
+        'Accessed infrequently by select users and contains less than ten thousand records.',
+        'Accessed daily by a group of users and contains on the order of a hundred thousand records.',
+        'Accessed multiple times a day by a community of users and contains millions of records.',
       ],
-      state_titles: [
-        "Small",
-        "Medium",
-        "Large"
-      ]
+      state_titles: ['Small', 'Medium', 'Large'],
     },
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0.20,
-        justification: "Business Logic",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/lambda/pricing/"
+        rate: 0.2,
+        justification: 'Business Logic',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/lambda/pricing/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 0.25,
-        justification: "Data Storage",
-        basis: "Per GB Per Month",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+        justification: 'Data Storage',
+        basis: 'Per GB Per Month',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 1.25,
-        justification: "Data Access",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
-      }
+        justification: 'Data Access',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
+      },
     ],
     rate: 2500,
     tooltip: 'Charges based on complexity',
@@ -409,51 +432,46 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
   {
     key: 'MARKET',
     name: 'Online Marketplace',
-    parameter:{
+    parameter: {
       type: 'slider',
       label: 'Complexity of transactions',
       states: 3,
-      state_descriptions:[
-        "Basic transaction order flow. Orders are processed as soon as they are received.",
-        "Asynchronous transaction order flow. Orders are not processed until conditions are met.",
-        "Intensive transaction order flow with multiple parties. Numerous transactions in small time frames. Order history must be consistent and immutable."
-
+      state_descriptions: [
+        'Basic transaction order flow. Orders are processed as soon as they are received.',
+        'Asynchronous transaction order flow. Orders are not processed until conditions are met.',
+        'Intensive transaction order flow with multiple parties. Numerous transactions in small time frames. Order history must be consistent and immutable.',
       ],
-      state_titles:[
-        "Simple",
-        "Complex",
-        "Network"
-      ]
+      state_titles: ['Simple', 'Complex', 'Network'],
     },
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0.20,
-        justification: "Business Logic",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/lambda/pricing/"
+        rate: 0.2,
+        justification: 'Business Logic',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/lambda/pricing/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 0.25,
-        justification: "Data Storage",
-        basis: "Per GB Per Month",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+        justification: 'Data Storage',
+        basis: 'Per GB Per Month',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 1.25,
-        justification: "Data Access",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+        justification: 'Data Access',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
       },
       {
-        service: "Stripe",
+        service: 'Stripe',
         rate: 0.029,
-        justification: "Payment Processing",
-        basis: "Per Transaction",
-        href: "https://stripe.com/pricing"
-      }
+        justification: 'Payment Processing',
+        basis: 'Per Transaction',
+        href: 'https://stripe.com/pricing',
+      },
     ],
     rate: 1000,
     tooltip: 'Charges based on complexity',
@@ -461,43 +479,39 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
   {
     key: 'FORM',
     name: 'Form Validation & Processing',
-    parameter:{
+    parameter: {
       type: 'slider',
       label: 'Complexity of form',
       states: 3,
       state_descriptions: [
-        "A simple form for collecting user data or submissions. Form contains less than twenty fields.",
-        "A form with conditional elements and nested sub-forms. Form contains less than a hundred fields.",
-        "A form with multiple nested relationships or a form of unstructured data. Form contains more than a hundred fields."
+        'A simple form for collecting user data or submissions. Form contains less than twenty fields.',
+        'A form with conditional elements and nested sub-forms. Form contains less than a hundred fields.',
+        'A form with multiple nested relationships or a form of unstructured data. Form contains more than a hundred fields.',
       ],
-      state_titles: [
-        "Basic",
-        "Complex",
-        "Unstructured"
-      ]
+      state_titles: ['Basic', 'Complex', 'Unstructured'],
     },
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0.20,
-        justification: "Business Logic",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/lambda/pricing/"
+        rate: 0.2,
+        justification: 'Business Logic',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/lambda/pricing/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 0.25,
-        justification: "Data Storage",
-        basis: "Per GB Per Month",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+        justification: 'Data Storage',
+        basis: 'Per GB Per Month',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 1.25,
-        justification: "Data Access",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
-      }
+        justification: 'Data Access',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
+      },
     ],
     rate: 500,
     tooltip: 'Charges based on complexity',
@@ -508,45 +522,43 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
     parameter: {
       type: 'null',
       state_descriptions: [
-        "Setting up scheduled jobs and notifications services in the cloud is a standard use-case and easy to implement."
+        'Setting up scheduled jobs and notifications services in the cloud is a standard use-case and easy to implement.',
       ],
-      state_titles: [
-        "Description"
-      ]
+      state_titles: ['Description'],
     },
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0.20,
-        justification: "Business Logic",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/lambda/pricing/"
+        rate: 0.2,
+        justification: 'Business Logic',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/lambda/pricing/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 0.25,
-        justification: "Data Storage",
-        basis: "Per GB Per Month",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+        justification: 'Data Storage',
+        basis: 'Per GB Per Month',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 1.25,
-        justification: "Data Access",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+        justification: 'Data Access',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
       },
       {
         service: 'AWS Simple Email Service',
-        rate: 0.10,
-        justification: "Email Server",
-        basis: "Per 1000 Emails",
-        href: "https://aws.amazon.com/ses/pricing/"
-      }
+        rate: 0.1,
+        justification: 'Email Server',
+        basis: 'Per 1000 Emails',
+        href: 'https://aws.amazon.com/ses/pricing/',
+      },
     ],
     rate: 1000,
     tooltip: 'Charge based on implementation effort',
-  }
+  },
 ];
 
 export const ADDON_PRICING_CONFIG: Pricing[] = [
@@ -557,38 +569,34 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
       type: 'slider',
       label: 'Complexity of data',
       states: 3,
-      state_descriptions:[
-        "Your data is scalar, i.e. all values can be inputted into an Excel spreadsheet",
-        "Your data includes images, videos and other forms of media.",
-        "Your data is aggregated from multiple sources. Note, depending on the complexity and the desired outcome, this may require other services and extra effort."
+      state_descriptions: [
+        'Your data is scalar, i.e. all values can be inputted into an Excel spreadsheet',
+        'Your data includes images, videos and other forms of media.',
+        'Your data is aggregated from multiple sources. Note, depending on the complexity and the desired outcome, this may require other services and extra effort.',
       ],
-      state_titles:[
-        "Easy",
-        "Medium",
-        "Hard"
-      ]
+      state_titles: ['Easy', 'Medium', 'Hard'],
     },
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0.20,
-        justification: "Business Logic",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/lambda/pricing/"
+        rate: 0.2,
+        justification: 'Business Logic',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/lambda/pricing/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 0.25,
-        justification: "Data Storage",
-        basis: "Per GB Per Month",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+        justification: 'Data Storage',
+        basis: 'Per GB Per Month',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
       },
       {
-        service: "AWS DynamoDB",
+        service: 'AWS DynamoDB',
         rate: 1.25,
-        justification: "Data Access",
-        basis: "Per 1 Million Requests",
-        href: "https://aws.amazon.com/dynamodb/pricing/on-demand/"
+        justification: 'Data Access',
+        basis: 'Per 1 Million Requests',
+        href: 'https://aws.amazon.com/dynamodb/pricing/on-demand/',
       },
     ],
     rate: 2000,
@@ -599,28 +607,26 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
     name: 'Single Sign-On',
     parameter: {
       type: 'null',
-      state_descriptions:[
-        "Integrating with identity providers like Google, Facebook or Microsoft has never been easier. Most platforms offer this capability out of the box."
+      state_descriptions: [
+        'Integrating with identity providers like Google, Facebook or Microsoft has never been easier. Most platforms offer this capability out of the box.',
       ],
-      state_titles: [
-        "Description"
-      ]
+      state_titles: ['Description'],
     },
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0.20,
-        justification: "Per 1 Million Requets",
-        basis: "Business Logic",
-        href: "https://aws.amazon.com/lambda/pricing/"
+        rate: 0.2,
+        justification: 'Per 1 Million Requets',
+        basis: 'Business Logic',
+        href: 'https://aws.amazon.com/lambda/pricing/',
       },
       {
-        service: "AWS Cognito",
+        service: 'AWS Cognito',
         rate: 0.0055,
-        justification: "User Accounts",
-        basis: "Per Monthly Active User",
-        href: "https://aws.amazon.com/cognito/pricing/"
-      }
+        justification: 'User Accounts',
+        basis: 'Per Monthly Active User',
+        href: 'https://aws.amazon.com/cognito/pricing/',
+      },
     ],
     rate: 1000,
     tooltip: 'Charges based on number of users',
@@ -631,128 +637,113 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
     parameter: {
       type: 'null',
       state_descriptions: [
-        "Most cloud-based email services can be configured without hassle."
+        'Most cloud-based email services can be configured without hassle.',
       ],
-      state_titles:[
-        "Description"
-      ]
+      state_titles: ['Description'],
     },
     fees: [
       {
         service: 'AWS Lambda',
-        rate: 0.20,
-        justification: "Per 1 Million Requets",
-        basis: "Business Logic",
-        href: "https://aws.amazon.com/lambda/pricing/"
+        rate: 0.2,
+        justification: 'Per 1 Million Requets',
+        basis: 'Business Logic',
+        href: 'https://aws.amazon.com/lambda/pricing/',
       },
       {
         service: 'AWS Simple Email Service',
-        rate: 0.10,
-        justification: "Email Server",
-        basis: "Per 1000 Emails",
-        href: "https://aws.amazon.com/ses/pricing/"
-      }
+        rate: 0.1,
+        justification: 'Email Server',
+        basis: 'Per 1000 Emails',
+        href: 'https://aws.amazon.com/ses/pricing/',
+      },
     ],
     rate: 1000,
     tooltip: 'Charges based on amount of email traffic',
-  }
+  },
 ];
 
 export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
   {
-    key: "SEO",
-    name: "Search Engine Optimization",
-    parameter:{
+    key: 'SEO',
+    name: 'Search Engine Optimization',
+    parameter: {
       type: 'number',
       label: 'Number of pages',
-      state_descriptions:[
-        "Assuming static content, SEO is a one-time process. If you are updating content on a regular basis, SEO becomes more complex. All of our custom pages are automatically SEO'ed by default, but if you are using a CMS like WordPress or Drupal, this process will involve several manual steps each time content is updated."
+      state_descriptions: [
+        "Assuming static content, SEO is a one-time process. If you are updating content on a regular basis, SEO becomes more complex. All of our custom pages are automatically SEO'ed by default, but if you are using a CMS like WordPress or Drupal, this process will involve several manual steps each time content is updated.",
       ],
-      state_titles: [
-        "Description"
-      ]
+      state_titles: ['Description'],
     },
     fees: [],
     rate: 100,
-    tooltip: 'Charges based on number of pages optimized', 
+    tooltip: 'Charges based on number of pages optimized',
   },
   {
-    key: "DEMO",
-    name: "User Traffic Demographics",
-    parameter:{
+    key: 'DEMO',
+    name: 'User Traffic Demographics',
+    parameter: {
       type: 'number',
       label: 'Number of pages',
-      state_descriptions:[
-        "Measuring user traffic on a domain and generating demographics is straight-forward. If you require more in-depth analytics, such as how long a user interacts with a particular element on your website or which elements are most likely to lead to conversion, this will require a more thorough accounting of your website."
+      state_descriptions: [
+        'Measuring user traffic on a domain and generating demographics is straight-forward. If you require more in-depth analytics, such as how long a user interacts with a particular element on your website or which elements are most likely to lead to conversion, this will require a more thorough accounting of your website.',
       ],
-      state_titles:[
-        "Description"
-      ]
+      state_titles: ['Description'],
     },
     fees: [],
     rate: 100,
     tooltip: 'Charges based on number of pages',
-  }
+  },
 ];
 
-export const REASON_CONFIG: ContactReason[]=[
+export const REASON_CONFIG: ContactReason[] = [
   {
-    reason: "new website for my business.",
-    key: "NEW_WEB"
+    reason: 'new website for my business.',
+    key: 'NEW_WEB',
   },
   {
-    reason: "new application for my business.",
-    key: "NEW_APP"
+    reason: 'new application for my business.',
+    key: 'NEW_APP',
   },
   {
-    reason: "existing website serviced.",
-    key: "OLD_WEB",
-    option_text: "How is the website hosted?",
+    reason: 'existing website serviced.',
+    key: 'OLD_WEB',
+    option_text: 'How is the website hosted?',
     options_exclusive: true,
     options: [
-      "WordPress",
-      "Wix",
-      "Squarespace",
-      "Cloud (AWS, Azure, etc.)",
-      "Other"
-    ]
+      'WordPress',
+      'Wix',
+      'Squarespace',
+      'Cloud (AWS, Azure, etc.)',
+      'Other',
+    ],
   },
   {
-    reason: "existing application serviced.",
-    key: "OLD_APP",
-    option_text: "What are the components of your application?",
+    reason: 'existing application serviced.',
+    key: 'OLD_APP',
+    option_text: 'What are the components of your application?',
     options_exclusive: false,
     options: [
-      "Database Server",
-      "Web Server",
-      "Container Cluster",
-      "Content Management System (e.g. Drupal, WordPress, etc.)",
-      "Single Sign-On",
-      "Search Engine",
-      "Machine Learning"
-    ]
+      'Database Server',
+      'Web Server',
+      'Container Cluster',
+      'Content Management System (e.g. Drupal, WordPress, etc.)',
+      'Single Sign-On',
+      'Search Engine',
+      'Machine Learning',
+    ],
   },
   {
-    reason: "existing website migrated to the cloud.",
-    key: "MIGRATE_WEB",
-    option_text: "How is the website hosted?",
+    reason: 'existing website migrated to the cloud.',
+    key: 'MIGRATE_WEB',
+    option_text: 'How is the website hosted?',
     options_exclusive: false,
-    options: [
-      "WordPress",
-      "Wix",
-      "Squarespace",
-      "Other"
-    ]
+    options: ['WordPress', 'Wix', 'Squarespace', 'Other'],
   },
   {
-    reason: "existing application migrated to the cloud.",
-    key: "MIGRATE_APP",
-    option_text: "Does the application need modernized?",
+    reason: 'existing application migrated to the cloud.',
+    key: 'MIGRATE_APP',
+    option_text: 'Does the application need modernized?',
     options_exclusive: true,
-    options:[
-      "yes",
-      "no"
-    ]
-  }
-
+    options: ['yes', 'no'],
+  },
 ];

@@ -3,29 +3,40 @@
 <div class="bg-img"></div>
 
 <div id="under-construction" *ngIf="underConstruction">
-
   <div class="h-align">
-    <img id="construction-img" src="/assets/imgs/under_construction.jpg" class="mat-elevation-z3">
+    <img
+      id="construction-img"
+      src="/assets/imgs/under_construction.jpg"
+      class="mat-elevation-z3"
+    />
   </div>
-  <button id="construction-btn" mat-fab color="accent" (click)="underConstruction = false;" matTooltip="Let me in anyway!">
+  <button
+    id="construction-btn"
+    mat-fab
+    color="accent"
+    (click)="underConstruction = false"
+    matTooltip="Let me in anyway!"
+  >
     <mat-icon>arrow_forward</mat-icon>
   </button>
 </div>
 
 <div id="splash" *ngIf="!underConstruction">
   <div id="banner" class="mat-elevation-z8">
-    <div id="cloud-btn-container" class="v-align"  style="margin-left: 1.5%;">
-      <button id="cloud-btn" mat-icon-button  (click)="toggleMenu()" matTooltip="Menu">
+    <div id="cloud-btn-container" class="v-align" style="margin-left: 1.5%">
+      <button
+        id="cloud-btn"
+        mat-icon-button
+        (click)="toggleMenu()"
+        matTooltip="Menu"
+      >
         <mat-icon>cloud</mat-icon>
       </button>
     </div>
 
     <div class="v-align">
-      <div id="title" class="title-text">
-        Cumberland Cloud
-      </div>
+      <div id="title" class="title-text">Cumberland Cloud</div>
     </div>
-    
 
     <div class="v-align">
       <button mat-icon-button id="master-button" (click)="openSheet()">
@@ -34,8 +45,15 @@
     </div>
   </div>
 
-  <div id="nav-menu"  [@cntl_fold]="menuFoldCntl.state">
-    <div class="nav-item"  *ngFor="let item of navItems" [ngClass]="{ selected: item == this.selectedNav }" [routerLink]="item.path">{{item.title}}</div>
+  <div id="nav-menu" [@cntl_fold]="menuFoldCntl.state">
+    <div
+      class="nav-item"
+      *ngFor="let item of navItems"
+      [ngClass]="{ selected: item == this.selectedNav }"
+      [routerLink]="item.path"
+    >
+      {{ item.title }}
+    </div>
   </div>
 
   <div id="top-spacer"></div>
@@ -45,5 +63,4 @@
   </div>
 
   <div id="btm-spacer"></div>
-
 </div>

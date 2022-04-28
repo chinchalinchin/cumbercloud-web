@@ -1,66 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
-@font-face{
-  font-family: 'LoveSummer';
-  src: url('/assets/fonts/LoveSummer.otf') format('truetype');
+@font-face {
+  font-family: "LoveSummer";
+  src: url("/assets/fonts/LoveSummer.otf") format("truetype");
 }
-@font-face{
-  font-family: 'FancyCursive';
-  src: url('/assets/fonts/NgutangDong.ttf') format('truetype');
+@font-face {
+  font-family: "FancyCursive";
+  src: url("/assets/fonts/NgutangDong.ttf") format("truetype");
 }
 /****/
-html, body { 
-  height: 100%; 
+html,
+body {
+  height: 100%;
 }
-body { 
-  margin: 0; 
-  font-family: Roboto, "Helvetica Neue", sans-serif; 
-  overflow: hidden;}
-mat-card img{
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: hidden;
+}
+mat-card img {
   object-fit: cover;
   width: 100%;
 }
-.no-underline{
+.no-underline {
   text-decoration: none;
 }
 /****/
-.title-text{ 
-  font-family: 'LoveSummer';
-  line-height: 0; 
+.title-text {
+  font-family: "LoveSummer";
+  line-height: 0;
 }
-.fancy-text{ 
-  font-family: 'FancyCursive'; 
-  line-height: 0.5 
+.fancy-text {
+  font-family: "FancyCursive";
+  line-height: 0.5;
 }
 
-.v-align{
+.v-align {
   height: 100%;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
-.h-align{
+.h-align {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.spacer{
+.spacer {
   flex-grow: 1;
 }
-.text-center{
+.text-center {
   text-align: center;
 }
-.transparent{
+.transparent {
   opacity: 0.95;
 }
-.fill{
+.fill {
   width: 100%;
 }
-.mat-tab-body-wrapper{
+.mat-tab-body-wrapper {
   height: 100% !important;
 }
-.mat-tab-body-content{
+.mat-tab-body-content {
   overflow: hidden !important;
 }
 
@@ -79,19 +81,19 @@ mat-card img{
   border-radius: 2.5px;
 }
 
-@media(min-width:431px) {
-  .fancy-text{
+@media (min-width: 431px) {
+  .fancy-text {
     font-size: 2em;
   }
-  .title-text{
-    font-size:7em; 
+  .title-text {
+    font-size: 7em;
   }
 }
-@media(max-width:430px){
-  .fancy-text{
+@media (max-width: 430px) {
+  .fancy-text {
     font-size: 1em;
   }
-  .title-text{
-    font-size:5em;
+  .title-text {
+    font-size: 5em;
   }
 }

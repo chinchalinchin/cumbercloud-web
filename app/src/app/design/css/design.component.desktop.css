@@ -1,171 +1,174 @@
-@media(min-width:991px){
-    /* Splash */
-    #splash{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        height: 100%;
-    }
-    #splash-img{
-        border-radius: 20%;
-        width: 100%;
-        height: 90%;
-    }
-    #splash-img-container{
-        height: 100%;
-    }
-    #splash-bubble{
-        top: 51%;
-        left: 58%;
-    }
-    
-    /* Design */
-    #design-phase-title{
-        top: 24.5%;
-        left: 29%;
-    }
-    #design-phase-title-underline{
-        top: 28%;
-        left: 29.25%;
-        width: 5%;
-        height: 1%;
-    }
-    #design-phase{
-        left: 5%;
-    }
-    #design-phase-svg-bg{
-        left: 2.5%;
-        right: 82.5%;
-    }
-    #design-phase-txt-line-1{
-        left: 25%; 
-        top: 45%;
-        width: 100%;
-    }
-    #design-phase-txt-line-2{
-        left: 30%; 
-        top: 57.5%; 
-    }
-    #design-phase-txt-line-3{
-        left: 35%; 
-        top: 70%;
-    }
-    #design-phase-numeral{
-        top: 71.5%; 
-        left: 8.5%
-    }
-    /* Develop */
-    #develop-title{
-        top: 24.5%;
-        left: 42.5%;
-    }
-    #develop-title-underline{
-        top: 28%;
-        left: 42.75%;
-        width: 6%;
-        height: 1%;
-    }
-    #develop-phase{
-        left: 25%;
-    }
-    #develop-phase-bg{
-        left: 22.5%;
-        right: 62.5%;
-    }
-    #develop-phase-txt-line-1{
-        left: 45%; 
-        top: 45%
-    }
-    #develop-phase-txt-line-2{
-        left: 55%; 
-        top: 57.5%
-    }
-    #develop-phase-txt-line-3{
-        left: 65%; 
-        top: 70%;
-    }
-    #develop-phase-numeral{
-        top: 71.5%; 
-        left: 28.5%;
-    }
-    /* Deploy (and a little bit of Deliver..) */
-    #deploy-phase{
-        left: 65%;
-    }
-    #deploy-title{
-        top: 24.5%;
-        left: 61.5%;
-    }
-    #deploy-title-underline{
-        top: 28%;
-        left: 61.75%;
-        width: 5%;
-        height: 1%;
-    }
-    #deploy-phase-bg{
-        left: 62.5%;
-        right: 22.5%;
-    }
-    #deploy-phase-txt-line-1, #deliver-phase-txt-line-1{
-        text-align: right; 
-        left: 1%;
-        right: 42.5%; 
-        top: 45%
-    }
-    #deploy-phase-txt-line-2, #deliver-phase-txt-line-2{
-        text-align: right; 
-        left: 1%;
-        right: 42.5%; 
-        top: 57.5%
-    }
-    #deploy-phase-txt-line-3, #deliver-phase-txt-line-3{
-        text-align: right; 
-        left: 1%;
-        right: 42.5%; 
-        top: 70%;
-    }
-    #deploy-phase-numeral{
-        top: 71.5%; 
-        left: 68.5%
-    }
-    /* Deliver */
-    #deliver-phase{
-        left: 85%;
-    }
-    #deliver-phase-bg{
-        left: 82.5%;
-        right: 2.5%;
-    }
-    #deliver-phase-numeral{
-        top: 71.5%; 
-        left: 88.5%
-    }
-    #deliver-title{
-        top: 24.5%;
-        left: 48.25%;
-    }
-    #deliver-title-underline{
-        top: 28%;
-        left: 42.25%;
-        width: 17%;
-        height: 1%;
-    }
-    /* Misc. */
-    #final-img{
-        height: 100%;
-        margin-left: auto;
-        margin-bottom: auto;
-    }
-    .placard{
-        top: 45%;
-        bottom: 22.5%;
-        border-radius: 25%;
-    }
-    .splash-banner{
-        width: 30%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
+@media (min-width: 991px) {
+  /* Splash */
+  #splash {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+  }
+  #splash-img {
+    border-radius: 20%;
+    width: 100%;
+    height: 90%;
+  }
+  #splash-img-container {
+    height: 100%;
+  }
+  #splash-bubble {
+    top: 51%;
+    left: 58%;
+  }
+
+  /* Design */
+  #design-phase-title {
+    top: 24.5%;
+    left: 29%;
+  }
+  #design-phase-title-underline {
+    top: 28%;
+    left: 29.25%;
+    width: 5%;
+    height: 1%;
+  }
+  #design-phase {
+    left: 5%;
+  }
+  #design-phase-svg-bg {
+    left: 2.5%;
+    right: 82.5%;
+  }
+  #design-phase-txt-line-1 {
+    left: 25%;
+    top: 45%;
+    width: 100%;
+  }
+  #design-phase-txt-line-2 {
+    left: 30%;
+    top: 57.5%;
+  }
+  #design-phase-txt-line-3 {
+    left: 35%;
+    top: 70%;
+  }
+  #design-phase-numeral {
+    top: 71.5%;
+    left: 8.5%;
+  }
+  /* Develop */
+  #develop-title {
+    top: 24.5%;
+    left: 42.5%;
+  }
+  #develop-title-underline {
+    top: 28%;
+    left: 42.75%;
+    width: 6%;
+    height: 1%;
+  }
+  #develop-phase {
+    left: 25%;
+  }
+  #develop-phase-bg {
+    left: 22.5%;
+    right: 62.5%;
+  }
+  #develop-phase-txt-line-1 {
+    left: 45%;
+    top: 45%;
+  }
+  #develop-phase-txt-line-2 {
+    left: 55%;
+    top: 57.5%;
+  }
+  #develop-phase-txt-line-3 {
+    left: 65%;
+    top: 70%;
+  }
+  #develop-phase-numeral {
+    top: 71.5%;
+    left: 28.5%;
+  }
+  /* Deploy (and a little bit of Deliver..) */
+  #deploy-phase {
+    left: 65%;
+  }
+  #deploy-title {
+    top: 24.5%;
+    left: 61.5%;
+  }
+  #deploy-title-underline {
+    top: 28%;
+    left: 61.75%;
+    width: 5%;
+    height: 1%;
+  }
+  #deploy-phase-bg {
+    left: 62.5%;
+    right: 22.5%;
+  }
+  #deploy-phase-txt-line-1,
+  #deliver-phase-txt-line-1 {
+    text-align: right;
+    left: 1%;
+    right: 42.5%;
+    top: 45%;
+  }
+  #deploy-phase-txt-line-2,
+  #deliver-phase-txt-line-2 {
+    text-align: right;
+    left: 1%;
+    right: 42.5%;
+    top: 57.5%;
+  }
+  #deploy-phase-txt-line-3,
+  #deliver-phase-txt-line-3 {
+    text-align: right;
+    left: 1%;
+    right: 42.5%;
+    top: 70%;
+  }
+  #deploy-phase-numeral {
+    top: 71.5%;
+    left: 68.5%;
+  }
+  /* Deliver */
+  #deliver-phase {
+    left: 85%;
+  }
+  #deliver-phase-bg {
+    left: 82.5%;
+    right: 2.5%;
+  }
+  #deliver-phase-numeral {
+    top: 71.5%;
+    left: 88.5%;
+  }
+  #deliver-title {
+    top: 24.5%;
+    left: 48.25%;
+  }
+  #deliver-title-underline {
+    top: 28%;
+    left: 42.25%;
+    width: 17%;
+    height: 1%;
+  }
+  /* Misc. */
+  #final-img {
+    height: 100%;
+    margin-left: auto;
+    margin-bottom: auto;
+  }
+  .placard {
+    top: 45%;
+    bottom: 22.5%;
+    border-radius: 25%;
+  }
+  .splash-banner {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 }

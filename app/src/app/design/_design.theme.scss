@@ -1,43 +1,43 @@
-@use 'sass:map';
-@use '~@angular/material' as mat;
+@use "sass:map";
+@use "~@angular/material" as mat;
 
 @mixin color($theme) {
   $color-config: mat.get-color-config($theme);
-  $primary-palette: map.get($color-config, 'primary');
-  $accent-palette: map.get($color-config, 'accent');
-  $warn-palette: map.get($color-config, 'warn');
+  $primary-palette: map.get($color-config, "primary");
+  $accent-palette: map.get($color-config, "accent");
+  $warn-palette: map.get($color-config, "warn");
 
-  .placard{
+  .placard {
     background-color: map-get($primary-palette, 200);
   }
-  .splash-bg{
-    background-color: rgba(map-get($primary-palette, 50), 0.5);;
+  .splash-bg {
+    background-color: rgba(map-get($primary-palette, 50), 0.5);
   }
-  .bubble{
+  .bubble {
     fill: map-get($primary-palette, 500);
   }
-  .bubble-select{
+  .bubble-select {
     fill: map-get($primary-palette, 900);
   }
-  .exclaim{
+  .exclaim {
     fill: map-get($accent-palette, 500);
   }
-  .exclaim-select{
+  .exclaim-select {
     fill: map-get($warn-palette, 300);
   }
-  .sheet{
+  .sheet {
     background-color: map-get($primary-palette, 50);
   }
 }
 
 @mixin theme($theme) {
-    $color-config: mat.get-color-config($theme);
-    @if $color-config != null {
-      @include color($theme);
-    }
-  
-    $typography-config: mat.get-typography-config($theme);
-    @if $typography-config != null {
-      @include typography($theme);
-    }
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
   }
+
+  $typography-config: mat.get-typography-config($theme);
+  @if $typography-config != null {
+    @include typography($theme);
+  }
+}

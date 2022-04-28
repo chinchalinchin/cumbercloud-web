@@ -1,52 +1,203 @@
 <div id="home">
+  <div
+    id="btn-banner"
+    [@cntl_fade]="centerFadeCntl.state"
+    *ngIf="!animated"
+    class="mat-elevation-z4"
+  ></div>
 
-  <div id="btn-banner" [@cntl_fade]="centerFadeCntl.state" *ngIf="!animated" class="mat-elevation-z4"></div>
-
-  <div id="selection-menu" [@cntl_position_selector]="selectionPositionCntl.state">
-    <div id="selection" class="border-accent" [@cntl_fade]="selectionFadeCntl.state" *ngIf="animating">
-      <h1 class="selection-headline mat-headline">{{getTitle()}}</h1>
-      <h2 class="selection-subtitle mat-subtitle">{{getSubtitle()}}</h2>
+  <div
+    id="selection-menu"
+    [@cntl_position_selector]="selectionPositionCntl.state"
+  >
+    <div
+      id="selection"
+      class="border-accent"
+      [@cntl_fade]="selectionFadeCntl.state"
+      *ngIf="animating"
+    >
+      <h1 class="selection-headline mat-headline">{{ getTitle() }}</h1>
+      <h2 class="selection-subtitle mat-subtitle">{{ getSubtitle() }}</h2>
 
       <div id="selection-img-container">
-        <img id="selection-img" [src]="getSrc()">
+        <img id="selection-img" [src]="getSrc()" />
       </div>
 
-      <p class="mat-body selection-body text-center" [innerHTML]="getBlurb()"></p>
+      <p
+        class="mat-body selection-body text-center"
+        [innerHTML]="getBlurb()"
+      ></p>
 
-      <div id="underline-lg" class="selection-underline" *ngIf="!mobileMode()"></div>
-      <div id="underline-md" class="selection-underline" *ngIf="!mobileMode()"></div>
-      <div id="underline-sm" class="selection-underline" *ngIf="!mobileMode()"></div>
+      <div
+        id="underline-lg"
+        class="selection-underline"
+        *ngIf="!mobileMode()"
+      ></div>
+      <div
+        id="underline-md"
+        class="selection-underline"
+        *ngIf="!mobileMode()"
+      ></div>
+      <div
+        id="underline-sm"
+        class="selection-underline"
+        *ngIf="!mobileMode()"
+      ></div>
     </div>
     <div id="selector" class="border-accent" *ngIf="animating"></div>
   </div>
 
-  <button mat-fab color="primary" [@cntl_position_center]="centerPositionCntl.state" [@cntl_fade]="centerFadeCntl.state" (click)="display()" matTooltip="The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character" matTooltipShowDelay="3000" [disabled]="animated" class="mat-elevation-z3 start-button" [@scale] *ngIf="pressable">
+  <button
+    mat-fab
+    color="primary"
+    [@cntl_position_center]="centerPositionCntl.state"
+    [@cntl_fade]="centerFadeCntl.state"
+    (click)="display()"
+    matTooltip="The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character"
+    matTooltipShowDelay="3000"
+    [disabled]="animated"
+    class="mat-elevation-z3 start-button"
+    [@scale]
+    *ngIf="pressable"
+  >
     <mat-icon>touch_app</mat-icon>
   </button>
 
-  <button mat-icon-button id="cloud-btn-1" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_1]="cloudBtnPositionCntls[0].state" [@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.one)" [class.selected-btn]="state == states.one">
+  <button
+    mat-icon-button
+    id="cloud-btn-1"
+    class="cloud-btn mat-elevation-z4"
+    [@cntl_position_cloud_btn_1]="cloudBtnPositionCntls[0].state"
+    [@cntl_fade]="cloudFadeCntl.state"
+    (click)="setState(states.one)"
+    [class.selected-btn]="state == states.one"
+  >
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-2" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_2]="cloudBtnPositionCntls[1].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.two)" [class.selected-btn]="state == states.two">
+  <button
+    mat-icon-button
+    id="cloud-btn-2"
+    class="cloud-btn mat-elevation-z4"
+    [@cntl_position_cloud_btn_2]="cloudBtnPositionCntls[1].state"
+    [@cntl_fade]="cloudFadeCntl.state"
+    (click)="setState(states.two)"
+    [class.selected-btn]="state == states.two"
+  >
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-3" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_3]="cloudBtnPositionCntls[2].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.three)" [class.selected-btn]="state == states.three">
+  <button
+    mat-icon-button
+    id="cloud-btn-3"
+    class="cloud-btn mat-elevation-z4"
+    [@cntl_position_cloud_btn_3]="cloudBtnPositionCntls[2].state"
+    [@cntl_fade]="cloudFadeCntl.state"
+    (click)="setState(states.three)"
+    [class.selected-btn]="state == states.three"
+  >
     <mat-icon>cloud</mat-icon>
   </button>
-  <button mat-icon-button id="cloud-btn-4" class="cloud-btn mat-elevation-z4" [@cntl_position_cloud_btn_4]="cloudBtnPositionCntls[3].state"[@cntl_fade]="cloudFadeCntl.state" (click)="setState(states.four)" [class.selected-btn]="state == states.four">
+  <button
+    mat-icon-button
+    id="cloud-btn-4"
+    class="cloud-btn mat-elevation-z4"
+    [@cntl_position_cloud_btn_4]="cloudBtnPositionCntls[3].state"
+    [@cntl_fade]="cloudFadeCntl.state"
+    (click)="setState(states.four)"
+    [class.selected-btn]="state == states.four"
+  >
     <mat-icon>cloud</mat-icon>
   </button>
 
-  <div id="cloud-line-desktop-1" class="cloud-line" [@cntl_position_cloud_line_desktop_1]="cloudLineDesktopPositionCntls[0].state" [@slide] [innerHTML]="getLine(states.four)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.four) && !selecting && moved" *ngIf="!mobileMode()" (click)="setState(states.four)"></div>
-  <div id="cloud-line-desktop-2" class="cloud-line" [@cntl_position_cloud_line_desktop_2]="cloudLineDesktopPositionCntls[1].state" [@slide] [innerHTML]="getLine(states.three)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.three) && !selecting && moved" *ngIf="!mobileMode()" (click)="setState(states.three)"></div>
-  <div id="cloud-line-desktop-3" class="cloud-line" [@cntl_position_cloud_line_desktop_3]="cloudLineDesktopPositionCntls[2].state" [@slide_reverse] [innerHTML]="getLine(states.two)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.two) && !selecting && moved" *ngIf="!mobileMode()" (click)="setState(states.two)"></div>
-  <div id="cloud-line-desktop-4" class="cloud-line" [@cntl_position_cloud_line_desktop_4]="cloudLineDesktopPositionCntls[3].state" [@slide_reverse] [innerHTML]="getLine(states.one)" [class.selections]="moved" [class.fancy-text]="!moved" [class.mat-title]="moved" [class.selection-underline]="selected(states.one) && !selecting && moved" *ngIf="!mobileMode()" (click)="setState(states.one)"></div>
+  <div
+    id="cloud-line-desktop-1"
+    class="cloud-line"
+    [@cntl_position_cloud_line_desktop_1]="
+      cloudLineDesktopPositionCntls[0].state
+    "
+    [@slide]
+    [innerHTML]="getLine(states.four)"
+    [class.selections]="moved"
+    [class.fancy-text]="!moved"
+    [class.mat-title]="moved"
+    [class.selection-underline]="selected(states.four) && !selecting && moved"
+    *ngIf="!mobileMode()"
+    (click)="setState(states.four)"
+  ></div>
+  <div
+    id="cloud-line-desktop-2"
+    class="cloud-line"
+    [@cntl_position_cloud_line_desktop_2]="
+      cloudLineDesktopPositionCntls[1].state
+    "
+    [@slide]
+    [innerHTML]="getLine(states.three)"
+    [class.selections]="moved"
+    [class.fancy-text]="!moved"
+    [class.mat-title]="moved"
+    [class.selection-underline]="selected(states.three) && !selecting && moved"
+    *ngIf="!mobileMode()"
+    (click)="setState(states.three)"
+  ></div>
+  <div
+    id="cloud-line-desktop-3"
+    class="cloud-line"
+    [@cntl_position_cloud_line_desktop_3]="
+      cloudLineDesktopPositionCntls[2].state
+    "
+    [@slide_reverse]
+    [innerHTML]="getLine(states.two)"
+    [class.selections]="moved"
+    [class.fancy-text]="!moved"
+    [class.mat-title]="moved"
+    [class.selection-underline]="selected(states.two) && !selecting && moved"
+    *ngIf="!mobileMode()"
+    (click)="setState(states.two)"
+  ></div>
+  <div
+    id="cloud-line-desktop-4"
+    class="cloud-line"
+    [@cntl_position_cloud_line_desktop_4]="
+      cloudLineDesktopPositionCntls[3].state
+    "
+    [@slide_reverse]
+    [innerHTML]="getLine(states.one)"
+    [class.selections]="moved"
+    [class.fancy-text]="!moved"
+    [class.mat-title]="moved"
+    [class.selection-underline]="selected(states.one) && !selecting && moved"
+    *ngIf="!mobileMode()"
+    (click)="setState(states.one)"
+  ></div>
 
-  <div id="cloud-line-mobile-1" class="cloud-line fancy-text" *ngIf="mobileMode() && !moved" [@cntl_position_cloud_line_mobile_1]="cloudLineMobilePositionCntls[0].state" [@slide]>
+  <div
+    id="cloud-line-mobile-1"
+    class="cloud-line fancy-text"
+    *ngIf="mobileMode() && !moved"
+    [@cntl_position_cloud_line_mobile_1]="cloudLineMobilePositionCntls[0].state"
+    [@slide]
+  >
     For the button by itself
   </div>
-  <div id="cloud-line-mobile-2" class="cloud-line fancy-text" *ngIf="mobileMode() && !moved" [@cntl_position_cloud_line_mobile_2]="cloudLineMobilePositionCntls[1].state" [@slide_reverse]>
+  <div
+    id="cloud-line-mobile-2"
+    class="cloud-line fancy-text"
+    *ngIf="mobileMode() && !moved"
+    [@cntl_position_cloud_line_mobile_2]="cloudLineMobilePositionCntls[1].state"
+    [@slide_reverse]
+  >
     Incites the hand to push it.
   </div>
-  <div id="cloud-line-mobile-3" class="cloud-line fancy-text" *ngIf="mobileMode() && !moved" [@cntl_position_cloud_line_mobile_3]="cloudLineMobilePositionCntls[2].state">-<a href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html" target="_blank" rel="noopener noreferrer">Homer, probably</a></div>
+  <div
+    id="cloud-line-mobile-3"
+    class="cloud-line fancy-text"
+    *ngIf="mobileMode() && !moved"
+    [@cntl_position_cloud_line_mobile_3]="cloudLineMobilePositionCntls[2].state"
+  >
+    -<a
+      href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Homer, probably</a
+    >
+  </div>
 </div>

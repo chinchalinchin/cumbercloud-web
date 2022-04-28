@@ -2,58 +2,58 @@ img {
   max-width: 100%;
   max-height: 100%;
 }
-#resume{
+#resume {
   position: absolute;
   top: 40%;
   width: 100%;
   height: 60%;
 }
-#title{
+#title {
   position: absolute;
   top: -8%;
   left: 0%;
   right: 0%;
   padding-left: 5%;
 }
-#popup{
+#popup {
   position: absolute;
   top: 30%;
   right: 10%;
-  width: 80%; 
+  width: 80%;
   border-radius: 5px;
 }
-#popup-toolbar{
+#popup-toolbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 10%;
   border-radius: 10px;
 }
-#popup-header{
+#popup-header {
   margin-left: 1%;
 }
-#back-btn{
+#back-btn {
   position: absolute;
   top: 85%;
   right: 5%;
 }
-.highlighted{
+.highlighted {
   font-size: smaller !important;
 }
-.facts-container{
+.facts-container {
   width: 100%;
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
-.fact{
+.fact {
   cursor: pointer;
   display: flex;
   flex-direction: row;
   border-radius: 5px;
 }
-.factoid{
+.factoid {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
@@ -62,21 +62,20 @@ img {
   font-size: larger;
   font-weight: bold;
 }
-.factend{
+.factend {
   border-radius: 0 5px 5px 0;
 }
-.toggle{
+.toggle {
   flex-grow: 0;
   border-radius: 0 5px 5px 0;
 }
-.popup-content{
+.popup-content {
   overflow-y: auto;
   border-radius: 0 0 10px 10px;
 }
 
-
-@media(min-width: 991px){
-  #degree-container{
+@media (min-width: 991px) {
+  #degree-container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -85,19 +84,19 @@ img {
     height: 100%;
     margin-top: 1.5%;
   }
-  #popup{
+  #popup {
     height: 60%;
   }
-  .popup-content{
+  .popup-content {
     height: 90%;
   }
-  .degree-img{
+  .degree-img {
     width: 35%;
   }
-  .fact{
+  .fact {
     min-width: 50%;
   }
-  .img-container{
+  .img-container {
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -105,27 +104,26 @@ img {
   }
 }
 
-@media(max-width: 992px){
-  #degree-container{
+@media (max-width: 992px) {
+  #degree-container {
     display: flex;
     flex-direction: column;
     align-content: center;
     width: 100%;
   }
-  #popup{
+  #popup {
     height: 100%;
   }
-  .popup-content{
+  .popup-content {
     height: 100%;
   }
-  .fact{
+  .fact {
     min-width: 70%;
   }
-  .img-container{
+  .img-container {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 }
-

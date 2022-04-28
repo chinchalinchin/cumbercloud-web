@@ -1,7 +1,19 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AnimationControl, Animations, AnimationTriggers, ExpandStates, HighlightStates } from 'src/animations';
-import { Certification, CERTIFICATION_CONFIG, Experience, EXPERIENCE_CONFIG, ResumePopUpStates } from 'src/app/app.config';
+import {
+  AnimationControl,
+  Animations,
+  AnimationTriggers,
+  ExpandStates,
+  HighlightStates,
+} from 'src/animations';
+import {
+  Certification,
+  CERTIFICATION_CONFIG,
+  Experience,
+  EXPERIENCE_CONFIG,
+  ResumePopUpStates,
+} from 'src/app/app.config';
 import { MetaService } from 'src/services/meta.service';
 import { ExperienceComponent } from './experience/experience.component';
 
@@ -11,8 +23,8 @@ import { ExperienceComponent } from './experience/experience.component';
   styleUrls: ['./resume.component.css'],
   animations: [
     Animations.getManualExpandTrigger('60%', '80%'),
-    Animations.getManualHighlightTrigger(1.25)
-  ]
+    Animations.getManualHighlightTrigger(1.25),
+  ],
 })
 export class ResumeComponent {
   public screenSize: string = '';
@@ -23,23 +35,22 @@ export class ResumeComponent {
   public popUpState: ResumePopUpStates = ResumePopUpStates.null;
   public experience: Experience[] = EXPERIENCE_CONFIG;
   public certifications: Certification[] = CERTIFICATION_CONFIG;
-  public factHighlightCntls : AnimationControl[] = [
+  public factHighlightCntls: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_highlight),
     new AnimationControl(AnimationTriggers.cntl_highlight),
     new AnimationControl(AnimationTriggers.cntl_highlight),
     new AnimationControl(AnimationTriggers.cntl_highlight),
-  ]
+  ];
 
-  constructor(private meta: MetaService,
-              public dialog: MatDialog) {
-    this.meta.mediaBreakpoint.subscribe((size: string)=>{
+  constructor(private meta: MetaService, public dialog: MatDialog) {
+    this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
-    }) 
+    });
     this.popupExpandCntl.setState(ExpandStates.closed);
   }
 
-  public indexFromState(state: ResumePopUpStates){
-    switch(state){
+  public indexFromState(state: ResumePopUpStates) {
+    switch (state) {
       case this.popUpStates.one:
         return 0;
       case this.popUpStates.two:
@@ -54,119 +65,132 @@ export class ResumeComponent {
   }
 
   public stateArray() {
-    return [this.popUpStates.one, this.popUpStates.two, this.popUpStates.three, this.popUpStates.four ]
+    return [
+      this.popUpStates.one,
+      this.popUpStates.two,
+      this.popUpStates.three,
+      this.popUpStates.four,
+    ];
   }
 
-  public mobileMode(){
-    return (this.screenSize == 'md' || this.screenSize == 'sm' || this.screenSize == 'xs');
+  public mobileMode() {
+    return (
+      this.screenSize == 'md' ||
+      this.screenSize == 'sm' ||
+      this.screenSize == 'xs'
+    );
   }
 
-  public expandPopUp(state: ResumePopUpStates): void{
+  public expandPopUp(state: ResumePopUpStates): void {
     this.popUpState = state;
     this.popupExpandCntl.animate();
   }
 
-  public closePopUp(): void{
+  public closePopUp(): void {
     this.popUpState = ResumePopUpStates.null;
     this.popupExpandCntl.prime();
   }
 
-  public isPopUpClosed(): boolean{
-    return this.popupExpandCntl.state == ExpandStates.closed
+  public isPopUpClosed(): boolean {
+    return this.popupExpandCntl.state == ExpandStates.closed;
   }
 
-  public getPopupTitle(): string{
-    switch(this.popUpState){
+  public getPopupTitle(): string {
+    switch (this.popUpState) {
       case this.popUpStates.one:
-        return "Professional Experience"
+        return 'Professional Experience';
       case this.popUpStates.two:
-        return "Technical Certifications"
+        return 'Technical Certifications';
       case this.popUpStates.three:
-        return "Academic Career"
+        return 'Academic Career';
       case this.popUpStates.four:
-        return "Project Gallery"
+        return 'Project Gallery';
       default:
-        return ""
+        return '';
     }
   }
 
-  public isFactHighlighted(state: ResumePopUpStates){
-    return this.factHighlightCntls[this.indexFromState(state)].state == HighlightStates.highlight;
+  public isFactHighlighted(state: ResumePopUpStates) {
+    return (
+      this.factHighlightCntls[this.indexFromState(state)].state ==
+      HighlightStates.highlight
+    );
   }
 
-  public highlightFact(state: ResumePopUpStates): void{
-    this.factHighlightCntls[this.indexFromState(state)].animate()
+  public highlightFact(state: ResumePopUpStates): void {
+    this.factHighlightCntls[this.indexFromState(state)].animate();
   }
 
-  public delightFact(state: ResumePopUpStates): void{
-    this.factHighlightCntls[this.indexFromState(state)].prime()
+  public delightFact(state: ResumePopUpStates): void {
+    this.factHighlightCntls[this.indexFromState(state)].prime();
   }
 
-  public getFactMessage(state: ResumePopUpStates): string{
-    if(this.factHighlightCntls[this.indexFromState(state)].state == HighlightStates.normal){
-      switch(state){
+  public getFactMessage(state: ResumePopUpStates): string {
+    if (
+      this.factHighlightCntls[this.indexFromState(state)].state ==
+      HighlightStates.normal
+    ) {
+      switch (state) {
         case this.popUpStates.one:
-          return "Experience";
+          return 'Experience';
         case this.popUpStates.two:
-          return "Certifications";
+          return 'Certifications';
         case this.popUpStates.three:
-          return "Education";
+          return 'Education';
         case this.popUpStates.four:
-          return "Portfolio";
+          return 'Portfolio';
         default:
-          return "";
+          return '';
+      }
+    } else {
+      switch (state) {
+        case this.popUpStates.one:
+          return 'Professional career';
+        case this.popUpStates.two:
+          return 'Industry recognized accolades';
+        case this.popUpStates.three:
+          return 'Diverse technical background';
+        case this.popUpStates.four:
+          return 'Websites, applications & projects';
+        default:
+          return '';
       }
     }
-    else{
-      switch(state){
-        case this.popUpStates.one:
-          return "Professional career";
-        case this.popUpStates.two:
-          return "Industry recognized accolades";
-        case this.popUpStates.three:
-          return "Diverse technical background";
-        case this.popUpStates.four:
-          return "Websites, applications & projects";
-        default:
-          return "";
-      }
-    }
   }
 
-  public openExperience(exp: Experience){
+  public openExperience(exp: Experience) {
     this.dialog.open(ExperienceComponent, {
       data: exp,
       width: '85%',
       height: '95%',
-      panelClass: 'experience-bg'
+      panelClass: 'experience-bg',
     });
-
   }
 
-  public incrementCertTab(){
+  public incrementCertTab() {
     this.selectedCertTab++;
-    if(this.selectedCertTab>this.certifications.length-1){
+    if (this.selectedCertTab > this.certifications.length - 1) {
       this.selectedCertTab = 0;
     }
   }
 
-  public decrementCertTab(){
+  public decrementCertTab() {
     this.selectedCertTab--;
-    if(this.selectedCertTab<0){
-      this.selectedCertTab = this.certifications.length-1;
+    if (this.selectedCertTab < 0) {
+      this.selectedCertTab = this.certifications.length - 1;
     }
   }
 
-  public incrementEdTab(){
+  public incrementEdTab() {
     this.selectedEducationTab++;
-    if(this.selectedEducationTab>1){
+    if (this.selectedEducationTab > 1) {
       this.selectedEducationTab = 0;
     }
   }
 
-  public decrementEdTab(){
+  public decrementEdTab() {
     this.selectedEducationTab--;
-    if(this.selectedEducationTab<0){
+    if (this.selectedEducationTab < 0) {
       this.selectedEducationTab = 1;
     }
   }

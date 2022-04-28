@@ -1,49 +1,49 @@
-#design{
-    position: absolute;
-    top: 30%;
-    width: 100%;
-    height: 60%;
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
+#design {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-#chip-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+#chip-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-#actions{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-right: 1.5%;
-    margin-left: 1.5%;
-    margin-top: -1.5%;
+#actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 1.5%;
+  margin-left: 1.5%;
+  margin-top: -1.5%;
 }
-.animation{
-    position: absolute;
-    z-index: 1;
+.animation {
+  position: absolute;
+  z-index: 1;
 }
-.center-flex{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.center-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-.underline{
-    border: dashed;
-    border-width: 0px 0px 1px 0px;
+.underline {
+  border: dashed;
+  border-width: 0px 0px 1px 0px;
 }
-.sheet{
-    border-radius: 15% 0 0 15%;
-    padding-left: 5%;
-    padding-right: 5%;
+.sheet {
+  border-radius: 15% 0 0 15%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
-.full{
-    width: 100%;
+.full {
+  width: 100%;
 }
-.thirty{
-    width: 30%;
+.thirty {
+  width: 30%;
 }
-.splash-bg{
-    height: 100%;
+.splash-bg {
+  height: 100%;
 }
