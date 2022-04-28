@@ -144,6 +144,7 @@ export const NAV_CONFIG: NavConfig[] = [
         },
         url: 'http://www.cumberland-cloud.com',
         telephone: '+13016979801',
+        priceRange: '$',
         openingHoursSpecification: [
           {
             '@type': 'OpeningHoursSpecification',
