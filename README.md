@@ -12,11 +12,26 @@ npm install
 ng serve
 ```
 
+### Prerendered Development Server
+
+```shell
+cd app
+npm install
+npm run dev:srr
+```
+
 ### Production Build
 
 ```shell
 cd app
-ng build --output-hashing none
+ng build
+```
+
+### Prerendered Production Build
+
+```shell
+cd app
+npm run prerender
 ```
 
 ## Architecture
