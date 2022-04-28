@@ -7,6 +7,7 @@ import {
   Animations,
   AnimationTriggers,
 } from 'src/animations';
+import { MetaService } from 'src/services/meta.service';
 import { SeoService } from 'src/services/seo.service';
 import { NavConfig, NAV_CONFIG } from './app.config';
 import { SheetComponent } from './sheet/sheet.component';
@@ -31,7 +32,8 @@ export class AppComponent {
     private _bottomSheet: MatBottomSheet,
     private router: Router,
     private renderer: Renderer2,
-    private seo: SeoService
+    private seo: SeoService,
+    private meta: MetaService
   ) {
     this.router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
@@ -39,12 +41,14 @@ export class AppComponent {
         if (this.menuDisplayed) {
           this.toggleMenu();
         }
-        let conf = this.findConfigByPath(event.url);
-        this.seo.setStaticAtrributes()
-        this.seo.setJsonLd(this.renderer, conf?.data ? conf.data : {});
-        this.seo.updateTitle(conf?.page_title ? conf.page_title : "The Cumberland Cloud")
-        this.seo.updateDescription(conf?.page_description? conf.page_description : "A site of earthly delectations.")
-        this.seo.updateOgAttributes(event.url);
+        if(meta.isServer()){
+          let conf = this.findConfigByPath(event.url);
+          this.seo.setStaticAtrributes()
+          this.seo.setJsonLd(this.renderer, conf?.data ? conf.data : {});
+          this.seo.updateTitle(conf?.page_title ? conf.page_title : "The Cumberland Cloud")
+          this.seo.updateDescription(conf?.page_description? conf.page_description : "A site of earthly delectations.")
+          this.seo.updateOgAttributes(event.url);
+        }
         this.selectedNav = this.navConfig
           .filter((nav: NavConfig) => nav.path === event.url)
           .pop();
