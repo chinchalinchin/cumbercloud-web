@@ -3,7 +3,7 @@ import { ServerModule } from '@angular/platform-server';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule, DomSanitizer, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +16,6 @@ import { ResumeComponent } from './about/resume/resume.component';
 import { ExperienceComponent } from './about/resume/experience/experience.component';
 import { RateComponent } from './pricing/rate/rate.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HammerConfig } from 'src/hammer';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MetaService } from 'src/services/meta.service';
 import { ASSET_CONFIG, IconConfig, ICON_CONFIG } from './app.config';
@@ -42,14 +41,9 @@ import { MaterialModule } from './material.module';
     NoopAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HammerModule,
     HttpClientModule,
     MaterialModule
   ],
-  providers: [{
-    provide: HAMMER_GESTURE_CONFIG,
-    useClass: HammerConfig
-  }],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {
@@ -59,10 +53,6 @@ export class AppServerModule {
               private meta: MetaService){  
     ICON_CONFIG.forEach((conf: IconConfig)=>{
       this.addIconToRegistry(conf.name, conf.src)
-    });
-    ASSET_CONFIG.forEach((thisSrc:string)=>{
-      let img = new Image();
-      img.src = thisSrc;
     });
   }
 
