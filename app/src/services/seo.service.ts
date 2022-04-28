@@ -33,7 +33,7 @@ export class SeoService {
   public updateOgAttributes(route: string) {
     this.meta.updateTag({
       property: 'og:url',
-      content: `https://cumberland-cloud.com/${route}`,
+      content: `https://cumberland-cloud.com${route}`,
     });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
   }

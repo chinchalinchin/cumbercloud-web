@@ -11,6 +11,7 @@ export interface NavConfig {
   path: string;
   nav_title: string;
   page_title: string;
+  page_description: string;
   menu: boolean;
   data: any;
 }
@@ -110,6 +111,7 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/',
     nav_title: 'Home',
     page_title: '',
+    page_description: '',
     menu: true,
     data: [
       {
@@ -157,6 +159,7 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/about',
     nav_title: 'About',
     page_title: '',
+    page_description: '',
     menu: true,
     data: {},
   },
@@ -164,6 +167,7 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/design',
     nav_title: 'Design',
     page_title: '',
+    page_description: '',
     menu: true,
     data: {},
   },
@@ -171,6 +175,7 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/pricing',
     nav_title: 'Pricing',
     page_title: '',
+    page_description: '',
     menu: true,
     data: {},
   },
@@ -178,6 +183,7 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/contact',
     nav_title: 'Contact',
     page_title: '',
+    page_description: '',
     menu: true,
     data: {},
   },
@@ -185,6 +191,7 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/about/resume',
     nav_title: 'Resume',
     page_title: '',
+    page_description: '',
     menu: false,
     data: {},
   },
