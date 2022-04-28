@@ -111,7 +111,8 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/',
     nav_title: 'Home',
     page_title: 'The Cumberland Cloud',
-    page_description: 'The Cumberland Cloud specializes in cloud native design and development. Using the latest technology, we create responsive web pages with unique designs and quality user experiences.',
+    page_description:
+      'The Cumberland Cloud specializes in cloud native design and development. Using the latest technology, we create responsive web pages with unique designs and quality user experiences.',
     menu: true,
     data: [
       {
@@ -159,7 +160,8 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/about',
     nav_title: 'About',
     page_title: 'Cumberland Cloud - About Grant Moore',
-    page_description: 'Grant Moore is a Solution Architect, Web Developer and UI/UX Designer. With a background in mathematics and physics, he approaches every software problem with a unique perspective, bringing to it a diverse array of analytical tools. Schedule a consultation at design@cumberland-cloud.com',
+    page_description:
+      'Grant Moore is a Solution Architect, Web Developer and UI/UX Designer. With a background in mathematics and physics, he approaches every software problem with a unique perspective, bringing to it a diverse array of analytical tools. Schedule a consultation at design@cumberland-cloud.com',
     menu: true,
     data: {},
   },
@@ -167,7 +169,8 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/design',
     nav_title: 'Design',
     page_title: 'The Cumberland Cloud - Design',
-    page_description: 'The Cumberland Cloud allows your business to take advantage of our years of production-grade software engineering experience. We take pride in our professionalism and as a result, our design process stands out from the rest of the crowd',
+    page_description:
+      'The Cumberland Cloud allows your business to take advantage of our years of production-grade software engineering experience. We take pride in our professionalism and as a result, our design process stands out from the rest of the crowd',
     menu: true,
     data: {},
   },
@@ -175,7 +178,8 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/pricing',
     nav_title: 'Pricing',
     page_title: 'The Cumberland Cloud - Pricing',
-    page_description: 'Find out how much your next project with the Cumberland Cloud will cost. Input your project details into our Project Cost Calculator to get an instant estimate.',
+    page_description:
+      'Find out how much your next project with the Cumberland Cloud will cost. Input your project details into our Project Cost Calculator to get an instant estimate.',
     menu: true,
     data: {},
   },
@@ -183,7 +187,8 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/contact',
     nav_title: 'Contact',
     page_title: 'The Cumberland Cloud - Contact',
-    page_description: 'Submit a form message with details about your next web development project to the Cumberland Cloud',
+    page_description:
+      'Submit a form message with details about your next web development project to the Cumberland Cloud',
     menu: true,
     data: {},
   },
@@ -191,7 +196,8 @@ export const NAV_CONFIG: NavConfig[] = [
     path: '/about/resume',
     nav_title: 'Resume',
     page_title: 'The Cumberland Cloud - Grant Moore, Resume',
-    page_description: 'Grant Moore is the Solution Arhitect, Lead Developer and UI/UX Designer for the Cumberland Cloud. Read details about his career, certifications and education here.',
+    page_description:
+      'Grant Moore is the Solution Arhitect, Lead Developer and UI/UX Designer for the Cumberland Cloud. Read details about his career, certifications and education here.',
     menu: false,
     data: {},
   },
