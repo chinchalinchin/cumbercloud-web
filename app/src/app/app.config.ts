@@ -196,6 +196,7 @@ export const NAV_CONFIG: NavConfig[] = [
     data: {},
   },
 ];
+
 export const ASSET_CONFIG: AssetConfig[] = [
   {
     src: '/assets/imgs/money-banner.jpg',
