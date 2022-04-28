@@ -88,9 +88,9 @@ export enum ExperienceStates {
   americorps="americorps"
 }
 
-////////////
-// CONSTANTS
-////////////
+////////////////
+// CONFIGURATION
+////////////////
 
 export const ASSET_CONFIG=[
   "/assets/imgs/money-banner.jpg",

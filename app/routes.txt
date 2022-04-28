@@ -1,0 +1,6 @@
+/
+/pricing
+/about
+/about/resume
+/contact
+/design

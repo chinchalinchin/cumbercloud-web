@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
 
-import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule, DomSanitizer, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -21,6 +20,7 @@ import { HammerConfig } from 'src/hammer';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MetaService } from 'src/services/meta.service';
 import { ASSET_CONFIG, IconConfig, ICON_CONFIG } from './app.config';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations:[
@@ -36,7 +36,6 @@ import { ASSET_CONFIG, IconConfig, ICON_CONFIG } from './app.config';
     RateComponent,
   ],
   imports: [
-    AppModule,
     ServerModule,
     AppRoutingModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -45,6 +44,7 @@ import { ASSET_CONFIG, IconConfig, ICON_CONFIG } from './app.config';
     ReactiveFormsModule,
     HammerModule,
     HttpClientModule,
+    MaterialModule
   ],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,

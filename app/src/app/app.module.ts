@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
 import { MatIconRegistry } from '@angular/material/icon'; 
 
-// TODO: lazy loaded components 
 import { ASSET_CONFIG, ICON_CONFIG, IconConfig } from './app.config';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
