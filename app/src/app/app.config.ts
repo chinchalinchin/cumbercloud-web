@@ -2,16 +2,16 @@
 // INTERFACES
 /////////////
 
-export interface IconConfig{
-  src: string,
-  name: string,
+export interface IconConfig {
+  src: string;
+  name: string;
 }
 
-export interface ChipConfig{
-  tooltip: string,
-  href: string,
-  svgIcon: string
-};
+export interface ChipConfig {
+  tooltip: string;
+  href: string;
+  svgIcon: string;
+}
 
 export interface Link {
   href: string;
@@ -92,15 +92,15 @@ export enum ExperienceStates {
 // CONFIGURATION
 ////////////////
 
-export const ASSET_CONFIG=[
-  "/assets/imgs/money-banner.jpg",
-  "/assets/imgs/circuitry-banner.jpg",
-  "/assets/imgs/expertise-banner.jpg",
-  "/assets/imgs/human_centric_design-banner.jpg",
-  "/assets/imgs/separated.jpg",
-  "/assets/imgs/cloud_tunnel.jpg",
-  "/assets/imgs/under_construction.jpg",
-  "/assets/people/grant/profile.jpg"
+export const ASSET_CONFIG = [
+  '/assets/imgs/money-banner.jpg',
+  '/assets/imgs/circuitry-banner.jpg',
+  '/assets/imgs/expertise-banner.jpg',
+  '/assets/imgs/human_centric_design-banner.jpg',
+  '/assets/imgs/separated.jpg',
+  '/assets/imgs/cloud_tunnel.jpg',
+  '/assets/imgs/under_construction.jpg',
+  '/assets/people/grant/profile.jpg',
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [
@@ -146,78 +146,78 @@ export const TOOL_CHIPS: ChipConfig[] = [
   },
 ];
 
-export const ICON_CONFIG: IconConfig[]=[
+export const ICON_CONFIG: IconConfig[] = [
   {
     src: '../assets/icons/aws-apigateway.svg',
-    name: 'apigateway'
+    name: 'apigateway',
   },
   {
     src: '../assets/icons/angular.svg',
-    name: 'angular'
+    name: 'angular',
   },
   {
     src: '../assets/icons/aws-cognito.svg',
-    name: 'cognito'
+    name: 'cognito',
   },
   {
     src: '../assets/icons/flow-charts.svg',
-    name: 'drawio'
+    name: 'drawio',
   },
   {
     src: '../assets/icons/aws-dynamodb.svg',
-    name: 'dynamodb'
+    name: 'dynamodb',
   },
   {
     src: '../assets/icons/docker-round.svg',
-    name: 'docker'
+    name: 'docker',
   },
   {
     src: '../assets/icons/django.svg',
-    name: 'django'
+    name: 'django',
   },
   {
     src: '../assets/icons/github.svg',
-    name: 'github'
+    name: 'github',
   },
   {
     src: '../assets/icons/gimp-color.svg',
-    name: 'gimp'
+    name: 'gimp',
   },
   {
     src: '../assets/icons/html5.svg',
-    name: 'html'
+    name: 'html',
   },
   {
     src: '../assets/icons/aws-lambda.svg',
-    name: 'lambda'
+    name: 'lambda',
   },
   {
     src: '../assets/icons/pypi.svg',
-    name: 'pypi'
+    name: 'pypi',
   },
   {
     src: '../assets/icons/python.svg',
-    name: 'python'
+    name: 'python',
   },
   {
     src: '../assets/icons/aws-rds.svg',
-    name: 'rds'
+    name: 'rds',
   },
   {
     src: '../assets/icons/aws-s3.svg',
-    name: 's3'
+    name: 's3',
   },
   {
     src: '../assets/icons/typescript/svg',
-    name: 'typescript'
+    name: 'typescript',
   },
   {
     src: '../assets/icons/adobe-xd.svg',
-    name:'xd'
-  }
-]
+    name: 'xd',
+  },
+];
 
-export const EXPERIENCE_CONFIG : Experience[] = [
+export const EXPERIENCE_CONFIG: Experience[] = [
   {
     company: 'Makpar, Inc.',
     position: 'DevOps Engineer',

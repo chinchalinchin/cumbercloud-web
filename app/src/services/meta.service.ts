@@ -13,15 +13,6 @@ export class MetaService implements OnDestroy {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { 
     if(this.isBrowser()){
-      console.log('browser')
-    }
-    else if(this.isServer()){
-      console.log('server');
-    }
-    else{
-      console.log("?")
-    }
-    if(this.isBrowser()){
       this.setScreenWidth(window.innerWidth);
       this.setMediaBreakpoint(window.innerWidth);
       fromEvent(window, 'resize')
@@ -60,8 +51,11 @@ export class MetaService implements OnDestroy {
     }
   }
 
-  public isBrowser() { return isPlatformBrowser(this.platformId); }
+  public isBrowser() {
+    return isPlatformBrowser(this.platformId);
+  }
 
-  public isServer() { return isPlatformServer(this.platformId); }
-  
+  public isServer() {
+    return isPlatformServer(this.platformId);
+  }
 }
