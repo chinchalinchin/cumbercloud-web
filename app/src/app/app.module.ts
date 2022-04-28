@@ -11,11 +11,42 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
 import { MatIconRegistry } from '@angular/material/icon'; 
 
+<<<<<<< HEAD
 import { ASSET_CONFIG, ICON_CONFIG, IconConfig } from './app.config';
+=======
+// TODO: material module
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatRippleModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { AppComponent } from './app.component';
+>>>>>>> b77338233c6d5e94bc7d38735ae456bdef710b2e
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+<<<<<<< HEAD
+=======
+
+// TODO: lazy loaded components
+>>>>>>> b77338233c6d5e94bc7d38735ae456bdef710b2e
 import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
 import { DesignComponent } from './design/design.component';
