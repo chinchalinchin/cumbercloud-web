@@ -16,10 +16,8 @@ export class MetaService implements OnDestroy {
       this.setScreenWidth(window.innerWidth);
       this.setMediaBreakpoint(window.innerWidth);
       fromEvent(window, 'resize')
-        .pipe(
-          debounceTime(100),
-          takeUntil(this.unsubscriber)
-        ).subscribe((evt: any) => {
+        .pipe(debounceTime(100), takeUntil(this.unsubscriber))
+        .subscribe((evt: any) => {
           this.setScreenWidth(evt.target.innerWidth);
           this.setMediaBreakpoint(evt.target.innerWidth);
         });
