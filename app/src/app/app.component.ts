@@ -41,7 +41,7 @@ export class AppComponent {
         if (this.menuDisplayed) {
           this.toggleMenu();
         }
-        if(meta.isServer()){
+        if(this.meta.isServer()){
           let conf = this.findConfigByPath(event.url);
           this.seo.setStaticAtrributes()
           this.seo.setJsonLd(this.renderer, conf?.data ? conf.data : {});
