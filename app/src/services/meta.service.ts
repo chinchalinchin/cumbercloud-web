@@ -1,4 +1,5 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { Inject, Injectable, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
 import { takeUntil, debounceTime } from 'rxjs/operators';
 
@@ -10,7 +11,7 @@ export class MetaService implements OnDestroy{
   public screenWidth: BehaviorSubject<number> = new BehaviorSubject(0);
   public mediaBreakpoint: BehaviorSubject<string> = new BehaviorSubject('');
 
-  constructor() { 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { 
     this.setScreenWidth(window.innerWidth);
     this.setMediaBreakpoint(window.innerWidth);
     fromEvent(window, 'resize')
@@ -47,4 +48,9 @@ export class MetaService implements OnDestroy{
       this.mediaBreakpoint.next('xxl');
     }
   }
+
+  public isBrowser() { return isPlatformBrowser(this.platformId); }
+
+  public isServer() { return isPlatformServer(this.platformId); }
+  
 }

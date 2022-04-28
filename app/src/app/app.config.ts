@@ -2,6 +2,11 @@
 // INTERFACES
 /////////////
 
+export interface IconConfig{
+  src: string,
+  name: string,
+}
+
 export interface ChipConfig{
   tooltip: string,
   href: string,
@@ -87,7 +92,7 @@ export enum ExperienceStates {
 // CONSTANTS
 ////////////
 
-export const ASSET_SRCS=[
+export const ASSET_CONFIG=[
   "/assets/imgs/money-banner.jpg",
   "/assets/imgs/circuitry-banner.jpg",
   "/assets/imgs/expertise-banner.jpg",
@@ -112,6 +117,77 @@ export const TOOL_CHIPS: ChipConfig[] = [
   { tooltip: 'Lambda', href: 'https://aws.amazon.com/lambda/', svgIcon: 'lambda'},
   { tooltip: 'API Gateway', href: 'https://aws.amazon.com/api-gateway/', svgIcon: 'apigateway' },
 ];
+
+export const ICON_CONFIG: IconConfig[]=[
+  {
+    src: '../assets/icons/aws-apigateway.svg',
+    name: 'apigateway'
+  },
+  {
+    src: '../assets/icons/angular.svg',
+    name: 'angular'
+  },
+  {
+    src: '../assets/icons/aws-cognito.svg',
+    name: 'cognito'
+  },
+  {
+    src: '../assets/icons/flow-charts.svg',
+    name: 'drawio'
+  },
+  {
+    src: '../assets/icons/aws-dynamodb.svg',
+    name: 'dynamodb'
+  },
+  {
+    src: '../assets/icons/docker-round.svg',
+    name: 'docker'
+  },
+  {
+    src: '../assets/icons/django.svg',
+    name: 'django'
+  },
+  {
+    src: '../assets/icons/github.svg',
+    name: 'github'
+  },
+  {
+    src: '../assets/icons/gimp-color.svg',
+    name: 'gimp'
+  },
+  {
+    src: '../assets/icons/html5.svg',
+    name: 'html'
+  },
+  {
+    src: '../assets/icons/aws-lambda.svg',
+    name: 'lambda'
+  },
+  {
+    src: '../assets/icons/pypi.svg',
+    name: 'pypi'
+  },
+  {
+    src: '../assets/icons/python.svg',
+    name: 'python'
+  },
+  {
+    src: '../assets/icons/aws-rds.svg',
+    name: 'rds'
+  },
+  {
+    src: '../assets/icons/aws-s3.svg',
+    name: 's3'
+  },
+  {
+    src: '../assets/icons/typescript/svg',
+    name: 'typescript'
+  },
+  {
+    src: '../assets/icons/adobe-xd.svg',
+    name:'xd'
+  }
+]
 
 export const EXPERIENCE_CONFIG : Experience[] = [
   {
