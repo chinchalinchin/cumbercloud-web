@@ -44,13 +44,13 @@ All of the resources to host, deploy and update this web application are contain
     <img width="auto" height="auto" src="/docs/web_architecture.png">
 </p>
 
-If you have the [AWS CLI]() installed and configured, you can use the script `./scripts/provision-stack` to provision all the resources necessary to host and continously update the web application stored in this repository,
+If you have the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) installed and configured, you can use the `provision-stack` script to provision all the resources necessary to host and continously update the web application stored in this repository,
 
 ```shell
 ./scripts/provision-stack
 ```
 
-This script will read in several key pieces of information. Before executing this script, you must own a domain on **AWS** through [Route53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html). You will need the [hosted zone ID](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html) associated with your domain. In addition, in order to setup HTTPS with the **CloudFront** distribution, you will need to purchase a SSL certificate from the [AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html). The script will require the AWS Resource Number (**ARN**) of the certificate.
+This script will read in several key pieces of information from the command line. Before executing it, you must own a domain on **AWS** through [Route53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html). You will need the [hosted zone ID](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ListInfoOnHostedZone.html) associated with your domain. In addition, in order to setup HTTPS with the **CloudFront** distribution, you will need to purchase a SSL certificate from the [AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html). The script will require the AWS Resource Number (**ARN**) of the certificate.
 
 After the stack is deployed, the pipeline will initially fail because the **CodeCommit** repository is empty. Add a remote origin to this repository with the **CodeCommit** SSH url,
 
@@ -59,6 +59,10 @@ git remote add codecommit <ssh-url>
 ```
 
 In order to push and pull from this new repository, you will need to [setup your SSH key on CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-unixes.html). After this is setup, you will need to push the current commit up to the repository to initiate the first pipeline build.
+
+```shell
+git push codecommit master
+```
 
 ## Deployments
 
