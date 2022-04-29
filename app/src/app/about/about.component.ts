@@ -111,9 +111,9 @@ import { ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../app.config';
   ],
 })
 export class AboutComponent implements OnInit {
-  @ViewChild('scroller', { static: false }) 
+  @ViewChild('scroller', { static: false })
   public scroller?: ElementRef;
-  
+
   public selectedProfile?: ProfileConfig;
   public profileConfig: ProfileConfig[] = PROFILE_CONFIG;
   public whoAnimated: boolean = false;
@@ -158,16 +158,19 @@ export class AboutComponent implements OnInit {
   public what: boolean = false;
   public unfolded: boolean = false;
 
-  constructor(private meta: MetaService,
-              private route: ActivatedRoute) {
-    this.selectedProfile = this.profileConfig.filter(profile => profile.key === this.route.snapshot.paramMap.get('name')).pop()
+  constructor(private meta: MetaService, private route: ActivatedRoute) {
+    this.selectedProfile = this.profileConfig
+      .filter(
+        (profile) => profile.key === this.route.snapshot.paramMap.get('name')
+      )
+      .pop();
     this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
   }
 
-  ngOnInit(){
-    if(this.scroller){
+  ngOnInit() {
+    if (this.scroller) {
       console.log(this.scroller);
       this.scroller.nativeElement.scrollToTop();
     }

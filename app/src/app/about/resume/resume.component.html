@@ -1,6 +1,6 @@
 <div *ngIf="selectedProfile">
   <div id="resume">
-    <h2 id="title" class="mat-display-2">{{selectedProfile.name}}</h2>
+    <h2 id="title" class="mat-display-2">{{ selectedProfile.name }}</h2>
 
     <div class="facts-container">
       <div class="h-align" *ngFor="let thisState of this.stateArray()">
@@ -41,13 +41,19 @@
     </div>
   </div>
 
-  <button id="back-btn" mat-mini-fab [routerLink]="['/about', selectedProfile.key]">
+  <button
+    id="back-btn"
+    mat-mini-fab
+    [routerLink]="['/about', selectedProfile.key]"
+  >
     <mat-icon>keyboard_backspace</mat-icon>
   </button>
 
   <div id="popup" [@cntl_expand]="popupExpandCntl.state">
     <div id="popup-toolbar">
-      <div id="popup-header" class="v-align mat-title">{{ getPopupTitle() }}</div>
+      <div id="popup-header" class="v-align mat-title">
+        {{ getPopupTitle() }}
+      </div>
       <div>
         <button
           mat-icon-button
@@ -74,7 +80,11 @@
             <mat-icon mat-list-icon color="primary">label_important</mat-icon>
             <div mat-line>{{ exp.position }}</div>
             <div mat-line>{{ exp.years }}</div>
-            <button mat-icon-button color="accent" (click)="openExperience(exp)">
+            <button
+              mat-icon-button
+              color="accent"
+              (click)="openExperience(exp)"
+            >
               <mat-icon>info</mat-icon>
             </button>
           </mat-list-item>

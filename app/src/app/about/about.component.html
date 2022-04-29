@@ -3,31 +3,43 @@
     <div id="placeholder" [@expand]></div>
   </div>
 
-  <div role="region" id="responsive-content-1" aria-label="Personas & Proficiencies, Animation Area 1">
-    <div role="region" id="responsive-content-text" aria-label="Text for responsive content">
+  <div
+    role="region"
+    id="responsive-content-1"
+    aria-label="Personas & Proficiencies, Animation Area 1"
+  >
+    <div
+      role="region"
+      id="responsive-content-text"
+      aria-label="Text for responsive content"
+    >
       <section id="persona-section" *ngIf="unfolded && who">
         <div
-          *ngFor="let index of [0,1,2]"
+          *ngFor="let index of [0, 1, 2]"
           [id]="selectedProfile.factoids[index].id"
           class="animation mat-h2 text-default"
           [@fade]
         >
-          {{selectedProfile.factoids[index].content}}
+          {{ selectedProfile.factoids[index].content }}
         </div>
       </section>
       <section id="proficiency-section" *ngIf="unfolded && what">
-        <div 
-          *ngFor="let index of [3,4,5]"
+        <div
+          *ngFor="let index of [3, 4, 5]"
           [id]="selectedProfile.factoids[index].id"
           class="animation mat-h2 text-default"
           [@fade]
         >
-          {{selectedProfile.factoids[index].content}}
+          {{ selectedProfile.factoids[index].content }}
         </div>
       </section>
     </div>
 
-    <div role="region" id="responsive-content-imgs" aria-label="Graphics for responsive content">
+    <div
+      role="region"
+      id="responsive-content-imgs"
+      aria-label="Graphics for responsive content"
+    >
       <div
         id="mathematician-droplet"
         aria-labelledby="mathematician-text"
@@ -98,7 +110,12 @@
     </div>
   </div>
 
-  <div role="region" id="responsive-content-controls" aria-controls="responsive-content" aria-label="Controls for responsive content">
+  <div
+    role="region"
+    id="responsive-content-controls"
+    aria-controls="responsive-content"
+    aria-label="Controls for responsive content"
+  >
     <svg
       x="0px"
       y="0px"
@@ -125,10 +142,7 @@
         [class.cloud-border-select]="who"
         [attr.d]="svgConfig.cloud.path_3"
       />
-      <path
-        style="fill: #ffffff"
-        [attr.d]="svgConfig.cloud.path_4"
-      />
+      <path style="fill: #ffffff" [attr.d]="svgConfig.cloud.path_4" />
     </svg>
 
     <svg
@@ -157,21 +171,23 @@
         [class.cloud-border-select]="what"
         [attr.d]="svgConfig.cloud.path_3"
       />
-      <path
-        style="fill: #ffffff"
-        [attr.d]="svgConfig.cloud.path_4"
-      />
+      <path style="fill: #ffffff" [attr.d]="svgConfig.cloud.path_4" />
     </svg>
   </div>
 
-  <div role="region" id="responsive-content-2" aria-label="Accompanying Graphics, Animation Area 2">
-    <object 
+  <div
+    role="region"
+    id="responsive-content-2"
+    aria-label="Accompanying Graphics, Animation Area 2"
+  >
+    <object
       id="who-grass"
       aria-label="grass growing graphics"
       class="animation"
-      data="/assets/svgs/grass.svg" 
-      [@cntl_position_who_grass]="whoGrassPositionCntl.state" 
-      type="image/svg+xml">
+      data="/assets/svgs/grass.svg"
+      [@cntl_position_who_grass]="whoGrassPositionCntl.state"
+      type="image/svg+xml"
+    >
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
 
@@ -235,25 +251,30 @@
         </div>
       </div>
 
-      <mat-card-title class="center"> 
-        {{selectedProfile.name}} 
+      <mat-card-title class="center">
+        {{ selectedProfile.name }}
       </mat-card-title>
 
       <mat-card-subtitle class="text-center">
-        {{selectedProfile.position}}
+        {{ selectedProfile.position }}
       </mat-card-subtitle>
 
       <mat-card-content *ngIf="mobileMode()">
         <div class="mobile-scroller" #scroller>
           <p class="mat-body" *ngFor="let blurb of selectedProfile.blurbs">
-            {{blurb}}
+            {{ blurb }}
           </p>
         </div>
       </mat-card-content>
 
       <div class="actions">
-        <button mat-icon-button [routerLink]="['/about','resume', selectedProfile.key]">
-          <mat-icon [matTooltip]="selectedProfile.arrow_tooltip">arrow_right_alt</mat-icon>
+        <button
+          mat-icon-button
+          [routerLink]="['/about', 'resume', selectedProfile.key]"
+        >
+          <mat-icon [matTooltip]="selectedProfile.arrow_tooltip"
+            >arrow_right_alt</mat-icon
+          >
         </button>
       </div>
     </mat-card>

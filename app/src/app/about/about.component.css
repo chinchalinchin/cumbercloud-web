@@ -54,7 +54,7 @@
 }
 
 @media (max-width: 992px) {
-  #about{
+  #about {
     top: 30%;
     height: 70%;
   }
@@ -64,16 +64,16 @@
   .mobile-title {
     padding-top: -5%;
   }
-  .mobile-scroller{
-    overflow-y: auto; 
+  .mobile-scroller {
+    overflow-y: auto;
     max-height: 25vh;
   }
-  .actions{
+  .actions {
     right: 48.5%;
   }
 }
 @media (min-width: 991px) {
-  #about{
+  #about {
     top: 40%;
     height: 60%;
   }
@@ -126,7 +126,7 @@
     top: 80%;
     right: 7.5%;
   }
-  .actions{
+  .actions {
     right: 2.5%;
   }
 }
