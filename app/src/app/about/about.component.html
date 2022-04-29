@@ -267,12 +267,17 @@
     </mat-card-subtitle>
 
     <mat-card-content *ngIf="mobileMode()">
-      <p>
-        Hi! I build web applications for a living. Over the years, I have gotten
-        pretty good at it. In fact, I would go so far as to call the site you
-        are currently on "not entirely ugly".
-      </p>
-      <p>Read on for more information about yours truly...</p>
+      <div class="mobile-scroller" #scroller>
+        <p class="mat-body">
+          Grant Moore has been a web developer and engineer professionally for three years, although his interest in computer science and technology extends far back into his teenage years when he first began learning Java. He has since expanded his knowledge into numerous sub-fields, such as UI/UX design, frontend development, software engineering, development operations, containerization and cloud computing.  
+        </p>
+        <p class="mat-body">
+          He acquired an extensive background in the natural sciences while studying physics and mathematics during his undergraduate and graduate education. While enrolled at Frostburg State and Towson University, he applied technology to a broad array of problems, such as pricing financial derivatives with stochastic processes, estimating statistical calculations efficiently with recursive algorithms and modelling physical phenomena with determinitic and non-deterministic finite automatons.  
+        </p>
+        <p class="mat-body">
+          Read on for more information about yours truly...
+        </p>
+      </div>
     </mat-card-content>
 
     <div class="actions">

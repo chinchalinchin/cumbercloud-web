@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   AnimationControl,
   AnimationPeriods,
@@ -109,7 +109,9 @@ import { SVG_CONFIG } from '../app.config';
     Animations.getExpandTrigger('100%'),
   ],
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
+  @ViewChild('scroller', { static: false }) public scroller?: ElementRef;
+  
   public whoAnimated: boolean = false;
   public whatAnimated: boolean = false;
   public screenSize: string = '';
@@ -156,6 +158,13 @@ export class AboutComponent {
     this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
+  }
+
+  ngOnInit(){
+    if(this.scroller){
+      console.log(this.scroller);
+      this.scroller.nativeElement.scrollToTop();
+    }
   }
 
   private toggleBanner(which: string): void {
