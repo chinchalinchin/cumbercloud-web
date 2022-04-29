@@ -298,35 +298,35 @@ export class HomeComponent implements OnInit {
     let switchState: string = fromState ? fromState : this.state;
     switch (switchState) {
       case this.states.four:
-        if(!this.mobileMode()){
+        if (!this.mobileMode()) {
           if (this.moved) return 'User Experience';
           return 'Give me a page to land';
         }
-        return ''
+        return '';
       case this.states.three:
-        if(!this.mobileMode()){
+        if (!this.mobileMode()) {
           if (this.moved) return 'Cloud Expertise';
           return 'And a button big enough';
         }
-        return "For the button by itself";
+        return 'For the button by itself';
       case this.states.two:
-        if(!this.mobileMode()){
+        if (!this.mobileMode()) {
           if (this.moved) return 'Affordable Quality';
-          return 'And I will move the world.'; 
+          return 'And I will move the world.';
         }
-        return "Incites the hand to push it";
+        return 'Incites the hand to push it';
       case this.states.one:
-        if(!this.mobileMode()){
+        if (!this.mobileMode()) {
           if (this.moved) return 'Custom Web Design';
           return '- <a href="https://www.cs.drexel.edu/~crorres/Archimedes/Lever/LeverQuotes_OLD.html" target="_blank" rel="noopener noreferrer">Archimedes, probably</a>';
         }
-        return '- <a href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html" target="_blank" rel="noopener noreferrer">Homer, probably</a>'
+        return '- <a href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html" target="_blank" rel="noopener noreferrer">Homer, probably</a>';
       default:
         return '';
     }
   }
 
-  public getHeidegger(){
-    return "The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character";
+  public getHeidegger() {
+    return 'The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character';
   }
 }
