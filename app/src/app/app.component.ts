@@ -43,10 +43,16 @@ export class AppComponent {
         }
         if(this.meta.isServer()){
           let conf = this.findConfigByPath(event.url);
-          this.seo.setStaticAtrributes()
+          this.seo.setStaticAtrributes();
           this.seo.setJsonLd(this.renderer, conf?.data ? conf.data : {});
-          this.seo.updateTitle(conf?.page_title ? conf.page_title : "The Cumberland Cloud")
-          this.seo.updateDescription(conf?.page_description? conf.page_description : "A site of earthly delectations.")
+          this.seo.updateTitle(
+            conf?.page_title ? conf.page_title : 'The Cumberland Cloud'
+          );
+          this.seo.updateDescription(
+            conf?.page_description
+              ? conf.page_description
+              : 'A site of earthly delectations.'
+          );
           this.seo.updateOgAttributes(event.url);
         }
         this.selectedNav = this.navConfig
