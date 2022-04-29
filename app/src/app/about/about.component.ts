@@ -111,11 +111,16 @@ import { ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../app.config';
   ],
 })
 export class AboutComponent implements OnInit {
+<<<<<<< HEAD
   @ViewChild('scroller', { static: false }) 
   public scroller?: ElementRef;
   
   public selectedProfile?: ProfileConfig;
   public profileConfig: ProfileConfig[] = PROFILE_CONFIG;
+=======
+  @ViewChild('scroller', { static: false }) public scroller?: ElementRef;
+
+>>>>>>> e7bf3bc3b0d30c1e7fc702fc30e5be918e13cef5
   public whoAnimated: boolean = false;
   public whatAnimated: boolean = false;
   public screenSize: string = '';
@@ -166,8 +171,8 @@ export class AboutComponent implements OnInit {
     });
   }
 
-  ngOnInit(){
-    if(this.scroller){
+  ngOnInit() {
+    if (this.scroller) {
       console.log(this.scroller);
       this.scroller.nativeElement.scrollToTop();
     }

@@ -274,12 +274,12 @@ export const ASSET_CONFIG: AssetConfig[] = [
   },
   {
     src: '/assets/svgs/grass.svg',
-    alt: 'Grass blades'
+    alt: 'Grass blades',
   },
   {
     src: '/assets/svgs/flower.svg',
-    alt: 'A pretty flower'
-  }
+    alt: 'A pretty flower',
+  },
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [

@@ -1,6 +1,8 @@
 <div *ngIf="selectedProfile">
   <div id="resume">
-    <h2 id="title" class="mat-display-2">{{selectedProfile.name}}</h2>
+    <h2 id="title" class="mat-display-2">
+      {{selectedProfile.name}}
+    </h2>
 
     <div class="facts-container">
       <div class="h-align" *ngFor="let thisState of this.stateArray()">
