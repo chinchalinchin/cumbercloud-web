@@ -153,7 +153,9 @@
       [class.selections]="moved"
       [class.fancy-text]="!moved"
       [class.mat-title]="moved"
-      [class.selection-underline]="selected(states.three) && !selecting && moved"
+      [class.selection-underline]="
+        selected(states.three) && !selecting && moved
+      "
       *ngIf="!mobileMode()"
       (click)="setState(states.three)"
     ></div>
@@ -193,26 +195,29 @@
       class="cloud-line fancy-text"
       [innerHTML]="getLine(states.three)"
       *ngIf="mobileMode() && !moved"
-      [@cntl_position_cloud_line_mobile_1]="cloudLineMobilePositionCntls[0].state"
+      [@cntl_position_cloud_line_mobile_1]="
+        cloudLineMobilePositionCntls[0].state
+      "
       [@slide]
-    >
-    </div>
+    ></div>
     <div
       id="cloud-line-mobile-2"
       class="cloud-line fancy-text"
       [innerHTML]="getLine(states.two)"
       *ngIf="mobileMode() && !moved"
-      [@cntl_position_cloud_line_mobile_2]="cloudLineMobilePositionCntls[1].state"
+      [@cntl_position_cloud_line_mobile_2]="
+        cloudLineMobilePositionCntls[1].state
+      "
       [@slide_reverse]
-    >
-    </div>
+    ></div>
     <div
       id="cloud-line-mobile-3"
       class="cloud-line fancy-text"
       [innerHTML]="getLine(states.one)"
       *ngIf="mobileMode() && !moved"
-      [@cntl_position_cloud_line_mobile_3]="cloudLineMobilePositionCntls[2].state"
-    >
-    </div>
+      [@cntl_position_cloud_line_mobile_3]="
+        cloudLineMobilePositionCntls[2].state
+      "
+    ></div>
   </div>
 </div>

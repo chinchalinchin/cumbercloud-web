@@ -106,9 +106,7 @@ export enum ExperienceStates {
 // CONFIGURATION
 ////////////////
 
-export const HOME_CONFIG: any[] = [
-  
-];
+export const HOME_CONFIG: any[] = [];
 
 export const NAV_CONFIG: NavConfig[] = [
   {
@@ -243,8 +241,8 @@ export const ASSET_CONFIG: AssetConfig[] = [
   },
   {
     src: '/assets/svgs/rain-droplet.svg',
-    alt: 'Rain droplet'
-  }
+    alt: 'Rain droplet',
+  },
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [
