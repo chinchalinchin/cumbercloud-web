@@ -30,30 +30,30 @@ export class AppComponent {
 
   public constructor(
     private _bottomSheet: MatBottomSheet,
-    private router: Router,
-    private renderer: Renderer2,
-    private seo: SeoService,
-    private meta: MetaService
+    private _router: Router,
+    private _renderer: Renderer2,
+    private _seo: SeoService,
+    private _meta: MetaService
   ) {
-    this.router.events
+    this._router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe((event) => {
         if (this.menuDisplayed) {
           this.toggleMenu();
         }
-        if (this.meta.isServer()) {
+        if (this._meta.isServer()) {
           let conf = this.findConfigByPath(event.url);
-          this.seo.setStaticAtrributes();
-          this.seo.setJsonLd(this.renderer, conf?.data ? conf.data : {});
-          this.seo.updateTitle(
+          this._seo.setStaticAtrributes();
+          this._seo.setJsonLd(this._renderer, conf?.data ? conf.data : {});
+          this._seo.updateTitle(
             conf?.page_title ? conf.page_title : 'The Cumberland Cloud'
           );
-          this.seo.updateDescription(
+          this._seo.updateDescription(
             conf?.page_description
               ? conf.page_description
               : 'A site of earthly delectations.'
           );
-          this.seo.updateOgAttributes(event.url);
+          this._seo.updateOgAttributes(event.url);
         }
         this.selectedNav = this.navConfig
           .filter((nav: NavConfig) => nav.path === event.url)

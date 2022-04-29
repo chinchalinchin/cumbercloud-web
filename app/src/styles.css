@@ -21,8 +21,11 @@ mat-card img {
   object-fit: cover;
   width: 100%;
 }
-.no-underline {
-  text-decoration: none;
+.mat-tab-body-wrapper {
+  height: 100% !important;
+}
+.mat-tab-body-content {
+  overflow: hidden !important;
 }
 /****/
 .title-text {
@@ -33,7 +36,9 @@ mat-card img {
   font-family: "FancyCursive";
   line-height: 0.5;
 }
-
+.no-underline {
+  text-decoration: none;
+}
 .v-align {
   height: 100%;
   display: flex;
@@ -59,23 +64,19 @@ mat-card img {
 .fill {
   width: 100%;
 }
-.mat-tab-body-wrapper {
-  height: 100% !important;
+.animation {
+  position: absolute;
 }
-.mat-tab-body-content {
-  overflow: hidden !important;
-}
+
 
 /* width */
 ::-webkit-scrollbar {
   width: 15px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
   border-radius: 2.5px;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 2.5px;

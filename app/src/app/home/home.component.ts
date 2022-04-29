@@ -93,13 +93,13 @@ enum States {
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '32%', left: '25%' },
+      { top: '32%', left: '30%' },
       [{ top: '32%', left: '200%' }],
       'cloud_line_mobile_1',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '60%', left: '23%' },
+      { top: '60%', left: '28%' },
       [{ top: '60%', left: '-100%' }],
       'cloud_line_mobile_2',
       AnimationPeriods.short
@@ -110,7 +110,6 @@ enum States {
       'cloud_line_mobile_3',
       AnimationPeriods.short
     ),
-
     Animations.getManualFadeTrigger(AnimationPeriods.short),
     Animations.getSlideTrigger(false, '', AnimationPeriods.short),
     Animations.getSlideTrigger(true, 'reverse', AnimationPeriods.short),
@@ -231,8 +230,9 @@ export class HomeComponent implements OnInit {
     return this.state == state;
   }
 
-  public getSrc(): string {
-    switch (this.state) {
+  public getSrc(fromState: States | undefined = undefined): string {
+    let switchState: string = fromState ? fromState : this.state;
+    switch (switchState) {
       case this.states.one:
         return '/assets/imgs/circuitry-banner.jpg';
       case this.states.two:
@@ -246,8 +246,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public getTitle(): string {
-    switch (this.state) {
+  public getTitle(fromState: States | undefined = undefined): string {
+    let switchState: string = fromState ? fromState : this.state;
+    switch (switchState) {
       case this.states.one:
         return 'Web Design and Hosting';
       case this.states.two:
@@ -261,8 +262,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public getSubtitle(): string {
-    switch (this.state) {
+  public getSubtitle(fromState: States | undefined = undefined): string {
+    let switchState: string = fromState ? fromState : this.state;
+    switch (switchState) {
       case this.states.one:
         return 'Responsive sites built on modern infrastructure';
       case this.states.two:
@@ -276,8 +278,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public getBlurb(): string {
-    switch (this.state) {
+  public getBlurb(fromState: States | undefined = undefined): string {
+    let switchState: string = fromState ? fromState : this.state;
+    switch (switchState) {
       case this.states.one:
         return 'The <strong>Cumberland Cloud</strong> offers custom web page design and cloud-based hosting for small business owners looking to expand their online footprint without breaking the bank.';
       case this.states.two:
@@ -291,22 +294,39 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public getLine(state: States): string {
-    switch (state) {
+  public getLine(fromState: States | undefined = undefined): string {
+    let switchState: string = fromState ? fromState : this.state;
+    switch (switchState) {
       case this.states.four:
-        if (this.moved) return 'User Experience';
-        return 'Give me a page to land';
+        if(!this.mobileMode()){
+          if (this.moved) return 'User Experience';
+          return 'Give me a page to land';
+        }
+        return ''
       case this.states.three:
-        if (this.moved) return 'Cloud Expertise';
-        return 'And a button big enough';
+        if(!this.mobileMode()){
+          if (this.moved) return 'Cloud Expertise';
+          return 'And a button big enough';
+        }
+        return "For the button by itself";
       case this.states.two:
-        if (this.moved) return 'Affordable Quality';
-        return 'And I will move the world.';
+        if(!this.mobileMode()){
+          if (this.moved) return 'Affordable Quality';
+          return 'And I will move the world.'; 
+        }
+        return "Incites the hand to push it";
       case this.states.one:
-        if (this.moved) return 'Custom Web Design';
-        return '<a href="https://www.cs.drexel.edu/~crorres/Archimedes/Lever/LeverQuotes_OLD.html" target="_blank" rel="noopener noreferrer">- Archimedes, probably</a>';
+        if(!this.mobileMode()){
+          if (this.moved) return 'Custom Web Design';
+          return '- <a href="https://www.cs.drexel.edu/~crorres/Archimedes/Lever/LeverQuotes_OLD.html" target="_blank" rel="noopener noreferrer">Archimedes, probably</a>';
+        }
+        return '- <a href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html" target="_blank" rel="noopener noreferrer">Homer, probably</a>'
       default:
         return '';
     }
+  }
+
+  public getHeidegger(){
+    return "The less we stare at the button-Thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is-as equipment … If we look at Things just ‘theoretically’, we can get along without understanding readiness-to-hand. But when we deal with them by using them and manipulating them, this activity is not a blind one; it has its own kind of sight, by which our manipulation is guided and from which it acquires its specific Thing character";
   }
 }

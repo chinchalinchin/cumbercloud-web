@@ -16,6 +16,7 @@
     color="accent"
     (click)="underConstruction = false"
     matTooltip="Let me in anyway!"
+    aria-label="Site under construction"
   >
     <mat-icon>arrow_forward</mat-icon>
   </button>
@@ -23,12 +24,13 @@
 
 <div id="splash" *ngIf="!underConstruction">
   <div id="banner" class="mat-elevation-z8">
-    <div id="cloud-btn-container" class="v-align" style="margin-left: 1.5%">
+    <div id="cloud-btn-container" class="v-align">
       <button
         id="cloud-btn"
         mat-icon-button
         (click)="toggleMenu()"
         matTooltip="Menu"
+        aria-labbel="Toggle navigation menu"
       >
         <mat-icon>cloud</mat-icon>
       </button>
@@ -39,7 +41,13 @@
     </div>
 
     <div class="v-align">
-      <button mat-icon-button id="master-button" (click)="openSheet()">
+      <button 
+        id="master-button"
+        mat-icon-button 
+        aria-label="Contact information" 
+        matTooltip="Contact information"
+        (click)="openSheet()"
+      >
         <mat-icon>help_outline</mat-icon>
       </button>
     </div>
@@ -51,6 +59,7 @@
       *ngFor="let conf of navConfig"
       [ngClass]="{ selected: conf == this.selectedNav }"
       [routerLink]="conf.path"
+      aria-label="Navigation menu item"
     >
       {{ conf.nav_title }}
     </div>
@@ -58,7 +67,7 @@
 
   <div id="top-spacer"></div>
 
-  <div class="display">
+  <div id="app-entrypoint" class="display">
     <router-outlet></router-outlet>
   </div>
 

@@ -33,6 +33,9 @@
   flex-direction: row;
   justify-content: space-around;
 }
+#cloud-btn-container{
+  margin-left: 1.5%
+}
 #top-spacer {
   flex-grow: 3;
 }

@@ -106,6 +106,10 @@ export enum ExperienceStates {
 // CONFIGURATION
 ////////////////
 
+export const HOME_CONFIG: any[] = [
+  
+];
+
 export const NAV_CONFIG: NavConfig[] = [
   {
     path: '/',
@@ -237,6 +241,10 @@ export const ASSET_CONFIG: AssetConfig[] = [
     src: '/assets/people/grant/profile.jpg',
     alt: 'Grant Moore: Solution Architect, Developer & Designer',
   },
+  {
+    src: '/assets/svgs/rain-droplet.svg',
+    alt: 'Rain droplet'
+  }
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [

@@ -92,6 +92,10 @@
 .no-underline {
   text-decoration: none;
 }
+.start-button{
+  top: 0%;
+  left: 45%;
+}
 
 @media (max-width: 992px) {
   #btn-banner {
@@ -105,10 +109,6 @@
   }
   .selection-body {
     margin-top: 10%;
-  }
-  .start-button {
-    top: 0%;
-    left: 42.5%;
   }
 }
 @media (min-width: 991px) {
