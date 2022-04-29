@@ -64,11 +64,11 @@
   .mobile-title {
     padding-top: -5%;
   }
-  .mobile-scroller{
-    overflow-y: auto; 
+  .mobile-scroller {
+    overflow-y: auto;
     max-height: 25vh;
   }
-  .actions{
+  .actions {
     right: 48.5%;
   }
 }
@@ -126,7 +126,7 @@
     top: 80%;
     right: 7.5%;
   }
-  .actions{
+  .actions {
     right: 2.5%;
   }
 }

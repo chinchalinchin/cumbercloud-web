@@ -47,10 +47,16 @@ export class ResumeComponent {
     new AnimationControl(AnimationTriggers.cntl_highlight),
   ];
 
-  constructor(private meta: MetaService, 
-              private route: ActivatedRoute,
-              public dialog: MatDialog) {
-    this.selectedProfile = this.profileConfig.filter(profile => profile.key === this.route.snapshot.paramMap.get('name')).pop()
+  constructor(
+    private meta: MetaService,
+    private route: ActivatedRoute,
+    public dialog: MatDialog
+  ) {
+    this.selectedProfile = this.profileConfig
+      .filter(
+        (profile) => profile.key === this.route.snapshot.paramMap.get('name')
+      )
+      .pop();
     this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
