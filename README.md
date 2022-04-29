@@ -40,7 +40,7 @@ npm run prerender
 
 All of the resources to host, deploy and update this web application are contained as **infrastructure-as-code** within the _cloudformation.yml_ in the repository root. This template can be posted to **CloudFormation** with the appropriate parameters to provision a **CloudFront** distribution, several **S3** buckets, a **CodeCommit** repository, a **CodeBuild** project, a **CodePipeline** pipeline and several other resources to glue the whole environment together. The following diagram illustrates the architecture captured in this template,
 
-<img align="center" width="100%" height="100%" src="/docs/web_architecture.png">
+<img align="center" width="auto" height="auto" src="/docs/web_architecture.png">
 
 If you have the [AWS CLI]() installed and configured, you can use the script `./scripts/provision-stack` to provision all the resources necessary to host and continously update the web application stored in this repository,
 
