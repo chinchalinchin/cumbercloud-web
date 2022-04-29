@@ -111,7 +111,7 @@ import { SVG_CONFIG } from '../app.config';
 })
 export class AboutComponent implements OnInit {
   @ViewChild('scroller', { static: false }) public scroller?: ElementRef;
-  
+
   public whoAnimated: boolean = false;
   public whatAnimated: boolean = false;
   public screenSize: string = '';
@@ -160,8 +160,8 @@ export class AboutComponent implements OnInit {
     });
   }
 
-  ngOnInit(){
-    if(this.scroller){
+  ngOnInit() {
+    if (this.scroller) {
       console.log(this.scroller);
       this.scroller.nativeElement.scrollToTop();
     }

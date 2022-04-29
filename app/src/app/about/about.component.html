@@ -2,8 +2,16 @@
   <div id="placeholder" [@expand]></div>
 </div>
 
-<div role="region" id="responsive-content" aria-label="Grant Moore, Personas & Proficiencies, Animation Area">
-  <div role="region" id="responsive-content-text" aria-label="Text for responsive content">
+<div
+  role="region"
+  id="responsive-content"
+  aria-label="Grant Moore, Personas & Proficiencies, Animation Area"
+>
+  <div
+    role="region"
+    id="responsive-content-text"
+    aria-label="Text for responsive content"
+  >
     <div
       id="mathematician-text"
       class="animation mat-h2 text-default"
@@ -54,7 +62,11 @@
     </div>
   </div>
 
-  <div role="region" id="responsive-content-imgs" aria-label="Graphics for responsive content">
+  <div
+    role="region"
+    id="responsive-content-imgs"
+    aria-label="Graphics for responsive content"
+  >
     <div
       id="mathematician-droplet"
       aria-labelledby="mathematician-text"
@@ -125,7 +137,12 @@
   </div>
 </div>
 
-<div role="region" id="responsive-content-controls" aria-controls="responsive-content" aria-label="Controls for responsive content">
+<div
+  role="region"
+  id="responsive-content-controls"
+  aria-controls="responsive-content"
+  aria-label="Controls for responsive content"
+>
   <svg
     x="0px"
     y="0px"
@@ -152,10 +169,7 @@
       [class.cloud-border-select]="who"
       [attr.d]="svgConfig.cloud.path_3"
     />
-    <path
-      style="fill: #ffffff"
-      [attr.d]="svgConfig.cloud.path_4"
-    />
+    <path style="fill: #ffffff" [attr.d]="svgConfig.cloud.path_4" />
   </svg>
 
   <svg
@@ -184,20 +198,18 @@
       [class.cloud-border-select]="what"
       [attr.d]="svgConfig.cloud.path_3"
     />
-    <path
-      style="fill: #ffffff"
-      [attr.d]="svgConfig.cloud.path_4"
-    />
+    <path style="fill: #ffffff" [attr.d]="svgConfig.cloud.path_4" />
   </svg>
 </div>
 
-<object 
+<object
   id="who-grass"
   aria-label="grass growing graphics"
   class="animation"
-  data="/assets/svgs/grass.svg" 
-  [@cntl_position_who_grass]="whoGrassPositionCntl.state" 
-  type="image/svg+xml">
+  data="/assets/svgs/grass.svg"
+  [@cntl_position_who_grass]="whoGrassPositionCntl.state"
+  type="image/svg+xml"
+>
   <!--TODO: <img src="yourfallback.jpg" /> -->
 </object>
 
@@ -269,10 +281,22 @@
     <mat-card-content *ngIf="mobileMode()">
       <div class="mobile-scroller" #scroller>
         <p class="mat-body">
-          Grant Moore has been a web developer and engineer professionally for three years, although his interest in computer science and technology extends far back into his teenage years when he first began learning Java. He has since expanded his knowledge into numerous sub-fields, such as UI/UX design, frontend development, software engineering, development operations, containerization and cloud computing.  
+          Grant Moore has been a web developer and engineer professionally for
+          three years, although his interest in computer science and technology
+          extends far back into his teenage years when he first began learning
+          Java. He has since expanded his knowledge into numerous sub-fields,
+          such as UI/UX design, frontend development, software engineering,
+          development operations, containerization and cloud computing.
         </p>
         <p class="mat-body">
-          He acquired an extensive background in the natural sciences while studying physics and mathematics during his undergraduate and graduate education. While enrolled at Frostburg State and Towson University, he applied technology to a broad array of problems, such as pricing financial derivatives with stochastic processes, estimating statistical calculations efficiently with recursive algorithms and modelling physical phenomena with determinitic and non-deterministic finite automatons.  
+          He acquired an extensive background in the natural sciences while
+          studying physics and mathematics during his undergraduate and graduate
+          education. While enrolled at Frostburg State and Towson University, he
+          applied technology to a broad array of problems, such as pricing
+          financial derivatives with stochastic processes, estimating
+          statistical calculations efficiently with recursive algorithms and
+          modelling physical phenomena with determinitic and non-deterministic
+          finite automatons.
         </p>
         <p class="mat-body">
           Read on for more information about yours truly...
