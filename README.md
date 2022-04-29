@@ -2,7 +2,7 @@
 
 This is a Single Page Application written in [Angular](https://angular.io) and [Angular Material](https://material.angular.io/) for my personal website and portfolio. The application is hosted on an [AWS Cloudfront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html).
 
-This repository includes everything you will need to build, deploy and host its contents. 
+This repository includes everything you will need to build, deploy and host its contents.
 
 ## Quickstart
 
