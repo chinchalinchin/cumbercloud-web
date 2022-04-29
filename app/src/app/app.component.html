@@ -57,11 +57,30 @@
     <div
       class="nav-item"
       *ngFor="let conf of navConfig"
-      [ngClass]="{ selected: conf == this.selectedNav }"
-      [routerLink]="conf.path"
       aria-label="Navigation menu item"
     >
-      {{ conf.nav_title }}
+      <span 
+        *ngIf="!conf.children" 
+        [ngClass]="{ selected: conf == this.selectedNav }"
+        [routerLink]="conf.path"
+      >
+        {{ conf.nav_title }}
+      </span>
+      <span 
+        *ngIf="conf.children" 
+        [ngClass]="{ selected: conf == this.selectedNav }"
+        [matMenuTriggerFor]="menu"
+      >
+        {{conf.nav_title}}
+        <mat-menu #menu="matMenu">
+          <button 
+            *ngFor="let child of conf.children" 
+            mat-menu-item 
+            [routerLink]="child.path">
+            {{child.nav_title}}
+          </button>
+        </mat-menu>
+      </span>
     </div>
   </div>
 

@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Experience } from 'src/app/app.config';
+import { ExperienceConfig } from 'src/app/app.config';
 import { MetaService } from 'src/services/meta.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class ExperienceComponent {
   public screenSize: string = '';
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: Experience,
+    @Inject(MAT_DIALOG_DATA) public data: ExperienceConfig,
     private meta: MetaService
   ) {
     this.meta.mediaBreakpoint.subscribe((size: string) => {

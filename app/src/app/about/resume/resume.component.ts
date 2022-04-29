@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import {
   AnimationControl,
   Animations,
@@ -8,10 +9,12 @@ import {
   HighlightStates,
 } from 'src/animations';
 import {
-  Certification,
+  CertificationConfig,
   CERTIFICATION_CONFIG,
-  Experience,
+  ExperienceConfig,
   EXPERIENCE_CONFIG,
+  ProfileConfig,
+  PROFILE_CONFIG,
   ResumePopUpStates,
 } from 'src/app/app.config';
 import { MetaService } from 'src/services/meta.service';
@@ -27,14 +30,16 @@ import { ExperienceComponent } from './experience/experience.component';
   ],
 })
 export class ResumeComponent {
+  public selectedProfile?: ProfileConfig;
+  public profileConfig: ProfileConfig[] = PROFILE_CONFIG;
   public screenSize: string = '';
   public selectedCertTab: number = 0;
   public selectedEducationTab: number = 0;
   public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public popUpStates = ResumePopUpStates;
   public popUpState: ResumePopUpStates = ResumePopUpStates.null;
-  public experience: Experience[] = EXPERIENCE_CONFIG;
-  public certifications: Certification[] = CERTIFICATION_CONFIG;
+  public experience: ExperienceConfig[] = EXPERIENCE_CONFIG;
+  public certifications: CertificationConfig[] = CERTIFICATION_CONFIG;
   public factHighlightCntls: AnimationControl[] = [
     new AnimationControl(AnimationTriggers.cntl_highlight),
     new AnimationControl(AnimationTriggers.cntl_highlight),
@@ -42,7 +47,10 @@ export class ResumeComponent {
     new AnimationControl(AnimationTriggers.cntl_highlight),
   ];
 
-  constructor(private meta: MetaService, public dialog: MatDialog) {
+  constructor(private meta: MetaService, 
+              private route: ActivatedRoute,
+              public dialog: MatDialog) {
+    this.selectedProfile = this.profileConfig.filter(profile => profile.key === this.route.snapshot.paramMap.get('name')).pop()
     this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
@@ -158,7 +166,7 @@ export class ResumeComponent {
     }
   }
 
-  public openExperience(exp: Experience) {
+  public openExperience(exp: ExperienceConfig) {
     this.dialog.open(ExperienceComponent, {
       data: exp,
       width: '85%',

@@ -1,305 +1,277 @@
-<div id="about-bg" *ngIf="!mobileMode()">
-  <div id="placeholder" [@expand]></div>
-</div>
+<div *ngIf="selectedProfile">
+  <div id="about-bg" *ngIf="!mobileMode()">
+    <div id="placeholder" [@expand]></div>
+  </div>
 
-<div role="region" id="responsive-content" aria-label="Grant Moore, Personas & Proficiencies, Animation Area">
-  <div role="region" id="responsive-content-text" aria-label="Text for responsive content">
-    <div
-      id="mathematician-text"
-      class="animation mat-h2 text-default"
-      *ngIf="unfolded && who"
-      [@fade]
-    >
-      mathematician
+  <div role="region" id="responsive-content-1" aria-label="Personas & Proficiencies, Animation Area 1">
+    <div role="region" id="responsive-content-text" aria-label="Text for responsive content">
+      <section id="persona-section" *ngIf="unfolded && who">
+        <div
+          *ngFor="let index of [0,1,2]"
+          [id]="selectedProfile.factoids[index].id"
+          class="animation mat-h2 text-default"
+          [@fade]
+        >
+          {{selectedProfile.factoids[index].content}}
+        </div>
+      </section>
+      <section id="proficiency-section" *ngIf="unfolded && what">
+        <div 
+          *ngFor="let index of [3,4,5]"
+          [id]="selectedProfile.factoids[index].id"
+          class="animation mat-h2 text-default"
+          [@fade]
+        >
+          {{selectedProfile.factoids[index].content}}
+        </div>
+      </section>
     </div>
-    <div
-      id="technologist-text"
-      class="animation mat-h2 text-default"
-      *ngIf="unfolded && who"
-      [@fade]
-    >
-      engineer
-    </div>
-    <div
-      id="educator-text"
-      class="animation mat-h2 text-default"
-      *ngIf="unfolded && who"
-      [@fade]
-    >
-      teacher
-    </div>
-    <div
-      id="development-text"
-      class="animation mat-h2 text-default"
-      *ngIf="unfolded && what"
-      [@fade]
-    >
-      test driven development
-    </div>
-    <div
-      id="architecture-text"
-      class="animation mat-h2 text-default"
-      *ngIf="unfolded && what"
-      [@fade]
-    >
-      cloud architecture
-    </div>
-    <div
-      id="design-text"
-      class="animation mat-h2 text-default"
-      *ngIf="unfolded && what"
-      [@fade]
-    >
-      website design
+
+    <div role="region" id="responsive-content-imgs" aria-label="Graphics for responsive content">
+      <div
+        id="mathematician-droplet"
+        aria-labelledby="mathematician-text"
+        class="animation"
+        *ngIf="!mobileMode()"
+        [@cntl_position_who_1]="whoPositionCntls[0].state"
+      >
+        <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
+          <!--TODO: <img src="yourfallback.jpg" /> -->
+        </object>
+      </div>
+      <div
+        id="technologist-droplet"
+        aria-labelledby="technologist-text"
+        class="animation"
+        *ngIf="!mobileMode()"
+        [@cntl_position_who_2]="whoPositionCntls[1].state"
+      >
+        <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
+          <!--TODO: <img src="yourfallback.jpg" /> -->
+        </object>
+      </div>
+      <div
+        id="educator-droplet"
+        aria-labelledby="educator-text"
+        class="animation"
+        *ngIf="!mobileMode()"
+        [@cntl_position_who_3]="whoPositionCntls[2].state"
+      >
+        <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
+          <!--TODO: <img src="yourfallback.jpg" /> -->
+        </object>
+      </div>
+
+      <div
+        id="development-droplet"
+        aria-labelledby="development-text"
+        class="animation"
+        *ngIf="!mobileMode()"
+        [@cntl_position_what_1]="whatPositionCntls[0].state"
+      >
+        <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
+          <!--TODO: <img src="yourfallback.jpg" /> -->
+        </object>
+      </div>
+      <div
+        id="architecture-droplet"
+        aria-labelledby="architecture-text"
+        class="animation"
+        *ngIf="!mobileMode()"
+        [@cntl_position_what_2]="whatPositionCntls[1].state"
+      >
+        <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
+          <!--TODO: <img src="yourfallback.jpg" /> -->
+        </object>
+      </div>
+      <div
+        id="design-droplet"
+        aria-labelledby="design-text"
+        class="animation"
+        *ngIf="!mobileMode()"
+        [@cntl_position_what_3]="whatPositionCntls[2].state"
+      >
+        <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
+          <!--TODO: <img src="yourfallback.jpg" /> -->
+        </object>
+      </div>
     </div>
   </div>
 
-  <div role="region" id="responsive-content-imgs" aria-label="Graphics for responsive content">
-    <div
-      id="mathematician-droplet"
-      aria-labelledby="mathematician-text"
+  <div role="region" id="responsive-content-controls" aria-controls="responsive-content" aria-label="Controls for responsive content">
+    <svg
+      x="0px"
+      y="0px"
+      width="30%"
+      height="30%"
+      viewBox="0 0 453.421 453.421"
+      id="who-cloud"
+      aria-labelledby="who-banner"
       class="animation"
-      *ngIf="!mobileMode()"
-      [@cntl_position_who_1]="whoPositionCntls[0].state"
+      [@cntl_scale_banner]="whoBnrScaleCntl.state"
     >
-      <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
-        <!--TODO: <img src="yourfallback.jpg" /> -->
-      </object>
-    </div>
-    <div
-      id="technologist-droplet"
-      aria-labelledby="technologist-text"
+      <path
+        [class.cloud-svg-dark]="!who"
+        [class.cloud-svg-select]="who"
+        [attr.d]="svgConfig.cloud.path_1"
+      />
+      <path
+        [class.cloud-svg-light]="!who"
+        [class.cloud-svg-select]="who"
+        [attr.d]="svgConfig.cloud.path_2"
+      />
+      <path
+        [class.cloud-border]="!who"
+        [class.cloud-border-select]="who"
+        [attr.d]="svgConfig.cloud.path_3"
+      />
+      <path
+        style="fill: #ffffff"
+        [attr.d]="svgConfig.cloud.path_4"
+      />
+    </svg>
+
+    <svg
+      x="0px"
+      y="0px"
+      width="30%"
+      height="30%"
       class="animation"
-      *ngIf="!mobileMode()"
-      [@cntl_position_who_2]="whoPositionCntls[1].state"
+      viewBox="0 0 453.421 453.421"
+      id="what-cloud"
+      aria-labelledby="what-banner"
+      [@cntl_scale_banner]="whatBnrScaleCntl.state"
     >
-      <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
-        <!--TODO: <img src="yourfallback.jpg" /> -->
-      </object>
-    </div>
-    <div
-      id="educator-droplet"
-      aria-labelledby="educator-text"
-      class="animation"
-      *ngIf="!mobileMode()"
-      [@cntl_position_who_3]="whoPositionCntls[2].state"
-    >
-      <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
-        <!--TODO: <img src="yourfallback.jpg" /> -->
-      </object>
-    </div>
-
-    <div
-      id="development-droplet"
-      aria-labelledby="development-text"
-      class="animation"
-      *ngIf="!mobileMode()"
-      [@cntl_position_what_1]="whatPositionCntls[0].state"
-    >
-      <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
-        <!--TODO: <img src="yourfallback.jpg" /> -->
-      </object>
-    </div>
-    <div
-      id="architecture-droplet"
-      aria-labelledby="architecture-text"
-      class="animation"
-      *ngIf="!mobileMode()"
-      [@cntl_position_what_2]="whatPositionCntls[1].state"
-    >
-      <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
-        <!--TODO: <img src="yourfallback.jpg" /> -->
-      </object>
-    </div>
-    <div
-      id="design-droplet"
-      aria-labelledby="design-text"
-      class="animation"
-      *ngIf="!mobileMode()"
-      [@cntl_position_what_3]="whatPositionCntls[2].state"
-    >
-      <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
-        <!--TODO: <img src="yourfallback.jpg" /> -->
-      </object>
-    </div>
-  </div>
-</div>
-
-<div role="region" id="responsive-content-controls" aria-controls="responsive-content" aria-label="Controls for responsive content">
-  <svg
-    x="0px"
-    y="0px"
-    width="30%"
-    height="30%"
-    viewBox="0 0 453.421 453.421"
-    id="who-cloud"
-    aria-labelledby="who-banner"
-    class="animation"
-    [@cntl_scale_banner]="whoBnrScaleCntl.state"
-  >
-    <path
-      [class.cloud-svg-dark]="!who"
-      [class.cloud-svg-select]="who"
-      [attr.d]="svgConfig.cloud.path_1"
-    />
-    <path
-      [class.cloud-svg-light]="!who"
-      [class.cloud-svg-select]="who"
-      [attr.d]="svgConfig.cloud.path_2"
-    />
-    <path
-      [class.cloud-border]="!who"
-      [class.cloud-border-select]="who"
-      [attr.d]="svgConfig.cloud.path_3"
-    />
-    <path
-      style="fill: #ffffff"
-      [attr.d]="svgConfig.cloud.path_4"
-    />
-  </svg>
-
-  <svg
-    x="0px"
-    y="0px"
-    width="30%"
-    height="30%"
-    class="animation"
-    viewBox="0 0 453.421 453.421"
-    id="what-cloud"
-    aria-labelledby="what-banner"
-    [@cntl_scale_banner]="whatBnrScaleCntl.state"
-  >
-    <path
-      [class.cloud-svg-dark]="!what"
-      [class.cloud-svg-select]="what"
-      [attr.d]="svgConfig.cloud.path_1"
-    />
-    <path
-      [class.cloud-svg-light]="!what"
-      [class.cloud-svg-select]="what"
-      [attr.d]="svgConfig.cloud.path_2"
-    />
-    <path
-      [class.cloud-border]="!what"
-      [class.cloud-border-select]="what"
-      [attr.d]="svgConfig.cloud.path_3"
-    />
-    <path
-      style="fill: #ffffff"
-      [attr.d]="svgConfig.cloud.path_4"
-    />
-  </svg>
-</div>
-
-<object 
-  id="who-grass"
-  aria-label="grass growing graphics"
-  class="animation"
-  data="/assets/svgs/grass.svg" 
-  [@cntl_position_who_grass]="whoGrassPositionCntl.state" 
-  type="image/svg+xml">
-  <!--TODO: <img src="yourfallback.jpg" /> -->
-</object>
-
-<object
-  id="what-grass"
-  aria-label="grass growing graphics"
-  class="animation"
-  data="/assets/svgs/grass.svg"
-  [@cntl_position_what_grass]="whatGrassPositionCntl.state"
-  type="image/svg+xml"
->
-  <!--TODO: <img src="yourfallback.jpg" /> -->
-</object>
-
-<object
-  id="who-flower"
-  class="animation"
-  aria-label="flower growing animation"
-  data="/assets/svgs/flower.svg"
-  [@cntl_position_who_flower]="whoFlowerPositionCntl.state"
->
-  <!--TODO: <img src="yourfallback.jpg" /> -->
-</object>
-
-<object
-  id="what-flower"
-  class="animation"
-  aria-label="flower growing animation"
-  data="/assets/svgs/flower.svg"
-  [@cntl_position_what_flower]="whatFlowerPositionCntl.state"
->
-  <!--TODO: <img src="yourfallback.jpg" /> -->
-</object>
-
-<div id="about">
-  <div
-    id="who-banner"
-    class="animation"
-    *ngIf="!mobileMode()"
-    (mouseenter)="animate('who')"
-  >
-    <div
-      id="who-banner-text"
-      class="fancy-text banner-content text-center text-primary-light"
-      [class.highlight]="who"
-      [@cntl_scale_text]="whoTxtScaleCntl.state"
-    >
-      {{ who ? "personas" : "who i am" }}
-    </div>
+      <path
+        [class.cloud-svg-dark]="!what"
+        [class.cloud-svg-select]="what"
+        [attr.d]="svgConfig.cloud.path_1"
+      />
+      <path
+        [class.cloud-svg-light]="!what"
+        [class.cloud-svg-select]="what"
+        [attr.d]="svgConfig.cloud.path_2"
+      />
+      <path
+        [class.cloud-border]="!what"
+        [class.cloud-border-select]="what"
+        [attr.d]="svgConfig.cloud.path_3"
+      />
+      <path
+        style="fill: #ffffff"
+        [attr.d]="svgConfig.cloud.path_4"
+      />
+    </svg>
   </div>
 
-  <mat-card id="profile-card" class="mat-elevation-z3">
-    <div class="center">
-      <div class="profile-container">
-        <img
-          src="/assets/people/grant/profile.jpg"
-          alt="Grant Moore, Lead Engineer"
-          class="profile-pic"
-        />
+  <div role="region" id="responsive-content-2" aria-label="Accompanying Graphics, Animation Area 2">
+    <object 
+      id="who-grass"
+      aria-label="grass growing graphics"
+      class="animation"
+      data="/assets/svgs/grass.svg" 
+      [@cntl_position_who_grass]="whoGrassPositionCntl.state" 
+      type="image/svg+xml">
+      <!--TODO: <img src="yourfallback.jpg" /> -->
+    </object>
+
+    <object
+      id="what-grass"
+      aria-label="grass growing graphics"
+      class="animation"
+      data="/assets/svgs/grass.svg"
+      [@cntl_position_what_grass]="whatGrassPositionCntl.state"
+      type="image/svg+xml"
+    >
+      <!--TODO: <img src="yourfallback.jpg" /> -->
+    </object>
+
+    <object
+      id="who-flower"
+      class="animation"
+      aria-label="flower growing animation"
+      data="/assets/svgs/flower.svg"
+      [@cntl_position_who_flower]="whoFlowerPositionCntl.state"
+    >
+      <!--TODO: <img src="yourfallback.jpg" /> -->
+    </object>
+
+    <object
+      id="what-flower"
+      class="animation"
+      aria-label="flower growing animation"
+      data="/assets/svgs/flower.svg"
+      [@cntl_position_what_flower]="whatFlowerPositionCntl.state"
+    >
+      <!--TODO: <img src="yourfallback.jpg" /> -->
+    </object>
+  </div>
+
+  <div id="about">
+    <div
+      id="who-banner"
+      class="animation"
+      *ngIf="!mobileMode()"
+      (mouseenter)="animate('who')"
+    >
+      <div
+        id="who-banner-text"
+        class="fancy-text banner-content text-center text-primary-light"
+        [class.highlight]="who"
+        [@cntl_scale_text]="whoTxtScaleCntl.state"
+      >
+        {{ who ? "personas" : "who i am" }}
       </div>
     </div>
 
-    <mat-card-title class="center"> Grant Moore </mat-card-title>
-
-    <mat-card-subtitle class="text-center">
-      Solution Architect, Developer & Designer
-    </mat-card-subtitle>
-
-    <mat-card-content *ngIf="mobileMode()">
-      <div class="mobile-scroller" #scroller>
-        <p class="mat-body">
-          Grant Moore has been a web developer and engineer professionally for three years, although his interest in computer science and technology extends far back into his teenage years when he first began learning Java. He has since expanded his knowledge into numerous sub-fields, such as UI/UX design, frontend development, software engineering, development operations, containerization and cloud computing.  
-        </p>
-        <p class="mat-body">
-          He acquired an extensive background in the natural sciences while studying physics and mathematics during his undergraduate and graduate education. While enrolled at Frostburg State and Towson University, he applied technology to a broad array of problems, such as pricing financial derivatives with stochastic processes, estimating statistical calculations efficiently with recursive algorithms and modelling physical phenomena with determinitic and non-deterministic finite automatons.  
-        </p>
-        <p class="mat-body">
-          Read on for more information about yours truly...
-        </p>
+    <mat-card id="profile-card" class="mat-elevation-z3">
+      <div class="center">
+        <div class="profile-container">
+          <img
+            [src]="selectedProfile.src"
+            [alt]="selectedProfile.alt"
+            class="profile-pic"
+          />
+        </div>
       </div>
-    </mat-card-content>
 
-    <div class="actions">
-      <button mat-icon-button routerLink="/about/resume">
-        <mat-icon matTooltip="Grant's Resume">arrow_right_alt</mat-icon>
-      </button>
-    </div>
-  </mat-card>
+      <mat-card-title class="center"> 
+        {{selectedProfile.name}} 
+      </mat-card-title>
 
-  <div
-    id="what-banner"
-    class="animation"
-    *ngIf="!mobileMode()"
-    (mouseenter)="animate('what')"
-  >
+      <mat-card-subtitle class="text-center">
+        {{selectedProfile.position}}
+      </mat-card-subtitle>
+
+      <mat-card-content *ngIf="mobileMode()">
+        <div class="mobile-scroller" #scroller>
+          <p class="mat-body" *ngFor="let blurb of selectedProfile.blurbs">
+            {{blurb}}
+          </p>
+        </div>
+      </mat-card-content>
+
+      <div class="actions">
+        <button mat-icon-button [routerLink]="['/about','resume', selectedProfile.key]">
+          <mat-icon [matTooltip]="selectedProfile.arrow_tooltip">arrow_right_alt</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+
     <div
-      id="what-banner-text"
-      class="fancy-text banner-content text-center text-primary-light"
-      [class.highlight]="what"
-      [@cntl_scale_text]="whatTxtScaleCntl.state"
+      id="what-banner"
+      class="animation"
+      *ngIf="!mobileMode()"
+      (mouseenter)="animate('what')"
     >
-      {{ what ? "proficiencies" : "what i do" }}
+      <div
+        id="what-banner-text"
+        class="fancy-text banner-content text-center text-primary-light"
+        [class.highlight]="what"
+        [@cntl_scale_text]="whatTxtScaleCntl.state"
+      >
+        {{ what ? "proficiencies" : "what i do" }}
+      </div>
     </div>
   </div>
 </div>

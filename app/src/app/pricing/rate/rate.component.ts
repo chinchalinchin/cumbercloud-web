@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Pricing } from 'src/app/app.config';
+import { PricingConfig } from 'src/app/app.config';
 
 export interface RateEvent {
   key: string;
@@ -16,7 +16,7 @@ export class RateComponent implements OnInit {
   public total!: number;
 
   @Input()
-  public config!: Pricing;
+  public config!: PricingConfig;
   @Output()
   public totalChanged: EventEmitter<RateEvent> = new EventEmitter<RateEvent>();
 

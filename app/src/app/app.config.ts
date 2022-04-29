@@ -9,11 +9,12 @@ export interface AssetConfig {
 
 export interface NavConfig {
   path: string;
-  nav_title: string;
-  page_title: string;
-  page_description: string;
-  menu: boolean;
-  data: any;
+  nav_title?: string;
+  page_title?: string;
+  page_description?: string;
+  menu?: boolean;
+  data?: any;
+  children?: NavConfig[]
 }
 
 export interface IconConfig {
@@ -27,21 +28,21 @@ export interface ChipConfig {
   svgIcon: string;
 }
 
-export interface Link {
+export interface LinkConfig {
   href: string;
   display: string;
 }
 
-export interface Experience {
+export interface ExperienceConfig {
   company: string;
   position: string;
   years: string;
   responsibilities: string[];
   accomplishments?: string[];
-  links?: Link[];
+  links?: LinkConfig[];
 }
 
-export interface PricingParameter {
+export interface PricingParameterConfig {
   type: string;
   label?: string;
   states?: number;
@@ -49,7 +50,7 @@ export interface PricingParameter {
   state_titles?: string[];
 }
 
-export interface Fee {
+export interface FeeConfig {
   service: string;
   rate: number;
   justification: string;
@@ -57,27 +58,43 @@ export interface Fee {
   href: string;
 }
 
-export interface Pricing {
+export interface PricingConfig {
   key: string;
   name: string;
-  parameter: PricingParameter;
-  fees: Fee[];
+  parameter: PricingParameterConfig;
+  fees: FeeConfig[];
   rate: number;
   tooltip: string;
 }
 
-export interface Certification {
+export interface CertificationConfig {
   title: string;
   src: string;
   alt: string;
 }
 
-export interface ContactReason {
+export interface ContactConfig {
   reason: string;
   key: string;
   option_text?: string;
   options_exclusive?: boolean;
   options?: string[];
+}
+
+export interface ElementConfig{
+  id: string,
+  content: string
+}
+
+export interface ProfileConfig{
+  name: string,
+  key: string,
+  src: string,
+  alt: string,
+  arrow_tooltip: string,
+  position: string,
+  blurbs: string[],
+  factoids: ElementConfig[],
 }
 
 ////////
@@ -162,10 +179,31 @@ export const NAV_CONFIG: NavConfig[] = [
   {
     path: '/about',
     nav_title: 'About',
-    page_title: 'Cumberland Cloud - About Grant Moore',
+    page_title: 'Cumberland Cloud - Abou',
     page_description:
-      'Grant Moore is a Solution Architect, Web Developer and UI/UX Designer. With a background in mathematics and physics, he approaches every software problem with a unique perspective, bringing to it a diverse array of analytical tools. Schedule a consultation at design@cumberland-cloud.com',
+      'Meet the team at Cumberland Cloud',
     menu: true,
+    data: {},
+    children:[
+      {
+        path: 'about/grant',
+        nav_title: "Grant Moore",
+        page_title: 'Cumberland Cloud - About Grant Moore',
+        page_description:
+          'Grant Moore is a Solution Architect, Web Developer and UI/UX Designer. With a background in mathematics and physics, he approaches every software problem with a unique perspective, bringing to it a diverse array of analytical tools. Schedule a consultation at design@cumberland-cloud.com',
+        data: {},
+      }
+    ]
+  },
+  // NOTE: this nav item is *not* a child of the previous item sp it does not get displayed
+  //        in the "About" dropdown menu, but still gets its SEO attributes configured
+  {
+    path: '/about/grant/resume',
+    nav_title: 'Resume',
+    page_title: 'The Cumberland Cloud - Grant Moore, Resume',
+    page_description:
+      'Grant Moore is the Solution Arhitect, Lead Developer and UI/UX Designer for the Cumberland Cloud. Read details about his career, certifications and education here.',
+    menu: false,
     data: {},
   },
   {
@@ -193,15 +231,6 @@ export const NAV_CONFIG: NavConfig[] = [
     page_description:
       'Submit a form message with details about your next web development project to the Cumberland Cloud',
     menu: true,
-    data: {},
-  },
-  {
-    path: '/about/resume',
-    nav_title: 'Resume',
-    page_title: 'The Cumberland Cloud - Grant Moore, Resume',
-    page_description:
-      'Grant Moore is the Solution Arhitect, Lead Developer and UI/UX Designer for the Cumberland Cloud. Read details about his career, certifications and education here.',
-    menu: false,
     data: {},
   },
 ];
@@ -367,7 +396,7 @@ export const ICON_CONFIG: IconConfig[] = [
   },
 ];
 
-export const EXPERIENCE_CONFIG: Experience[] = [
+export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
   {
     company: 'Makpar, Inc.',
     position: 'DevOps Engineer',
@@ -482,7 +511,7 @@ export const EXPERIENCE_CONFIG: Experience[] = [
   },
 ];
 
-export const CERTIFICATION_CONFIG: Certification[] = [
+export const CERTIFICATION_CONFIG: CertificationConfig[] = [
   {
     title: 'AWS DevOps Engineer Professional',
     src: '/assets/certs/AWS_DEVOPS.png',
@@ -515,7 +544,7 @@ export const CERTIFICATION_CONFIG: Certification[] = [
   },
 ];
 
-export const CORE_PRICING_CONFIG: Pricing[] = [
+export const CORE_PRICING_CONFIG: PricingConfig[] = [
   {
     key: 'DESIGN',
     name: 'Design & Hosting',
@@ -711,7 +740,7 @@ export const CORE_PRICING_CONFIG: Pricing[] = [
   },
 ];
 
-export const ADDON_PRICING_CONFIG: Pricing[] = [
+export const ADDON_PRICING_CONFIG: PricingConfig[] = [
   {
     key: 'STORAGE',
     name: 'Document & Data Storage',
@@ -812,7 +841,7 @@ export const ADDON_PRICING_CONFIG: Pricing[] = [
   },
 ];
 
-export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
+export const ANALYTICS_PRICING_CONFIG: PricingConfig[] = [
   {
     key: 'SEO',
     name: 'Search Engine Optimization',
@@ -845,7 +874,7 @@ export const ANALYTICS_PRICING_CONFIG: Pricing[] = [
   },
 ];
 
-export const REASON_CONFIG: ContactReason[] = [
+export const REASON_CONFIG: ContactConfig[] = [
   {
     reason: 'new website for my business.',
     key: 'NEW_WEB',
@@ -898,6 +927,52 @@ export const REASON_CONFIG: ContactReason[] = [
   },
 ];
 
+export const PROFILE_CONFIG: ProfileConfig[] = [
+  {
+    name: 'Grant Moore',
+    key: 'grant',
+    src: '/assets/people/grant/profile.jpg',
+    alt: 'Grant Moore, Lead Engineer',
+    arrow_tooltip: 'Grant Moore\'s Resume',
+    position: 'Solution Architect, Developer & Designer',
+    blurbs: [
+      "Grant Moore has been a web developer and engineer professionally for three years, although his interest in computer science and technology extends far back into his teenage years when he first began learning Java. He has since expanded his knowledge into numerous sub-fields, such as UI/UX design, frontend development, software engineering, development operations, containerization and cloud computing.",
+      "He acquired an extensive background in the natural sciences while studying physics and mathematics during his undergraduate and graduate education. While enrolled at Frostburg State and Towson University, he applied technology to a broad array of problems, such as pricing financial derivatives with stochastic processes, estimating statistical calculations efficiently with recursive algorithms and modelling physical phenomena with determinitic and non-deterministic finite automatons.",
+      "Read on for more information about yours truly..."
+    ],
+    // NOTE: about template assumes the first three factoids are personas 
+    //        and second three are proficiencies, i.e. order matters.
+    // NOTE: also, the ids here have styles associated with them, so they 
+    //        must be selected with care.
+    factoids:[
+      {
+        id:"mathematician-text",
+        content: "mathematician"
+      },
+      {
+        id: "technologist-text",
+        content: "technologist"
+      },
+      {
+        id: "educator-text",
+        content: "educator"
+      },
+      {
+        id: "architecture-text",
+        content: "cloud native architecture"
+      },
+      {
+        id: "development-text",
+        content: "test-driven development"
+      },
+      {
+        id: "design-text",
+        content: "website design"
+      }
+    ]
+  }
+];
+
 export const SVG_CONFIG: any= {
   cloud:{
     path_1: "M430.751,223.448c0.067-1.356,0.204-2.693,0.204-4.066c0-44.942-36.433-81.374-81.374-81.374c-8.933,0-17.505,1.493-25.547,4.152c-23.713-32.081-61.696-52.976-104.653-52.976c-71.907,0-130.199,58.293-130.199,130.199c0,0.684,0.093,1.345,0.103,2.028c-46.478,9.387-81.477,50.446-81.477,99.691c0,56.178,45.54,101.718,101.718,101.718h292.949c56.178,0,101.718-45.541,101.718-101.718C504.192,274.746,473.155,235.709,430.751,223.448z",
@@ -905,4 +980,4 @@ export const SVG_CONFIG: any= {
     path_3: "M402.474,430.626H109.526C49.133,430.626,0,381.493,0,321.101c0-49.761,33.878-93.29,81.437-105.875c2.202-74.185,63.237-133.851,137.945-133.851c22.248,0,43.489,5.158,63.134,15.332c17.069,8.839,32.332,21.374,44.434,36.445c7.431-1.961,15.02-2.952,22.633-2.952c48.652,0,88.331,39.16,89.168,87.616c20.006,7.049,37.887,20.002,50.827,36.932c14.67,19.193,22.424,42.137,22.424,66.352C512,381.493,462.867,430.626,402.474,430.626z M219.381,96.99c-67.487,0-122.392,54.904-122.392,122.392c0,0.174,0.02,0.345,0.031,0.515c0.033,0.459,0.062,0.918,0.07,1.385l0.107,6.495l-6.368,1.286c-43.582,8.803-75.215,47.51-75.215,92.039c0,51.782,42.128,93.91,93.91,93.91h292.949c51.782,0,93.91-42.128,93.91-93.91c0-20.759-6.645-40.424-19.215-56.87c-12.168-15.921-29.425-27.741-48.587-33.281l-5.93-1.716l0.3-6.165c0.025-0.514,0.059-1.024,0.094-1.537c0.052-0.777,0.102-1.511,0.102-2.15c0-40.565-33.001-73.567-73.567-73.567c-7.787,0-15.557,1.264-23.096,3.757l-5.369,1.776l-3.361-4.547C294.357,115.144,258.501,96.99,219.381,96.99z",
     path_4: "M151.219,193.408h-15.615c0-35.251,28.679-63.929,63.929-63.929v15.615C172.892,145.095,151.219,166.768,151.219,193.408z"
   }
-}
+};

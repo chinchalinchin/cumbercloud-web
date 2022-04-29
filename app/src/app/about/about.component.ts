@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {
   AnimationControl,
   AnimationPeriods,
@@ -6,7 +7,7 @@ import {
   AnimationTriggers,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { SVG_CONFIG } from '../app.config';
+import { ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../app.config';
 
 @Component({
   selector: 'app-about',
@@ -110,8 +111,11 @@ import { SVG_CONFIG } from '../app.config';
   ],
 })
 export class AboutComponent implements OnInit {
-  @ViewChild('scroller', { static: false }) public scroller?: ElementRef;
+  @ViewChild('scroller', { static: false }) 
+  public scroller?: ElementRef;
   
+  public selectedProfile?: ProfileConfig;
+  public profileConfig: ProfileConfig[] = PROFILE_CONFIG;
   public whoAnimated: boolean = false;
   public whatAnimated: boolean = false;
   public screenSize: string = '';
@@ -154,7 +158,9 @@ export class AboutComponent implements OnInit {
   public what: boolean = false;
   public unfolded: boolean = false;
 
-  constructor(private meta: MetaService) {
+  constructor(private meta: MetaService,
+              private route: ActivatedRoute) {
+    this.selectedProfile = this.profileConfig.filter(profile => profile.key === this.route.snapshot.paramMap.get('name')).pop()
     this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });

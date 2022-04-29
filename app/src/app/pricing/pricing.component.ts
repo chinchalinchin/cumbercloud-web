@@ -6,7 +6,7 @@ import {
   ADDON_PRICING_CONFIG,
   ANALYTICS_PRICING_CONFIG,
   CORE_PRICING_CONFIG,
-  Pricing,
+  PricingConfig,
 } from '../app.config';
 import { RateEvent } from './rate/rate.component';
 
@@ -37,10 +37,10 @@ export class PricingComponent {
   public focusing: boolean = false;
   public focus?: PricingGroups;
   public calculated: boolean = false;
-  public coreConfig: Pricing[] = CORE_PRICING_CONFIG;
-  public addOnConfig: Pricing[] = ADDON_PRICING_CONFIG;
-  public analyticsConfig: Pricing[] = ANALYTICS_PRICING_CONFIG;
-  public enabledConfig: Pricing[] = [];
+  public coreConfig: PricingConfig[] = CORE_PRICING_CONFIG;
+  public addOnConfig: PricingConfig[] = ADDON_PRICING_CONFIG;
+  public analyticsConfig: PricingConfig[] = ANALYTICS_PRICING_CONFIG;
+  public enabledConfig: PricingConfig[] = [];
   public enabledCalc: RateEvent[] = [];
   public buttonStyle: ButtonStyle = ButtonStyle.none;
   public pricingGroups: any = PricingGroups;
@@ -56,29 +56,29 @@ export class PricingComponent {
     this.coreFormGroup = this.forms.group({});
     this.addOnFormGroup = this.forms.group({});
     this.analyticsFormGroup = this.forms.group({});
-    this.coreConfig.forEach((conf: Pricing) => {
+    this.coreConfig.forEach((conf: PricingConfig) => {
       this.coreFormGroup.addControl(conf.key, this.forms.control(false));
     });
-    this.addOnConfig.forEach((conf: Pricing) => {
+    this.addOnConfig.forEach((conf: PricingConfig) => {
       this.addOnFormGroup.addControl(conf.key, this.forms.control(false));
     });
-    this.analyticsConfig.forEach((conf: Pricing) => {
+    this.analyticsConfig.forEach((conf: PricingConfig) => {
       this.analyticsFormGroup.addControl(conf.key, this.forms.control(false));
     });
   }
 
   private parseEnabledCalculations(): void {
-    this.coreConfig.forEach((conf: Pricing) => {
+    this.coreConfig.forEach((conf: PricingConfig) => {
       if (this.coreFormGroup.controls[conf.key]?.value) {
         this.enabledConfig.push(conf);
       }
     });
-    this.addOnConfig.forEach((conf: Pricing) => {
+    this.addOnConfig.forEach((conf: PricingConfig) => {
       if (this.addOnFormGroup.controls[conf.key]?.value) {
         this.enabledConfig.push(conf);
       }
     });
-    this.analyticsConfig.forEach((conf: Pricing) => {
+    this.analyticsConfig.forEach((conf: PricingConfig) => {
       if (this.analyticsFormGroup.controls[conf.key]?.value) {
         this.enabledConfig.push(conf);
       }

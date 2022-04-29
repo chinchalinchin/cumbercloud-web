@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MetaService } from 'src/services/meta.service';
-import { ContactReason, REASON_CONFIG } from '../app.config';
+import { ContactConfig, REASON_CONFIG } from '../app.config';
 
 @Component({
   selector: 'app-contact',
@@ -16,7 +16,7 @@ import { ContactReason, REASON_CONFIG } from '../app.config';
 export class ContactComponent {
   public screenSize: string = '';
   public contactGroup: FormGroup;
-  public reasonConfig: ContactReason[] = REASON_CONFIG;
+  public reasonConfig: ContactConfig[] = REASON_CONFIG;
 
   constructor(private forms: FormBuilder, private meta: MetaService) {
     this.contactGroup = this.forms.group({

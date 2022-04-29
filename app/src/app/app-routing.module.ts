@@ -10,8 +10,8 @@ import { AboutComponent } from './about/about.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'pricing', component: PricingComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'about/resume', component: ResumeComponent },
+  { path: 'about/:name', component: AboutComponent },
+  { path: 'about/resume/:name', component: ResumeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'design', component: DesignComponent },
 ];
