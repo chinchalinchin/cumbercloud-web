@@ -6,6 +6,7 @@ import {
   AnimationTriggers,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
+import { SVG_CONFIG } from '../app.config';
 
 @Component({
   selector: 'app-about',
@@ -112,6 +113,7 @@ export class AboutComponent {
   public whoAnimated: boolean = false;
   public whatAnimated: boolean = false;
   public screenSize: string = '';
+  public svgConfig: any = SVG_CONFIG;
   public whoBnrScaleCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_scale
   );
