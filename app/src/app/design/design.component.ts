@@ -382,5 +382,8 @@ export class DesignComponent implements OnInit {
 
   public lure() {
     this.lured = true;
+    if(this.mobileMode()){
+      this.touchSplash();
+    }
   }
 }

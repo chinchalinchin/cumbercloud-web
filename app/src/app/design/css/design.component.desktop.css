@@ -1,6 +1,6 @@
 @media (min-width: 991px) {
   /* Splash */
-  #splash {
+  #splash-animation {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -12,11 +12,12 @@
     viewBox="0 0 508 508"
     id="splash-bubble"
     class="animation"
-    width="3%"
-    *ngIf="phasedIn(phases.splash) && !lured && oscillating && !mobileMode()"
+    [attr.width]=" mobileMode() ? '10%' : '3%'"
+    *ngIf="phasedIn(phases.splash) && !lured && oscillating"
     [@cntl_scale_slow]="lureScaleCntl.state"
     [@scale]
     (mouseenter)="lure()"
+    (click)="lure()"
   >
     <path
       [class.bubble]="!lureOscillated()"
@@ -317,18 +318,19 @@
   aria-label="Deliver animation region"
   aria-live="polite"
 >
-  <section id="deliver-svg">
+  <section 
+    id="deliver-svg"
+    *ngIf="phasedIn(phases.deliver)" 
+  >
     <div
       id="deliver-phase-svg-bg"
       class="placard animation mat-elevation-z3"
       [@scale]
-      *ngIf="phasedIn(phases.deliver)"
     ></div>
     <button
       mat-icon-button
       class="animation"
       style="top: 71.5%; left: 88.5%"
-      *ngIf="phasedIn(phases.deliver)"
       [@scale]
       color="accent"
     >
@@ -340,16 +342,17 @@
       type="image/svg+xml"
       class="animation"
       [@scale]
-      *ngIf="phasedIn(phases.deliver)"
     >
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section id="deliver-text">
+  <section 
+    id="deliver-text" 
+    *ngIf="phasedIn(phases.deliver, true)"
+  >
     <h1
       id="deliver-phase-title"
       class="animation mat-h1"
-      *ngIf="phasedIn(phases.deliver, true)"
       [@cntl_fade]="deliverLinesFadeCntl[0].state"
     >
       Deliver
@@ -357,13 +360,11 @@
     <div
       id="deliver-phase-title-underline"
       class="underline animation"
-      *ngIf="phasedIn(phases.deliver, true)"
       [@enlarge_large]
     ></div>
     <div
       id="deliver-phase-txt-line-1"
       class="animation mat-h2"
-      *ngIf="phasedIn(phases.deliver, true)"
       [@cntl_fade]="deliverLinesFadeCntl[0].state"
     >
       Before deployment, we
@@ -378,21 +379,22 @@
     <div
       id="deliver-phase-txt-line-2"
       class="animation mat-h2"
-      *ngIf="phasedIn(phases.deliver, true)"
       [@cntl_fade]="deliverLinesFadeCntl[1].state"
     >
       After deployment, we put in place
       <a
         href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html"
         target="_blank"
-        >monitoring</a
       >
+        monitoring
+      </a>
       and
       <a
         href="https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/failover-with-aws.html"
         target="_blank"
-        >failover</a
       >
+        failover
+      </a>
       procedures.
     </div>
     <div
@@ -403,9 +405,11 @@
     >
       The final product is reinforced according to the industry's best practices
       for
-      <a href="https://sre.google/sre-book/table-of-contents/" target="_blank"
-        >site reliability</a
-      >
+      <a 
+        href="https://sre.google/sre-book/table-of-contents/" 
+        target="_blank">
+        site reliability
+      </a>
     </div>
   </section>
 </div>
@@ -451,7 +455,7 @@
           what sets
         </div>
         <div
-          class="fancy-text text-center"
+          class="fancy-text text-center company-title"
           [@cntl_fade]="splashLines1FadeCntl[1].state"
         >
           the cumberland cloud
@@ -494,18 +498,20 @@
         <div
           class="mat-h1 text-center"
           [@cntl_fade]="splashLines2FadeCntl[0].state"
+          *ngIf="!mobileMode()"
         >
           Our approach to crafting
         </div>
         <div
           class="fancy-text text-center"
-          [@cntl_fade]="splashLines2FadeCntl[1].state"
+          [@cntl_fade]="mobileMode() ? splashLines2FadeCntl[0].state : splashLines2FadeCntl[1].state"
         >
-          a truly unique
+          {{ mobileMode() ? 'our unique approach to design' : 'a truly unique' }}
         </div>
         <div
           class="mat-h1 text-center"
           [@cntl_fade]="splashLines2FadeCntl[2].state"
+          *ngIf="!mobileMode()"
         >
           user experience.
         </div>

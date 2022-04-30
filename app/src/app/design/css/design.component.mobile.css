@@ -7,7 +7,7 @@
     width: 100%;
     height: 90%;
   }
-  #splash {
+  #splash-animation {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -22,5 +22,12 @@
   }
   .splash-bg {
     bottom: 20%;
+  }
+  .company-title{
+    padding-top: 3%;
+  }
+  #splash-bubble {
+    top: 45%;
+    right: 15%;
   }
 }
