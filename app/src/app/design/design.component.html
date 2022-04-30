@@ -11,7 +11,7 @@
     viewBox="0 0 508 508"
     id="splash-bubble"
     class="animation"
-    [attr.width]=" mobileMode() ? '10%' : '3%'"
+    [attr.width]="mobileMode() ? '10%' : '3%'"
     *ngIf="phasedIn(phases.splash) && !lured && oscillating"
     [@cntl_scale_slow]="lureScaleCntl.state"
     [@scale]
@@ -39,7 +39,6 @@
       />
     </g>
   </svg>
-
 </div>
 
 <div
@@ -48,10 +47,12 @@
   aria-label="Design animation region"
   aria-live="polite"
 >
-  <section 
-    id="design-svg-container" 
+  <section
+    id="design-svg-container"
     aria-label="Design SVG Card"
-    *ngIf="mobileMode() ? phasedIn(phases.design, true) : phasedIn(phases.design)"  
+    *ngIf="
+      mobileMode() ? phasedIn(phases.design, true) : phasedIn(phases.design)
+    "
   >
     <div
       id="design-phase-svg-bg"
@@ -78,8 +79,8 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section 
-    id="design-text-container" 
+  <section
+    id="design-text-container"
     aria-label="Design SVG Captions"
     *ngIf="phasedIn(phases.design, true)"
   >
@@ -102,7 +103,7 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="designLinesFadeCntl[0].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
@@ -120,7 +121,7 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="designLinesFadeCntl[1].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
@@ -128,20 +129,20 @@
         ></mat-icon>
         <span>
           your ideas will be transformed into
-          <a 
+          <a
             id="openapi-link"
-            href="https://swagger.io/specification/" 
+            href="https://swagger.io/specification/"
             target="_blank"
           >
             technical specifications
           </a>
           and
-          <a 
+          <a
             id="wireframe-link"
-            href="https://en.wikipedia.org/wiki/Website_wireframe" 
+            href="https://en.wikipedia.org/wiki/Website_wireframe"
             target="_blank"
           >
-            wireframes 
+            wireframes
           </a>
           .
         </span>
@@ -154,15 +155,15 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="designLinesFadeCntl[2].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
           *ngIf="mobileMode()"
         ></mat-icon>
         <span>
-          after the design is tailored to your liking and approved, development will
-          start.
+          after the design is tailored to your liking and approved, development
+          will start.
         </span>
       </div>
     </div>
@@ -175,10 +176,12 @@
   aria-label="Develop animation region"
   aria-live="polite"
 >
-  <section 
-    id="develop-svg-container" 
+  <section
+    id="develop-svg-container"
     aria-label="Develop SVG Card"
-    *ngIf="mobileMode() ? phasedIn(phases.develop, true) : phasedIn(phases.develop)"
+    *ngIf="
+      mobileMode() ? phasedIn(phases.develop, true) : phasedIn(phases.develop)
+    "
   >
     <div
       id="develop-phase-svg-bg"
@@ -205,8 +208,8 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section 
-    id="develop-text-container" 
+  <section
+    id="develop-text-container"
     aria-label="Develop SVG Captions"
     *ngIf="phasedIn(phases.develop, true)"
   >
@@ -229,7 +232,7 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="developLinesFadeCntl[0].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
@@ -255,7 +258,7 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="developLinesFadeCntl[1].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
@@ -264,8 +267,8 @@
         <span>
           We build containerized
           <a
-            id="microservice-link" 
-            href="https://en.wikipedia.org/wiki/Microservices" 
+            id="microservice-link"
+            href="https://en.wikipedia.org/wiki/Microservices"
             target="_blank"
           >
             microservices
@@ -281,15 +284,13 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="developLinesFadeCntl[2].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
           *ngIf="mobileMode()"
         ></mat-icon>
-        <span>
-          We design with scalability and reliability in mind.
-        </span>
+        <span> We design with scalability and reliability in mind. </span>
       </div>
     </div>
   </section>
@@ -301,10 +302,12 @@
   aria-label="Deploy animation region"
   aria-live="polite"
 >
-  <section 
-    id="deploy-svg-container" 
+  <section
+    id="deploy-svg-container"
     aria-label="Deploy SVG card"
-    *ngIf="mobileMode() ? phasedIn(phases.deploy, true) : phasedIn(phases.deploy)" 
+    *ngIf="
+      mobileMode() ? phasedIn(phases.deploy, true) : phasedIn(phases.deploy)
+    "
   >
     <div
       id="deploy-phase-svg-bg"
@@ -331,8 +334,8 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section 
-    id="deploy-text-container" 
+  <section
+    id="deploy-text-container"
     aria-label="Deploy animation captions"
     *ngIf="phasedIn(phases.deploy, true)"
   >
@@ -355,7 +358,7 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deployLinesFadeCntl[0].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
@@ -381,7 +384,7 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deployLinesFadeCntl[1].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
@@ -389,10 +392,11 @@
         ></mat-icon>
         <span>
           We curate a
-          <a 
+          <a
             id="repository-link"
-            href="https://github.com/chinchalinchin/cf-deploy" 
-            target="_blank">
+            href="https://github.com/chinchalinchin/cf-deploy"
+            target="_blank"
+          >
             repository
           </a>
           of <i>IaC</i> templates, all of which can be deployed in minutes.
@@ -406,7 +410,7 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deployLinesFadeCntl[2].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
@@ -426,9 +430,11 @@
   aria-label="Deliver animation region"
   aria-live="polite"
 >
-  <section 
+  <section
     id="deliver-svg-container"
-    *ngIf="mobileMode() ? phasedIn(phases.deliver, true) : phasedIn(phases.deliver)" 
+    *ngIf="
+      mobileMode() ? phasedIn(phases.deliver, true) : phasedIn(phases.deliver)
+    "
   >
     <div
       id="deliver-phase-svg-bg"
@@ -455,10 +461,7 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section 
-    id="deliver-text" 
-    *ngIf="phasedIn(phases.deliver, true)"
-  >
+  <section id="deliver-text" *ngIf="phasedIn(phases.deliver, true)">
     <h1
       id="deliver-phase-title"
       class="animation mat-h1"
@@ -478,7 +481,7 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deliverLinesFadeCntl[0].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
@@ -503,7 +506,7 @@
       [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deliverLinesFadeCntl[1].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
@@ -536,18 +539,19 @@
       *ngIf="phasedIn(phases.deliver, true)"
       [@cntl_fade]="deliverLinesFadeCntl[2].state"
     >
-      <div style="display: flex;flex-direction: row;">
+      <div style="display: flex; flex-direction: row">
         <mat-icon
           class="mobile-bullet"
           svgIcon="cloud_compute"
           *ngIf="mobileMode()"
         ></mat-icon>
         <span>
-          The final product is reinforced according to the industry's best practices
-          for
-          <a 
-            href="https://sre.google/sre-book/table-of-contents/" 
-            target="_blank">
+          The final product is reinforced according to the industry's best
+          practices for
+          <a
+            href="https://sre.google/sre-book/table-of-contents/"
+            target="_blank"
+          >
             site reliability
           </a>
         </span>
@@ -646,9 +650,15 @@
         </div>
         <div
           class="fancy-text text-center"
-          [@cntl_fade]="mobileMode() ? splashLines2FadeCntl[0].state : splashLines2FadeCntl[1].state"
+          [@cntl_fade]="
+            mobileMode()
+              ? splashLines2FadeCntl[0].state
+              : splashLines2FadeCntl[1].state
+          "
         >
-          {{ mobileMode() ? 'our unique approach to design' : 'a truly unique' }}
+          {{
+            mobileMode() ? "our unique approach to design" : "a truly unique"
+          }}
         </div>
         <div
           class="mat-h1 text-center"
