@@ -306,11 +306,14 @@ export const TOOL_CHIPS: ChipConfig[] = [
     tooltip: 'Python',
     href: 'https://www.python.org/',
     svgIcon: 'python',
+<<<<<<< HEAD
   },
   {
     tooltip: 'Angular',
     href: 'https://angular.io/',
     svgIcon: 'angular',
+=======
+>>>>>>> 3c4f74094478aa2c878b23b5eb75ac3788bf43f8
   },
   {
     tooltip: 'Django',
@@ -392,6 +395,13 @@ export const ICON_CONFIG: IconConfig[] = [
   {
     src: '../assets/icons/cloud-outline.svg',
     name: 'cloud_outline',
+<<<<<<< HEAD
+=======
+  },
+  {
+    src: '../asets/icons/drawio.svg',
+    name: 'drawio',
+>>>>>>> 3c4f74094478aa2c878b23b5eb75ac3788bf43f8
   },
   {
     src: '../assets/icons/drawio.svg',
