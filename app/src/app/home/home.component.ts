@@ -266,7 +266,7 @@ export class HomeComponent implements OnInit {
     let switchState: string = fromState ? fromState : this.state;
     switch (switchState) {
       case this.states.one:
-        return 'Responsive sites built on modern infrastructure';
+        return 'Responsive sites built on modern technology';
       case this.states.two:
         return 'Expert services at an affordable price';
       case this.states.three:

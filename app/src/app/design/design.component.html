@@ -1,5 +1,4 @@
-<!--Animation Elements; absolute position and existence on screen determined by phase-->
-<!--Splash Animations-->
+<!--Animated Elements-->
 <div
   role="region"
   id="splash-svg-animation"
@@ -41,34 +40,28 @@
     </g>
   </svg>
 
-  <div
-    id="splash-txt"
-    class="animation mat-caption"
-    *ngIf="oscillations > 3 && !lured"
-    style="top: 59.5%; left: 58.5%"
-  >
-    I know!
-  </div>
 </div>
 
 <div
   role="region"
-  id="design-svg-animation"
+  id="design-animation"
   aria-label="Design animation region"
   aria-live="polite"
 >
-  <section id="design-svg-container" aria-label="Design SVG Card">
+  <section 
+    id="design-svg-container" 
+    aria-label="Design SVG Card"
+    *ngIf="mobileMode() ? phasedIn(phases.design, true) : phasedIn(phases.design)"  
+  >
     <div
       id="design-phase-svg-bg"
       class="placard animation mat-elevation-z3"
-      *ngIf="phasedIn(phases.design)"
       [@scale]
     ></div>
     <button
       id="design-phase-svg-numeral"
       mat-icon-button
       class="animation"
-      *ngIf="phasedIn(phases.design)"
       [@scale]
       color="accent"
     >
@@ -80,17 +73,19 @@
       id="design-phase-svg"
       class="animation"
       [@scale]
-      *ngIf="phasedIn(phases.design)"
       aria-labelledby="design-phase-title"
     >
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section id="design-text" aria-label="Design SVG Captions">
+  <section 
+    id="design-text-container" 
+    aria-label="Design SVG Captions"
+    *ngIf="phasedIn(phases.design, true)"
+  >
     <h1
       id="design-phase-title"
       class="animation mat-h1"
-      *ngIf="phasedIn(phases.design, true)"
       [@cntl_fade]="designLinesFadeCntl[0].state"
     >
       Design
@@ -98,64 +93,102 @@
     <div
       id="design-phase-title-underline"
       class="underline animation"
-      *ngIf="phasedIn(phases.design, true)"
       [@enlarge]
     ></div>
     <div
       id="design-phase-txt-line-1"
-      class="animation mat-h2"
-      *ngIf="phasedIn(phases.design, true)"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
+      [@cntl_fade]="designLinesFadeCntl[0].state"
     >
-      <span [@cntl_fade]="designLinesFadeCntl[0].state"
-        >the process starts when you schedule a <i>free</i> design
-        session.</span
-      >
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          the process starts when you schedule a <i>free</i> design session.
+        </span>
+      </div>
     </div>
     <div
       id="design-phase-txt-line-2"
-      class="animation mat-h2"
-      *ngIf="phasedIn(phases.design, true)"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="designLinesFadeCntl[1].state"
     >
-      your ideas will be transformed into
-      <a href="https://swagger.io/specification/" target="_blank">
-        technical specifications
-      </a>
-      and
-      <a href="https://en.wikipedia.org/wiki/Website_wireframe" target="_blank">
-        wireframes </a
-      >.
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          your ideas will be transformed into
+          <a 
+            id="openapi-link"
+            href="https://swagger.io/specification/" 
+            target="_blank"
+          >
+            technical specifications
+          </a>
+          and
+          <a 
+            id="wireframe-link"
+            href="https://en.wikipedia.org/wiki/Website_wireframe" 
+            target="_blank"
+          >
+            wireframes 
+          </a>
+          .
+        </span>
+      </div>
     </div>
     <div
       id="design-phase-txt-line-3"
-      class="animation mat-h2"
-      *ngIf="phasedIn(phases.design, true)"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="designLinesFadeCntl[2].state"
     >
-      after the design is tailored to your liking and approved, development will
-      start.
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          after the design is tailored to your liking and approved, development will
+          start.
+        </span>
+      </div>
     </div>
   </section>
 </div>
 
 <div
-  id="develop-svg-animation"
+  id="develop-animation"
   role="region"
   aria-label="Develop animation region"
   aria-live="polite"
 >
-  <section id="develop-svg" aria-label="Develop SVG Card">
+  <section 
+    id="develop-svg-container" 
+    aria-label="Develop SVG Card"
+    *ngIf="mobileMode() ? phasedIn(phases.develop, true) : phasedIn(phases.develop)"
+  >
     <div
-      id="develop-phase-bg"
+      id="develop-phase-svg-bg"
       class="placard animation mat-elevation-z3"
       [@scale]
-      *ngIf="phasedIn(phases.develop)"
     ></div>
     <button
-      id="develop-phase-numeral"
+      id="develop-phase-svg-numeral"
       mat-icon-button
       class="animation"
-      *ngIf="phasedIn(phases.develop)"
       [@scale]
       color="accent"
     >
@@ -167,17 +200,19 @@
       data="/assets/svgs/develop.svg"
       type="image/svg+xml"
       [@scale]
-      *ngIf="phasedIn(phases.develop)"
-      aria-labelledby="develop-text"
+      aria-labelledby="develop-phase-title"
     >
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section id="develop-text" aria-label="Develop SVG Captions">
+  <section 
+    id="develop-text-container" 
+    aria-label="Develop SVG Captions"
+    *ngIf="phasedIn(phases.develop, true)"
+  >
     <h1
       id="develop-phase-title"
       class="animation mat-h1"
-      *ngIf="phasedIn(phases.develop, true)"
       [@cntl_fade]="developLinesFadeCntl[0].state"
     >
       Develop
@@ -185,42 +220,77 @@
     <div
       id="develop-phase-title-underline"
       class="underline animation"
-      *ngIf="phasedIn(phases.develop, true)"
       [@enlarge]
     ></div>
     <div
       id="develop-phase-txt-line-1"
-      class="animation mat-h2"
-      *ngIf="phasedIn(phases.develop, true)"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="developLinesFadeCntl[0].state"
     >
-      We use the latest libraries to create
-      <a
-        href="https://en.wikipedia.org/wiki/Single-page_application"
-        target="_blank"
-        >reactive, responsive</a
-      >
-      web applications.
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          We use the latest libraries to create
+          <a
+            id="spa-link"
+            href="https://en.wikipedia.org/wiki/Single-page_application"
+            target="_blank"
+          >
+            reactive, responsive
+          </a>
+          web applications.
+        </span>
+      </div>
     </div>
     <div
       id="develop-phase-txt-line-2"
-      class="animation mat-h2"
-      *ngIf="phasedIn(phases.develop, true)"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="developLinesFadeCntl[1].state"
     >
-      We build containerized
-      <a href="https://en.wikipedia.org/wiki/Microservices" target="_blank"
-        >microservices</a
-      >
-      to implement business logic.
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          We build containerized
+          <a
+            id="microservice-link" 
+            href="https://en.wikipedia.org/wiki/Microservices" 
+            target="_blank"
+          >
+            microservices
+          </a>
+          to implement business logic.
+        </span>
+      </div>
     </div>
     <div
       id="develop-phase-txt-line-3"
-      class="animation mat-h2"
-      *ngIf="phasedIn(phases.develop, true)"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="developLinesFadeCntl[2].state"
     >
-      We design with scalability and reliability in mind.
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          We design with scalability and reliability in mind.
+        </span>
+      </div>
     </div>
   </section>
 </div>
@@ -231,18 +301,20 @@
   aria-label="Deploy animation region"
   aria-live="polite"
 >
-  <section id="deploy-svg" aria-label="Deploy SVG card">
+  <section 
+    id="deploy-svg-container" 
+    aria-label="Deploy SVG card"
+    *ngIf="mobileMode() ? phasedIn(phases.deploy, true) : phasedIn(phases.deploy)" 
+  >
     <div
       id="deploy-phase-svg-bg"
       class="placard animation mat-elevation-z3"
       [@scale]
-      *ngIf="phasedIn(phases.deploy)"
     ></div>
     <button
       id="deploy-phase-svg-numeral"
       mat-icon-button
       class="animation"
-      *ngIf="phasedIn(phases.deploy)"
       [@scale]
       color="accent"
     >
@@ -254,16 +326,19 @@
       type="image/svg+xml"
       class="animation"
       [@scale]
-      *ngIf="phasedIn(phases.deploy)"
+      aria-labelledby="deploy-phase-title"
     >
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section id="deploy-text" aria-label="Deploy animation captions">
+  <section 
+    id="deploy-text-container" 
+    aria-label="Deploy animation captions"
+    *ngIf="phasedIn(phases.deploy, true)"
+  >
     <h1
       id="deploy-phase-title"
       class="animation mat-h1"
-      *ngIf="phasedIn(phases.deploy, true)"
       [@cntl_fade]="deployLinesFadeCntl[0].state"
     >
       Deploy
@@ -271,43 +346,76 @@
     <div
       id="deploy-phase-title-underline"
       class="underline animation"
-      *ngIf="phasedIn(phases.deploy, true)"
       [@enlarge]
     ></div>
     <div
       id="deploy-phase-txt-line-1"
-      class="animation mat-h2"
-      *ngIf="phasedIn(phases.deploy, true)"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deployLinesFadeCntl[0].state"
     >
-      When development is complete, we upload your site to the cloud using
-      <a
-        href="https://en.wikipedia.org/wiki/Infrastructure_as_code"
-        target="_blank"
-      >
-        infrastructure as code
-      </a>
-      (<i style="font-size: small">IaC</i>).
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          When development is complete, we upload your site to the cloud using
+          <a
+            id="iac-link"
+            href="https://en.wikipedia.org/wiki/Infrastructure_as_code"
+            target="_blank"
+          >
+            infrastructure as code
+          </a>
+          (<i style="font-size: small">IaC</i>).
+        </span>
+      </div>
     </div>
     <div
       id="deploy-phase-txt-line-2"
-      class="animation mat-h2"
-      *ngIf="phasedIn(phases.deploy, true)"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deployLinesFadeCntl[1].state"
     >
-      We curate a
-      <a href="https://github.com/chinchalinchin/cf-deploy" target="_blank">
-        repository
-      </a>
-      of <i>IaC</i> templates, all of which can be deployed in minutes.
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          We curate a
+          <a 
+            id="repository-link"
+            href="https://github.com/chinchalinchin/cf-deploy" 
+            target="_blank">
+            repository
+          </a>
+          of <i>IaC</i> templates, all of which can be deployed in minutes.
+        </span>
+      </div>
     </div>
     <div
       id="deploy-phase-txt-line-3"
-      class="animation mat-h2"
-      *ngIf="phasedIn(phases.deploy, true)"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deployLinesFadeCntl[2].state"
     >
-      Whatever your use case, we have the capability of supporting it.
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          Whatever your use case, we have the capability of supporting it.
+        </span>
+      </div>
     </div>
   </section>
 </div>
@@ -319,8 +427,8 @@
   aria-live="polite"
 >
   <section 
-    id="deliver-svg"
-    *ngIf="phasedIn(phases.deliver)" 
+    id="deliver-svg-container"
+    *ngIf="mobileMode() ? phasedIn(phases.deliver, true) : phasedIn(phases.deliver)" 
   >
     <div
       id="deliver-phase-svg-bg"
@@ -328,9 +436,9 @@
       [@scale]
     ></div>
     <button
+      id="deliver-phase-svg-numeral"
       mat-icon-button
       class="animation"
-      style="top: 71.5%; left: 88.5%"
       [@scale]
       color="accent"
     >
@@ -342,6 +450,7 @@
       type="image/svg+xml"
       class="animation"
       [@scale]
+      aria-labelledby="deliver-phase-title"
     >
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
@@ -364,59 +473,92 @@
     ></div>
     <div
       id="deliver-phase-txt-line-1"
-      class="animation mat-h2"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deliverLinesFadeCntl[0].state"
     >
-      Before deployment, we
-      <a href="https://jmeter.apache.org/" target="_blank">
-        performance test
-      </a>
-      and
-      <a href="https://snyk.io/" target="_blank">
-        scan for security vulnerabilities.
-      </a>
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          Before deployment, we
+          <a href="https://jmeter.apache.org/" target="_blank">
+            performance test
+          </a>
+          and
+          <a href="https://snyk.io/" target="_blank">
+            scan for security vulnerabilities.
+          </a>
+        </span>
+      </div>
     </div>
     <div
       id="deliver-phase-txt-line-2"
-      class="animation mat-h2"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       [@cntl_fade]="deliverLinesFadeCntl[1].state"
     >
-      After deployment, we put in place
-      <a
-        href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html"
-        target="_blank"
-      >
-        monitoring
-      </a>
-      and
-      <a
-        href="https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/failover-with-aws.html"
-        target="_blank"
-      >
-        failover
-      </a>
-      procedures.
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          After deployment, we put in place
+          <a
+            href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html"
+            target="_blank"
+          >
+            monitoring
+          </a>
+          and
+          <a
+            href="https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/failover-with-aws.html"
+            target="_blank"
+          >
+            failover
+          </a>
+          procedures.
+        </span>
+      </div>
     </div>
     <div
       id="deliver-phase-txt-line-3"
-      class="animation mat-h2"
+      class="animation"
+      [class.mat-h2]="!mobileMode()"
+      [class.mat-h3]="mobileMode()"
       *ngIf="phasedIn(phases.deliver, true)"
       [@cntl_fade]="deliverLinesFadeCntl[2].state"
     >
-      The final product is reinforced according to the industry's best practices
-      for
-      <a 
-        href="https://sre.google/sre-book/table-of-contents/" 
-        target="_blank">
-        site reliability
-      </a>
+      <div style="display: flex;flex-direction: row;">
+        <mat-icon
+          class="mobile-bullet"
+          svgIcon="cloud_compute"
+          *ngIf="mobileMode()"
+        ></mat-icon>
+        <span>
+          The final product is reinforced according to the industry's best practices
+          for
+          <a 
+            href="https://sre.google/sre-book/table-of-contents/" 
+            target="_blank">
+            site reliability
+          </a>
+        </span>
+      </div>
     </div>
   </section>
 </div>
 
 <!--Regular Elements-->
 <div id="design" role="region" aria-label="Design content region">
-  <div class="center-flex">
+  <div class="center-flex" *ngIf="!mobileMode()">
     <div
       id="chip-container"
       class="center-flex"
@@ -452,13 +594,13 @@
           class="mat-h1 text-center"
           [@cntl_fade]="splashLines1FadeCntl[0].state"
         >
-          what sets
+          what sets the
         </div>
         <div
           class="fancy-text text-center company-title"
           [@cntl_fade]="splashLines1FadeCntl[1].state"
         >
-          the cumberland cloud
+          cumberland cloud
         </div>
         <div
           class="mat-h1 text-center"
@@ -528,6 +670,10 @@
         (click)="decrementPhase()"
         aria-label="Decrement animation"
         aria-controls="splash-animation,design-animation,develop-animation,deploy-animation,deliver-animation"
+        matRipple
+        matRippleColor="rgba(255,255,255,0.3)"
+        [matRippleRadius]="100"
+        [matRippleUnbounded]="true"
       >
         <mat-icon>arrow_back</mat-icon>
       </button>
@@ -540,6 +686,10 @@
         (click)="incrementPhase()"
         aria-label="Increment animation"
         aria-controls="splash-animation,design-animation,develop-animation,deploy-animation,deliver-animation"
+        matRipple
+        matRippleColor="rgba(255,255,255,0.3)"
+        [matRippleRadius]="100"
+        [matRippleUnbounded]="true"
       >
         <mat-icon>arrow_forward</mat-icon>
       </button>

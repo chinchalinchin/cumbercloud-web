@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { MatRipple } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import {
   AnimationControl,
@@ -44,6 +45,8 @@ enum Splash {
   ],
 })
 export class DesignComponent implements OnInit {
+  @ViewChildren(MatRipple) ripples!: QueryList<MatRipple>;
+
   public phases: any = Phases;
   public phase: Phases = Phases.none;
   public splashes: any = Splash;
@@ -171,7 +174,10 @@ export class DesignComponent implements OnInit {
     } else if (this.lureScaleCntl.state === ScaleStates.scale) {
       this.lureScaleCntl.prime();
     }
-    if (!this.lured) {
+    if(this.oscillations > 3){
+      this.lure();
+    }
+    else if (!this.lured) {
       setTimeout(() => {
         this.oscillateLure();
       }, AnimationPeriods.medium * 1000);
@@ -364,11 +370,34 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * inc * ind);
             }
           );
+          setTimeout(()=>{
+            this.flashRipple(true);
+          }, (this.splashLines2FadeCntl.length - 2)*1000)
         }, AnimationPeriods.medium * 1000);
       }, AnimationPeriods.medium * 1000);
     }
   }
 
+  public flashRipple(forward: boolean): void {
+    if(forward){
+      const rippleRef = this.ripples.last.launch({
+        persistent: true,
+        centered: true
+      });
+      setTimeout(()=>{
+        rippleRef.fadeOut();
+      }, AnimationPeriods.short*1000);
+    }
+    else{
+      const rippleRef = this.ripples.first.launch({
+        persistent: true,
+        centered: true
+      });
+      setTimeout(()=>{
+        rippleRef.fadeOut();
+      }, AnimationPeriods.short*1000);
+    }
+  }
   public splashSrc(): string {
     switch (this.splash) {
       case Splash.untouched:

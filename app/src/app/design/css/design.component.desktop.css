@@ -1,5 +1,7 @@
 @media (min-width: 991px) {
-  /* Splash */
+  #design{
+    height: 60%;
+  }
   #splash-animation {
     display: flex;
     flex-direction: row;
@@ -18,8 +20,6 @@
     top: 51%;
     left: 58%;
   }
-
-  /* Design */
   #design-phase-title {
     top: 24.5%;
     left: 29%;
@@ -68,7 +68,7 @@
   #develop-phase-svg {
     left: 25%;
   }
-  #develop-phase-bg {
+  #develop-phase-svg-bg {
     left: 22.5%;
     right: 62.5%;
   }
@@ -84,7 +84,7 @@
     left: 65%;
     top: 70%;
   }
-  #develop-phase-numeral {
+  #develop-phase-svg-numeral {
     top: 71.5%;
     left: 28.5%;
   }

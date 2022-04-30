@@ -1,4 +1,7 @@
 @media (max-width: 992px) {
+  #design{
+    height: 67.5%;
+  }
   #splash-img-container {
     width: 100%;
   }
@@ -14,6 +17,64 @@
     height: 100%;
     width: 100%;
   }
+  #splash-bubble {
+    top: 45%;
+    right: 15%;
+  }
+  #design-phase-svg,
+  #develop-phase-svg,
+  #deploy-phase-svg,
+  #deliver-phase-svg{
+    left: 35%;
+    top: 32.5%;
+  }
+  #design-phase-svg-numeral,
+  #develop-phase-svg-numeral,
+  #deploy-phase-svg-numeral,
+  #deliver-phase-svg-numeral{
+    top: 24%;
+    left: 20%;
+  }
+  #design-phase-title,
+  #develop-phase-title,
+  #deploy-phase-title,
+  #deliver-phase-title{
+    top: 25%;
+    width: 100%;
+    text-align: center;
+  }
+  #design-phase-txt-line-1,
+  #develop-phase-txt-line-1,
+  #deploy-phase-txt-line-1,
+  #deliver-phase-txt-line-1{
+    top: 55%;
+    width: 95%;
+    text-align: left;
+  }
+  #design-phase-txt-line-2,
+  #develop-phase-txt-line-2,
+  #deliver-phase-txt-line-2{
+    top: 67.5%;
+    width: 95%;
+    text-align: left;
+  }
+  #deploy-phase-txt-line-2{
+    top: 69%;
+    width: 95%;
+    text-align: left;
+  }
+  #design-phase-txt-line-3,
+  #develop-phase-txt-line-3,
+  #deploy-phase-txt-line-3{
+    top: 80%;
+    width: 95%;
+    text-align: left;
+  }
+  #deliver-phase-txt-line-3{
+    top: 78%;
+    width: 95%;
+    text-align: left;
+  }
   .splash-banner {
     display: flex;
     flex-direction: row;
@@ -26,8 +87,8 @@
   .company-title{
     padding-top: 3%;
   }
-  #splash-bubble {
-    top: 45%;
-    right: 15%;
+  .mobile-bullet{
+    margin-right: 2.5%;
+    margin-left: 2.5%;
   }
 }
