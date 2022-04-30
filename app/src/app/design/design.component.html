@@ -1,8 +1,8 @@
 <!--Animation Elements; absolute position and existence on screen determined by phase-->
 <!--Splash Animations-->
-<div 
-  role="region" 
-  id="splash-svg-animation" 
+<div
+  role="region"
+  id="splash-svg-animation"
   aria-label="Splash animation region"
   aria-live="polite"
 >
@@ -50,16 +50,13 @@
   </div>
 </div>
 
-<div 
-  role="region" 
-  id="design-svg-animation" 
+<div
+  role="region"
+  id="design-svg-animation"
   aria-label="Design animation region"
   aria-live="polite"
 >
-  <section 
-    id="design-svg-container"
-    aria-label="Design SVG Card"
-  >
+  <section id="design-svg-container" aria-label="Design SVG Card">
     <div
       id="design-phase-svg-bg"
       class="placard animation mat-elevation-z3"
@@ -88,10 +85,7 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section 
-    id="design-text"
-    aria-label="Design SVG Captions"
-  >
+  <section id="design-text" aria-label="Design SVG Captions">
     <h1
       id="design-phase-title"
       class="animation mat-h1"
@@ -143,15 +137,13 @@
   </section>
 </div>
 
-<div 
-  id="develop-svg-animation" 
-  role="region" 
+<div
+  id="develop-svg-animation"
+  role="region"
   aria-label="Develop animation region"
-  aria-live="polite">
-  <section 
-    id="develop-svg"
-    aria-label="Develop SVG Card"
-  >
+  aria-live="polite"
+>
+  <section id="develop-svg" aria-label="Develop SVG Card">
     <div
       id="develop-phase-bg"
       class="placard animation mat-elevation-z3"
@@ -180,10 +172,7 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section 
-    id="develop-text"
-    aria-label="Develop SVG Captions"
-  >
+  <section id="develop-text" aria-label="Develop SVG Captions">
     <h1
       id="develop-phase-title"
       class="animation mat-h1"
@@ -235,16 +224,13 @@
   </section>
 </div>
 
-<div 
-  id="deploy-svg-animation" 
-  role="region" 
+<div
+  id="deploy-svg-animation"
+  role="region"
   aria-label="Deploy animation region"
   aria-live="polite"
 >
-  <section 
-    id="deploy-svg" 
-    aria-label="Deploy SVG card"
-  >
+  <section id="deploy-svg" aria-label="Deploy SVG card">
     <div
       id="deploy-phase-svg-bg"
       class="placard animation mat-elevation-z3"
@@ -272,10 +258,7 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section 
-    id="deploy-text"
-    aria-label="Deploy animation captions"
-  >
+  <section id="deploy-text" aria-label="Deploy animation captions">
     <h1
       id="deploy-phase-title"
       class="animation mat-h1"
@@ -328,11 +311,12 @@
   </section>
 </div>
 
-<div 
-  id="deliver-animation" 
-  role="region" 
+<div
+  id="deliver-animation"
+  role="region"
   aria-label="Deliver animation region"
-  aria-live="polite">
+  aria-live="polite"
+>
   <section id="deliver-svg">
     <div
       id="deliver-phase-svg-bg"
@@ -383,17 +367,11 @@
       [@cntl_fade]="deliverLinesFadeCntl[0].state"
     >
       Before deployment, we
-      <a 
-        href="https://jmeter.apache.org/" 
-        target="_blank"
-      >
+      <a href="https://jmeter.apache.org/" target="_blank">
         performance test
-      </a> 
+      </a>
       and
-      <a 
-        href="https://snyk.io/" 
-        target="_blank"
-      >
+      <a href="https://snyk.io/" target="_blank">
         scan for security vulnerabilities.
       </a>
     </div>
@@ -423,7 +401,8 @@
       *ngIf="phasedIn(phases.deliver, true)"
       [@cntl_fade]="deliverLinesFadeCntl[2].state"
     >
-      The final product is reinforced according to the industry's best practices for
+      The final product is reinforced according to the industry's best practices
+      for
       <a href="https://sre.google/sre-book/table-of-contents/" target="_blank"
         >site reliability</a
       >
@@ -445,11 +424,7 @@
           *ngFor="let tool of toolConfig"
           [disabled]="isChipDisabled(tool.svgIcon)"
         >
-          <a
-            [href]="tool.href"
-            target="_blank"
-            class="center"
-          >
+          <a [href]="tool.href" target="_blank" class="center">
             <mat-icon
               id="tool"
               [svgIcon]="tool.svgIcon"
