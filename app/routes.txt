@@ -1,6 +1,6 @@
 /
 /pricing
-/about
-/about/resume
+/about/grant
+/about/resume/grant
 /contact
 /design
