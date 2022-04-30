@@ -1,10 +1,6 @@
 <!--Animation Elements; absolute position and existence on screen determined by phase-->
 <!--Splash Animations-->
-<div 
-  role="region" 
-  id="splash-animation" 
-  aria-label="Splash animation region"
->
+<div role="region" id="splash-animation" aria-label="Splash animation region">
   <svg
     x="0px"
     y="0px"
@@ -22,10 +18,7 @@
       [class.bubble-select]="lureOscillated()"
       [attr.d]="svgConfig.lure.path_1"
     />
-    <path
-      style="fill: #ffffff"
-      [attr.d]="svgConfig.lure.path_2"
-    />
+    <path style="fill: #ffffff" [attr.d]="svgConfig.lure.path_2" />
     <g>
       <path
         [class.exclaim]="!lureOscillated()"
@@ -52,11 +45,7 @@
   </div>
 </div>
 
-<div 
-  role="region" 
-  id="design-animation" 
-  aria-label="Design animation region"
->
+<div role="region" id="design-animation" aria-label="Design animation region">
   <section id="design-svg-container">
     <div
       id="design-phase-svg-bg"
@@ -74,8 +63,8 @@
     >
       <mat-icon>looks_one</mat-icon>
     </button>
-    <object 
-      data="/assets/svgs/design.svg" 
+    <object
+      data="/assets/svgs/design.svg"
       type="image/svg+xml"
       id="design-phase-svg"
       class="animation"
@@ -107,7 +96,8 @@
       *ngIf="phasedIn(phases.design, true)"
     >
       <span [@cntl_fade]="designLinesFadeCntl[0].state"
-        >the process starts when you schedule a <i>free</i> design session.</span
+        >the process starts when you schedule a <i>free</i> design
+        session.</span
       >
     </div>
     <div
@@ -117,19 +107,13 @@
       [@cntl_fade]="designLinesFadeCntl[1].state"
     >
       your ideas will be transformed into
-      <a 
-        href="https://swagger.io/specification/" 
-        target="_blank"
-      >
+      <a href="https://swagger.io/specification/" target="_blank">
         technical specifications
       </a>
       and
-      <a 
-        href="https://en.wikipedia.org/wiki/Website_wireframe" 
-        target="_blank"
-      >
-        wireframes
-      </a>.
+      <a href="https://en.wikipedia.org/wiki/Website_wireframe" target="_blank">
+        wireframes </a
+      >.
     </div>
     <div
       id="design-phase-txt-line-3"
@@ -143,10 +127,7 @@
   </section>
 </div>
 
-<div 
-  id="develop-animation" 
-  role="region" 
-  aria-label="Develop animation region">
+<div id="develop-animation" role="region" aria-label="Develop animation region">
   <section id="develop-svg">
     <div
       id="develop-phase-bg"
@@ -280,8 +261,8 @@
       [@cntl_fade]="deployLinesFadeCntl[0].state"
     >
       When development is complete, we upload your site to the cloud using
-      <a 
-        href="https://en.wikipedia.org/wiki/Infrastructure_as_code" 
+      <a
+        href="https://en.wikipedia.org/wiki/Infrastructure_as_code"
         target="_blank"
       >
         infrastructure as code
@@ -295,10 +276,7 @@
       [@cntl_fade]="deployLinesFadeCntl[1].state"
     >
       We curate a
-      <a 
-        href="https://github.com/chinchalinchin/cf-deploy" 
-        target="_blank"
-      >
+      <a href="https://github.com/chinchalinchin/cf-deploy" target="_blank">
         repository
       </a>
       of <i>IaC</i> templates, all of which can be deployed in minutes.
