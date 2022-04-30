@@ -1,6 +1,10 @@
 <!--Animation Elements; absolute position and existence on screen determined by phase-->
 <!--Splash Animations-->
-<div role="region" id="splash-animation" aria-label="Splash animation region">
+<div 
+  role="region" 
+  id="splash-animation" 
+  aria-label="Splash animation region"
+>
   <svg
     x="0px"
     y="0px"
@@ -48,7 +52,11 @@
   </div>
 </div>
 
-<div role="region" id="design-animation" aria-label="Design animation region">
+<div 
+  role="region" 
+  id="design-animation" 
+  aria-label="Design animation region"
+>
   <section id="design-svg-container">
     <div
       id="design-phase-svg-bg"
@@ -135,9 +143,10 @@
   </section>
 </div>
 
-
-<!-- Develop Animations-->
-<div id="develop-animation" role="region" aria-label="Develop animation region">
+<div 
+  id="develop-animation" 
+  role="region" 
+  aria-label="Develop animation region">
   <section id="develop-svg">
     <div
       id="develop-phase-bg"
@@ -164,61 +173,59 @@
       *ngIf="phasedIn(phases.develop)"
       aria-labelledby="develop-text"
     >
-        <!--TODO: <img src="yourfallback.jpg" /> -->
+      <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-
-  <h1
-    id="develop-phase-title"
-    class="animation mat-h1"
-    *ngIf="phasedIn(phases.develop, true)"
-    [@cntl_fade]="developLinesFadeCntl[0].state"
-  >
-    Develop
-  </h1>
-  <div
-    id="develop-phase-title-underline"
-    class="underline animation"
-    *ngIf="phasedIn(phases.develop, true)"
-    [@enlarge]
-  ></div>
-
-  <div
-    id="develop-phase-txt-line-1"
-    class="animation mat-h2"
-    *ngIf="phasedIn(phases.develop, true)"
-    [@cntl_fade]="developLinesFadeCntl[0].state"
-  >
-    We use the latest libraries to create
-    <a
-      href="https://en.wikipedia.org/wiki/Single-page_application"
-      target="_blank"
-      >reactive, responsive</a
+  <section id="develop-text">
+    <h1
+      id="develop-phase-title"
+      class="animation mat-h1"
+      *ngIf="phasedIn(phases.develop, true)"
+      [@cntl_fade]="developLinesFadeCntl[0].state"
     >
-    web applications.
-  </div>
-
-  <div
-    id="develop-phase-txt-line-2"
-    class="animation mat-h2"
-    *ngIf="phasedIn(phases.develop, true)"
-    [@cntl_fade]="developLinesFadeCntl[1].state"
-  >
-    We build containerized
-    <a href="https://en.wikipedia.org/wiki/Microservices" target="_blank"
-      >microservices</a
+      Develop
+    </h1>
+    <div
+      id="develop-phase-title-underline"
+      class="underline animation"
+      *ngIf="phasedIn(phases.develop, true)"
+      [@enlarge]
+    ></div>
+    <div
+      id="develop-phase-txt-line-1"
+      class="animation mat-h2"
+      *ngIf="phasedIn(phases.develop, true)"
+      [@cntl_fade]="developLinesFadeCntl[0].state"
     >
-    to implement business logic.
-  </div>
-
-  <div
-    id="develop-phase-txt-line-3"
-    class="animation mat-h2"
-    *ngIf="phasedIn(phases.develop, true)"
-    [@cntl_fade]="developLinesFadeCntl[2].state"
-  >
-    We design with scalability and reliability in mind.
-  </div>
+      We use the latest libraries to create
+      <a
+        href="https://en.wikipedia.org/wiki/Single-page_application"
+        target="_blank"
+        >reactive, responsive</a
+      >
+      web applications.
+    </div>
+    <div
+      id="develop-phase-txt-line-2"
+      class="animation mat-h2"
+      *ngIf="phasedIn(phases.develop, true)"
+      [@cntl_fade]="developLinesFadeCntl[1].state"
+    >
+      We build containerized
+      <a href="https://en.wikipedia.org/wiki/Microservices" target="_blank"
+        >microservices</a
+      >
+      to implement business logic.
+    </div>
+    <div
+      id="develop-phase-txt-line-3"
+      class="animation mat-h2"
+      *ngIf="phasedIn(phases.develop, true)"
+      [@cntl_fade]="developLinesFadeCntl[2].state"
+    >
+      We design with scalability and reliability in mind.
+    </div>
+  </section>
 </div>
 
 <!-- Deploy Animations -->
