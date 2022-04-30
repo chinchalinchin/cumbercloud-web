@@ -2,27 +2,7 @@
 
 <div class="bg-img"></div>
 
-<div id="under-construction" *ngIf="underConstruction">
-  <div class="h-align">
-    <img
-      id="construction-img"
-      src="/assets/imgs/under_construction.jpg"
-      class="mat-elevation-z3"
-    />
-  </div>
-  <button
-    id="construction-btn"
-    mat-fab
-    color="accent"
-    (click)="underConstruction = false"
-    matTooltip="Let me in anyway!"
-    aria-label="Site under construction"
-  >
-    <mat-icon>arrow_forward</mat-icon>
-  </button>
-</div>
-
-<div id="splash" *ngIf="!underConstruction">
+<div id="splash">
   <div id="banner" class="mat-elevation-z8">
     <div id="cloud-btn-container" class="v-align">
       <button

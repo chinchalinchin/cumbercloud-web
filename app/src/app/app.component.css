@@ -86,7 +86,7 @@
 }
 @media (max-width: 991px) {
   #construction-img {
-    width: 150%;
+    width: 100%;
     height: auto;
     margin: auto;
     border-radius: 25px;

@@ -19,7 +19,7 @@ ng serve
 ```shell
 cd app
 npm install
-npm run dev:srr
+npm run dev:ssr
 ```
 
 ### Production Build
