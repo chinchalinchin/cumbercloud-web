@@ -23,10 +23,7 @@
       [class.bubble-select]="lureOscillated()"
       [attr.d]="svgConfig.lure.path_1"
     />
-    <path
-      style="fill: #ffffff"
-      [attr.d]="svgConfig.lure.path_2"
-    />
+    <path style="fill: #ffffff" [attr.d]="svgConfig.lure.path_2" />
     <g>
       <path
         [class.exclaim]="!lureOscillated()"
@@ -79,8 +76,8 @@
     >
       <mat-icon>looks_one</mat-icon>
     </button>
-    <object 
-      data="/assets/svgs/design.svg" 
+    <object
+      data="/assets/svgs/design.svg"
       type="image/svg+xml"
       id="design-phase-svg"
       class="animation"
@@ -115,7 +112,8 @@
       *ngIf="phasedIn(phases.design, true)"
     >
       <span [@cntl_fade]="designLinesFadeCntl[0].state"
-        >the process starts when you schedule a <i>free</i> design session.</span
+        >the process starts when you schedule a <i>free</i> design
+        session.</span
       >
     </div>
     <div
@@ -125,19 +123,13 @@
       [@cntl_fade]="designLinesFadeCntl[1].state"
     >
       your ideas will be transformed into
-      <a 
-        href="https://swagger.io/specification/" 
-        target="_blank"
-      >
+      <a href="https://swagger.io/specification/" target="_blank">
         technical specifications
       </a>
       and
-      <a 
-        href="https://en.wikipedia.org/wiki/Website_wireframe" 
-        target="_blank"
-      >
-        wireframes
-      </a>.
+      <a href="https://en.wikipedia.org/wiki/Website_wireframe" target="_blank">
+        wireframes </a
+      >.
     </div>
     <div
       id="design-phase-txt-line-3"
@@ -305,8 +297,8 @@
       [@cntl_fade]="deployLinesFadeCntl[0].state"
     >
       When development is complete, we upload your site to the cloud using
-      <a 
-        href="https://en.wikipedia.org/wiki/Infrastructure_as_code" 
+      <a
+        href="https://en.wikipedia.org/wiki/Infrastructure_as_code"
         target="_blank"
       >
         infrastructure as code
@@ -320,10 +312,7 @@
       [@cntl_fade]="deployLinesFadeCntl[1].state"
     >
       We curate a
-      <a 
-        href="https://github.com/chinchalinchin/cf-deploy" 
-        target="_blank"
-      >
+      <a href="https://github.com/chinchalinchin/cf-deploy" target="_blank">
         repository
       </a>
       of <i>IaC</i> templates, all of which can be deployed in minutes.
