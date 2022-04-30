@@ -89,23 +89,28 @@
     left: 28.5%;
   }
   /* Deploy (and a little bit of Deliver..) */
-  #deploy-phase {
+  #deploy-phase-svg {
     left: 65%;
   }
-  #deploy-title {
+  #deploy-phase-title {
     top: 24.5%;
     left: 61.5%;
   }
-  #deploy-title-underline {
+  #deploy-phase-svg-bg {
+    left: 62.5%;
+    right: 22.5%;
+  }
+  #deploy-phase-svg-numeral {
+    top: 71.5%;
+    left: 68.5%;
+  }
+  #deploy-phase-title-underline {
     top: 28%;
     left: 61.75%;
     width: 5%;
     height: 1%;
   }
-  #deploy-phase-bg {
-    left: 62.5%;
-    right: 22.5%;
-  }
+
   #deploy-phase-txt-line-1,
   #deliver-phase-txt-line-1 {
     text-align: right;
@@ -126,10 +131,6 @@
     left: 1%;
     right: 42.5%;
     top: 70%;
-  }
-  #deploy-phase-numeral {
-    top: 71.5%;
-    left: 68.5%;
   }
   /* Deliver */
   #deliver-phase {

@@ -295,7 +295,8 @@ export const TOOL_CHIPS: ChipConfig[] = [
   { 
     tooltip: 'Diagrams',
     href: 'https://www.diagrams.net/', 
-    svgIcon: 'drawio' },
+    svgIcon: 'drawio' 
+  },
   {
     tooltip: 'Typescript',
     href: 'https://www.typescriptlang.org/',
@@ -306,19 +307,30 @@ export const TOOL_CHIPS: ChipConfig[] = [
     href: 'https://www.python.org/', 
     svgIcon: 'python'
   },
-  { tooltip: 'Angular', href: 'https://angular.io/', svgIcon: 'angular' },
+  { 
+    tooltip: 'Angular', 
+    href: 'https://angular.io/', 
+    svgIcon: 'angular' },
   {
     tooltip: 'Django',
     href: 'https://www.djangoproject.com/',
     svgIcon: 'django',
   },
-  { tooltip: 'Docker', href: 'https://www.docker.com/', svgIcon: 'docker' },
+  { 
+    tooltip: 'Docker', 
+    href: 'https://www.docker.com/', 
+    svgIcon: 'docker' 
+  },
   {
     tooltip: 'CloudFront',
     href: 'https://aws.amazon.com/cloudfront/',
     svgIcon: 'cloudfront',
   },
-  { tooltip: 'S3', href: 'https://aws.amazon.com/S3/', svgIcon: 's3' },
+  { 
+    tooltip: 'S3', 
+    href: 'https://aws.amazon.com/S3/', 
+    svgIcon: 's3' 
+  },
   {
     tooltip: 'Lambda',
     href: 'https://aws.amazon.com/lambda/',
@@ -381,12 +393,8 @@ export const ICON_CONFIG: IconConfig[] = [
     name: 'cloud_outline'
   },
   {
-    src: '../asets/icons/drawio.svg',
+    src: '../assets/icons/drawio.svg',
     name: 'drawio'
-  },
-  {
-    src: '../assets/icons/flow-charts.svg',
-    name: 'drawio',
   },
   {
     src: '../assets/icons/aws-dynamodb.svg',
@@ -461,7 +469,7 @@ export const ICON_CONFIG: IconConfig[] = [
     name: 'sunny'
   },
   {
-    src: '../assets/icons/typescript/svg',
+    src: '../assets/icons/typescript.svg',
     name: 'typescript',
   },
   {
