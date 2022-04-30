@@ -133,22 +133,22 @@
     top: 70%;
   }
   /* Deliver */
-  #deliver-phase {
+  #deliver-phase-svg {
     left: 85%;
   }
-  #deliver-phase-bg {
+  #deliver-phase-svg-bg {
     left: 82.5%;
     right: 2.5%;
   }
-  #deliver-phase-numeral {
+  #deliver-phase-svg-numeral {
     top: 71.5%;
     left: 88.5%;
   }
-  #deliver-title {
+  #deliver-phase-title {
     top: 24.5%;
     left: 48.25%;
   }
-  #deliver-title-underline {
+  #deliver-phase-title-underline {
     top: 28%;
     left: 42.25%;
     width: 17%;
