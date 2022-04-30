@@ -22,9 +22,9 @@
       <h1 class="selection-headline mat-headline" aria-relevant="all">
         {{ getTitle() }}
       </h1>
-      <h2 class="selection-subtitle mat-subtitle" aria-relevant="all">
+      <div class="selection-subtitle mat-subtitle" aria-relevant="all">
         {{ getSubtitle() }}
-      </h2>
+      </div>
       <div
         id="selection-img-container"
         aria-relevant="additions removals"
@@ -60,7 +60,8 @@
   <button
     mat-fab
     color="primary"
-    [@cntl_position_center]="centerPositionCntl.state"
+    [@cntl_position_center]="mobileMode() ? null : centerPositionCntl.state"
+    [@cntl_position_center_mobile]="mobileMode() ? centerPositionCntl.state : null"
     [@cntl_fade]="centerFadeCntl.state"
     (click)="display()"
     [matTooltip]="getHeidegger()"
@@ -143,7 +144,7 @@
   </div>
 
   <div id="responsive-content" role="region" aria-label="Responsive content">
-    <h2
+    <div
       id="cloud-line-desktop-1"
       class="animation"
       [@cntl_position_cloud_line_desktop_1]="
@@ -157,8 +158,8 @@
       [class.selection-underline]="selected(states.four) && !selecting && moved"
       *ngIf="!mobileMode()"
       (click)="setState(states.four)"
-    ></h2>
-    <h2
+    ></div>
+    <div
       id="cloud-line-desktop-2"
       class="animation"
       [@cntl_position_cloud_line_desktop_2]="
@@ -174,8 +175,8 @@
       "
       *ngIf="!mobileMode()"
       (click)="setState(states.three)"
-    ></h2>
-    <h2
+    ></div>
+    <div
       id="cloud-line-desktop-3"
       class="animation"
       [@cntl_position_cloud_line_desktop_3]="
@@ -189,8 +190,8 @@
       [class.selection-underline]="selected(states.two) && !selecting && moved"
       *ngIf="!mobileMode()"
       (click)="setState(states.two)"
-    ></h2>
-    <h2
+    ></div>
+    <div
       id="cloud-line-desktop-4"
       class="animation"
       [@cntl_position_cloud_line_desktop_4]="
@@ -204,9 +205,9 @@
       [class.selection-underline]="selected(states.one) && !selecting && moved"
       *ngIf="!mobileMode()"
       (click)="setState(states.one)"
-    ></h2>
+    ></div>
 
-    <h2
+    <div
       id="cloud-line-mobile-1"
       class="animation fancy-text"
       [innerHTML]="getLine(states.three)"
@@ -215,8 +216,8 @@
         cloudLineMobilePositionCntls[0].state
       "
       [@slide]
-    ></h2>
-    <h2
+    ></div>
+    <div
       id="cloud-line-mobile-2"
       class="animation fancy-text"
       [innerHTML]="getLine(states.two)"
@@ -225,8 +226,8 @@
         cloudLineMobilePositionCntls[1].state
       "
       [@slide_reverse]
-    ></h2>
-    <h2
+    ></div>
+    <div
       id="cloud-line-mobile-3"
       class="cloud-line fancy-text"
       [innerHTML]="getLine(states.one)"
@@ -234,6 +235,6 @@
       [@cntl_position_cloud_line_mobile_3]="
         cloudLineMobilePositionCntls[2].state
       "
-    ></h2>
+    ></div>
   </div>
 </div>

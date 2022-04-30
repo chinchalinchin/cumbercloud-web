@@ -27,6 +27,12 @@ enum States {
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
+      { top: '40%', left: '45%' },
+      [{ top: '0%', left: '45%' }],
+      'center_mobile',
+      AnimationPeriods.short
+    ),
+    Animations.getManualPositionTrigger(
       { top: '100%', left: '0%', right: '0%', bottom: '0%' },
       [{ top: '10%', left: '0%', right: '0%', bottom: '0%' }],
       'selector',
@@ -69,25 +75,25 @@ enum States {
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '30%', left: '7.5%' },
+      { top: '35%', left: '7.5%' },
       [{ top: '81%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_1',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '50%', left: '12.5%' },
+      { top: '55%', left: '12.5%' },
       [{ top: '61%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_2',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '30%', right: '7.5%' },
+      { top: '35%', right: '7.5%' },
       [{ top: '41%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_3',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '50%', right: '15%' },
+      { top: '55%', right: '15%' },
       [{ top: '21%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_4',
       AnimationPeriods.short

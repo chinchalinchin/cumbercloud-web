@@ -422,9 +422,8 @@ export class DesignComponent implements OnInit {
   }
 
   public lure() {
+    this.oscillating = false;
     this.lured = true;
-    if(this.mobileMode()){
-      this.touchSplash();
-    }
+    this.touchSplash();
   }
 }

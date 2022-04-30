@@ -197,7 +197,7 @@ export class ResumeComponent {
 
   public incrementEdTab() {
     this.selectedEducationTab++;
-    if (this.selectedEducationTab > 1) {
+    if (this.selectedEducationTab > 2) {
       this.selectedEducationTab = 0;
     }
   }

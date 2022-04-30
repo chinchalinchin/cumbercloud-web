@@ -303,14 +303,14 @@ export const TOOL_CHIPS: ChipConfig[] = [
     svgIcon: 'typescript',
   },
   {
-    tooltip: 'Python',
-    href: 'https://www.python.org/',
-    svgIcon: 'python',
-  },
-  {
     tooltip: 'Angular',
     href: 'https://angular.io/',
     svgIcon: 'angular',
+  },
+  {
+    tooltip: 'Python',
+    href: 'https://www.python.org/',
+    svgIcon: 'python',
   },
   {
     tooltip: 'Django',
