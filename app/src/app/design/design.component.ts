@@ -1,4 +1,10 @@
-import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { MatRipple } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import {
@@ -174,10 +180,9 @@ export class DesignComponent implements OnInit {
     } else if (this.lureScaleCntl.state === ScaleStates.scale) {
       this.lureScaleCntl.prime();
     }
-    if(this.oscillations > 3){
+    if (this.oscillations > 3) {
       this.lure();
-    }
-    else if (!this.lured) {
+    } else if (!this.lured) {
       setTimeout(() => {
         this.oscillateLure();
       }, AnimationPeriods.medium * 1000);
@@ -223,9 +228,9 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * 1500 * ind);
             }
           );
-          setTimeout(()=>{
+          setTimeout(() => {
             this.flashRipple(true);
-          }, this.designLinesFadeCntl.length*1500);
+          }, this.designLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
 
         break;
@@ -242,9 +247,9 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * 1500 * ind);
             }
           );
-          setTimeout(()=>{
+          setTimeout(() => {
             this.flashRipple(true);
-          }, this.developLinesFadeCntl.length*1500);
+          }, this.developLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
         break;
       case Phases.develop:
@@ -260,9 +265,9 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * 1500 * ind);
             }
           );
-          setTimeout(()=>{
+          setTimeout(() => {
             this.flashRipple(true);
-          }, this.deployLinesFadeCntl.length*1500);
+          }, this.deployLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
         break;
       case Phases.deploy:
@@ -278,9 +283,9 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * 1500 * ind);
             }
           );
-          setTimeout(()=>{
+          setTimeout(() => {
             this.flashRipple(true);
-          }, this.deliverLinesFadeCntl.length*1500);
+          }, this.deliverLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
         break;
       case Phases.deliver:
@@ -382,32 +387,31 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * inc * ind);
             }
           );
-          setTimeout(()=>{
+          setTimeout(() => {
             this.flashRipple(true);
-          }, (this.splashLines2FadeCntl.length - 1)*1250+500);
+          }, (this.splashLines2FadeCntl.length - 1) * 1250 + 500);
         }, AnimationPeriods.medium * 1000);
       }, AnimationPeriods.medium * 1000);
     }
   }
 
   public flashRipple(forward: boolean): void {
-    if(forward){
+    if (forward) {
       const rippleRef = this.ripples.last.launch({
         persistent: true,
-        centered: true
+        centered: true,
       });
-      setTimeout(()=>{
+      setTimeout(() => {
         rippleRef.fadeOut();
-      }, AnimationPeriods.short*1000);
-    }
-    else{
+      }, AnimationPeriods.short * 1000);
+    } else {
       const rippleRef = this.ripples.first.launch({
         persistent: true,
-        centered: true
+        centered: true,
       });
-      setTimeout(()=>{
+      setTimeout(() => {
         rippleRef.fadeOut();
-      }, AnimationPeriods.short*1000);
+      }, AnimationPeriods.short * 1000);
     }
   }
   public splashSrc(): string {
@@ -423,7 +427,7 @@ export class DesignComponent implements OnInit {
 
   public lure() {
     this.lured = true;
-    if(this.mobileMode()){
+    if (this.mobileMode()) {
       this.touchSplash();
     }
   }
