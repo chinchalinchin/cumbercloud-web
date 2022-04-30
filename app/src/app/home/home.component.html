@@ -19,27 +19,18 @@
       class="border-accent"
       [@cntl_fade]="selectionFadeCntl.state"
     >
-      <h1 
-        class="selection-headline mat-headline"
-        aria-relevant="all" 
-      >
+      <h1 class="selection-headline mat-headline" aria-relevant="all">
         {{ getTitle() }}
       </h1>
-      <h2 
-        class="selection-subtitle mat-subtitle"
-        aria-relevant="all"
-        >
+      <h2 class="selection-subtitle mat-subtitle" aria-relevant="all">
         {{ getSubtitle() }}
       </h2>
-      <div 
+      <div
         id="selection-img-container"
         aria-relevant="additions removals"
         aria-details="selection-blurb"
       >
-        <img 
-          id="selection-img" 
-          [src]="getSrc()" 
-        />
+        <img id="selection-img" [src]="getSrc()" />
       </div>
       <p
         id="selection-blurb"
