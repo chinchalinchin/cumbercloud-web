@@ -4,31 +4,47 @@
     [@cntl_fade]="centerFadeCntl.state"
     *ngIf="!animated"
     class="mat-elevation-z4"
+    role="banner"
   ></div>
 
   <div
     id="selection-menu"
     [@cntl_position_selector]="selectionPositionCntl.state"
     role="region"
-    aria-label="Splash page selection menu"
+    aria-label="Home page selection menu"
+    aria-live="polite"
   >
     <div
       id="selection"
       class="border-accent"
       [@cntl_fade]="selectionFadeCntl.state"
     >
-      <h1 class="selection-headline mat-headline">{{ getTitle() }}</h1>
-      <h2 class="selection-subtitle mat-subtitle">{{ getSubtitle() }}</h2>
-
-      <div id="selection-img-container">
-        <img id="selection-img" [src]="getSrc()" />
+      <h1 
+        class="selection-headline mat-headline"
+        aria-relevant="all" 
+      >
+        {{ getTitle() }}
+      </h1>
+      <h2 
+        class="selection-subtitle mat-subtitle"
+        aria-relevant="all"
+        >
+        {{ getSubtitle() }}
+      </h2>
+      <div 
+        id="selection-img-container"
+        aria-relevant="additions removals"
+        aria-details="selection-blurb"
+      >
+        <img 
+          id="selection-img" 
+          [src]="getSrc()" 
+        />
       </div>
-
       <p
         id="selection-blurb"
         class="mat-body selection-body text-center"
         [innerHTML]="getBlurb()"
-        aria-details="selection-img-container"
       ></p>
 
       <div
@@ -63,6 +79,7 @@
     [@scale]
     *ngIf="pressable"
     aria-label="Enter the Cumberland Cloud"
+    aria-controls="selection-menu"
   >
     <mat-icon>touch_app</mat-icon>
   </button>
@@ -82,6 +99,7 @@
       [class.selected-btn]="state == states.one"
       [attr.aria-label]="getTitle(states.one)"
       aria-controls="selection"
+      aria-selected="true"
     >
       <mat-icon>cloud</mat-icon>
     </button>
@@ -95,6 +113,7 @@
       [class.selected-btn]="state == states.two"
       [attr.aria-label]="getTitle(states.two)"
       aria-controls="selection"
+      aria-selected="false"
     >
       <mat-icon>cloud</mat-icon>
     </button>
@@ -108,6 +127,7 @@
       [class.selected-btn]="state == states.three"
       [attr.aria-label]="getTitle(states.three)"
       aria-controls="selection"
+      aria-selected="false"
     >
       <mat-icon>cloud</mat-icon>
     </button>
@@ -121,6 +141,7 @@
       [class.selected-btn]="state == states.four"
       [attr.aria-label]="getTitle(states.four)"
       aria-controls="selection"
+      aria-selected="false"
     >
       <mat-icon>cloud</mat-icon>
     </button>

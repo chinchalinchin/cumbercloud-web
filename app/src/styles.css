@@ -67,7 +67,10 @@ mat-card img {
 .animation {
   position: absolute;
 }
-
+.margin-center{
+  margin-left: auto;
+  margin-right: auto;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 15px;

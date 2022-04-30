@@ -2,8 +2,9 @@
 <!--Splash Animations-->
 <div 
   role="region" 
-  id="splash-animation" 
+  id="splash-svg-animation" 
   aria-label="Splash animation region"
+  aria-live="polite"
 >
   <svg
     x="0px"
@@ -54,10 +55,14 @@
 
 <div 
   role="region" 
-  id="design-animation" 
+  id="design-svg-animation" 
   aria-label="Design animation region"
+  aria-live="polite"
 >
-  <section id="design-svg-container">
+  <section 
+    id="design-svg-container"
+    aria-label="Design SVG Card"
+  >
     <div
       id="design-phase-svg-bg"
       class="placard animation mat-elevation-z3"
@@ -86,7 +91,10 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section id="design-text">
+  <section 
+    id="design-text"
+    aria-label="Design SVG Captions"
+  >
     <h1
       id="design-phase-title"
       class="animation mat-h1"
@@ -144,10 +152,14 @@
 </div>
 
 <div 
-  id="develop-animation" 
+  id="develop-svg-animation" 
   role="region" 
-  aria-label="Develop animation region">
-  <section id="develop-svg">
+  aria-label="Develop animation region"
+  aria-live="polite">
+  <section 
+    id="develop-svg"
+    aria-label="Develop SVG Card"
+  >
     <div
       id="develop-phase-bg"
       class="placard animation mat-elevation-z3"
@@ -176,7 +188,10 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section id="develop-text">
+  <section 
+    id="develop-text"
+    aria-label="Develop SVG Captions"
+  >
     <h1
       id="develop-phase-title"
       class="animation mat-h1"
@@ -228,9 +243,16 @@
   </section>
 </div>
 
-<!-- Deploy Animations -->
-<div id="deploy-animation" role="region" aria-label="Deploy animation region">
-  <section id="deploy-svg">
+<div 
+  id="deploy-svg-animation" 
+  role="region" 
+  aria-label="Deploy animation region"
+  aria-live="polite"
+>
+  <section 
+    id="deploy-svg" 
+    aria-label="Deploy SVG card"
+  >
     <div
       id="deploy-phase-svg-bg"
       class="placard animation mat-elevation-z3"
@@ -258,7 +280,10 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section id="deploy-text">
+  <section 
+    id="deploy-text"
+    aria-label="Deploy animation captions"
+  >
     <h1
       id="deploy-phase-title"
       class="animation mat-h1"
@@ -314,8 +339,11 @@
   </section>
 </div>
 
-<!-- Deliver Animations -->
-<div id="deliver-animations" role="region" aria-label="Deliver animation region">
+<div 
+  id="deliver-animation" 
+  role="region" 
+  aria-label="Deliver animation region"
+  aria-live="polite">
   <section id="deliver-svg">
     <div
       id="deliver-phase-svg-bg"
@@ -415,7 +443,7 @@
 </div>
 
 <!--Regular Elements-->
-<div id="design">
+<div id="design" role="region" aria-label="Design content region">
   <div class="center-flex">
     <div
       id="chip-container"
@@ -431,7 +459,7 @@
           <a
             [href]="tool.href"
             target="_blank"
-            style="margin-left: auto; margin-right: auto"
+            class="center"
           >
             <mat-icon
               id="tool"
@@ -445,8 +473,8 @@
     </div>
   </div>
 
-  <div class="v-align splash-bg" style="margin-top: 1%; z-index: 0">
-    <div id="splash">
+  <div class="v-align splash-bg">
+    <div id="splash-animation" role="region" aria-label="Splash animation area">
       <div
         id="first-splash"
         class="splash-banner"
@@ -528,6 +556,8 @@
         mat-mini-fab
         [disabled]="[phases.none, phases.splash].includes(phase)"
         (click)="decrementPhase()"
+        aria-label="Decrement animation"
+        aria-controls="splash-animation,design-animation,develop-animation,deploy-animation,deliver-animation"
       >
         <mat-icon>arrow_back</mat-icon>
       </button>
@@ -538,6 +568,8 @@
         mat-mini-fab
         [disabled]="phases.none === phase || splash !== splashes.touched"
         (click)="incrementPhase()"
+        aria-label="Increment animation"
+        aria-controls="splash-animation,design-animation,develop-animation,deploy-animation,deliver-animation"
       >
         <mat-icon>arrow_forward</mat-icon>
       </button>
