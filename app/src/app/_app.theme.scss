@@ -16,7 +16,7 @@
     );
     border-color: map-get($primary-palette, A100);
   }
-  #master-button-icon{
+  #master-button-icon {
     color: map-get($primary-palette, A100);
   }
   #nav-menu {
@@ -25,7 +25,7 @@
   #cloud-btn {
     color: map-get($primary-palette, 500);
   }
-  #app-title{
+  #app-title {
     color: map-get($primary-palette, A100);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
