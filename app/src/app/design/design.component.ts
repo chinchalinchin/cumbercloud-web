@@ -8,7 +8,7 @@ import {
   ScaleStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ChipConfig, TOOL_CHIPS } from '../app.config';
+import { ChipConfig, SVG_CONFIG, TOOL_CHIPS } from '../app.config';
 
 enum Phases {
   none = 'none',
@@ -52,7 +52,8 @@ export class DesignComponent implements OnInit {
   public oscillations: number = 0;
   public lured: boolean = false;
   public screenSize: string = '';
-  public tools: ChipConfig[] = TOOL_CHIPS;
+  public toolConfig: ChipConfig[] = TOOL_CHIPS;
+  public svgConfig: any = SVG_CONFIG;
   public phaseIcons: any[] = [
     ['xd', 'gimp', 'drawio'],
     ['typescript', 'python', 'angular', 'django'],

@@ -69,10 +69,10 @@
       <span
         *ngIf="conf.children"
         [ngClass]="{ selected: conf == this.selectedNav }"
-        [matMenuTriggerFor]="menu"
+        [matMenuTriggerFor]="about_menu"
       >
         {{ conf.nav_title }}
-        <mat-menu #menu="matMenu">
+        <mat-menu #about_menu>
           <button
             *ngFor="let child of conf.children"
             mat-menu-item

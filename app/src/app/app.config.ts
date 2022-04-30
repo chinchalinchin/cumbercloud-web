@@ -292,13 +292,20 @@ export const TOOL_CHIPS: ChipConfig[] = [
     href: 'https://www.gimp.org/',
     svgIcon: 'gimp',
   },
-  { tooltip: 'Diagrams', href: 'https://www.diagrams.net/', svgIcon: 'drawio' },
+  { 
+    tooltip: 'Diagrams',
+    href: 'https://www.diagrams.net/', 
+    svgIcon: 'drawio' },
   {
     tooltip: 'Typescript',
     href: 'https://www.typescriptlang.org/',
     svgIcon: 'typescript',
   },
-  { tooltip: 'Python', href: 'https://www.python.org/', svgIcon: 'python' },
+  { 
+    tooltip: 'Python', 
+    href: 'https://www.python.org/', 
+    svgIcon: 'python'
+  },
   { tooltip: 'Angular', href: 'https://angular.io/', svgIcon: 'angular' },
   {
     tooltip: 'Django',
@@ -326,16 +333,56 @@ export const TOOL_CHIPS: ChipConfig[] = [
 
 export const ICON_CONFIG: IconConfig[] = [
   {
+    src: '../assets/icons/aws-logo.svg',
+    name: 'aws'
+  },
+  {
     src: '../assets/icons/aws-apigateway.svg',
     name: 'apigateway',
+  },
+  {
+    src: '../assets/icons/bash.svg',
+    name: 'bash'
   },
   {
     src: '../assets/icons/angular.svg',
     name: 'angular',
   },
   {
+    src: '../assets/icons/aws-cloudfront.svg',
+    name: 'cloudfront'
+  },
+  {
     src: '../assets/icons/aws-cognito.svg',
     name: 'cognito',
+  },
+  {
+    src: '../assets/icons/cloud.svg',
+    name: 'cloud_alt'
+  },
+  { 
+    src: '../assets/icons/cloud-code.svg',
+    name: 'cloud_code'
+  },
+  {
+    src: '../assets/icons/cloud-computing_01.svg',
+    name: 'cloud_compute'
+  },
+  {
+    src: '../assets/icons/cloud-computing_02.svg',
+    name: 'cloud_compute_alt'
+  },
+  {
+    src: '../assets/icons/cloud-download.svg',
+    name: 'cloud_download'
+  },
+  {
+    src: '../assets/icons/cloud-outline.svg',
+    name: 'cloud_outline'
+  },
+  {
+    src: '../asets/icons/drawio.svg',
+    name: 'drawio'
   },
   {
     src: '../assets/icons/flow-charts.svg',
@@ -353,6 +400,10 @@ export const ICON_CONFIG: IconConfig[] = [
     src: '../assets/icons/django.svg',
     name: 'django',
   },
+  { 
+    src: '../assets/icons/floppy-disk.svg',
+    name: 'floppy_disk'
+  },
   {
     src: '../assets/icons/github.svg',
     name: 'github',
@@ -366,8 +417,24 @@ export const ICON_CONFIG: IconConfig[] = [
     name: 'html',
   },
   {
+    src: '../assets/icons/lightbulb.svg',
+    name: 'lightbulb'
+  },
+  {
+    src: '../assets/icons/lightbulb-outline.svg',
+    name: 'lightbulb_badge'
+  },
+  {
+    src: '../assets/icons/linux.svg',
+    name: 'linux'
+  },
+  {
     src: '../assets/icons/aws-lambda.svg',
     name: 'lambda',
+  },
+  {
+    src: '../assets/icons/piechart.svg',
+    name: 'piechart'
   },
   {
     src: '../assets/icons/pypi.svg',
@@ -384,6 +451,14 @@ export const ICON_CONFIG: IconConfig[] = [
   {
     src: '../assets/icons/aws-s3.svg',
     name: 's3',
+  },
+  {
+    src: '../assets/icons/sunny.svg',
+    name: 'sunny_fill'
+  },
+  {
+    src: '../assets/icons/sunny-outline.svg',
+    name: 'sunny'
   },
   {
     src: '../assets/icons/typescript/svg',
@@ -935,7 +1010,7 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
     arrow_tooltip: "Grant Moore's Resume",
     position: 'Solution Architect, Developer & Designer',
     blurbs: [
-      'Grant Moore has been a web developer and engineer professionally for three years, although his interest in computer science and technology extends far back into his teenage years when he first began learning Java. He has since expanded his knowledge into numerous sub-fields, such as UI/UX design, frontend development, software engineering, development operations, containerization and cloud computing.',
+      'Grant Moore has been a web developer and engineer professionally for three years, although his interest in computer science and technology extends far back into his teenage years when he first began learning Java. Since that time, he has expanded his knowledge into numerous disciplines, such as UI/UX design, frontend development, software engineering, development operations, containerization and cloud computing.',
       'He acquired an extensive background in the natural sciences while studying physics and mathematics during his undergraduate and graduate education. While enrolled at Frostburg State and Towson University, he applied technology to a broad array of problems, such as pricing financial derivatives with stochastic processes, estimating statistical calculations efficiently with recursive algorithms and modelling physical phenomena with determinitic and non-deterministic finite automatons.',
       'Read on for more information about yours truly...',
     ],
@@ -983,4 +1058,9 @@ export const SVG_CONFIG: any = {
     path_4:
       'M151.219,193.408h-15.615c0-35.251,28.679-63.929,63.929-63.929v15.615C172.892,145.095,151.219,166.768,151.219,193.408z',
   },
+  lure:{
+    path_1: "M508,254c0,91.6-48.4,171.6-120.8,216.4c-9.6,6-20,11.6-30.4,16c-31.2,14-66,21.6-102.8,21.6s-71.2-7.6-102.4-21.6c-10.4-4.8-20.8-10-30.4-16C48.4,425.6,0,345.6,0,254C0,113.6,113.6,0,254,0S508,113.6,508,254z",
+    path_2: "M408,213.6c3.6-5.6,5.6-12,5.6-19.2c0-20.4-16.4-36.8-36.8-36.8c-2,0-4,0-5.6,0.4c-7.6-30.8-35.6-54-68.8-54c-21.2,0-40,9.2-52.8,23.6C236,113.2,216.4,104,194.8,104c-41.6,0-75.2,33.6-75.2,75.2c0,10.8,2.4,21.2,6.8,30.8c-29.2,4-51.6,28.8-51.6,58.8c0,25.6,16.4,47.6,39.2,56c-0.4,14-20.4,49.2-41.2,59.6c0,0,50,19.2,96-28.4c10.8,10.8,25.6,17.2,42,17.2c18.4,0,35.2-8.4,46-21.6c10.8,13.2,27.6,21.6,46,21.6c30,0,54.8-22,58.8-50.8c8,3.6,16.4,6,26,6c32.8,0,59.6-26.8,59.6-59.6C446.4,243.6,430.4,222,408,213.6z",
+    path_3: "M271.6,197.6c0,26.8-8,61.2-17.6,61.2c-10,0-17.6-34.4-17.6-61.2s8-35.6,17.6-35.6C264,162,271.6,170.8,271.6,197.6z"
+  }
 };

@@ -30,12 +30,16 @@
     width: 5%;
     height: 1%;
   }
-  #design-phase {
+  #design-phase-svg {
     left: 5%;
   }
   #design-phase-svg-bg {
     left: 2.5%;
     right: 82.5%;
+  }
+  #design-phase-svg-numeral {
+    top: 71.5%;
+    left: 8.5%;
   }
   #design-phase-txt-line-1 {
     left: 25%;
@@ -50,22 +54,18 @@
     left: 35%;
     top: 70%;
   }
-  #design-phase-numeral {
-    top: 71.5%;
-    left: 8.5%;
-  }
   /* Develop */
-  #develop-title {
+  #develop-phase-title {
     top: 24.5%;
     left: 42.5%;
   }
-  #develop-title-underline {
+  #develop-phase-title-underline {
     top: 28%;
     left: 42.75%;
     width: 6%;
     height: 1%;
   }
-  #develop-phase {
+  #develop-phase-svg {
     left: 25%;
   }
   #develop-phase-bg {

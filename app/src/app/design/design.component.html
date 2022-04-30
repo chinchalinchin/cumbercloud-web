@@ -1,426 +1,225 @@
 <!--Animation Elements; absolute position and existence on screen determined by phase-->
 <!--Splash Animations-->
-<svg
-  x="0px"
-  y="0px"
-  viewBox="0 0 508 508"
-  id="splash-bubble"
-  class="animation"
-  width="3%"
-  *ngIf="phasedIn(phases.splash) && !lured && oscillating && !mobileMode()"
-  [@cntl_scale_slow]="lureScaleCntl.state"
-  [@scale]
-  (mouseenter)="lure()"
->
-  <path
-    [class.bubble]="!lureOscillated()"
-    [class.bubble-select]="lureOscillated()"
-    d="M508,254c0,91.6-48.4,171.6-120.8,216.4c-9.6,6-20,11.6-30.4,16c-31.2,14-66,21.6-102.8,21.6
-        s-71.2-7.6-102.4-21.6c-10.4-4.8-20.8-10-30.4-16C48.4,425.6,0,345.6,0,254C0,113.6,113.6,0,254,0S508,113.6,508,254z"
-  />
-  <path
-    style="fill: #ffffff"
-    d="M408,213.6c3.6-5.6,5.6-12,5.6-19.2c0-20.4-16.4-36.8-36.8-36.8c-2,0-4,0-5.6,0.4
-        c-7.6-30.8-35.6-54-68.8-54c-21.2,0-40,9.2-52.8,23.6C236,113.2,216.4,104,194.8,104c-41.6,0-75.2,33.6-75.2,75.2
-        c0,10.8,2.4,21.2,6.8,30.8c-29.2,4-51.6,28.8-51.6,58.8c0,25.6,16.4,47.6,39.2,56c-0.4,14-20.4,49.2-41.2,59.6c0,0,50,19.2,96-28.4
-        c10.8,10.8,25.6,17.2,42,17.2c18.4,0,35.2-8.4,46-21.6c10.8,13.2,27.6,21.6,46,21.6c30,0,54.8-22,58.8-50.8c8,3.6,16.4,6,26,6
-        c32.8,0,59.6-26.8,59.6-59.6C446.4,243.6,430.4,222,408,213.6z"
-  />
-  <g>
+<div role="region" id="splash-animation" aria-label="Splash animation region">
+  <svg
+    x="0px"
+    y="0px"
+    viewBox="0 0 508 508"
+    id="splash-bubble"
+    class="animation"
+    width="3%"
+    *ngIf="phasedIn(phases.splash) && !lured && oscillating && !mobileMode()"
+    [@cntl_scale_slow]="lureScaleCntl.state"
+    [@scale]
+    (mouseenter)="lure()"
+  >
     <path
-      [class.exclaim]="!lureOscillated()"
-      [class.exclaim-select]="lureOscillated()"
-      d="M271.6,197.6c0,26.8-8,61.2-17.6,61.2c-10,0-17.6-34.4-17.6-61.2s8-35.6,17.6-35.6
-            C264,162,271.6,170.8,271.6,197.6z"
+      [class.bubble]="!lureOscillated()"
+      [class.bubble-select]="lureOscillated()"
+      [attr.d]="svgConfig.lure.path_1"
     />
-    <circle
-      [class.exclaim]="!lureOscillated()"
-      [class.exclaim-select]="lureOscillated()"
-      cx="254"
-      cy="295.2"
-      r="17.6"
+    <path
+      style="fill: #ffffff"
+      [attr.d]="svgConfig.lure.path_2"
     />
-  </g>
-</svg>
+    <g>
+      <path
+        [class.exclaim]="!lureOscillated()"
+        [class.exclaim-select]="lureOscillated()"
+        [attr.d]="svgConfig.lure.path_3"
+      />
+      <circle
+        [class.exclaim]="!lureOscillated()"
+        [class.exclaim-select]="lureOscillated()"
+        cx="254"
+        cy="295.2"
+        r="17.6"
+      />
+    </g>
+  </svg>
 
-<div
-  id="splash-txt"
-  class="animation mat-caption"
-  *ngIf="oscillations > 3 && !lured"
-  style="top: 59.5%; left: 58.5%"
->
-  I know!
-</div>
-
-<!-- Design Animations-->
-<div
-  id="design-phase-svg-bg"
-  class="placard animation mat-elevation-z3"
-  *ngIf="phasedIn(phases.design)"
-  [@scale]
-></div>
-
-<div
-  id="design-phase-title"
-  class="animation mat-h1"
-  *ngIf="phasedIn(phases.design, true)"
-  [@cntl_fade]="designLinesFadeCntl[0].state"
->
-  Design
-</div>
-<div
-  id="design-phase-title-underline"
-  class="underline animation"
-  *ngIf="phasedIn(phases.design, true)"
-  [@enlarge]
-></div>
-
-<div
-  id="design-phase-txt-line-1"
-  class="animation mat-h2"
-  *ngIf="phasedIn(phases.design, true)"
->
-  <span [@cntl_fade]="designLinesFadeCntl[0].state"
-    >the process starts when you schedule a <i>free</i> design session.</span
+  <div
+    id="splash-txt"
+    class="animation mat-caption"
+    *ngIf="oscillations > 3 && !lured"
+    style="top: 59.5%; left: 58.5%"
   >
+    I know!
+  </div>
 </div>
 
-<div
-  id="design-phase-txt-line-2"
-  class="animation mat-h2"
-  *ngIf="phasedIn(phases.design, true)"
-  [@cntl_fade]="designLinesFadeCntl[1].state"
->
-  your ideas will be transformed into
-  <a href="https://swagger.io/specification/" target="_blank"
-    >technical specifications</a
-  >
-  and
-  <a href="https://en.wikipedia.org/wiki/Website_wireframe" target="_blank"
-    >wireframes</a
-  >.
+<div role="region" id="design-animation" aria-label="Design animation region">
+  <section id="design-svg-container">
+    <div
+      id="design-phase-svg-bg"
+      class="placard animation mat-elevation-z3"
+      *ngIf="phasedIn(phases.design)"
+      [@scale]
+    ></div>
+    <button
+      id="design-phase-svg-numeral"
+      mat-icon-button
+      class="animation"
+      *ngIf="phasedIn(phases.design)"
+      [@scale]
+      color="accent"
+    >
+      <mat-icon>looks_one</mat-icon>
+    </button>
+    <object 
+      data="/assets/svgs/design.svg" 
+      type="image/svg+xml"
+      id="design-phase-svg"
+      class="animation"
+      [@scale]
+      *ngIf="phasedIn(phases.design)"
+      aria-labelledby="design-phase-title"
+    >
+      <!--TODO: <img src="yourfallback.jpg" /> -->
+    </object>
+  </section>
+  <section id="design-text">
+    <h1
+      id="design-phase-title"
+      class="animation mat-h1"
+      *ngIf="phasedIn(phases.design, true)"
+      [@cntl_fade]="designLinesFadeCntl[0].state"
+    >
+      Design
+    </h1>
+    <div
+      id="design-phase-title-underline"
+      class="underline animation"
+      *ngIf="phasedIn(phases.design, true)"
+      [@enlarge]
+    ></div>
+    <div
+      id="design-phase-txt-line-1"
+      class="animation mat-h2"
+      *ngIf="phasedIn(phases.design, true)"
+    >
+      <span [@cntl_fade]="designLinesFadeCntl[0].state"
+        >the process starts when you schedule a <i>free</i> design session.</span
+      >
+    </div>
+    <div
+      id="design-phase-txt-line-2"
+      class="animation mat-h2"
+      *ngIf="phasedIn(phases.design, true)"
+      [@cntl_fade]="designLinesFadeCntl[1].state"
+    >
+      your ideas will be transformed into
+      <a 
+        href="https://swagger.io/specification/" 
+        target="_blank"
+      >
+        technical specifications
+      </a>
+      and
+      <a 
+        href="https://en.wikipedia.org/wiki/Website_wireframe" 
+        target="_blank"
+      >
+        wireframes
+      </a>.
+    </div>
+    <div
+      id="design-phase-txt-line-3"
+      class="animation mat-h2"
+      *ngIf="phasedIn(phases.design, true)"
+      [@cntl_fade]="designLinesFadeCntl[2].state"
+    >
+      after the design is tailored to your liking and approved, development will
+      start.
+    </div>
+  </section>
 </div>
 
-<div
-  id="design-phase-txt-line-3"
-  class="animation mat-h2"
-  *ngIf="phasedIn(phases.design, true)"
-  [@cntl_fade]="designLinesFadeCntl[2].state"
->
-  after the design is tailored to your liking and approved, development will
-  start.
-</div>
-
-<button
-  id="design-phase-numeral"
-  mat-icon-button
-  class="animation"
-  *ngIf="phasedIn(phases.design)"
-  [@scale]
-  color="accent"
->
-  <mat-icon>looks_one</mat-icon>
-</button>
-
-<svg
-  x="0px"
-  y="0px"
-  viewBox="0 0 501.551 501.551"
-  id="design-phase"
-  class="animation"
-  width="10%"
-  [@scale]
-  *ngIf="phasedIn(phases.design)"
->
-  <path
-    style="fill: #f2f2f2"
-    d="M337.502,0H58.514C47.02,0,37.616,9.404,37.616,20.898v459.755c0,11.494,9.404,20.898,20.898,20.898
-    h384.522c11.494,0,20.898-9.404,20.898-20.898v-354.22L337.502,0z"
-  />
-  <path
-    style="fill: #cdd6e0"
-    d="M337.502,105.535c0,11.494,9.404,20.898,20.898,20.898h105.535L337.502,0V105.535z"
-  />
-  <path
-    style="fill: #ff7058"
-    d="M491.102,398.106H10.449C4.18,398.106,0,402.286,0,408.555v60.604c0,6.269,4.18,10.449,10.449,10.449
-        h480.653c6.269,0,10.449-4.18,10.449-10.449v-60.604C501.551,403.331,497.371,398.106,491.102,398.106z"
-  />
-  <g>
-    <rect
-      x="20.898"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="62.694"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="104.49"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="145.241"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="187.037"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="228.833"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="270.629"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="311.38"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="353.176"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="394.971"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="436.767"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-    <rect
-      x="478.563"
-      y="398.106"
-      style="fill: #f2f2f2"
-      width="5.224"
-      height="21.943"
-    />
-  </g>
-  <path
-    style="fill: #ff7058"
-    d="M501.551,345.861L501.551,345.861c0-10.449-8.359-18.808-18.808-18.808h-37.616v37.616h37.616
-        C493.192,364.669,501.551,356.31,501.551,345.861z"
-  />
-  <polygon
-    style="fill: #ffd05c"
-    points="57.469,327.053 57.469,364.669 21.943,353.176 0,345.861 21.943,338.547 "
-  />
-  <polygon
-    style="fill: #40596b"
-    points="21.943,338.547 21.943,353.176 0,345.861 "
-  />
-  <polygon
-    style="fill: #84dbff"
-    points="57.469,327.053 57.469,338.547 427.363,338.547 427.363,338.547 427.363,327.053 "
-  />
-  <rect
-    x="57.469"
-    y="338.547"
-    style="fill: #54c0eb"
-    width="369.894"
-    height="14.629"
-  />
-  <rect
-    x="57.469"
-    y="353.176"
-    style="fill: #84dbff"
-    width="369.894"
-    height="11.494"
-  />
-  <rect
-    x="427.363"
-    y="327.053"
-    style="fill: #ffd15c"
-    width="17.763"
-    height="37.616"
-  />
-  <path style="fill: #55bfe9" d="M427.363,327.053h17.763H427.363z" />
-  <polygon
-    style="fill: #ffd15c"
-    points="445.126,338.547 445.126,338.547 445.126,327.053 "
-  />
-  <polygon
-    style="fill: #55bfe9"
-    points="445.126,353.176 445.126,353.176 445.126,338.547 445.126,338.547 "
-  />
-  <rect
-    x="230.922"
-    y="154.645"
-    style="fill: #cdd6e0"
-    width="71.053"
-    height="71.053"
-  />
-  <polygon
-    style="fill: #ff7058"
-    points="206.89,202.71 164.049,273.763 249.731,273.763 "
-  />
-  <circle style="fill: #40596b" cx="300.931" cy="224.653" r="36.571" />
-  <path
-    style="fill: #f2f2f2"
-    d="M300.931,188.082v36.571h-36.571C264.359,204.8,281.078,188.082,300.931,188.082z"
-  />
-</svg>
 
 <!-- Develop Animations-->
-<div
-  id="develop-phase-bg"
-  class="placard animation mat-elevation-z3"
-  [@scale]
-  *ngIf="phasedIn(phases.develop)"
-></div>
+<div id="develop-animation" role="region" aria-label="Develop animation region">
+  <section id="develop-svg">
+    <div
+      id="develop-phase-bg"
+      class="placard animation mat-elevation-z3"
+      [@scale]
+      *ngIf="phasedIn(phases.develop)"
+    ></div>
+    <button
+      id="develop-phase-numeral"
+      mat-icon-button
+      class="animation"
+      *ngIf="phasedIn(phases.develop)"
+      [@scale]
+      color="accent"
+    >
+      <mat-icon>looks_two</mat-icon>
+    </button>
+    <object
+      id="develop-phase-svg"
+      class="animation"
+      data="/assets/svgs/develop.svg"
+      type="image/svg+xml"
+      [@scale]
+      *ngIf="phasedIn(phases.develop)"
+      aria-labelledby="develop-text"
+    >
+    </object>
+  </section>
 
-<div
-  id="develop-title"
-  class="animation mat-h1"
-  *ngIf="phasedIn(phases.develop, true)"
-  [@cntl_fade]="developLinesFadeCntl[0].state"
->
-  Develop
-</div>
-
-<div
-  id="develop-title-underline"
-  class="underline animation"
-  *ngIf="phasedIn(phases.develop, true)"
-  [@enlarge]
-></div>
-
-<div
-  id="develop-phase-txt-line-1"
-  class="animation mat-h2"
-  *ngIf="phasedIn(phases.develop, true)"
-  [@cntl_fade]="developLinesFadeCntl[0].state"
->
-  We use the latest libraries to create
-  <a
-    href="https://en.wikipedia.org/wiki/Single-page_application"
-    target="_blank"
-    >reactive, responsive</a
+  <h1
+    id="develop-phase-title"
+    class="animation mat-h1"
+    *ngIf="phasedIn(phases.develop, true)"
+    [@cntl_fade]="developLinesFadeCntl[0].state"
   >
-  web applications.
-</div>
+    Develop
+  </h1>
 
-<div
-  id="develop-phase-txt-line-2"
-  class="animation mat-h2"
-  *ngIf="phasedIn(phases.develop, true)"
-  [@cntl_fade]="developLinesFadeCntl[1].state"
->
-  We build containerized
-  <a href="https://en.wikipedia.org/wiki/Microservices" target="_blank"
-    >microservices</a
+  <div
+    id="develop-phase-title-underline"
+    class="underline animation"
+    *ngIf="phasedIn(phases.develop, true)"
+    [@enlarge]
+  ></div>
+
+  <div
+    id="develop-phase-txt-line-1"
+    class="animation mat-h2"
+    *ngIf="phasedIn(phases.develop, true)"
+    [@cntl_fade]="developLinesFadeCntl[0].state"
   >
-  to implement business logic.
+    We use the latest libraries to create
+    <a
+      href="https://en.wikipedia.org/wiki/Single-page_application"
+      target="_blank"
+      >reactive, responsive</a
+    >
+    web applications.
+  </div>
+
+  <div
+    id="develop-phase-txt-line-2"
+    class="animation mat-h2"
+    *ngIf="phasedIn(phases.develop, true)"
+    [@cntl_fade]="developLinesFadeCntl[1].state"
+  >
+    We build containerized
+    <a href="https://en.wikipedia.org/wiki/Microservices" target="_blank"
+      >microservices</a
+    >
+    to implement business logic.
+  </div>
+
+  <div
+    id="develop-phase-txt-line-3"
+    class="animation mat-h2"
+    *ngIf="phasedIn(phases.develop, true)"
+    [@cntl_fade]="developLinesFadeCntl[2].state"
+  >
+    We design with scalability and reliability in mind.
+  </div>
 </div>
-
-<div
-  id="develop-phase-txt-line-3"
-  class="animation mat-h2"
-  *ngIf="phasedIn(phases.develop, true)"
-  [@cntl_fade]="developLinesFadeCntl[2].state"
->
-  We design with scalability and reliability in mind.
-</div>
-
-<button
-  id="develop-phase-numeral"
-  mat-icon-button
-  class="animation"
-  *ngIf="phasedIn(phases.develop)"
-  [@scale]
-  color="accent"
->
-  <mat-icon>looks_two</mat-icon>
-</button>
-
-<svg
-  x="0px"
-  y="0px"
-  viewBox="0 0 512 512"
-  id="develop-phase"
-  class="animation"
-  width="10%"
-  [@scale]
-  *ngIf="phasedIn(phases.develop)"
->
-  <rect
-    x="160"
-    y="357.416"
-    style="fill: #333333"
-    width="192"
-    height="108.336"
-  />
-  <polygon points="160,376.152 274.24,376.152 160,434.056 " />
-  <path
-    style="fill: #999999"
-    d="M377.456,487.848H134.544c-9.424,0-17.12-7.712-17.12-17.12l0,0c0-9.424,7.712-17.12,17.12-17.12
-        H377.44c9.424,0,17.12,7.712,17.12,17.12l0,0C394.576,480.136,386.864,487.848,377.456,487.848z"
-  />
-  <path
-    style="fill: #d6d6d6"
-    d="M480,376.152H32c-17.6,0-32-14.4-32-32v-288c0-17.6,14.4-32,32-32h448c17.6,0,32,14.4,32,32v288
-        C512,361.752,497.6,376.152,480,376.152z"
-  />
-  <rect
-    x="21.968"
-    y="46.088"
-    style="fill: #0ba4e0"
-    width="468.16"
-    height="308.128"
-  />
-  <g>
-    <path
-      style="fill: #ffffff"
-      d="M119.664,196.28l91.824-44.56v17.424l-72.832,33.904v0.384l72.832,34.096v17.248l-91.824-44.544
-            V196.28z"
-    />
-    <path
-      style="fill: #ffffff"
-      d="M224.928,262.536l47.28-140.448h16.656l-47.28,140.448H224.928z"
-    />
-    <path
-      style="fill: #ffffff"
-      d="M392.336,210.616l-91.824,44.176v-17.248l74.016-34.096v-0.384l-74.016-34.096V151.72l91.824,44.176
-            V210.616z"
-    />
-  </g>
-</svg>
 
 <!-- Deploy Animations -->
 <div
@@ -817,7 +616,7 @@
       <mat-chip-list id="tool-chip-list">
         <mat-chip
           id="tool-chip"
-          *ngFor="let tool of tools"
+          *ngFor="let tool of toolConfig"
           [disabled]="isChipDisabled(tool.svgIcon)"
         >
           <a
