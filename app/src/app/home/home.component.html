@@ -61,7 +61,9 @@
     mat-fab
     color="primary"
     [@cntl_position_center]="mobileMode() ? null : centerPositionCntl.state"
-    [@cntl_position_center_mobile]="mobileMode() ? centerPositionCntl.state : null"
+    [@cntl_position_center_mobile]="
+      mobileMode() ? centerPositionCntl.state : null
+    "
     [@cntl_fade]="centerFadeCntl.state"
     (click)="display()"
     [matTooltip]="getHeidegger()"
