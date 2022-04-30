@@ -1,15 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
-@font-face {
-  font-family: "LoveSummer";
-  src: url("/assets/fonts/LoveSummer.otf") format("truetype");
-}
 @font-face {
   font-family: "FancyCursive";
   src: url("/assets/fonts/NgutangDong.ttf") format("truetype");
-}
-@font-face {
-  font-family: "CloudySkies";
-  src: url("/assets/fonts/July.ttf") format("truetype")
 }
 /****/
 html,
@@ -32,17 +23,9 @@ mat-card img {
   overflow: hidden !important;
 }
 /****/
-.title-text {
-  font-family: "LoveSummer";
-  line-height: 0;
-}
 .fancy-text {
   font-family: "FancyCursive";
   line-height: 0.5;
-}
-.cloud-text{
-  font-family: "CloudySkies";
-  font-size: xx-large;
 }
 .no-underline {
   text-decoration: none;
