@@ -12,7 +12,7 @@
     viewBox="0 0 508 508"
     id="splash-bubble"
     class="animation"
-    [attr.width]=" mobileMode() ? '10%' : '3%'"
+    [attr.width]="mobileMode() ? '10%' : '3%'"
     *ngIf="phasedIn(phases.splash) && !lured && oscillating"
     [@cntl_scale_slow]="lureScaleCntl.state"
     [@scale]
@@ -318,10 +318,7 @@
   aria-label="Deliver animation region"
   aria-live="polite"
 >
-  <section 
-    id="deliver-svg"
-    *ngIf="phasedIn(phases.deliver)" 
-  >
+  <section id="deliver-svg" *ngIf="phasedIn(phases.deliver)">
     <div
       id="deliver-phase-svg-bg"
       class="placard animation mat-elevation-z3"
@@ -346,10 +343,7 @@
       <!--TODO: <img src="yourfallback.jpg" /> -->
     </object>
   </section>
-  <section 
-    id="deliver-text" 
-    *ngIf="phasedIn(phases.deliver, true)"
-  >
+  <section id="deliver-text" *ngIf="phasedIn(phases.deliver, true)">
     <h1
       id="deliver-phase-title"
       class="animation mat-h1"
@@ -405,9 +399,7 @@
     >
       The final product is reinforced according to the industry's best practices
       for
-      <a 
-        href="https://sre.google/sre-book/table-of-contents/" 
-        target="_blank">
+      <a href="https://sre.google/sre-book/table-of-contents/" target="_blank">
         site reliability
       </a>
     </div>
@@ -504,9 +496,15 @@
         </div>
         <div
           class="fancy-text text-center"
-          [@cntl_fade]="mobileMode() ? splashLines2FadeCntl[0].state : splashLines2FadeCntl[1].state"
+          [@cntl_fade]="
+            mobileMode()
+              ? splashLines2FadeCntl[0].state
+              : splashLines2FadeCntl[1].state
+          "
         >
-          {{ mobileMode() ? 'our unique approach to design' : 'a truly unique' }}
+          {{
+            mobileMode() ? "our unique approach to design" : "a truly unique"
+          }}
         </div>
         <div
           class="mat-h1 text-center"
