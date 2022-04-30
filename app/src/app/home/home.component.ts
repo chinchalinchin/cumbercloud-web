@@ -69,25 +69,25 @@ enum States {
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '35%', left: '7.5%' },
+      { top: '30%', left: '7.5%' },
       [{ top: '81%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_1',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '55%', left: '12.5%' },
+      { top: '50%', left: '12.5%' },
       [{ top: '61%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_2',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '35%', right: '7.5%' },
+      { top: '30%', right: '7.5%' },
       [{ top: '41%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_3',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '55%', right: '15%' },
+      { top: '50%', right: '15%' },
       [{ top: '21%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_4',
       AnimationPeriods.short

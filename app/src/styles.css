@@ -7,6 +7,10 @@
   font-family: "FancyCursive";
   src: url("/assets/fonts/NgutangDong.ttf") format("truetype");
 }
+@font-face {
+  font-family: "CloudySkies";
+  src: url("/assets/fonts/July.ttf") format("truetype")
+}
 /****/
 html,
 body {
@@ -35,6 +39,10 @@ mat-card img {
 .fancy-text {
   font-family: "FancyCursive";
   line-height: 0.5;
+}
+.cloud-text{
+  font-family: "CloudySkies";
+  font-size: xx-large;
 }
 .no-underline {
   text-decoration: none;

@@ -361,7 +361,7 @@
           svgIcon="cloud_compute"
           *ngIf="mobileMode()"
         ></mat-icon>
-        <span>
+        <span [class.fill]="!mobileMode()">
           When development is complete, we upload your site to the cloud using
           <a
             id="iac-link"
@@ -387,7 +387,7 @@
           svgIcon="cloud_compute"
           *ngIf="mobileMode()"
         ></mat-icon>
-        <span>
+        <span [class.fill]="!mobileMode()">
           We curate a
           <a 
             id="repository-link"
@@ -412,7 +412,7 @@
           svgIcon="cloud_compute"
           *ngIf="mobileMode()"
         ></mat-icon>
-        <span>
+        <span [class.fill]="!mobileMode()">
           Whatever your use case, we have the capability of supporting it.
         </span>
       </div>
@@ -484,7 +484,7 @@
           svgIcon="cloud_compute"
           *ngIf="mobileMode()"
         ></mat-icon>
-        <span>
+        <span [class.fill]="!mobileMode()">
           Before deployment, we
           <a href="https://jmeter.apache.org/" target="_blank">
             performance test
@@ -509,7 +509,7 @@
           svgIcon="cloud_compute"
           *ngIf="mobileMode()"
         ></mat-icon>
-        <span>
+        <span [class.fill]="!mobileMode()">
           After deployment, we put in place
           <a
             href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html"
@@ -542,7 +542,7 @@
           svgIcon="cloud_compute"
           *ngIf="mobileMode()"
         ></mat-icon>
-        <span>
+        <span [class.fill]="!mobileMode()">
           The final product is reinforced according to the industry's best practices
           for
           <a 

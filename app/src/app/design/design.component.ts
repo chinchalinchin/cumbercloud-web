@@ -223,6 +223,9 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * 1500 * ind);
             }
           );
+          setTimeout(()=>{
+            this.flashRipple(true);
+          }, this.designLinesFadeCntl.length*1500);
         }, AnimationPeriods.medium * 1000);
 
         break;
@@ -239,6 +242,9 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * 1500 * ind);
             }
           );
+          setTimeout(()=>{
+            this.flashRipple(true);
+          }, this.developLinesFadeCntl.length*1500);
         }, AnimationPeriods.medium * 1000);
         break;
       case Phases.develop:
@@ -254,6 +260,9 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * 1500 * ind);
             }
           );
+          setTimeout(()=>{
+            this.flashRipple(true);
+          }, this.deployLinesFadeCntl.length*1500);
         }, AnimationPeriods.medium * 1000);
         break;
       case Phases.deploy:
@@ -269,6 +278,9 @@ export class DesignComponent implements OnInit {
               }, AnimationPeriods.medium * 1500 * ind);
             }
           );
+          setTimeout(()=>{
+            this.flashRipple(true);
+          }, this.deliverLinesFadeCntl.length*1500);
         }, AnimationPeriods.medium * 1000);
         break;
       case Phases.deliver:
@@ -372,7 +384,7 @@ export class DesignComponent implements OnInit {
           );
           setTimeout(()=>{
             this.flashRipple(true);
-          }, (this.splashLines2FadeCntl.length - 2)*1000)
+          }, (this.splashLines2FadeCntl.length - 1)*1250+500);
         }, AnimationPeriods.medium * 1000);
       }, AnimationPeriods.medium * 1000);
     }
