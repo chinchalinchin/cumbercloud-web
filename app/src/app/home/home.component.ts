@@ -99,13 +99,13 @@ enum States {
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '32%', left: '30%' },
+      { top: '32%', left: '12.5%' },
       [{ top: '32%', left: '200%' }],
       'cloud_line_mobile_1',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '60%', left: '28%' },
+      { top: '60%', left: '7.5%' },
       [{ top: '60%', left: '-100%' }],
       'cloud_line_mobile_2',
       AnimationPeriods.short

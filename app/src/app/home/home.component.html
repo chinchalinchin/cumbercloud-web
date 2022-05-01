@@ -3,12 +3,13 @@
     id="btn-banner"
     [@cntl_fade]="centerFadeCntl.state"
     *ngIf="!animated"
-    class="mat-elevation-z4"
+    class="mat-elevation-z4 animation"
     role="banner"
   ></div>
 
   <div
     id="selection-menu"
+    class="animation"
     [@cntl_position_selector]="selectionPositionCntl.state"
     role="region"
     aria-label="Home page selection menu"
@@ -16,6 +17,7 @@
   >
     <div
       id="selection"
+      class="animation"
       class="border-accent"
       [@cntl_fade]="selectionFadeCntl.state"
     >
@@ -45,6 +47,7 @@
       ></div>
       <div
         id="underline-md"
+        class="animation"
         class="selection-underline"
         *ngIf="!mobileMode()"
       ></div>
@@ -54,7 +57,7 @@
         *ngIf="!mobileMode()"
       ></div>
     </div>
-    <div id="selector" class="border-accent"></div>
+    <div id="selector" class="border-accent animation"></div>
   </div>
 
   <button
@@ -69,7 +72,7 @@
     [matTooltip]="getHeidegger()"
     matTooltipShowDelay="3000"
     [disabled]="animated"
-    class="mat-elevation-z3 start-button"
+    class="mat-elevation-z3 animation"
     [@scale]
     *ngIf="pressable"
     aria-label="Enter the Cumberland Cloud"
@@ -227,7 +230,7 @@
     ></div>
     <div
       id="cloud-line-mobile-3"
-      class="cloud-line fancy-text"
+      class="animation fancy-text"
       [innerHTML]="getLine(states.one)"
       *ngIf="mobileMode() && !moved"
       [@cntl_position_cloud_line_mobile_3]="

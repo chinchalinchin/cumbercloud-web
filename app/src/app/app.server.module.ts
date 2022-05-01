@@ -15,7 +15,7 @@ import { SheetComponent } from './sheet/sheet.component';
 import { ExperienceComponent } from './about/components/experience/experience.component';
 import { MetaService } from 'src/services/meta.service';
 import { IconConfig, ICON_CONFIG } from './app.config';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './app-material.module';
 
 @NgModule({
   declarations: [

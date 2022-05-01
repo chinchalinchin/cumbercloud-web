@@ -1,16 +1,5 @@
-#selection-menu,
-#selection,
-#selector,
-#home,
-#btn-banner,
-#underline-lg,
-#underline-md,
-#underline-sm,
-.cloud-line,
-.start-button {
-  position: absolute;
-}
 #home {
+  position: absolute;
   top: 30%;
   left: 0%;
   right: 0%;
@@ -84,6 +73,7 @@
   overflow-y: auto;
 }
 .selection-underline {
+  position: absolute;
   border-style: none none solid none;
   border-width: 1px;
 }

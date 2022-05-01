@@ -15,7 +15,7 @@ import {
   AssetConfig,
 } from './app.config';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './app-material.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
