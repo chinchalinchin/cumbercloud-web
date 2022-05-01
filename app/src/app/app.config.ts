@@ -331,7 +331,7 @@ export const NAV_CONFIG: NavConfig[] = [
     nav_title: 'Design',
     page_title: 'The Cumberland Cloud - Design',
     page_description:
-      'The Cumberland Cloud allows your business to take advantage of our years of production-grade software engineering experience. We take pride in our professionalism and as a result, our design process stands out from the rest of the crowd',
+      'The Cumberland Cloud has at your disposal years of production-grade software engineering experience. We take pride in our professionalism and as a result, our design process stands out from the rest of the crowd',
     menu: true,
     data: {},
     og: [
