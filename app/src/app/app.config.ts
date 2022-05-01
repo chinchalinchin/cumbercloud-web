@@ -199,16 +199,16 @@ export const NAV_CONFIG: NavConfig[] = [
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Grant Moore',
-                item: 'https://cumberland-cloud.com/about/grant'
+                item: 'https://cumberland-cloud.com/about/grant',
               },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Resume',
-                item: 'https://cumberland-cloud.com/about/resume/grant'
-              }
-            ]
-          }
+                item: 'https://cumberland-cloud.com/about/resume/grant',
+              },
+            ],
+          },
         ],
       },
     ],
@@ -264,7 +264,7 @@ export const ASSET_CONFIG: AssetConfig[] = [
   },
   {
     src: '/assets/imgs/circuitry-bg.png',
-    alt: 'Circuitry'
+    alt: 'Circuitry',
   },
   {
     src: '/assets/imgs/expertise-banner.jpg',
@@ -304,20 +304,20 @@ export const ASSET_CONFIG: AssetConfig[] = [
   },
   {
     src: '/assets/svgs/deliver.svg',
-    alt: 'Deliver'
+    alt: 'Deliver',
   },
   {
     src: '/assets/svgs/deploy.svg',
-    alt: 'Deploy'
+    alt: 'Deploy',
   },
   {
     src: '/assets/svgs/develop.svg',
-    alt: 'Develop'
+    alt: 'Develop',
   },
   {
     src: '/assets/svgs/design.svg',
-    alt: 'Design'
-  }
+    alt: 'Design',
+  },
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [

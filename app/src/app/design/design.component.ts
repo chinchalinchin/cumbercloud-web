@@ -112,8 +112,7 @@ export class DesignComponent implements OnInit {
     AnimationTriggers.cntl_scale
   );
 
-  constructor(private meta: MetaService, 
-              public dialog: MatDialog) {
+  constructor(private meta: MetaService, public dialog: MatDialog) {
     this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
@@ -397,7 +396,7 @@ export class DesignComponent implements OnInit {
   }
 
   public flashRipple(forward: boolean): void {
-    if(this.meta.isBrowser()){
+    if (this.meta.isBrowser()) {
       if (forward) {
         const rippleRef = this.ripples.last.launch({
           persistent: true,
