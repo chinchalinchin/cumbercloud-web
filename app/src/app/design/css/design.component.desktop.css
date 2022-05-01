@@ -1,5 +1,5 @@
 @media (min-width: 991px) {
-  #design{
+  #design {
     height: 60%;
   }
   #splash-animation {
@@ -160,13 +160,13 @@
     height: 100%;
     right: 0%;
   }
-  #project-gallery{
+  #project-gallery {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
   }
-  #gallery-line{
+  #gallery-line {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -174,15 +174,15 @@
     padding-top: 2.5%;
     padding-bottom: 2.5%;
   }
-  #gallery-title{
+  #gallery-title {
     margin-top: -2.5%;
     margin-bottom: -2.5%;
   }
-  .gallery-subtitle{
+  .gallery-subtitle {
     margin-top: -1%;
     text-decoration: underline;
   }
-  .gallery-img{
+  .gallery-img {
     height: auto;
     width: 90%;
     top: 30%;

@@ -320,12 +320,12 @@ export const ASSET_CONFIG: AssetConfig[] = [
   },
   {
     src: '/assets/svgs/sun.svg',
-    alt: 'Sun'
+    alt: 'Sun',
   },
   {
     src: '/assets/imgs/innolab.png',
-    alt: 'Innovation Lab'
-  }
+    alt: 'Innovation Lab',
+  },
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [
