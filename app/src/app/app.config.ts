@@ -197,6 +197,14 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image',
         content: 'https://cumberland-cloud.com/assets/svgs/logo.svg',
       },
+      {
+        property: 'og:image:width',
+        content: '1024'
+      },
+      {
+        property: 'og:image:height',
+        content: '1024'
+      }
     ],
   },
   // '/about' isn't a route, but this object is used to configure the nav menu.
@@ -230,6 +238,14 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image',
         content: 'https://cumberland-cloud.com/assets/people/grant/profile.jpg',
       },
+      {
+        property: 'og:image:width',
+        content: '473'
+      },
+      {
+        property: 'og:image:height',
+        content: '599'
+      }
     ],
   },
   {
@@ -268,6 +284,14 @@ export const NAV_CONFIG: NavConfig[] = [
         content:
           'https://cumberland-cloud.com/assets/people/grant/americorps.jpg',
       },
+      {
+        property: 'og:image:width',
+        content: '1936'
+      },
+      {
+        property: 'og:image:height',
+        content: '1936'
+      }
     ],
   },
   {
@@ -287,6 +311,14 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image',
         content: 'https://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg',
       },
+      {
+        property: 'og:image:width',
+        content: '5776'
+      },
+      {
+        property: 'og:image:height',
+        content: '3856'
+      }
     ],
   },
   {
@@ -306,6 +338,14 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image',
         content: 'https://cumberland-cloud.com/assets/svgs/calculator.svg',
       },
+      {
+        property: 'og:image:width',
+        content: '1380'
+      },
+      {
+        property: 'og:image:height',
+        content: '1380'
+      }
     ],
   },
   {
@@ -325,6 +365,14 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image',
         content: 'https://cumberland-cloud.com/assets/svgs/message.svg',
       },
+      {
+        property: 'og:image:width',
+        content: '1024'
+      },
+      {
+        property: 'og:image:height',
+        content: '1024'
+      }
     ],
   },
 ];
