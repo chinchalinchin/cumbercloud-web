@@ -1,15 +1,19 @@
 <mat-card id="rate">
-  <mat-card-title>{{ config.name }}</mat-card-title>
-  <mat-card-subtitle *ngIf="config.parameter.type === 'slider'">
+  <mat-card-title>
+    {{ config.name }}
+  </mat-card-title>
+  <mat-card-subtitle 
+    *ngIf="config.parameter.type === 'slider'"
+  >
     {{ config.parameter.label }}
   </mat-card-subtitle>
   <mat-card-content>
     <div
-      id="number-element"
+      id="number-cost-element"
       class="element-container"
       *ngIf="config.parameter.type === 'number'"
     >
-      <div class="compound-element">
+      <div id="number-calculation" class="compound-element">
         <div id="number" class="element">
           <mat-form-field color="warn">
             <mat-label>
@@ -24,11 +28,10 @@
           </mat-form-field>
         </div>
         <div id="number-output" class="element-output mat-elevation-z3">
-          <h2 class="mat-h2">Estimate</h2>
-          <p
-            class="mat-body-2"
-            style="text-align: center; padding-top: 7.5%; font-size: larger"
-          >
+          <h2 class="mat-h2">
+            Estimate
+          </h2>
+          <p class="mat-body-2 output-text">
             {{ total | currency }}
           </p>
         </div>
@@ -71,10 +74,7 @@
         </div>
         <div id="slider-output" class="element-output mat-elevation-z3">
           <h2 class="mat-h2">Estimate</h2>
-          <p
-            class="mat-body-2"
-            style="text-align: center; padding-top: 7.5%; font-size: larger"
-          >
+          <p class="mat-body-2 output-text">
             {{ total | currency }}
           </p>
         </div>
@@ -102,6 +102,16 @@
       class="element-container"
       *ngIf="config.parameter.type === 'null'"
     >
+      <div 
+        id="null-output" 
+        class="element-output mat-elevation-z3"
+        [class.align-null]="mobileMode()"  
+      >
+        <h2 class="mat-h2">Estimate</h2>
+        <p class="mat-body-2 output-text">
+          {{ total | currency }}
+        </p>
+      </div>
       <div
         id="null-state"
         class="element-widget mat-elevation-z2"
@@ -116,15 +126,6 @@
         </h2>
         <p class="mat-body" style="margin-left: 5%">
           {{ config.parameter.state_descriptions[0] }}
-        </p>
-      </div>
-      <div id="null-output" class="element-output mat-elevation-z3">
-        <h2 class="mat-h2">Estimate</h2>
-        <p
-          class="mat-body-2"
-          style="text-align: center; padding-top: 7.5%; font-size: larger"
-        >
-          {{ total | currency }}
         </p>
       </div>
     </div>
@@ -142,13 +143,24 @@
     </h2>
 
     <div id="fee-element" *ngIf="config.fees.length > 0">
-      <mat-table [dataSource]="config.fees" class="mat-elevation-z3">
+      <mat-table 
+        id="fee-table"
+        class="mat-elevation-z3"
+        [dataSource]="config.fees"
+        *ngIf="!mobileMode()"  
+      >
         <ng-container matColumnDef="service">
-          <mat-header-cell *matHeaderCellDef>Service</mat-header-cell>
-          <mat-cell *matCellDef="let fee">{{ fee.service }}</mat-cell>
+          <mat-header-cell *matHeaderCellDef>
+            Service
+          </mat-header-cell>
+          <mat-cell *matCellDef="let fee">
+            {{ fee.service }
+          }</mat-cell>
         </ng-container>
         <ng-container matColumnDef="rate">
-          <mat-header-cell *matHeaderCellDef>Rate</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>
+            Rate
+          </mat-header-cell>
           <mat-cell *matCellDef="let fee">
             {{
               fee.service === "Stripe"
@@ -158,17 +170,29 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="basis">
-          <mat-header-cell *matHeaderCellDef>Basis</mat-header-cell>
-          <mat-cell *matCellDef="let fee">{{ fee.basis }}</mat-cell>
+          <mat-header-cell *matHeaderCellDef>
+            Basis
+          </mat-header-cell>
+          <mat-cell *matCellDef="let fee">
+            {{ fee.basis }}
+          </mat-cell>
         </ng-container>
         <ng-container matColumnDef="reason">
-          <mat-header-cell *matHeaderCellDef>Reason</mat-header-cell>
-          <mat-cell *matCellDef="let fee">{{ fee.justification }}</mat-cell>
+          <mat-header-cell *matHeaderCellDef>
+            Reason
+          </mat-header-cell>
+          <mat-cell *matCellDef="let fee">
+            {{ fee.justification }}
+          </mat-cell>
         </ng-container>
         <ng-container matColumnDef="href">
-          <mat-header-cell *matHeaderCellDef>Reference</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>
+            Reference
+          </mat-header-cell>
           <mat-cell *matCellDef="let fee">
-            <a [href]="fee.href" target="_blank"><mat-icon>link</mat-icon></a>
+            <a [href]="fee.href" target="_blank">
+              <mat-icon>link</mat-icon>
+            </a>
           </mat-cell>
         </ng-container>
 

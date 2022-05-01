@@ -24,6 +24,11 @@ mat-slider {
   display: flex;
   flex-direction: row;
 }
+.output-text{
+  text-align: center; 
+  padding-top: 7.5%; 
+  font-size: larger
+}
 @media (min-width: 991px) {
   .element {
     min-width: 45%;
@@ -47,7 +52,7 @@ mat-slider {
 }
 @media (max-width: 992px) {
   .element {
-    width: 45%;
+    width: 100%;
   }
   .element-container {
     flex-direction: column;
@@ -64,6 +69,16 @@ mat-slider {
     width: 95%;
   }
   .element-output {
-    width: 45%;
+    width: 27.5%;
+  }
+  .mat-form-field-wrapper {
+    width: 30% !important;
+    max-width:35% !important;
+  }
+  .align-null{
+    margin-left: auto;
+    margin-right: 2.5%;
+    margin-bottom: 1%;
+
   }
 }

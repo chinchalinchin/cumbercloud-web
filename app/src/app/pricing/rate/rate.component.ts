@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { PricingConfig } from 'src/app/app.config';
+import { MetaService } from 'src/services/meta.service';
 
 export interface RateEvent {
   key: string;
@@ -11,16 +12,21 @@ export interface RateEvent {
   styleUrls: ['./rate.component.css'],
 })
 export class RateComponent implements OnInit {
-  public numberValue: number = 1;
-  public sliderValue: number = 1;
-  public total!: number;
-
   @Input()
   public config!: PricingConfig;
   @Output()
   public totalChanged: EventEmitter<RateEvent> = new EventEmitter<RateEvent>();
 
-  constructor() {}
+  public screenSize: string = '';
+  public numberValue: number = 1;
+  public sliderValue: number = 1;
+  public total!: number;
+  
+  public constructor(private meta: MetaService) {
+    this.meta.mediaBreakpoint.subscribe((size: string) => {
+      this.screenSize = size;
+    });
+  }
 
   ngOnInit() {
     this.calculate();
@@ -36,6 +42,14 @@ export class RateComponent implements OnInit {
 
   private isNull(): boolean {
     return this.config.parameter.type === 'null';
+  }
+
+  public mobileMode() {
+    return (
+      this.screenSize == 'md' ||
+      this.screenSize == 'sm' ||
+      this.screenSize == 'xs'
+    );
   }
 
   public calculate(): void {

@@ -393,12 +393,16 @@ export const ICON_CONFIG: IconConfig[] = [
     name: 'apigateway',
   },
   {
+    src: '../assets/icons/angular.svg',
+    name: 'angular',
+  },
+  {
     src: '../assets/icons/bash.svg',
     name: 'bash',
   },
   {
-    src: '../assets/icons/angular.svg',
-    name: 'angular',
+    src: '../assets/icons/calculator.svg',
+    name: 'calculator'
   },
   {
     src: '../assets/icons/aws-cloudfront.svg',
@@ -683,8 +687,8 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
       {
         service: 'AWS CloudFront',
         rate: 0.085,
-        justification: 'Website Hosting',
-        basis: 'Per GB transferred to the internet',
+        justification: 'Hosting',
+        basis: 'Per GB transferred',
         href: 'https://aws.amazon.com/cloudfront/pricing/',
       },
     ],
@@ -728,7 +732,7 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
       },
     ],
     rate: 2500,
-    tooltip: 'Charges based on complexity',
+    tooltip: 'Charges based on size and how frequently accessed',
   },
   {
     key: 'MARKET',
@@ -775,11 +779,11 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
       },
     ],
     rate: 1000,
-    tooltip: 'Charges based on complexity',
+    tooltip: 'Charges based on complexity of transactions',
   },
   {
     key: 'FORM',
-    name: 'Form Validation & Processing',
+    name: 'Form Processing',
     parameter: {
       type: 'slider',
       label: 'Complexity of form',
@@ -815,11 +819,11 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
       },
     ],
     rate: 500,
-    tooltip: 'Charges based on complexity',
+    tooltip: 'Charges based on size and structure of form',
   },
   {
     key: 'SCHEDULE',
-    name: 'Scheduling & Notifications',
+    name: 'Notifications',
     parameter: {
       type: 'null',
       state_descriptions: [
@@ -852,20 +856,20 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
       {
         service: 'AWS Simple Email Service',
         rate: 0.1,
-        justification: 'Email Server',
+        justification: 'Email',
         basis: 'Per 1000 Emails',
         href: 'https://aws.amazon.com/ses/pricing/',
       },
     ],
     rate: 1000,
-    tooltip: 'Charge based on implementation effort',
+    tooltip: 'Charges based on implementation effort',
   },
 ];
 
 export const ADDON_PRICING_CONFIG: PricingConfig[] = [
   {
     key: 'STORAGE',
-    name: 'Document & Data Storage',
+    name: 'Data Management',
     parameter: {
       type: 'slider',
       label: 'Complexity of data',
@@ -875,7 +879,7 @@ export const ADDON_PRICING_CONFIG: PricingConfig[] = [
         'Your data includes images, videos and other forms of media.',
         'Your data is aggregated from multiple sources. Note, depending on the complexity and the desired outcome, this may require other services and extra effort.',
       ],
-      state_titles: ['Easy', 'Medium', 'Hard'],
+      state_titles: ['Small', 'Medium', 'Large'],
     },
     fees: [
       {
@@ -966,7 +970,7 @@ export const ADDON_PRICING_CONFIG: PricingConfig[] = [
 export const ANALYTICS_PRICING_CONFIG: PricingConfig[] = [
   {
     key: 'SEO',
-    name: 'Search Engine Optimization',
+    name: 'Search Optimization',
     parameter: {
       type: 'number',
       label: 'Number of pages',
@@ -977,11 +981,11 @@ export const ANALYTICS_PRICING_CONFIG: PricingConfig[] = [
     },
     fees: [],
     rate: 100,
-    tooltip: 'Charges based on number of pages optimized',
+    tooltip: 'Charges based on number of pages',
   },
   {
     key: 'DEMO',
-    name: 'User Traffic Demographics',
+    name: 'User Conversion',
     parameter: {
       type: 'number',
       label: 'Number of pages',

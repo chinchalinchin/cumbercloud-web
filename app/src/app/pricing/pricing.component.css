@@ -49,9 +49,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.panel-title {
-  padding: 3%;
-}
+
 @media (min-width: 991px) {
   #calc-btn {
     top: 2.5%;
@@ -60,6 +58,9 @@
     right: 10%;
     width: 80%;
     height: 67.5%;
+  }
+  .panel-title {
+    padding: 3%;
   }
 }
 @media (max-width: 992px) {
@@ -70,5 +71,8 @@
     right: 2.5%;
     width: 95%;
     height: 70%;
+  }
+  .panel-title{
+    padding: 4%;
   }
 }
