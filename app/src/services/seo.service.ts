@@ -15,10 +15,6 @@ export class SeoService {
 
   public setStaticAtrributes() {
     this._meta.addTag({
-      property: 'og:image',
-      content: `https://cumberland-cloud.com/assets/cumberland.jpg`,
-    });
-    this._meta.addTag({
       property: 'og:site_name',
       content: 'Cumberland Cloud',
     });
