@@ -112,7 +112,8 @@ export class DesignComponent implements OnInit {
     AnimationTriggers.cntl_scale
   );
 
-  constructor(private meta: MetaService, public dialog: MatDialog) {
+  constructor(private meta: MetaService, 
+              public dialog: MatDialog) {
     this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
@@ -396,22 +397,24 @@ export class DesignComponent implements OnInit {
   }
 
   public flashRipple(forward: boolean): void {
-    if (forward) {
-      const rippleRef = this.ripples.last.launch({
-        persistent: true,
-        centered: true,
-      });
-      setTimeout(() => {
-        rippleRef.fadeOut();
-      }, AnimationPeriods.short * 1000);
-    } else {
-      const rippleRef = this.ripples.first.launch({
-        persistent: true,
-        centered: true,
-      });
-      setTimeout(() => {
-        rippleRef.fadeOut();
-      }, AnimationPeriods.short * 1000);
+    if(this.meta.isBrowser()){
+      if (forward) {
+        const rippleRef = this.ripples.last.launch({
+          persistent: true,
+          centered: true,
+        });
+        setTimeout(() => {
+          rippleRef.fadeOut();
+        }, AnimationPeriods.short * 1000);
+      } else {
+        const rippleRef = this.ripples.first.launch({
+          persistent: true,
+          centered: true,
+        });
+        setTimeout(() => {
+          rippleRef.fadeOut();
+        }, AnimationPeriods.short * 1000);
+      }
     }
   }
   public splashSrc(): string {

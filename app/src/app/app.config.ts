@@ -179,13 +179,13 @@ export const NAV_CONFIG: NavConfig[] = [
   {
     path: '/about',
     nav_title: 'About',
-    page_title: 'Cumberland Cloud - Abou',
+    page_title: 'Cumberland Cloud - About',
     page_description: 'Meet the team at Cumberland Cloud',
     menu: true,
     data: {},
     children: [
       {
-        path: 'about/grant',
+        path: '/about/grant',
         nav_title: 'Grant Moore',
         page_title: 'Cumberland Cloud - About Grant Moore',
         page_description:

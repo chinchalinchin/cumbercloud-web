@@ -159,9 +159,10 @@ export class AboutComponent implements OnInit {
   public unfolded: boolean = false;
 
   constructor(private meta: MetaService, private route: ActivatedRoute) {
+    let route_param : string | null = this.route.snapshot.paramMap.get('name');
     this.selectedProfile = this.profileConfig
       .filter(
-        (profile) => profile.key === this.route.snapshot.paramMap.get('name')
+        (profile) => profile.key === (route_param ? route_param : 'grant')
       )
       .pop();
     this.meta.mediaBreakpoint.subscribe((size: string) => {

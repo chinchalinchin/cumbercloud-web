@@ -29,6 +29,7 @@ import { ResumeComponent } from './about/resume/resume.component';
 import { ExperienceComponent } from './about/resume/experience/experience.component';
 import { RateComponent } from './pricing/rate/rate.component';
 import { MetaService } from 'src/services/meta.service';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MetaService } from 'src/services/meta.service';
     ResumeComponent,
     ExperienceComponent,
     RateComponent,
+    ErrorComponent,
   ],
   imports: [
     AppRoutingModule,
