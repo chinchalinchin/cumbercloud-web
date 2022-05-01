@@ -402,7 +402,7 @@ export const ICON_CONFIG: IconConfig[] = [
   },
   {
     src: '../assets/icons/calculator.svg',
-    name: 'calculator'
+    name: 'calculator',
   },
   {
     src: '../assets/icons/aws-cloudfront.svg',

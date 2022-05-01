@@ -24,10 +24,10 @@ mat-slider {
   display: flex;
   flex-direction: row;
 }
-.output-text{
-  text-align: center; 
-  padding-top: 7.5%; 
-  font-size: larger
+.output-text {
+  text-align: center;
+  padding-top: 7.5%;
+  font-size: larger;
 }
 @media (min-width: 991px) {
   .element {
@@ -73,12 +73,11 @@ mat-slider {
   }
   .mat-form-field-wrapper {
     width: 30% !important;
-    max-width:35% !important;
+    max-width: 35% !important;
   }
-  .align-null{
+  .align-null {
     margin-left: auto;
     margin-right: 2.5%;
     margin-bottom: 1%;
-
   }
 }

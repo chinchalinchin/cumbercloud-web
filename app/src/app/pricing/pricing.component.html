@@ -34,7 +34,7 @@
                 (change)="renderBadges(pricingGroups.core)"
                 >{{ conf.name }}</mat-checkbox
               >
-              <button 
+              <button
                 mat-icon-button
                 *ngIf="groupField(pricingGroups.core, conf.key)"
                 [matTooltip]="conf.tooltip"
@@ -71,7 +71,7 @@
                 (change)="renderBadges(pricingGroups.addon)"
                 >{{ conf.name }}</mat-checkbox
               >
-              <button 
+              <button
                 mat-icon-button
                 *ngIf="groupField(pricingGroups.addon, conf.key)"
                 [matTooltip]="conf.tooltip"
@@ -108,7 +108,7 @@
                 (change)="renderBadges(pricingGroups.analytics)"
                 >{{ conf.name }}</mat-checkbox
               >
-              <button 
+              <button
                 mat-icon-button
                 *ngIf="groupField(pricingGroups.analytics, conf.key)"
                 [matTooltip]="conf.tooltip"
@@ -121,10 +121,10 @@
       </mat-accordion>
     </mat-card-content>
 
-    <button 
-      mat-mini-fab 
-      id="calc-btn" 
-      color="primary" 
+    <button
+      mat-mini-fab
+      id="calc-btn"
+      color="primary"
       (click)="calculate()"
       matTooltip="Estimate my costs!"
     >

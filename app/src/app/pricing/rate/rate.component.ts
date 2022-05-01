@@ -21,7 +21,7 @@ export class RateComponent implements OnInit {
   public numberValue: number = 1;
   public sliderValue: number = 1;
   public total!: number;
-  
+
   public constructor(private meta: MetaService) {
     this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;

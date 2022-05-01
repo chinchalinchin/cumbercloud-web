@@ -2,9 +2,7 @@
   <mat-card-title>
     {{ config.name }}
   </mat-card-title>
-  <mat-card-subtitle 
-    *ngIf="config.parameter.type === 'slider'"
-  >
+  <mat-card-subtitle *ngIf="config.parameter.type === 'slider'">
     {{ config.parameter.label }}
   </mat-card-subtitle>
   <mat-card-content>
@@ -28,9 +26,7 @@
           </mat-form-field>
         </div>
         <div id="number-output" class="element-output mat-elevation-z3">
-          <h2 class="mat-h2">
-            Estimate
-          </h2>
+          <h2 class="mat-h2">Estimate</h2>
           <p class="mat-body-2 output-text">
             {{ total | currency }}
           </p>
@@ -102,10 +98,10 @@
       class="element-container"
       *ngIf="config.parameter.type === 'null'"
     >
-      <div 
-        id="null-output" 
+      <div
+        id="null-output"
         class="element-output mat-elevation-z3"
-        [class.align-null]="mobileMode()"  
+        [class.align-null]="mobileMode()"
       >
         <h2 class="mat-h2">Estimate</h2>
         <p class="mat-body-2 output-text">
@@ -143,24 +139,18 @@
     </h2>
 
     <div id="fee-element" *ngIf="config.fees.length > 0">
-      <mat-table 
+      <mat-table
         id="fee-table"
         class="mat-elevation-z3"
         [dataSource]="config.fees"
-        *ngIf="!mobileMode()"  
+        *ngIf="!mobileMode()"
       >
         <ng-container matColumnDef="service">
-          <mat-header-cell *matHeaderCellDef>
-            Service
-          </mat-header-cell>
-          <mat-cell *matCellDef="let fee">
-            {{ fee.service }
-          }</mat-cell>
+          <mat-header-cell *matHeaderCellDef> Service </mat-header-cell>
+          <mat-cell *matCellDef="let fee"> {{ fee.service } }</mat-cell>
         </ng-container>
         <ng-container matColumnDef="rate">
-          <mat-header-cell *matHeaderCellDef>
-            Rate
-          </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Rate </mat-header-cell>
           <mat-cell *matCellDef="let fee">
             {{
               fee.service === "Stripe"
@@ -170,25 +160,19 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="basis">
-          <mat-header-cell *matHeaderCellDef>
-            Basis
-          </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Basis </mat-header-cell>
           <mat-cell *matCellDef="let fee">
             {{ fee.basis }}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="reason">
-          <mat-header-cell *matHeaderCellDef>
-            Reason
-          </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Reason </mat-header-cell>
           <mat-cell *matCellDef="let fee">
             {{ fee.justification }}
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="href">
-          <mat-header-cell *matHeaderCellDef>
-            Reference
-          </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Reference </mat-header-cell>
           <mat-cell *matCellDef="let fee">
             <a [href]="fee.href" target="_blank">
               <mat-icon>link</mat-icon>
