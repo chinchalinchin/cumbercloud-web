@@ -6,15 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import { DesignComponent } from './components/design/design.component';
 
-
 @NgModule({
-  declarations: [
-    DesignComponent
-  ],
-  imports: [
-    DesignRoutingModule,
-    DesignMaterialModule,
-    SharedModule
-  ]
+  declarations: [DesignComponent],
+  imports: [DesignRoutingModule, DesignMaterialModule, SharedModule],
 })
-export class DesignModule { }
+export class DesignModule {}

@@ -16,11 +16,16 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('./pricing/pricing.module').then((m) => m.PricingModule),
   },
-  { 
-    path: 'design', 
-    loadChildren: () => 
-      import('./design/design.module').then(m => m.DesignModule) },
-  { path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
+  {
+    path: 'design',
+    loadChildren: () =>
+      import('./design/design.module').then((m) => m.DesignModule),
+  },
+  {
+    path: 'contact',
+    loadChildren: () =>
+      import('./contact/contact.module').then((m) => m.ContactModule),
+  },
   { path: '**', redirectTo: '/404' },
 ];
 

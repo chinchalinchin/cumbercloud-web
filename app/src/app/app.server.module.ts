@@ -14,10 +14,7 @@ import { IconConfig, ICON_CONFIG } from './app.config';
 import { MaterialModule } from './app-material.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     ServerModule,
     AppRoutingModule,

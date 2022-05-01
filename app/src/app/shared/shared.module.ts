@@ -7,23 +7,20 @@ import { SheetComponent } from './components/sheet/sheet.component';
 import { SharedMaterialModule } from './shared-material.module';
 
 @NgModule({
-  declarations: [
-    ErrorComponent,
-    SheetComponent
-  ],
+  declarations: [ErrorComponent, SheetComponent],
   imports: [
-    CommonModule, 
-    HttpClientModule, 
-    FormsModule, 
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
-    SharedMaterialModule
+    SharedMaterialModule,
   ],
   exports: [
-    CommonModule, 
-    HttpClientModule, 
-    FormsModule, 
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
-    SharedMaterialModule
+    SharedMaterialModule,
   ],
 })
 export class SharedModule {}

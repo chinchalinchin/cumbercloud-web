@@ -21,14 +21,10 @@ import { HomeComponent } from './home/home.component';
 import { MetaService } from 'src/services/meta.service';
 import { SharedModule } from './shared/shared.module';
 
-
 // where do i actually use forms?
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
