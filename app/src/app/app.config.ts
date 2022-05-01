@@ -15,6 +15,12 @@ export interface NavConfig {
   menu?: boolean;
   data?: any;
   children?: NavConfig[];
+  og?: OGConfig[];
+}
+
+export interface OGConfig{
+  property: string,
+  content: string
 }
 
 export interface IconConfig {
@@ -182,7 +188,18 @@ export const NAV_CONFIG: NavConfig[] = [
         ],
       },
     ],
+    og: [
+      {
+        property: 'og:url',
+        content: 'https://cumberland-cloud.com/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://cumberland-cloud.com/assets/svgs/logo.svg'
+      }
+    ]
   },
+  // '/about' isn't a route, but this object is used to configure the nav menu.
   {
     path: '/about',
     nav_title: 'About',
@@ -194,42 +211,65 @@ export const NAV_CONFIG: NavConfig[] = [
       {
         path: '/about/grant',
         nav_title: 'Grant Moore',
-        page_title: 'Cumberland Cloud - About Grant Moore',
-        page_description:
-          'Grant Moore is a Solution Architect, Web Developer and UI/UX Designer. With a background in mathematics and physics, he approaches every software problem with a unique perspective, bringing to it a diverse array of analytical tools. Schedule a consultation at design@cumberland-cloud.com',
-        data: [
-          {
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Grant Moore',
-                item: 'https://cumberland-cloud.com/about/grant',
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Resume',
-                item: 'https://cumberland-cloud.com/about/resume/grant',
-              },
-            ],
-          },
-        ],
       },
     ],
   },
-  // NOTE: this nav item is *not* a child of the previous item sp it does not get displayed
-  //        in the "About" dropdown menu, but still gets its SEO attributes configured
+  {
+    path: '/about/grant',
+    page_title: 'Cumberland Cloud - About Grant Moore',
+    menu: false,
+    page_description:
+      'Grant Moore is a Solution Architect, Web Developer and UI/UX Designer. With a background in mathematics and physics, he approaches every software problem with a unique perspective, bringing to it a diverse array of analytical tools. Schedule a consultation at design@cumberland-cloud.com',
+    data: {
+
+    },
+    og: [
+      {
+        property: 'og:url',
+        content: 'https://cumberland-cloud.com/about/grant/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://cumberland-cloud.com/assets/people/grant/profile.jpg'
+      }
+    ]
+  },
   {
     path: '/about/grant/resume',
-    nav_title: 'Resume',
     page_title: 'The Cumberland Cloud - Grant Moore, Resume',
     page_description:
       'Grant Moore is the Solution Arhitect, Lead Developer and UI/UX Designer for the Cumberland Cloud. Read details about his career, certifications and education here.',
     menu: false,
-    data: {},
+    data: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Grant Moore',
+            item: 'https://cumberland-cloud.com/about/grant',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Resume',
+            item: 'https://cumberland-cloud.com/about/resume/grant',
+          },
+        ],
+      },
+    ],
+    og: [
+      {
+        property: 'og:url',
+        content: 'https://cumberland-cloud.com/about/grant/resume/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://cumberland-cloud.com/assets/people/grant/americorps.jpg'
+      }
+    ]
   },
   {
     path: '/design',
@@ -239,6 +279,16 @@ export const NAV_CONFIG: NavConfig[] = [
       'The Cumberland Cloud allows your business to take advantage of our years of production-grade software engineering experience. We take pride in our professionalism and as a result, our design process stands out from the rest of the crowd',
     menu: true,
     data: {},
+    og: [
+      {
+        property: 'og:url',
+        content: 'https://cumberland-cloud.com/design'
+      },
+      {
+        property: 'og:image',
+        content: 'https://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg'
+      }
+    ]
   },
   {
     path: '/pricing',
@@ -248,6 +298,16 @@ export const NAV_CONFIG: NavConfig[] = [
       'Find out how much your next project with the Cumberland Cloud will cost. Input your project details into our Project Cost Calculator to get an instant estimate.',
     menu: true,
     data: {},
+    og: [
+      {
+        property: 'og:url',
+        content: 'https://cumberland-cloud.com/about/grant/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://cumberland-cloud.com/assets/svgs/calculator.svg'
+      }
+    ]
   },
   {
     path: '/contact',
@@ -257,6 +317,17 @@ export const NAV_CONFIG: NavConfig[] = [
       'Submit a form message with details about your next web development project to the Cumberland Cloud',
     menu: true,
     data: {},
+    og: [
+      {
+        property: 'og:url',
+        content: 'https://cumberland-cloud.com/about/grant/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://cumberland-cloud.com/assets/svgs/message.svg'
+      }
+    ]
+    
   },
 ];
 

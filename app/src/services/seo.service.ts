@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { OGConfig } from 'src/app/app.config';
 
 @Injectable({
   providedIn: 'root',
@@ -30,12 +31,11 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:description', content: desc });
   }
 
-  public updateOgAttributes(route: string) {
-    this.meta.updateTag({
-      property: 'og:url',
-      content: `https://cumberland-cloud.com${route}`,
-    });
+  public updateOgAttributes(attrs: OGConfig[] | undefined) {
     this.meta.updateTag({ property: 'og:type', content: 'website' });
+    attrs?.forEach((attr: OGConfig)=>{
+      this.meta.updateTag({ property: attr.property, content: attr.content})
+    })
   }
 
   /**
