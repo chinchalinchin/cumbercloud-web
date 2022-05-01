@@ -10,10 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
 import { DesignComponent } from './design/design.component';
-import { AboutComponent } from './about/about.component';
 import { SheetComponent } from './sheet/sheet.component';
-import { ResumeComponent } from './about/resume/resume.component';
-import { ExperienceComponent } from './about/resume/experience/experience.component';
+import { ResumeComponent } from './about/components/resume/resume.component';
+import { ExperienceComponent } from './about/components/experience/experience.component';
 import { RateComponent } from './pricing/rate/rate.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -28,9 +27,7 @@ import { MaterialModule } from './material.module';
     PricingComponent,
     ContactComponent,
     DesignComponent,
-    AboutComponent,
     SheetComponent,
-    ResumeComponent,
     ExperienceComponent,
     RateComponent,
   ],

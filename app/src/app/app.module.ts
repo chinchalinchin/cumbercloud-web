@@ -5,9 +5,6 @@ import {
   HammerModule,
   HAMMER_GESTURE_CONFIG,
 } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HammerConfig } from 'src/hammer';
 import { MatIconRegistry } from '@angular/material/icon';
 import {
@@ -23,13 +20,13 @@ import { HomeComponent } from './home/home.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
 import { DesignComponent } from './design/design.component';
-import { AboutComponent } from './about/about.component';
 import { SheetComponent } from './sheet/sheet.component';
-import { ResumeComponent } from './about/resume/resume.component';
-import { ExperienceComponent } from './about/resume/experience/experience.component';
+import { ExperienceComponent } from './about/components/experience/experience.component';
 import { RateComponent } from './pricing/rate/rate.component';
 import { MetaService } from 'src/services/meta.service';
 import { ErrorComponent } from './error/error.component';
+import { SharedModule } from './shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,22 +35,18 @@ import { ErrorComponent } from './error/error.component';
     PricingComponent,
     ContactComponent,
     DesignComponent,
-    AboutComponent,
     SheetComponent,
-    ResumeComponent,
     ExperienceComponent,
     RateComponent,
     ErrorComponent,
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HammerModule,
     MaterialModule,
+    SharedModule,
   ],
   providers: [
     {

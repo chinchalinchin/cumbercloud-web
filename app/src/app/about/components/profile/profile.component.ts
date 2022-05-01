@@ -7,12 +7,12 @@ import {
   AnimationTriggers,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../app.config';
+import { ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../../../app.config';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
   animations: [
     Animations.getManualScaleTrigger(1.15, 'banner'),
     Animations.getManualScaleTrigger(0.5, 'text'),
@@ -110,7 +110,7 @@ import { ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../app.config';
     Animations.getExpandTrigger('100%'),
   ],
 })
-export class AboutComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   @ViewChild('scroller', { static: false })
   public scroller?: ElementRef;
 

@@ -18,7 +18,7 @@ import {
   ResumePopUpStates,
 } from 'src/app/app.config';
 import { MetaService } from 'src/services/meta.service';
-import { ExperienceComponent } from './experience/experience.component';
+import { ExperienceComponent } from '../experience/experience.component';
 
 @Component({
   selector: 'app-resume',
