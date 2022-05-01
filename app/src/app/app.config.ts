@@ -239,6 +239,14 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/about/grant/',
       },
       {
+        property: 'og:image',
+        content: 'http://cumberland-cloud.com/assets/people/grant/profile.jpg'
+      },
+      {
+        property: 'og:image:type',
+        content: 'image/png'
+      },
+      {
         property: 'og:image:secure_url',
         content: 'https://cumberland-cloud.com/assets/people/grant/profile.jpg',
       },
@@ -288,6 +296,14 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/about/grant/resume/',
       },
       {
+        property: 'og:image',
+        content: 'http://cumberland-cloud.com/assets/grant/americorps.jpg'
+      },
+      {
+        property: 'og:image:type',
+        content: 'image/png'
+      },
+      {
         property: 'og:image:secure_url',
         content:
           'https://cumberland-cloud.com/assets/people/grant/americorps.jpg',
@@ -318,6 +334,14 @@ export const NAV_CONFIG: NavConfig[] = [
       {
         property: 'og:url',
         content: 'https://cumberland-cloud.com/design',
+      },
+      {
+        property: 'og:image',
+        content: 'http://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg'
+      },
+      {
+        property: 'og:image:type',
+        content: 'image/png'
       },
       {
         property: 'og:image:secure_url',
@@ -351,6 +375,14 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/pricing',
       },
       {
+        property: 'og:image',
+        content: 'http://cumberland-cloud.com/assets/imgs/calculator.png'
+      },
+      {
+        property: 'og:image:type',
+        content: 'image/png'
+      },
+      {
         property: 'og:image:secure_url',
         content: 'https://cumberland-cloud.com/assets/imgs/calculator.png',
       },
@@ -380,6 +412,14 @@ export const NAV_CONFIG: NavConfig[] = [
       {
         property: 'og:url',
         content: 'https://cumberland-cloud.com/about/grant/',
+      },
+      {
+        property: 'og:image',
+        content: 'http://cumberland-cloud.com/assets/imgs/message.png'
+      },
+      {
+        property: 'og:image:type',
+        content: 'image/png'
       },
       {
         property: 'og:image:secure_url',
