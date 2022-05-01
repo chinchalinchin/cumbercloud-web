@@ -301,7 +301,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/people/grant/americorps.jpg',
+        content:
+          'http://cumberland-cloud.com/assets/people/grant/americorps.jpg',
       },
       {
         property: 'og:image:type',
