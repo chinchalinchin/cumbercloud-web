@@ -335,6 +335,11 @@ export const TOOL_CHIPS: ChipConfig[] = [
     svgIcon: 'xd',
   },
   {
+    tooltip: 'Inkscape',
+    href: 'https://inkscape.org/',
+    svgIcon: 'inkscape'
+  },
+  {
     tooltip: 'GNU Image Manipulation Program',
     href: 'https://www.gimp.org/',
     svgIcon: 'gimp',
@@ -475,6 +480,10 @@ export const ICON_CONFIG: IconConfig[] = [
   {
     src: '../assets/icons/html5.svg',
     name: 'html',
+  },
+  {
+    src: '../assets/icons/inkscape.svg',
+    name: 'inkscape'
   },
   {
     src: '../assets/icons/lightbulb.svg',

@@ -57,11 +57,11 @@
   /* Develop */
   #develop-phase-title {
     top: 24.5%;
-    left: 42.5%;
+    left: 45%;
   }
   #develop-phase-title-underline {
     top: 28%;
-    left: 42.75%;
+    left: 45.25%;
     width: 6%;
     height: 1%;
   }
@@ -94,7 +94,7 @@
   }
   #deploy-phase-title {
     top: 24.5%;
-    left: 61.5%;
+    left: 63%;
   }
   #deploy-phase-svg-bg {
     left: 62.5%;
@@ -106,7 +106,7 @@
   }
   #deploy-phase-title-underline {
     top: 28%;
-    left: 61.75%;
+    left: 63.25%;
     width: 5%;
     height: 1%;
   }
@@ -171,15 +171,9 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-evenly;
-    padding-top: 2.5%;
     padding-bottom: 2.5%;
   }
-  #gallery-title{
-    margin-top: -2.5%;
-    margin-bottom: -2.5%;
-  }
   .gallery-subtitle{
-    margin-top: -1%;
     text-decoration: underline;
   }
   .gallery-img{

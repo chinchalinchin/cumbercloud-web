@@ -55,7 +55,7 @@ export class DesignComponent implements OnInit {
   @ViewChildren(MatRipple) ripples!: QueryList<MatRipple>;
 
   public phases: any = Phases;
-  public phase: Phases = Phases.done;
+  public phase: Phases = Phases.none;
   public splashes: any = Splash;
   public splash: Splash = Splash.untouched;
   public oscillating: boolean = false;
@@ -65,7 +65,7 @@ export class DesignComponent implements OnInit {
   public toolConfig: ChipConfig[] = TOOL_CHIPS;
   public svgConfig: any = SVG_CONFIG;
   public phaseIcons: any[] = [
-    ['xd', 'gimp', 'drawio'],
+    ['xd', 'inkscape', 'gimp', 'drawio'],
     ['typescript', 'python', 'angular', 'django'],
     ['docker', 'cloudfront', 's3', 'lambda', 'apigateway'],
   ];
