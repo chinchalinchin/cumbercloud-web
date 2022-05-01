@@ -1,7 +1,5 @@
 1. FAQ page -> json+ld seo
 
-2. replace delivery truck svg with secure cloud svg
-
 3. fallback images for svg -> just rasterize svgs...
 
 4. decompose complexity vs number of users into multiple input element. adjust pricing config so parameter is [].
@@ -9,3 +7,5 @@
 5. style about component between widths 991px and 431px,i.e. "landscape mode". (mobile scroller breaks at these widths)
 
 6. generalize resume component
+
+7. cloudfront serves the root index.html on all paths, effectively rendering the prerender routine moot. the nested indexes are not being served. will need to write custom handlers to return the appropriate indices...i think this is the best soltuion anyway: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/edge-functions.html

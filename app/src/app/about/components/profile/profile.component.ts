@@ -172,7 +172,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     if (this.scroller) {
-      console.log(this.scroller);
       this.scroller.nativeElement.scrollToTop();
     }
   }

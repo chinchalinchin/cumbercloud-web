@@ -269,7 +269,7 @@ export const NAV_CONFIG: NavConfig[] = [
     ],
   },
   {
-    path: '/about/grant/resume',
+    path: '/about/resume/grant',
     page_title: 'The Cumberland Cloud - Grant Moore, Resume',
     page_description:
       'Grant Moore is the Solution Arhitect, Lead Developer and UI/UX Designer for the Cumberland Cloud. Read details about his career, certifications and education here.',
