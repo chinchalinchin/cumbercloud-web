@@ -1,5 +1,5 @@
 @media (min-width: 991px) {
-  #design{
+  #design {
     height: 60%;
   }
   #splash-animation {
@@ -160,23 +160,23 @@
     height: 100%;
     right: 0%;
   }
-  #project-gallery{
+  #project-gallery {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
   }
-  #gallery-line{
+  #gallery-line {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-evenly;
     padding-bottom: 2.5%;
   }
-  .gallery-subtitle{
+  .gallery-subtitle {
     text-decoration: underline;
   }
-  .gallery-img{
+  .gallery-img {
     height: auto;
     width: 90%;
     top: 30%;

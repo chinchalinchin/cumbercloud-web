@@ -320,12 +320,12 @@ export const ASSET_CONFIG: AssetConfig[] = [
   },
   {
     src: '/assets/svgs/sun.svg',
-    alt: 'Sun'
+    alt: 'Sun',
   },
   {
     src: '/assets/imgs/innolab.png',
-    alt: 'Innovation Lab'
-  }
+    alt: 'Innovation Lab',
+  },
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [
@@ -337,7 +337,7 @@ export const TOOL_CHIPS: ChipConfig[] = [
   {
     tooltip: 'Inkscape',
     href: 'https://inkscape.org/',
-    svgIcon: 'inkscape'
+    svgIcon: 'inkscape',
   },
   {
     tooltip: 'GNU Image Manipulation Program',
@@ -483,7 +483,7 @@ export const ICON_CONFIG: IconConfig[] = [
   },
   {
     src: '../assets/icons/inkscape.svg',
-    name: 'inkscape'
+    name: 'inkscape',
   },
   {
     src: '../assets/icons/lightbulb.svg',
