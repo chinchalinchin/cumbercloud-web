@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'design', component: DesignComponent },
   { path: '404', component: ErrorComponent },
-  { path: '**', redirectTo: '/404' }
+  { path: '**', redirectTo: '/404' },
 ];
 
 @NgModule({
