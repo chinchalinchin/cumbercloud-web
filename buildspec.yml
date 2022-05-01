@@ -22,3 +22,10 @@ phases:
       - npm run prerender
       - aws s3 cp ./dist/app/server/ s3://${APPLICATION}-web/ --recursive
       - aws s3 cp ./dist/app/browser/ s3://${APPLICATION}-web/ --recursive
+  
+  post_build:
+    commands:
+      - |
+        aws cloudfront create-invalidation \
+          --distribution-id $DISTRIBUTION_ID \
+          --paths "/*"
