@@ -18,7 +18,10 @@ export class SeoService {
       property: 'og:image',
       content: `https://cumberland-cloud.com/assets/cumberland.jpg`,
     });
-    this._meta.addTag({ property: 'og:site_name', content: 'Cumberland Cloud' });
+    this._meta.addTag({
+      property: 'og:site_name',
+      content: 'Cumberland Cloud',
+    });
   }
 
   public updateTitle(title: string) {
@@ -33,9 +36,9 @@ export class SeoService {
 
   public updateOgAttributes(attrs: OGConfig[] | undefined) {
     this._meta.updateTag({ property: 'og:type', content: 'website' });
-    attrs?.forEach((attr: OGConfig)=>{
-      this._meta.updateTag({ property: attr.property, content: attr.content})
-    })
+    attrs?.forEach((attr: OGConfig) => {
+      this._meta.updateTag({ property: attr.property, content: attr.content });
+    });
   }
 
   /**
