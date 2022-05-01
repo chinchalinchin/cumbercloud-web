@@ -194,7 +194,7 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/',
       },
       {
-        property: 'og:image',
+        property: 'og:image:secure_url',
         content: 'https://cumberland-cloud.com/assets/svgs/logo.svg',
       },
       {
@@ -235,7 +235,7 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/about/grant/',
       },
       {
-        property: 'og:image',
+        property: 'og:image:secure_url',
         content: 'https://cumberland-cloud.com/assets/people/grant/profile.jpg',
       },
       {
@@ -280,7 +280,7 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/about/grant/resume/',
       },
       {
-        property: 'og:image',
+        property: 'og:image:secure_url',
         content:
           'https://cumberland-cloud.com/assets/people/grant/americorps.jpg',
       },
@@ -308,7 +308,7 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/design',
       },
       {
-        property: 'og:image',
+        property: 'og:image:secure_url',
         content: 'https://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg',
       },
       {
@@ -335,7 +335,7 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/about/grant/',
       },
       {
-        property: 'og:image',
+        property: 'og:image:secure_url',
         content: 'https://cumberland-cloud.com/assets/svgs/calculator.svg',
       },
       {
@@ -362,7 +362,7 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/about/grant/',
       },
       {
-        property: 'og:image',
+        property: 'og:image:secure_url',
         content: 'https://cumberland-cloud.com/assets/svgs/message.svg',
       },
       {
