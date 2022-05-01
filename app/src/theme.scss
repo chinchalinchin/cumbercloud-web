@@ -11,7 +11,7 @@
 @use "./app/pricing/components/pricing/pricing.theme" as pricing;
 @use "./app/pricing/components/rate/rate.theme" as rate;
 @use "./app/contact/components/contact/contact.theme" as contact;
-@use "./app/sheet/sheet.theme" as sheet;
+@use "./app/shared/components/sheet/sheet.theme" as sheet;
 
 @import "~@angular/material/theming";
 

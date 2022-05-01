@@ -10,7 +10,7 @@ import {
 import { MetaService } from 'src/services/meta.service';
 import { SeoService } from 'src/services/seo.service';
 import { NavConfig, NAV_CONFIG } from './app.config';
-import { SheetComponent } from './sheet/sheet.component';
+import { SheetComponent } from './shared/components/sheet/sheet.component';
 
 @Component({
   selector: 'app-root',

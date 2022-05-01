@@ -9,7 +9,6 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
-import { SheetComponent } from './sheet/sheet.component';
 import { MetaService } from 'src/services/meta.service';
 import { IconConfig, ICON_CONFIG } from './app.config';
 import { MaterialModule } from './app-material.module';
@@ -18,7 +17,6 @@ import { MaterialModule } from './app-material.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    SheetComponent,
   ],
   imports: [
     ServerModule,

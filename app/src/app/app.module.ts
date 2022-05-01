@@ -18,10 +18,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './app-material.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { SheetComponent } from './sheet/sheet.component';
 import { MetaService } from 'src/services/meta.service';
-import { ErrorComponent } from './error/error.component';
-import { SharedModule } from './shared.module';
+import { SharedModule } from './shared/shared.module';
 
 
 // where do i actually use forms?
@@ -30,8 +28,6 @@ import { SharedModule } from './shared.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    SheetComponent,
-    ErrorComponent,
   ],
   imports: [
     AppRoutingModule,
