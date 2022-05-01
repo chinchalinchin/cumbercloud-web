@@ -199,12 +199,12 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:width',
-        content: '1024'
+        content: '1024',
       },
       {
         property: 'og:image:height',
-        content: '1024'
-      }
+        content: '1024',
+      },
     ],
   },
   // '/about' isn't a route, but this object is used to configure the nav menu.
@@ -240,12 +240,12 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:width',
-        content: '473'
+        content: '473',
       },
       {
         property: 'og:image:height',
-        content: '599'
-      }
+        content: '599',
+      },
     ],
   },
   {
@@ -286,12 +286,12 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:width',
-        content: '1936'
+        content: '1936',
       },
       {
         property: 'og:image:height',
-        content: '1936'
-      }
+        content: '1936',
+      },
     ],
   },
   {
@@ -313,12 +313,12 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:width',
-        content: '5776'
+        content: '5776',
       },
       {
         property: 'og:image:height',
-        content: '3856'
-      }
+        content: '3856',
+      },
     ],
   },
   {
@@ -340,12 +340,12 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:width',
-        content: '1380'
+        content: '1380',
       },
       {
         property: 'og:image:height',
-        content: '1380'
-      }
+        content: '1380',
+      },
     ],
   },
   {
@@ -367,12 +367,12 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:width',
-        content: '1024'
+        content: '1024',
       },
       {
         property: 'og:image:height',
-        content: '1024'
-      }
+        content: '1024',
+      },
     ],
   },
 ];
