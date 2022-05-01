@@ -5,17 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  exports: [
-    CommonModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ]
+  imports: [CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule],
+  exports: [CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule],
 })
-export class SharedModule { }
+export class SharedModule {}

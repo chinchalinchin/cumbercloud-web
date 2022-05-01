@@ -11,8 +11,16 @@ const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'design', component: DesignComponent },
   { path: '404', component: ErrorComponent },
-  { path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule) },
-  { path: 'pricing', loadChildren: () => import('./pricing/pricing.module').then(m => m.PricingModule) },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./about/about.module').then((m) => m.AboutModule),
+  },
+  {
+    path: 'pricing',
+    loadChildren: () =>
+      import('./pricing/pricing.module').then((m) => m.PricingModule),
+  },
   { path: '**', redirectTo: '/404' },
 ];
 

@@ -26,7 +26,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatInputModule,
     MatSliderModule,
     MatTableModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   exports: [
     MatBadgeModule,
@@ -39,7 +39,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatInputModule,
     MatSliderModule,
     MatTableModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
 })
 export class PricingMaterialModule {}
