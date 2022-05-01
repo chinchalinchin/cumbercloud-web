@@ -8,33 +8,33 @@ import { OGConfig } from 'src/app/app.config';
 })
 export class SeoService {
   constructor(
-    private title: Title,
-    private meta: Meta,
+    private _title: Title,
+    private _meta: Meta,
     @Inject(DOCUMENT) private _document: Document
   ) {}
 
   public setStaticAtrributes() {
-    this.meta.addTag({
+    this._meta.addTag({
       property: 'og:image',
       content: `https://cumberland-cloud.com/assets/cumberland.jpg`,
     });
-    this.meta.addTag({ property: 'og:site_name', content: 'Cumberland Cloud' });
+    this._meta.addTag({ property: 'og:site_name', content: 'Cumberland Cloud' });
   }
 
   public updateTitle(title: string) {
-    this.title.setTitle(title);
-    this.meta.updateTag({ property: 'og:title', content: title });
+    this._title.setTitle(title);
+    this._meta.updateTag({ property: 'og:title', content: title });
   }
 
   public updateDescription(desc: string) {
-    this.meta.updateTag({ name: 'description', content: desc });
-    this.meta.updateTag({ property: 'og:description', content: desc });
+    this._meta.updateTag({ name: 'description', content: desc });
+    this._meta.updateTag({ property: 'og:description', content: desc });
   }
 
   public updateOgAttributes(attrs: OGConfig[] | undefined) {
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this._meta.updateTag({ property: 'og:type', content: 'website' });
     attrs?.forEach((attr: OGConfig)=>{
-      this.meta.updateTag({ property: attr.property, content: attr.content})
+      this._meta.updateTag({ property: attr.property, content: attr.content})
     })
   }
 
