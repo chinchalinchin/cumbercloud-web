@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  QueryList,
-  ViewChildren,
-} from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { MatRipple } from '@angular/material/core';
 import {
   AnimationControl,
