@@ -194,8 +194,8 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/',
       },
       {
-        property:'og:image',
-        content: 'http://cumberland-cloud.com/assets/imgs/logo.png'
+        property: 'og:image',
+        content: 'http://cumberland-cloud.com/assets/imgs/logo.png',
       },
       {
         property: 'og:image:secure_url',
@@ -211,8 +211,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:alt',
-        content: 'Cumberland Cloud - Cloud Native Applications'
-      }
+        content: 'Cumberland Cloud - Cloud Native Applications',
+      },
     ],
   },
   // '/about' isn't a route, but this object is used to configure the nav menu.
@@ -244,11 +244,11 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/people/grant/profile.jpg'
+        content: 'http://cumberland-cloud.com/assets/people/grant/profile.jpg',
       },
       {
         property: 'og:image:type',
-        content: 'image/png'
+        content: 'image/png',
       },
       {
         property: 'og:image:secure_url',
@@ -264,8 +264,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:alt',
-        content: 'Meet Grant Moore, the engineer behind the Cumberland Cloud'
-      }
+        content: 'Meet Grant Moore, the engineer behind the Cumberland Cloud',
+      },
     ],
   },
   {
@@ -301,11 +301,11 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/grant/americorps.jpg'
+        content: 'http://cumberland-cloud.com/assets/grant/americorps.jpg',
       },
       {
         property: 'og:image:type',
-        content: 'image/png'
+        content: 'image/png',
       },
       {
         property: 'og:image:secure_url',
@@ -322,8 +322,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:alt',
-        content: 'Grant Moore\'s Resume'
-      }
+        content: "Grant Moore's Resume",
+      },
     ],
   },
   {
@@ -341,11 +341,11 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg'
+        content: 'http://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg',
       },
       {
         property: 'og:image:type',
-        content: 'image/png'
+        content: 'image/png',
       },
       {
         property: 'og:image:secure_url',
@@ -361,8 +361,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:alt',
-        content: 'Learn about Cumberland Cloud\'s design process'
-      }
+        content: "Learn about Cumberland Cloud's design process",
+      },
     ],
   },
   {
@@ -380,11 +380,11 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/imgs/calculator.png'
+        content: 'http://cumberland-cloud.com/assets/imgs/calculator.png',
       },
       {
         property: 'og:image:type',
-        content: 'image/png'
+        content: 'image/png',
       },
       {
         property: 'og:image:secure_url',
@@ -400,8 +400,9 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:alt',
-        content: 'Estimate the cost of your next project with the Cumberland Cloud'
-      }
+        content:
+          'Estimate the cost of your next project with the Cumberland Cloud',
+      },
     ],
   },
   {
@@ -419,11 +420,11 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/imgs/message.png'
+        content: 'http://cumberland-cloud.com/assets/imgs/message.png',
       },
       {
         property: 'og:image:type',
-        content: 'image/png'
+        content: 'image/png',
       },
       {
         property: 'og:image:secure_url',
@@ -439,8 +440,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:alt',
-        content: 'Contact the Cumberland Cloud about your next project'
-      }
+        content: 'Contact the Cumberland Cloud about your next project',
+      },
     ],
   },
 ];
