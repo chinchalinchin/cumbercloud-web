@@ -7,8 +7,8 @@ import {
   ANALYTICS_PRICING_CONFIG,
   CORE_PRICING_CONFIG,
   PricingConfig,
-} from '../app.config';
-import { RateEvent } from './rate/rate.component';
+} from '../../../app.config';
+import { RateEvent } from '../rate/rate.component';
 
 enum ButtonStyle {
   primary = 'primary',

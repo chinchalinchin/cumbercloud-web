@@ -1,35 +1,30 @@
 import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconRegistry } from '@angular/material/icon';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
-import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
 import { DesignComponent } from './design/design.component';
 import { SheetComponent } from './sheet/sheet.component';
-import { ResumeComponent } from './about/components/resume/resume.component';
 import { ExperienceComponent } from './about/components/experience/experience.component';
-import { RateComponent } from './pricing/rate/rate.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatIconRegistry } from '@angular/material/icon';
 import { MetaService } from 'src/services/meta.service';
-import { ASSET_CONFIG, IconConfig, ICON_CONFIG } from './app.config';
+import { IconConfig, ICON_CONFIG } from './app.config';
 import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PricingComponent,
     ContactComponent,
     DesignComponent,
     SheetComponent,
     ExperienceComponent,
-    RateComponent,
   ],
   imports: [
     ServerModule,

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   BrowserModule,
   DomSanitizer,
@@ -17,27 +18,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
 import { DesignComponent } from './design/design.component';
 import { SheetComponent } from './sheet/sheet.component';
 import { ExperienceComponent } from './about/components/experience/experience.component';
-import { RateComponent } from './pricing/rate/rate.component';
 import { MetaService } from 'src/services/meta.service';
 import { ErrorComponent } from './error/error.component';
 import { SharedModule } from './shared.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PricingComponent,
     ContactComponent,
     DesignComponent,
     SheetComponent,
     ExperienceComponent,
-    RateComponent,
     ErrorComponent,
   ],
   imports: [

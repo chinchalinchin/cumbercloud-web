@@ -31,13 +31,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "1mb",
                   "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "3kb",
+                  "maximumError": "6kb"
                 }
               ],
               "fileReplacements": [
@@ -134,7 +134,8 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routesFile": "routes.txt"
+            "routesFile": "routes.txt",
+            "guessRoutes": false
           },
           "configurations": {
             "production": {
