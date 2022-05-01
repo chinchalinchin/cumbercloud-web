@@ -55,7 +55,7 @@ mat-card img {
 .fill {
   width: 100%;
 }
-.full{
+.full {
   width: 100%;
   height: 100%;
 }
@@ -79,8 +79,8 @@ mat-card img {
   border-radius: 2.5px;
 }
 
-@media (min-width: 991px){
-  .fancy-text{
+@media (min-width: 991px) {
+  .fancy-text {
     font-size: 2.5em;
   }
 }
