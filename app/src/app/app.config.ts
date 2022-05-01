@@ -194,6 +194,10 @@ export const NAV_CONFIG: NavConfig[] = [
         content: 'https://cumberland-cloud.com/',
       },
       {
+        property:'og:image',
+        content: 'http://cumberland-cloud.com/assets/imgs/logo.png'
+      },
+      {
         property: 'og:image:secure_url',
         content: 'https://cumberland-cloud.com/assets/imgs/logo.png',
       },
