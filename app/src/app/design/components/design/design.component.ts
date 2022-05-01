@@ -2,11 +2,9 @@ import {
   Component,
   OnInit,
   QueryList,
-  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { MatRipple } from '@angular/material/core';
-import { MatDialog } from '@angular/material/dialog';
 import {
   AnimationControl,
   AnimationPeriods,
@@ -113,7 +111,7 @@ export class DesignComponent implements OnInit {
     AnimationTriggers.cntl_scale
   );
 
-  constructor(private meta: MetaService, public dialog: MatDialog) {
+  constructor(private meta: MetaService) {
     this.meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
