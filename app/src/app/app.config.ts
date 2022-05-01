@@ -205,6 +205,10 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:height',
         content: '1024',
       },
+      {
+        property: 'og:image:alt',
+        content: 'Cumberland Cloud - Cloud Native Applications'
+      }
     ],
   },
   // '/about' isn't a route, but this object is used to configure the nav menu.
@@ -246,6 +250,10 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:height',
         content: '599',
       },
+      {
+        property: 'og:image:alt',
+        content: 'Meet Grant Moore, the engineer behind the Cumberland Cloud'
+      }
     ],
   },
   {
@@ -292,6 +300,10 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:height',
         content: '1936',
       },
+      {
+        property: 'og:image:alt',
+        content: 'Grant Moore\'s Resume'
+      }
     ],
   },
   {
@@ -319,6 +331,10 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:height',
         content: '3856',
       },
+      {
+        property: 'og:image:alt',
+        content: 'Learn about Cumberland Cloud\'s design process'
+      }
     ],
   },
   {
@@ -332,7 +348,7 @@ export const NAV_CONFIG: NavConfig[] = [
     og: [
       {
         property: 'og:url',
-        content: 'https://cumberland-cloud.com/about/grant/',
+        content: 'https://cumberland-cloud.com/pricing',
       },
       {
         property: 'og:image:secure_url',
@@ -346,6 +362,10 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:height',
         content: '1380',
       },
+      {
+        property: 'og:image:alt',
+        content: 'Estimate the cost of your next project with the Cumberland Cloud'
+      }
     ],
   },
   {
@@ -373,6 +393,10 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:height',
         content: '1024',
       },
+      {
+        property: 'og:image:alt',
+        content: 'Contact the Cumberland Cloud about your next project'
+      }
     ],
   },
 ];
