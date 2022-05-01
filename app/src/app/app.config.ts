@@ -195,7 +195,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:secure_url',
-        content: 'https://cumberland-cloud.com/assets/svgs/logo.svg',
+        content: 'https://cumberland-cloud.com/assets/imgs/logo.png',
       },
       {
         property: 'og:image:width',
@@ -336,7 +336,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:secure_url',
-        content: 'https://cumberland-cloud.com/assets/svgs/calculator.svg',
+        content: 'https://cumberland-cloud.com/assets/imgs/calculator.png',
       },
       {
         property: 'og:image:width',
@@ -363,7 +363,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:secure_url',
-        content: 'https://cumberland-cloud.com/assets/svgs/message.svg',
+        content: 'https://cumberland-cloud.com/assets/imgs/message.png',
       },
       {
         property: 'og:image:width',
