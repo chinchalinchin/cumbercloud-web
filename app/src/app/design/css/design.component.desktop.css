@@ -156,9 +156,36 @@
   }
   /* Misc. */
   #final-img {
+    position: absolute;
     height: 100%;
-    margin-left: auto;
-    margin-bottom: auto;
+    right: 0%;
+  }
+  #project-gallery{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+  }
+  #gallery-line{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+  }
+  #gallery-title{
+    margin-top: -2.5%;
+    margin-bottom: -2.5%;
+  }
+  .gallery-subtitle{
+    margin-top: -1%;
+    text-decoration: underline;
+  }
+  .gallery-img{
+    height: auto;
+    width: 90%;
+    top: 30%;
   }
   .placard {
     top: 45%;

@@ -276,31 +276,31 @@ export const ASSET_CONFIG: AssetConfig[] = [
   },
   {
     src: '/assets/imgs/separated.jpg',
-    alt: 'Cumberland Cloud Stands Apart',
+    alt: 'Standing Apart',
   },
   {
     src: '/assets/imgs/cloud_tunnel.jpg',
-    alt: 'Tunnel To The Clouds',
+    alt: 'Cloud Tunnel',
   },
   {
     src: '/assets/imgs/under_construction.jpg',
-    alt: 'Site Under Construction',
+    alt: 'Under Construction',
   },
   {
     src: '/assets/people/grant/profile.jpg',
-    alt: 'Grant Moore: Solution Architect, Developer & Designer',
+    alt: 'Grant Moore',
   },
   {
     src: '/assets/svgs/rain-droplet.svg',
-    alt: 'Rain droplet',
+    alt: 'Rain',
   },
   {
     src: '/assets/svgs/grass.svg',
-    alt: 'Grass blades',
+    alt: 'Grass',
   },
   {
     src: '/assets/svgs/flower.svg',
-    alt: 'A pretty flower',
+    alt: 'Flower',
   },
   {
     src: '/assets/svgs/deliver.svg',
@@ -318,6 +318,14 @@ export const ASSET_CONFIG: AssetConfig[] = [
     src: '/assets/svgs/design.svg',
     alt: 'Design',
   },
+  {
+    src: '/assets/svgs/sun.svg',
+    alt: 'Sun'
+  },
+  {
+    src: '/assets/imgs/innolab.png',
+    alt: 'Innovation Lab'
+  }
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [

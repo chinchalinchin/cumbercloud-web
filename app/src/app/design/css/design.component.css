@@ -23,6 +23,10 @@
   position: absolute;
   z-index: 1;
 }
+.gallery-img{
+  z-index: 2;
+  border-radius: 25px;
+}
 .center-flex {
   display: flex;
   flex-direction: row;

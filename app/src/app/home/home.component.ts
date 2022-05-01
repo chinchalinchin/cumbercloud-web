@@ -21,7 +21,7 @@ enum States {
   styleUrls: ['./home.component.css'],
   animations: [
     Animations.getManualPositionTrigger(
-      { top: '40%', left: '47.5%' },
+      { top: '40%', left: '48.5%' },
       [{ top: '0%', left: '45%' }],
       'center',
       AnimationPeriods.short
@@ -75,25 +75,25 @@ enum States {
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '35%', left: '7.5%' },
+      { top: '35%', left: '5%' },
       [{ top: '81%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_1',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '55%', left: '12.5%' },
+      { top: '55%', left: '8.5%' },
       [{ top: '61%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_2',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '35%', right: '7.5%' },
+      { top: '35%', right: '4%' },
       [{ top: '41%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_3',
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '55%', right: '15%' },
+      { top: '55%', right: '12%' },
       [{ top: '21%', left: '77.5%', right: '0%' }],
       'cloud_line_desktop_4',
       AnimationPeriods.short
