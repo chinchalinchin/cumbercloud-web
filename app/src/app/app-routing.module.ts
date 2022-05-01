@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactComponent } from './contact/contact.component';
-import { DesignComponent } from './design/design.component';
 import { HomeComponent } from './home/home.component';
-import { PricingComponent } from './pricing/components/pricing/pricing.component';
 import { ErrorComponent } from './error/error.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'design', component: DesignComponent },
   { path: '404', component: ErrorComponent },
   {
     path: 'about',
@@ -21,6 +16,11 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('./pricing/pricing.module').then((m) => m.PricingModule),
   },
+  { 
+    path: 'design', 
+    loadChildren: () => 
+      import('./design/design.module').then(m => m.DesignModule) },
+  { path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
   { path: '**', redirectTo: '/404' },
 ];
 

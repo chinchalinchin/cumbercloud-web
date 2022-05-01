@@ -7,13 +7,7 @@ import {
   FadeStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-
-enum States {
-  one = 'one',
-  two = 'two',
-  three = 'three',
-  four = 'four',
-}
+import { HomeStates } from '../app.config';
 
 @Component({
   selector: 'app-home',
@@ -129,8 +123,8 @@ export class HomeComponent implements OnInit {
   public moved: boolean = false;
   public animated: boolean = false;
   public screenSize: string = '';
-  public states = States;
-  public state = States.one;
+  public states = HomeStates;
+  public state = HomeStates.one;
   public centerFadeCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_fade
   );
@@ -222,7 +216,7 @@ export class HomeComponent implements OnInit {
     }, AnimationPeriods.short * 500);
   }
 
-  public setState(state: States) {
+  public setState(state: HomeStates) {
     this.selectionFadeCntl.animate();
     this.selecting = true;
     setTimeout(() => {
@@ -232,11 +226,11 @@ export class HomeComponent implements OnInit {
     }, AnimationPeriods.short * 1000);
   }
 
-  public selected(state: States) {
+  public selected(state: HomeStates) {
     return this.state == state;
   }
 
-  public getSrc(fromState: States | undefined = undefined): string {
+  public getSrc(fromState: HomeStates | undefined = undefined): string {
     let switchState: string = fromState ? fromState : this.state;
     switch (switchState) {
       case this.states.one:
@@ -252,7 +246,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public getTitle(fromState: States | undefined = undefined): string {
+  public getTitle(fromState: HomeStates | undefined = undefined): string {
     let switchState: string = fromState ? fromState : this.state;
     switch (switchState) {
       case this.states.one:
@@ -268,7 +262,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public getSubtitle(fromState: States | undefined = undefined): string {
+  public getSubtitle(fromState: HomeStates | undefined = undefined): string {
     let switchState: string = fromState ? fromState : this.state;
     switch (switchState) {
       case this.states.one:
@@ -284,7 +278,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public getBlurb(fromState: States | undefined = undefined): string {
+  public getBlurb(fromState: HomeStates | undefined = undefined): string {
     let switchState: string = fromState ? fromState : this.state;
     switch (switchState) {
       case this.states.one:
@@ -300,7 +294,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public getLine(fromState: States | undefined = undefined): string {
+  public getLine(fromState: HomeStates | undefined = undefined): string {
     let switchState: string = fromState ? fromState : this.state;
     switch (switchState) {
       case this.states.four:

@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MetaService } from 'src/services/meta.service';
-import { ContactConfig, REASON_CONFIG } from '../app.config';
+import { ContactConfig, REASON_CONFIG } from '../../../app.config';
 
 @Component({
   selector: 'app-contact',

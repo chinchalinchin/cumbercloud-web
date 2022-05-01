@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [],
   imports: [
-    MatBottomSheetModule,
     MatButtonModule,
+    MatChipsModule,
     MatIconModule,
-    MatMenuModule,
+    MatRippleModule,
     MatTooltipModule,
   ],
   exports: [
-    MatBottomSheetModule,
     MatButtonModule,
+    MatChipsModule,
     MatIconModule,
-    MatMenuModule,
+    MatRippleModule,
     MatTooltipModule,
   ],
 })
-export class MaterialModule {}
+export class DesignMaterialModule {}

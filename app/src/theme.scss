@@ -4,13 +4,13 @@
 @use "./global.scss" as global;
 @use "./app/app.theme" as app;
 @use "./app/home/home.theme" as home;
-@use "./app/design/design.theme" as design;
+@use "./app/design/components/design/design.theme" as design;
 @use "./app/about/components/profile/profile.theme" as profile;
 @use "./app/about/components/resume/resume.theme" as resume;
 @use "./app/about/components/experience/experience.theme" as experience;
 @use "./app/pricing/components/pricing/pricing.theme" as pricing;
 @use "./app/pricing/components/rate/rate.theme" as rate;
-@use "./app/contact/contact.theme" as contact;
+@use "./app/contact/components/contact/contact.theme" as contact;
 @use "./app/sheet/sheet.theme" as sheet;
 
 @import "~@angular/material/theming";

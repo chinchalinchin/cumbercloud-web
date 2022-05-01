@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { ContactRoutingModule } from './contact-routing.module';
+import { ContactMaterialModule } from './contact-material.module';
+import { ContactComponent } from './components/contact/contact.component';
+import { SharedModule } from '../shared.module';
+
+@NgModule({
+  declarations: [
+    ContactComponent
+  ],
+  imports: [
+    CommonModule,
+    ContactRoutingModule,
+    ContactMaterialModule,
+    SharedModule,
+  ]
+})
+export class ContactModule { }

@@ -15,7 +15,7 @@ import {
   ScaleStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ChipConfig, SVG_CONFIG, TOOL_CHIPS } from '../app.config';
+import { ChipConfig, SVG_CONFIG, TOOL_CHIPS } from '../../../app.config';
 
 enum Phases {
   none = 'none',

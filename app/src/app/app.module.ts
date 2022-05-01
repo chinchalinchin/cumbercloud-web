@@ -18,22 +18,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './app-material.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { DesignComponent } from './design/design.component';
 import { SheetComponent } from './sheet/sheet.component';
-import { ExperienceComponent } from './about/components/experience/experience.component';
 import { MetaService } from 'src/services/meta.service';
 import { ErrorComponent } from './error/error.component';
 import { SharedModule } from './shared.module';
+
+
+// where do i actually use forms?
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ContactComponent,
-    DesignComponent,
     SheetComponent,
-    ExperienceComponent,
     ErrorComponent,
   ],
   imports: [
