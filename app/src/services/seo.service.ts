@@ -33,9 +33,9 @@ export class SeoService {
 
   public updateOgAttributes(attrs: OGConfig[] | undefined) {
     this.meta.updateTag({ property: 'og:type', content: 'website' });
-    attrs?.forEach((attr: OGConfig)=>{
-      this.meta.updateTag({ property: attr.property, content: attr.content})
-    })
+    attrs?.forEach((attr: OGConfig) => {
+      this.meta.updateTag({ property: attr.property, content: attr.content });
+    });
   }
 
   /**
