@@ -6,16 +6,8 @@ import { SharedModule } from '../shared.module';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { RateComponent } from './components/rate/rate.component';
 
-
 @NgModule({
-  declarations: [
-    PricingComponent,
-    RateComponent
-  ],
-  imports: [
-    SharedModule,
-    PricingRoutingModule,
-    PricingMaterialModule
-  ]
+  declarations: [PricingComponent, RateComponent],
+  imports: [SharedModule, PricingRoutingModule, PricingMaterialModule],
 })
-export class PricingModule { }
+export class PricingModule {}

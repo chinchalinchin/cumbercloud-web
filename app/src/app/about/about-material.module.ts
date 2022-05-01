@@ -19,7 +19,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatListModule,
     MatRippleModule,
     MatTabsModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   exports: [
     MatButtonModule,
@@ -29,7 +29,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatListModule,
     MatRippleModule,
     MatTabsModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
 })
 export class AboutMaterialModule {}
