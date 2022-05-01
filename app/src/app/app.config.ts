@@ -190,7 +190,26 @@ export const NAV_CONFIG: NavConfig[] = [
         page_title: 'Cumberland Cloud - About Grant Moore',
         page_description:
           'Grant Moore is a Solution Architect, Web Developer and UI/UX Designer. With a background in mathematics and physics, he approaches every software problem with a unique perspective, bringing to it a diverse array of analytical tools. Schedule a consultation at design@cumberland-cloud.com',
-        data: {},
+        data: [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Grant Moore',
+                item: 'https://cumberland-cloud.com/about/grant'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Resume',
+                item: 'https://cumberland-cloud.com/about/resume/grant'
+              }
+            ]
+          }
+        ],
       },
     ],
   },
@@ -244,6 +263,10 @@ export const ASSET_CONFIG: AssetConfig[] = [
     alt: 'Cloud Computing',
   },
   {
+    src: '/assets/imgs/circuitry-bg.png',
+    alt: 'Circuitry'
+  },
+  {
     src: '/assets/imgs/expertise-banner.jpg',
     alt: 'Expert Services',
   },
@@ -279,6 +302,22 @@ export const ASSET_CONFIG: AssetConfig[] = [
     src: '/assets/svgs/flower.svg',
     alt: 'A pretty flower',
   },
+  {
+    src: '/assets/svgs/deliver.svg',
+    alt: 'Deliver'
+  },
+  {
+    src: '/assets/svgs/deploy.svg',
+    alt: 'Deploy'
+  },
+  {
+    src: '/assets/svgs/develop.svg',
+    alt: 'Develop'
+  },
+  {
+    src: '/assets/svgs/design.svg',
+    alt: 'Design'
+  }
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [
