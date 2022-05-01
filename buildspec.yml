@@ -13,13 +13,12 @@ phases:
 
   pre_build:
     commands: 
+      - aws s3 rm s3://${APPLICATION}-web/ --recursive
       - aws s3 cp ./sitemap.xml s3://${APPLICATION}-web/sitemap.xml
   
   build:
     commands:
       - cd app
       - npm run prerender
-      - aws s3 rm s3://${APPLICATION}-web/ --recursive
       - aws s3 cp ./dist/app/server/ s3://${APPLICATION}-web/ --recursive
       - aws s3 cp ./dist/app/browser/ s3://${APPLICATION}-web/ --recursive
-      - aws s3 

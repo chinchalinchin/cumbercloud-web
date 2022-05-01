@@ -37,7 +37,6 @@ export class AppComponent {
     this._router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe((event) => {
-        console.log(event);
         if (this.menuDisplayed) {
           this.toggleMenu();
         }
