@@ -297,7 +297,7 @@ export const NAV_CONFIG: NavConfig[] = [
     og: [
       {
         property: 'og:url',
-        content: 'https://cumberland-cloud.com/about/grant/resume/',
+        content: 'https://cumberland-cloud.com/about/resume/grant',
       },
       {
         property: 'og:image',
