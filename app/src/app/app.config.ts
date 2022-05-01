@@ -18,9 +18,9 @@ export interface NavConfig {
   og?: OGConfig[];
 }
 
-export interface OGConfig{
-  property: string,
-  content: string
+export interface OGConfig {
+  property: string;
+  content: string;
 }
 
 export interface IconConfig {
@@ -191,13 +191,13 @@ export const NAV_CONFIG: NavConfig[] = [
     og: [
       {
         property: 'og:url',
-        content: 'https://cumberland-cloud.com/'
+        content: 'https://cumberland-cloud.com/',
       },
       {
         property: 'og:image',
-        content: 'https://cumberland-cloud.com/assets/svgs/logo.svg'
-      }
-    ]
+        content: 'https://cumberland-cloud.com/assets/svgs/logo.svg',
+      },
+    ],
   },
   // '/about' isn't a route, but this object is used to configure the nav menu.
   {
@@ -220,19 +220,17 @@ export const NAV_CONFIG: NavConfig[] = [
     menu: false,
     page_description:
       'Grant Moore is a Solution Architect, Web Developer and UI/UX Designer. With a background in mathematics and physics, he approaches every software problem with a unique perspective, bringing to it a diverse array of analytical tools. Schedule a consultation at design@cumberland-cloud.com',
-    data: {
-
-    },
+    data: {},
     og: [
       {
         property: 'og:url',
-        content: 'https://cumberland-cloud.com/about/grant/'
+        content: 'https://cumberland-cloud.com/about/grant/',
       },
       {
         property: 'og:image',
-        content: 'https://cumberland-cloud.com/assets/people/grant/profile.jpg'
-      }
-    ]
+        content: 'https://cumberland-cloud.com/assets/people/grant/profile.jpg',
+      },
+    ],
   },
   {
     path: '/about/grant/resume',
@@ -263,13 +261,14 @@ export const NAV_CONFIG: NavConfig[] = [
     og: [
       {
         property: 'og:url',
-        content: 'https://cumberland-cloud.com/about/grant/resume/'
+        content: 'https://cumberland-cloud.com/about/grant/resume/',
       },
       {
         property: 'og:image',
-        content: 'https://cumberland-cloud.com/assets/people/grant/americorps.jpg'
-      }
-    ]
+        content:
+          'https://cumberland-cloud.com/assets/people/grant/americorps.jpg',
+      },
+    ],
   },
   {
     path: '/design',
@@ -282,13 +281,13 @@ export const NAV_CONFIG: NavConfig[] = [
     og: [
       {
         property: 'og:url',
-        content: 'https://cumberland-cloud.com/design'
+        content: 'https://cumberland-cloud.com/design',
       },
       {
         property: 'og:image',
-        content: 'https://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg'
-      }
-    ]
+        content: 'https://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg',
+      },
+    ],
   },
   {
     path: '/pricing',
@@ -301,13 +300,13 @@ export const NAV_CONFIG: NavConfig[] = [
     og: [
       {
         property: 'og:url',
-        content: 'https://cumberland-cloud.com/about/grant/'
+        content: 'https://cumberland-cloud.com/about/grant/',
       },
       {
         property: 'og:image',
-        content: 'https://cumberland-cloud.com/assets/svgs/calculator.svg'
-      }
-    ]
+        content: 'https://cumberland-cloud.com/assets/svgs/calculator.svg',
+      },
+    ],
   },
   {
     path: '/contact',
@@ -320,14 +319,13 @@ export const NAV_CONFIG: NavConfig[] = [
     og: [
       {
         property: 'og:url',
-        content: 'https://cumberland-cloud.com/about/grant/'
+        content: 'https://cumberland-cloud.com/about/grant/',
       },
       {
         property: 'og:image',
-        content: 'https://cumberland-cloud.com/assets/svgs/message.svg'
-      }
-    ]
-    
+        content: 'https://cumberland-cloud.com/assets/svgs/message.svg',
+      },
+    ],
   },
 ];
 
