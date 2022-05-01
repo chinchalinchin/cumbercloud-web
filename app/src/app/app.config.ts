@@ -248,7 +248,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:type',
-        content: 'image/png',
+        content: 'image/jpeg',
       },
       {
         property: 'og:image:secure_url',
@@ -305,7 +305,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:type',
-        content: 'image/png',
+        content: 'image/jpeg',
       },
       {
         property: 'og:image:secure_url',
@@ -345,7 +345,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:type',
-        content: 'image/png',
+        content: 'image/jpeg',
       },
       {
         property: 'og:image:secure_url',
