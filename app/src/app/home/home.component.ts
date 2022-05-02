@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import {
   AnimationControl,
   AnimationPeriods,
@@ -158,8 +159,11 @@ export class HomeComponent implements OnInit {
     new AnimationControl(AnimationTriggers.cntl_position),
   ];
 
-  public constructor(private meta: MetaService) {
-    this.meta.mediaBreakpoint.subscribe((size: string) => {
+  public constructor(
+    private _meta: MetaService,
+    private _ga: GoogleAnalyticsService,
+  ) {
+    this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
   }
@@ -224,6 +228,7 @@ export class HomeComponent implements OnInit {
       this.selecting = false;
       this.selectionFadeCntl.prime();
     }, AnimationPeriods.short * 1000);
+    this._ga.event('home', 'state', state.toString())
   }
 
   public selected(state: HomeStates) {

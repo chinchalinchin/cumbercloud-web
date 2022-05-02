@@ -6,20 +6,25 @@ import {
   HammerModule,
   HAMMER_GESTURE_CONFIG,
 } from '@angular/platform-browser';
-import { HammerConfig } from 'src/hammer';
 import { MatIconRegistry } from '@angular/material/icon';
+import { 
+  NgxGoogleAnalyticsModule,
+  NgxGoogleAnalyticsRouterModule 
+} from 'ngx-google-analytics';
 import {
   ASSET_CONFIG,
   ICON_CONFIG,
   IconConfig,
   AssetConfig,
-} from './app.config';
-import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './app-material.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+} from 'src/app/app.config';
+import { HammerConfig } from 'src/hammer';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { MaterialModule } from 'src/app/app-material.module';
+import { AppComponent } from 'src/app/app.component';
+import { HomeComponent } from 'src/app/home/home.component';
 import { MetaService } from 'src/services/meta.service';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -27,6 +32,8 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    NgxGoogleAnalyticsModule.forRoot(environment.google_analytics),
+    NgxGoogleAnalyticsRouterModule,
     HammerModule,
     MaterialModule,
     SharedModule,
@@ -37,7 +44,9 @@ import { SharedModule } from './shared/shared.module';
       useClass: HammerConfig,
     },
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent
+  ],
 })
 export class AppModule {
   constructor(
