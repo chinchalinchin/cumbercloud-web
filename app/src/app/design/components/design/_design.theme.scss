@@ -7,7 +7,7 @@
   $accent-palette: map.get($color-config, "accent");
   $warn-palette: map.get($color-config, "warn");
 
-  #gallery-line {
+  #gallery-line, #gallery-scroller {
     background-color: map-get($primary-palette, 50);
   }
   .placard {

@@ -16,28 +16,39 @@ export interface NavConfig {
   data?: any;
   children?: NavConfig[];
   meta?: MetaConfig[];
-}
+};
 
 export interface MetaConfig {
   property: string;
   content: string;
-}
+};
 
 export interface IconConfig {
   src: string;
   name: string;
+};
+
+export interface GalleryConfig{
+  id: string;
+  subtitle: string;
+  subtitle_id: string;
+  img_id: string;
+  link_id: string;
+  tooltip: string;
+  href: string;
+  src: string;
 }
 
 export interface ChipConfig {
   tooltip: string;
   href: string;
   svgIcon: string;
-}
+};
 
 export interface LinkConfig {
   href: string;
   display: string;
-}
+};
 
 export interface ExperienceConfig {
   company: string;
@@ -46,7 +57,7 @@ export interface ExperienceConfig {
   responsibilities: string[];
   accomplishments?: string[];
   links?: LinkConfig[];
-}
+};
 
 export interface PricingParameterConfig {
   type: string;
@@ -54,7 +65,7 @@ export interface PricingParameterConfig {
   states?: number;
   state_descriptions?: string[];
   state_titles?: string[];
-}
+};
 
 export interface FeeConfig {
   service: string;
@@ -62,7 +73,7 @@ export interface FeeConfig {
   justification: string;
   basis: string;
   href: string;
-}
+};
 
 export interface PricingConfig {
   key: string;
@@ -71,13 +82,13 @@ export interface PricingConfig {
   fees: FeeConfig[];
   rate: number;
   tooltip: string;
-}
+};
 
 export interface CertificationConfig {
   title: string;
   src: string;
   img_title: string;
-}
+};
 
 export interface ContactConfig {
   reason: string;
@@ -85,12 +96,12 @@ export interface ContactConfig {
   option_text?: string;
   options_exclusive?: boolean;
   options?: string[];
-}
+};
 
 export interface ElementConfig {
   id: string;
   content: string;
-}
+};
 
 export interface ProfileConfig {
   name: string;
@@ -101,7 +112,7 @@ export interface ProfileConfig {
   position: string;
   blurbs: string[];
   factoids: ElementConfig[];
-}
+};
 
 ////////
 // ENUMS
@@ -811,6 +822,38 @@ export const ICON_CONFIG: IconConfig[] = [
   },
 ];
 
+export const GALLERY_CONFIG: GalleryConfig[]=[
+  {
+    subtitle: 'Makpar Innovation Lab',
+    id: 'innolab-gallery',
+    subtitle_id: 'innolab-gallery-subtitle',
+    img_id: 'innolab-img',
+    link_id: 'innolab-link',
+    tooltip: 'Makpar Innovation Lab Homepage',
+    href: 'https://laboratory-dev.makpar-innovation.net',
+    src: '/assets/imgs/innolab.png'
+  },
+  {
+    subtitle: 'Buy@GSA',
+    id: 'gsa-gallery',
+    subtitle_id: 'gsa-gallery-subtitle',
+    img_id: 'gsa-img',
+    link_id: 'gsa-link',
+    tooltip: 'Buy@GSA Homepage',
+    href: 'https://buy.gsa.gov',
+    src: '/assets/imgs/gsa.png',
+  },
+  {
+    subtitle: 'Scrilla',
+    id: 'scrilla-gallery',
+    subtitle_id: 'scrilla-gallery-subtitle',
+    img_id: 'scrilla-img',
+    link_id: 'scrilla-link',
+    tooltip: 'Scrilla Documentation Homepage',
+    href: 'https://chinchalinchin.github.io/scrilla/OVERVIEW.html',
+    src: '/assets/imgs/scrilla.png'
+  }
+]
 export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
   {
     company: 'Makpar, Inc.',

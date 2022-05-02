@@ -8,7 +8,7 @@ import {
   ScaleStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ChipConfig, SVG_CONFIG, TOOL_CHIPS } from '../../../app.config';
+import { ChipConfig, GalleryConfig, GALLERY_CONFIG, SVG_CONFIG, TOOL_CHIPS } from '../../../app.config';
 
 enum Phases {
   none = 'none',
@@ -42,6 +42,7 @@ enum Splash {
     Animations.getEnlargeTrigger('100%', 'full'),
     Animations.getExpandTrigger('100%', 'full'),
     Animations.getExpandTrigger('50%', 'half'),
+    Animations.getExpandTrigger('25%', 'quarter')
   ],
 })
 export class DesignComponent implements OnInit {
@@ -57,6 +58,9 @@ export class DesignComponent implements OnInit {
   public screenSize: string = '';
   public toolConfig: ChipConfig[] = TOOL_CHIPS;
   public svgConfig: any = SVG_CONFIG;
+  public galleryConfig: GalleryConfig[] = GALLERY_CONFIG;
+  public galleryIndex: number = 0;
+  public selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
   public phaseIcons: any[] = [
     ['xd', 'inkscape', 'gimp', 'drawio'],
     ['typescript', 'python', 'angular', 'django'],
@@ -390,8 +394,8 @@ export class DesignComponent implements OnInit {
   }
 
   public flashRipple(forward: boolean): void {
-    if (this.meta.isBrowser()) {
-      if (forward) {
+    if (this.meta.isBrowser() && this.ripples) {
+      if (forward && this.ripples.first) {
         const rippleRef = this.ripples.last.launch({
           persistent: true,
           centered: true,
@@ -399,7 +403,7 @@ export class DesignComponent implements OnInit {
         setTimeout(() => {
           rippleRef.fadeOut();
         }, AnimationPeriods.short * 1000);
-      } else {
+      } else if(this.ripples.first){
         const rippleRef = this.ripples.first.launch({
           persistent: true,
           centered: true,
@@ -421,9 +425,30 @@ export class DesignComponent implements OnInit {
     }
   }
 
-  public lure() {
+  public lure(): void {
     this.oscillating = false;
     this.lured = true;
     this.touchSplash();
   }
+
+  public incrementGallery(): void {
+    this.galleryIndex++;
+    if(this.galleryIndex===this.galleryConfig.length){
+      this.galleryIndex = 0;
+    }
+    this.selectedGalleryConfig= this.galleryConfig[this.galleryIndex];
+  }
+
+  public decrementGallery(): void {
+    this.galleryIndex--;
+    if(this.galleryIndex === -1){
+      this.galleryIndex = this.galleryConfig.length - 1;
+    }
+    this.selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
+  }
+
+  public currentGalleryConfig(): GalleryConfig{
+    return this.galleryConfig[this.galleryIndex];
+  }
+  
 }
