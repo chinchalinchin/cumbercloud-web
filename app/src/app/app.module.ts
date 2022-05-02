@@ -22,10 +22,7 @@ import { MetaService } from 'src/services/meta.service';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent, 
-    HomeComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -40,9 +37,7 @@ import { SharedModule } from './shared/shared.module';
       useClass: HammerConfig,
     },
   ],
-  bootstrap: [
-    AppComponent
-  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(
