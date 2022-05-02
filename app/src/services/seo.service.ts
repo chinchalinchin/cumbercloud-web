@@ -14,22 +14,27 @@ export class SeoService {
   ) {}
 
   public setStaticAtrributes() {
-    this._meta.addTag({ property: 'og:site_name', content: 'Cumberland Cloud' });
+    this._meta.addTag({
+      property: 'og:site_name',
+      content: 'Cumberland Cloud',
+    });
     this._meta.addTag({ property: 'og:type', content: 'website' });
-    this._meta.addTag({ property: 'twitter:site', content: '@CloudCumberland' })
-
+    this._meta.addTag({
+      property: 'twitter:site',
+      content: '@CloudCumberland',
+    });
   }
 
   public updateTitle(title: string) {
     this._title.setTitle(title);
     this._meta.updateTag({ property: 'og:title', content: title });
-    this._meta.updateTag({ property: 'twitter:title', content: title})
+    this._meta.updateTag({ property: 'twitter:title', content: title });
   }
 
   public updateDescription(desc: string) {
     this._meta.updateTag({ name: 'description', content: desc });
     this._meta.updateTag({ property: 'og:description', content: desc });
-    this._meta.updateTag({ property: 'twitter:description', content: desc})
+    this._meta.updateTag({ property: 'twitter:description', content: desc });
   }
 
   public updateMetaAttributes(attrs: MetaConfig[] | undefined) {

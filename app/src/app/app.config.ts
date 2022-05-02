@@ -223,8 +223,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:card',
-        content: 'summary'
-      }
+        content: 'summary',
+      },
     ],
   },
   // '/about' isn't a route, but this object is used to configure the nav menu.
@@ -288,8 +288,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:card',
-        content: 'summary'
-      }
+        content: 'summary',
+      },
     ],
   },
   {
@@ -351,7 +351,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:image',
-        content: 'https://cumberland-cloud.com/assets/people/grant/americorps.jpg',
+        content:
+          'https://cumberland-cloud.com/assets/people/grant/americorps.jpg',
       },
       {
         property: 'twitter:image:alt',
@@ -359,8 +360,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:card',
-        content: 'summary'
-      }
+        content: 'summary',
+      },
     ],
   },
   {
@@ -410,8 +411,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:card',
-        content: 'summary'
-      }
+        content: 'summary',
+      },
     ],
   },
   {
@@ -458,12 +459,13 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:image:alt',
-        content: "Estimate the cost of your next project with the Cumberland Cloud",
+        content:
+          'Estimate the cost of your next project with the Cumberland Cloud',
       },
       {
         property: 'twitter:card',
-        content: 'summary'
-      }
+        content: 'summary',
+      },
     ],
   },
   {
@@ -509,12 +511,12 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:image:alt',
-        content: "Contact the Cumberland Cloud about your next project",
+        content: 'Contact the Cumberland Cloud about your next project',
       },
       {
         property: 'twitter:card',
-        content: 'summary'
-      }
+        content: 'summary',
+      },
     ],
   },
 ];
