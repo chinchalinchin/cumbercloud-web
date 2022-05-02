@@ -5,15 +5,15 @@
   justify-content: center;
   padding-bottom: 2.5%;
 }
-.mat-display-2{
+.mat-display-2 {
   margin: 0 0 32px;
 }
-#contact-container{
+#contact-container {
   width: 100%;
   display: grid;
   gap: 10px;
 }
-.contact-label{
+.contact-label {
   grid-column: 1 / span 1;
 }
 .contact-divider {
@@ -22,20 +22,19 @@
   border-width: 1px;
   width: 100%;
 }
-.contact-info{
+.contact-info {
   grid-column: 3 / span 1;
   text-align: right;
 }
-.email{
+.email {
   grid-row: 1;
-} 
-.phone{
+}
+.phone {
   grid-row: 2;
 }
-.address{
+.address {
   grid-row: 3;
 }
-.hours{
+.hours {
   grid-row: 4;
 }
-

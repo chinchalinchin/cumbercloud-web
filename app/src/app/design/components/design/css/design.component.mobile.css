@@ -75,7 +75,7 @@
     width: 95%;
     text-align: left;
   }
-  #gallery-line{
+  #gallery-line {
     display: flex;
     flex-direction: column;
   }
