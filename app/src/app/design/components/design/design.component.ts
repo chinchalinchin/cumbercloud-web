@@ -9,7 +9,13 @@ import {
   SwipeStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ChipConfig, GalleryConfig, GALLERY_CONFIG, SVG_CONFIG, TOOL_CHIPS } from '../../../app.config';
+import {
+  ChipConfig,
+  GalleryConfig,
+  GALLERY_CONFIG,
+  SVG_CONFIG,
+  TOOL_CHIPS,
+} from '../../../app.config';
 
 enum Phases {
   none = 'none',
@@ -409,7 +415,7 @@ export class DesignComponent implements OnInit {
         setTimeout(() => {
           rippleRef.fadeOut();
         }, AnimationPeriods.short * 1000);
-      } else if(this.ripples.first){
+      } else if (this.ripples.first) {
         const rippleRef = this.ripples.first.launch({
           persistent: true,
           centered: true,
@@ -439,9 +445,10 @@ export class DesignComponent implements OnInit {
 
   public incrementGallery(): void {
     this.galleryIndex++;
-    if(this.galleryIndex===this.galleryConfig.length){
+    if (this.galleryIndex === this.galleryConfig.length) {
       this.galleryIndex = 0;
     }
+<<<<<<< HEAD
     this.gallerySwipeCntl.swipe(this.swipeStates.swipe_left);
     setTimeout(()=>{
       this.selectedGalleryConfig= this.galleryConfig[this.galleryIndex];
@@ -449,11 +456,14 @@ export class DesignComponent implements OnInit {
     setTimeout(()=>{
       this.gallerySwipeCntl.prime();
     }, AnimationPeriods.medium*1000);
+=======
+    this.selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
+>>>>>>> 06fd598a491033c3140e32c989ef596fd7eff56a
   }
 
   public decrementGallery(): void {
     this.galleryIndex--;
-    if(this.galleryIndex === -1){
+    if (this.galleryIndex === -1) {
       this.galleryIndex = this.galleryConfig.length - 1;
     }
     this.gallerySwipeCntl.swipe(this.swipeStates.swipe_right);
@@ -465,8 +475,7 @@ export class DesignComponent implements OnInit {
     }, AnimationPeriods.medium*1000);
   }
 
-  public currentGalleryConfig(): GalleryConfig{
+  public currentGalleryConfig(): GalleryConfig {
     return this.galleryConfig[this.galleryIndex];
   }
-  
 }
