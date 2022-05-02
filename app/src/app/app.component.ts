@@ -61,9 +61,7 @@ export class AppComponent {
   }
 
   private findConfigByPath(path: string): NavConfig | undefined {
-    return this.pageConfig
-      .filter((nav: NavConfig) => nav.path === path)
-      .pop();
+    return this.pageConfig.filter((nav: NavConfig) => nav.path === path).pop();
   }
 
   public toggleMenu() {

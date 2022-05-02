@@ -803,7 +803,7 @@ export const ICON_CONFIG: IconConfig[] = [
   },
   {
     src: '../assets/icons/twitter.svg',
-    name: 'twitter'
+    name: 'twitter',
   },
   {
     src: '../assets/icons/adobe-xd.svg',
