@@ -814,7 +814,7 @@ export const ICON_CONFIG: IconConfig[] = [
   },
   {
     src: '../assets/icons/twitter.svg',
-    name: 'twitter'
+    name: 'twitter',
   },
   {
     src: '../assets/icons/adobe-xd.svg',
@@ -983,22 +983,26 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
   {
     title: 'MTA Database Administration',
     src: '/assets/certs/MTA_DATABASE.png',
-    img_title: 'Microsoft Technology Associate Database Administration Certification',
+    img_title:
+      'Microsoft Technology Associate Database Administration Certification',
   },
   {
     title: 'MTA Software Development',
     src: '/assets/certs/MTA_SOFTWARE.png',
-    img_title: 'Microsoft Technology Associate Software Development Fundamentals Certification',
+    img_title:
+      'Microsoft Technology Associate Software Development Fundamentals Certification',
   },
   {
     title: 'MTA Python Programming',
     src: '/assets/certs/MTA_PYTHON.png',
-    img_title: 'Microsoft Technology Associate Introduction to Python Programming Certification',
+    img_title:
+      'Microsoft Technology Associate Introduction to Python Programming Certification',
   },
   {
     title: 'MTA Java Programming',
     src: '/assets/certs/MTA_JAVA.png',
-    img_title: 'Microsoft Technology Associate Introduction to Java Programming Certification',
+    img_title:
+      'Microsoft Technology Associate Introduction to Java Programming Certification',
   },
 ];
 
