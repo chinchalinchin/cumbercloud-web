@@ -9,7 +9,13 @@ import {
   SwipeStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ChipConfig, GalleryConfig, GALLERY_CONFIG, SVG_CONFIG, TOOL_CHIPS } from '../../../app.config';
+import {
+  ChipConfig,
+  GalleryConfig,
+  GALLERY_CONFIG,
+  SVG_CONFIG,
+  TOOL_CHIPS,
+} from '../../../app.config';
 
 enum Phases {
   none = 'none',
@@ -44,7 +50,7 @@ enum Splash {
     Animations.getExpandTrigger('100%', 'full'),
     Animations.getExpandTrigger('50%', 'half'),
     Animations.getExpandTrigger('25%', 'quarter'),
-    Animations.getManualFullSwipeTrigger()
+    Animations.getManualFullSwipeTrigger(),
   ],
 })
 export class DesignComponent implements OnInit {
@@ -114,7 +120,7 @@ export class DesignComponent implements OnInit {
   );
   public gallerySwipeCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_swipe
-  )
+  );
 
   constructor(private meta: MetaService) {
     this.meta.mediaBreakpoint.subscribe((size: string) => {
@@ -409,7 +415,7 @@ export class DesignComponent implements OnInit {
         setTimeout(() => {
           rippleRef.fadeOut();
         }, AnimationPeriods.short * 1000);
-      } else if(this.ripples.first){
+      } else if (this.ripples.first) {
         const rippleRef = this.ripples.first.launch({
           persistent: true,
           centered: true,
@@ -439,34 +445,33 @@ export class DesignComponent implements OnInit {
 
   public incrementGallery(): void {
     this.galleryIndex++;
-    if(this.galleryIndex===this.galleryConfig.length){
+    if (this.galleryIndex === this.galleryConfig.length) {
       this.galleryIndex = 0;
     }
     this.gallerySwipeCntl.swipe(this.swipeStates.swipe_left);
-    setTimeout(()=>{
-      this.selectedGalleryConfig= this.galleryConfig[this.galleryIndex];
-    }, AnimationPeriods.medium*500);
-    setTimeout(()=>{
+    setTimeout(() => {
+      this.selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
+    }, AnimationPeriods.medium * 500);
+    setTimeout(() => {
       this.gallerySwipeCntl.prime();
-    }, AnimationPeriods.medium*1000);
+    }, AnimationPeriods.medium * 1000);
   }
 
   public decrementGallery(): void {
     this.galleryIndex--;
-    if(this.galleryIndex === -1){
+    if (this.galleryIndex === -1) {
       this.galleryIndex = this.galleryConfig.length - 1;
     }
     this.gallerySwipeCntl.swipe(this.swipeStates.swipe_right);
-    setTimeout(()=>{
+    setTimeout(() => {
       this.selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
-    }, AnimationPeriods.medium*500);
-    setTimeout(()=>{
+    }, AnimationPeriods.medium * 500);
+    setTimeout(() => {
       this.gallerySwipeCntl.prime();
-    }, AnimationPeriods.medium*1000);
+    }, AnimationPeriods.medium * 1000);
   }
 
-  public currentGalleryConfig(): GalleryConfig{
+  public currentGalleryConfig(): GalleryConfig {
     return this.galleryConfig[this.galleryIndex];
   }
-  
 }
