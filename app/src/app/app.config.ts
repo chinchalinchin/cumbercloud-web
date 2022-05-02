@@ -802,6 +802,10 @@ export const ICON_CONFIG: IconConfig[] = [
     name: 'typescript',
   },
   {
+    src: '../assets/icons/twitter.svg',
+    name: 'twitter'
+  },
+  {
     src: '../assets/icons/adobe-xd.svg',
     name: 'xd',
   },

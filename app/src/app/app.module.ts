@@ -21,10 +21,11 @@ import { HomeComponent } from './home/home.component';
 import { MetaService } from 'src/services/meta.service';
 import { SharedModule } from './shared/shared.module';
 
-// where do i actually use forms?
-
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [
+    AppComponent, 
+    HomeComponent
+  ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -39,13 +40,15 @@ import { SharedModule } from './shared/shared.module';
       useClass: HammerConfig,
     },
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent
+  ],
 })
 export class AppModule {
   constructor(
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer,
-    private meta: MetaService
+    private _matIconRegistry: MatIconRegistry,
+    private _domSanitizer: DomSanitizer,
+    private _meta: MetaService
   ) {
     ICON_CONFIG.forEach((conf: IconConfig) => {
       this.addIconToRegistry(conf.name, conf.src);
@@ -57,15 +60,15 @@ export class AppModule {
   }
 
   public addIconToRegistry(name: string, resourceUrl: string) {
-    if (this.meta.isBrowser()) {
-      this.matIconRegistry.addSvgIcon(
+    if (this._meta.isBrowser()) {
+      this._matIconRegistry.addSvgIcon(
         name,
-        this.domSanitizer.bypassSecurityTrustResourceUrl(resourceUrl)
+        this._domSanitizer.bypassSecurityTrustResourceUrl(resourceUrl)
       );
     } else {
-      this.matIconRegistry.addSvgIconLiteral(
+      this._matIconRegistry.addSvgIconLiteral(
         name,
-        this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>')
+        this._domSanitizer.bypassSecurityTrustHtml('<svg></svg>')
       );
     }
   }
