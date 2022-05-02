@@ -10,17 +10,6 @@ import {
   trigger,
 } from '@angular/animations';
 
-export interface Position {
-  top?: string;
-  bottom?: string;
-  left?: string;
-  right?: string;
-}
-
-interface KeyObject {
-  [key: string]: any;
-}
-
 function validatePosition(position: Position): KeyObject {
   let parsed_position: KeyObject = {};
   if (position.top) {
@@ -38,7 +27,30 @@ function validatePosition(position: Position): KeyObject {
   return parsed_position;
 }
 
-/// TODO?: It would be easier to just use a catchall binary variable for all of these...
+function formatTriggerTag(trigger: string, tag: string | null | undefined){
+  return tag ? `${trigger}_${tag}` : trigger;
+}
+
+export interface Position {
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+}
+
+export interface KeyObject {
+  [key: string]: any;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+// TODO : It would be easier to just use a catchall binary variable for all of these...
+export enum BinaryState{
+  on="on",
+  off="off"
+}
+// TODO: ^^^
+/////////////////////////////////////////////////////////////////////////////////////
+
 
 /**
  * Enumeration of {@link Animations} expand animation states.
@@ -86,10 +98,11 @@ export enum SkewStates {
  *
  */
 export enum SwipeStates {
-  left = 'left',
-  right = 'right',
-  unswiped_left = 'unswiped_left',
-  unswiped_right = 'unswiped_right',
+  unmoved = 'unmoved',
+  swipe_left = 'swipe_left',
+  swipe_right = 'swipe_right',
+  unswipe_left = 'unswipe_left',
+  unswipe_right = 'unswipe_right',
 }
 /**
  * Enumeration of triggers for {@link Animations}.
@@ -102,7 +115,7 @@ export enum AnimationTriggers {
   fade = 'fade',
   slide = 'slide',
   float = 'float',
-  swipe = 'swipe',
+  cntl_swipe = 'cntl_swipe',
   cntl_fade = 'cntl_fade',
   cntl_expand = 'cntl_expand',
   cntl_highlight = 'cntl_highlight',
@@ -159,13 +172,10 @@ export class Animations {
    */
   public static getManualScaleTrigger(
     scaleFactor: number,
-    tag: string = '',
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag: string = `${AnimationTriggers.cntl_scale}`;
-    if (tag) {
-      triggerTag = `${triggerTag}_${tag}`;
-    }
+    let triggerTag : string = formatTriggerTag(AnimationTriggers.cntl_scale, tag)
 
     return trigger(triggerTag, [
       state(
@@ -190,13 +200,10 @@ export class Animations {
    */
   public static getManualSkewTrigger(
     skewFactor: number,
-    tag: string = '',
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag: string = `${AnimationTriggers.cntl_scale}`;
-    if (tag) {
-      triggerTag = `${triggerTag}_${tag}`;
-    }
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_scale, tag);
 
     return trigger(triggerTag, [
       state(
@@ -221,9 +228,12 @@ export class Animations {
    */
   public static getManualHighlightTrigger(
     highlightFactor: number,
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    return trigger(AnimationTriggers.cntl_highlight, [
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_highlight, tag);
+
+    return trigger(triggerTag, [
       state(
         HighlightStates.highlight,
         style({
@@ -244,9 +254,11 @@ export class Animations {
    * @returns animation fade trigger
    */
   public static getManualFadeTrigger(
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    return trigger(AnimationTriggers.cntl_fade, [
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_fade, tag);
+    return trigger(triggerTag, [
       state(
         FadeStates.in,
         style({
@@ -275,8 +287,10 @@ export class Animations {
    */
   public static getManualFoldTrigger(
     toHeight: string,
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_fold, tag)
     return trigger(AnimationTriggers.cntl_fold, [
       state(
         ExpandStates.open,
@@ -309,15 +323,12 @@ export class Animations {
   public static getManualExpandTrigger(
     toHeight: string,
     toWidth: string,
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short,
-    tag: string | null = null
   ): AnimationTriggerMetadata {
-    let triggerString: string = AnimationTriggers.cntl_expand;
-    if (tag) {
-      triggerString = triggerString.concat('_', tag);
-    }
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_expand, tag);
 
-    return trigger(triggerString, [
+    return trigger(triggerTag, [
       state(
         ExpandStates.open,
         style({
@@ -347,16 +358,19 @@ export class Animations {
   public static getManualPositionTrigger(
     start: Position,
     positions: Position[],
-    tag: string,
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_position, tag);
     let triggerConfig: any[] = [];
-    let validated = validatePosition(start);
-    triggerConfig.push(state(`${PositionStates.unmoved}`, style(validated)));
+    let validatedStart = validatePosition(start);
+
+    triggerConfig.push(state(`${PositionStates.unmoved}`, style(validatedStart)));
+    
     positions.forEach((pos, ind) => {
-      validated = validatePosition(pos);
+      let validatedPosition = validatePosition(pos);
       triggerConfig.push(
-        state(`${PositionStates.moved}_${ind}`, style(validated))
+        state(`${PositionStates.moved}_${ind}`, style(validatedPosition))
       );
     });
     positions.forEach((pos, ind) => {
@@ -374,53 +388,30 @@ export class Animations {
       ])
     );
     triggerConfig.push(transition(':leave', []));
-    return trigger(`${AnimationTriggers.cntl_position}_${tag}`, triggerConfig);
+    return trigger(triggerTag, triggerConfig);
   }
 
-  public static getManualSwipeTrigger(
-    animateLength: number = AnimationPeriods.short
+  public static getManualFullSwipeTrigger(
+    tag: string | null | undefined = null,
+    animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    return trigger(AnimationTriggers.swipe, [
-      state(
-        SwipeStates.left,
-        style({
-          transform: 'translateX(-200%)',
-          opacity: 0,
-        })
-      ),
-      state(
-        SwipeStates.right,
-        style({
-          transform: 'translateX(200%)',
-          opacity: 0,
-        })
-      ),
-      transition(`* => ${SwipeStates.left}`, [
-        animate(`${animateLength}s`),
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_swipe, tag);
+    return trigger(triggerTag, [
+      transition(`* => ${SwipeStates.swipe_left}`, [
+        animate(`${animateLength}s`, keyframes([
+          style({ transform: 'translateX(0)', opacity: 1, offset: 0 }),
+          style({ transform: 'translateX(-200%)', opacity: 0, offset: 0.5 }),
+          style({ transform: 'translateX(200%)', opacity: 0, offset: 0.51 }),
+          style({ transform: 'translateX(0)', opacity: 1, offset: 1})
+        ])),
         query('@*', animateChild(), { optional: true }),
-      ]),
-      transition(`* => ${SwipeStates.right}`, [
-        animate(`${animateLength}s`),
-        query('@*', animateChild(), { optional: true }),
-      ]),
-      transition(`* => ${SwipeStates.unswiped_left}`, [
-        animate(
-          `${animateLength}s`,
-          keyframes([
-            style({ transform: 'translateX(-200%)', offset: 0 }),
-            style({ transform: 'translateX(0%)', offset: 1 }),
-          ])
-        ),
-        query('@*', animateChild(), { optional: true }),
-      ]),
-      transition(`* => ${SwipeStates.unswiped_right}`, [
-        animate(
-          `${animateLength}s`,
-          keyframes([
-            style({ transform: 'translateX(200%)', offset: 0 }),
-            style({ transform: 'translateX(0%)', offset: 1 }),
-          ])
-        ),
+      ]),transition(`* => ${SwipeStates.swipe_right}`, [
+        animate(`${animateLength}s`, keyframes([
+          style({ transform: 'translateX(0)', opacity: 1, offset: 0 }),
+          style({ transform: 'translateX(200%)', opacity: 0, offset: 0.5 }),
+          style({ transform: 'translateX(-200%)', opacity: 0, offset: 0.51 }),
+          style({ transform: 'translateX(0)', opacity: 1, offset: 1})
+        ])),
         query('@*', animateChild(), { optional: true }),
       ]),
     ]);
@@ -434,18 +425,15 @@ export class Animations {
    */
   public static getSlideTrigger(
     reversed: boolean = false,
-    tag: string = '',
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    let triggerString: string = AnimationTriggers.slide;
-    if (tag) {
-      triggerString = triggerString.concat('_', tag);
-    }
+    let triggerTag = formatTriggerTag(AnimationTriggers.slide, tag);
 
     let first_reversal: string = reversed ? '' : '-';
     let second_reversal: string = reversed ? '-' : '';
 
-    return trigger(triggerString, [
+    return trigger(triggerTag, [
       transition(
         ':enter',
         animate(
@@ -506,9 +494,12 @@ export class Animations {
    * @returns animation float trigger
    */
   public static getFloatTrigger(
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    return trigger(AnimationTriggers.float, [
+    let triggerTag = formatTriggerTag(AnimationTriggers.float, tag);
+
+    return trigger(triggerTag, [
       transition(
         ':leave',
         animate(
@@ -547,15 +538,12 @@ export class Animations {
    */
   public static getExpandTrigger(
     toHeight: string,
-    tag: string = '',
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerString: string = AnimationTriggers.expand;
-    if (tag) {
-      triggerString = triggerString.concat('_', tag);
-    }
+    let triggerTag: string = formatTriggerTag(AnimationTriggers.expand, tag);
 
-    return trigger(triggerString, [
+    return trigger(triggerTag, [
       transition(':enter', [
         animate(
           `${animateLength}s`,
@@ -582,15 +570,12 @@ export class Animations {
    */
   public static getEnlargeTrigger(
     toWidth: string,
-    tag: string = '',
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerString: string = AnimationTriggers.enlarge;
-    if (tag) {
-      triggerString = triggerString.concat('_', tag);
-    }
+    let triggerTag = formatTriggerTag(AnimationTriggers.enlarge, tag);
 
-    return trigger(triggerString, [
+    return trigger(triggerTag, [
       transition(':enter', [
         animate(
           `${animateLength}s`,
@@ -615,9 +600,12 @@ export class Animations {
    * @returns animation fade trigger
    */
   public static getFadeTrigger(
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.medium
   ): AnimationTriggerMetadata {
-    return trigger(AnimationTriggers.fade, [
+    let triggerTag = formatTriggerTag(AnimationTriggers.fade, tag);
+
+    return trigger(triggerTag, [
       transition(':enter', [
         animate(
           `${animateLength}s`,
@@ -644,15 +632,12 @@ export class Animations {
    */
   public static getScaleTrigger(
     scaleFactor: number,
-    tag: string = '',
+    tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerString: string = AnimationTriggers.scale;
-    if (tag) {
-      triggerString = triggerString.concat('_', tag);
-    }
+    let triggerTag = formatTriggerTag(AnimationTriggers.scale, tag);
 
-    return trigger(triggerString, [
+    return trigger(triggerTag, [
       transition(`:enter`, [
         animate(
           `${animateLength}s`,
@@ -752,6 +737,9 @@ export class AnimationControl {
         break;
       case AnimationTriggers.cntl_skew:
         this.state = SkewStates.normal;
+        break;
+      case AnimationTriggers.cntl_swipe:
+        this.state = SwipeStates.unmoved;
         break;
     }
   }

@@ -6,6 +6,7 @@ import {
   Animations,
   AnimationTriggers,
   ScaleStates,
+  SwipeStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { ChipConfig, GalleryConfig, GALLERY_CONFIG, SVG_CONFIG, TOOL_CHIPS } from '../../../app.config';
@@ -42,14 +43,15 @@ enum Splash {
     Animations.getEnlargeTrigger('100%', 'full'),
     Animations.getExpandTrigger('100%', 'full'),
     Animations.getExpandTrigger('50%', 'half'),
-    Animations.getExpandTrigger('25%', 'quarter')
+    Animations.getExpandTrigger('25%', 'quarter'),
+    Animations.getManualFullSwipeTrigger()
   ],
 })
 export class DesignComponent implements OnInit {
-  @ViewChildren(MatRipple) ripples!: QueryList<MatRipple>;
+  @ViewChildren(MatRipple) ripples?: QueryList<MatRipple>;
 
   public phases: any = Phases;
-  public phase: Phases = Phases.done;
+  public phase: Phases = Phases.none;
   public splashes: any = Splash;
   public splash: Splash = Splash.untouched;
   public oscillating: boolean = false;
@@ -61,6 +63,7 @@ export class DesignComponent implements OnInit {
   public galleryConfig: GalleryConfig[] = GALLERY_CONFIG;
   public galleryIndex: number = 0;
   public selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
+  public swipeStates: any = SwipeStates;
   public phaseIcons: any[] = [
     ['xd', 'inkscape', 'gimp', 'drawio'],
     ['typescript', 'python', 'angular', 'django'],
@@ -109,6 +112,9 @@ export class DesignComponent implements OnInit {
   public lureScaleCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_scale
   );
+  public gallerySwipeCntl: AnimationControl = new AnimationControl(
+    AnimationTriggers.cntl_swipe
+  )
 
   constructor(private meta: MetaService) {
     this.meta.mediaBreakpoint.subscribe((size: string) => {
@@ -436,7 +442,13 @@ export class DesignComponent implements OnInit {
     if(this.galleryIndex===this.galleryConfig.length){
       this.galleryIndex = 0;
     }
-    this.selectedGalleryConfig= this.galleryConfig[this.galleryIndex];
+    this.gallerySwipeCntl.swipe(this.swipeStates.swipe_left);
+    setTimeout(()=>{
+      this.selectedGalleryConfig= this.galleryConfig[this.galleryIndex];
+    }, AnimationPeriods.medium*500);
+    setTimeout(()=>{
+      this.gallerySwipeCntl.prime();
+    }, AnimationPeriods.medium*1000);
   }
 
   public decrementGallery(): void {
@@ -444,7 +456,13 @@ export class DesignComponent implements OnInit {
     if(this.galleryIndex === -1){
       this.galleryIndex = this.galleryConfig.length - 1;
     }
-    this.selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
+    this.gallerySwipeCntl.swipe(this.swipeStates.swipe_right);
+    setTimeout(()=>{
+      this.selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
+    }, AnimationPeriods.medium*500);
+    setTimeout(()=>{
+      this.gallerySwipeCntl.prime();
+    }, AnimationPeriods.medium*1000);
   }
 
   public currentGalleryConfig(): GalleryConfig{

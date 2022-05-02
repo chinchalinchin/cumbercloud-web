@@ -687,6 +687,7 @@
                 class="gallery-item"
                 (swiperight)="decrementGallery()"
                 (swipeleft)="incrementGallery()"
+                [@cntl_swipe]="gallerySwipeCntl.state"
               >
                 <h3 
                   [id]="selectedGalleryConfig.subtitle" 

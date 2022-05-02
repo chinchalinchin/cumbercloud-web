@@ -110,7 +110,7 @@ import { HomeStates } from '../app.config';
       'cloud_line_mobile_3',
       AnimationPeriods.short
     ),
-    Animations.getManualFadeTrigger(AnimationPeriods.short),
+    Animations.getManualFadeTrigger(null, AnimationPeriods.short),
     Animations.getSlideTrigger(false, '', AnimationPeriods.short),
     Animations.getSlideTrigger(true, 'reverse', AnimationPeriods.short),
     Animations.getScaleTrigger(1),
