@@ -160,12 +160,6 @@
     height: 100%;
     right: 0%;
   }
-  #project-gallery {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100%;
-  }
   #gallery-line {
     display: flex;
     flex-direction: row;

@@ -75,6 +75,10 @@
     width: 95%;
     text-align: left;
   }
+  #gallery-line{
+    display: flex;
+    flex-direction: column;
+  }
   .splash-banner {
     display: flex;
     flex-direction: row;

@@ -1,16 +1,21 @@
 <div class="sheet">
-  <h1 class="mat-display-2 text-center">Contact Information</h1>
-  <div id="social-links">
+  <h3 
+    id="sheet-title" 
+    class="mat-display-2 text-center"
+  >
+      Contact Information
+  </h3>
+  <section id="social-links">
     <div>
       <a 
         id="twitter-link"
         href="https://twitter.com/CloudCumberland" 
         target="_blank"
-        alt="Twitter Profile"
+        title="Twitter Profile"
       >
         <mat-icon
           svgIcon="twitter"
-          matTooltip="Github Repositories"
+          matTooltip="Tweedly Deet"
         ></mat-icon>
       </a>
     </div>
@@ -19,7 +24,7 @@
         id="github-link"
         href="https://github.com/chinchalinchin" 
         target="_blank"
-        alt="Github Profile"
+        title="Github Profile"
       >
         <mat-icon
           svgIcon="github"
@@ -31,7 +36,7 @@
       <a 
         id="pypi-link"
         href="https://pypi.org/user/chinchalinchin/"
-        alt="PyPi Profile"
+        title="PyPi Profile"
         target="_blank"
       >
         <mat-icon
@@ -40,36 +45,57 @@
         ></mat-icon>
       </a>
     </div>
-  </div>
+  </section>
 
-  <div class="line-item">
-    <div><strong>EMAIL</strong></div>
-    <div class="divider"></div>
-    <div>
-      <a class="mat-body-1" href="mailto:design@cumberland-cloud.com"
-        >design@cumberland-cloud.com</a
-      >
+  <section id="contact-container">
+    <div 
+      id="email-label" 
+      class="contact-label"
+      aria-label="Email contact information"
+    >
+      <strong>EMAIL</strong>
     </div>
-  </div>
-
-  <div class="line-item">
-    <div><strong>PHONE</strong></div>
-    <div class="divider"></div>
-    <div><a class="mat-body-1" href="tel:301-697-9801">301-697-9801</a></div>
-  </div>
-
-  <div class="line-item">
-    <div><strong>ADDRESS</strong></div>
-    <div class="divider"></div>
-    <div>
+    <div id="email-divider" class="email contact-divider"></div>
+    <div id="email-info" class="email contact-info">
+      <a 
+        id="email-link"
+        class="mat-body-1" 
+        href="mailto:design@cumberland-cloud.com"
+        title="Cumberland Cloud Email"
+        aria-labelledby="email-label"
+      >
+        design@cumberland-cloud.com
+      </a>
+    </div>
+    <div id="phone-label" class="email contact-label">
+      <strong>PHONE</strong>
+    </div>
+    <div id="phone-divider" class="phone contact-divider"></div>
+    <div id="phone-info" class="phone contact-info">
+      <a  
+        id="phone-link" 
+        class="mat-body-1" 
+        href="tel:301-697-9801"
+        title="Cumberland Cloud Phone"
+        aria-labelledby="phone-label"
+      >
+        301-697-9801
+      </a>
+    </div>
+    <div id="address-label" class="address contact-label">
+      <strong>ADDRESS</strong>
+    </div>
+    <div id="address-divider" class="address contact-divider"></div>
+    <div id="address-info" class="address contact-info">
       401 North Mechanic Street <br />
       Cumberland, MD 21502
     </div>
-  </div>
-
-  <div class="line-item">
-    <div><strong>HOURS</strong></div>
-    <div class="divider"></div>
-    <div>MTWTF 8AM - 5PM</div>
-  </div>
+    <div id="hours-label" class="hours contact-label">
+      <strong>HOURS</strong>
+    </div>
+    <div id="hours-divider" class="hours contact-divider"></div>
+    <div id="hour-info" class="hours contact-info">
+      MTWTF 8AM - 5PM
+    </div>
+  </section>
 </div>

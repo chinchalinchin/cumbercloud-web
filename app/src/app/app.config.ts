@@ -4,7 +4,7 @@
 
 export interface AssetConfig {
   src: string;
-  alt: string;
+  title: string;
 }
 
 export interface NavConfig {
@@ -76,7 +76,7 @@ export interface PricingConfig {
 export interface CertificationConfig {
   title: string;
   src: string;
-  alt: string;
+  img_title: string;
 }
 
 export interface ContactConfig {
@@ -96,7 +96,7 @@ export interface ProfileConfig {
   name: string;
   key: string;
   src: string;
-  alt: string;
+  title: string;
   arrow_tooltip: string;
   position: string;
   blurbs: string[];
@@ -524,75 +524,75 @@ export const NAV_CONFIG: NavConfig[] = [
 export const ASSET_CONFIG: AssetConfig[] = [
   {
     src: '/assets/imgs/money-banner.jpg',
-    alt: 'Money, Money, Money',
+    title: 'Money, Money, Money',
   },
   {
     src: '/assets/imgs/circuitry-banner.jpg',
-    alt: 'Cloud Computing',
+    title: 'Cloud Computing',
   },
   {
     src: '/assets/imgs/circuitry-bg.png',
-    alt: 'Circuitry',
+    title: 'Circuitry',
   },
   {
     src: '/assets/imgs/expertise-banner.jpg',
-    alt: 'Expert Services',
+    title: 'Expert Services',
   },
   {
     src: '/assets/imgs/human_centric_design-banner.jpg',
-    alt: 'Human Centered Design',
+    title: 'Human Centered Design',
   },
   {
     src: '/assets/imgs/separated.jpg',
-    alt: 'Standing Apart',
+    title: 'Standing Apart',
   },
   {
     src: '/assets/imgs/cloud_tunnel.jpg',
-    alt: 'Cloud Tunnel',
+    title: 'Cloud Tunnel',
   },
   {
     src: '/assets/imgs/under_construction.jpg',
-    alt: 'Under Construction',
+    title: 'Under Construction',
   },
   {
     src: '/assets/people/grant/profile.jpg',
-    alt: 'Grant Moore',
+    title: 'Grant Moore',
   },
   {
     src: '/assets/svgs/rain-droplet.svg',
-    alt: 'Rain',
+    title: 'Rain',
   },
   {
     src: '/assets/svgs/grass.svg',
-    alt: 'Grass',
+    title: 'Grass',
   },
   {
     src: '/assets/svgs/flower.svg',
-    alt: 'Flower',
+    title: 'Flower',
   },
   {
     src: '/assets/svgs/deliver.svg',
-    alt: 'Deliver',
+    title: 'Deliver',
   },
   {
     src: '/assets/svgs/deploy.svg',
-    alt: 'Deploy',
+    title: 'Deploy',
   },
   {
     src: '/assets/svgs/develop.svg',
-    alt: 'Develop',
+    title: 'Develop',
   },
   {
     src: '/assets/svgs/design.svg',
-    alt: 'Design',
+    title: 'Design',
   },
   {
     src: '/assets/svgs/sun.svg',
-    alt: 'Sun',
+    title: 'Sun',
   },
   {
     src: '/assets/imgs/innolab.png',
-    alt: 'Innovation Lab',
+    title: 'Innovation Lab',
   },
 ];
 
@@ -613,7 +613,7 @@ export const TOOL_CHIPS: ChipConfig[] = [
     svgIcon: 'gimp',
   },
   {
-    tooltip: 'Diagrams',
+    tooltip: 'Drawio',
     href: 'https://www.diagrams.net/',
     svgIcon: 'drawio',
   },
@@ -930,32 +930,32 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
   {
     title: 'AWS DevOps Engineer Professional',
     src: '/assets/certs/AWS_DEVOPS.png',
-    alt: 'Amazon Web Services DevOps Engineer Professional Certification',
+    img_title: 'Amazon Web Services DevOps Engineer Professional Certification',
   },
   {
     title: 'AWS Developer Associate',
     src: '/assets/certs/AWS_DEVELOPER.png',
-    alt: 'Amazon Web Services Developer Associate Certification',
+    img_title: 'Amazon Web Services Developer Associate Certification',
   },
   {
     title: 'MTA Database Administration',
     src: '/assets/certs/MTA_DATABASE.png',
-    alt: 'Microsoft Technology Associate Database Administration Certification',
+    img_title: 'Microsoft Technology Associate Database Administration Certification',
   },
   {
     title: 'MTA Software Development',
     src: '/assets/certs/MTA_SOFTWARE.png',
-    alt: 'Microsoft Technology Associate Software Development Fundamentals Certification',
+    img_title: 'Microsoft Technology Associate Software Development Fundamentals Certification',
   },
   {
     title: 'MTA Python Programming',
     src: '/assets/certs/MTA_PYTHON.png',
-    alt: 'Microsoft Technology Associate Introduction to Python Programming Certification',
+    img_title: 'Microsoft Technology Associate Introduction to Python Programming Certification',
   },
   {
     title: 'MTA Java Programming',
     src: '/assets/certs/MTA_JAVA.png',
-    alt: 'Microsoft Technology Associate Introduction to Java Programming Certification',
+    img_title: 'Microsoft Technology Associate Introduction to Java Programming Certification',
   },
 ];
 
@@ -1347,7 +1347,7 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
     name: 'Grant Moore',
     key: 'grant',
     src: '/assets/people/grant/profile.jpg',
-    alt: 'Grant Moore, Lead Engineer',
+    title: 'Grant Moore, Lead Engineer',
     arrow_tooltip: "Grant Moore's Resume",
     position: 'Solution Architect, Developer & Designer',
     blurbs: [

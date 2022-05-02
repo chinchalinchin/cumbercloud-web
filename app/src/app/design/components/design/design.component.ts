@@ -48,7 +48,7 @@ export class DesignComponent implements OnInit {
   @ViewChildren(MatRipple) ripples!: QueryList<MatRipple>;
 
   public phases: any = Phases;
-  public phase: Phases = Phases.none;
+  public phase: Phases = Phases.done;
   public splashes: any = Splash;
   public splash: Splash = Splash.untouched;
   public oscillating: boolean = false;
