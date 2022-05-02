@@ -635,29 +635,17 @@
           aria-label="Example projects"
           *ngIf="phasedIn(phases.done)"
         >
-          <h2 
-            id="gallery-title" 
-            class="mat-h2 text-center"
-          >
-            Projects
-          </h2>
-          <div 
-            id="gallery-line" 
-            class="mat-elevation-z2" 
-            *ngIf="!mobileMode()"
-          >
-            <div 
+          <h2 id="gallery-title" class="mat-h2 text-center">Projects</h2>
+          <div id="gallery-line" class="mat-elevation-z2" *ngIf="!mobileMode()">
+            <div
               *ngFor="let gallery of galleryConfig"
               [id]="gallery.id"
               class="gallery-item"
             >
-              <h3 
-                [id]="gallery.subtitle" 
-                class="mat-h3 gallery-subtitle"
-              >
-                {{gallery.subtitle}}
+              <h3 [id]="gallery.subtitle" class="mat-h3 gallery-subtitle">
+                {{ gallery.subtitle }}
               </h3>
-              <a 
+              <a
                 [id]="gallery.link_id"
                 [href]="gallery.href"
                 target="_blank"
@@ -675,26 +663,26 @@
             </div>
           </div>
 
-          <div 
-            id="gallery-scroller" 
+          <div
+            id="gallery-scroller"
             class="mat-elevation-z2"
             aria-live="polite"
             *ngIf="mobileMode()"
           >
             <div class="v-align">
-              <div 
+              <div
                 [id]="selectedGalleryConfig.id"
                 class="gallery-item"
                 (swiperight)="decrementGallery()"
                 (swipeleft)="incrementGallery()"
               >
-                <h3 
-                  [id]="selectedGalleryConfig.subtitle" 
+                <h3
+                  [id]="selectedGalleryConfig.subtitle"
                   class="mat-h3 gallery-subtitle"
                 >
-                  {{selectedGalleryConfig.subtitle}}
+                  {{ selectedGalleryConfig.subtitle }}
                 </h3>
-                <a 
+                <a
                   [id]="selectedGalleryConfig.link_id"
                   [href]="selectedGalleryConfig.href"
                   target="_blank"
