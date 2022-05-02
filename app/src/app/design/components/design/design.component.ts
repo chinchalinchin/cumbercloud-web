@@ -123,10 +123,7 @@ export class DesignComponent implements OnInit {
     AnimationTriggers.cntl_swipe
   );
 
-  constructor(
-    private _meta: MetaService,
-    private _ga: GoogleAnalyticsService
-  ) {
+  constructor(private _meta: MetaService, private _ga: GoogleAnalyticsService) {
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
@@ -231,7 +228,7 @@ export class DesignComponent implements OnInit {
     switch (this.phase) {
       case Phases.none:
         this.phase = Phases.splash;
-        this._ga.event('design', 'phase_next', 'splash')
+        this._ga.event('design', 'phase_next', 'splash');
         break;
       case Phases.splash:
         this.phase = Phases.design;
@@ -247,7 +244,7 @@ export class DesignComponent implements OnInit {
             this.flashRipple(true);
           }, this.designLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_next', 'design')
+        this._ga.event('design', 'phase_next', 'design');
         break;
       case Phases.design:
         this.designLinesFadeCntl.forEach((cntl: AnimationControl) => {
@@ -266,7 +263,7 @@ export class DesignComponent implements OnInit {
             this.flashRipple(true);
           }, this.developLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_next', 'develop')
+        this._ga.event('design', 'phase_next', 'develop');
         break;
       case Phases.develop:
         this.developLinesFadeCntl.forEach((cntl: AnimationControl) => {
@@ -285,7 +282,7 @@ export class DesignComponent implements OnInit {
             this.flashRipple(true);
           }, this.deployLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_next', 'deploy')
+        this._ga.event('design', 'phase_next', 'deploy');
         break;
       case Phases.deploy:
         this.deployLinesFadeCntl.forEach((cntl: AnimationControl) => {
@@ -304,14 +301,14 @@ export class DesignComponent implements OnInit {
             this.flashRipple(true);
           }, this.deliverLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_next', 'deliver')
+        this._ga.event('design', 'phase_next', 'deliver');
         break;
       case Phases.deliver:
         this.deliverLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.done;
-        this._ga.event('design', 'phase_next', 'done')
+        this._ga.event('design', 'phase_next', 'done');
         break;
     }
   }
@@ -320,11 +317,11 @@ export class DesignComponent implements OnInit {
     switch (this.phase) {
       case Phases.splash:
         this.phase = Phases.none;
-        this._ga.event('design', 'phase_previous', 'none')
+        this._ga.event('design', 'phase_previous', 'none');
         break;
       case Phases.design:
         this.phase = Phases.splash;
-        this._ga.event('design', 'phase_previous', 'splash')
+        this._ga.event('design', 'phase_previous', 'splash');
         break;
       case Phases.develop:
         this.developLinesFadeCntl.forEach((cntl: AnimationControl) => {
@@ -340,7 +337,7 @@ export class DesignComponent implements OnInit {
             }
           );
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_previous', 'design')
+        this._ga.event('design', 'phase_previous', 'design');
         break;
       case Phases.deploy:
         this.deployLinesFadeCntl.forEach((cntl: AnimationControl) => {
@@ -356,7 +353,7 @@ export class DesignComponent implements OnInit {
             }
           );
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_previous', 'develop')
+        this._ga.event('design', 'phase_previous', 'develop');
         break;
       case Phases.deliver:
         this.deliverLinesFadeCntl.forEach((cntl: AnimationControl) => {
@@ -372,7 +369,7 @@ export class DesignComponent implements OnInit {
             }
           );
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_previous', 'deploy')
+        this._ga.event('design', 'phase_previous', 'deploy');
         break;
       case Phases.done:
         this.phase = Phases.deliver;
@@ -385,7 +382,7 @@ export class DesignComponent implements OnInit {
             }
           );
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_previous', 'deliver')
+        this._ga.event('design', 'phase_previous', 'deliver');
         break;
     }
   }

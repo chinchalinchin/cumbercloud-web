@@ -161,7 +161,7 @@ export class HomeComponent implements OnInit {
 
   public constructor(
     private _meta: MetaService,
-    private _ga: GoogleAnalyticsService,
+    private _ga: GoogleAnalyticsService
   ) {
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
@@ -228,7 +228,7 @@ export class HomeComponent implements OnInit {
       this.selecting = false;
       this.selectionFadeCntl.prime();
     }, AnimationPeriods.short * 1000);
-    this._ga.event('home', 'state', state.toString())
+    this._ga.event('home', 'state', state.toString());
   }
 
   public selected(state: HomeStates) {
