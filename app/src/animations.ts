@@ -27,7 +27,7 @@ function validatePosition(position: Position): KeyObject {
   return parsed_position;
 }
 
-function formatTriggerTag(trigger: string, tag: string | null | undefined){
+function formatTriggerTag(trigger: string, tag: string | null | undefined) {
   return tag ? `${trigger}_${tag}` : trigger;
 }
 
@@ -44,13 +44,12 @@ export interface KeyObject {
 
 /////////////////////////////////////////////////////////////////////////////////////
 // TODO : It would be easier to just use a catchall binary variable for all of these...
-export enum BinaryState{
-  on="on",
-  off="off"
+export enum BinaryState {
+  on = 'on',
+  off = 'off',
 }
 // TODO: ^^^
 /////////////////////////////////////////////////////////////////////////////////////
-
 
 /**
  * Enumeration of {@link Animations} expand animation states.
@@ -175,7 +174,10 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag : string = formatTriggerTag(AnimationTriggers.cntl_scale, tag)
+    let triggerTag: string = formatTriggerTag(
+      AnimationTriggers.cntl_scale,
+      tag
+    );
 
     return trigger(triggerTag, [
       state(
@@ -290,7 +292,7 @@ export class Animations {
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_fold, tag)
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_fold, tag);
     return trigger(AnimationTriggers.cntl_fold, [
       state(
         ExpandStates.open,
@@ -324,7 +326,7 @@ export class Animations {
     toHeight: string,
     toWidth: string,
     tag: string | null | undefined = null,
-    animateLength: number = AnimationPeriods.short,
+    animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
     let triggerTag = formatTriggerTag(AnimationTriggers.cntl_expand, tag);
 
@@ -365,8 +367,10 @@ export class Animations {
     let triggerConfig: any[] = [];
     let validatedStart = validatePosition(start);
 
-    triggerConfig.push(state(`${PositionStates.unmoved}`, style(validatedStart)));
-    
+    triggerConfig.push(
+      state(`${PositionStates.unmoved}`, style(validatedStart))
+    );
+
     positions.forEach((pos, ind) => {
       let validatedPosition = validatePosition(pos);
       triggerConfig.push(
@@ -398,20 +402,27 @@ export class Animations {
     let triggerTag = formatTriggerTag(AnimationTriggers.cntl_swipe, tag);
     return trigger(triggerTag, [
       transition(`* => ${SwipeStates.swipe_left}`, [
-        animate(`${animateLength}s`, keyframes([
-          style({ transform: 'translateX(0)', opacity: 1, offset: 0 }),
-          style({ transform: 'translateX(-200%)', opacity: 0, offset: 0.5 }),
-          style({ transform: 'translateX(200%)', opacity: 0, offset: 0.51 }),
-          style({ transform: 'translateX(0)', opacity: 1, offset: 1})
-        ])),
+        animate(
+          `${animateLength}s`,
+          keyframes([
+            style({ transform: 'translateX(0)', opacity: 1, offset: 0 }),
+            style({ transform: 'translateX(-200%)', opacity: 0, offset: 0.5 }),
+            style({ transform: 'translateX(200%)', opacity: 0, offset: 0.51 }),
+            style({ transform: 'translateX(0)', opacity: 1, offset: 1 }),
+          ])
+        ),
         query('@*', animateChild(), { optional: true }),
-      ]),transition(`* => ${SwipeStates.swipe_right}`, [
-        animate(`${animateLength}s`, keyframes([
-          style({ transform: 'translateX(0)', opacity: 1, offset: 0 }),
-          style({ transform: 'translateX(200%)', opacity: 0, offset: 0.5 }),
-          style({ transform: 'translateX(-200%)', opacity: 0, offset: 0.51 }),
-          style({ transform: 'translateX(0)', opacity: 1, offset: 1})
-        ])),
+      ]),
+      transition(`* => ${SwipeStates.swipe_right}`, [
+        animate(
+          `${animateLength}s`,
+          keyframes([
+            style({ transform: 'translateX(0)', opacity: 1, offset: 0 }),
+            style({ transform: 'translateX(200%)', opacity: 0, offset: 0.5 }),
+            style({ transform: 'translateX(-200%)', opacity: 0, offset: 0.51 }),
+            style({ transform: 'translateX(0)', opacity: 1, offset: 1 }),
+          ])
+        ),
         query('@*', animateChild(), { optional: true }),
       ]),
     ]);

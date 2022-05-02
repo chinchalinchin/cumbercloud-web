@@ -149,7 +149,6 @@ export enum HomeStates {
 
 export const HOME_CONFIG: any[] = [];
 
-
 // TODO: need a nav config for /404.
 
 export const NAV_CONFIG: NavConfig[] = [
@@ -854,8 +853,8 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
     link_id: 'scrilla-link',
     tooltip: 'Scrilla Documentation Homepage',
     href: 'https://chinchalinchin.github.io/scrilla/OVERVIEW.html',
-    src: '/assets/imgs/scrilla.png'
-  }
+    src: '/assets/imgs/scrilla.png',
+  },
 ];
 
 export const EXPERIENCE_CONFIG: ExperienceConfig[] = [

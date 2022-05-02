@@ -50,7 +50,7 @@ enum Splash {
     Animations.getExpandTrigger('100%', 'full'),
     Animations.getExpandTrigger('50%', 'half'),
     Animations.getExpandTrigger('25%', 'quarter'),
-    Animations.getManualFullSwipeTrigger()
+    Animations.getManualFullSwipeTrigger(),
   ],
 })
 export class DesignComponent implements OnInit {
@@ -120,7 +120,7 @@ export class DesignComponent implements OnInit {
   );
   public gallerySwipeCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_swipe
-  )
+  );
 
   constructor(private meta: MetaService) {
     this.meta.mediaBreakpoint.subscribe((size: string) => {
@@ -448,17 +448,13 @@ export class DesignComponent implements OnInit {
     if (this.galleryIndex === this.galleryConfig.length) {
       this.galleryIndex = 0;
     }
-<<<<<<< HEAD
     this.gallerySwipeCntl.swipe(this.swipeStates.swipe_left);
-    setTimeout(()=>{
-      this.selectedGalleryConfig= this.galleryConfig[this.galleryIndex];
-    }, AnimationPeriods.medium*500);
-    setTimeout(()=>{
+    setTimeout(() => {
+      this.selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
+    }, AnimationPeriods.medium * 500);
+    setTimeout(() => {
       this.gallerySwipeCntl.prime();
     }, AnimationPeriods.medium*1000);
-=======
-    this.selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
->>>>>>> 06fd598a491033c3140e32c989ef596fd7eff56a
   }
 
   public decrementGallery(): void {
@@ -467,12 +463,12 @@ export class DesignComponent implements OnInit {
       this.galleryIndex = this.galleryConfig.length - 1;
     }
     this.gallerySwipeCntl.swipe(this.swipeStates.swipe_right);
-    setTimeout(()=>{
+    setTimeout(() => {
       this.selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
-    }, AnimationPeriods.medium*500);
-    setTimeout(()=>{
+    }, AnimationPeriods.medium * 500);
+    setTimeout(() => {
       this.gallerySwipeCntl.prime();
-    }, AnimationPeriods.medium*1000);
+    }, AnimationPeriods.medium * 1000);
   }
 
   public currentGalleryConfig(): GalleryConfig {
