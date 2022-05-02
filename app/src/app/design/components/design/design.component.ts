@@ -454,7 +454,7 @@ export class DesignComponent implements OnInit {
     }, AnimationPeriods.medium * 500);
     setTimeout(() => {
       this.gallerySwipeCntl.prime();
-    }, AnimationPeriods.medium*1000);
+    }, AnimationPeriods.medium * 1000);
   }
 
   public decrementGallery(): void {
