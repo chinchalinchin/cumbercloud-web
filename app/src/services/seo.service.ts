@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { OGConfig } from 'src/app/app.config';
+import { MetaConfig } from 'src/app/app.config';
 
 @Injectable({
   providedIn: 'root',
@@ -14,25 +14,26 @@ export class SeoService {
   ) {}
 
   public setStaticAtrributes() {
-    this._meta.addTag({
-      property: 'og:site_name',
-      content: 'Cumberland Cloud',
-    });
+    this._meta.addTag({ property: 'og:site_name', content: 'Cumberland Cloud' });
+    this._meta.addTag({ property: 'og:type', content: 'website' });
+    this._meta.addTag({ property: 'twitter:site', content: '@CloudCumberland' })
+
   }
 
   public updateTitle(title: string) {
     this._title.setTitle(title);
     this._meta.updateTag({ property: 'og:title', content: title });
+    this._meta.updateTag({ property: 'twitter:title', content: title})
   }
 
   public updateDescription(desc: string) {
     this._meta.updateTag({ name: 'description', content: desc });
     this._meta.updateTag({ property: 'og:description', content: desc });
+    this._meta.updateTag({ property: 'twitter:description', content: desc})
   }
 
-  public updateOgAttributes(attrs: OGConfig[] | undefined) {
-    this._meta.updateTag({ property: 'og:type', content: 'website' });
-    attrs?.forEach((attr: OGConfig) => {
+  public updateMetaAttributes(attrs: MetaConfig[] | undefined) {
+    attrs?.forEach((attr: MetaConfig) => {
       this._meta.updateTag({ property: attr.property, content: attr.content });
     });
   }

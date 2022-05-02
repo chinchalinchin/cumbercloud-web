@@ -4,7 +4,15 @@
     viewBox="0 0 501.551 501.551"
     width="130"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="Design Graphic"
   >
+    <title>
+      Cumberland Cloud - Design
+    </title>
+    <desc>
+      Our design process has been refined through years of experience. We use the latest tools, such as InkScape and Abode XD, to craft high fidelity wireframes. This allows you to review the overall look and feel before committing to any projects. 
+    </desc>
     <path
       style="fill: #f2f2f2"
       d="M337.502,0H58.514C47.02,0,37.616,9.404,37.616,20.898v459.755c0,11.494,9.404,20.898,20.898,20.898

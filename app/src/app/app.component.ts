@@ -52,7 +52,7 @@ export class AppComponent {
               ? conf.page_description
               : 'A site of earthly delectations.'
           );
-          this._seo.updateOgAttributes(conf ? conf.og : undefined);
+          this._seo.updateMetaAttributes(conf ? conf.meta : undefined);
         }
         this.selectedNav = this.navConfig
           .filter((nav: NavConfig) => nav.path === event.url)

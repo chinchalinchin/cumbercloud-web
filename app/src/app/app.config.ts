@@ -15,10 +15,10 @@ export interface NavConfig {
   menu?: boolean;
   data?: any;
   children?: NavConfig[];
-  og?: OGConfig[];
+  meta?: MetaConfig[];
 }
 
-export interface OGConfig {
+export interface MetaConfig {
   property: string;
   content: string;
 }
@@ -188,7 +188,7 @@ export const NAV_CONFIG: NavConfig[] = [
         ],
       },
     ],
-    og: [
+    meta: [
       {
         property: 'og:url',
         content: 'https://cumberland-cloud.com/',
@@ -213,6 +213,18 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:alt',
         content: 'Cumberland Cloud - Cloud Native Applications',
       },
+      {
+        property: 'twitter:image',
+        content: 'https://cumberland-cloud.com/assets/imgs/logo.png',
+      },
+      {
+        property: 'twitter:image:alt',
+        content: 'Cumberland Cloud - Cloud Native Applications',
+      },
+      {
+        property: 'twitter:card',
+        content: 'summary'
+      }
     ],
   },
   // '/about' isn't a route, but this object is used to configure the nav menu.
@@ -237,7 +249,7 @@ export const NAV_CONFIG: NavConfig[] = [
     page_description:
       'Grant Moore is a Solution Architect, Web Developer and UI/UX Designer. With a background in mathematics and physics, he approaches every software problem with a unique perspective, bringing to it a diverse array of analytical tools. Schedule a consultation at design@cumberland-cloud.com',
     data: {},
-    og: [
+    meta: [
       {
         property: 'og:url',
         content: 'https://cumberland-cloud.com/about/grant/',
@@ -266,6 +278,18 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:alt',
         content: 'Meet Grant Moore, the engineer behind the Cumberland Cloud',
       },
+      {
+        property: 'twitter:image',
+        content: 'https://cumberland-cloud.com/assets/people/grant/profile.jpg',
+      },
+      {
+        property: 'twitter:image:alt',
+        content: 'Meet Grant Moore, the engineer behind the Cumberland Cloud',
+      },
+      {
+        property: 'twitter:card',
+        content: 'summary'
+      }
     ],
   },
   {
@@ -294,7 +318,7 @@ export const NAV_CONFIG: NavConfig[] = [
         ],
       },
     ],
-    og: [
+    meta: [
       {
         property: 'og:url',
         content: 'https://cumberland-cloud.com/about/resume/grant',
@@ -325,6 +349,18 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:alt',
         content: "Grant Moore's Resume",
       },
+      {
+        property: 'twitter:image',
+        content: 'https://cumberland-cloud.com/assets/people/grant/americorps.jpg',
+      },
+      {
+        property: 'twitter:image:alt',
+        content: "Grant Moore's Resume",
+      },
+      {
+        property: 'twitter:card',
+        content: 'summary'
+      }
     ],
   },
   {
@@ -335,7 +371,7 @@ export const NAV_CONFIG: NavConfig[] = [
       'The Cumberland Cloud has at your disposal years of production-grade software engineering experience. We take pride in our professionalism and as a result, our design process stands out from the rest of the crowd',
     menu: true,
     data: {},
-    og: [
+    meta: [
       {
         property: 'og:url',
         content: 'https://cumberland-cloud.com/design',
@@ -364,6 +400,18 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:alt',
         content: "Learn about Cumberland Cloud's design process",
       },
+      {
+        property: 'twitter:image',
+        content: 'https://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg',
+      },
+      {
+        property: 'twitter:image:alt',
+        content: "Learn about Cumberland Cloud's design process",
+      },
+      {
+        property: 'twitter:card',
+        content: 'summary'
+      }
     ],
   },
   {
@@ -374,7 +422,7 @@ export const NAV_CONFIG: NavConfig[] = [
       'Find out how much your next project with the Cumberland Cloud will cost. Input your project details into our Project Cost Calculator to get an instant estimate.',
     menu: true,
     data: {},
-    og: [
+    meta: [
       {
         property: 'og:url',
         content: 'https://cumberland-cloud.com/pricing',
@@ -404,6 +452,18 @@ export const NAV_CONFIG: NavConfig[] = [
         content:
           'Estimate the cost of your next project with the Cumberland Cloud',
       },
+      {
+        property: 'twitter:image',
+        content: 'https://cumberland-cloud.com/assets/imgs/calculator.png',
+      },
+      {
+        property: 'twitter:image:alt',
+        content: "Estimate the cost of your next project with the Cumberland Cloud",
+      },
+      {
+        property: 'twitter:card',
+        content: 'summary'
+      }
     ],
   },
   {
@@ -414,7 +474,7 @@ export const NAV_CONFIG: NavConfig[] = [
       'Submit a form message with details about your next web development project to the Cumberland Cloud',
     menu: true,
     data: {},
-    og: [
+    meta: [
       {
         property: 'og:url',
         content: 'https://cumberland-cloud.com/contact',
@@ -443,6 +503,18 @@ export const NAV_CONFIG: NavConfig[] = [
         property: 'og:image:alt',
         content: 'Contact the Cumberland Cloud about your next project',
       },
+      {
+        property: 'twitter:image',
+        content: 'https://cumberland-cloud.com/assets/imgs/message.png',
+      },
+      {
+        property: 'twitter:image:alt',
+        content: "Contact the Cumberland Cloud about your next project",
+      },
+      {
+        property: 'twitter:card',
+        content: 'summary'
+      }
     ],
   },
 ];
