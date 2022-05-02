@@ -149,6 +149,9 @@ export enum HomeStates {
 
 export const HOME_CONFIG: any[] = [];
 
+
+// TODO: need a nav config for /404.
+
 export const NAV_CONFIG: NavConfig[] = [
   {
     path: '/',
@@ -853,7 +856,8 @@ export const GALLERY_CONFIG: GalleryConfig[]=[
     href: 'https://chinchalinchin.github.io/scrilla/OVERVIEW.html',
     src: '/assets/imgs/scrilla.png'
   }
-]
+];
+
 export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
   {
     company: 'Makpar, Inc.',

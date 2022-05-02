@@ -4,3 +4,4 @@
 /about/resume/grant
 /contact
 /design
+/404
