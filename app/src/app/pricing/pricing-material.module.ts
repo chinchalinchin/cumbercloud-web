@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatExpansionModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatSliderModule,
     MatTableModule,
     MatTooltipModule,
@@ -35,6 +37,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatExpansionModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatSliderModule,
     MatTableModule,
     MatTooltipModule,
