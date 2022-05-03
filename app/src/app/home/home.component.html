@@ -148,7 +148,7 @@
   <div id="responsive-content" role="region" aria-label="Responsive content">
     <div
       id="cloud-line-desktop-1"
-      class="animation landscape"
+      class="animation"
       [@cntl_position_cloud_line_desktop_1]="
         cloudLineDesktopPositionCntls[0].state
       "
@@ -157,13 +157,14 @@
       [class.selections]="moved"
       [class.fancy-text]="!moved"
       [class.mat-title]="moved"
+      [class.landscape]="!moved"
       [class.selection-underline]="selected(states.four) && !selecting && moved"
       *ngIf="!mobileMode()"
       (click)="setState(states.four)"
     ></div>
     <div
       id="cloud-line-desktop-2"
-      class="animation landscape"
+      class="animation"
       [@cntl_position_cloud_line_desktop_2]="
         cloudLineDesktopPositionCntls[1].state
       "
@@ -172,6 +173,7 @@
       [class.selections]="moved"
       [class.fancy-text]="!moved"
       [class.mat-title]="moved"
+      [class.landscape]="!moved"
       [class.selection-underline]="
         selected(states.three) && !selecting && moved
       "
@@ -180,7 +182,7 @@
     ></div>
     <div
       id="cloud-line-desktop-3"
-      class="animation landscape"
+      class="animation"
       [@cntl_position_cloud_line_desktop_3]="
         cloudLineDesktopPositionCntls[2].state
       "
@@ -189,13 +191,14 @@
       [class.selections]="moved"
       [class.fancy-text]="!moved"
       [class.mat-title]="moved"
+      [class.landscape]="!moved"
       [class.selection-underline]="selected(states.two) && !selecting && moved"
       *ngIf="!mobileMode()"
       (click)="setState(states.two)"
     ></div>
     <div
       id="cloud-line-desktop-4"
-      class="animation landscape"
+      class="animation"
       [@cntl_position_cloud_line_desktop_4]="
         cloudLineDesktopPositionCntls[3].state
       "
@@ -204,6 +207,7 @@
       [class.selections]="moved"
       [class.fancy-text]="!moved"
       [class.mat-title]="moved"
+      [class.landscape]="!moved"
       [class.selection-underline]="selected(states.one) && !selecting && moved"
       *ngIf="!mobileMode()"
       (click)="setState(states.one)"
