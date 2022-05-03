@@ -34,11 +34,7 @@
     </div>
   </div>
 
-  <div 
-    id="nav-menu" 
-    [@cntl_fold]="menuFoldCntl.state"
-    role="navigation"  
-  >
+  <div id="nav-menu" [@cntl_fold]="menuFoldCntl.state" role="navigation">
     <div
       class="nav-item"
       *ngFor="let conf of navConfig"

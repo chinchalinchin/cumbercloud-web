@@ -123,10 +123,7 @@ export class DesignComponent implements OnInit {
     AnimationTriggers.cntl_swipe
   );
 
-  constructor(
-    private _meta: MetaService, 
-    private _ga: GoogleAnalyticsService
-  ) {
+  constructor(private _meta: MetaService, private _ga: GoogleAnalyticsService) {
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
@@ -138,7 +135,7 @@ export class DesignComponent implements OnInit {
       .concat(this.deliverLinesFadeCntl)
       .forEach((cntl: AnimationControl) => {
         cntl.animate();
-    });
+      });
   }
 
   ngOnInit() {

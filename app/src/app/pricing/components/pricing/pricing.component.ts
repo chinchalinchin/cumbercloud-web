@@ -165,7 +165,7 @@ export class PricingComponent {
   public setFocus(group: PricingGroups): void {
     this.focusing = true;
     this.focus = group;
-    this._ga.event('pricing', 'expansion', group.toString())
+    this._ga.event('pricing', 'expansion', group.toString());
   }
 
   public removeFocus(): void {

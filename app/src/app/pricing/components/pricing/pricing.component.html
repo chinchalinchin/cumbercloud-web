@@ -1,8 +1,6 @@
 <div id="pricing">
   <mat-card id="calc-card" class="mat-elevation-z8">
-    <mat-card-title> 
-      Project Quote Calculator 
-    </mat-card-title>
+    <mat-card-title> Project Quote Calculator </mat-card-title>
 
     <mat-card-subtitle>
       Estimate your costs based on your project
@@ -18,10 +16,7 @@
           [@expand_full]
         >
           <mat-expansion-panel-header>
-            <mat-panel-title 
-              id="core-panel-title" 
-              class="panel-title"
-            >
+            <mat-panel-title id="core-panel-title" class="panel-title">
               <span
                 id="core-features-total"
                 [matBadge]="coreChecked"
@@ -34,11 +29,11 @@
               </span>
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <section 
-            id="core-form" 
-            role="form" 
+          <section
+            id="core-form"
+            role="form"
             [formGroup]="coreFormGroup"
-            aria-label="Core features selection form"  
+            aria-label="Core features selection form"
           >
             <div *ngFor="let conf of coreConfig">
               <mat-checkbox
@@ -68,10 +63,7 @@
           [@expand_full]
         >
           <mat-expansion-panel-header>
-            <mat-panel-title 
-              id="addon-panel-title"
-              class="panel-title"
-            >
+            <mat-panel-title id="addon-panel-title" class="panel-title">
               <span
                 [matBadge]="addOnChecked"
                 matBadgeColor="accent"
@@ -83,7 +75,7 @@
               </span>
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <section 
+          <section
             id="role-form"
             role="form"
             [formGroup]="addOnFormGroup"
@@ -117,10 +109,7 @@
           [@expand_full]
         >
           <mat-expansion-panel-header>
-            <mat-panel-title 
-              id="addon-panel-title"
-              class="panel-title"
-            >
+            <mat-panel-title id="addon-panel-title" class="panel-title">
               <span
                 [matBadge]="analyticsChecked"
                 matBadgeColor="accent"
@@ -132,7 +121,7 @@
               </span>
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <section 
+          <section
             id="analytics-form"
             role="form"
             [formGroup]="analyticsFormGroup"
@@ -172,22 +161,23 @@
 
 <div id="cost-breakdown-popup" [@expand_popup] [hidden]="!calculated">
   <div id="popup-toolbar">
-    <div 
-      id="total-badge" 
+    <div
+      id="total-badge"
       class="mat-elevation-z1"
       aria-label="Total estimated costs"
-      aria-live="polite"  
+      aria-live="polite"
     >
       <span id="total-output">Total:</span>
       {{ total | currency }}
     </div>
-    <button 
+    <button
       id="popup-exit-btn"
-      mat-icon-button 
-      color="warn" 
+      mat-icon-button
+      color="warn"
       (click)="uncalculate()"
       aria-label="Close popup"
-      aria-controls="cost-breakdown-popup">
+      aria-controls="cost-breakdown-popup"
+    >
       <mat-icon>close</mat-icon>
     </button>
   </div>
