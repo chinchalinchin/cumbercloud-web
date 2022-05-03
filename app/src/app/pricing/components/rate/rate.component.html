@@ -148,20 +148,14 @@
       </mat-icon>
     </h2>
 
-    <div 
-      id="fee-element" 
-      *ngIf="config.fees.length > 0"
-    >
-      <mat-list 
-        id="fee-list" 
-        class="mat-elevation-z2" 
+    <div id="fee-element" *ngIf="config.fees.length > 0">
+      <mat-list
+        id="fee-list"
+        class="mat-elevation-z2"
         *ngIf="mobileMode()"
         aria-labelledby="fee-subtitle"
       >
-        <mat-list-item 
-          class="mat-elevation-z1"
-          *ngFor="let fee of config.fees"
-        >
+        <mat-list-item class="mat-elevation-z1" *ngFor="let fee of config.fees">
           <mat-icon mat-list-icon color="warn">label_important</mat-icon>
           <div mat-line class="text-white">{{ fee.service }}</div>
           <div mat-line class="text-white">

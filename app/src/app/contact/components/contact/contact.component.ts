@@ -20,9 +20,10 @@ export class ContactComponent {
   public reasonConfig: ContactConfig[] = REASON_CONFIG;
 
   constructor(
-    private _forms: FormBuilder, 
+    private _forms: FormBuilder,
     private _meta: MetaService,
-    private _ga: GoogleAnalyticsService) {
+    private _ga: GoogleAnalyticsService
+  ) {
     this.contactGroup = this._forms.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       first: new FormControl('', [Validators.required]),
@@ -50,7 +51,11 @@ export class ContactComponent {
     );
   }
 
-  public submit(): void{
-    this._ga.event('contact', 'email', this.contactGroup.controls['email'].value)
+  public submit(): void {
+    this._ga.event(
+      'contact',
+      'email',
+      this.contactGroup.controls['email'].value
+    );
   }
 }

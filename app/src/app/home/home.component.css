@@ -49,7 +49,7 @@
   right: 30%;
   bottom: 5%;
 }
-.mobile-line{
+.mobile-line {
   text-align: center;
 }
 .selections {
@@ -87,8 +87,8 @@
   left: 45%;
 }
 
-@media (min-width:991px) and (max-width:1200px){
-  .landscape{
+@media (min-width: 991px) and (max-width: 1200px) {
+  .landscape {
     margin-left: 5%;
     margin-right: 4%;
   }

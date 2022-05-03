@@ -9,7 +9,7 @@ export interface AssetConfig {
 
 export interface NavConfig {
   path: string;
-  nav_id?: string,
+  nav_id?: string;
   nav_title?: string;
   page_title?: string;
   page_description?: string;
@@ -116,17 +116,17 @@ export interface ProfileConfig {
   factoids: ElementConfig[];
 }
 
-interface DesktopLine{
+interface DesktopLine {
   moved: string;
   unmoved: string;
 }
 
-interface Line{
+interface Line {
   mobile: string;
   desktop: DesktopLine;
 }
 
-export interface HomeConfig{
+export interface HomeConfig {
   state: string;
   src: string;
   alt: string;
@@ -176,14 +176,17 @@ export const HOME_CONFIG: HomeConfig[] = [
     alt: 'The Cumberland Cloud uses cutting-edge technology',
     title: 'Web Design and Hosting',
     subtitle: 'Responsive sites built on modern technology',
-    blurb: 'The <strong>Cumberland Cloud</strong> offers custom web page design and cloud-based hosting for small business owners looking to expand their online footprint without breaking the bank.',
+    blurb:
+      'The <strong>Cumberland Cloud</strong> offers custom web page design and cloud-based hosting for small business owners looking to expand their online footprint without breaking the bank.',
     line: {
-      mobile: '- <a href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html" target="_blank" rel="noopener noreferrer">Homer, probably</a>',
+      mobile:
+        '- <a href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html" target="_blank" rel="noopener noreferrer">Homer, probably</a>',
       desktop: {
         moved: 'Custom Web Design',
-        unmoved: '- <a href="https://www.cs.drexel.edu/~crorres/Archimedes/Lever/LeverQuotes_OLD.html" target="_blank" rel="noopener noreferrer">Archimedes, probably</a>'
-      }
-    }
+        unmoved:
+          '- <a href="https://www.cs.drexel.edu/~crorres/Archimedes/Lever/LeverQuotes_OLD.html" target="_blank" rel="noopener noreferrer">Archimedes, probably</a>',
+      },
+    },
   },
   {
     state: 'two',
@@ -191,14 +194,15 @@ export const HOME_CONFIG: HomeConfig[] = [
     alt: 'The Cumberland Cloud will save you money!',
     title: 'Cloud Cost Savings',
     subtitle: 'Expert services at an affordable price',
-    blurb: 'We specialize in using the latest in serverless cloud technology to architect cost-optimized web solutions that require litte-to-no overhead or recurring fees to maintain.',
+    blurb:
+      'We specialize in using the latest in serverless cloud technology to architect cost-optimized web solutions that require litte-to-no overhead or recurring fees to maintain.',
     line: {
       mobile: 'Incites the hand to push it',
       desktop: {
         moved: 'Affordable Quality',
-        unmoved: 'And I will move the world'
-      }
-    }
+        unmoved: 'And I will move the world',
+      },
+    },
   },
   {
     state: 'three',
@@ -206,14 +210,15 @@ export const HOME_CONFIG: HomeConfig[] = [
     alt: 'The Cumberland Cloud offers expert services',
     title: 'Professional Solutions',
     subtitle: 'Years of web and software design experience.',
-    blurb: 'Our team has a rich professional background in web development, with experience on production-scale projects from the leading names in the industry.',
+    blurb:
+      'Our team has a rich professional background in web development, with experience on production-scale projects from the leading names in the industry.',
     line: {
       mobile: 'For the button by itself',
       desktop: {
         moved: 'Cloud Expertise',
-        unmoved: 'And a button big enough'
-      }
-    }
+        unmoved: 'And a button big enough',
+      },
+    },
   },
   {
     state: 'four',
@@ -221,15 +226,16 @@ export const HOME_CONFIG: HomeConfig[] = [
     alt: 'The Cumberland Cloud puts the user first',
     title: 'Human Centric Design',
     subtitle: 'User driven development process',
-    blurb: 'Every website we produce is built with your users in mind. Each detail is crafted to streamline the user experience and improve conversion for your business.',
+    blurb:
+      'Every website we produce is built with your users in mind. Each detail is crafted to streamline the user experience and improve conversion for your business.',
     line: {
       mobile: '',
       desktop: {
         moved: 'User Experience',
-        unmoved: 'Give me a page to land'
-      }
-    }
-  }
+        unmoved: 'Give me a page to land',
+      },
+    },
+  },
 ];
 
 // TODO: need a nav config for /404.
