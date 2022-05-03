@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { PricingConfig } from 'src/app/app.config';
 import { MetaService } from 'src/services/meta.service';
 
@@ -22,8 +23,11 @@ export class RateComponent implements OnInit {
   public sliderValue: number = 1;
   public total!: number;
 
-  public constructor(private meta: MetaService) {
-    this.meta.mediaBreakpoint.subscribe((size: string) => {
+  public constructor(
+    private _meta: MetaService,
+    private _ga: GoogleAnalyticsService
+  ) {
+    this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
   }
@@ -64,6 +68,7 @@ export class RateComponent implements OnInit {
       key: this.config.key,
       total: this.total,
     });
+    this._ga.event('rate', 'calculate', this.config.key);
   }
 
   public recalculate(num: number) {
@@ -72,5 +77,6 @@ export class RateComponent implements OnInit {
       key: this.config.key,
       total: this.total,
     });
+    this._ga.event('rate', 'calculate', this.config.key)
   }
 }
