@@ -56,20 +56,26 @@
     height: 70%;
   }
   #profile-card {
-    height: 80%;
+    height: 90%;
   }
   .mobile-title {
     padding-top: -5%;
   }
   .mobile-scroller {
     overflow-y: auto;
-    max-height: 25vh;
+    max-height: 22.5vh;
   }
   .actions {
     right: 47%;
   }
-  .profile-container {
-    width: 30%;
+  .profile-pic {
+    max-width: 150px;
+  }
+  .profile-pic-container{
+    margin-bottom: -5.5%;
+  }
+  .profile-header{
+    height: 45%;
   }
 }
 @media (min-width: 991px) {
@@ -129,7 +135,7 @@
   .actions {
     right: 2.5%;
   }
-  .profile-pic {
-    max-width: 100px;
+  .profile-pic-container {
+    width: 30%;
   }
 }

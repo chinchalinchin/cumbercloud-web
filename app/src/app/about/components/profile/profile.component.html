@@ -241,8 +241,8 @@
     </div>
 
     <mat-card id="profile-card" class="mat-elevation-z3">
-      <div class="center">
-        <div class="profile-container">
+      <div id="profile-header" class="center">
+        <div class="profile-pic-container">
           <img
             [src]="selectedProfile.src"
             [title]="selectedProfile.title"
@@ -251,7 +251,7 @@
         </div>
       </div>
 
-      <mat-card-title class="center">
+      <mat-card-title class="text-center">
         {{ selectedProfile.name }}
       </mat-card-title>
 
