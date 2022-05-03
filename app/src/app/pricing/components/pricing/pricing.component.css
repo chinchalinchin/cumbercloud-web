@@ -43,6 +43,10 @@
   min-width: 20%;
   border-radius: 25px;
 }
+#total-output{
+  float: left; 
+  padding-left: 10%
+}
 .align {
   height: 100%;
   display: flex;

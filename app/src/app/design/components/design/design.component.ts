@@ -123,7 +123,10 @@ export class DesignComponent implements OnInit {
     AnimationTriggers.cntl_swipe
   );
 
-  constructor(private _meta: MetaService, private _ga: GoogleAnalyticsService) {
+  constructor(
+    private _meta: MetaService, 
+    private _ga: GoogleAnalyticsService
+  ) {
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
@@ -135,7 +138,7 @@ export class DesignComponent implements OnInit {
       .concat(this.deliverLinesFadeCntl)
       .forEach((cntl: AnimationControl) => {
         cntl.animate();
-      });
+    });
   }
 
   ngOnInit() {
@@ -232,6 +235,7 @@ export class DesignComponent implements OnInit {
         break;
       case Phases.splash:
         this.phase = Phases.design;
+        this._ga.event('design', 'phase_next', 'design');
         setTimeout(() => {
           this.designLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -244,13 +248,13 @@ export class DesignComponent implements OnInit {
             this.flashRipple(true);
           }, this.designLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_next', 'design');
         break;
       case Phases.design:
         this.designLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.develop;
+        this._ga.event('design', 'phase_next', 'develop');
         setTimeout(() => {
           this.developLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -263,12 +267,12 @@ export class DesignComponent implements OnInit {
             this.flashRipple(true);
           }, this.developLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_next', 'develop');
         break;
       case Phases.develop:
         this.developLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
+        this._ga.event('design', 'phase_next', 'deploy');
         this.phase = Phases.deploy;
         setTimeout(() => {
           this.deployLinesFadeCntl.forEach(
@@ -282,13 +286,13 @@ export class DesignComponent implements OnInit {
             this.flashRipple(true);
           }, this.deployLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_next', 'deploy');
         break;
       case Phases.deploy:
         this.deployLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.deliver;
+        this._ga.event('design', 'phase_next', 'deliver');
         setTimeout(() => {
           this.deliverLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -301,7 +305,6 @@ export class DesignComponent implements OnInit {
             this.flashRipple(true);
           }, this.deliverLinesFadeCntl.length * 1500);
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_next', 'deliver');
         break;
       case Phases.deliver:
         this.deliverLinesFadeCntl.forEach((cntl: AnimationControl) => {
@@ -328,6 +331,7 @@ export class DesignComponent implements OnInit {
           cntl.animate();
         });
         this.phase = Phases.design;
+        this._ga.event('design', 'phase_previous', 'design');
         setTimeout(() => {
           this.designLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -337,13 +341,13 @@ export class DesignComponent implements OnInit {
             }
           );
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_previous', 'design');
         break;
       case Phases.deploy:
         this.deployLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.develop;
+        this._ga.event('design', 'phase_previous', 'develop');
         setTimeout(() => {
           this.developLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -353,13 +357,13 @@ export class DesignComponent implements OnInit {
             }
           );
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_previous', 'develop');
         break;
       case Phases.deliver:
         this.deliverLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.deploy;
+        this._ga.event('design', 'phase_previous', 'deploy');
         setTimeout(() => {
           this.deployLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -369,10 +373,10 @@ export class DesignComponent implements OnInit {
             }
           );
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_previous', 'deploy');
         break;
       case Phases.done:
         this.phase = Phases.deliver;
+        this._ga.event('design', 'phase_previous', 'deliver');
         setTimeout(() => {
           this.deliverLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -382,7 +386,6 @@ export class DesignComponent implements OnInit {
             }
           );
         }, AnimationPeriods.medium * 1000);
-        this._ga.event('design', 'phase_previous', 'deliver');
         break;
     }
   }

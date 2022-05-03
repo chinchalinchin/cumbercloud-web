@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { Animations } from 'src/animations';
 import {
   ADDON_PRICING_CONFIG,
@@ -52,18 +53,21 @@ export class PricingComponent {
   public analyticsChecked: number = 0;
   public total: number = 0;
 
-  constructor(private forms: FormBuilder) {
-    this.coreFormGroup = this.forms.group({});
-    this.addOnFormGroup = this.forms.group({});
-    this.analyticsFormGroup = this.forms.group({});
+  constructor(
+    private _forms: FormBuilder,
+    private _ga: GoogleAnalyticsService
+  ) {
+    this.coreFormGroup = this._forms.group({});
+    this.addOnFormGroup = this._forms.group({});
+    this.analyticsFormGroup = this._forms.group({});
     this.coreConfig.forEach((conf: PricingConfig) => {
-      this.coreFormGroup.addControl(conf.key, this.forms.control(false));
+      this.coreFormGroup.addControl(conf.key, this._forms.control(false));
     });
     this.addOnConfig.forEach((conf: PricingConfig) => {
-      this.addOnFormGroup.addControl(conf.key, this.forms.control(false));
+      this.addOnFormGroup.addControl(conf.key, this._forms.control(false));
     });
     this.analyticsConfig.forEach((conf: PricingConfig) => {
-      this.analyticsFormGroup.addControl(conf.key, this.forms.control(false));
+      this.analyticsFormGroup.addControl(conf.key, this._forms.control(false));
     });
   }
 
@@ -161,6 +165,7 @@ export class PricingComponent {
   public setFocus(group: PricingGroups): void {
     this.focusing = true;
     this.focus = group;
+    this._ga.event('pricing', 'expansion', group.toString())
   }
 
   public removeFocus(): void {

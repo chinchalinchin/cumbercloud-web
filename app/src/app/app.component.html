@@ -10,7 +10,8 @@
         mat-icon-button
         (click)="toggleMenu()"
         matTooltip="Menu"
-        aria-labbel="Toggle navigation menu"
+        aria-label="Toggle navigation menu"
+        aria-controls="nav-menu"
       >
         <mat-icon>cloud</mat-icon>
       </button>
@@ -33,13 +34,18 @@
     </div>
   </div>
 
-  <div id="nav-menu" [@cntl_fold]="menuFoldCntl.state">
+  <div 
+    id="nav-menu" 
+    [@cntl_fold]="menuFoldCntl.state"
+    role="navigation"  
+  >
     <div
       class="nav-item"
       *ngFor="let conf of navConfig"
       aria-label="Navigation menu item"
     >
       <span
+        id="nav-title"
         *ngIf="!conf.children"
         [ngClass]="{ selected: conf == this.selectedNav }"
         [routerLink]="conf.path"
