@@ -82,7 +82,7 @@
     <mat-icon>touch_app</mat-icon>
   </button>
 
-  <div id="splash-navigator" role="region" aria-label="Splash page navigation">
+  <div id="splash-navigator" role="radiogroup" aria-label="Splash page navigation">
     <!--
       Each control is bound to a different animation, so they can't be simplified
       by *ngFor iteration. Unfortunate...
@@ -98,6 +98,7 @@
       [attr.aria-label]="getTitle(states.one)"
       aria-controls="selection"
       aria-selected="true"
+      role="radio"
     >
       <mat-icon>cloud</mat-icon>
     </button>
@@ -112,6 +113,7 @@
       [attr.aria-label]="getTitle(states.two)"
       aria-controls="selection"
       aria-selected="false"
+      role="radio"
     >
       <mat-icon>cloud</mat-icon>
     </button>
@@ -126,6 +128,7 @@
       [attr.aria-label]="getTitle(states.three)"
       aria-controls="selection"
       aria-selected="false"
+      role="radio"
     >
       <mat-icon>cloud</mat-icon>
     </button>
@@ -140,6 +143,7 @@
       [attr.aria-label]="getTitle(states.four)"
       aria-controls="selection"
       aria-selected="false"
+      role="radio"
     >
       <mat-icon>cloud</mat-icon>
     </button>
