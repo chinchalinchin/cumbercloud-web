@@ -7,9 +7,9 @@ import {
   HAMMER_GESTURE_CONFIG,
 } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
-import { 
+import {
   NgxGoogleAnalyticsModule,
-  NgxGoogleAnalyticsRouterModule 
+  NgxGoogleAnalyticsRouterModule,
 } from 'ngx-google-analytics';
 import {
   ASSET_CONFIG,
@@ -44,9 +44,7 @@ import { environment } from 'src/environments/environment';
       useClass: HammerConfig,
     },
   ],
-  bootstrap: [
-    AppComponent
-  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(

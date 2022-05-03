@@ -18,10 +18,7 @@ export class ContactComponent {
   public contactGroup: FormGroup;
   public reasonConfig: ContactConfig[] = REASON_CONFIG;
 
-  constructor(
-    private forms: FormBuilder, 
-    private meta: MetaService
-  ) {
+  constructor(private forms: FormBuilder, private meta: MetaService) {
     this.contactGroup = this.forms.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       first: new FormControl('', [Validators.required]),
