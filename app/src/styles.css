@@ -84,6 +84,12 @@ mat-card img {
     font-size: 2.5em;
   }
 }
+
+@media (min-width:991px) and (max-width:1200px){
+  .fancy-text{
+    font-size: 1.75em;
+  }
+}
 @media (max-width: 992px) and (min-width: 430px) {
   .fancy-text {
     font-size: 2em;

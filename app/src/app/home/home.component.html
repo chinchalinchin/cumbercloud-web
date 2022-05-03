@@ -148,7 +148,7 @@
   <div id="responsive-content" role="region" aria-label="Responsive content">
     <div
       id="cloud-line-desktop-1"
-      class="animation"
+      class="animation landscape"
       [@cntl_position_cloud_line_desktop_1]="
         cloudLineDesktopPositionCntls[0].state
       "
@@ -163,7 +163,7 @@
     ></div>
     <div
       id="cloud-line-desktop-2"
-      class="animation"
+      class="animation landscape"
       [@cntl_position_cloud_line_desktop_2]="
         cloudLineDesktopPositionCntls[1].state
       "
@@ -180,7 +180,7 @@
     ></div>
     <div
       id="cloud-line-desktop-3"
-      class="animation"
+      class="animation landscape"
       [@cntl_position_cloud_line_desktop_3]="
         cloudLineDesktopPositionCntls[2].state
       "
@@ -195,7 +195,7 @@
     ></div>
     <div
       id="cloud-line-desktop-4"
-      class="animation"
+      class="animation landscape"
       [@cntl_position_cloud_line_desktop_4]="
         cloudLineDesktopPositionCntls[3].state
       "
@@ -211,7 +211,7 @@
 
     <div
       id="cloud-line-mobile-1"
-      class="animation fancy-text"
+      class="animation fancy-text mobile-line"
       [innerHTML]="getLine(states.three)"
       *ngIf="mobileMode() && !moved"
       [@cntl_position_cloud_line_mobile_1]="
@@ -221,7 +221,7 @@
     ></div>
     <div
       id="cloud-line-mobile-2"
-      class="animation fancy-text"
+      class="animation fancy-text mobile-line"
       [innerHTML]="getLine(states.two)"
       *ngIf="mobileMode() && !moved"
       [@cntl_position_cloud_line_mobile_2]="
