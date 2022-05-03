@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import {
   AnimationControl,
   Animations,
@@ -48,16 +49,17 @@ export class ResumeComponent {
   ];
 
   constructor(
-    private meta: MetaService,
-    private route: ActivatedRoute,
-    public dialog: MatDialog
+    private _meta: MetaService,
+    private _route: ActivatedRoute,
+    private _dialog: MatDialog,
+    private _ga: GoogleAnalyticsService
   ) {
     this.selectedProfile = this.profileConfig
       .filter(
-        (profile) => profile.key === this.route.snapshot.paramMap.get('name')
+        (profile) => profile.key === this._route.snapshot.paramMap.get('name')
       )
       .pop();
-    this.meta.mediaBreakpoint.subscribe((size: string) => {
+    this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
     this.popupExpandCntl.setState(ExpandStates.closed);
@@ -98,6 +100,7 @@ export class ResumeComponent {
   public expandPopUp(state: ResumePopUpStates): void {
     this.popUpState = state;
     this.popupExpandCntl.animate();
+    this._ga.event('resume', 'popup', state.toString())
   }
 
   public closePopUp(): void {
@@ -173,12 +176,13 @@ export class ResumeComponent {
   }
 
   public openExperience(exp: ExperienceConfig) {
-    this.dialog.open(ExperienceComponent, {
+    this._dialog.open(ExperienceComponent, {
       data: exp,
       width: '85%',
       height: '95%',
       panelClass: 'experience-bg',
     });
+    this._ga.event('resume', 'experience', exp.company);
   }
 
   public incrementCertTab() {
@@ -186,6 +190,7 @@ export class ResumeComponent {
     if (this.selectedCertTab > this.certifications.length - 1) {
       this.selectedCertTab = 0;
     }
+    this._ga.event('resume', 'certification', this.selectedCertTab.toString());
   }
 
   public decrementCertTab() {
@@ -193,6 +198,7 @@ export class ResumeComponent {
     if (this.selectedCertTab < 0) {
       this.selectedCertTab = this.certifications.length - 1;
     }
+    this._ga.event('resume', 'certification', this.selectedCertTab.toString())
   }
 
   public incrementEdTab() {
@@ -200,6 +206,7 @@ export class ResumeComponent {
     if (this.selectedEducationTab > 2) {
       this.selectedEducationTab = 0;
     }
+    this._ga.event('resume', 'education', this.selectedEducationTab.toString())
   }
 
   public decrementEdTab() {
@@ -207,5 +214,6 @@ export class ResumeComponent {
     if (this.selectedEducationTab < 0) {
       this.selectedEducationTab = 1;
     }
+    this._ga.event('resume', 'education', this.selectedEducationTab.toString())
   }
 }

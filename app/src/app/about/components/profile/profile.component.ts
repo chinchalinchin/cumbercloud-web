@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import {
   AnimationControl,
   AnimationPeriods,
@@ -158,14 +159,18 @@ export class ProfileComponent implements OnInit {
   public what: boolean = false;
   public unfolded: boolean = false;
 
-  constructor(private meta: MetaService, private route: ActivatedRoute) {
-    let route_param: string | null = this.route.snapshot.paramMap.get('name');
+  constructor(
+    private _meta: MetaService, 
+    private _route: ActivatedRoute,
+    private _ga: GoogleAnalyticsService
+  ) {
+    let route_param: string | null = this._route.snapshot.paramMap.get('name');
     this.selectedProfile = this.profileConfig
       .filter(
         (profile) => profile.key === (route_param ? route_param : 'grant')
       )
       .pop();
-    this.meta.mediaBreakpoint.subscribe((size: string) => {
+    this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
   }
@@ -205,6 +210,7 @@ export class ProfileComponent implements OnInit {
         this.whoGrassPositionCntl.animatePosition(0);
         this.whoFlowerPositionCntl.animatePosition(0);
       }, AnimationPeriods.short * 500);
+      this._ga.event('profile','animation', 'who');
     } else if (which === 'what' && !this.whatAnimated) {
       this.whatAnimated = true;
       this.whatBnrScaleCntl.animate();
@@ -216,6 +222,7 @@ export class ProfileComponent implements OnInit {
         this.whatGrassPositionCntl.animatePosition(0);
         this.whatFlowerPositionCntl.animatePosition(0);
       }, AnimationPeriods.short * 500);
+      this._ga.event('profile','animation','what');
     }
     setTimeout(() => {
       this.unfolded = true;
