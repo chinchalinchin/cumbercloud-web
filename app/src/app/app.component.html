@@ -44,6 +44,7 @@
       class="nav-item"
       *ngFor="let conf of navConfig"
       aria-label="Navigation menu item"
+      [attr.aria-expanded]="menuDisplayed"
     >
       <a
         [id]="conf.nav_id"
@@ -73,11 +74,11 @@
     </div>
   </div>
 
-  <div id="top-spacer"></div>
+  <div id="top-spacer" aria-hidden="true"></div>
 
   <div id="app-entrypoint" class="display" role="region">
     <router-outlet></router-outlet>
   </div>
 
-  <div id="btm-spacer"></div>
+  <div id="btm-spacer" aria-hidden="true"></div>
 </div>

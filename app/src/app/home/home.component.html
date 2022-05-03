@@ -98,10 +98,10 @@
       [@cntl_position_cloud_btn_1]="cloudBtnPositionCntls[0].state"
       [@cntl_fade]="cloudFadeCntl.state"
       (click)="setState(states.one)"
-      [class.selected-btn]="state == states.one"
+      [class.selected-btn]="state === states.one"
       [attr.aria-label]="getTitle(states.one)"
       aria-controls="selection"
-      aria-selected="true"
+      [attr.aria-checked]="state === states.one"
       role="radio"
     >
       <mat-icon>cloud</mat-icon>
@@ -113,10 +113,10 @@
       [@cntl_position_cloud_btn_2]="cloudBtnPositionCntls[1].state"
       [@cntl_fade]="cloudFadeCntl.state"
       (click)="setState(states.two)"
-      [class.selected-btn]="state == states.two"
+      [class.selected-btn]="state === states.two"
       [attr.aria-label]="getTitle(states.two)"
       aria-controls="selection"
-      aria-selected="false"
+      [attr.aria-checked]="state === states.two"
       role="radio"
     >
       <mat-icon>cloud</mat-icon>
@@ -128,10 +128,10 @@
       [@cntl_position_cloud_btn_3]="cloudBtnPositionCntls[2].state"
       [@cntl_fade]="cloudFadeCntl.state"
       (click)="setState(states.three)"
-      [class.selected-btn]="state == states.three"
+      [class.selected-btn]="state === states.three"
       [attr.aria-label]="getTitle(states.three)"
       aria-controls="selection"
-      aria-selected="false"
+      [attr.aria-checked]="state === states.three"
       role="radio"
     >
       <mat-icon>cloud</mat-icon>
@@ -143,10 +143,10 @@
       [@cntl_position_cloud_btn_4]="cloudBtnPositionCntls[3].state"
       [@cntl_fade]="cloudFadeCntl.state"
       (click)="setState(states.four)"
-      [class.selected-btn]="state == states.four"
+      [class.selected-btn]="state === states.four"
       [attr.aria-label]="getTitle(states.four)"
       aria-controls="selection"
-      aria-selected="false"
+      [attr.aria-checked]="state === states.four"
       role="radio"
     >
       <mat-icon>cloud</mat-icon>
