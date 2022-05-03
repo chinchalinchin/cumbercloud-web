@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { MetaService } from 'src/services/meta.service';
 import { ContactConfig, REASON_CONFIG } from '../../../app.config';
 
@@ -18,8 +19,11 @@ export class ContactComponent {
   public contactGroup: FormGroup;
   public reasonConfig: ContactConfig[] = REASON_CONFIG;
 
-  constructor(private forms: FormBuilder, private meta: MetaService) {
-    this.contactGroup = this.forms.group({
+  constructor(
+    private _forms: FormBuilder, 
+    private _meta: MetaService,
+    private _ga: GoogleAnalyticsService) {
+    this.contactGroup = this._forms.group({
       email: new FormControl('', [Validators.required, Validators.email]),
       first: new FormControl('', [Validators.required]),
       last: new FormControl('', [Validators.required]),
@@ -27,7 +31,7 @@ export class ContactComponent {
       subreason: new FormControl(''),
       message: new FormControl(''),
     });
-    this.meta.mediaBreakpoint.subscribe((size: string) => {
+    this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
   }
@@ -44,5 +48,9 @@ export class ContactComponent {
       this.screenSize == 'sm' ||
       this.screenSize == 'xs'
     );
+  }
+
+  public submit(){
+    this._ga.event('contact', 'email', this.contactGroup.controls['email'].value)
   }
 }
