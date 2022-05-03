@@ -261,12 +261,11 @@
 
       <mat-card-content *ngIf="mobileMode()">
         <div class="mobile-scroller" #scroller>
-          <p 
-            class="mat-body" 
+          <p
+            class="mat-body"
             *ngFor="let blurb of selectedProfile.blurbs"
             [innerHTML]="blurb"
-          >
-          </p>
+          ></p>
         </div>
       </mat-card-content>
 
