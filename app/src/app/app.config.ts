@@ -9,6 +9,7 @@ export interface AssetConfig {
 
 export interface NavConfig {
   path: string;
+  nav_id?: string,
   nav_title?: string;
   page_title?: string;
   page_description?: string;
@@ -115,6 +116,26 @@ export interface ProfileConfig {
   factoids: ElementConfig[];
 }
 
+interface DesktopLine{
+  moved: string;
+  unmoved: string;
+}
+
+interface Line{
+  mobile: string;
+  desktop: DesktopLine;
+}
+
+export interface HomeConfig{
+  state: string;
+  src: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+  blurb: string;
+  line: Line;
+}
+
 ////////
 // ENUMS
 ////////
@@ -148,7 +169,68 @@ export enum HomeStates {
 // CONFIGURATION
 ////////////////
 
-export const HOME_CONFIG: any[] = [];
+export const HOME_CONFIG: HomeConfig[] = [
+  {
+    state: 'one',
+    src: '/assets/imgs/circuitry-banner.jpg',
+    alt: 'The Cumberland Cloud uses cutting-edge technology',
+    title: 'Web Design and Hosting',
+    subtitle: 'Responsive sites built on modern technology',
+    blurb: 'The <strong>Cumberland Cloud</strong> offers custom web page design and cloud-based hosting for small business owners looking to expand their online footprint without breaking the bank.',
+    line: {
+      mobile: '- <a href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html" target="_blank" rel="noopener noreferrer">Homer, probably</a>',
+      desktop: {
+        moved: 'Custom Web Design',
+        unmoved: '- <a href="https://www.cs.drexel.edu/~crorres/Archimedes/Lever/LeverQuotes_OLD.html" target="_blank" rel="noopener noreferrer">Archimedes, probably</a>'
+      }
+    }
+  },
+  {
+    state: 'two',
+    src: '/assets/imgs/money-banner.jpg',
+    alt: 'The Cumberland Cloud will save you money!',
+    title: 'Cloud Cost Savings',
+    subtitle: 'Expert services at an affordable price',
+    blurb: 'We specialize in using the latest in serverless cloud technology to architect cost-optimized web solutions that require litte-to-no overhead or recurring fees to maintain.',
+    line: {
+      mobile: 'Incites the hand to push it',
+      desktop: {
+        moved: 'Affordable Quality',
+        unmoved: 'And I will move the world'
+      }
+    }
+  },
+  {
+    state: 'three',
+    src: '/assets/imgs/expertise-banner.jpg',
+    alt: 'The Cumberland Cloud offers expert services',
+    title: 'Professional Solutions',
+    subtitle: 'Years of web and software design experience.',
+    blurb: 'Our team has a rich professional background in web development, with experience on production-scale projects from the leading names in the industry.',
+    line: {
+      mobile: 'For the button by itself',
+      desktop: {
+        moved: 'Cloud Expertise',
+        unmoved: 'And a button big enough'
+      }
+    }
+  },
+  {
+    state: 'four',
+    src: '/assets/imgs/human_centric_design-banner.jpg',
+    alt: 'The Cumberland Cloud puts the user first',
+    title: 'Human Centric Design',
+    subtitle: 'User driven development process',
+    blurb: 'Every website we produce is built with your users in mind. Each detail is crafted to streamline the user experience and improve conversion for your business.',
+    line: {
+      mobile: '',
+      desktop: {
+        moved: 'User Experience',
+        unmoved: 'Give me a page to land'
+      }
+    }
+  }
+];
 
 // TODO: need a nav config for /404.
 
@@ -156,6 +238,7 @@ export const NAV_CONFIG: NavConfig[] = [
   {
     path: '/',
     nav_title: 'Home',
+    nav_id: 'home-nav',
     page_title: 'The Cumberland Cloud',
     page_description:
       'The Cumberland Cloud specializes in cloud native design and development. Using the latest technology, we create responsive web pages with unique designs and quality user experiences.',
@@ -245,6 +328,7 @@ export const NAV_CONFIG: NavConfig[] = [
   {
     path: '/about',
     nav_title: 'About',
+    nav_id: 'about-nav',
     page_title: 'Cumberland Cloud - About',
     page_description: 'Meet the team at Cumberland Cloud',
     menu: true,
@@ -381,6 +465,7 @@ export const NAV_CONFIG: NavConfig[] = [
   {
     path: '/design',
     nav_title: 'Design',
+    nav_id: 'design-nav',
     page_title: 'The Cumberland Cloud - Design',
     page_description:
       'The Cumberland Cloud has at your disposal years of production-grade software engineering experience. We take pride in our professionalism and as a result, our design process stands out from the rest of the crowd',
@@ -432,6 +517,7 @@ export const NAV_CONFIG: NavConfig[] = [
   {
     path: '/pricing',
     nav_title: 'Pricing',
+    nav_id: 'pricing-nav',
     page_title: 'The Cumberland Cloud - Pricing',
     page_description:
       'Find out how much your next project with the Cumberland Cloud will cost. Input your project details into our Project Cost Calculator to get an instant estimate.',
@@ -485,6 +571,7 @@ export const NAV_CONFIG: NavConfig[] = [
   {
     path: '/contact',
     nav_title: 'Contact',
+    nav_id: 'contact-nav',
     page_title: 'The Cumberland Cloud - Contact',
     page_description:
       'Submit a form message with details about your next web development project to the Cumberland Cloud',
@@ -1412,8 +1499,8 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
     arrow_tooltip: "Grant Moore's Resume",
     position: 'Solution Architect, Developer & Designer',
     blurbs: [
-      'Grant Moore has been a web developer and engineer professionally for three years, although his interest in computer science and technology extends far back into his teenage years when he first began learning Java. His first program was a Java game engine written with Java2D ( <sub><sup>archived <a href="https://github.com/chinchalinchin/java-game-engine" target="_blank">here</a></sup></sub> ). Since that time, he has expanded his knowledge into numerous disciplines, such as UI/UX design, frontend development, software engineering, development operations, containerization and cloud computing.',
-      'He acquired an extensive technical backgrond while studying physics and mathematics during his undergraduate and graduate education. While enrolled at Frostburg State and Towson University, he applied technology to a broad array of problems, such as pricing financial derivatives with stochastic processes and Monte Carlo simulation, estimating statistical calculations efficiently with recursive algorithms and modelling physical phenomena with determinitic and non-deterministic finite automatons.',
+      'Grant Moore has been a web developer and engineer professionally for three years, although his interest in computer science and technology extends far back into his teenage years when he first began learning Java. His first program was a game engine written with Java2D ( <sub><sup>archived <a href="https://github.com/chinchalinchin/java-game-engine" target="_blank">here</a></sup></sub> ). Since that time, he has expanded his knowledge into numerous disciplines, such as UI/UX design, frontend development, software engineering, development operations, containerization and cloud computing.',
+      'He acquired an extensive technical backgrond while studying physics and mathematics during his undergraduate and graduate education. During his enrollment at Frostburg State and Towson University, he applied technology to a broad array of problems, such as pricing financial derivatives with stochastic processes and Monte Carlo simulations, estimating statistical calculations efficiently with recursive algorithms and modelling physical phenomena with determinitic and non-deterministic finite automatons.',
       'Read on for more information about yours truly...',
     ],
     // NOTE: about template assumes the first three factoids are personas

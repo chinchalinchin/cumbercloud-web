@@ -4,7 +4,10 @@
       {{ selectedProfile.name }}
     </h2>
 
-    <div class="facts-container">
+    <div 
+      class="facts-container"
+      role="region"
+    >
       <div class="h-align" *ngFor="let thisState of this.stateArray()">
         <div
           class="fact mat-elevation-z4"
@@ -15,11 +18,13 @@
           matRippleColor="rgba(255,255,255, 0.3)"
           [matRippleCentered]="false"
           (click)="expandPopUp(thisState)"
+          role="row"
         >
           <div
             class="factoid"
             [class.invert]="isFactHighlighted(thisState)"
             [class.regular]="!isFactHighlighted(thisState)"
+            role="cell"
           >
             <div class="v-align">
               {{ getFactMessage(thisState) }}
@@ -29,11 +34,13 @@
             class="factend"
             [class.toggle]="isFactHighlighted(thisState)"
             [class.toggle-invert]="!isFactHighlighted(thisState)"
+            role="cell"
           >
             <button
               mat-icon-button
               [color]="isFactHighlighted(thisState) ? 'accent' : 'primary'"
               (click)="expandPopUp(thisState)"
+              aria-controls="popup"
             >
               <mat-icon>chevron_right</mat-icon>
             </button>
@@ -47,6 +54,7 @@
     id="back-btn"
     mat-mini-fab
     [routerLink]="['/about', selectedProfile.key]"
+    aria-label="Go back"
   >
     <mat-icon>keyboard_backspace</mat-icon>
   </button>

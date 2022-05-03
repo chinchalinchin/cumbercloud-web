@@ -22,6 +22,7 @@
               type="number"
               [(ngModel)]="numberValue"
               (ngModelChange)="recalculate($event)"
+              aria-controls=""
             />
           </mat-form-field>
         </div>
@@ -36,6 +37,7 @@
         id="number-state"
         class="element-widget mat-elevation-z3"
         *ngIf="config.parameter.state_descriptions"
+        aria-live="polite"
       >
         <h2
           class="mat-h2"
@@ -66,6 +68,7 @@
             [thumbLabel]="true"
             [(ngModel)]="sliderValue"
             (ngModelChange)="recalculate($event)"
+            aria-controls="slider-output"
           ></mat-slider>
         </div>
         <div id="slider-output" class="element-output mat-elevation-z3">
@@ -79,6 +82,7 @@
         id="slider-state"
         class="element-widget mat-elevation-z2"
         *ngIf="config.parameter.state_descriptions"
+        aria-live="polite"
       >
         <h2
           class="mat-h2"
@@ -137,17 +141,28 @@
       Recurring Fees
       <mat-icon
         style="margin-left: 2%"
-        color="accent"
+        color="warn"
         matTooltip="These charges are incurred on the indicated basis after development is complete and you assume control of your application."
       >
         info
       </mat-icon>
     </h2>
 
-    <div id="fee-element" *ngIf="config.fees.length > 0">
-      <mat-list id="fee-list" class="mat-elevation-z3" *ngIf="mobileMode()">
-        <mat-list-item *ngFor="let fee of config.fees">
-          <mat-icon mat-list-icon color="accent">label_important</mat-icon>
+    <div 
+      id="fee-element" 
+      *ngIf="config.fees.length > 0"
+    >
+      <mat-list 
+        id="fee-list" 
+        class="mat-elevation-z2" 
+        *ngIf="mobileMode()"
+        aria-labelledby="fee-subtitle"
+      >
+        <mat-list-item 
+          class="mat-elevation-z1"
+          *ngFor="let fee of config.fees"
+        >
+          <mat-icon mat-list-icon color="warn">label_important</mat-icon>
           <div mat-line class="text-white">{{ fee.service }}</div>
           <div mat-line class="text-white">
             {{

@@ -8,7 +8,7 @@ import {
   FadeStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { HomeStates } from '../app.config';
+import { HomeConfig, HomeStates, HOME_CONFIG } from '../app.config';
 
 @Component({
   selector: 'app-home',
@@ -126,6 +126,7 @@ export class HomeComponent implements OnInit {
   public screenSize: string = '';
   public states = HomeStates;
   public state = HomeStates.one;
+  public homeConfig: HomeConfig[] = HOME_CONFIG;
   public centerFadeCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_fade
   );
@@ -175,6 +176,13 @@ export class HomeComponent implements OnInit {
     }, AnimationPeriods.short * 1000);
   }
 
+  private getConfigFromState(fromState: HomeStates | undefined = undefined): HomeConfig{
+    let filterState: string = fromState ? fromState : this.state;
+    let conf = this.homeConfig.filter((conf)=> conf.state === filterState).pop();
+    if(conf) return conf;
+    return this.homeConfig[0];
+  }
+
   public mobileMode() {
     return (
       this.screenSize === 'md' ||
@@ -191,6 +199,7 @@ export class HomeComponent implements OnInit {
     this.animating = true;
     this.centerPositionCntl.animatePosition(0);
     this.selectionPositionCntl.animatePosition(0);
+
     if (this.mobileMode()) {
       this.cloudLineMobilePositionCntls.forEach((cntl: AnimationControl) => {
         cntl.animatePosition(0);
@@ -200,6 +209,7 @@ export class HomeComponent implements OnInit {
         cntl.animatePosition(0);
       });
     }
+
     setTimeout(() => {
       this.moved = true;
     }, AnimationPeriods.short * 500);
@@ -240,99 +250,30 @@ export class HomeComponent implements OnInit {
   }
 
   public getSrc(fromState: HomeStates | undefined = undefined): string {
-    let switchState: string = fromState ? fromState : this.state;
-    switch (switchState) {
-      case this.states.one:
-        return '/assets/imgs/circuitry-banner.jpg';
-      case this.states.two:
-        return '/assets/imgs/money-banner.jpg';
-      case this.states.three:
-        return '/assets/imgs/expertise-banner.jpg';
-      case this.states.four:
-        return '/assets/imgs/human_centric_design-banner.jpg';
-      default:
-        return '/assets/imgs/circuitry-banner.jpg';
-    }
+    return this.getConfigFromState(fromState).src;
+  }
+
+  public getAlt(fromState: HomeStates | undefined = undefined): string {
+    return this.getConfigFromState(fromState).alt;
   }
 
   public getTitle(fromState: HomeStates | undefined = undefined): string {
-    let switchState: string = fromState ? fromState : this.state;
-    switch (switchState) {
-      case this.states.one:
-        return 'Web Design and Hosting';
-      case this.states.two:
-        return 'Cloud Cost Savings';
-      case this.states.three:
-        return 'Professional Solutions';
-      case this.states.four:
-        return 'Human Centric Design';
-      default:
-        return '';
-    }
+    return this.getConfigFromState(fromState).title;
   }
 
   public getSubtitle(fromState: HomeStates | undefined = undefined): string {
-    let switchState: string = fromState ? fromState : this.state;
-    switch (switchState) {
-      case this.states.one:
-        return 'Responsive sites built on modern technology';
-      case this.states.two:
-        return 'Expert services at an affordable price';
-      case this.states.three:
-        return 'Years of web design and software experience';
-      case this.states.four:
-        return 'User driven development process';
-      default:
-        return '';
-    }
+    return this.getConfigFromState(fromState).subtitle;
   }
 
   public getBlurb(fromState: HomeStates | undefined = undefined): string {
-    let switchState: string = fromState ? fromState : this.state;
-    switch (switchState) {
-      case this.states.one:
-        return 'The <strong>Cumberland Cloud</strong> offers custom web page design and cloud-based hosting for small business owners looking to expand their online footprint without breaking the bank.';
-      case this.states.two:
-        return 'We specialize in using the latest in serverless cloud technology to architect cost-optimized web solutions that require litte-to-no overhead or recurring fees to maintain.';
-      case this.states.three:
-        return 'Our team has a rich professional background in web development, with experience on production-scale projects from the leading names in the industry.';
-      case this.states.four:
-        return 'Every website we produce is built with your users in mind. Each detail is crafted to streamline the user experience and improve conversion for your business.';
-      default:
-        return '';
-    }
+    return this.getConfigFromState(fromState).blurb
   }
 
   public getLine(fromState: HomeStates | undefined = undefined): string {
-    let switchState: string = fromState ? fromState : this.state;
-    switch (switchState) {
-      case this.states.four:
-        if (!this.mobileMode()) {
-          if (this.moved) return 'User Experience';
-          return 'Give me a page to land';
-        }
-        return '';
-      case this.states.three:
-        if (!this.mobileMode()) {
-          if (this.moved) return 'Cloud Expertise';
-          return 'And a button big enough';
-        }
-        return 'For the button by itself';
-      case this.states.two:
-        if (!this.mobileMode()) {
-          if (this.moved) return 'Affordable Quality';
-          return 'And I will move the world.';
-        }
-        return 'Incites the hand to push it';
-      case this.states.one:
-        if (!this.mobileMode()) {
-          if (this.moved) return 'Custom Web Design';
-          return '- <a href="https://www.cs.drexel.edu/~crorres/Archimedes/Lever/LeverQuotes_OLD.html" target="_blank" rel="noopener noreferrer">Archimedes, probably</a>';
-        }
-        return '- <a href="http://www.mlahanas.de/Greeks/Texts/Odyssey/Odyssey19.html" target="_blank" rel="noopener noreferrer">Homer, probably</a>';
-      default:
-        return '';
-    }
+    let conf = this.getConfigFromState(fromState)
+    if(this.mobileMode()) return conf.line.mobile;
+    else if(this.moved) return conf.line.desktop.moved;
+    else return conf.line.desktop.unmoved;
   }
 
   public getHeidegger() {

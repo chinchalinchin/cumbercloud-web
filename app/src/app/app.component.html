@@ -2,9 +2,19 @@
 
 <div class="bg-img"></div>
 
-<div id="splash">
-  <div id="banner" class="mat-elevation-z8">
-    <div id="cloud-btn-container" class="v-align">
+<div 
+  id="splash" 
+  role="main"
+
+>
+  <div 
+    id="banner" 
+    class="mat-elevation-z8" 
+  >
+    <div 
+      id="cloud-btn-container" 
+      class="v-align"
+    >
       <button
         id="cloud-btn"
         mat-icon-button
@@ -34,20 +44,26 @@
     </div>
   </div>
 
-  <div id="nav-menu" [@cntl_fold]="menuFoldCntl.state" role="navigation">
+  <div 
+    id="nav-menu" 
+    [@cntl_fold]="menuFoldCntl.state" 
+    role="navigation"
+    aria-label="Navigation Menu"
+  >
     <div
       class="nav-item"
       *ngFor="let conf of navConfig"
       aria-label="Navigation menu item"
     >
-      <span
-        id="nav-title"
+      <a
+        [id]="conf.nav_id"
         *ngIf="!conf.children"
         [ngClass]="{ selected: conf == this.selectedNav }"
         [routerLink]="conf.path"
+        style="text-decoration: none; color:black;"
       >
         {{ conf.nav_title }}
-      </span>
+    </a>
       <span
         *ngIf="conf.children"
         [ngClass]="{ selected: conf == this.selectedNav }"
@@ -55,13 +71,13 @@
       >
         {{ conf.nav_title }}
         <mat-menu #about_menu>
-          <button
+          <a
             *ngFor="let child of conf.children"
             mat-menu-item
             [routerLink]="child.path"
           >
             {{ child.nav_title }}
-          </button>
+          </a>
         </mat-menu>
       </span>
     </div>
@@ -69,7 +85,11 @@
 
   <div id="top-spacer"></div>
 
-  <div id="app-entrypoint" class="display">
+  <div 
+    id="app-entrypoint" 
+    class="display"
+    role="region"
+  >
     <router-outlet></router-outlet>
   </div>
 

@@ -36,13 +36,13 @@ export class ContactComponent {
     });
   }
 
-  public findReason(reasonKey: string) {
+  public findReason(reasonKey: string): ContactConfig | undefined {
     return this.reasonConfig
       .filter((element) => element.key == reasonKey)
       .pop();
   }
 
-  public mobileMode() {
+  public mobileMode(): boolean {
     return (
       this.screenSize == 'md' ||
       this.screenSize == 'sm' ||
@@ -50,7 +50,7 @@ export class ContactComponent {
     );
   }
 
-  public submit(){
+  public submit(): void{
     this._ga.event('contact', 'email', this.contactGroup.controls['email'].value)
   }
 }
