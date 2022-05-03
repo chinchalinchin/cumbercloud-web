@@ -94,7 +94,7 @@ import { HomeConfig, HomeStates, HOME_CONFIG } from '../app.config';
       AnimationPeriods.short
     ),
     Animations.getManualPositionTrigger(
-      { top: '32%', left: '7.5%', right: '7.5%'},
+      { top: '32%', left: '7.5%', right: '7.5%' },
       [{ top: '32%', left: '200%' }],
       'cloud_line_mobile_1',
       AnimationPeriods.short
@@ -176,10 +176,14 @@ export class HomeComponent implements OnInit {
     }, AnimationPeriods.short * 1000);
   }
 
-  private getConfigFromState(fromState: HomeStates | undefined = undefined): HomeConfig{
+  private getConfigFromState(
+    fromState: HomeStates | undefined = undefined
+  ): HomeConfig {
     let filterState: string = fromState ? fromState : this.state;
-    let conf = this.homeConfig.filter((conf)=> conf.state === filterState).pop();
-    if(conf) return conf;
+    let conf = this.homeConfig
+      .filter((conf) => conf.state === filterState)
+      .pop();
+    if (conf) return conf;
     return this.homeConfig[0];
   }
 
@@ -191,7 +195,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  public landscapeMode(){
+  public landscapeMode() {
     return this.screenSize === 'lg';
   }
 
@@ -266,13 +270,13 @@ export class HomeComponent implements OnInit {
   }
 
   public getBlurb(fromState: HomeStates | undefined = undefined): string {
-    return this.getConfigFromState(fromState).blurb
+    return this.getConfigFromState(fromState).blurb;
   }
 
   public getLine(fromState: HomeStates | undefined = undefined): string {
-    let conf = this.getConfigFromState(fromState)
-    if(this.mobileMode()) return conf.line.mobile;
-    else if(this.moved) return conf.line.desktop.moved;
+    let conf = this.getConfigFromState(fromState);
+    if (this.mobileMode()) return conf.line.mobile;
+    else if (this.moved) return conf.line.desktop.moved;
     else return conf.line.desktop.unmoved;
   }
 

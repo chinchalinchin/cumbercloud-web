@@ -51,7 +51,7 @@ export class ContactComponent {
     );
   }
 
-  public submit() {
+  public submit(): void {
     this._ga.event(
       'contact',
       'email',
