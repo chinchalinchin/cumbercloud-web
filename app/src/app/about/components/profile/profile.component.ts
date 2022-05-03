@@ -160,7 +160,7 @@ export class ProfileComponent implements OnInit {
   public unfolded: boolean = false;
 
   constructor(
-    private _meta: MetaService, 
+    private _meta: MetaService,
     private _route: ActivatedRoute,
     private _ga: GoogleAnalyticsService
   ) {
@@ -210,7 +210,7 @@ export class ProfileComponent implements OnInit {
         this.whoGrassPositionCntl.animatePosition(0);
         this.whoFlowerPositionCntl.animatePosition(0);
       }, AnimationPeriods.short * 500);
-      this._ga.event('profile','animation', 'who');
+      this._ga.event('profile', 'animation', 'who');
     } else if (which === 'what' && !this.whatAnimated) {
       this.whatAnimated = true;
       this.whatBnrScaleCntl.animate();
@@ -222,7 +222,7 @@ export class ProfileComponent implements OnInit {
         this.whatGrassPositionCntl.animatePosition(0);
         this.whatFlowerPositionCntl.animatePosition(0);
       }, AnimationPeriods.short * 500);
-      this._ga.event('profile','animation','what');
+      this._ga.event('profile', 'animation', 'what');
     }
     setTimeout(() => {
       this.unfolded = true;
