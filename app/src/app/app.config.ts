@@ -82,7 +82,7 @@ export interface PricingConfig {
   fees: FeeConfig[];
   rate: number;
   tooltip: string;
-  ids: string[]
+  ids: string[];
 }
 
 export interface CertificationConfig {
@@ -1033,10 +1033,7 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
       },
     ],
     tooltip: 'Charges per page',
-    ids: [ 
-      'core-design-checkbox', 
-      'core-design-tooltip'
-    ]
+    ids: ['core-design-checkbox', 'core-design-tooltip'],
   },
   {
     key: 'INVENT',
@@ -1077,10 +1074,7 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
     ],
     rate: 2500,
     tooltip: 'Charges based on size and how frequently accessed',
-    ids: [
-      'core-invent-checkbox',
-      'core-invent-tooltip'
-    ]
+    ids: ['core-invent-checkbox', 'core-invent-tooltip'],
   },
   {
     key: 'MARKET',
@@ -1128,10 +1122,7 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
     ],
     rate: 1000,
     tooltip: 'Charges based on complexity of transactions',
-    ids: [
-      'core-market-checkbox',
-      'core-market-tooltip'
-    ]
+    ids: ['core-market-checkbox', 'core-market-tooltip'],
   },
   {
     key: 'FORM',
@@ -1172,10 +1163,7 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
     ],
     rate: 500,
     tooltip: 'Charges based on size and structure of form',
-    ids: [
-      'core-form-checkbox',
-      'core-form-tooltip'
-    ]
+    ids: ['core-form-checkbox', 'core-form-tooltip'],
   },
   {
     key: 'SCHEDULE',
@@ -1219,10 +1207,7 @@ export const CORE_PRICING_CONFIG: PricingConfig[] = [
     ],
     rate: 1000,
     tooltip: 'Charges based on implementation effort',
-    ids: [
-      'core-data-checkbox',
-      'core-data-tooltip'
-    ]
+    ids: ['core-data-checkbox', 'core-data-tooltip'],
   },
 ];
 
@@ -1266,10 +1251,7 @@ export const ADDON_PRICING_CONFIG: PricingConfig[] = [
     ],
     rate: 2000,
     tooltip: 'Charges based on amount of data',
-    ids:[
-      'addon-storage-checkbox',
-      'addon-storage-tooltip'
-    ]
+    ids: ['addon-storage-checkbox', 'addon-storage-tooltip'],
   },
   {
     key: 'SSO',
@@ -1299,10 +1281,7 @@ export const ADDON_PRICING_CONFIG: PricingConfig[] = [
     ],
     rate: 1000,
     tooltip: 'Charges based on number of users',
-    ids:[
-      'addon-sso-checkbox',
-      'addon-sso-tooltip'
-    ]
+    ids: ['addon-sso-checkbox', 'addon-sso-tooltip'],
   },
   {
     key: 'EMAIL',
@@ -1332,10 +1311,7 @@ export const ADDON_PRICING_CONFIG: PricingConfig[] = [
     ],
     rate: 1000,
     tooltip: 'Charges based on amount of email traffic',
-    ids: [
-      'addon-email-checkbox',
-      'addon-email-tooltip'
-    ]
+    ids: ['addon-email-checkbox', 'addon-email-tooltip'],
   },
 ];
 
@@ -1354,10 +1330,7 @@ export const ANALYTICS_PRICING_CONFIG: PricingConfig[] = [
     fees: [],
     rate: 100,
     tooltip: 'Charges based on number of pages',
-    ids:[
-      'core-seo-checkbox',
-      'core-seo-tooltip'
-    ]
+    ids: ['core-seo-checkbox', 'core-seo-tooltip'],
   },
   {
     key: 'DEMO',
@@ -1373,11 +1346,7 @@ export const ANALYTICS_PRICING_CONFIG: PricingConfig[] = [
     fees: [],
     rate: 100,
     tooltip: 'Charges based on number of pages',
-    ids:[
-      'core-demographics-checkbox',
-      'core-demographics-tooltip'
-    ]
-    
+    ids: ['core-demographics-checkbox', 'core-demographics-tooltip'],
   },
 ];
 
