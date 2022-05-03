@@ -128,10 +128,10 @@
 
     <mat-divider *ngIf="config.fees.length > 0"></mat-divider>
 
-    <h2 
+    <h2
       id="fee-subtitle"
-      class="mat-h3" 
-      style="padding-top: 1%" 
+      class="mat-h3"
+      style="padding-top: 1%"
       *ngIf="config.fees.length > 0"
     >
       Recurring Fees
@@ -145,31 +145,26 @@
     </h2>
 
     <div id="fee-element" *ngIf="config.fees.length > 0">
-      <mat-list
-        id="fee-list"
-        class="mat-elevation-z3"
-        *ngIf="mobileMode()"  
-      >
+      <mat-list id="fee-list" class="mat-elevation-z3" *ngIf="mobileMode()">
         <mat-list-item *ngFor="let fee of config.fees">
           <mat-icon mat-list-icon color="accent">label_important</mat-icon>
-          <div mat-line class="text-white">{{fee.service}}</div>
+          <div mat-line class="text-white">{{ fee.service }}</div>
           <div mat-line class="text-white">
             {{
               fee.service === "Stripe"
                 ? (fee.rate | percent: "1.2-3")
                 : (fee.rate | currency)
             }}
-            {{fee.basis}}
+            {{ fee.basis }}
           </div>
-          <span style="float:right">
+          <span style="float: right">
             <a [href]="fee.href" target="_blank">
               <mat-icon>link</mat-icon>
             </a>
           </span>
-
         </mat-list-item>
       </mat-list>
-      
+
       <mat-table
         id="fee-table"
         class="mat-elevation-z3"
