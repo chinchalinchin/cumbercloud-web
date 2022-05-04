@@ -138,8 +138,8 @@ export interface HomeConfig {
 }
 
 export interface SplashConfig {
-  touched: ImgConfig,
-  untouched: ImgConfig
+  touched: ImgConfig;
+  untouched: ImgConfig;
 }
 
 ////////
@@ -175,7 +175,6 @@ export enum HomeStates {
 // CONFIGURATION
 ////////////////
 
-
 // TODO: NavConfig for /404
 export const HOME_CONFIG: HomeConfig[] = [
   {
@@ -184,7 +183,7 @@ export const HOME_CONFIG: HomeConfig[] = [
       src: '/assets/imgs/circuitry-banner.jpg',
       alt: 'The Cumberland Cloud uses cutting-edge technology',
       title: 'The Cumberland Cloud - Technology',
-      id: 'circuitry-banner'
+      id: 'circuitry-banner',
     },
     title: 'Web Design and Hosting',
     subtitle: 'Responsive sites built on modern technology',
@@ -206,7 +205,7 @@ export const HOME_CONFIG: HomeConfig[] = [
       src: '/assets/imgs/money-banner.jpg',
       alt: 'The Cumberland Cloud will save you money!',
       title: 'The Cumberland Cloud - Cost',
-      id: 'money-banner'
+      id: 'money-banner',
     },
     title: 'Cloud Cost Savings',
     subtitle: 'Expert services at an affordable price',
@@ -226,7 +225,7 @@ export const HOME_CONFIG: HomeConfig[] = [
       src: '/assets/imgs/expertise-banner.jpg',
       alt: 'The Cumberland Cloud offers expert services',
       title: 'The Cumberland Cloud - Expertise',
-      id: 'expertise-banner'
+      id: 'expertise-banner',
     },
     title: 'Professional Solutions',
     subtitle: 'Years of web and software design experience.',
@@ -246,7 +245,7 @@ export const HOME_CONFIG: HomeConfig[] = [
       src: '/assets/imgs/human_centric_design-banner.jpg',
       alt: 'The Cumberland Cloud puts the user first',
       title: 'The Cumberland Cloud - Design',
-      id: 'design-banner'
+      id: 'design-banner',
     },
     title: 'Human Centric Design',
     subtitle: 'User driven development process',
@@ -262,9 +261,7 @@ export const HOME_CONFIG: HomeConfig[] = [
   },
 ];
 
-export const SPLASH_CONFIG: SplashConfig[] = [
-
-];
+export const SPLASH_CONFIG: SplashConfig[] = [];
 
 export const NAV_CONFIG: NavConfig[] = [
   {
@@ -659,97 +656,97 @@ export const ASSET_CONFIG: ImgConfig[] = [
     src: '/assets/imgs/money-banner.jpg',
     alt: 'Money, Money, Money',
     title: 'Some Money',
-    id: 'money-banner'
+    id: 'money-banner',
   },
   {
     src: '/assets/imgs/circuitry-banner.jpg',
     alt: 'Cloud Computing',
     title: 'Cumberland Cloud Computing Services',
-    id: 'cloud-computing-banner'
+    id: 'cloud-computing-banner',
   },
   {
     src: '/assets/imgs/expertise-banner.jpg',
     alt: 'Expert Services',
     title: 'Cumberland Cloud Expertise',
-    id:'expertise-banner'
+    id: 'expertise-banner',
   },
   {
     src: '/assets/imgs/human_centric_design-banner.jpg',
     alt: 'Human Centered Design',
     title: 'Cumberland Cloud Design Principles',
-    id:'hcd-design-banner'
+    id: 'hcd-design-banner',
   },
   {
     src: '/assets/imgs/separated.jpg',
     alt: 'Standing Apart',
     title: 'Cumberland Cloud Uniqueness',
-    id: 'separate-banner'
+    id: 'separate-banner',
   },
   {
     src: '/assets/imgs/cloud_tunnel.jpg',
     alt: 'Cloud Tunnel',
     title: 'A Tunnel to the Clouds',
-    id: 'cloud-tunnel-img'
+    id: 'cloud-tunnel-img',
   },
   {
     src: '/assets/people/grant/profile.jpg',
     alt: 'Grant Moore',
-    title: 'Grant Moore\'s Chiseled Jawline',
-    id: 'grant-profile-pic'
+    title: "Grant Moore's Chiseled Jawline",
+    id: 'grant-profile-pic',
   },
   {
     src: '/assets/svgs/rain-droplet.svg',
     alt: 'Rain',
     title: 'A drop of rain',
-    id: 'svg-rain-graphic'
+    id: 'svg-rain-graphic',
   },
   {
     src: '/assets/svgs/grass.svg',
     alt: 'Grass',
     title: 'Blade of Grass',
-    id: 'svg-grass-graphic'
+    id: 'svg-grass-graphic',
   },
   {
     src: '/assets/svgs/flower.svg',
     alt: 'Flower',
     title: 'A pretty flower',
-    id: 'svg-flower-graphic'
+    id: 'svg-flower-graphic',
   },
   {
     src: '/assets/svgs/deliver.svg',
     alt: 'Deliver',
     title: 'Cumberland Cloud - Deliver',
-    id: 'svg-deliver-graphic'
+    id: 'svg-deliver-graphic',
   },
   {
     src: '/assets/svgs/deploy.svg',
     alt: 'Deploy',
     title: 'Cumberland Cloud - Deploy',
-    id: 'svg-deploy-graphic'
+    id: 'svg-deploy-graphic',
   },
   {
     src: '/assets/svgs/develop.svg',
     alt: 'Develop',
     title: 'Cumberland Cloud - Develop',
-    id: 'svg-develop-graphic'
+    id: 'svg-develop-graphic',
   },
   {
     src: '/assets/svgs/design.svg',
     alt: 'Design',
     title: 'Cumberland Cloud - Develop',
-    id: 'svg-develop-graphic'
+    id: 'svg-develop-graphic',
   },
   {
     src: '/assets/svgs/sun.svg',
     alt: 'Sun',
     title: 'A Shining Sun',
-    id: 'svg-sun-graphic'
+    id: 'svg-sun-graphic',
   },
   {
     src: '/assets/imgs/innolab.png',
     alt: 'Innovation Lab',
     title: 'A Shining Sun',
-    id: 'svg-sun-graphic'
+    id: 'svg-sun-graphic',
   },
 ];
 
@@ -1124,7 +1121,7 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
       src: '/assets/certs/AWS_DEVOPS.png',
       alt: 'AWS DevOps Professional Certificate',
       title: 'Amazon Web Services DevOps Engineer Professional Certification',
-      id: 'aws-devops-cert-img'
+      id: 'aws-devops-cert-img',
     },
   },
   {
@@ -1134,7 +1131,7 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
       src: '/assets/certs/AWS_DEVELOPER.png',
       alt: 'AWS Developer Associate Certificate',
       title: 'Amazon Web Services Developer Associate Certification',
-      id: 'aws-developer-cert-img'
+      id: 'aws-developer-cert-img',
     },
   },
   {
@@ -1143,18 +1140,19 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
     img: {
       src: '/assets/certs/MTA_DATABASE.png',
       alt: 'MTA Database Administration Certificate',
-      title: 'Microsoft Technology Associate Database Administration Certification',
-      id: 'mta-dba-img'
-    }
+      title:
+        'Microsoft Technology Associate Database Administration Certification',
+      id: 'mta-dba-img',
+    },
   },
   {
     tab_id: 'mta-software-tab',
     title: 'MTA Software Development',
     img: {
       src: '/assets/certs/MTA_SOFTWARE.png',
-      alt: 'MTA Software Development Certificate' ,
+      alt: 'MTA Software Development Certificate',
       title: 'Grant Moore, MTA Software Development',
-      id: 'mta-software-img'
+      id: 'mta-software-img',
     },
   },
   {
@@ -1163,8 +1161,9 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
     img: {
       src: '/assets/certs/MTA_PYTHON.png',
       alt: 'MTA Python Programming Certificate',
-      title: 'Microsoft Technology Associate Introduction to Python Programming Certification',
-      id: 'mta-python-img'
+      title:
+        'Microsoft Technology Associate Introduction to Python Programming Certification',
+      id: 'mta-python-img',
     },
   },
   {
@@ -1173,8 +1172,9 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
     img: {
       src: '/assets/certs/MTA_JAVA.png',
       alt: 'MTA Java Programming Certificate',
-      title: 'Microsoft Technology Associate Introduction to Java Programming Certification',
-      id: 'mta-java-img'
+      title:
+        'Microsoft Technology Associate Introduction to Java Programming Certification',
+      id: 'mta-java-img',
     },
   },
 ];
