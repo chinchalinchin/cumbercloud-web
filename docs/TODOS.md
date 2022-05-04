@@ -8,7 +8,6 @@
 
 5. generalize resume component
 
-7. add accessiblity attr to svgs: https://stackoverflow.com/questions/4697100/accessibility-recommended-alt-text-convention-for-svg-and-mathml
+6. add accessiblity attr to svgs: https://stackoverflow.com/questions/4697100/accessibility-recommended-alt-text-convention-for-svg-and-mathml
 
-8. add cloudfront edge functions for index.html to cloudformation tempalte.
-
+7. add cloudfront edge functions for index.html to cloudformation tempalte.
