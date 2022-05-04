@@ -70,6 +70,6 @@ This repository is a public mirror of the actual source code; It is kept in sync
 
 ## CloudFront Edge Functions
 
-When this application is prerendered, it will generate an *index.html* for each route, as opposed to a normal **Angular** build that compiles a singe *index.html* and bootstraps the entire application from that entrypoint. In order to accomodate this difference, the **CloudFront** distribution will need to be setup to append `index.html` to the end of all routes, so that will be serve the correct index on each path. If unchanged, the default configuration will serve the root *index.html* and then pass the routing to the **Angular** app, instead of loading that route's *index* and bootstrapping from there.
+When this application is prerendered, it will generate an _index.html_ for each route, as opposed to a normal **Angular** build that compiles a singe _index.html_ and bootstraps the entire application from that entrypoint. In order to accomodate this difference, the **CloudFront** distribution will need to be setup to append `index.html` to the end of all routes, so that will be serve the correct index on each path. If unchanged, the default configuration will serve the root _index.html_ and then pass the routing to the **Angular** app, instead of loading that route's _index_ and bootstrapping from there.
 
 You will need to set up **CloudFront** edge functions for each route using [the procedure described in the documentation found here](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html).
