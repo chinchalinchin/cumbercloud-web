@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 
@@ -22,7 +21,6 @@ import { MaterialModule } from './app-material.module';
     NoopAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     MaterialModule,
   ],
   bootstrap: [AppComponent],

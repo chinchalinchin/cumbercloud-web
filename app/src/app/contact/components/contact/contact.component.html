@@ -1,19 +1,44 @@
 <div id="contact">
   <mat-card id="contact-card" class="mat-elevation-z8">
-    <mat-card-title>Contact Form</mat-card-title>
-    <mat-card-subtitle
-      >Submit the form below or email
-      <a class="link" href="mailto:design@cumberland-cloud.com"
-        >design@cumberland-cloud.com</a
+    <mat-card-title>
+      Contact Form
+      <button 
+        id="send-button"
+        mat-fab 
+        style="float: right;"
+        matTooltip="Submit message"
+        aria-label="Send a form message to the Cumberland Cloud"
+        color="primary"
+        [disabled]="contactGroup.invalid"
+        (click)="submit()"
       >
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-card-title>
+    <mat-card-subtitle>Submit the form below or email
+      <a 
+        id="contact-link"
+        class="link" 
+        href="mailto:design@cumberland-cloud.com"
+      >
+        design@cumberland-cloud.com
+      </a>
       to contact the <strong>Cumberland Cloud</strong> about your
-      project.</mat-card-subtitle
-    >
+      project.
+    </mat-card-subtitle>
     <mat-divider></mat-divider>
     <mat-card-content class="content">
-      <form id="contact-form" [formGroup]="contactGroup" aria-live="polite">
+      <form 
+        id="contact-form" 
+        [formGroup]="contactGroup" 
+        aria-live="polite"
+      >
         <div id="personal-info">
-          <mat-form-field id="first-name-field" color="warn" class="name-field">
+          <mat-form-field 
+            id="first-name-field" 
+            color="warn" 
+            class="name-field"
+          >
             <mat-label>First Name</mat-label>
             <input matInput type="text" formControlName="first" />
             <button

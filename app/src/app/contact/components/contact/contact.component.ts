@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import {
   FormBuilder,
@@ -22,7 +23,8 @@ export class ContactComponent {
   constructor(
     private _forms: FormBuilder,
     private _meta: MetaService,
-    private _ga: GoogleAnalyticsService
+    private _ga: GoogleAnalyticsService,
+    private _http: HttpClient
   ) {
     this.contactGroup = this._forms.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -35,6 +37,19 @@ export class ContactComponent {
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
+  }
+
+  private FormToBody(): any{
+    return {
+      email: this.contactGroup.controls['email'].value,
+      first: this.contactGroup.controls['first'].value,
+      last: this.contactGroup.controls['last'].value,
+      reason: this.contactGroup.controls['reason'].value.reason,
+      subreason: this.contactGroup.controls['subreason'].value
+        ? this.contactGroup.controls['subreason'].value: 'None',
+      message: this.contactGroup.controls['message'].value 
+        ? this.contactGroup.controls['message'].value : 'Hello!'
+    }
   }
 
   public findReason(reasonKey: string): ContactConfig | undefined {
@@ -57,5 +72,9 @@ export class ContactComponent {
       'email',
       this.contactGroup.controls['email'].value
     );
+    this._http.post('https://mailthis.to/design@cumberland-cloud.com', this.FormToBody())
+      .subscribe((response: any)=>{
+        console.log(response);
+      });
   }
 }
