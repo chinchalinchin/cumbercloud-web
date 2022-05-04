@@ -15,7 +15,7 @@ import {
   ASSET_CONFIG,
   ICON_CONFIG,
   IconConfig,
-  AssetConfig,
+  ImgConfig,
 } from 'src/app/app.config';
 import { HammerConfig } from 'src/hammer';
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -55,9 +55,10 @@ export class AppModule {
     ICON_CONFIG.forEach((conf: IconConfig) => {
       this.addIconToRegistry(conf.name, conf.src);
     });
-    ASSET_CONFIG.forEach((conf: AssetConfig) => {
+    ASSET_CONFIG.forEach((conf: ImgConfig) => {
       let img = new Image();
       img.src = conf.src;
+      img.alt = conf.alt;
     });
   }
 

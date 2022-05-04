@@ -31,7 +31,13 @@
         aria-relevant="additions removals"
         aria-details="selection-blurb"
       >
-        <img id="selection-img" [src]="getSrc()" [alt]="getAlt()" />
+        <img 
+          [id]="getImgConfig().id" 
+          class="selection-img"
+          [src]="getImgConfig().src" 
+          [alt]="getImgConfig().alt"
+          [title]="getImgConfig().title" 
+        />
       </div>
       <p
         id="selection-blurb"
@@ -39,22 +45,26 @@
         [innerHTML]="getBlurb()"
       ></p>
 
-      <div
-        id="underline-lg"
-        class="selection-underline"
-        *ngIf="!mobileMode()"
-      ></div>
-      <div
-        id="underline-md"
-        class="animation"
-        class="selection-underline"
-        *ngIf="!mobileMode()"
-      ></div>
-      <div
-        id="underline-sm"
-        class="selection-underline"
-        *ngIf="!mobileMode()"
-      ></div>
+      <!--TODO: remove these from the accessibility tree-->
+      <div>
+        <div
+          id="underline-lg"
+          class="selection-underline"
+          *ngIf="!mobileMode()"
+        ></div>
+        <div
+          id="underline-md"
+          class="animation"
+          class="selection-underline"
+          *ngIf="!mobileMode()"
+        ></div>
+        <div
+          id="underline-sm"
+          class="selection-underline"
+          *ngIf="!mobileMode()"
+        ></div>
+      </div>
+
     </div>
     <div id="selector" class="border-accent animation"></div>
   </div>

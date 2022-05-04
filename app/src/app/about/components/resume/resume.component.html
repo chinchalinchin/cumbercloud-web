@@ -110,13 +110,21 @@
         style="height: 100%"
         [(selectedIndex)]="selectedCertTab"
       >
-        <mat-tab *ngFor="let cert of certifications" [label]="cert.title">
+        <mat-tab 
+          [id]="cert.tab_id"
+          *ngFor="let cert of certifications" 
+          [label]="cert.title"
+        >
           <div
             class="img-container"
             (swipeleft)="incrementCertTab()"
             (swiperight)="decrementCertTab()"
           >
-            <img [src]="cert.src" [title]="cert.img_title" />
+            <img 
+              [id]="cert.img.id"
+              [src]="cert.img.src"
+              [alt]="cert.img.alt" 
+              [title]="cert.img.title" />
           </div>
         </mat-tab>
       </mat-tab-group>

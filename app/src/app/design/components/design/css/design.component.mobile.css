@@ -96,9 +96,25 @@
   }
   .splash-banner {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 100%;
+  }
+  #splash-line-txt-1{
+    margin-left: 5%;
+    justify-content: flex-start;
+  }
+  #splash-line-txt-2{
+    justify-content: center;
+  }
+  #splash-line-txt-3{
+    justify-content: flex-end;
+    margin-right: 5%;
+  }
+  .splash-line{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
   }
   .splash-bg {
     bottom: 20%;

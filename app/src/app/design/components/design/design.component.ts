@@ -14,6 +14,8 @@ import {
   ChipConfig,
   GalleryConfig,
   GALLERY_CONFIG,
+  SplashConfig,
+  SPLASH_CONFIG,
   SVG_CONFIG,
   TOOL_CHIPS,
 } from '../../../app.config';
@@ -67,6 +69,7 @@ export class DesignComponent implements OnInit {
   public screenSize: string = '';
   public toolConfig: ChipConfig[] = TOOL_CHIPS;
   public svgConfig: any = SVG_CONFIG;
+  public splashConfig: SplashConfig[] = SPLASH_CONFIG;
   public galleryConfig: GalleryConfig[] = GALLERY_CONFIG;
   public galleryIndex: number = 0;
   public selectedGalleryConfig = this.galleryConfig[this.galleryIndex];

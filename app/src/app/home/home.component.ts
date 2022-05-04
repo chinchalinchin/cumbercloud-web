@@ -8,7 +8,7 @@ import {
   FadeStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { HomeConfig, HomeStates, HOME_CONFIG } from '../app.config';
+import { HomeConfig, HomeStates, HOME_CONFIG, ImgConfig } from '../app.config';
 
 @Component({
   selector: 'app-home',
@@ -253,12 +253,8 @@ export class HomeComponent implements OnInit {
     return this.state == state;
   }
 
-  public getSrc(fromState: HomeStates | undefined = undefined): string {
-    return this.getConfigFromState(fromState).src;
-  }
-
-  public getAlt(fromState: HomeStates | undefined = undefined): string {
-    return this.getConfigFromState(fromState).alt;
+  public getImgConfig(fromState: HomeStates | undefined = undefined): ImgConfig {
+    return this.getConfigFromState(fromState).img;
   }
 
   public getTitle(fromState: HomeStates | undefined = undefined): string {

@@ -595,19 +595,22 @@
         *ngIf="phasedIn(phases.none)"
       >
         <div
-          class="mat-h1 text-center"
+          id="splash-line-txt-1"
+          class="mat-h1 splash-line"
           [@cntl_fade]="splashLines1FadeCntl[0].state"
         >
           what sets the
         </div>
         <div
-          class="fancy-text text-center company-title"
+          id="splash-line-txt-2"
+          class="fancy-text splash-line company-title"
           [@cntl_fade]="splashLines1FadeCntl[1].state"
         >
           Cumberland Cloud
         </div>
         <div
-          class="mat-h1 text-center"
+          id="splash-line-txt-3"
+          class="mat-h12 splash-line"
           [@cntl_fade]="splashLines1FadeCntl[2].state"
         >
           apart?
@@ -619,6 +622,7 @@
         [class.full]="phasedIn(phases.done)"
         [class.thirty]="!phasedIn(phases.done)"
         [@cntl_fade]="splashSrcFadeCntl.state"
+        aria-live="polite"
       >
         <img
           id="splash-img"
