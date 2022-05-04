@@ -67,3 +67,9 @@ git push codecommit master
 ## Deployments
 
 This repository is a public mirror of the actual source code; It is kept in sync with a **AWS CodeCommit** repository that is hooked into the **AWS CodePipeline** mentioned in the previous section; The **CodeCommit** mirror of this repository is, for all intents and purposes, the _"master"_ repository. What that means is the current state of the live frontend application is built on pushes to the **CodeCommit** `master` branch _only_; pushes to this **Github** repository do not trigger any builds or deployments. **CodePipeline** pulls in the changes from the **CodeCommit** push and pushes them in turn to **AWS CodeBuild**. **CodeBuild** uses the _buildspec.yml_ in the root of the repository to upload the build artifacts to an **S3** bucket, which is served through a **CloudFront** distribution at [cumberland-cloud.com](https://cumberland-cloud.com).
+
+## CloudFront Edge Functions
+
+When this application is prerendered, it will generate an *index.html* for each route, as opposed to a normal **Angular** build that compiles a singe *index.html* and bootstraps the entire application from that entrypoint. In order to accomodate this difference, the **CloudFront** distribution will need to be setup to append `index.html` to the end of all routes, so that will be serve the correct index on each path. If unchanged, the default configuration will serve the root *index.html* and then pass the routing to the **Angular** app, instead of loading that route's *index* and bootstrapping from there.
+
+You will need to set up **CloudFront** edge functions for each route using [the procedure described in the documentation found here](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html).

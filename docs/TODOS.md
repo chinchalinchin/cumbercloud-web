@@ -8,8 +8,7 @@
 
 5. generalize resume component
 
-6. cloudfront serves the root index.html on all paths, effectively rendering the prerender routine moot. the nested indexes are not being served. will need to write custom handlers to return the appropriate indices...i think this is the best soltuion anyway: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/edge-functions.html
-
 7. add accessiblity attr to svgs: https://stackoverflow.com/questions/4697100/accessibility-recommended-alt-text-convention-for-svg-and-mathml
 
-8. add conversion events: https://www.npmjs.com/package/ngx-google-analytics
+8. add cloudfront edge functions for index.html to cloudformation tempalte.
+
