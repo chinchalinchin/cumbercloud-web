@@ -18,6 +18,9 @@
   .mat-header-cell {
     color: white !important;
   }
+  .list-item{
+    background-color: map-get($primary-palette, 800);
+  }
 }
 
 @mixin theme($theme) {

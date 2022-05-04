@@ -10,6 +10,9 @@ mat-slider {
   margin-right: 0.5%;
   margin-bottom: 0.5%;
 }
+#fee-chip{
+padding:-1%;
+}
 .element-container {
   display: flex;
   padding-bottom: 1%;
@@ -24,10 +27,18 @@ mat-slider {
   display: flex;
   flex-direction: row;
 }
+.element-title{
+  margin-top: 1%;
+  margin-left: 2.5%;
+}
 .output-text {
   text-align: center;
   padding-top: 7.5%;
   font-size: larger;
+}
+.list-item{
+  border-radius: 25px;
+  margin-bottom: 2%;
 }
 @media (min-width: 991px) {
   .element {
@@ -70,6 +81,8 @@ mat-slider {
   }
   .element-output {
     width: 27.5%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
   }
   .mat-form-field-wrapper {
     width: 30% !important;

@@ -2,7 +2,10 @@
   <mat-card-title>
     {{ config.name }}
   </mat-card-title>
-  <mat-card-subtitle *ngIf="config.parameter.type === 'slider'">
+  <mat-card-subtitle 
+    class="text-white"
+    *ngIf="config.parameter.type === 'slider'"
+  >
     {{ config.parameter.label }}
   </mat-card-subtitle>
   <mat-card-content>
@@ -27,7 +30,7 @@
           </mat-form-field>
         </div>
         <div id="number-output" class="element-output mat-elevation-z3">
-          <h2 class="mat-h2">Estimate</h2>
+          <h2 class="mat-h2 element-title">Estimate</h2>
           <p class="mat-body-2 output-text">
             {{ total | currency }}
           </p>
@@ -40,8 +43,7 @@
         aria-live="polite"
       >
         <h2
-          class="mat-h2"
-          style="margin-top: 1%"
+          class="mat-h2 element-title"
           *ngIf="config.parameter.state_titles"
         >
           {{ config.parameter.state_titles[0] }}
@@ -72,7 +74,7 @@
           ></mat-slider>
         </div>
         <div id="slider-output" class="element-output mat-elevation-z3">
-          <h2 class="mat-h2">Estimate</h2>
+          <h2 class="mat-h2 element-title">Estimate</h2>
           <p class="mat-body-2 output-text">
             {{ total | currency }}
           </p>
@@ -85,8 +87,7 @@
         aria-live="polite"
       >
         <h2
-          class="mat-h2"
-          style="margin-top: 1%"
+          class="mat-h2 element-title"
           *ngIf="config.parameter.state_titles"
         >
           {{ config.parameter.state_titles[sliderValue - 1] }}
@@ -107,7 +108,7 @@
         class="element-output mat-elevation-z3"
         [class.align-null]="mobileMode()"
       >
-        <h2 class="mat-h2">Estimate</h2>
+        <h2 class="mat-h2 element-title">Estimate</h2>
         <p class="mat-body-2 output-text">
           {{ total | currency }}
         </p>
@@ -118,8 +119,7 @@
         *ngIf="config.parameter.state_descriptions"
       >
         <h2
-          class="mat-h2"
-          style="margin-top: 1%"
+          class="mat-h2 element-title"
           *ngIf="config.parameter.state_titles"
         >
           {{ config.parameter.state_titles[0] }}
@@ -140,8 +140,8 @@
     >
       Recurring Fees
       <mat-icon
-        style="margin-left: 2%"
-        color="warn"
+        id="fee-chip"
+        color="accent"
         matTooltip="These charges are incurred on the indicated basis after development is complete and you assume control of your application."
       >
         info
@@ -151,12 +151,12 @@
     <div id="fee-element" *ngIf="config.fees.length > 0">
       <mat-list
         id="fee-list"
-        class="mat-elevation-z2"
+ 
         *ngIf="mobileMode()"
         aria-labelledby="fee-subtitle"
       >
-        <mat-list-item class="mat-elevation-z1" *ngFor="let fee of config.fees">
-          <mat-icon mat-list-icon color="warn">label_important</mat-icon>
+        <mat-list-item class="mat-elevation-z1 list-item" *ngFor="let fee of config.fees">
+          <mat-icon mat-list-icon color="accent">label_important</mat-icon>
           <div mat-line class="text-white">{{ fee.service }}</div>
           <div mat-line class="text-white">
             {{
