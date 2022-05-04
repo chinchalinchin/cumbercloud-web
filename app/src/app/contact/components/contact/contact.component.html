@@ -11,10 +11,7 @@
     >
     <mat-divider></mat-divider>
     <mat-card-content class="content">
-      <form 
-        id="contact-form"
-        [formGroup]="contactGroup"
-        aria-live="polite">
+      <form id="contact-form" [formGroup]="contactGroup" aria-live="polite">
         <div id="personal-info">
           <mat-form-field id="first-name-field" color="warn" class="name-field">
             <mat-label>First Name</mat-label>
@@ -126,7 +123,6 @@
             placeholder="Ex. I want to upload inventory spreadsheets..."
           ></textarea>
         </mat-form-field>
-
       </form>
     </mat-card-content>
   </mat-card>
