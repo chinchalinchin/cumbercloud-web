@@ -9,6 +9,17 @@ export interface ImgConfig {
   alt: string;
 }
 
+export interface LinkConfig {
+  id: string;
+  href: string;
+  innerHTML?: string;
+}
+
+export interface StateImgConfig {
+  img: ImgConfig;
+  state: string;
+}
+
 export interface NavConfig {
   path: string;
   nav_id?: string;
@@ -32,14 +43,12 @@ export interface IconConfig {
 }
 
 export interface GalleryConfig {
+  img: ImgConfig;
+  link: LinkConfig;
   id: string;
   subtitle: string;
   subtitle_id: string;
-  img_id: string;
-  link_id: string;
   tooltip: string;
-  href: string;
-  src: string;
 }
 
 export interface ChipConfig {
@@ -48,10 +57,6 @@ export interface ChipConfig {
   svgIcon: string;
 }
 
-export interface LinkConfig {
-  href: string;
-  display: string;
-}
 
 export interface ExperienceConfig {
   company: string;
@@ -138,8 +143,8 @@ export interface HomeConfig {
 }
 
 export interface SplashConfig {
-  touched: ImgConfig;
-  untouched: ImgConfig;
+  touched: StateImgConfig;
+  untouched: StateImgConfig;
 }
 
 ////////
@@ -261,7 +266,26 @@ export const HOME_CONFIG: HomeConfig[] = [
   },
 ];
 
-export const SPLASH_CONFIG: SplashConfig[] = [];
+export const SPLASH_CONFIG: StateImgConfig[] = [
+  {
+    state: 'untouched',
+    img: {
+      src: '/assets/imgs/separated.jpg',
+      alt: 'The Cumberland Cloud stands apart from the crowd',
+      title: 'The Cumberland Cloud is different than other development boutiques',
+      id: 'separated-img'
+    },
+  },
+  {
+    state: 'touched',
+    img: {
+      src: '/assets/imgs/cloud_tunnel.jpg',
+      alt: 'The Cumberland Cloud architects cloud-native application',
+      title: 'The Cumberland Cloud is your tunnel to the cloud!',
+      id: 'cloud-tunnel-img'
+    } 
+  }
+];
 
 export const NAV_CONFIG: NavConfig[] = [
   {
@@ -970,31 +994,49 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
     subtitle: 'Makpar Innovation Lab',
     id: 'innolab-gallery',
     subtitle_id: 'innolab-gallery-subtitle',
-    img_id: 'innolab-img',
-    link_id: 'innolab-link',
     tooltip: 'Makpar Innovation Lab Homepage',
-    href: 'https://laboratory-dev.makpar-innovation.net',
-    src: '/assets/imgs/innolab.png',
+    img: {
+      src: '/assets/imgs/innolab.png',
+      alt: 'Makpar Innovation Lab: Cutting Edge Technology',
+      title: 'Makpar Innovation Lab',
+      id: 'innolab-img'
+    },
+    link: {
+      id: 'innolab-link',
+      href: 'https://laboratory-dev.makpar-innovation.net',
+    }
   },
   {
     subtitle: 'Buy@GSA',
     id: 'gsa-gallery',
     subtitle_id: 'gsa-gallery-subtitle',
-    img_id: 'gsa-img',
-    link_id: 'gsa-link',
     tooltip: 'Buy@GSA Homepage',
-    href: 'https://buy.gsa.gov',
-    src: '/assets/imgs/gsa.png',
+    img: {
+      src: '/assets/imgs/gsa.png',
+      alt: 'Buy@GSA: Search Vendors and Suppliers',
+      title: 'Buy@GSA Homepage',
+      id: 'gsa-img'
+    },
+    link: {
+      id: 'gsa-link',
+      href: 'https://buy.gsa.gov'
+    }
   },
   {
     subtitle: 'Scrilla',
     id: 'scrilla-gallery',
     subtitle_id: 'scrilla-gallery-subtitle',
-    img_id: 'scrilla-img',
-    link_id: 'scrilla-link',
     tooltip: 'Scrilla Documentation Homepage',
-    href: 'https://chinchalinchin.github.io/scrilla/OVERVIEW.html',
-    src: '/assets/imgs/scrilla.png',
+    img: {
+      src: '/assets/imgs/scrilla.png',
+      alt: 'Scrilla: A Financial Analysis Application',
+      title: 'Scrilla',
+      id: 'scrilla-img'
+    },
+    link:{
+      id: 'scrilla-link',
+      href: 'https://chinchalinchin.github.io/scrilla/OVERVIEW.html',
+    }
   },
 ];
 
@@ -1016,20 +1058,24 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
     links: [
       {
+        id: 'makpar-link',
         href: 'https://makpar.com',
-        display: 'Makpar Corporation',
+        innerHTML: 'Makpar Corporation',
       },
       {
+        id: 'makpar-innolab-link',
         href: 'https://laboratory-dev.makpar-innovation.net',
-        display: 'Innovation Lab Dev Site',
+        innerHTML: 'Innovation Lab Dev Site',
       },
       {
+        id: 'makpar-innolab-docs-link',
         href: 'https://documentation.makpar-innovation.net',
-        display: 'Innovation Lab Documentation',
+        innerHTML: 'Innovation Lab Documentation',
       },
       {
+        id: 'makpar-comet-award-link',
         href: 'https://www.tripointsolutions.com/announcements/tripoint-solutions-select-as-a-new-supplier-for-comet',
-        display: 'COMET Contract Award, 2022',
+        innerHTML: 'COMET Contract Award, 2022',
       },
     ],
   },
@@ -1049,16 +1095,19 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
     links: [
       {
+        id: 'buy-gsa-link',
         href: 'https://buy.gsa.gov',
-        display: 'Buy@GSA',
+        innerHTML: 'Buy@GSA',
       },
       {
+        id: 'calc-gsa-link',
         href: 'https://calc.gsa.gov',
-        display: 'CALC',
+        innerHTML: 'CALC',
       },
       {
+        id: 'sam-gsa-link',
         href: 'https://sam.gov',
-        display: 'SAM',
+        innerHTML: 'SAM',
       },
     ],
   },

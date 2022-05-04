@@ -14,8 +14,9 @@ import {
   ChipConfig,
   GalleryConfig,
   GALLERY_CONFIG,
-  SplashConfig,
+  ImgConfig,
   SPLASH_CONFIG,
+  StateImgConfig,
   SVG_CONFIG,
   TOOL_CHIPS,
 } from '../../../app.config';
@@ -69,7 +70,7 @@ export class DesignComponent implements OnInit {
   public screenSize: string = '';
   public toolConfig: ChipConfig[] = TOOL_CHIPS;
   public svgConfig: any = SVG_CONFIG;
-  public splashConfig: SplashConfig[] = SPLASH_CONFIG;
+  public splashConfig: StateImgConfig[] = SPLASH_CONFIG;
   public galleryConfig: GalleryConfig[] = GALLERY_CONFIG;
   public galleryIndex: number = 0;
   public selectedGalleryConfig = this.galleryConfig[this.galleryIndex];
@@ -441,15 +442,11 @@ export class DesignComponent implements OnInit {
       }
     }
   }
-  public splashSrc(): string {
-    switch (this.splash) {
-      case Splash.untouched:
-        return '/assets/imgs/separated.jpg';
-      case Splash.touched:
-        return '/assets/imgs/cloud_tunnel.jpg';
-      default:
-        return '/assets/imgs/separated.jpg';
-    }
+
+  public splashImgConfig(): ImgConfig{
+    let conf = this.splashConfig.filter((conf)=> conf.state === this.splash.toString()).pop();
+    if(conf) return conf.img;
+    else return this.splashConfig[0].img
   }
 
   public lure(): void {

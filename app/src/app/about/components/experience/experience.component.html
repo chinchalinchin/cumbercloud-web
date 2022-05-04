@@ -33,7 +33,13 @@
   <mat-divider *ngIf="data.links"></mat-divider>
   <ul *ngIf="data.links">
     <li *ngFor="let link of data.links" class="mat-body">
-      <a [href]="link.href" target="_blank">{{ link.display }}</a>
+      <a 
+        [id]="link.id"
+        [href]="link.href" 
+        target="_blank"
+      >
+        {{ link.innerHTML }}
+      </a>
     </li>
   </ul>
 </div>
