@@ -253,7 +253,9 @@ export class HomeComponent implements OnInit {
     return this.state == state;
   }
 
-  public getImgConfig(fromState: HomeStates | undefined = undefined): ImgConfig {
+  public getImgConfig(
+    fromState: HomeStates | undefined = undefined
+  ): ImgConfig {
     return this.getConfigFromState(fromState).img;
   }
 
