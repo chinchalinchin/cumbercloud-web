@@ -908,6 +908,10 @@ export const ICON_CONFIG: IconConfig[] = [
     name: 'docker',
   },
   {
+    src: '../assets/icons/docker-fill.svg',
+    name: 'docker-fill'
+  },
+  {
     src: '../assets/icons/django.svg',
     name: 'django',
   },
