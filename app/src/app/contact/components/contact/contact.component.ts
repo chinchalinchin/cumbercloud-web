@@ -72,7 +72,7 @@ export class ContactComponent {
       'email',
       this.contactGroup.controls['email'].value
     );
-    this._http.post('https://mailthis.to/design@cumberland-cloud.com', this.FormToBody())
+    this._http.post('https://api.cumberland-cloud.com/v1/mail', this.FormToBody())
       .subscribe((response: any)=>{
         console.log(response);
       });
