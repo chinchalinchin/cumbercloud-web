@@ -39,17 +39,19 @@ export class ContactComponent {
     });
   }
 
-  private FormToBody(): any{
+  private FormToBody(): any {
     return {
       email: this.contactGroup.controls['email'].value,
       first: this.contactGroup.controls['first'].value,
       last: this.contactGroup.controls['last'].value,
       reason: this.contactGroup.controls['reason'].value.reason,
       subreason: this.contactGroup.controls['subreason'].value
-        ? this.contactGroup.controls['subreason'].value: 'None',
-      message: this.contactGroup.controls['message'].value 
-        ? this.contactGroup.controls['message'].value : 'Hello!'
-    }
+        ? this.contactGroup.controls['subreason'].value
+        : 'None',
+      message: this.contactGroup.controls['message'].value
+        ? this.contactGroup.controls['message'].value
+        : 'Hello!',
+    };
   }
 
   public findReason(reasonKey: string): ContactConfig | undefined {
@@ -72,8 +74,9 @@ export class ContactComponent {
       'email',
       this.contactGroup.controls['email'].value
     );
-    this._http.post('https://api.cumberland-cloud.com/v1/mail', this.FormToBody())
-      .subscribe((response: any)=>{
+    this._http
+      .post('https://api.cumberland-cloud.com/v1/mail', this.FormToBody())
+      .subscribe((response: any) => {
         console.log(response);
       });
   }
