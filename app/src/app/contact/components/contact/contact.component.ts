@@ -28,7 +28,7 @@ export class ContactComponent {
     private _meta: MetaService,
     private _ga: GoogleAnalyticsService,
     private _http: HttpClient,
-    private _dialog: MatDialog,
+    private _dialog: MatDialog
   ) {
     this.contactGroup = this._forms.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -79,17 +79,18 @@ export class ContactComponent {
       this.contactGroup.controls['email'].value
     );
     this.loading = true;
-    this._http.post('https://api.cumberland-cloud.com/v1/mail', this.FormToBody())
-      .subscribe((response: any)=>{
-        console.log(response)
+    this._http
+      .post('https://api.cumberland-cloud.com/v1/mail', this.FormToBody())
+      .subscribe((response: any) => {
+        console.log(response);
         this.loading = false;
         this._dialog.open(SentComponent, {
           width: '50%',
           height: '50%',
           hasBackdrop: true,
           backdropClass: 'popup-backdrop',
-          ariaLabel: 'Message Sent Popup'
-        })
+          ariaLabel: 'Message Sent Popup',
+        });
         this.contactGroup.reset();
       });
   }

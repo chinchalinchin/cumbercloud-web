@@ -181,7 +181,7 @@ export class ResumeComponent {
       width: '85%',
       height: '95%',
       panelClass: 'experience-bg',
-      ariaLabel: exp.aria_label
+      ariaLabel: exp.aria_label,
     });
     this._ga.event('resume', 'experience', exp.company);
   }

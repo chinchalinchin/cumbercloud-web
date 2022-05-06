@@ -27,14 +27,14 @@
       to contact the <strong>Cumberland Cloud</strong> about your project.
     </mat-card-subtitle>
 
-    <mat-progress-bar 
+    <mat-progress-bar
       *ngIf="loading"
       id="contact-progress"
       aria-label="Waiting on message to sent..."
-      class="fill" 
+      class="fill"
       mode="query"
     ></mat-progress-bar>
-    
+
     <mat-divider></mat-divider>
     <mat-card-content class="content">
       <form id="contact-form" [formGroup]="contactGroup" aria-live="polite">
