@@ -307,15 +307,14 @@
           </div>
         </mat-card-content>
 
-        <div id="unflipped-actions" class="actions">
+        <div id="unflipped-actions" class="actions unflipped">
           <button
-            mat-icon-button
+            mat-fab
             [routerLink]="['/about', 'resume', selectedProfile.key]"
+            [matTooltip]="selectedProfile.arrow_tooltip"
             aria-label="Learn more about Grant Moore"
           >
-            <mat-icon [matTooltip]="selectedProfile.arrow_tooltip"
-              >arrow_right_alt</mat-icon
-            >
+            <mat-icon>arrow_right_alt</mat-icon>
           </button>
         </div>
       </div>

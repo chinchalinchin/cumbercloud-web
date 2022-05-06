@@ -58,6 +58,12 @@
   position: absolute;
   bottom: 1%;
 }
+.flipped{
+  bottom: -15%;
+}
+.unflipped{
+  bottom: -7.5%;
+}
 .back {
   transform: rotateY(180deg);
 }
@@ -160,9 +166,7 @@
   .actions {
     right: 2.5%;
   }
-  .flipped {
-    bottom: -15%;
-  }
+
   .profile-pic-container {
     width: 30%;
   }
