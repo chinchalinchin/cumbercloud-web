@@ -6,7 +6,6 @@ import {
   AnimationPeriods,
   Animations,
   AnimationTriggers,
-  FlipStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import {
@@ -115,7 +114,8 @@ import {
     ),
     Animations.getFadeTrigger(),
     Animations.getExpandTrigger('100%'),
-    Animations.getManualFlipTrigger(),
+    Animations.getEnlargeTrigger('100%'),
+    Animations.getManualFlipTrigger(null, AnimationPeriods.medium),
   ],
 })
 export class ProfileComponent implements OnInit {
@@ -269,13 +269,13 @@ export class ProfileComponent implements OnInit {
       this.flippedContent = content;
       setTimeout(() => {
         this.flipped = true;
-      }, AnimationPeriods.short * 500);
+      }, AnimationPeriods.medium * 500);
     } else {
       this.cardFlipCntl.prime();
       this.flippedContent = content;
       setTimeout(() => {
         this.flipped = false;
-      }, AnimationPeriods.short * 500);
+      }, AnimationPeriods.medium * 1000);
     }
   }
 }

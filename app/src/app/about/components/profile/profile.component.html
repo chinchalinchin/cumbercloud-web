@@ -13,14 +13,21 @@
       id="responsive-content-text"
       aria-label="Text for responsive content"
     >
-      <section id="persona-section" *ngIf="unfolded && who" aria-live="polite">
+      <section 
+        id="persona-section" 
+        *ngIf="unfolded && who" 
+        aria-live="polite"
+      >
         <div
           *ngFor="let index of [0, 1, 2]"
           [id]="selectedProfile.factoids[index].id"
           class="animation mat-h2 text-default clicker"
           (click)="flip(selectedProfile.factoids[index])"
         >
-          <span *ngIf="!flipped" [@fade]>
+          <span 
+            *ngIf="!flipped || flippedContent === selectedProfile.factoids[index]" 
+            [@fade]
+          >
             {{ selectedProfile.factoids[index].toggle }}
           </span>
         </div>
@@ -33,9 +40,14 @@
           class="animation mat-h2 text-default clicker"
           (click)="flip(selectedProfile.factoids[index])"
         >
-          <span *ngIf="!flipped" [@fade]>
+          <div *ngIf="!flipped || flippedContent === selectedProfile.factoids[index]" [@fade]>
             {{ selectedProfile.factoids[index].toggle }}
-          </span>
+          </div>
+          <div 
+            *ngIf="flipped && flippedContent === selectedProfile.factoids[index]"
+            class="underline" 
+            [@enlarge]
+            ></div>
         </div>
       </section>
     </div>
@@ -306,6 +318,7 @@
               <img
                 *ngFor="let img of flippedContent.imgs"  
                 [id]="img.id"
+                [class]="img.class ? img.class : null"
                 [src]="img.src"
                 [alt]="img.alt"
                 [title]="img.title"
@@ -316,7 +329,7 @@
 
           <div
             id="flipped-actions"
-            class="actions"
+            class="actions flipped"
           >
             <button 
               id="flip-btn"

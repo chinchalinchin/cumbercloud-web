@@ -68,6 +68,13 @@
   z-index: 9;
   cursor: pointer;
 }
+.underline {
+  position: absolute;
+  border: dashed;
+  border-width: 0px 0px 1px 0px;
+  border-color: black;
+  width: 100%;
+}
 
 @media (max-width: 992px) {
   #about {
@@ -153,6 +160,9 @@
   }
   .actions {
     right: 2.5%;
+  }
+  .flipped{
+    bottom: -15%;
   }
   .profile-pic-container {
     width: 30%;
