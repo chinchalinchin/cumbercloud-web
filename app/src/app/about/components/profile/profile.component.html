@@ -298,7 +298,6 @@
           <mat-card-title class="text-center">
             {{ flippedContent.title }}
           </mat-card-title>
-<<<<<<< HEAD
           <mat-card-content 
             id="flipped-content" 
             class="full"
@@ -310,16 +309,6 @@
                   [src]="flippedContent.img.src"
                   [alt]="flippedContent.img.alt"
                   [title]="flippedContent.img.title"
-=======
-          <mat-card-content id="flipped-content" class="full">
-            <div *ngIf="flippedContent.imgs" style="height: 75%">
-              <div *ngFor="let img of flippedContent.imgs" class="v-align">
-                <img
-                  [id]="img.id"
-                  [src]="img.src"
-                  [alt]="img.alt"
-                  [title]="img.title"
->>>>>>> 466ea1e4adb556b92f30f83e60ac4412984409e2
                 />
               </div>
             </div>

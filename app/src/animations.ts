@@ -108,9 +108,9 @@ export enum SwipeStates {
 /**
  * Enumeration of {@link Animation} flip states
  */
-export enum FlipStates{
-  flip="flip",
-  unflip="unflip"
+export enum FlipStates {
+  flip = 'flip',
+  unflip = 'unflip',
 }
 /**
  * Enumeration of triggers for {@link Animations}.
@@ -131,7 +131,7 @@ export enum AnimationTriggers {
   cntl_fold = 'cntl_fold',
   cntl_position = 'cntl_position',
   cntl_skew = 'cntl_skew',
-  cntl_flip = 'cntl_flip'
+  cntl_flip = 'cntl_flip',
 }
 /**
  * Enumeration of animation lengths for {@link Animations}
@@ -441,22 +441,28 @@ export class Animations {
   public static getManualFlipTrigger(
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
-  ): AnimationTriggerMetadata{
-    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_flip, tag)
+  ): AnimationTriggerMetadata {
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_flip, tag);
     return trigger(triggerTag, [
-      state(FlipStates.unflip, style({
-        transform: 'none'
-      })),
-      state(FlipStates.flip, style({
-        transform: 'rotateY(180deg)'
-      })),
+      state(
+        FlipStates.unflip,
+        style({
+          transform: 'none',
+        })
+      ),
+      state(
+        FlipStates.flip,
+        style({
+          transform: 'rotateY(180deg)',
+        })
+      ),
       transition(`${FlipStates.unflip} => ${FlipStates.flip}`, [
-        animate(`${animateLength}s`)
+        animate(`${animateLength}s`),
       ]),
       transition(`${FlipStates.flip} => ${FlipStates.unflip}`, [
-        animate(`${animateLength}s`)
-      ])
-    ])
+        animate(`${animateLength}s`),
+      ]),
+    ]);
   }
 
   /**
