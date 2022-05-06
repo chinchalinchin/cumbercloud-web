@@ -62,12 +62,12 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: map-get($primary-palette, 300);
+    background: map-get($primary-palette, 700);
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: map-get($primary-palette, 600);
+    background: map-get($primary-palette, 300);
   }
 
   ::-webkit-input-placeholder,

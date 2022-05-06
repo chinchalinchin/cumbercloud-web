@@ -59,6 +59,7 @@ export interface ChipConfig {
 
 
 export interface ExperienceConfig {
+  aria_label: string;
   company: string;
   position: string;
   years: string;
@@ -1046,6 +1047,7 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
 
 export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
   {
+    aria_label: "Grant Moore, DevOps Engineer",
     company: 'Makpar, Inc.',
     position: 'DevOps Engineer',
     years: '2021 - Current',
@@ -1084,6 +1086,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
+    aria_label: "Grant Moore, Full Stack Developer",
     company: 'IBM',
     position: 'Full Stack Developer',
     years: '2019 - 2021',
@@ -1116,6 +1119,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
+    aria_label: "Grant Moore, Mathematics Professor",
     company: 'Front Range Community College',
     position: 'Mathematics Professor',
     years: '2017 - 2018',
@@ -1128,6 +1132,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
+    aria_label: "Grant Moore, Mathematics Professor",
     company: 'University of Cincinnati',
     position: 'Adjunct Mathematics Professor',
     years: '2017',
@@ -1138,6 +1143,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
+    aria_label: "Grant Moore, Physics Professor",
     company: 'Frostburg State University',
     position: 'Adjunct Physics Professor',
     years: '2015 - 2017',
@@ -1148,6 +1154,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
+    aria_label: "Grant Moore, Mathematics Professor",
     company: 'Allegany College of Maryland',
     position: 'Mathematics Professor',
     years: '2015 - 2016',
@@ -1158,11 +1165,14 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
+    aria_label: "Grant Moore, Mathematics Mentor",
     company: 'Americorps',
     position: 'Mathematics Mentor',
     years: '2014 - 2016',
-    responsibilities: [],
-    accomplishments: [],
+    responsibilities: [
+      "Helped students succeed in mathematics, physics and computer science",
+      "Tutored in subjects ranging from Basic Arithmetic to Differential Equations", 
+    ],
   },
 ];
 

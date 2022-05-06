@@ -6,9 +6,11 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { MetaService } from 'src/services/meta.service';
 import { ContactConfig, REASON_CONFIG } from '../../../app.config';
+import { SentComponent } from '../sent/sent.component';
 
 @Component({
   selector: 'app-contact',
@@ -19,12 +21,14 @@ export class ContactComponent {
   public screenSize: string = '';
   public contactGroup: FormGroup;
   public reasonConfig: ContactConfig[] = REASON_CONFIG;
+  public loading: boolean = false;
 
   constructor(
     private _forms: FormBuilder,
     private _meta: MetaService,
     private _ga: GoogleAnalyticsService,
-    private _http: HttpClient
+    private _http: HttpClient,
+    private _dialog: MatDialog,
   ) {
     this.contactGroup = this._forms.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -72,9 +76,19 @@ export class ContactComponent {
       'email',
       this.contactGroup.controls['email'].value
     );
+    this.loading = true;
     this._http.post('https://api.cumberland-cloud.com/v1/mail', this.FormToBody())
       .subscribe((response: any)=>{
-        console.log(response);
+        console.log(response)
+        this.loading = false;
+        this._dialog.open(SentComponent, {
+          width: '50%',
+          height: '50%',
+          hasBackdrop: true,
+          backdropClass: 'popup-backdrop',
+          ariaLabel: 'Message Sent Popup'
+        })
+        this.contactGroup.reset();
       });
   }
 }
