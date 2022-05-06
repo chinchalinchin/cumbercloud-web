@@ -167,14 +167,7 @@ export class ProfileComponent implements OnInit {
   public whatFlowerPositionCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_position
   );
-  public colorCntls: boolean[] = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ]
+  public colorCntls: boolean[] = [false, false, false, false, false, false];
   public who: boolean = false;
   public what: boolean = false;
   public unfolded: boolean = false;
