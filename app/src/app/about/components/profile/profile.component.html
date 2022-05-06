@@ -20,14 +20,20 @@
           class="animation mat-h2 text-default clicker"
           (click)="flip(selectedProfile.factoids[index])"
         >
-          <span
+          <div
             *ngIf="
               !flipped || flippedContent === selectedProfile.factoids[index]
             "
             [@fade]
           >
             {{ selectedProfile.factoids[index].toggle }}
-          </span>
+          </div>
+          <div 
+            *ngIf="flipped && flippedContent === selectedProfile.factoids[index]"
+            class="profile-underline"
+            [@enlarge]
+          >
+          </div>
         </div>
       </section>
 
@@ -50,9 +56,10 @@
             *ngIf="
               flipped && flippedContent === selectedProfile.factoids[index]
             "
-            class="underline"
+            class="profile-underline"
             [@enlarge]
-          ></div>
+          >
+          </div>
         </div>
       </section>
     </div>

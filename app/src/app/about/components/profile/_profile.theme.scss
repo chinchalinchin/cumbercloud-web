@@ -33,6 +33,9 @@
   .cloud-border-select {
     fill: rgb(116, 116, 116);
   }
+  .profile-underline{
+    border-color: black;
+  }
 }
 
 @mixin theme($theme) {
