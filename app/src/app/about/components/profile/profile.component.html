@@ -298,13 +298,10 @@
           <mat-card-title class="text-center">
             {{ flippedContent.title }}
           </mat-card-title>
-          <mat-card-content 
-            id="flipped-content" 
-            class="full"
-          >
-            <div style="height: 90%; padding-top: 1%; overflow-y: auto;">
+          <mat-card-content id="flipped-content" class="full">
+            <div style="height: 90%; padding-top: 1%; overflow-y: auto">
               <div class="v-align">
-                <img 
+                <img
                   [id]="flippedContent.img.id"
                   [src]="flippedContent.img.src"
                   [alt]="flippedContent.img.alt"
