@@ -7,18 +7,18 @@ export interface ImgConfig {
   title: string;
   src: string;
   alt: string;
-};
+}
 
 export interface LinkConfig {
   id: string;
   href: string;
   innerHTML?: string;
-};
+}
 
 export interface StateImgConfig {
   img: ImgConfig;
   state: string;
-};
+}
 
 export interface NavConfig {
   path: string;
@@ -30,17 +30,17 @@ export interface NavConfig {
   data?: any;
   children?: NavConfig[];
   meta?: MetaConfig[];
-};
+}
 
 export interface MetaConfig {
   property: string;
   content: string;
-};
+}
 
 export interface IconConfig {
   src: string;
   name: string;
-};
+}
 
 export interface GalleryConfig {
   img: ImgConfig;
@@ -49,17 +49,13 @@ export interface GalleryConfig {
   subtitle: string;
   subtitle_id: string;
   tooltip: string;
-};
+}
 
 export interface ChipConfig {
   tooltip: string;
   href: string;
   svgIcon: string;
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 2c2fce25ceae11c365d27a1ec696ce4934d35339
 
 export interface ExperienceConfig {
   aria_label: string;
@@ -69,7 +65,7 @@ export interface ExperienceConfig {
   responsibilities: string[];
   accomplishments?: string[];
   links?: LinkConfig[];
-};
+}
 
 export interface PricingParameterConfig {
   type: string;
@@ -77,7 +73,7 @@ export interface PricingParameterConfig {
   states?: number;
   state_descriptions?: string[];
   state_titles?: string[];
-};
+}
 
 export interface FeeConfig {
   service: string;
@@ -85,7 +81,7 @@ export interface FeeConfig {
   justification: string;
   basis: string;
   href: string;
-};
+}
 
 export interface PricingConfig {
   key: string;
@@ -95,13 +91,13 @@ export interface PricingConfig {
   rate: number;
   tooltip: string;
   ids: string[];
-};
+}
 
 export interface CertificationConfig {
   tab_id: string;
   title: string;
   img: ImgConfig;
-};
+}
 
 export interface ContactConfig {
   reason: string;
@@ -110,7 +106,6 @@ export interface ContactConfig {
   options_exclusive?: boolean;
   options?: string[];
 }
-;
 export interface FlipConfig {
   id: string;
   toggle: string;
@@ -128,7 +123,7 @@ export interface ProfileConfig {
   position: string;
   blurbs: string[];
   factoids: FlipConfig[];
-};
+}
 
 interface DesktopLine {
   moved: string;
@@ -1054,7 +1049,7 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
 
 export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
   {
-    aria_label: "Grant Moore, DevOps Engineer",
+    aria_label: 'Grant Moore, DevOps Engineer',
     company: 'Makpar, Inc.',
     position: 'DevOps Engineer',
     years: '2021 - Current',
@@ -1093,7 +1088,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Full Stack Developer",
+    aria_label: 'Grant Moore, Full Stack Developer',
     company: 'IBM',
     position: 'Full Stack Developer',
     years: '2019 - 2021',
@@ -1126,7 +1121,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Mathematics Professor",
+    aria_label: 'Grant Moore, Mathematics Professor',
     company: 'Front Range Community College',
     position: 'Mathematics Professor',
     years: '2017 - 2018',
@@ -1139,7 +1134,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Mathematics Professor",
+    aria_label: 'Grant Moore, Mathematics Professor',
     company: 'University of Cincinnati',
     position: 'Adjunct Mathematics Professor',
     years: '2017',
@@ -1150,7 +1145,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Physics Professor",
+    aria_label: 'Grant Moore, Physics Professor',
     company: 'Frostburg State University',
     position: 'Adjunct Physics Professor',
     years: '2015 - 2017',
@@ -1161,7 +1156,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Mathematics Professor",
+    aria_label: 'Grant Moore, Mathematics Professor',
     company: 'Allegany College of Maryland',
     position: 'Mathematics Professor',
     years: '2015 - 2016',
@@ -1172,13 +1167,13 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Mathematics Mentor",
+    aria_label: 'Grant Moore, Mathematics Mentor',
     company: 'Americorps',
     position: 'Mathematics Mentor',
     years: '2014 - 2016',
     responsibilities: [
-      "Helped students succeed in mathematics, physics and computer science",
-      "Tutored in subjects ranging from Basic Arithmetic to Differential Equations", 
+      'Helped students succeed in mathematics, physics and computer science',
+      'Tutored in subjects ranging from Basic Arithmetic to Differential Equations',
     ],
   },
 ];

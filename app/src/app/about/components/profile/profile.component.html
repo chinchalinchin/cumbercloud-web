@@ -20,9 +20,9 @@
           class="animation mat-h2 text-default clicker"
           (click)="flip(selectedProfile.factoids[index])"
         >
-            <span *ngIf="!flipped" [@fade]>
-              {{ selectedProfile.factoids[index].toggle }}
-            </span>
+          <span *ngIf="!flipped" [@fade]>
+            {{ selectedProfile.factoids[index].toggle }}
+          </span>
         </div>
       </section>
 
@@ -52,10 +52,7 @@
         *ngIf="!mobileMode()"
         [@cntl_position_who_1]="whoPositionCntls[0].state"
       >
-        <object 
-          data="/assets/svgs/rain-droplet.svg" 
-          type="image/svg+xml"
-        >
+        <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
           <!--TODO: <img src="yourfallback.jpg" /> -->
         </object>
       </div>
@@ -86,7 +83,7 @@
         id="development-droplet"
         aria-labelledby="development-text"
         class="animation"
-        style="cursor: help;"
+        style="cursor: help"
         *ngIf="!mobileMode()"
         [@cntl_position_what_1]="whatPositionCntls[0].state"
       >
@@ -249,9 +246,9 @@
       </div>
     </div>
 
-    <mat-card 
-      id="profile-card" 
-      class="mat-elevation-z3" 
+    <mat-card
+      id="profile-card"
+      class="mat-elevation-z3"
       [@cntl_flip]="cardFlipCntl.state"
     >
       <div class="front face" *ngIf="!flipped">
@@ -264,19 +261,16 @@
             />
           </div>
         </div>
-  
+
         <mat-card-title class="text-center">
           {{ selectedProfile.name }}
         </mat-card-title>
-  
+
         <mat-card-subtitle class="text-center">
           {{ selectedProfile.position }}
         </mat-card-subtitle>
 
-        <mat-card-content 
-          id="unflipped-content"
-          *ngIf="mobileMode()"
-        >
+        <mat-card-content id="unflipped-content" *ngIf="mobileMode()">
           <div class="mobile-scroller" #scroller>
             <p
               class="mat-body"
@@ -286,10 +280,7 @@
           </div>
         </mat-card-content>
 
-        <div
-          id="unflipped-actions" 
-          class="actions"
-        >
+        <div id="unflipped-actions" class="actions">
           <button
             mat-icon-button
             [routerLink]="['/about', 'resume', selectedProfile.key]"
@@ -307,6 +298,7 @@
           <mat-card-title class="text-center">
             {{ flippedContent.title }}
           </mat-card-title>
+<<<<<<< HEAD
           <mat-card-content 
             id="flipped-content" 
             class="full"
@@ -318,22 +310,28 @@
                   [src]="flippedContent.img.src"
                   [alt]="flippedContent.img.alt"
                   [title]="flippedContent.img.title"
+=======
+          <mat-card-content id="flipped-content" class="full">
+            <div *ngIf="flippedContent.imgs" style="height: 75%">
+              <div *ngFor="let img of flippedContent.imgs" class="v-align">
+                <img
+                  [id]="img.id"
+                  [src]="img.src"
+                  [alt]="img.alt"
+                  [title]="img.title"
+>>>>>>> 466ea1e4adb556b92f30f83e60ac4412984409e2
                 />
               </div>
             </div>
           </mat-card-content>
 
-          <div 
-            id="flipped-actions"
-            class="actions"
-          >
+          <div id="flipped-actions" class="actions">
             <button mat-fab class="clicker" (click)="flip(undefined)">
               <mat-icon>refresh</mat-icon>
             </button>
           </div>
         </div>
       </div>
-
     </mat-card>
 
     <div

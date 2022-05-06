@@ -9,7 +9,12 @@ import {
   FlipStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { FlipConfig, ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../../../app.config';
+import {
+  FlipConfig,
+  ProfileConfig,
+  PROFILE_CONFIG,
+  SVG_CONFIG,
+} from '../../../app.config';
 
 @Component({
   selector: 'app-profile',
@@ -110,7 +115,7 @@ import { FlipConfig, ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../../../
     ),
     Animations.getFadeTrigger(),
     Animations.getExpandTrigger('100%'),
-    Animations.getManualFlipTrigger()
+    Animations.getManualFlipTrigger(),
   ],
 })
 export class ProfileComponent implements OnInit {
@@ -258,20 +263,19 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  public flip(content: FlipConfig | undefined): void{
-    if(!this.flipped){
+  public flip(content: FlipConfig | undefined): void {
+    if (!this.flipped) {
       this.cardFlipCntl.animate();
       this.flippedContent = content;
-      setTimeout(()=>{
+      setTimeout(() => {
         this.flipped = true;
-      }, AnimationPeriods.short*500);
-    }
-    else{
+      }, AnimationPeriods.short * 500);
+    } else {
       this.cardFlipCntl.prime();
       this.flippedContent = content;
-      setTimeout(()=>{
+      setTimeout(() => {
         this.flipped = false;
-      }, AnimationPeriods.short*500);
+      }, AnimationPeriods.short * 500);
     }
   }
 }
