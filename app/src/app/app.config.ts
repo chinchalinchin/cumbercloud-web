@@ -112,7 +112,7 @@ export interface FlipConfig {
   title: string;
   content: string;
   img: ImgConfig;
-};
+}
 
 export interface ProfileConfig {
   name: string;
@@ -1659,14 +1659,13 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
         id: 'mathematician-toggle',
         toggle: 'mathematician',
         title: 'Grant Moore, Mathematician',
-        content: "",
-        img:{
+        content: '',
+        img: {
           id: 'mathematician-img',
           title: 'Grant Moore, Mathematician',
           src: '/assets/people/grant/mathematician.jpg',
-          alt: 'Grant Moore has studied mathematics for over a decade'
-        }
-        
+          alt: 'Grant Moore has studied mathematics for over a decade',
+        },
       },
       {
         id: 'technologist-toggle',
@@ -1677,32 +1676,32 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
           id: 'developer-img',
           title: 'Grant Moore, AWS Developer Associate',
           src: '/assets/people/grant/developer_badge.png',
-          alt: 'Grant Moore is a credentialed AWS Developer Associate'
-        }
+          alt: 'Grant Moore is a credentialed AWS Developer Associate',
+        },
       },
       {
         id: 'educator-toggle',
         toggle: 'educator',
         title: 'Grant Moore, Educator',
         content: '',
-        img:{
-            id: 'educator-img-1',
-            title: 'Grant Moore, Educator, 1',
-            src: '/assets/people/grant/educator.jpg',
-            alt: 'Grant Moore has taught physics, mathematics, statistics and business'
-        }
+        img: {
+          id: 'educator-img-1',
+          title: 'Grant Moore, Educator, 1',
+          src: '/assets/people/grant/educator.jpg',
+          alt: 'Grant Moore has taught physics, mathematics, statistics and business',
+        },
       },
       {
         id: 'architecture-toggle',
         toggle: 'cloud native architecture',
         title: 'Grant Moore, Architect',
         content: '',
-        img:{
-            id: 'architect-img',
-            title: 'Grant Moore, Solution Architecct',
-            src: '/assets/people/grant/cloud_native.jpg',
-            alt: 'Grant Moore has designed and implemented many different styles of cloud architecture'
-        }
+        img: {
+          id: 'architect-img',
+          title: 'Grant Moore, Solution Architecct',
+          src: '/assets/people/grant/cloud_native.jpg',
+          alt: 'Grant Moore has designed and implemented many different styles of cloud architecture',
+        },
       },
       {
         id: 'development-toggle',
@@ -1713,8 +1712,8 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
           id: '',
           title: '',
           src: '',
-          alt: ''
-        }
+          alt: '',
+        },
       },
       {
         id: 'design-toggle',
@@ -1725,8 +1724,8 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
           id: '',
           title: '',
           src: '',
-          alt: ''
-        }
+          alt: '',
+        },
       },
     ],
   },
