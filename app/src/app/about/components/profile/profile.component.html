@@ -13,19 +13,17 @@
       id="responsive-content-text"
       aria-label="Text for responsive content"
     >
-      <section 
-        id="persona-section" 
-        *ngIf="unfolded && who" 
-        aria-live="polite"
-      >
+      <section id="persona-section" *ngIf="unfolded && who" aria-live="polite">
         <div
           *ngFor="let index of [0, 1, 2]"
           [id]="selectedProfile.factoids[index].id"
           class="animation mat-h2 text-default clicker"
           (click)="flip(selectedProfile.factoids[index])"
         >
-          <span 
-            *ngIf="!flipped || flippedContent === selectedProfile.factoids[index]" 
+          <span
+            *ngIf="
+              !flipped || flippedContent === selectedProfile.factoids[index]
+            "
             [@fade]
           >
             {{ selectedProfile.factoids[index].toggle }}
@@ -40,14 +38,21 @@
           class="animation mat-h2 text-default clicker"
           (click)="flip(selectedProfile.factoids[index])"
         >
-          <div *ngIf="!flipped || flippedContent === selectedProfile.factoids[index]" [@fade]>
+          <div
+            *ngIf="
+              !flipped || flippedContent === selectedProfile.factoids[index]
+            "
+            [@fade]
+          >
             {{ selectedProfile.factoids[index].toggle }}
           </div>
-          <div 
-            *ngIf="flipped && flippedContent === selectedProfile.factoids[index]"
-            class="underline" 
+          <div
+            *ngIf="
+              flipped && flippedContent === selectedProfile.factoids[index]
+            "
+            class="underline"
             [@enlarge]
-            ></div>
+          ></div>
         </div>
       </section>
     </div>
@@ -327,11 +332,8 @@
             </div>
           </mat-card-content>
 
-          <div
-            id="flipped-actions"
-            class="actions flipped"
-          >
-            <button 
+          <div id="flipped-actions" class="actions flipped">
+            <button
               id="flip-btn"
               mat-fab
               class="clicker"

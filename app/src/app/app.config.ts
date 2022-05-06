@@ -1706,16 +1706,18 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
         toggle: 'mathematician',
         title: 'Grant Moore, Mathematician',
         content: '',
-        style: 'display: flex; flex-direction: row; justify-content: center; width: 100%;',
+        style:
+          'display: flex; flex-direction: row; justify-content: center; width: 100%;',
         imgs: [
           {
             id: 'mathematician-img',
             title: 'Grant Moore, Mathematician',
             src: '/assets/people/grant/mathematician.jpg',
             alt: 'Grant Moore has studied mathematics for over a decade',
-            style: 'width: 75%; border-radius: 25px; border-style: solid; border-width: 2px; border-color: white;',
-            class: 'mat-elevation-z3'
-          }
+            style:
+              'width: 75%; border-radius: 25px; border-style: solid; border-width: 2px; border-color: white;',
+            class: 'mat-elevation-z3',
+          },
         ],
       },
       {
