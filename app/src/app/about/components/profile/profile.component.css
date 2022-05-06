@@ -58,10 +58,10 @@
   position: absolute;
   bottom: 1%;
 }
-.flipped{
+.flipped {
   bottom: -15%;
 }
-.unflipped{
+.unflipped {
   bottom: -7.5%;
 }
 .back {
