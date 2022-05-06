@@ -107,10 +107,11 @@ export interface ContactConfig {
   options?: string[];
 }
 ;
-export interface ElementConfig {
+export interface FlipConfig {
   id: string;
+  toggle: string;
+  title: string;
   content: string;
-  selection: string;
   imgs?: ImgConfig[];
 };
 
@@ -122,7 +123,7 @@ export interface ProfileConfig {
   arrow_tooltip: string;
   position: string;
   blurbs: string[];
-  factoids: ElementConfig[];
+  factoids: FlipConfig[];
 };
 
 interface DesktopLine {
@@ -1655,9 +1656,10 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
     //        must be selected with care.
     factoids: [
       {
-        id: 'mathematician-text',
-        content: 'mathematician',
-        selection: '',
+        id: 'mathematician-toggle',
+        toggle: 'mathematician',
+        title: 'Grant Moore, Mathematician',
+        content: "",
         imgs:[
           {
             id: 'mathematician-img',
@@ -1668,38 +1670,43 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
         ]
       },
       {
-        id: 'technologist-text',
-        content: 'technologist',
-        selection: ''
+        id: 'technologist-toggle',
+        toggle: 'technologist',
+        title: '',
+        content: ''
       },
       {
-        id: 'educator-text',
-        content: 'educator',
-        selection: '',
+        id: 'educator-toggle',
+        toggle: 'educator',
+        title: 'Grant Moore, Educator',
+        content: '',
         imgs: [
           {
-            id: 'educator-img',
-            title: 'Grant Moore, Educator',
-            src: '/assets/people/grant/mathematician.jpg',
+            id: 'educator-img-1',
+            title: 'Grant Moore, Educator, 1',
+            src: '/assets/people/grant/educator.jpg',
             alt: 'Grant Moore has taught physics, mathematics, statistics and business'
           }
         ]
 
       },
       {
-        id: 'architecture-text',
-        content: 'cloud native architecture',
-        selection: ''
+        id: 'architecture-toggle',
+        toggle: 'cloud native architecture',
+        title: '',
+        content: ''
       },
       {
-        id: 'development-text',
-        content: 'test-driven development',
-        selection: ''
+        id: 'development-toggle',
+        toggle: 'test-driven development',
+        title: '',
+        content: ''
       },
       {
-        id: 'design-text',
-        content: 'website design',
-        selection: ''
+        id: 'design-toggle',
+        toggle: 'website design',
+        title: '',
+        content: ''
       },
     ],
   },

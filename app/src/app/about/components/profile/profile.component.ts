@@ -9,7 +9,7 @@ import {
   FlipStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ElementConfig, ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../../../app.config';
+import { FlipConfig, ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../../../app.config';
 
 @Component({
   selector: 'app-profile',
@@ -118,8 +118,9 @@ export class ProfileComponent implements OnInit {
   public scroller?: ElementRef;
 
   public selectedProfile?: ProfileConfig;
-  public flippedContent?: ElementConfig;
+  public flippedContent?: FlipConfig;
   public profileConfig: ProfileConfig[] = PROFILE_CONFIG;
+  public flipped: boolean = false;
   public whoAnimated: boolean = false;
   public whatAnimated: boolean = false;
   public screenSize: string = '';
@@ -257,18 +258,20 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  public flip(content: ElementConfig): void{
-    if(this.flipped()){
+  public flip(content: FlipConfig | undefined): void{
+    if(!this.flipped){
       this.cardFlipCntl.animate();
-      this.flippedContent = undefined;
+      this.flippedContent = content;
+      setTimeout(()=>{
+        this.flipped = true;
+      }, AnimationPeriods.short*500);
     }
     else{
       this.cardFlipCntl.prime();
       this.flippedContent = content;
+      setTimeout(()=>{
+        this.flipped = false;
+      }, AnimationPeriods.short*500);
     }
-  }
-
-  public flipped(): boolean{
-    return this.cardFlipCntl.state === FlipStates.flip;
   }
 }

@@ -61,7 +61,7 @@
   backface-visibility: hidden
 }
 .clicker{
-  z-index: 10;
+  z-index: 9;
   cursor: pointer;
 }
 
@@ -113,15 +113,15 @@
     top: 25%;
     left: -2.5%;
   }
-  #mathematician-text {
+  #mathematician-toggle {
     top: 57.5%;
     left: 10%;
   }
-  #technologist-text {
+  #technologist-toggle {
     top: 68.5%;
     left: 10%;
   }
-  #educator-text {
+  #educator-toggle {
     top: 80%;
     left: 10%;
   }
@@ -135,15 +135,15 @@
     top: 25%;
     right: -2.5%;
   }
-  #development-text {
+  #development-toggle {
     top: 68.5%;
     right: 7.5%;
   }
-  #architecture-text {
+  #architecture-toggle {
     top: 57.5%;
     right: 7.5%;
   }
-  #design-text {
+  #design-toggle {
     top: 80%;
     right: 7.5%;
   }

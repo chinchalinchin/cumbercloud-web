@@ -13,25 +13,28 @@
       id="responsive-content-text"
       aria-label="Text for responsive content"
     >
-      <section id="persona-section" *ngIf="unfolded && who">
+      <section id="persona-section" *ngIf="unfolded && who" aria-live="polite">
         <div
           *ngFor="let index of [0, 1, 2]"
           [id]="selectedProfile.factoids[index].id"
           class="animation mat-h2 text-default clicker"
           (click)="flip(selectedProfile.factoids[index])"
-          [@fade]
         >
-          {{ selectedProfile.factoids[index].content }}
+            <span *ngIf="!flipped" [@fade]>
+              {{ selectedProfile.factoids[index].toggle }}
+            </span>
         </div>
       </section>
+
       <section id="proficiency-section" *ngIf="unfolded && what">
         <div
           *ngFor="let index of [3, 4, 5]"
           [id]="selectedProfile.factoids[index].id"
           class="animation mat-h2 text-default"
-          [@fade]
         >
-          {{ selectedProfile.factoids[index].content }}
+          <span *ngIf="!flipped" [@fade]>
+            {{ selectedProfile.factoids[index].toggle }}
+          </span>
         </div>
       </section>
     </div>
@@ -245,15 +248,18 @@
       </div>
     </div>
 
-    <mat-card id="profile-card" class="mat-elevation-z3" [@cntl_flip]="cardFlipCntl.state">
-      <div class="front face">
+    <mat-card 
+      id="profile-card" 
+      class="mat-elevation-z3" 
+      [@cntl_flip]="cardFlipCntl.state"
+    >
+      <div class="front face" *ngIf="!flipped">
         <div id="profile-header" class="center">
           <div class="profile-pic-container">
             <img
               [src]="selectedProfile.src"
               [title]="selectedProfile.title"
               class="profile-pic"
-              *ngIf="!flipped()"
             />
           </div>
         </div>
@@ -266,7 +272,10 @@
           {{ selectedProfile.position }}
         </mat-card-subtitle>
 
-        <mat-card-content *ngIf="mobileMode()">
+        <mat-card-content 
+          id="unflipped-content"
+          *ngIf="mobileMode()"
+        >
           <div class="mobile-scroller" #scroller>
             <p
               class="mat-body"
@@ -276,10 +285,14 @@
           </div>
         </mat-card-content>
 
-        <div class="actions">
+        <div
+          id="unflipped-actions" 
+          class="actions"
+        >
           <button
             mat-icon-button
             [routerLink]="['/about', 'resume', selectedProfile.key]"
+            aria-label="Learn more about Grant Moore"
           >
             <mat-icon [matTooltip]="selectedProfile.arrow_tooltip"
               >arrow_right_alt</mat-icon
@@ -288,9 +301,39 @@
         </div>
       </div>
 
-      <div class="back face">
-        back face
+      <div class="back face full" *ngIf="flipped">
+        <div *ngIf="flippedContent" class="full">
+          <mat-card-title class="text-center">
+            {{ flippedContent.title }}
+          </mat-card-title>
+          <mat-card-content 
+            id="flipped-content" 
+            class="full"
+          >
+            <div *ngIf="flippedContent.imgs" style="height: 75%;">
+              <div *ngFor="let img of flippedContent.imgs" class="v-align">
+                <img 
+                  [id]="img.id"
+                  [src]="img.src"
+                  [alt]="img.alt"
+                  [title]="img.title"
+                />
+
+              </div>
+            </div>
+          </mat-card-content>
+
+          <div 
+            id="flipped-actions"
+            class="actions"
+          >
+            <button mat-fab class="clicker" (click)="flip(undefined)">
+              <mat-icon>refresh</mat-icon>
+            </button>
+          </div>
+        </div>
       </div>
+
     </mat-card>
 
     <div
