@@ -55,7 +55,11 @@ export interface ChipConfig {
   tooltip: string;
   href: string;
   svgIcon: string;
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> 2c2fce25ceae11c365d27a1ec696ce4934d35339
 
 export interface ExperienceConfig {
   aria_label: string;
@@ -275,8 +279,9 @@ export const SPLASH_CONFIG: StateImgConfig[] = [
     img: {
       src: '/assets/imgs/separated.jpg',
       alt: 'The Cumberland Cloud stands apart from the crowd',
-      title: 'The Cumberland Cloud is different than other development boutiques',
-      id: 'separated-img'
+      title:
+        'The Cumberland Cloud is different than other development boutiques',
+      id: 'separated-img',
     },
   },
   {
@@ -285,9 +290,9 @@ export const SPLASH_CONFIG: StateImgConfig[] = [
       src: '/assets/imgs/cloud_tunnel.jpg',
       alt: 'The Cumberland Cloud architects cloud-native application',
       title: 'The Cumberland Cloud is your tunnel to the cloud!',
-      id: 'cloud-tunnel-img'
-    } 
-  }
+      id: 'cloud-tunnel-img',
+    },
+  },
 ];
 
 export const NAV_CONFIG: NavConfig[] = [
@@ -912,7 +917,7 @@ export const ICON_CONFIG: IconConfig[] = [
   },
   {
     src: '../assets/icons/docker-fill.svg',
-    name: 'docker-fill'
+    name: 'docker-fill',
   },
   {
     src: '../assets/icons/django.svg',
@@ -1006,12 +1011,12 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
       src: '/assets/imgs/innolab.png',
       alt: 'Makpar Innovation Lab: Cutting Edge Technology',
       title: 'Makpar Innovation Lab',
-      id: 'innolab-img'
+      id: 'innolab-img',
     },
     link: {
       id: 'innolab-link',
       href: 'https://laboratory-dev.makpar-innovation.net',
-    }
+    },
   },
   {
     subtitle: 'Buy@GSA',
@@ -1022,12 +1027,12 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
       src: '/assets/imgs/gsa.png',
       alt: 'Buy@GSA: Search Vendors and Suppliers',
       title: 'Buy@GSA Homepage',
-      id: 'gsa-img'
+      id: 'gsa-img',
     },
     link: {
       id: 'gsa-link',
-      href: 'https://buy.gsa.gov'
-    }
+      href: 'https://buy.gsa.gov',
+    },
   },
   {
     subtitle: 'Scrilla',
@@ -1038,12 +1043,12 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
       src: '/assets/imgs/scrilla.png',
       alt: 'Scrilla: A Financial Analysis Application',
       title: 'Scrilla',
-      id: 'scrilla-img'
+      id: 'scrilla-img',
     },
-    link:{
+    link: {
       id: 'scrilla-link',
       href: 'https://chinchalinchin.github.io/scrilla/OVERVIEW.html',
-    }
+    },
   },
 ];
 
