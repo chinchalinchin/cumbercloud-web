@@ -30,7 +30,8 @@
         <div
           *ngFor="let index of [3, 4, 5]"
           [id]="selectedProfile.factoids[index].id"
-          class="animation mat-h2 text-default"
+          class="animation mat-h2 text-default clicker"
+          (click)="flip(selectedProfile.factoids[index])"
         >
           <span *ngIf="!flipped" [@fade]>
             {{ selectedProfile.factoids[index].toggle }}
@@ -310,15 +311,14 @@
             id="flipped-content" 
             class="full"
           >
-            <div *ngIf="flippedContent.imgs" style="height: 75%;">
-              <div *ngFor="let img of flippedContent.imgs" class="v-align">
+            <div style="height: 90%; padding-top: 1%; overflow-y: auto;">
+              <div class="v-align">
                 <img 
-                  [id]="img.id"
-                  [src]="img.src"
-                  [alt]="img.alt"
-                  [title]="img.title"
+                  [id]="flippedContent.img.id"
+                  [src]="flippedContent.img.src"
+                  [alt]="flippedContent.img.alt"
+                  [title]="flippedContent.img.title"
                 />
-
               </div>
             </div>
           </mat-card-content>
