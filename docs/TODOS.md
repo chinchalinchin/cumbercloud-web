@@ -12,6 +12,4 @@
 
 7. add cloudfront edge functions for index.html to cloudformation tempalte.
 
-8. add dialog pop up after contact form submission and clear currnt fields
-
 9. mouseenter -> factoid -> underline/highlight

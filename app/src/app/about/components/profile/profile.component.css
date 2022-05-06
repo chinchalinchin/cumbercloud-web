@@ -29,6 +29,10 @@
   border-width: 1px;
   transform-style: preserve-3d;
 }
+#flipper{
+  padding-top: 1%;
+  overflow-y: auto;
+}
 .profile-pic {
   border-radius: 50%;
   border-style: solid;

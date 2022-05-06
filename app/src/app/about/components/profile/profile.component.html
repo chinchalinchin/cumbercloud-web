@@ -299,20 +299,32 @@
             {{ flippedContent.title }}
           </mat-card-title>
           <mat-card-content id="flipped-content" class="full">
-            <div style="height: 90%; padding-top: 1%; overflow-y: auto">
-              <div class="v-align">
-                <img
-                  [id]="flippedContent.img.id"
-                  [src]="flippedContent.img.src"
-                  [alt]="flippedContent.img.alt"
-                  [title]="flippedContent.img.title"
-                />
-              </div>
+            <div 
+              id="flipper" 
+              [style]="flippedContent.style ? flippedContent.style : null"
+            >
+              <img
+                *ngFor="let img of flippedContent.imgs"  
+                [id]="img.id"
+                [src]="img.src"
+                [alt]="img.alt"
+                [title]="img.title"
+                [style]="img.style"
+              />
             </div>
           </mat-card-content>
 
-          <div id="flipped-actions" class="actions">
-            <button mat-fab class="clicker" (click)="flip(undefined)">
+          <div
+            id="flipped-actions"
+            class="actions"
+          >
+            <button 
+              id="flip-btn"
+              mat-fab class="clicker" 
+              (click)="flip(undefined)"
+              aria-label="Go back to Profile"
+              aria-controls="flipper"
+            >
               <mat-icon>refresh</mat-icon>
             </button>
           </div>

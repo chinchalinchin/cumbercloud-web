@@ -23,6 +23,7 @@ export class AppComponent {
   public selectedNav?: NavConfig;
   public menuDisplayed: boolean = false;
   public sheetDisplayed: boolean = false;
+  public init: boolean = false;
   public menuFoldCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public pageConfig: NavConfig[] = NAV_CONFIG;
   public navConfig: NavConfig[] = NAV_CONFIG.filter((element) => element.menu);
@@ -58,6 +59,10 @@ export class AppComponent {
           .filter((nav: NavConfig) => nav.path === event.url)
           .pop();
       });
+  }
+
+  public ngAfterViewInit(){
+    this.init = true;
   }
 
   private findConfigByPath(path: string): NavConfig | undefined {
