@@ -1,4 +1,4 @@
-:host{
+:host {
   perspective: 600px;
 }
 
@@ -54,13 +54,13 @@
   position: absolute;
   bottom: 1%;
 }
-.back{
+.back {
   transform: rotateY(180deg);
 }
-.face{
-  backface-visibility: hidden
+.face {
+  backface-visibility: hidden;
 }
-.clicker{
+.clicker {
   z-index: 10;
   cursor: pointer;
 }
