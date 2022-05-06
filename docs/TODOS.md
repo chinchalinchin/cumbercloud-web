@@ -11,3 +11,5 @@
 6. add accessiblity attr to svgs: https://stackoverflow.com/questions/4697100/accessibility-recommended-alt-text-convention-for-svg-and-mathml
 
 7. add cloudfront edge functions for index.html to cloudformation tempalte.
+
+8. add dialog pop up after contact form submission and clear currnt fields
