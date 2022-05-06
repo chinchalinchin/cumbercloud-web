@@ -1780,15 +1780,15 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
       {
         id: 'development-toggle',
         toggle: 'test-driven development',
-        title: '',
+        title: 'Grant Moore, Automated Tester',
         content: '',
-        style: 'height: 100%;',
+        style: 'height: 80%;',
         imgs: [
           {
-            id: '',
-            title: '',
-            src: '',
-            alt: '',
+            id: 'tdd-img',
+            title: 'Grant Moore, Automated Tester',
+            src: '/assets/people/grant/tdd.png',
+            alt: 'Grant Moore believes in the philsophy of test-driven development',
             style: '',
           },
         ],
