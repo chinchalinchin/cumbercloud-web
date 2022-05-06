@@ -7,18 +7,18 @@ export interface ImgConfig {
   title: string;
   src: string;
   alt: string;
-};
+}
 
 export interface LinkConfig {
   id: string;
   href: string;
   innerHTML?: string;
-};
+}
 
 export interface StateImgConfig {
   img: ImgConfig;
   state: string;
-};
+}
 
 export interface NavConfig {
   path: string;
@@ -30,17 +30,17 @@ export interface NavConfig {
   data?: any;
   children?: NavConfig[];
   meta?: MetaConfig[];
-};
+}
 
 export interface MetaConfig {
   property: string;
   content: string;
-};
+}
 
 export interface IconConfig {
   src: string;
   name: string;
-};
+}
 
 export interface GalleryConfig {
   img: ImgConfig;
@@ -49,13 +49,13 @@ export interface GalleryConfig {
   subtitle: string;
   subtitle_id: string;
   tooltip: string;
-};
+}
 
 export interface ChipConfig {
   tooltip: string;
   href: string;
   svgIcon: string;
-};
+}
 
 export interface ExperienceConfig {
   aria_label: string;
@@ -65,7 +65,7 @@ export interface ExperienceConfig {
   responsibilities: string[];
   accomplishments?: string[];
   links?: LinkConfig[];
-};
+}
 
 export interface PricingParameterConfig {
   type: string;
@@ -73,7 +73,7 @@ export interface PricingParameterConfig {
   states?: number;
   state_descriptions?: string[];
   state_titles?: string[];
-};
+}
 
 export interface FeeConfig {
   service: string;
@@ -81,7 +81,7 @@ export interface FeeConfig {
   justification: string;
   basis: string;
   href: string;
-};
+}
 
 export interface PricingConfig {
   key: string;
@@ -91,13 +91,13 @@ export interface PricingConfig {
   rate: number;
   tooltip: string;
   ids: string[];
-};
+}
 
 export interface CertificationConfig {
   tab_id: string;
   title: string;
   img: ImgConfig;
-};
+}
 
 export interface ContactConfig {
   reason: string;
@@ -106,14 +106,13 @@ export interface ContactConfig {
   options_exclusive?: boolean;
   options?: string[];
 }
-;
 export interface FlipConfig {
   id: string;
   toggle: string;
   title: string;
   content: string;
   imgs?: ImgConfig[];
-};
+}
 
 export interface ProfileConfig {
   name: string;
@@ -124,7 +123,7 @@ export interface ProfileConfig {
   position: string;
   blurbs: string[];
   factoids: FlipConfig[];
-};
+}
 
 interface DesktopLine {
   moved: string;
@@ -275,8 +274,9 @@ export const SPLASH_CONFIG: StateImgConfig[] = [
     img: {
       src: '/assets/imgs/separated.jpg',
       alt: 'The Cumberland Cloud stands apart from the crowd',
-      title: 'The Cumberland Cloud is different than other development boutiques',
-      id: 'separated-img'
+      title:
+        'The Cumberland Cloud is different than other development boutiques',
+      id: 'separated-img',
     },
   },
   {
@@ -285,9 +285,9 @@ export const SPLASH_CONFIG: StateImgConfig[] = [
       src: '/assets/imgs/cloud_tunnel.jpg',
       alt: 'The Cumberland Cloud architects cloud-native application',
       title: 'The Cumberland Cloud is your tunnel to the cloud!',
-      id: 'cloud-tunnel-img'
-    } 
-  }
+      id: 'cloud-tunnel-img',
+    },
+  },
 ];
 
 export const NAV_CONFIG: NavConfig[] = [
@@ -912,7 +912,7 @@ export const ICON_CONFIG: IconConfig[] = [
   },
   {
     src: '../assets/icons/docker-fill.svg',
-    name: 'docker-fill'
+    name: 'docker-fill',
   },
   {
     src: '../assets/icons/django.svg',
@@ -1006,12 +1006,12 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
       src: '/assets/imgs/innolab.png',
       alt: 'Makpar Innovation Lab: Cutting Edge Technology',
       title: 'Makpar Innovation Lab',
-      id: 'innolab-img'
+      id: 'innolab-img',
     },
     link: {
       id: 'innolab-link',
       href: 'https://laboratory-dev.makpar-innovation.net',
-    }
+    },
   },
   {
     subtitle: 'Buy@GSA',
@@ -1022,12 +1022,12 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
       src: '/assets/imgs/gsa.png',
       alt: 'Buy@GSA: Search Vendors and Suppliers',
       title: 'Buy@GSA Homepage',
-      id: 'gsa-img'
+      id: 'gsa-img',
     },
     link: {
       id: 'gsa-link',
-      href: 'https://buy.gsa.gov'
-    }
+      href: 'https://buy.gsa.gov',
+    },
   },
   {
     subtitle: 'Scrilla',
@@ -1038,18 +1038,18 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
       src: '/assets/imgs/scrilla.png',
       alt: 'Scrilla: A Financial Analysis Application',
       title: 'Scrilla',
-      id: 'scrilla-img'
+      id: 'scrilla-img',
     },
-    link:{
+    link: {
       id: 'scrilla-link',
       href: 'https://chinchalinchin.github.io/scrilla/OVERVIEW.html',
-    }
+    },
   },
 ];
 
 export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
   {
-    aria_label: "Grant Moore, DevOps Engineer",
+    aria_label: 'Grant Moore, DevOps Engineer',
     company: 'Makpar, Inc.',
     position: 'DevOps Engineer',
     years: '2021 - Current',
@@ -1088,7 +1088,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Full Stack Developer",
+    aria_label: 'Grant Moore, Full Stack Developer',
     company: 'IBM',
     position: 'Full Stack Developer',
     years: '2019 - 2021',
@@ -1121,7 +1121,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Mathematics Professor",
+    aria_label: 'Grant Moore, Mathematics Professor',
     company: 'Front Range Community College',
     position: 'Mathematics Professor',
     years: '2017 - 2018',
@@ -1134,7 +1134,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Mathematics Professor",
+    aria_label: 'Grant Moore, Mathematics Professor',
     company: 'University of Cincinnati',
     position: 'Adjunct Mathematics Professor',
     years: '2017',
@@ -1145,7 +1145,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Physics Professor",
+    aria_label: 'Grant Moore, Physics Professor',
     company: 'Frostburg State University',
     position: 'Adjunct Physics Professor',
     years: '2015 - 2017',
@@ -1156,7 +1156,7 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Mathematics Professor",
+    aria_label: 'Grant Moore, Mathematics Professor',
     company: 'Allegany College of Maryland',
     position: 'Mathematics Professor',
     years: '2015 - 2016',
@@ -1167,13 +1167,13 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
     ],
   },
   {
-    aria_label: "Grant Moore, Mathematics Mentor",
+    aria_label: 'Grant Moore, Mathematics Mentor',
     company: 'Americorps',
     position: 'Mathematics Mentor',
     years: '2014 - 2016',
     responsibilities: [
-      "Helped students succeed in mathematics, physics and computer science",
-      "Tutored in subjects ranging from Basic Arithmetic to Differential Equations", 
+      'Helped students succeed in mathematics, physics and computer science',
+      'Tutored in subjects ranging from Basic Arithmetic to Differential Equations',
     ],
   },
 ];
@@ -1659,21 +1659,21 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
         id: 'mathematician-toggle',
         toggle: 'mathematician',
         title: 'Grant Moore, Mathematician',
-        content: "",
-        imgs:[
+        content: '',
+        imgs: [
           {
             id: 'mathematician-img',
             title: 'Grant Moore, Mathematician',
             src: '/assets/people/grant/mathematician.jpg',
-            alt: 'Grant Moore has studied mathematics for over a decade'
-          }
-        ]
+            alt: 'Grant Moore has studied mathematics for over a decade',
+          },
+        ],
       },
       {
         id: 'technologist-toggle',
         toggle: 'technologist',
         title: '',
-        content: ''
+        content: '',
       },
       {
         id: 'educator-toggle',
@@ -1685,28 +1685,27 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
             id: 'educator-img-1',
             title: 'Grant Moore, Educator, 1',
             src: '/assets/people/grant/educator.jpg',
-            alt: 'Grant Moore has taught physics, mathematics, statistics and business'
-          }
-        ]
-
+            alt: 'Grant Moore has taught physics, mathematics, statistics and business',
+          },
+        ],
       },
       {
         id: 'architecture-toggle',
         toggle: 'cloud native architecture',
         title: '',
-        content: ''
+        content: '',
       },
       {
         id: 'development-toggle',
         toggle: 'test-driven development',
         title: '',
-        content: ''
+        content: '',
       },
       {
         id: 'design-toggle',
         toggle: 'website design',
         title: '',
-        content: ''
+        content: '',
       },
     ],
   },
