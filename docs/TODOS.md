@@ -12,4 +12,4 @@
 
 7. add cloudfront edge functions for index.html to cloudformation tempalte.
 
-9. mouseenter -> factoid -> underline/highlight
+8. mouseenter -> factoid -> underline/highlight

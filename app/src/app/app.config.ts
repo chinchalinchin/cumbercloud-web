@@ -728,43 +728,43 @@ export const ASSET_CONFIG: ImgConfig[] = [
     src: '/assets/people/grant/cloud_native.jpg',
     alt: 'Cumberland Cloud Architecture Diagram',
     title: 'Cloud Native Architecture',
-    id: 'cloud-native-architecture'
+    id: 'cloud-native-architecture',
   },
   {
     src: '/assets/people/grant/code.png',
     alt: 'Grant Moore, Full Stack Developer',
     title: 'Microsoft Visual Code',
-    id: 'microsoft-visual-code'
+    id: 'microsoft-visual-code',
   },
   {
     src: '/assets/people/grant/devops_badge.png',
     alt: 'AWS Certified DevOps Engineer',
     title: 'Grant Moore, DevOps Engineer',
-    id: 'devops-badge'
+    id: 'devops-badge',
   },
   {
     src: '/assets/people/grant/developer_badge.png',
     alt: 'AWS Certified Developer',
     title: 'Grant Moore, Developer',
-    id: 'developer-badge'
+    id: 'developer-badge',
   },
   {
     src: '/assets/people/grant/educator.jpg',
     alt: 'Grant Moore taught university for four years',
     title: 'Grant Moore, Educator',
-    id: 'educator-img'
+    id: 'educator-img',
   },
   {
     src: '/assets/people/grant/inkscape.png',
     alt: 'Grant Moore is a graphic designer',
     title: 'Grant Moore, Designer',
-    id: 'inkscape-img'
+    id: 'inkscape-img',
   },
   {
     src: '/assets/people/grant/mathematician.jpg',
     alt: 'Grant Moore is a mathematician',
     title: 'Grant Moore, Mathematician',
-    id: 'mathematician-img'
+    id: 'mathematician-img',
   },
   {
     src: '/assets/svgs/rain-droplet.svg',
@@ -1712,7 +1712,7 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
             src: '/assets/people/grant/mathematician.jpg',
             alt: 'Grant Moore has studied mathematics for over a decade',
             style: 'height: 80%;',
-          }
+          },
         ],
       },
       {
@@ -1720,29 +1720,31 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
         toggle: 'technologist',
         title: 'Grant Moore, Technologist',
         content: '',
-        style: 'display: flex; flex-direction: row; width: 100%; align-content: center; justify-content: space-evenly;',
+        style:
+          'display: flex; flex-direction: row; width: 100%; align-content: center; justify-content: space-evenly;',
         imgs: [
           {
             id: 'devops-img',
             title: 'Grant Moore, AWS Devops Professional',
             src: '/assets/people/grant/devops_badge.png',
             alt: 'Grant Moore is a credentialed AWS DevOps Engineer',
-            style: 'width: 25%; height: auto;'
+            style: 'width: 25%; height: auto;',
           },
           {
             id: 'developer-img',
             title: 'Grant Moore, AWS Developer Associate',
             src: '/assets/people/grant/developer_badge.png',
             alt: 'Grant Moore is a credentialed AWS Developer Associate',
-            style: 'width: 25%; height: auto;'
-          }
-        ]
+            style: 'width: 25%; height: auto;',
+          },
+        ],
       },
       {
         id: 'educator-toggle',
         toggle: 'educator',
         title: 'Grant Moore, Educator',
-        style: 'height: 70%; display: flex; flex-direction: column; justify-content: center;',
+        style:
+          'height: 70%; display: flex; flex-direction: column; justify-content: center;',
         content: '',
         imgs: [
           {
@@ -1750,9 +1752,9 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
             title: 'Grant Moore, Educator, 1',
             src: '/assets/people/grant/educator.jpg',
             alt: 'Grant Moore has taught physics, mathematics, statistics and business',
-            style: ''
+            style: '',
           },
-        ]
+        ],
       },
       {
         id: 'architecture-toggle',
@@ -1766,9 +1768,9 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
             title: 'Grant Moore, Solution Architecct',
             src: '/assets/people/grant/cloud_native.jpg',
             alt: 'Grant Moore has designed and implemented many different styles of cloud architecture',
-            style: ''
+            style: '',
           },
-        ]
+        ],
       },
       {
         id: 'development-toggle',
@@ -1782,32 +1784,33 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
             title: '',
             src: '',
             alt: '',
-            style: ''
+            style: '',
           },
-        ]
+        ],
       },
       {
         id: 'design-toggle',
         toggle: 'website design',
         title: 'Grant Moore, Designer',
         content: '',
-        style: 'width: 100%; display: flex; flex-direction: row; justify-content: center;',
+        style:
+          'width: 100%; display: flex; flex-direction: row; justify-content: center;',
         imgs: [
           {
             id: 'inkscape-img',
             title: 'Grant Moore, Graphic Designer',
             src: '/assets/people/grant/inkscape.png',
             alt: 'Grant Moore is a graphic designer',
-            style: 'width: 40%; margin-right: 1%;'
+            style: 'width: 40%; margin-right: 1%;',
           },
           {
             id: 'visualcode-img',
             title: 'Grant Moore, Developer',
             src: '/assets/people/grant/code.png',
             alt: 'Grant moore is a full-stack developer',
-            style: 'width: 40%; margin-left: 1%;'
-          }
-        ]
+            style: 'width: 40%; margin-left: 1%;',
+          },
+        ],
       },
     ],
   },

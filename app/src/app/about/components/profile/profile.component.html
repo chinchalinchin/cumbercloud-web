@@ -299,12 +299,12 @@
             {{ flippedContent.title }}
           </mat-card-title>
           <mat-card-content id="flipped-content" class="full">
-            <div 
-              id="flipper" 
+            <div
+              id="flipper"
               [style]="flippedContent.style ? flippedContent.style : null"
             >
               <img
-                *ngFor="let img of flippedContent.imgs"  
+                *ngFor="let img of flippedContent.imgs"
                 [id]="img.id"
                 [src]="img.src"
                 [alt]="img.alt"
@@ -314,13 +314,11 @@
             </div>
           </mat-card-content>
 
-          <div
-            id="flipped-actions"
-            class="actions"
-          >
-            <button 
+          <div id="flipped-actions" class="actions">
+            <button
               id="flip-btn"
-              mat-fab class="clicker" 
+              mat-fab
+              class="clicker"
               (click)="flip(undefined)"
               aria-label="Go back to Profile"
               aria-controls="flipper"

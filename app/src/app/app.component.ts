@@ -61,7 +61,7 @@ export class AppComponent {
       });
   }
 
-  public ngAfterViewInit(){
+  public ngAfterViewInit() {
     this.init = true;
   }
 
