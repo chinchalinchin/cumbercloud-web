@@ -7,18 +7,18 @@ export interface ImgConfig {
   title: string;
   src: string;
   alt: string;
-}
+};
 
 export interface LinkConfig {
   id: string;
   href: string;
   innerHTML?: string;
-}
+};
 
 export interface StateImgConfig {
   img: ImgConfig;
   state: string;
-}
+};
 
 export interface NavConfig {
   path: string;
@@ -30,17 +30,17 @@ export interface NavConfig {
   data?: any;
   children?: NavConfig[];
   meta?: MetaConfig[];
-}
+};
 
 export interface MetaConfig {
   property: string;
   content: string;
-}
+};
 
 export interface IconConfig {
   src: string;
   name: string;
-}
+};
 
 export interface GalleryConfig {
   img: ImgConfig;
@@ -49,14 +49,13 @@ export interface GalleryConfig {
   subtitle: string;
   subtitle_id: string;
   tooltip: string;
-}
+};
 
 export interface ChipConfig {
   tooltip: string;
   href: string;
   svgIcon: string;
-}
-
+};
 
 export interface ExperienceConfig {
   aria_label: string;
@@ -66,7 +65,7 @@ export interface ExperienceConfig {
   responsibilities: string[];
   accomplishments?: string[];
   links?: LinkConfig[];
-}
+};
 
 export interface PricingParameterConfig {
   type: string;
@@ -74,7 +73,7 @@ export interface PricingParameterConfig {
   states?: number;
   state_descriptions?: string[];
   state_titles?: string[];
-}
+};
 
 export interface FeeConfig {
   service: string;
@@ -82,7 +81,7 @@ export interface FeeConfig {
   justification: string;
   basis: string;
   href: string;
-}
+};
 
 export interface PricingConfig {
   key: string;
@@ -92,13 +91,13 @@ export interface PricingConfig {
   rate: number;
   tooltip: string;
   ids: string[];
-}
+};
 
 export interface CertificationConfig {
   tab_id: string;
   title: string;
   img: ImgConfig;
-}
+};
 
 export interface ContactConfig {
   reason: string;
@@ -107,11 +106,13 @@ export interface ContactConfig {
   options_exclusive?: boolean;
   options?: string[];
 }
-
+;
 export interface ElementConfig {
   id: string;
   content: string;
-}
+  selection: string;
+  imgs?: ImgConfig[];
+};
 
 export interface ProfileConfig {
   name: string;
@@ -122,7 +123,7 @@ export interface ProfileConfig {
   position: string;
   blurbs: string[];
   factoids: ElementConfig[];
-}
+};
 
 interface DesktopLine {
   moved: string;
@@ -1656,26 +1657,49 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
       {
         id: 'mathematician-text',
         content: 'mathematician',
+        selection: '',
+        imgs:[
+          {
+            id: 'mathematician-img',
+            title: 'Grant Moore, Mathematician',
+            src: '/assets/people/grant/mathematician.jpg',
+            alt: 'Grant Moore has studied mathematics for over a decade'
+          }
+        ]
       },
       {
         id: 'technologist-text',
         content: 'technologist',
+        selection: ''
       },
       {
         id: 'educator-text',
         content: 'educator',
+        selection: '',
+        imgs: [
+          {
+            id: 'educator-img',
+            title: 'Grant Moore, Educator',
+            src: '/assets/people/grant/mathematician.jpg',
+            alt: 'Grant Moore has taught physics, mathematics, statistics and business'
+          }
+        ]
+
       },
       {
         id: 'architecture-text',
         content: 'cloud native architecture',
+        selection: ''
       },
       {
         id: 'development-text',
         content: 'test-driven development',
+        selection: ''
       },
       {
         id: 'design-text',
         content: 'website design',
+        selection: ''
       },
     ],
   },

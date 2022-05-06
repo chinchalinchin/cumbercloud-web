@@ -17,7 +17,8 @@
         <div
           *ngFor="let index of [0, 1, 2]"
           [id]="selectedProfile.factoids[index].id"
-          class="animation mat-h2 text-default"
+          class="animation mat-h2 text-default clicker"
+          (click)="flip(selectedProfile.factoids[index])"
           [@fade]
         >
           {{ selectedProfile.factoids[index].content }}
@@ -47,7 +48,10 @@
         *ngIf="!mobileMode()"
         [@cntl_position_who_1]="whoPositionCntls[0].state"
       >
-        <object data="/assets/svgs/rain-droplet.svg" type="image/svg+xml">
+        <object 
+          data="/assets/svgs/rain-droplet.svg" 
+          type="image/svg+xml"
+        >
           <!--TODO: <img src="yourfallback.jpg" /> -->
         </object>
       </div>
@@ -78,6 +82,7 @@
         id="development-droplet"
         aria-labelledby="development-text"
         class="animation"
+        style="cursor: help;"
         *ngIf="!mobileMode()"
         [@cntl_position_what_1]="whatPositionCntls[0].state"
       >
@@ -240,44 +245,51 @@
       </div>
     </div>
 
-    <mat-card id="profile-card" class="mat-elevation-z3">
-      <div id="profile-header" class="center">
-        <div class="profile-pic-container">
-          <img
-            [src]="selectedProfile.src"
-            [title]="selectedProfile.title"
-            class="profile-pic"
-          />
+    <mat-card id="profile-card" class="mat-elevation-z3" [@cntl_flip]="cardFlipCntl.state">
+      <div class="front face">
+        <div id="profile-header" class="center">
+          <div class="profile-pic-container">
+            <img
+              [src]="selectedProfile.src"
+              [title]="selectedProfile.title"
+              class="profile-pic"
+              *ngIf="!flipped()"
+            />
+          </div>
+        </div>
+  
+        <mat-card-title class="text-center">
+          {{ selectedProfile.name }}
+        </mat-card-title>
+  
+        <mat-card-subtitle class="text-center">
+          {{ selectedProfile.position }}
+        </mat-card-subtitle>
+
+        <mat-card-content *ngIf="mobileMode()">
+          <div class="mobile-scroller" #scroller>
+            <p
+              class="mat-body"
+              *ngFor="let blurb of selectedProfile.blurbs"
+              [innerHTML]="blurb"
+            ></p>
+          </div>
+        </mat-card-content>
+
+        <div class="actions">
+          <button
+            mat-icon-button
+            [routerLink]="['/about', 'resume', selectedProfile.key]"
+          >
+            <mat-icon [matTooltip]="selectedProfile.arrow_tooltip"
+              >arrow_right_alt</mat-icon
+            >
+          </button>
         </div>
       </div>
 
-      <mat-card-title class="text-center">
-        {{ selectedProfile.name }}
-      </mat-card-title>
-
-      <mat-card-subtitle class="text-center">
-        {{ selectedProfile.position }}
-      </mat-card-subtitle>
-
-      <mat-card-content *ngIf="mobileMode()">
-        <div class="mobile-scroller" #scroller>
-          <p
-            class="mat-body"
-            *ngFor="let blurb of selectedProfile.blurbs"
-            [innerHTML]="blurb"
-          ></p>
-        </div>
-      </mat-card-content>
-
-      <div class="actions">
-        <button
-          mat-icon-button
-          [routerLink]="['/about', 'resume', selectedProfile.key]"
-        >
-          <mat-icon [matTooltip]="selectedProfile.arrow_tooltip"
-            >arrow_right_alt</mat-icon
-          >
-        </button>
+      <div class="back face">
+        back face
       </div>
     </mat-card>
 

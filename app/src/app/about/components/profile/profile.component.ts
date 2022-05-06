@@ -6,9 +6,10 @@ import {
   AnimationPeriods,
   Animations,
   AnimationTriggers,
+  FlipStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
-import { ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../../../app.config';
+import { ElementConfig, ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../../../app.config';
 
 @Component({
   selector: 'app-profile',
@@ -109,6 +110,7 @@ import { ProfileConfig, PROFILE_CONFIG, SVG_CONFIG } from '../../../app.config';
     ),
     Animations.getFadeTrigger(),
     Animations.getExpandTrigger('100%'),
+    Animations.getManualFlipTrigger()
   ],
 })
 export class ProfileComponent implements OnInit {
@@ -116,11 +118,15 @@ export class ProfileComponent implements OnInit {
   public scroller?: ElementRef;
 
   public selectedProfile?: ProfileConfig;
+  public flippedContent?: ElementConfig;
   public profileConfig: ProfileConfig[] = PROFILE_CONFIG;
   public whoAnimated: boolean = false;
   public whatAnimated: boolean = false;
   public screenSize: string = '';
   public svgConfig: any = SVG_CONFIG;
+  public cardFlipCntl: AnimationControl = new AnimationControl(
+    AnimationTriggers.cntl_flip
+  );
   public whoBnrScaleCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_scale
   );
@@ -249,5 +255,20 @@ export class ProfileComponent implements OnInit {
       this.whatGrassPositionCntl.animatePosition(1);
       this.whatFlowerPositionCntl.animatePosition(1);
     }
+  }
+
+  public flip(content: ElementConfig): void{
+    if(this.flipped()){
+      this.cardFlipCntl.animate();
+      this.flippedContent = undefined;
+    }
+    else{
+      this.cardFlipCntl.prime();
+      this.flippedContent = content;
+    }
+  }
+
+  public flipped(): boolean{
+    return this.cardFlipCntl.state === FlipStates.flip;
   }
 }

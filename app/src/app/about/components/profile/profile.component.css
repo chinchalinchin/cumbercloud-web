@@ -1,3 +1,7 @@
+:host{
+  perspective: 600px;
+}
+
 #about {
   position: absolute;
   width: 100%;
@@ -23,6 +27,7 @@
 #profile-card {
   border: solid;
   border-width: 1px;
+  transform-style: preserve-3d;
 }
 .profile-pic {
   border-radius: 50%;
@@ -48,6 +53,16 @@
 .actions {
   position: absolute;
   bottom: 1%;
+}
+.back{
+  transform: rotateY(180deg);
+}
+.face{
+  backface-visibility: hidden
+}
+.clicker{
+  z-index: 10;
+  cursor: pointer;
 }
 
 @media (max-width: 992px) {

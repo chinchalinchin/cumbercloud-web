@@ -93,8 +93,9 @@ export enum SkewStates {
   skewed = 'skewed',
   normal = 'normal',
 }
+
 /**
- *
+ * Enumeration of {@link Animations} swip states
  */
 export enum SwipeStates {
   unmoved = 'unmoved',
@@ -102,6 +103,14 @@ export enum SwipeStates {
   swipe_right = 'swipe_right',
   unswipe_left = 'unswipe_left',
   unswipe_right = 'unswipe_right',
+}
+
+/**
+ * Enumeration of {@link Animation} flip states
+ */
+export enum FlipStates{
+  flip="flip",
+  unflip="unflip"
 }
 /**
  * Enumeration of triggers for {@link Animations}.
@@ -122,6 +131,7 @@ export enum AnimationTriggers {
   cntl_fold = 'cntl_fold',
   cntl_position = 'cntl_position',
   cntl_skew = 'cntl_skew',
+  cntl_flip = 'cntl_flip'
 }
 /**
  * Enumeration of animation lengths for {@link Animations}
@@ -428,6 +438,27 @@ export class Animations {
     ]);
   }
 
+  public static getManualFlipTrigger(
+    tag: string | null | undefined = null,
+    animateLength: number = AnimationPeriods.short
+  ): AnimationTriggerMetadata{
+    let triggerTag = formatTriggerTag(AnimationTriggers.cntl_flip, tag)
+    return trigger(triggerTag, [
+      state(FlipStates.unflip, style({
+        transform: 'none'
+      })),
+      state(FlipStates.flip, style({
+        transform: 'rotateY(180deg)'
+      })),
+      transition(`${FlipStates.unflip} => ${FlipStates.flip}`, [
+        animate(`${animateLength}s`)
+      ]),
+      transition(`${FlipStates.flip} => ${FlipStates.unflip}`, [
+        animate(`${animateLength}s`)
+      ])
+    ])
+  }
+
   /**
    * # Description
    * Get animation trigger for sliding an element horizontally on and off screen over a specified time period.
@@ -715,6 +746,8 @@ export class AnimationControl {
       case AnimationTriggers.cntl_skew:
         this.state = SkewStates.skewed;
         break;
+      case AnimationTriggers.cntl_flip:
+        this.state = FlipStates.flip;
     }
   }
 
@@ -751,6 +784,9 @@ export class AnimationControl {
         break;
       case AnimationTriggers.cntl_swipe:
         this.state = SwipeStates.unmoved;
+        break;
+      case AnimationTriggers.cntl_flip:
+        this.state = FlipStates.unflip;
         break;
     }
   }
