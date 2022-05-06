@@ -10,11 +10,7 @@ import {
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import {
-<<<<<<< HEAD
   FlipConfig,
-=======
-  ElementConfig,
->>>>>>> 8be7f8ad15df29856d7bceef41880197586e760f
   ProfileConfig,
   PROFILE_CONFIG,
   SVG_CONFIG,

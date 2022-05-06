@@ -122,11 +122,7 @@ export interface ProfileConfig {
   arrow_tooltip: string;
   position: string;
   blurbs: string[];
-<<<<<<< HEAD
   factoids: FlipConfig[];
-=======
-  factoids: ElementConfig[];
->>>>>>> 8be7f8ad15df29856d7bceef41880197586e760f
 }
 
 interface DesktopLine {
