@@ -7,13 +7,13 @@
   $accent-palette: map.get($color-config, "accent");
   $warn-palette: map.get($color-config, "warn");
 
-  .popup-backdrop{
+  .popup-backdrop {
     background-color: map-get($warn-palette, 50);
   }
-  .mat-select-value-text{
+  .mat-select-value-text {
     color: white;
   }
-  #contact-link{
+  #contact-link {
     color: map-get($warn-palette, 800);
   }
 }
