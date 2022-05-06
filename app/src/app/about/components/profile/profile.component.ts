@@ -266,15 +266,17 @@ export class ProfileComponent implements OnInit {
   public flip(content: FlipConfig | undefined): void {
     if (!this.flipped) {
       this.cardFlipCntl.animate();
-      this.flippedContent = content;
       setTimeout(() => {
+        this.flippedContent = content;
         this.flipped = true;
       }, AnimationPeriods.medium * 500);
     } else {
       this.cardFlipCntl.prime();
-      this.flippedContent = content;
-      setTimeout(() => {
+      setTimeout(()=>{
         this.flipped = false;
+      }, AnimationPeriods.medium*500);
+      setTimeout(() => {
+        this.flippedContent = content;
       }, AnimationPeriods.medium * 1000);
     }
   }

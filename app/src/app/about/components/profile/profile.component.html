@@ -305,7 +305,7 @@
         </div>
       </div>
 
-      <div class="back face full" *ngIf="flipped">
+      <div class="back face full" *ngIf="flippedContent || !flipped">
         <div *ngIf="flippedContent" class="full">
           <mat-card-title class="text-center">
             {{ flippedContent.title }}
