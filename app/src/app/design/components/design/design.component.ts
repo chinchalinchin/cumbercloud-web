@@ -443,10 +443,12 @@ export class DesignComponent implements OnInit {
     }
   }
 
-  public splashImgConfig(): ImgConfig{
-    let conf = this.splashConfig.filter((conf)=> conf.state === this.splash.toString()).pop();
-    if(conf) return conf.img;
-    else return this.splashConfig[0].img
+  public splashImgConfig(): ImgConfig {
+    let conf = this.splashConfig
+      .filter((conf) => conf.state === this.splash.toString())
+      .pop();
+    if (conf) return conf.img;
+    else return this.splashConfig[0].img;
   }
 
   public lure(): void {
