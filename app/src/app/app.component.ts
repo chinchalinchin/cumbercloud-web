@@ -65,7 +65,7 @@ export class AppComponent {
   }
 
   public ngAfterViewInit() {
-    setTimeout(()=>{
+    setTimeout(() => {
       this.init = true;
     }, 250);
   }
