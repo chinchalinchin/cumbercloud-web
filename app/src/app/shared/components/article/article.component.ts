@@ -9,15 +9,14 @@ import { ArticleService } from 'src/services/article.service';
   styleUrls: ['./article.component.css'],
 })
 export class ArticleComponent implements OnInit {
-  
   public article: ArticleConfig;
 
-  constructor( 
+  constructor(
     private _route: ActivatedRoute,
     private _articles: ArticleService
   ) {
     let route_param: string | null = this._route.snapshot.paramMap.get('name');
-    let route_id : number | null= route_param ? parseInt(route_param) : null;
+    let route_id: number | null = route_param ? parseInt(route_param) : null;
     this.article = this._articles.getById(route_id);
   }
 

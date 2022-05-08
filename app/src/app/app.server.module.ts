@@ -23,7 +23,7 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
   ],
   bootstrap: [AppComponent],
 })

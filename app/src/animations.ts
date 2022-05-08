@@ -401,8 +401,7 @@ export class Animations {
         query('@*', animateChild(), { optional: true }),
       ])
     );
-    triggerConfig.push(transition(':leave', [
-    ]));
+    triggerConfig.push(transition(':leave', []));
     return trigger(triggerTag, triggerConfig);
   }
 

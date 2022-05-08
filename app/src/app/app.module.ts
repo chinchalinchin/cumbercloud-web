@@ -27,10 +27,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent, 
-    HomeComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
