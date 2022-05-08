@@ -35,7 +35,7 @@ export class AppComponent {
     private _renderer: Renderer2,
     private _seo: SeoService,
     private _meta: MetaService,
-    private _ga: GoogleAnalyticsService,
+    private _ga: GoogleAnalyticsService
   ) {
     this._router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
@@ -74,10 +74,10 @@ export class AppComponent {
   public toggleMenu() {
     if (this.menuDisplayed) {
       this.menuFoldCntl.prime();
-      this._ga.event('app', 'menu', 'display')
+      this._ga.event('app', 'menu', 'display');
     } else {
       this.menuFoldCntl.animate();
-      this._ga.event('app', 'menu','hide');
+      this._ga.event('app', 'menu', 'hide');
     }
     this.menuDisplayed = !this.menuDisplayed;
   }
@@ -87,6 +87,6 @@ export class AppComponent {
       ariaLabel: 'Contact Information',
       panelClass: 'sheet',
     });
-    this._ga.event('app', 'sheet', 'open')
+    this._ga.event('app', 'sheet', 'open');
   }
 }
