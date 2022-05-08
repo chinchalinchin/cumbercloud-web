@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ArchiveComponent } from './shared/components/archive/archive.component';
+import { ArticleComponent } from './shared/components/article/article.component';
 import { ErrorComponent } from './shared/components/error/error.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: '404', component: ErrorComponent },
+  { path: 'archive', component: ArchiveComponent },
+  { path: 'article/:title', component: ArticleComponent },
   {
     path: 'about',
     loadChildren: () =>
