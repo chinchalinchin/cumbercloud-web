@@ -40,7 +40,7 @@
     background-color: map-get($primary-palette, 50);
   }
   .overlay{
-    background-color: rgba(map-get($primary-palette, 100), 0.5);
+    background-color: rgba(map-get($primary-palette, 50), 0.5);
   }
 }
 

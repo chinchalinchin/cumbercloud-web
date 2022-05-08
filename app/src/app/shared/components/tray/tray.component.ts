@@ -20,6 +20,7 @@ import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers } fro
 export class TrayComponent implements OnInit {
 
   public extended: boolean = false;
+  public extending: boolean = false;
   public positionCntl : AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
   @Output()
   public trayChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -38,6 +39,10 @@ export class TrayComponent implements OnInit {
       this.positionCntl.animatePosition(0);
     }
     this.extended = !this.extended;
+    this.extending = true;
+    setTimeout(()=>{
+      this.extending = false;
+    }, AnimationPeriods.short*900);
     console.log('emitting')
     this.trayChanged.emit(this.extended);
   }

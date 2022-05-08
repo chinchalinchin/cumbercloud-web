@@ -5,6 +5,15 @@
     [@cntl_position_tray]="positionCntl.state"
     [@expand]
 >
+    <div id="news-container" *ngIf="extended || extending">
+        <div class="news-item">
+            latest blog goes here
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div class="news-item">
+            archive goes here
+        </div>
+    </div>
     <div 
         id="chevron-container"
     >
