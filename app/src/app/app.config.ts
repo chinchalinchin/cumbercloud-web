@@ -1201,6 +1201,13 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
       'MATH 1008 Quantitative Logic',
       'BANA 2081 Business Analytics',
     ],
+    links: [
+      {
+        id: 'uc-rmp-link',
+        href: 'https://www.ratemyprofessors.com/ShowRatings.jsp?tid=2295611',
+        innerHTML: 'Rate My Professor - Grant Moore'
+      }
+    ]
   },
   {
     aria_label: 'Grant Moore, Physics Professor',

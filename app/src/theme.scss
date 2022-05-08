@@ -11,6 +11,7 @@
 @use "./app/pricing/components/pricing/pricing.theme" as pricing;
 @use "./app/pricing/components/rate/rate.theme" as rate;
 @use "./app/contact/components/contact/contact.theme" as contact;
+@use "./app/contact/components/sent/sent.theme" as sent;
 @use "./app/shared/components/sheet/sheet.theme" as sheet;
 
 @import "~@angular/material/theming";
@@ -233,4 +234,5 @@ $cc-theme: mat-light-theme($cc-primary, $cc-complement, $cc-warn);
 @include pricing.theme($cc-theme);
 @include rate.theme($cc-theme);
 @include contact.theme($cc-theme);
+@include sent.theme($cc-theme);
 @include resume.theme($cc-theme);
