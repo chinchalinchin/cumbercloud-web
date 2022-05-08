@@ -55,13 +55,11 @@
   /* Track */
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px map-get($accent-palette, 400);
-
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: map-get($primary-palette, 700);
-
   }
 
   /* Handle on hover */
