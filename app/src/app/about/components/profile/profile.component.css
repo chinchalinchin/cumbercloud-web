@@ -103,7 +103,6 @@
   #profile-header {
     height: 45%;
     margin-bottom: -5%;
-
   }
   .profile-scroller {
     padding-left: 5%;
@@ -177,7 +176,7 @@
   .face {
     backface-visibility: hidden;
   }
-  .flipped{
+  .flipped {
     bottom: -15%;
   }
   .unflipped {
