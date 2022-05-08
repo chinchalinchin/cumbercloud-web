@@ -39,7 +39,7 @@
   .bg-btm-layer {
     background-color: map-get($primary-palette, 50);
   }
-  .overlay{
+  .overlay {
     background-color: rgba(map-get($primary-palette, 100), 0.5);
   }
 }
