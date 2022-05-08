@@ -119,7 +119,7 @@ import {
   ],
 })
 export class ProfileComponent implements OnInit {
-  @ViewChild('scroller', { static: false })
+  @ViewChild('unflipped-content', { static: false })
   public scroller?: ElementRef;
 
   public selectedProfile?: ProfileConfig;

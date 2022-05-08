@@ -36,6 +36,9 @@
   .profile-underline {
     border-color: black;
   }
+  .profile-scroller{
+    background-color: map-get($primary-palette, 800);
+  }
 }
 
 @mixin theme($theme) {
