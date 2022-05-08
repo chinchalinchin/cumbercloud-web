@@ -20,7 +20,7 @@ import { ArticleService } from 'src/services/article.service';
       { top: '0%', bottom: '100%', right: '0%', left: '0%' },
       [
         { top: '0%', bottom: '97%', left: '0%', right: '0%' },
-        { top: '0%', bottom: '75%', left: '0%', right: '0%' },
+        { top: '0%', bottom: '70%', left: '0%', right: '0%' },
       ],
       'tray'
     ),
