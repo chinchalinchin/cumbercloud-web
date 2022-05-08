@@ -3,6 +3,7 @@
     class="mat-elevation-z3" 
     [class.tabbed]="!extended"    
     [@cntl_position_tray]="positionCntl.state"
+    [@expand]
 >
     <div 
         id="chevron-container"
@@ -13,7 +14,7 @@
             aria-controls="tray"
             aria-label="Open blog tray menu"
             [svgIcon]=" extended ? 'chevron_up': 'chevron_down'"
-            matTooltip="Read the Cumberland Cloud blog!"
+            [matTooltip]="extended ? 'Go back to the Cumberland Cloud' : 'Read the Cumberland Cloud blog!'"
             (click)="extend()"
         >
         </mat-icon>

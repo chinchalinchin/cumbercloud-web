@@ -6,11 +6,12 @@ import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers } fro
   templateUrl: './tray.component.html',
   styleUrls: ['./tray.component.css'],
   animations: [
+    Animations.getExpandTrigger('3%'),
     Animations.getManualPositionTrigger(
       { top: '0%', bottom: '100%', right: '0%', left:'0%'},
       [
         { top: '0%', bottom: '97%', left: '0%', right: '0%' },
-        { top: '0%', bottom: '0%', left: '0%', right: '0%'}
+        { top: '0%', bottom: '75%', left: '0%', right: '0%'}
       ],
       'tray',
       AnimationPeriods.medium
