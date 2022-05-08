@@ -25,12 +25,12 @@ import { ArticleComponent } from './components/article/article.component';
     SharedMaterialModule,
   ],
   exports: [
+    TrayComponent,
     CommonModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     SharedMaterialModule,
-    TrayComponent,
   ],
 })
 export class SharedModule {}
