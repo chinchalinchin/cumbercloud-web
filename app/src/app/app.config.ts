@@ -818,9 +818,21 @@ export const ASSET_CONFIG: ImgConfig[] = [
   {
     src: '/assets/imgs/innolab.png',
     alt: 'Innovation Lab',
-    title: 'A Shining Sun',
-    id: 'svg-sun-graphic',
+    title: 'Makpar, Innovation Lab',
+    id: 'innolab-img',
   },
+  {
+    src: '/assets/imgs/gsa.png',
+    alt: 'Buy@GSA Homepage',
+    title: 'Buy@GSA Homepage',
+    id: 'gsa-img'
+  },
+  {
+    src: '/assets/imgs/scrilla.png',
+    alt: 'Scrilla Documentation Homepage',
+    title: 'Scrilla: Financial Analysis',
+    id: 'scrilla-img'
+  }
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [

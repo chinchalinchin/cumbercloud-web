@@ -113,8 +113,9 @@
   .profile-scroller{
     padding-left: 5%;
     padding-right: 5%;
+    padding-bottom: 1%;
     overflow-y: auto;
-    border-radius: 25px;
+    border-radius: 15px;
   }
 }
 @media (min-width: 991px) {
