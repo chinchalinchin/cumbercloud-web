@@ -825,14 +825,14 @@ export const ASSET_CONFIG: ImgConfig[] = [
     src: '/assets/imgs/gsa.png',
     alt: 'Buy@GSA Homepage',
     title: 'Buy@GSA Homepage',
-    id: 'gsa-img'
+    id: 'gsa-img',
   },
   {
     src: '/assets/imgs/scrilla.png',
     alt: 'Scrilla Documentation Homepage',
     title: 'Scrilla: Financial Analysis',
-    id: 'scrilla-img'
-  }
+    id: 'scrilla-img',
+  },
 ];
 
 export const TOOL_CHIPS: ChipConfig[] = [
@@ -1205,9 +1205,9 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
       {
         id: 'uc-rmp-link',
         href: 'https://www.ratemyprofessors.com/ShowRatings.jsp?tid=2295611',
-        innerHTML: 'Rate My Professor - Grant Moore'
-      }
-    ]
+        innerHTML: 'Rate My Professor - Grant Moore',
+      },
+    ],
   },
   {
     aria_label: 'Grant Moore, Physics Professor',
