@@ -111,6 +111,7 @@ import { HomeConfig, HomeStates, HOME_CONFIG, ImgConfig } from '../app.config';
       'cloud_line_mobile_3',
       AnimationPeriods.short
     ),
+    Animations.getFadeTrigger(),
     Animations.getManualFadeTrigger(null, AnimationPeriods.short),
     Animations.getSlideTrigger(false, '', AnimationPeriods.short),
     Animations.getSlideTrigger(true, 'reverse', AnimationPeriods.short),

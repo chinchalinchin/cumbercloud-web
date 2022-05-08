@@ -65,7 +65,9 @@ export class AppComponent {
   }
 
   public ngAfterViewInit() {
-    this.init = true;
+    setTimeout(()=>{
+      this.init = true;
+    }, 250);
   }
 
   private findConfigByPath(path: string): NavConfig | undefined {
