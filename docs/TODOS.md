@@ -11,3 +11,15 @@
 6. add accessiblity attr to svgs: https://stackoverflow.com/questions/4697100/accessibility-recommended-alt-text-convention-for-svg-and-mathml
 
 7. add cloudfront edge functions for index.html to cloudformation tempalte.
+
+8. tray component that expands up when clicked for blog.
+
+### articles
+
+1. angular and seo
+
+2. angular and cicd
+
+3. angular and responsive web apps
+
+4. angular and prerenderings

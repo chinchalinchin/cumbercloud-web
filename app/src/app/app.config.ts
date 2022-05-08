@@ -191,7 +191,7 @@ export const HOME_CONFIG: HomeConfig[] = [
   {
     state: 'one',
     img: {
-      src: '/assets/imgs/circuitry-banner.jpg',
+      src: '/assets/imgs/banners/circuitry-banner.jpg',
       alt: 'The Cumberland Cloud uses cutting-edge technology',
       title: 'The Cumberland Cloud - Technology',
       id: 'circuitry-banner',
@@ -213,7 +213,7 @@ export const HOME_CONFIG: HomeConfig[] = [
   {
     state: 'two',
     img: {
-      src: '/assets/imgs/money-banner.jpg',
+      src: '/assets/imgs/banners/money-banner.jpg',
       alt: 'The Cumberland Cloud will save you money!',
       title: 'The Cumberland Cloud - Cost',
       id: 'money-banner',
@@ -233,7 +233,7 @@ export const HOME_CONFIG: HomeConfig[] = [
   {
     state: 'three',
     img: {
-      src: '/assets/imgs/expertise-banner.jpg',
+      src: '/assets/imgs/banners/expertise-banner.jpg',
       alt: 'The Cumberland Cloud offers expert services',
       title: 'The Cumberland Cloud - Expertise',
       id: 'expertise-banner',
@@ -253,7 +253,7 @@ export const HOME_CONFIG: HomeConfig[] = [
   {
     state: 'four',
     img: {
-      src: '/assets/imgs/human_centric_design-banner.jpg',
+      src: '/assets/imgs/banners/human_centric_design-banner.jpg',
       alt: 'The Cumberland Cloud puts the user first',
       title: 'The Cumberland Cloud - Design',
       id: 'design-banner',
@@ -272,11 +272,11 @@ export const HOME_CONFIG: HomeConfig[] = [
   },
 ];
 
-export const SPLASH_CONFIG: StateImgConfig[] = [
+export const DESIGN_CONFIG: StateImgConfig[] = [
   {
     state: 'untouched',
     img: {
-      src: '/assets/imgs/separated.jpg',
+      src: '/assets/imgs/banners/separated.jpg',
       alt: 'The Cumberland Cloud stands apart from the crowd',
       title:
         'The Cumberland Cloud is different than other development boutiques',
@@ -286,7 +286,7 @@ export const SPLASH_CONFIG: StateImgConfig[] = [
   {
     state: 'touched',
     img: {
-      src: '/assets/imgs/cloud_tunnel.jpg',
+      src: '/assets/imgs/banners/cloud_tunnel.jpg',
       alt: 'The Cumberland Cloud architects cloud-native application',
       title: 'The Cumberland Cloud is your tunnel to the cloud!',
       id: 'cloud-tunnel-img',
@@ -308,15 +308,15 @@ export const NAV_CONFIG: NavConfig[] = [
         '@context': 'https://schema.org',
         '@type': 'Organization',
         url: 'https://cumberland-cloud.com',
-        logo: 'https://cumberland-cloud.com/assets/icons/cloud-03.svg',
+        logo: 'https://cumberland-cloud.com/assets/svgs/icons/cloud-03.svg',
       },
       {
         '@context': 'https://schema.org',
         '@type': 'ProfessionalService',
         image: [
-          'https://cumberland-cloud.com/assets/imgs/circuitry-banner.jpg',
-          'https://cumberland-cloud.com/assets/imgs/expertise-banner.jpg',
-          'https://cumberland-cloud.com/assets/imgs/human_centric_design-banner.jpg',
+          'https://cumberland-cloud.com/assets/imgs/banners/circuitry-banner.jpg',
+          'https://cumberland-cloud.com/assets/imgs/banners/expertise-banner.jpg',
+          'https://cumberland-cloud.com/assets/imgs/banners/human_centric_design-banner.jpg',
         ],
         name: 'The Cumberland Cloud',
         address: {
@@ -414,7 +414,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/people/grant/profile.jpg',
+        content: 'http://cumberland-cloud.com/assets/imgs/people/grant/profile.jpg',
       },
       {
         property: 'og:image:type',
@@ -422,7 +422,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:secure_url',
-        content: 'https://cumberland-cloud.com/assets/people/grant/profile.jpg',
+        content: 'https://cumberland-cloud.com/assets/imgs/people/grant/profile.jpg',
       },
       {
         property: 'og:image:width',
@@ -438,7 +438,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:image',
-        content: 'https://cumberland-cloud.com/assets/people/grant/profile.jpg',
+        content: 'https://cumberland-cloud.com/assets/imgs/people/grant/profile.jpg',
       },
       {
         property: 'twitter:image:alt',
@@ -484,7 +484,7 @@ export const NAV_CONFIG: NavConfig[] = [
       {
         property: 'og:image',
         content:
-          'http://cumberland-cloud.com/assets/people/grant/americorps.jpg',
+          'http://cumberland-cloud.com/assets/imgs/people/grant/americorps.jpg',
       },
       {
         property: 'og:image:type',
@@ -493,7 +493,7 @@ export const NAV_CONFIG: NavConfig[] = [
       {
         property: 'og:image:secure_url',
         content:
-          'https://cumberland-cloud.com/assets/people/grant/americorps.jpg',
+          'https://cumberland-cloud.com/assets/imgs/people/grant/americorps.jpg',
       },
       {
         property: 'og:image:width',
@@ -510,7 +510,7 @@ export const NAV_CONFIG: NavConfig[] = [
       {
         property: 'twitter:image',
         content:
-          'https://cumberland-cloud.com/assets/people/grant/americorps.jpg',
+          'https://cumberland-cloud.com/assets/imgs/people/grant/americorps.jpg',
       },
       {
         property: 'twitter:image:alt',
@@ -538,7 +538,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg',
+        content: 'http://cumberland-cloud.com/assets/imgs/banners/cloud_tunnel.jpg',
       },
       {
         property: 'og:image:type',
@@ -546,7 +546,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:secure_url',
-        content: 'https://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg',
+        content: 'https://cumberland-cloud.com/assets/imgs/banners/cloud_tunnel.jpg',
       },
       {
         property: 'og:image:width',
@@ -562,7 +562,7 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:image',
-        content: 'https://cumberland-cloud.com/assets/imgs/cloud_tunnel.jpg',
+        content: 'https://cumberland-cloud.com/assets/imgs/banners/cloud_tunnel.jpg',
       },
       {
         property: 'twitter:image:alt',
@@ -684,85 +684,85 @@ export const NAV_CONFIG: NavConfig[] = [
 
 export const ASSET_CONFIG: ImgConfig[] = [
   {
-    src: '/assets/imgs/money-banner.jpg',
+    src: '/assets/imgs/banners/money-banner.jpg',
     alt: 'Money, Money, Money',
     title: 'Some Money',
     id: 'money-banner',
   },
   {
-    src: '/assets/imgs/circuitry-banner.jpg',
+    src: '/assets/imgs/banners/circuitry-banner.jpg',
     alt: 'Cloud Computing',
     title: 'Cumberland Cloud Computing Services',
     id: 'cloud-computing-banner',
   },
   {
-    src: '/assets/imgs/expertise-banner.jpg',
+    src: '/assets/imgs/banners/expertise-banner.jpg',
     alt: 'Expert Services',
     title: 'Cumberland Cloud Expertise',
     id: 'expertise-banner',
   },
   {
-    src: '/assets/imgs/human_centric_design-banner.jpg',
+    src: '/assets/imgs/banners/human_centric_design-banner.jpg',
     alt: 'Human Centered Design',
     title: 'Cumberland Cloud Design Principles',
     id: 'hcd-design-banner',
   },
   {
-    src: '/assets/imgs/separated.jpg',
+    src: '/assets/imgs/banners/separated.jpg',
     alt: 'Standing Apart',
     title: 'Cumberland Cloud Uniqueness',
     id: 'separate-banner',
   },
   {
-    src: '/assets/imgs/cloud_tunnel.jpg',
+    src: '/assets/imgs/banners/cloud_tunnel.jpg',
     alt: 'Cloud Tunnel',
     title: 'A Tunnel to the Clouds',
     id: 'cloud-tunnel-img',
   },
   {
-    src: '/assets/people/grant/profile.jpg',
+    src: '/assets/imgs/people/grant/profile.jpg',
     alt: 'Grant Moore',
     title: "Grant Moore's Chiseled Jawline",
     id: 'grant-profile-pic',
   },
   {
-    src: '/assets/people/grant/cloud_native.jpg',
+    src: '/assets/imgs/people/grant/cloud_native.jpg',
     alt: 'Cumberland Cloud Architecture Diagram',
     title: 'Cloud Native Architecture',
     id: 'cloud-native-architecture',
   },
   {
-    src: '/assets/people/grant/code.png',
+    src: '/assets/imgs/people/grant/code.png',
     alt: 'Grant Moore, Full Stack Developer',
     title: 'Microsoft Visual Code',
     id: 'microsoft-visual-code',
   },
   {
-    src: '/assets/people/grant/devops_badge.png',
+    src: '/assets/imgs/people/grant/devops_badge.png',
     alt: 'AWS Certified DevOps Engineer',
     title: 'Grant Moore, DevOps Engineer',
     id: 'devops-badge',
   },
   {
-    src: '/assets/people/grant/developer_badge.png',
+    src: '/assets/imgs/people/grant/developer_badge.png',
     alt: 'AWS Certified Developer',
     title: 'Grant Moore, Developer',
     id: 'developer-badge',
   },
   {
-    src: '/assets/people/grant/educator.jpg',
+    src: '/assets/imgs/people/grant/educator.jpg',
     alt: 'Grant Moore taught university for four years',
     title: 'Grant Moore, Educator',
     id: 'educator-img',
   },
   {
-    src: '/assets/people/grant/inkscape.png',
+    src: '/assets/imgs/people/grant/inkscape.png',
     alt: 'Grant Moore is a graphic designer',
     title: 'Grant Moore, Designer',
     id: 'inkscape-img',
   },
   {
-    src: '/assets/people/grant/mathematician.jpg',
+    src: '/assets/imgs/people/grant/mathematician.jpg',
     alt: 'Grant Moore is a mathematician',
     title: 'Grant Moore, Mathematician',
     id: 'mathematician-img',
@@ -816,19 +816,19 @@ export const ASSET_CONFIG: ImgConfig[] = [
     id: 'svg-sun-graphic',
   },
   {
-    src: '/assets/imgs/innolab.png',
+    src: '/assets/imgs/portfolio/innolab.png',
     alt: 'Innovation Lab',
     title: 'Makpar, Innovation Lab',
     id: 'innolab-img',
   },
   {
-    src: '/assets/imgs/gsa.png',
+    src: '/assets/imgs/portfolio/gsa.png',
     alt: 'Buy@GSA Homepage',
     title: 'Buy@GSA Homepage',
     id: 'gsa-img',
   },
   {
-    src: '/assets/imgs/scrilla.png',
+    src: '/assets/imgs/portfolio/scrilla.png',
     alt: 'Scrilla Documentation Homepage',
     title: 'Scrilla: Financial Analysis',
     id: 'scrilla-img',
@@ -905,151 +905,159 @@ export const TOOL_CHIPS: ChipConfig[] = [
 
 export const ICON_CONFIG: IconConfig[] = [
   {
-    src: '../assets/icons/aws-logo.svg',
+    src: '../assets/svgs/icons/aws-logo.svg',
     name: 'aws',
   },
   {
-    src: '../assets/icons/aws-apigateway.svg',
+    src: '../assets/svgs/icons/aws-apigateway.svg',
     name: 'apigateway',
   },
   {
-    src: '../assets/icons/angular.svg',
+    src: '../assets/svgs/icons/angular.svg',
     name: 'angular',
   },
   {
-    src: '../assets/icons/bash.svg',
+    src: '../assets/svgs/icons/bash.svg',
     name: 'bash',
   },
   {
-    src: '../assets/icons/calculator.svg',
+    src: '../assets/svgs/icons/calculator.svg',
     name: 'calculator',
   },
   {
-    src: '../assets/icons/aws-cloudfront.svg',
+    src: '../assets/svgs/icons/aws-cloudfront.svg',
     name: 'cloudfront',
   },
   {
-    src: '../assets/icons/aws-cognito.svg',
+    src: '../assets/svgs/icons/aws-cognito.svg',
     name: 'cognito',
   },
   {
-    src: '../assets/icons/cloud.svg',
+    src: '../assets/svgs/icons/chevron_up.svg',
+    name: 'chevron_up'
+  },
+  {
+    src: '../assets/svgs/icons/chevron_down.svg',
+    name: 'chevron_down'
+  },
+  {
+    src: '../assets/svgs/icons/cloud.svg',
     name: 'cloud_alt',
   },
   {
-    src: '../assets/icons/cloud-code.svg',
+    src: '../assets/svgs/icons/cloud-code.svg',
     name: 'cloud_code',
   },
   {
-    src: '../assets/icons/cloud-computing_01.svg',
+    src: '../assets/svgs/icons/cloud-computing_01.svg',
     name: 'cloud_compute',
   },
   {
-    src: '../assets/icons/cloud-computing_02.svg',
+    src: '../assets/svgs/icons/cloud-computing_02.svg',
     name: 'cloud_compute_alt',
   },
   {
-    src: '../assets/icons/cloud-download.svg',
+    src: '../assets/svgs/icons/cloud-download.svg',
     name: 'cloud_download',
   },
   {
-    src: '../assets/icons/cloud-outline.svg',
+    src: '../assets/svgs/icons/cloud-outline.svg',
     name: 'cloud_outline',
   },
   {
-    src: '../assets/icons/drawio.svg',
+    src: '../assets/svgs/icons/drawio.svg',
     name: 'drawio',
   },
   {
-    src: '../assets/icons/aws-dynamodb.svg',
+    src: '../assets/svgs/icons/aws-dynamodb.svg',
     name: 'dynamodb',
   },
   {
-    src: '../assets/icons/docker-round.svg',
+    src: '../assets/svgs/icons/docker-round.svg',
     name: 'docker',
   },
   {
-    src: '../assets/icons/docker-fill.svg',
+    src: '../assets/svgs/icons/docker-fill.svg',
     name: 'docker-fill',
   },
   {
-    src: '../assets/icons/django.svg',
+    src: '../assets/svgs/icons/django.svg',
     name: 'django',
   },
   {
-    src: '../assets/icons/floppy-disk.svg',
+    src: '../assets/svgs/icons/floppy-disk.svg',
     name: 'floppy_disk',
   },
   {
-    src: '../assets/icons/github.svg',
+    src: '../assets/svgs/icons/github.svg',
     name: 'github',
   },
   {
-    src: '../assets/icons/gimp-color.svg',
+    src: '../assets/svgs/icons/gimp-color.svg',
     name: 'gimp',
   },
   {
-    src: '../assets/icons/html5.svg',
+    src: '../assets/svgs/icons/html5.svg',
     name: 'html',
   },
   {
-    src: '../assets/icons/inkscape.svg',
+    src: '../assets/svgs/icons/inkscape.svg',
     name: 'inkscape',
   },
   {
-    src: '../assets/icons/lightbulb.svg',
+    src: '../assets/svgs/icons/lightbulb.svg',
     name: 'lightbulb',
   },
   {
-    src: '../assets/icons/lightbulb-outline.svg',
+    src: '../assets/svgs/icons/lightbulb-outline.svg',
     name: 'lightbulb_badge',
   },
   {
-    src: '../assets/icons/linux.svg',
+    src: '../assets/svgs/icons/linux.svg',
     name: 'linux',
   },
   {
-    src: '../assets/icons/aws-lambda.svg',
+    src: '../assets/svgs/icons/aws-lambda.svg',
     name: 'lambda',
   },
   {
-    src: '../assets/icons/piechart.svg',
+    src: '../assets/svgs/icons/piechart.svg',
     name: 'piechart',
   },
   {
-    src: '../assets/icons/pypi.svg',
+    src: '../assets/svgs/icons/pypi.svg',
     name: 'pypi',
   },
   {
-    src: '../assets/icons/python.svg',
+    src: '../assets/svgs/icons/python.svg',
     name: 'python',
   },
   {
-    src: '../assets/icons/aws-rds.svg',
+    src: '../assets/svgs/icons/aws-rds.svg',
     name: 'rds',
   },
   {
-    src: '../assets/icons/aws-s3.svg',
+    src: '../assets/svgs/icons/aws-s3.svg',
     name: 's3',
   },
   {
-    src: '../assets/icons/sunny.svg',
+    src: '../assets/svgs/icons/sunny.svg',
     name: 'sunny_fill',
   },
   {
-    src: '../assets/icons/sunny-outline.svg',
+    src: '../assets/svgs/icons/sunny-outline.svg',
     name: 'sunny',
   },
   {
-    src: '../assets/icons/typescript.svg',
+    src: '../assets/svgs/icons/typescript.svg',
     name: 'typescript',
   },
   {
-    src: '../assets/icons/twitter.svg',
+    src: '../assets/svgs/icons/twitter.svg',
     name: 'twitter',
   },
   {
-    src: '../assets/icons/adobe-xd.svg',
+    src: '../assets/svgs/icons/adobe-xd.svg',
     name: 'xd',
   },
 ];
@@ -1061,7 +1069,7 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
     subtitle_id: 'innolab-gallery-subtitle',
     tooltip: 'Makpar Innovation Lab Homepage',
     img: {
-      src: '/assets/imgs/innolab.png',
+      src: '/assets/imgs/portfolio/innolab.png',
       alt: 'Makpar Innovation Lab: Cutting Edge Technology',
       title: 'Makpar Innovation Lab',
       id: 'innolab-img',
@@ -1077,7 +1085,7 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
     subtitle_id: 'gsa-gallery-subtitle',
     tooltip: 'Buy@GSA Homepage',
     img: {
-      src: '/assets/imgs/gsa.png',
+      src: '/assets/imgs/portfolio/gsa.png',
       alt: 'Buy@GSA: Search Vendors and Suppliers',
       title: 'Buy@GSA Homepage',
       id: 'gsa-img',
@@ -1093,7 +1101,7 @@ export const GALLERY_CONFIG: GalleryConfig[] = [
     subtitle_id: 'scrilla-gallery-subtitle',
     tooltip: 'Scrilla Documentation Homepage',
     img: {
-      src: '/assets/imgs/scrilla.png',
+      src: '/assets/imgs/portfolio/scrilla.png',
       alt: 'Scrilla: A Financial Analysis Application',
       title: 'Scrilla',
       id: 'scrilla-img',
@@ -1248,7 +1256,7 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
     tab_id: 'aws-devops-tab',
     title: 'AWS DevOps Engineer Professional',
     img: {
-      src: '/assets/certs/AWS_DEVOPS.png',
+      src: '/assets/imgs/certs/AWS_DEVOPS.png',
       alt: 'AWS DevOps Professional Certificate',
       title: 'Amazon Web Services DevOps Engineer Professional Certification',
       id: 'aws-devops-cert-img',
@@ -1258,7 +1266,7 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
     tab_id: 'aws-developer-tab',
     title: 'AWS Developer Associate',
     img: {
-      src: '/assets/certs/AWS_DEVELOPER.png',
+      src: '/assets/imgs/certs/AWS_DEVELOPER.png',
       alt: 'AWS Developer Associate Certificate',
       title: 'Amazon Web Services Developer Associate Certification',
       id: 'aws-developer-cert-img',
@@ -1268,7 +1276,7 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
     tab_id: 'mta-dba-tab',
     title: 'MTA Database Administration',
     img: {
-      src: '/assets/certs/MTA_DATABASE.png',
+      src: '/assets/imgs/certs/MTA_DATABASE.png',
       alt: 'MTA Database Administration Certificate',
       title:
         'Microsoft Technology Associate Database Administration Certification',
@@ -1279,7 +1287,7 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
     tab_id: 'mta-software-tab',
     title: 'MTA Software Development',
     img: {
-      src: '/assets/certs/MTA_SOFTWARE.png',
+      src: '/assets/imgs/certs/MTA_SOFTWARE.png',
       alt: 'MTA Software Development Certificate',
       title: 'Grant Moore, MTA Software Development',
       id: 'mta-software-img',
@@ -1289,7 +1297,7 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
     tab_id: 'mta-python-tab',
     title: 'MTA Python Programming',
     img: {
-      src: '/assets/certs/MTA_PYTHON.png',
+      src: '/assets/imgs/certs/MTA_PYTHON.png',
       alt: 'MTA Python Programming Certificate',
       title:
         'Microsoft Technology Associate Introduction to Python Programming Certification',
@@ -1300,7 +1308,7 @@ export const CERTIFICATION_CONFIG: CertificationConfig[] = [
     tab_id: 'mta-java-tab',
     title: 'MTA Java Programming',
     img: {
-      src: '/assets/certs/MTA_JAVA.png',
+      src: '/assets/imgs/certs/MTA_JAVA.png',
       alt: 'MTA Java Programming Certificate',
       title:
         'Microsoft Technology Associate Introduction to Java Programming Certification',
@@ -1706,7 +1714,7 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
   {
     name: 'Grant Moore',
     key: 'grant',
-    src: '/assets/people/grant/profile.jpg',
+    src: '/assets/imgs/people/grant/profile.jpg',
     title: 'Grant Moore, Lead Engineer',
     arrow_tooltip: "Grant Moore's Resume",
     position: 'Solution Architect, Developer & Designer',
@@ -1731,7 +1739,7 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
           {
             id: 'mathematician-img',
             title: 'Grant Moore, Mathematician',
-            src: '/assets/people/grant/mathematician.jpg',
+            src: '/assets/imgs/people/grant/mathematician.jpg',
             alt: 'Grant Moore has studied mathematics for over a decade',
             style:
               'width: 75%; border-radius: 25px; border-style: solid; border-width: 2px; border-color: white;',
@@ -1750,14 +1758,14 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
           {
             id: 'devops-img',
             title: 'Grant Moore, AWS Devops Professional',
-            src: '/assets/people/grant/devops_badge.png',
+            src: '/assets/imgs/people/grant/devops_badge.png',
             alt: 'Grant Moore is a credentialed AWS DevOps Engineer',
             style: 'width: 25%; height: auto;',
           },
           {
             id: 'developer-img',
             title: 'Grant Moore, AWS Developer Associate',
-            src: '/assets/people/grant/developer_badge.png',
+            src: '/assets/imgs/people/grant/developer_badge.png',
             alt: 'Grant Moore is a credentialed AWS Developer Associate',
             style: 'width: 25%; height: auto;',
           },
@@ -1774,7 +1782,7 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
           {
             id: 'educator-img-1',
             title: 'Grant Moore, Educator, 1',
-            src: '/assets/people/grant/educator.jpg',
+            src: '/assets/imgs/people/grant/educator.jpg',
             alt: 'Grant Moore has taught physics, mathematics, statistics and business',
             style: '',
           },
@@ -1790,7 +1798,7 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
           {
             id: 'architect-img',
             title: 'Grant Moore, Solution Architecct',
-            src: '/assets/people/grant/cloud_native.jpg',
+            src: '/assets/imgs/people/grant/cloud_native.jpg',
             alt: 'Grant Moore has designed and implemented many different styles of cloud architecture',
             style: '',
           },
@@ -1806,7 +1814,7 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
           {
             id: 'tdd-img',
             title: 'Grant Moore, Automated Tester',
-            src: '/assets/people/grant/tdd.png',
+            src: '/assets/imgs/people/grant/tdd.png',
             alt: 'Grant Moore believes in the philsophy of test-driven development',
             style: '',
           },
@@ -1823,14 +1831,14 @@ export const PROFILE_CONFIG: ProfileConfig[] = [
           {
             id: 'inkscape-img',
             title: 'Grant Moore, Graphic Designer',
-            src: '/assets/people/grant/inkscape.png',
+            src: '/assets/imgs/people/grant/inkscape.png',
             alt: 'Grant Moore is a graphic designer',
             style: 'width: 40%; margin-right: 1%;',
           },
           {
             id: 'visualcode-img',
             title: 'Grant Moore, Developer',
-            src: '/assets/people/grant/code.png',
+            src: '/assets/imgs/people/grant/code.png',
             alt: 'Grant moore is a full-stack developer',
             style: 'width: 40%; margin-left: 1%;',
           },

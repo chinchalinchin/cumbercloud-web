@@ -303,7 +303,7 @@ export class Animations {
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
     let triggerTag = formatTriggerTag(AnimationTriggers.cntl_fold, tag);
-    return trigger(AnimationTriggers.cntl_fold, [
+    return trigger(triggerTag, [
       state(
         ExpandStates.open,
         style({
@@ -603,7 +603,12 @@ export class Animations {
         query('@*', animateChild(), { optional: true }),
       ]),
       transition(':leave', [
-        animate(`${animateLength}s`, style({ height: 0 })),
+        animate(
+          `${animateLength}s`,
+          keyframes([
+            style({ height: `${toHeight}`, offset: 0}),
+            style({ height: 0, offset: 1 }),
+          ])),
         query('@*', animateChild(), { optional: true }),
       ]),
     ]);

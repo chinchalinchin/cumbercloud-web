@@ -13,6 +13,7 @@
 @use "./app/contact/components/contact/contact.theme" as contact;
 @use "./app/contact/components/sent/sent.theme" as sent;
 @use "./app/shared/components/sheet/sheet.theme" as sheet;
+@use "./app/shared/components/tray/tray.theme" as tray;
 
 @import "~@angular/material/theming";
 
@@ -236,3 +237,4 @@ $cc-theme: mat-light-theme($cc-primary, $cc-complement, $cc-warn);
 @include contact.theme($cc-theme);
 @include sent.theme($cc-theme);
 @include resume.theme($cc-theme);
+@include tray.theme($cc-theme);
