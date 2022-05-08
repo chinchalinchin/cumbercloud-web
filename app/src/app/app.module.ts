@@ -25,9 +25,14 @@ import { HomeComponent } from 'src/app/home/home.component';
 import { MetaService } from 'src/services/meta.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { environment } from 'src/environments/environment';
+import { TrayComponent } from './tray/tray.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [
+    AppComponent, 
+    HomeComponent,
+    TrayComponent
+  ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,

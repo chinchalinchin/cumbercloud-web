@@ -4,6 +4,7 @@
 @use "./global.scss" as global;
 @use "./app/app.theme" as app;
 @use "./app/home/home.theme" as home;
+@use "./app/tray/tray.theme" as tray;
 @use "./app/design/components/design/design.theme" as design;
 @use "./app/about/components/profile/profile.theme" as profile;
 @use "./app/about/components/resume/resume.theme" as resume;
@@ -13,7 +14,6 @@
 @use "./app/contact/components/contact/contact.theme" as contact;
 @use "./app/contact/components/sent/sent.theme" as sent;
 @use "./app/shared/components/sheet/sheet.theme" as sheet;
-@use "./app/shared/components/tray/tray.theme" as tray;
 
 @import "~@angular/material/theming";
 

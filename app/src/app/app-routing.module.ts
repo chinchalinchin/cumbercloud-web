@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ArchiveComponent } from './shared/components/archive/archive.component';
-import { ArticleComponent } from './shared/components/article/article.component';
+import { ArchiveComponent } from './blog/components/archive/archive.component';
+import { ArticleComponent } from './blog/components/article/article.component';
 import { ErrorComponent } from './shared/components/error/error.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: '404', component: ErrorComponent },
-  { path: 'archive', component: ArchiveComponent },
-  { path: 'article/:id', component: ArticleComponent },
   {
     path: 'about',
     loadChildren: () =>
@@ -30,6 +28,7 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('./contact/contact.module').then((m) => m.ContactModule),
   },
+  { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
   { path: '**', redirectTo: '/404' },
 ];
 

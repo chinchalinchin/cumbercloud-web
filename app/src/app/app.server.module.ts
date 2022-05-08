@@ -12,9 +12,14 @@ import { MetaService } from 'src/services/meta.service';
 import { IconConfig, ICON_CONFIG } from './app.config';
 import { MaterialModule } from './app-material.module';
 import { SharedModule } from './shared/shared.module';
+import { TrayComponent } from './tray/tray.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [
+    AppComponent, 
+    HomeComponent,
+    TrayComponent
+  ],
   imports: [
     ServerModule,
     AppRoutingModule,
