@@ -1205,9 +1205,9 @@ export const EXPERIENCE_CONFIG: ExperienceConfig[] = [
       {
         id: 'uc-rmp-link',
         href: 'https://www.ratemyprofessors.com/ShowRatings.jsp?tid=2295611',
-        innerHTML: 'Rate My Professor - Grant Moore'
-      }
-    ]
+        innerHTML: 'Rate My Professor - Grant Moore',
+      },
+    ],
   },
   {
     aria_label: 'Grant Moore, Physics Professor',
