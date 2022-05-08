@@ -16,7 +16,7 @@ export interface ArticleConfig {
 export const ARTICLE_CONFIG: ArticleConfig[] = [
     {
       id: 'angular_on_aws',
-      date: new Date('2022-05-10'),
+      date: new Date('2022-05-09'),
       title: 'Angular on AWS',
       preview: {
         content:
@@ -30,5 +30,20 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
       },
       src: '/assets/articles/00_aws-on-angular.md',
     },
+    {
+      id: 'angular_aws_cicd',
+      date: new Date('2022-05-08'),
+      title: 'CI/CD with Angular on AWS',
+      preview: {
+        content: 'something',
+        img: {
+          id: 'angular-cicd',
+          src: '/assets/svgs/pipeline.svg',
+          alt: 'Continuously deploy Angular onto AWS',
+          title: ''
+        }
+      },
+      src: '/assets/articles/01_aws_cicd.md'
+    }
   ];
   

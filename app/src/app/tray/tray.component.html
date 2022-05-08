@@ -7,7 +7,7 @@
 >
   <div id="news-container" *ngIf="extended || extending" aria-live="polite">
     <div class="news-item" *ngIf="!extending" role="section">
-      <div id="preview-panel">
+      <div id="preview-panel" class="panel-pane">
         <h2 class="mat-h2">Latest Article</h2>
         <div id="preview-img-container">
             <img
@@ -15,12 +15,12 @@
                 [src]="latest.preview.img.src"
                 [alt]="latest.preview.img.alt"
                 [title]="latest.preview.img.title"
-                class="preview-img mat-elevation-z3"
+                class="preview-img panel-img mat-elevation-z3"
             />
         </div>
       </div>
 
-      <div id="preview-content" class="mat-elevation-z3">
+      <div id="preview-content" class="content-pane mat-elevation-z3">
           <div>
               <h3 class="mat-h3">{{latest.title}} <span style="float: right" class="mat-body">{{latest.date | date}}</span></h3>
           </div>
@@ -38,7 +38,23 @@
 
     <mat-divider [vertical]="true"></mat-divider>
 
-    <div class="news-item" *ngIf="!extending">archive goes here</div>
+    <div class="news-item" *ngIf="!extending">
+      <div id="archive-content" class="content-pane">
+
+      </div>
+      <div id="archive-panel" class="panel-pane">
+        <h2 class="mat-h2">Archive Feed</h2>
+        <div id="archive-img-container">
+          <img 
+            id="archive-img"
+            src="/assets/svgs/archive.svg"
+            alt="Archive of Cumberland Cloud blogs"
+            title="Cumberland Cloud Archive"
+            class="panel-img"/>
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <div id="chevron-container" (click)="extend()">
