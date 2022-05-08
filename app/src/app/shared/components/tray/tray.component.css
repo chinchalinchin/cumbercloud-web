@@ -1,30 +1,30 @@
-#tray{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
+#tray {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
 }
-#news-container{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-evenly;
+#news-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
 }
-#chevron-container{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    cursor: pointer;
-    flex-shrink: 1;
+#chevron-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 1;
 }
-#extend-btn{
-    margin-top: -0.25%;
-    cursor: pointer;
+#extend-btn {
+  margin-top: -0.25%;
+  cursor: pointer;
 }
-.news-item{
-    width: 40%;
+.news-item {
+  width: 40%;
 }
-.tabbed{
-    border-radius: 0 0 25px 25px;
+.tabbed {
+  border-radius: 0 0 25px 25px;
 }
