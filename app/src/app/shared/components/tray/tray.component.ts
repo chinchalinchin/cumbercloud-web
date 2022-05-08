@@ -45,9 +45,9 @@ export class TrayComponent implements OnInit {
     }
     this.extended = !this.extended;
     this.extending = true;
-    setTimeout(()=>{
+    setTimeout(() => {
       this.extending = false;
-    }, AnimationPeriods.short*900);
+    }, AnimationPeriods.short * 900);
     this.trayChanged.emit(this.extended);
   }
 }
