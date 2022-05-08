@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { MetaService } from 'src/services/meta.service';
 import { IconConfig, ICON_CONFIG } from './app.config';
 import { MaterialModule } from './app-material.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -22,6 +23,7 @@ import { MaterialModule } from './app-material.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    SharedModule
   ],
   bootstrap: [AppComponent],
 })

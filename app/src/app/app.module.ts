@@ -25,7 +25,6 @@ import { HomeComponent } from 'src/app/home/home.component';
 import { MetaService } from 'src/services/meta.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { environment } from 'src/environments/environment';
-import { TrayComponent } from './shared/components/tray/tray.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { TrayComponent } from './shared/components/tray/tray.component';
     HammerModule,
     MaterialModule,
     SharedModule,
-    TrayComponent
   ],
   providers: [
     {
