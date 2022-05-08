@@ -153,11 +153,11 @@ export interface SplashConfig {
   untouched: StateImgConfig;
 }
 
-export interface Preview{
-  content: string,
+export interface Preview {
+  content: string;
   img: ImgConfig;
 }
-export interface ArticleConfig{
+export interface ArticleConfig {
   id: number;
   date: Date;
   title: string;
@@ -175,7 +175,7 @@ export enum ResumePopUpStates {
   three = 2,
   four = 3,
   null = -1,
-};
+}
 
 export enum ExperienceStates {
   makpar = 'makpar',
@@ -185,39 +185,40 @@ export enum ExperienceStates {
   fsu = 'fsu',
   acm = 'acm',
   americorps = 'americorps',
-};
+}
 
 export enum HomeStates {
   one = 'one',
   two = 'two',
   three = 'three',
   four = 'four',
-};
+}
 
-export enum ContentTypes{
-  paragraph="paragraph",
-  figure="figure"
+export enum ContentTypes {
+  paragraph = 'paragraph',
+  figure = 'figure',
 }
 ////////////////
 // CONFIGURATION
 ////////////////
 
-export const ARTICLE_CONFIG: ArticleConfig[]=[
+export const ARTICLE_CONFIG: ArticleConfig[] = [
   {
     id: 0,
     date: new Date('2022-05-10'),
     title: 'Angular on AWS',
     preview: {
-      content: 'In this article, we explain how to deploy an <strong>Angular</strong> single page application onto an <strong>S3-Cloudfront</strong> distribution.',
+      content:
+        'In this article, we explain how to deploy an <strong>Angular</strong> single page application onto an <strong>S3-Cloudfront</strong> distribution.',
       img: {
         id: 'angular-on-aws-img',
         src: '/assets/svgs/icons/angular.svg',
         alt: 'Get Angular running on an AWS cloud environment',
         title: 'Angular on AWS',
-      }
+      },
     },
-    content: '/assets/articles/aws_angular_tutorial.md'
-  }
+    content: '/assets/articles/aws_angular_tutorial.md',
+  },
 ];
 
 // TODO: NavConfig for /404
@@ -962,7 +963,7 @@ export const ICON_CONFIG: IconConfig[] = [
   },
   {
     src: '../assets/svgs/icons/blog.svg',
-    name: 'blog'
+    name: 'blog',
   },
   {
     src: '../assets/svgs/icons/calculator.svg',

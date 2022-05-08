@@ -14,7 +14,7 @@ import { ArticleService } from 'src/services/article.service';
   styleUrls: ['./tray.component.css'],
   animations: [
     Animations.getExpandTrigger('3%'),
-    Animations.getExpandTrigger('100%','full'),
+    Animations.getExpandTrigger('100%', 'full'),
     Animations.getFadeTrigger(),
     Animations.getManualPositionTrigger(
       { top: '0%', bottom: '100%', right: '0%', left: '0%' },
@@ -38,7 +38,7 @@ export class TrayComponent implements OnInit {
   public latest: ArticleConfig;
   public feed: ArticleConfig[];
 
-  constructor( private _articles: ArticleService) {
+  constructor(private _articles: ArticleService) {
     this.latest = this._articles.getLatest();
     this.feed = this._articles.getSampleFeed();
   }
