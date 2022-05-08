@@ -21,7 +21,8 @@ import { ArticleComponent } from './components/article/article.component';
       markedOptions: {
         provide: MarkedOptions,
         useValue: {
-          gfm: true
+          gfm: true,
+          headerIds: true,
         },
       }
     })

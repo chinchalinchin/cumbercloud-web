@@ -1,5 +1,21 @@
 This article is part of the **Cumberland Cloud**'s [Building a Web Application with Angular]() series.
 
+Table of Contents
+-----------------
+- Cost Optimization
+- Setup Prerequisites
+    - Domain & Hosted Zone
+    - SSL Certificate
+- CloudFormation
+    - CloudFormation Prerequisites
+- Anatomy of Template
+    - TL;DR
+    - Template
+    - Parameters
+    - S3 Buckets
+    - Cloudfront Distribution
+    - Route53 Recordset
+
 # Angular on AWS
 
 <p align="center">
@@ -22,7 +38,7 @@ The **Cumberland Cloud** website is written in **Angular** and this is the metho
 
 With those figures in mind, further justification for pursuing this route should not need given. 
 
-## Prerequisites
+## Setup Prerequisites
 
 There are several things you will need to set up manually in your **AWS** account before we proceed. These items are covered briefly in the sections below, with links to the relevant documentation provided for further investigation.
 
@@ -58,12 +74,14 @@ Once the certificate is provisioned (this may take up to a day if your domain is
 
 The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<sup><sub>[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</sup></sub>). Over the years, we have accumualted templates for virtually every imaginable use. Among the many templates we have maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template.
 
-### Prerequisites 
+### CloudFormation Prerequisites 
 
 Before following along with this section, make sure you [install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configure it with your account credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
 
 
 ## Anatomy of a Template
+
+TODO
 
 ### TL;DR
 
@@ -73,23 +91,160 @@ cd cumbercloud-web
 ./scripts/provision-stack
 ```
 
-asdf
+### Template
 
-```typescript
-export interface test{};
-const test = 1
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: "Resources for hosting a website statically through an S3 bucket CloudFront distribution."
+
+Parameters:
+  applicationName:
+    Type: String
+    Description: Name of the web application
+    Default: cumberland-cloud
+  certificateArn:
+    Type: String
+    Description: ARN of the ACM certificate used to sign requests on the domain.
+  hostedZoneId:
+    Type: String
+    Description: Physical ID of the hosted zone where the domain is being served.
+  domainName:
+    Type: String
+    Description: Domain name that is hosting the application
+
+Resources:
+  WebsiteBucketLogs:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
+    Properties:
+      AccessControl: LogDeliveryWrite
+      BucketName: !Sub "${applicationName}-logs"
+
+  WebsiteBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
+    Properties:
+      BucketName: !Sub "${applicationName}-web"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LoggingConfiguration:
+        DestinationBucketName: !Ref WebsiteBucketLogs
+        LogFilePrefix: 'log/'
+      WebsiteConfiguration:
+        IndexDocument: 'index.html'
+
+  WebsiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Action: 
+              - "s3:GetObject"
+            Principal:
+              CanonicalUser: !GetAtt WebsiteOriginAccessIdentity.S3CanonicalUserId
+            Resource: !Sub '${WebsiteBucket.Arn}/*'
+
+  WebsiteDistribution:
+    Type: "AWS::CloudFront::Distribution"
+    Properties:
+      DistributionConfig: 
+        Aliases: 
+          - !Ref domainName
+        Origins: 
+        - DomainName: !GetAtt WebsiteBucket.DomainName
+          Id: !Ref WebsiteBucket
+          S3OriginConfig:
+            OriginAccessIdentity:
+              !Join ['', ['origin-access-identity/cloudfront/', !Ref WebsiteOriginAccessIdentity ]]
+        DefaultCacheBehavior: 
+          AllowedMethods: 
+          - "HEAD"
+          - "GET"
+          - "OPTIONS"
+          ForwardedValues:
+            Cookies:
+              Forward: none
+            QueryString: true
+          Compress: false
+          SmoothStreaming: false
+          TargetOriginId: !Ref WebsiteBucket
+          ViewerProtocolPolicy: "redirect-to-https"
+        PriceClass: "PriceClass_All"
+        Enabled: true
+        ViewerCertificate: 
+          AcmCertificateArn: !Ref certificateArn
+          MinimumProtocolVersion: "TLSv1.2_2019"
+          SslSupportMethod: "sni-only"
+        HttpVersion: "http2"
+        DefaultRootObject: 'index.html'
+        IPV6Enabled: true
+        Logging:
+          Bucket: !GetAtt WebsiteBucketLogs.DomainName
+          IncludeCookies: false
+          Prefix: 'log/'
+
+  WebsiteOriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: !Sub 'CloudFront Origin Access Identity for ${applicationName}.${domainName}'
+
+  WebsiteRoute53RecordSetGroup:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneId: !Ref hostedZoneId
+      RecordSets:
+        - Name: !Ref domainName
+          Type: A
+          AliasTarget:
+            DNSName: !GetAtt WebsiteDistribution.DomainName
+            EvaluateTargetHealth: false
+            # Specify Z2FDTNDATAQYW2. This is always the hosted zone ID when you create an
+            # alias record that routes traffic to a CloudFront distribution.
+            HostedZoneId: Z2FDTNDATAQYW2
+
+Outputs:
+  WebsiteBucketDistributionID:
+    Value: !Ref WebsiteDistribution
+    Description: Resource ID for CloudFront Distribution
+    Export:
+      Name: !Sub ${AWS::StackName}-WebsiteBucketDistributionID
+  WebsiteBucketDomain:
+    Value: !GetAtt WebsiteDistribution.DomainName
+    Description: Domain name of CloudFront Distribution
+    Export:
+      Name: !Sub ${AWS::StackName}-WebsiteBucketDistributionDomain
 ```
 
-```python
-def test()
-    return 'nothing'
-```
+### Parameters
 
-### Anatomy of a Template
+1. **applicationName** :
+
+2. **certiicateArn** :
+
+3. **hostedZoneId**:
+
+4. **domainName**: 
+
+### S3 Buckets
 
 TODO
 
-## Prerendering & CloudFront Edge Functions
+### Cloudfront Distribution
+
+TODO
+
+### Route53 Recordset
+
+TODO
+
+## The Problem With Prerendering
 
 If you are building the **Angular** app with `ng build`, at this point, you have a fully functional website. You can stop reading, upload the contents of the _dist_ folder to your **S3** bucket and call it a day. However, you may have a project on your hands that requires prerendering.
 
@@ -101,7 +256,30 @@ However, in typical fashion, this presents another problem. Luckily, there is a 
 
 When an **Angular** application is prerendered, it will generate an _index.html_ for each route, as opposed to a normal **Angular** build that compiles a singe _index.html_ and bootstraps the entire application from that entrypoint. In order to accomodate this difference, the **CloudFront** distribution will need to be setup to append `index.html` to the end of all routes, so that will be serve the correct index on each path. If unchanged, the default configuration will serve the root _index.html_ and then pass the routing to the **Angular** app, instead of loading that route's _index_ and bootstrapping from there. This would effectively make the _prerendering_ process moot, since the static html generated by the prerender would not be served by the **Cloudfront** distribution.
 
-You will need to set up **CloudFront** edge functions for each route using [the procedure described in the official AWS documentation found here](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html).
+
+### CloudFront Edge Functions
+
+To solve this problem, we will use **Cloudfront** [edge functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html). **Cloudfront edge functions** are middleware that execute on **AWS* before an incoming requests is received or after an outgoing response is processed. 
+
+You will need to set up **CloudFront** edge functions to append *index.html* to the [end of each route that is missing an index.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html). 
+
+
+### Function Handler
+
+```javascript
+function handler(event) {
+    var request = event.request;
+    var uri = request.uri;
+
+    if (uri.endsWith('path')) {
+        request.uri += '/index.html';
+    }
+    else if (uri.endsWith('path/')) {
+        request.uri += 'index.html';
+    }
+    return request;
+}
+```
 
 ## Other Articles In Series
 
