@@ -1,22 +1,22 @@
-<div 
-    id="tray" 
-    class="mat-elevation-z3" 
-    [class.tabbed]="!extended"    
-    [@cntl_position_tray]="positionCntl.state"
-    [@expand]
+<div
+  id="tray"
+  class="mat-elevation-z3"
+  [class.tabbed]="!extended"
+  [@cntl_position_tray]="positionCntl.state"
+  [@expand]
 >
-    <div 
-        id="chevron-container"
+  <div id="chevron-container">
+    <mat-icon
+      id="extend-btn"
+      role="button"
+      aria-controls="tray"
+      aria-label="Open blog tray menu"
+      [svgIcon]="extended ? 'chevron_up' : 'chevron_down'"
+      [matTooltip]="
+        extended ? 'Collapse blog menu' : 'Read the Cumberland Cloud blog'
+      "
+      (click)="extend()"
     >
-        <mat-icon 
-            id="extend-btn"
-            role="button"
-            aria-controls="tray"
-            aria-label="Open blog tray menu"
-            [svgIcon]=" extended ? 'chevron_up': 'chevron_down'"
-            [matTooltip]="extended ? 'Collapse blog menu' : 'Read the Cumberland Cloud blog'"
-            (click)="extend()"
-        >
-        </mat-icon>
-    </div>
+    </mat-icon>
+  </div>
 </div>
