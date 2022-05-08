@@ -84,10 +84,9 @@
 
   <div class="overlay" *ngIf="overlaid"></div>
 
-  <app-tray 
+  <app-tray
     class="tray"
     *ngIf="menuDisplayed"
     (trayChanged)="overlay($event)"
   ></app-tray>
-
 </div>

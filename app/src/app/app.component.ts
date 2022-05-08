@@ -17,9 +17,7 @@ import { SheetComponent } from './shared/components/sheet/sheet.component';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations:[
-    Animations.getManualFoldTrigger('4%'),
-  ],
+  animations: [Animations.getManualFoldTrigger('4%')],
 })
 export class AppComponent {
   public title: String = 'cumberland cloud';
@@ -93,7 +91,7 @@ export class AppComponent {
     this._ga.event('app', 'sheet', 'open');
   }
 
-  public overlay(event: any){
+  public overlay(event: any) {
     console.log(event);
     this.overlaid = event;
   }
