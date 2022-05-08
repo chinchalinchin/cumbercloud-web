@@ -7,12 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { ArticleComponent } from './components/article/article.component';
 
-
 @NgModule({
-  declarations: [
-    ArchiveComponent,
-    ArticleComponent
-  ],
+  declarations: [ArchiveComponent, ArticleComponent],
   imports: [
     CommonModule,
     BlogRoutingModule,
@@ -21,10 +17,10 @@ import { ArticleComponent } from './components/article/article.component';
       markedOptions: {
         provide: MarkedOptions,
         useValue: {
-          gfm: true
+          gfm: true,
         },
-      }
-    })
-  ]
+      },
+    }),
+  ],
 })
-export class BlogModule { }
+export class BlogModule {}

@@ -8,7 +8,7 @@ This article is part of the **Cumberland Cloud**'s [Building a Web Application w
 
 In this article we will talk about how to get an [Angular](https://angular.io/) application for your personal website up and running on the [AWS](https://aws.amazon.com/) cloud. We will cover setting up your environment and provisioning all the resources you will need to deploy and run the **Angular** app. In a future article, we will cover [continuous integration and deployment](), i.e. creating a development pipeline so that changes to your **Angular** app can be automatically built and deployed anytime you push to your version control. We will use the environment detailed in this article later as a base upon which to build the complexity of [CI/CD](https://en.wikipedia.org/wiki/CI/CD).
 
-Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for more articles aimed at a more novice audience. 
+Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for more articles aimed at a more novice audience.
 
 ## Cost Optimization
 
@@ -20,7 +20,7 @@ We do not need the computing power of a full fledged web server (virtual or othe
 
 The **Cumberland Cloud** website is written in **Angular** and this is the method we use to host the build files. We think the numbers speak for themselves. Last month, the entire bill for [https://cumberland-cloud.com](https://cumberland-cloud.com) was _$0.70_. By contrast, the lowest monthly charges you will find for an **EC2** are between _$18_ - _$30_, depending on the CPU and memory specifications.
 
-With those figures in mind, further justification for pursuing this route should not need given. 
+With those figures in mind, further justification for pursuing this route should not need given.
 
 ## Prerequisites
 
@@ -52,16 +52,15 @@ Once the certificate is provisioned (this may take up to a day if your domain is
 
 ## CloudFormation
 
-[CloudFormation]() is the **AWS** version of [Infrastructure-as-Code (IaC)](). *IaC* uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax, you create _templates_ of a cloud environment by declaring a collection of resources. Each resource has unique configuration properties that determine how the physical analogue of each block is mapped in the cloud, i.e. how much space a volume should allocate, how much memory an EC2 should provision, etc. The result is then uploaded to the **CloudFormation** API where cloud resources are created according to the parsed template. 
+[CloudFormation]() is the **AWS** version of [Infrastructure-as-Code (IaC)](). _IaC_ uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax, you create _templates_ of a cloud environment by declaring a collection of resources. Each resource has unique configuration properties that determine how the physical analogue of each block is mapped in the cloud, i.e. how much space a volume should allocate, how much memory an EC2 should provision, etc. The result is then uploaded to the **CloudFormation** API where cloud resources are created according to the parsed template.
 
-*IaC* templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from using version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit, though, is reusability. Once an *IaC* has been created and debugged, it be can reused in any account, at any time. 
+_IaC_ templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from using version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit, though, is reusability. Once an _IaC_ has been created and debugged, it be can reused in any account, at any time.
 
 The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<sup><sub>[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</sup></sub>). Over the years, we have accumualted templates for virtually every imaginable use. Among the many templates we have maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template.
 
-### Prerequisites 
+### Prerequisites
 
 Before following along with this section, make sure you [install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configure it with your account credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
-
 
 ## Anatomy of a Template
 
@@ -76,8 +75,8 @@ cd cumbercloud-web
 asdf
 
 ```typescript
-export interface test{};
-const test = 1
+export interface test {}
+const test = 1;
 ```
 
 ```python
@@ -108,4 +107,3 @@ You will need to set up **CloudFront** edge functions for each route using [the 
 - [Angular Prerendering]()
 - [Angular Search Engine Optimization]()
 - [Angular Continuous Integration and Deployment]()
-
