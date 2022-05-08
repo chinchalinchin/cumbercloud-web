@@ -6,8 +6,8 @@ import {
   Animations,
   AnimationTriggers,
 } from 'src/animations';
-import { ArticleConfig } from 'src/app/app.config';
 import { ArticleService } from 'src/services/article.service';
+import { ArticleConfig } from '../blog/blog.config';
 
 @Component({
   selector: 'app-tray',

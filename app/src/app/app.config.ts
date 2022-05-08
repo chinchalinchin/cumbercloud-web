@@ -153,18 +153,6 @@ export interface SplashConfig {
   untouched: StateImgConfig;
 }
 
-export interface Preview {
-  content: string;
-  img: ImgConfig;
-}
-export interface ArticleConfig {
-  id: number;
-  date: Date;
-  title: string;
-  preview: Preview;
-  src: string;
-}
-
 ////////
 // ENUMS
 ////////
@@ -194,33 +182,9 @@ export enum HomeStates {
   four = 'four',
 }
 
-export enum ContentTypes {
-  paragraph = 'paragraph',
-  figure = 'figure',
-}
 ////////////////
 // CONFIGURATION
 ////////////////
-
-export const ARTICLE_CONFIG: ArticleConfig[] = [
-  {
-    id: 0,
-    date: new Date('2022-05-10'),
-    title: 'Angular on AWS',
-    preview: {
-      content:
-        'In this article, we explain how to deploy an <strong>Angular</strong> single page application onto an <strong>AWS S3-Cloudfront</strong> distribution.',
-      img: {
-        id: 'angular-on-aws-img',
-        src: '/assets/svgs/icons/angular.svg',
-        alt: 'Get Angular running on an AWS cloud environment',
-        title: 'Angular on AWS',
-      },
-    },
-    src: '/assets/articles/aws_angular_tutorial.md',
-  },
-];
-
 // TODO: NavConfig for /404
 export const HOME_CONFIG: HomeConfig[] = [
   {

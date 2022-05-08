@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ArticleConfig } from 'src/app/app.config';
 import { ArticleService } from 'src/services/article.service';
+import { ArticleConfig } from '../../blog.config';
 
 @Component({
   selector: 'app-article',
@@ -16,10 +16,13 @@ export class ArticleComponent implements OnInit {
     private _articles: ArticleService
   ) {
     let route_param: string | null = this._route.snapshot.paramMap.get('name');
-    let route_id: number | null = route_param ? parseInt(route_param) : null;
-    this.article = this._articles.getById(route_id);
+    this.article = this._articles.getById(route_param);
     console.log(this.article);
   }
 
   ngOnInit(): void {}
+
+  scrollTo(el: string){
+    document.getElementById(el)?.scrollIntoView();
+  }
 }

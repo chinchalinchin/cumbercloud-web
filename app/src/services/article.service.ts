@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ArticleConfig, ARTICLE_CONFIG } from 'src/app/app.config';
+import { ArticleConfig, ARTICLE_CONFIG } from 'src/app/blog/blog.config';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +25,7 @@ export class ArticleService {
     return this.articles;
   }
 
-  public getById(id: number | null | undefined): ArticleConfig {
+  public getById(id: string | null | undefined): ArticleConfig {
     let found = this.articles.find(
       (article: ArticleConfig) => article.id === id
     );
