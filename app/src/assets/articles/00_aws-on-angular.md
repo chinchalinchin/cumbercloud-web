@@ -1,20 +1,20 @@
 <sup><sub>This article is part of the **Cumberland Cloud**'s [Building a Web Application with Angular]() series.</sub></sup>
 
-<span id="toc">Table of Contents</span>
------------------
+## <span id="toc">Table of Contents</span>
+
 - <span onclick="document.getElementById('cost-optimization').scrollIntoView()" class="link">Cost Optimization</span>
 - <span onclick="document.getElementById('setup-prerequisites').scrollIntoView()" class="link">Setup Prerequisites</span>
-    - <span onclick="document.getElementById('domain-hosted-zone').scrollIntoView()" class="link">Domain & Hosted Zone</span>
-    - <span onclick="document.getElementById('tls-ssl').scrollIntoView()" class="link">SSL Certificate</span>
+  - <span onclick="document.getElementById('domain-hosted-zone').scrollIntoView()" class="link">Domain & Hosted Zone</span>
+  - <span onclick="document.getElementById('tls-ssl').scrollIntoView()" class="link">SSL Certificate</span>
 - <span onclick="document.getElementById('cloudformation').scrollIntoView()" class="link">CloudFormation</span>
-    - CloudFormation Prerequisites
+  - CloudFormation Prerequisites
 - Anatomy of Template
-    - TL;DR
-    - Template
-    - Parameters
-    - S3 Buckets
-    - Cloudfront Distribution
-    - Route53 Recordset
+  - TL;DR
+  - Template
+  - Parameters
+  - S3 Buckets
+  - Cloudfront Distribution
+  - Route53 Recordset
 
 # <span onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Angular on AWS</span>
 
@@ -24,7 +24,7 @@
 
 In this article we explain how to get an [Angular](https://angular.io/) application for your personal website up and running on the [AWS](https://aws.amazon.com/) cloud. We cover setting up your environment and provisioning all the resources you will need to deploy and run the **Angular** app. In a future article, we will cover [continuous integration and deployment](), i.e. creating a development pipeline so that changes to your **Angular** app can be automatically built and deployed anytime you push to your version control. We will use the environment detailed in this article later as a base upon which to build the complexity of [CI/CD](https://en.wikipedia.org/wiki/CI/CD).
 
-Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for more articles aimed at a more novice audience. 
+Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for more articles aimed at a more novice audience.
 
 ## <span id="cost-optimization" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Cost Optimization</span>
 
@@ -36,7 +36,7 @@ We do not need the computing power of a full fledged web server (virtual or othe
 
 The **Cumberland Cloud** website is written in **Angular** and this is the method we use to host the build files. We think the numbers speak for themselves. Last month, the entire bill for [https://cumberland-cloud.com](https://cumberland-cloud.com) was _$0.70_. By contrast, the lowest monthly charges you will find for an **EC2** are between _$18_ - _$30_, depending on the CPU and memory specifications.
 
-With those figures in mind, further justification for pursuing this route should not need given. 
+With those figures in mind, further justification for pursuing this route should not need given.
 
 ## <span id="setup-prerequisites" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Setup Prerequisites</span>
 
@@ -68,16 +68,15 @@ Once the certificate is provisioned (this may take up to a day if your domain is
 
 ## <span id="cloudformation" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFormation</span>
 
-[CloudFormation]() is the **AWS** version of [Infrastructure-as-Code (IaC)](). *IaC* uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax, you create _templates_ of a cloud environment by declaring a collection of resources. Each resource has unique configuration properties that determine how the physical analogue of each block is mapped in the cloud, i.e. how much space a volume should allocate, how much memory an EC2 should provision, etc. The result is then uploaded to the **CloudFormation** API where cloud resources are created according to the parsed template. 
+[CloudFormation]() is the **AWS** version of [Infrastructure-as-Code (IaC)](). _IaC_ uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax, you create _templates_ of a cloud environment by declaring a collection of resources. Each resource has unique configuration properties that determine how the physical analogue of each block is mapped in the cloud, i.e. how much space a volume should allocate, how much memory an EC2 should provision, etc. The result is then uploaded to the **CloudFormation** API where cloud resources are created according to the parsed template.
 
-*IaC* templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from using version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit of all, though, is reusability. Once an *IaC* has been created and debugged, it be can deployed into any account, at any time. 
+_IaC_ templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from using version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit of all, though, is reusability. Once an _IaC_ has been created and debugged, it be can deployed into any account, at any time.
 
 The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<sup><sub>[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</sup></sub>). Over the years, we have accumualted templates for virtually every imaginable use. Among the many templates we have maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template.
 
 ### <span id="cloudformation-prerequisites" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFormation Prerequisites</span>
 
 Before following along with this section, make sure you [install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configure it with your account credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
-
 
 ## <span id="anatomy-template" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Anatomy of a Template</span>
 
@@ -94,7 +93,7 @@ cd cumbercloud-web
 ### <span id="template" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Template</span>
 
 ```yaml
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 
 Description: "Resources for hosting a website statically through an S3 bucket CloudFront distribution."
 
@@ -132,41 +131,47 @@ Resources:
               SSEAlgorithm: AES256
       LoggingConfiguration:
         DestinationBucketName: !Ref WebsiteBucketLogs
-        LogFilePrefix: 'log/'
+        LogFilePrefix: "log/"
       WebsiteConfiguration:
-        IndexDocument: 'index.html'
+        IndexDocument: "index.html"
 
   WebsiteBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
       Bucket: !Ref WebsiteBucket
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: "2012-10-17"
         Statement:
-          - Effect: 'Allow'
-            Action: 
+          - Effect: "Allow"
+            Action:
               - "s3:GetObject"
             Principal:
               CanonicalUser: !GetAtt WebsiteOriginAccessIdentity.S3CanonicalUserId
-            Resource: !Sub '${WebsiteBucket.Arn}/*'
+            Resource: !Sub "${WebsiteBucket.Arn}/*"
 
   WebsiteDistribution:
     Type: "AWS::CloudFront::Distribution"
     Properties:
-      DistributionConfig: 
-        Aliases: 
+      DistributionConfig:
+        Aliases:
           - !Ref domainName
-        Origins: 
-        - DomainName: !GetAtt WebsiteBucket.DomainName
-          Id: !Ref WebsiteBucket
-          S3OriginConfig:
-            OriginAccessIdentity:
-              !Join ['', ['origin-access-identity/cloudfront/', !Ref WebsiteOriginAccessIdentity ]]
-        DefaultCacheBehavior: 
-          AllowedMethods: 
-          - "HEAD"
-          - "GET"
-          - "OPTIONS"
+        Origins:
+          - DomainName: !GetAtt WebsiteBucket.DomainName
+            Id: !Ref WebsiteBucket
+            S3OriginConfig:
+              OriginAccessIdentity:
+                !Join [
+                  "",
+                  [
+                    "origin-access-identity/cloudfront/",
+                    !Ref WebsiteOriginAccessIdentity,
+                  ],
+                ]
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - "HEAD"
+            - "GET"
+            - "OPTIONS"
           ForwardedValues:
             Cookies:
               Forward: none
@@ -177,23 +182,23 @@ Resources:
           ViewerProtocolPolicy: "redirect-to-https"
         PriceClass: "PriceClass_All"
         Enabled: true
-        ViewerCertificate: 
+        ViewerCertificate:
           AcmCertificateArn: !Ref certificateArn
           MinimumProtocolVersion: "TLSv1.2_2019"
           SslSupportMethod: "sni-only"
         HttpVersion: "http2"
-        DefaultRootObject: 'index.html'
+        DefaultRootObject: "index.html"
         IPV6Enabled: true
         Logging:
           Bucket: !GetAtt WebsiteBucketLogs.DomainName
           IncludeCookies: false
-          Prefix: 'log/'
+          Prefix: "log/"
 
   WebsiteOriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
-        Comment: !Sub 'CloudFront Origin Access Identity for ${applicationName}.${domainName}'
+        Comment: !Sub "CloudFront Origin Access Identity for ${applicationName}.${domainName}"
 
   WebsiteRoute53RecordSetGroup:
     Type: AWS::Route53::RecordSetGroup
@@ -230,7 +235,7 @@ Outputs:
 
 3. **hostedZoneId**:
 
-4. **domainName**: 
+4. **domainName**:
 
 ### S3 Buckets
 
@@ -256,28 +261,25 @@ However, in typical fashion, this presents another problem. Luckily, there is a 
 
 When an **Angular** application is prerendered, it will generate an _index.html_ for each route, as opposed to a normal **Angular** build that compiles a singe _index.html_ and bootstraps the entire application from that entrypoint. In order to accomodate this difference, the **CloudFront** distribution will need to be setup to append `index.html` to the end of all routes, so that will be serve the correct index on each path. If unchanged, the default configuration will serve the root _index.html_ and then pass the routing to the **Angular** app, instead of loading that route's _index_ and bootstrapping from there. This would effectively make the _prerendering_ process moot, since the static html generated by the prerender would not be served by the **Cloudfront** distribution.
 
-
 ### <span id="cloudfront-edge" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFront Edge Functions</span>
 
-To solve this problem, we will use **Cloudfront** [edge functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html). **Cloudfront edge functions** are middleware that execute on **AWS* before an incoming requests is received or after an outgoing response is processed. 
+To solve this problem, we will use **Cloudfront** [edge functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html). **Cloudfront edge functions** are middleware that execute on \*_AWS_ before an incoming requests is received or after an outgoing response is processed.
 
-You will need to set up **CloudFront** edge functions to append *index.html* to the [end of each route that is missing an index.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html). 
-
+You will need to set up **CloudFront** edge functions to append _index.html_ to the [end of each route that is missing an index.html](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html).
 
 ### <span id="function-handler" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Function Handler</span>
 
 ```javascript
 function handler(event) {
-    var request = event.request;
-    var uri = request.uri;
+  var request = event.request;
+  var uri = request.uri;
 
-    if (uri.endsWith('path')) {
-        request.uri += '/index.html';
-    }
-    else if (uri.endsWith('path/')) {
-        request.uri += 'index.html';
-    }
-    return request;
+  if (uri.endsWith("path")) {
+    request.uri += "/index.html";
+  } else if (uri.endsWith("path/")) {
+    request.uri += "index.html";
+  }
+  return request;
 }
 ```
 
@@ -286,4 +288,3 @@ function handler(event) {
 - [Angular Prerendering]()
 - [Angular Search Engine Optimization]()
 - [Angular Continuous Integration and Deployment]()
-
