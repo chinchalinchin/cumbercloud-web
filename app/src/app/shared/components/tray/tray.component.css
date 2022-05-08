@@ -19,16 +19,16 @@
   cursor: pointer;
   flex-shrink: 1;
 }
-#preview-panel{
+#preview-panel {
   width: 40%;
 }
-#preview-img-container{
+#preview-img-container {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: center;
 }
-#preview-content{
+#preview-content {
   width: 57.5%;
   padding: 1%;
   border-radius: 15px;
