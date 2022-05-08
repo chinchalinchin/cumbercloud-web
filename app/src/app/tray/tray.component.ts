@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import {
   AnimationControl,
   AnimationPeriods,
@@ -38,7 +39,10 @@ export class TrayComponent implements OnInit {
   public latest: ArticleConfig;
   public feed: ArticleConfig[];
 
-  constructor(private _articles: ArticleService) {
+  constructor(
+    private _articles: ArticleService,
+    private _ga: GoogleAnalyticsService,
+  ) {
     this.latest = this._articles.getLatest();
     this.feed = this._articles.getSampleFeed();
   }
@@ -50,6 +54,7 @@ export class TrayComponent implements OnInit {
   public extend() {
     if (!this.extended) {
       this.positionCntl.animatePosition(1);
+      this._ga.event('app', 'tray', 'unextend')
     } else {
       this.positionCntl.animatePosition(0);
     }

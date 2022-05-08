@@ -1,6 +1,6 @@
 This article is part of the **Cumberland Cloud**'s [Building a Web Application with Angular]() series.
 
-# Angular: AWS
+# Angular on AWS
 
 <p align="center">
     <img src="/assets/svgs/icons/angular.svg" width="10%" height="auto">
@@ -52,6 +52,41 @@ Once the certificate is provisioned (this may take up to a day if your domain is
 
 ## CloudFormation
 
+[CloudFormation]() is the **AWS** version of [Infrastructure-as-Code (IaC)](). *IaC* uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax, you create _templates_ of a cloud environment by declaring a collection of resources. Each resource has unique configuration properties that determine how the physical analogue of each block is mapped in the cloud, i.e. how much space a volume should allocate, how much memory an EC2 should provision, etc. The result is then uploaded to the **CloudFormation** API where cloud resources are created according to the parsed template. 
+
+*IaC* templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from using version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit, though, is reusability. Once an *IaC* has been created and debugged, it be can reused in any account, at any time. 
+
+The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<sup><sub>[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</sup></sub>). Over the years, we have accumualted templates for virtually every imaginable use. Among the many templates we have maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template.
+
+### Prerequisites 
+
+Before following along with this section, make sure you [install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configure it with your account credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+
+
+## Anatomy of a Template
+
+### TL;DR
+
+```bash
+git clone https://github.com/chinchalinchin/cumbercloud-web
+cd cumbercloud-web
+./scripts/provision-stack
+```
+
+asdf
+
+```typescript
+export interface test{};
+const test = 1
+```
+
+```python
+def test()
+    return 'nothing'
+```
+
+### Anatomy of a Template
+
 TODO
 
 ## Prerendering & CloudFront Edge Functions
@@ -70,6 +105,7 @@ You will need to set up **CloudFront** edge functions for each route using [the 
 
 ## Other Articles In Series
 
-- [Prerendering with Angular]()
-- [Search Optimization]
+- [Angular Prerendering]()
+- [Angular Search Engine Optimization]()
+- [Angular Continuous Integration and Deployment]()
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
 import { BlogRoutingModule } from './blog-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -17,7 +17,14 @@ import { ArticleComponent } from './components/article/article.component';
     CommonModule,
     BlogRoutingModule,
     SharedModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true
+        },
+      }
+    })
   ]
 })
 export class BlogModule { }
