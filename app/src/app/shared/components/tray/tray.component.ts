@@ -5,6 +5,8 @@ import {
   Animations,
   AnimationTriggers,
 } from 'src/animations';
+import { ArticleConfig } from 'src/app/app.config';
+import { ArticleService } from 'src/services/article.service';
 
 @Component({
   selector: 'app-tray',
@@ -12,6 +14,8 @@ import {
   styleUrls: ['./tray.component.css'],
   animations: [
     Animations.getExpandTrigger('3%'),
+    Animations.getExpandTrigger('100%','full'),
+    Animations.getFadeTrigger(),
     Animations.getManualPositionTrigger(
       { top: '0%', bottom: '100%', right: '0%', left: '0%' },
       [
@@ -23,15 +27,21 @@ import {
   ],
 })
 export class TrayComponent implements OnInit {
+  @Output()
+  public trayChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public extended: boolean = false;
   public extending: boolean = false;
   public positionCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_position
   );
-  @Output()
-  public trayChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
+  public latest: ArticleConfig;
+  public feed: ArticleConfig[];
 
-  constructor() {}
+  constructor( private _articles: ArticleService) {
+    this.latest = this._articles.getLatest();
+    this.feed = this._articles.getSampleFeed();
+  }
 
   ngOnInit(): void {
     this.positionCntl.animatePosition(0);
@@ -43,8 +53,8 @@ export class TrayComponent implements OnInit {
     } else {
       this.positionCntl.animatePosition(0);
     }
-    this.extended = !this.extended;
     this.extending = true;
+    this.extended = !this.extended;
     setTimeout(() => {
       this.extending = false;
     }, AnimationPeriods.short * 900);

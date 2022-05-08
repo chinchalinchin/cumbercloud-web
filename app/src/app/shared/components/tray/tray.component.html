@@ -5,15 +5,37 @@
   [@cntl_position_tray]="positionCntl.state"
   [@expand]
 >
-    <div id="news-container" *ngIf="extended || extending">
-        <div class="news-item">
-            latest blog goes here
+    <div
+        id="news-container" 
+        *ngIf="extended || extending"
+        aria-live="polite"
+    >
+        <div 
+            class="news-item" 
+            *ngIf="!extending"
+            role="section"
+        >
+            <div 
+                id="preview-img-container"
+                class="v-align" 
+            >
+                <img 
+                    [id]="latest.preview.img.id"
+                    [src]="latest.preview.img.src"
+                    [alt]="latest.preview.img.alt"
+                    [title]="latest.preview.img.title"
+                    class="preview-img mat-elevation-z3"
+                />
+            </div>
         </div>
+
         <mat-divider [vertical]="true"></mat-divider>
-        <div class="news-item">
+        
+        <div class="news-item" *ngIf="!extending">
             archive goes here
         </div>
     </div>
+    
     <div id="chevron-container">
         <mat-icon
             id="extend-btn"

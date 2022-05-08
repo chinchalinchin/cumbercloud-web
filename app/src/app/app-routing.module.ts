@@ -9,7 +9,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: '404', component: ErrorComponent },
   { path: 'archive', component: ArchiveComponent },
-  { path: 'article/:title', component: ArticleComponent },
+  { path: 'article/:id', component: ArticleComponent },
   {
     path: 'about',
     loadChildren: () =>

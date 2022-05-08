@@ -11,6 +11,9 @@
     background-color: map-get($primary-palette, 50);
     border-color: black;
   }
+  .preview-img{
+    background-color: map-get($primary-palette, 300);
+  }
 }
 
 @mixin theme($theme) {

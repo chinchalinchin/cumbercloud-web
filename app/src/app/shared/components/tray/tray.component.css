@@ -9,6 +9,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
+  padding-top: 0.5%;
 }
 #chevron-container {
   width: 100%;
@@ -24,7 +25,25 @@
 }
 .news-item {
   width: 40%;
+  display: flex;
+  flex-direction: row;
+}
+.preview-img{  
+  border-radius: 15px;
+  padding: 1%;
 }
 .tabbed {
   border-radius: 0 0 25px 25px;
+}
+@media (min-width: 991px) {
+
+  .preview-img{
+    width: 30%;
+  }
+}
+@media (max-width: 992px) {
+
+  .preview-img{
+    width: 25%;
+  }
 }
