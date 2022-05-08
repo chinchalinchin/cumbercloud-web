@@ -1,16 +1,18 @@
-# Angular on AWS
+This article is part of the **Cumberland Cloud**'s [Building a Web Application with Angular]() series.
+
+# Angular: AWS
 
 <p align="center">
     <img src="/assets/svgs/icons/angular.svg" width="10%" height="auto">
 </p>
 
-In this article we will talk about how to get an [Angular]() application for your personal website up and running on the [AWS]() cloud. We will cover setting up your environment and provisioning all the resources you will need to deploy and run the **Angular** app. In a future article, we will cover [continuous integration and deployment](), i.e. creating a development pipeline so that changes to your **Angular** app can be automatically built and deployed anytime you push to your version control. We will use the current environment as a base upon which to build the complexity of [CICD]().
+In this article we will talk about how to get an [Angular](https://angular.io/) application for your personal website up and running on the [AWS](https://aws.amazon.com/) cloud. We will cover setting up your environment and provisioning all the resources you will need to deploy and run the **Angular** app. In a future article, we will cover [continuous integration and deployment](), i.e. creating a development pipeline so that changes to your **Angular** app can be automatically built and deployed anytime you push to your version control. We will use the environment detailed in this article later as a base upon which to build the complexity of [CI/CD](https://en.wikipedia.org/wiki/CI/CD).
 
-Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for articles aimed at a more novice audience. 
+Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for more articles aimed at a more novice audience. 
 
 ## Cost Optimization
 
-**AWS** is a diverse eco-systems of services and platforms. As such, there are many different approaches you could take to get an **Angular** app onto **AWS**. You could provision an [EC2]() instance and install a lightweight web server like [nginx](https://www.nginx.com/) or [apache](https://httpd.apache.org/) onto it. If portability and scability are important for you, you might opt to deploy an image of a web server into a managed container using a service like [AWS Elastic Container Service](). Or, if you're feeling adventurous, you might decide to go for broke and manage the cluster yourself with something like [AWS Elastic Kubernetes Service]() or [OpenShift](). These are all viable solutions; indeed, you will often encounter these architectures in production. However, the needs of a production system are quite different from the needs of a personal website.
+**AWS** is a diverse eco-systems of services and platforms. As such, there are many different approaches you could take to get an **Angular** app onto **AWS**. You could provision an [EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) instance and install a lightweight web server like [nginx](https://www.nginx.com/) or [apache](https://httpd.apache.org/) onto it. If portability and scability are important for you, you might opt to deploy an image of a web server into a managed container using a service like [AWS Elastic Container Service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html). Or, if you're feeling adventurous, you might decide to go for broke and manage the cluster yourself with something like [AWS Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) or [OpenShift](https://docs.aws.amazon.com/ROSA/latest/userguide/what-is-rosa.html). These are all viable solutions; indeed, you will often encounter these architectures in production. However, the needs of a production system are quite different from the needs of a personal website.
 
 The [Cumberland Cloud](https://cumberland-cloud.com)'s guiding principle in architecting a cloud environment is simple: **cost**. If a thing can be done cheaply without sacrificing quality, then we will always select the route with the least cost. The approaches detailed in the previous paragraph all suffer from one crucial defect: these methods quickly rack up charges. **EC2** and container orchestration clusters are always running and thus always incurring charges; if they are not managed properly, your bill can quickly get out of control.
 
@@ -40,7 +42,7 @@ In order to setup a secure website through **HTTPS**, you will need a valid cert
 
 **AWS** issues its own certificates through the [AWS Cerfiticate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html). The easiest way to setup **HTTPS** for your **S3-Cloudfront** distribution is to provision a certificate through the **ACM**. [Follow the instructions in the official documentation](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) to setup an SSL certificate.
 
-If you registered `example.com` as your domain, then you will need to request a certificate for `*.example.com`. While not technically neccessary for the current scope, the wildcard will allow the certificate to valid any requests to subdomains within your domain, such as `api.example.com` or `app.example.com`. In a future entry to this series, we will show how to setup backend functionality via [AWS APIGateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and doing this now will save us future headaches.
+If you registered `example.com` as your domain, then you will need to request a certificate for `*.example.com`. While not technically neccessary for the current scope, the wildcard will allow the certificate to valid any requests to subdomains within your domain, such as `api.example.com` or `app.example.com`. [In another article](), we show how to setup backend functionality for an **Angular** app via [AWS APIGateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html); if you use the wilcard, you will be able to use the same certificate as you follow .
 
 Once the certificate is provisioned (this may take up to a day if your domain isn't registered through **Route53**), note the [AWS Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the certificate,
 
@@ -65,3 +67,9 @@ However, in typical fashion, this presents another problem. Luckily, there is a 
 When an **Angular** application is prerendered, it will generate an _index.html_ for each route, as opposed to a normal **Angular** build that compiles a singe _index.html_ and bootstraps the entire application from that entrypoint. In order to accomodate this difference, the **CloudFront** distribution will need to be setup to append `index.html` to the end of all routes, so that will be serve the correct index on each path. If unchanged, the default configuration will serve the root _index.html_ and then pass the routing to the **Angular** app, instead of loading that route's _index_ and bootstrapping from there. This would effectively make the _prerendering_ process moot, since the static html generated by the prerender would not be served by the **Cloudfront** distribution.
 
 You will need to set up **CloudFront** edge functions for each route using [the procedure described in the official AWS documentation found here](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/example-function-add-index.html).
+
+## Other Articles In Series
+
+- [Prerendering with Angular]()
+- [Search Optimization]
+
