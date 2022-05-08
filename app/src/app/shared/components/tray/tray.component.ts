@@ -24,14 +24,10 @@ import {
 })
 export class TrayComponent implements OnInit {
   public extended: boolean = false;
-<<<<<<< HEAD
   public extending: boolean = false;
-  public positionCntl : AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
-=======
   public positionCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_position
   );
->>>>>>> df10602a16f5c35cd6ba9782b021b02700f5625e
   @Output()
   public trayChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 

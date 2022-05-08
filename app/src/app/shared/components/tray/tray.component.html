@@ -23,7 +23,9 @@
             aria-label="Open blog tray menu"
             [svgIcon]="extended ? 'chevron_up' : 'chevron_down'"
             [matTooltip]="
-                extended ? 'Collapse blog menu' : 'Read the Cumberland Cloud blog'
+                extended
+                ? 'Go back to the Cumberland Cloud'
+                : 'Read the Cumberland Cloud blog!'
             "
             (click)="extend()"
         >
