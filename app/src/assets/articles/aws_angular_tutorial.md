@@ -8,7 +8,7 @@ This article is part of the **Cumberland Cloud**'s [Building a Web Application w
 
 In this article we will talk about how to get an [Angular](https://angular.io/) application for your personal website up and running on the [AWS](https://aws.amazon.com/) cloud. We will cover setting up your environment and provisioning all the resources you will need to deploy and run the **Angular** app. In a future article, we will cover [continuous integration and deployment](), i.e. creating a development pipeline so that changes to your **Angular** app can be automatically built and deployed anytime you push to your version control. We will use the environment detailed in this article later as a base upon which to build the complexity of [CI/CD](https://en.wikipedia.org/wiki/CI/CD).
 
-Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for more articles aimed at a more novice audience. 
+Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for more articles aimed at a more novice audience.
 
 ## Cost Optimization
 
@@ -20,7 +20,7 @@ We do not need the computing power of a full fledged web server (virtual or othe
 
 The **Cumberland Cloud** website is written in **Angular** and this is the method we use to host the build files. We think the numbers speak for themselves. Last month, the entire bill for [https://cumberland-cloud.com](https://cumberland-cloud.com) was _$0.70_. By contrast, the lowest monthly charges you will find for an **EC2** are between _$18_ - _$30_, depending on the CPU and memory specifications.
 
-With those figures in mind, further justification for pursuing this route should not need given. 
+With those figures in mind, further justification for pursuing this route should not need given.
 
 ## Prerequisites
 
@@ -72,4 +72,3 @@ You will need to set up **CloudFront** edge functions for each route using [the 
 
 - [Prerendering with Angular]()
 - [Search Optimization]
-

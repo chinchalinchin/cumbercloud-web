@@ -13,6 +13,7 @@
 7. add cloudfront edge functions for index.html to cloudformation tempalte.
 
 8. pass routing params through route to archive component so archive can be filtered on load. you can pass links to "series"
+
 ### articles
 
 1. angular and seo
