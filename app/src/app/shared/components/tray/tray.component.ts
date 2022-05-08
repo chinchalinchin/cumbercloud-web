@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers } from 'src/animations';
+import {
+  AnimationControl,
+  AnimationPeriods,
+  Animations,
+  AnimationTriggers,
+} from 'src/animations';
 
 @Component({
   selector: 'app-tray',
@@ -8,33 +13,33 @@ import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers } fro
   animations: [
     Animations.getExpandTrigger('3%'),
     Animations.getManualPositionTrigger(
-      { top: '0%', bottom: '100%', right: '0%', left:'0%'},
+      { top: '0%', bottom: '100%', right: '0%', left: '0%' },
       [
         { top: '0%', bottom: '97%', left: '0%', right: '0%' },
-        { top: '0%', bottom: '75%', left: '0%', right: '0%'}
+        { top: '0%', bottom: '75%', left: '0%', right: '0%' },
       ],
       'tray',
       AnimationPeriods.medium
-    )
-  ]
+    ),
+  ],
 })
 export class TrayComponent implements OnInit {
-
   public extended: boolean = false;
 
-  public positionCntl : AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
+  public positionCntl: AnimationControl = new AnimationControl(
+    AnimationTriggers.cntl_position
+  );
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.positionCntl.animatePosition(0);
   }
 
-  public extend(){
-    if(!this.extended){
+  public extend() {
+    if (!this.extended) {
       this.positionCntl.animatePosition(1);
-    }
-    else{
+    } else {
       this.positionCntl.animatePosition(0);
     }
     this.extended = !this.extended;
