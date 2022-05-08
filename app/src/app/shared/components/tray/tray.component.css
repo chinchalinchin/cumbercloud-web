@@ -1,17 +1,17 @@
-#tray{
-    position: absolute;
+#tray {
+  position: absolute;
 }
-#chevron-container{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    cursor: pointer;
+#chevron-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  cursor: pointer;
 }
-#extend-btn{
-    margin-top: -0.25%;
-    cursor: pointer;
+#extend-btn {
+  margin-top: -0.25%;
+  cursor: pointer;
 }
-.tabbed{
-    border-radius: 0 0 25px 25px;
+.tabbed {
+  border-radius: 0 0 25px 25px;
 }

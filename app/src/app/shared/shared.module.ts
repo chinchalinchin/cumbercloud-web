@@ -11,11 +11,11 @@ import { ArticleComponent } from './components/article/article.component';
 
 @NgModule({
   declarations: [
-    ErrorComponent, 
-    SheetComponent, 
-    TrayComponent, 
-    ArchiveComponent, 
-    ArticleComponent
+    ErrorComponent,
+    SheetComponent,
+    TrayComponent,
+    ArchiveComponent,
+    ArticleComponent,
   ],
   imports: [
     CommonModule,

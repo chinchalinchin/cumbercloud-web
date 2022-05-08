@@ -8,9 +8,8 @@ describe('TrayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrayComponent ]
-    })
-    .compileComponents();
+      declarations: [TrayComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

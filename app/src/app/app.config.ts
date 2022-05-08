@@ -414,7 +414,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/imgs/people/grant/profile.jpg',
+        content:
+          'http://cumberland-cloud.com/assets/imgs/people/grant/profile.jpg',
       },
       {
         property: 'og:image:type',
@@ -422,7 +423,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:secure_url',
-        content: 'https://cumberland-cloud.com/assets/imgs/people/grant/profile.jpg',
+        content:
+          'https://cumberland-cloud.com/assets/imgs/people/grant/profile.jpg',
       },
       {
         property: 'og:image:width',
@@ -438,7 +440,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:image',
-        content: 'https://cumberland-cloud.com/assets/imgs/people/grant/profile.jpg',
+        content:
+          'https://cumberland-cloud.com/assets/imgs/people/grant/profile.jpg',
       },
       {
         property: 'twitter:image:alt',
@@ -538,7 +541,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image',
-        content: 'http://cumberland-cloud.com/assets/imgs/banners/cloud_tunnel.jpg',
+        content:
+          'http://cumberland-cloud.com/assets/imgs/banners/cloud_tunnel.jpg',
       },
       {
         property: 'og:image:type',
@@ -546,7 +550,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'og:image:secure_url',
-        content: 'https://cumberland-cloud.com/assets/imgs/banners/cloud_tunnel.jpg',
+        content:
+          'https://cumberland-cloud.com/assets/imgs/banners/cloud_tunnel.jpg',
       },
       {
         property: 'og:image:width',
@@ -562,7 +567,8 @@ export const NAV_CONFIG: NavConfig[] = [
       },
       {
         property: 'twitter:image',
-        content: 'https://cumberland-cloud.com/assets/imgs/banners/cloud_tunnel.jpg',
+        content:
+          'https://cumberland-cloud.com/assets/imgs/banners/cloud_tunnel.jpg',
       },
       {
         property: 'twitter:image:alt',
@@ -934,11 +940,11 @@ export const ICON_CONFIG: IconConfig[] = [
   },
   {
     src: '../assets/svgs/icons/chevron_up.svg',
-    name: 'chevron_up'
+    name: 'chevron_up',
   },
   {
     src: '../assets/svgs/icons/chevron_down.svg',
-    name: 'chevron_down'
+    name: 'chevron_down',
   },
   {
     src: '../assets/svgs/icons/cloud.svg',
