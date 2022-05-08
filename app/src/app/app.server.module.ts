@@ -15,11 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { TrayComponent } from './tray/tray.component';
 
 @NgModule({
-  declarations: [
-    AppComponent, 
-    HomeComponent,
-    TrayComponent
-  ],
+  declarations: [AppComponent, HomeComponent, TrayComponent],
   imports: [
     ServerModule,
     AppRoutingModule,

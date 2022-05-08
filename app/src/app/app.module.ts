@@ -28,11 +28,7 @@ import { environment } from 'src/environments/environment';
 import { TrayComponent } from './tray/tray.component';
 
 @NgModule({
-  declarations: [
-    AppComponent, 
-    HomeComponent,
-    TrayComponent
-  ],
+  declarations: [AppComponent, HomeComponent, TrayComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -7,10 +7,7 @@ import { SheetComponent } from './components/sheet/sheet.component';
 import { SharedMaterialModule } from './shared-material.module';
 
 @NgModule({
-  declarations: [
-    ErrorComponent,
-    SheetComponent,
-  ],
+  declarations: [ErrorComponent, SheetComponent],
   imports: [
     CommonModule,
     HttpClientModule,

@@ -6,16 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { ArticleComponent } from './components/article/article.component';
 
-
 @NgModule({
-  declarations: [
-    ArchiveComponent,
-    ArticleComponent
-  ],
-  imports: [
-    CommonModule,
-    BlogRoutingModule,
-    SharedModule
-  ]
+  declarations: [ArchiveComponent, ArticleComponent],
+  imports: [CommonModule, BlogRoutingModule, SharedModule],
 })
-export class BlogModule { }
+export class BlogModule {}
