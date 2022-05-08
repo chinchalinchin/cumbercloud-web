@@ -1,4 +1,4 @@
-<div id="home">
+<div id="home" aria-live="polite">
 
   <div
     id="btn-banner"
@@ -260,5 +260,17 @@
         cloudLineMobilePositionCntls[2].state
       "
     ></div>
+  </div>
+
+  <div *ngIf="animated" id="blog-link" [@fade]>
+    <button 
+      mat-mini-fab
+      color="primary"
+      routerLink="archive"
+      aria-label="Read the Cumberland Cloud blog"
+      matTooltip="Read the Cumberland Cloud blog"
+    >
+      <mat-icon svgIcon="blog"></mat-icon>
+    </button>
   </div>
 </div>

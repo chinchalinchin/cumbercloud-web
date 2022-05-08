@@ -927,6 +927,10 @@ export const ICON_CONFIG: IconConfig[] = [
     name: 'bash',
   },
   {
+    src: '../assets/svgs/icons/blog.svg',
+    name: 'blog'
+  },
+  {
     src: '../assets/svgs/icons/calculator.svg',
     name: 'calculator',
   },
