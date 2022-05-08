@@ -606,9 +606,10 @@ export class Animations {
         animate(
           `${animateLength}s`,
           keyframes([
-            style({ height: `${toHeight}`, offset: 0}),
+            style({ height: `${toHeight}`, offset: 0 }),
             style({ height: 0, offset: 1 }),
-          ])),
+          ])
+        ),
         query('@*', animateChild(), { optional: true }),
       ]),
     ]);

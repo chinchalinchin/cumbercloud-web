@@ -1,8 +1,5 @@
 <div id="contact">
-  <mat-card 
-    id="contact-card" 
-    class="mat-elevation-z8"
-  >
+  <mat-card id="contact-card" class="mat-elevation-z8">
     <mat-card-title>
       Contact Form
       <button
@@ -41,17 +38,9 @@
 
     <mat-divider></mat-divider>
     <mat-card-content class="content">
-      <form 
-        id="contact-form" 
-        [formGroup]="contactGroup" 
-        aria-live="polite"
-      >
+      <form id="contact-form" [formGroup]="contactGroup" aria-live="polite">
         <div id="personal-info">
-          <mat-form-field 
-            id="first-name-field" 
-            color="warn" 
-            class="name-field"
-          >
+          <mat-form-field id="first-name-field" color="warn" class="name-field">
             <mat-label>First Name</mat-label>
             <input matInput type="text" formControlName="first" />
             <button

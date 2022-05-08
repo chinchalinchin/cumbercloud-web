@@ -18,13 +18,13 @@
     cursor: pointer;
     flex-shrink: 1;
 }
-#extend-btn{
-    margin-top: -0.25%;
-    cursor: pointer;
+#extend-btn {
+  margin-top: -0.25%;
+  cursor: pointer;
+}
+.tabbed {
+  border-radius: 0 0 25px 25px;
 }
 .news-item{
     width: 40%;
-}
-.tabbed{
-    border-radius: 0 0 25px 25px;
 }
