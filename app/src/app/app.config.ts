@@ -962,7 +962,7 @@ export const ICON_CONFIG: IconConfig[] = [
   },
   {
     src: '../assets/svgs/icons/blog.svg',
-    name: 'blog'
+    name: 'blog',
   },
   {
     src: '../assets/svgs/icons/calculator.svg',
