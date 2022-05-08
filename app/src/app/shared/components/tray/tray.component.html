@@ -10,29 +10,33 @@
       <div id="preview-panel">
         <h2 class="mat-h2">Latest Article</h2>
         <div id="preview-img-container">
-            <img
-                [id]="latest.preview.img.id"
-                [src]="latest.preview.img.src"
-                [alt]="latest.preview.img.alt"
-                [title]="latest.preview.img.title"
-                class="preview-img mat-elevation-z3"
-            />
+          <img
+            [id]="latest.preview.img.id"
+            [src]="latest.preview.img.src"
+            [alt]="latest.preview.img.alt"
+            [title]="latest.preview.img.title"
+            class="preview-img mat-elevation-z3"
+          />
         </div>
       </div>
 
       <div id="preview-content" class="mat-elevation-z3">
-          <div>
-              <h3 class="mat-h3">{{latest.title}} <span style="float: right" class="mat-body">{{latest.date | date}}</span></h3>
-          </div>
-          <p class="mat-body" [innerHTML]="latest.preview.content">
-          </p>
-            <button
-                id="preview-btn" 
-                mat-icon-button
-                [routerLink]="['article',latest.id]"    
-            >
-                <mat-icon>open_in_new</mat-icon>
-            </button>
+        <div>
+          <h3 class="mat-h3">
+            {{ latest.title }}
+            <span style="float: right" class="mat-body">{{
+              latest.date | date
+            }}</span>
+          </h3>
+        </div>
+        <p class="mat-body" [innerHTML]="latest.preview.content"></p>
+        <button
+          id="preview-btn"
+          mat-icon-button
+          [routerLink]="['article', latest.id]"
+        >
+          <mat-icon>open_in_new</mat-icon>
+        </button>
       </div>
     </div>
 
@@ -42,13 +46,13 @@
   </div>
 
   <div id="chevron-container" (click)="extend()">
-    <span 
-        id="news-label"
-        *ngIf="!extended" 
-        class="mat-caption fill text-center"
-        matTooltip="Read the latest article from the Cumberland Cloud"
+    <span
+      id="news-label"
+      *ngIf="!extended"
+      class="mat-caption fill text-center"
+      matTooltip="Read the latest article from the Cumberland Cloud"
     >
-        News
+      News
     </span>
     <mat-icon
       id="extend-btn"
@@ -57,19 +61,17 @@
       aria-label="Open blog tray menu"
       [svgIcon]="extended ? 'chevron_up' : 'chevron_down'"
       [matTooltip]="
-        extended
-          ? 'Collpase menu'
-          : 'Read the Cumberland Cloud blog'
+        extended ? 'Collpase menu' : 'Read the Cumberland Cloud blog'
       "
     >
     </mat-icon>
     <span
-        id="archive-label" 
-        *ngIf="!extended" 
-        class="mat-caption fill text-center"
-        matTooltip="Read past articles from the Cumberland Cloud"
+      id="archive-label"
+      *ngIf="!extended"
+      class="mat-caption fill text-center"
+      matTooltip="Read past articles from the Cumberland Cloud"
     >
-        Archive
+      Archive
     </span>
   </div>
 </div>
