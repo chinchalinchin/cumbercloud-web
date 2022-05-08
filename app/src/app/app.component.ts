@@ -44,6 +44,9 @@ export class AppComponent {
         if (this.menuDisplayed) {
           this.toggleMenu();
         }
+        if (this.overlaid) {
+          this.overlaid = false;
+        }
         if (this._meta.isServer()) {
           let conf = this.findConfigByPath(event.url);
           this._seo.setStaticAtrributes();
@@ -94,7 +97,6 @@ export class AppComponent {
   }
 
   public overlay(event: any) {
-    console.log(event);
     this.overlaid = event;
   }
 }

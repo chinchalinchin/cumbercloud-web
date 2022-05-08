@@ -8,7 +8,7 @@
   <div id="news-container" *ngIf="extended || extending" aria-live="polite">
     <div class="news-item" *ngIf="!extending" role="section">
       <div id="preview-panel">
-        <h2 class="mat-h2 text-center">Latest Article</h2>
+        <h2 class="mat-h2">Latest Article</h2>
         <div id="preview-img-container">
             <img
                 [id]="latest.preview.img.id"
@@ -26,7 +26,13 @@
           </div>
           <p class="mat-body" [innerHTML]="latest.preview.content">
           </p>
- 
+            <button
+                id="preview-btn" 
+                mat-icon-button
+                [routerLink]="['article',latest.id]"    
+            >
+                <mat-icon>open_in_new</mat-icon>
+            </button>
       </div>
     </div>
 
@@ -36,7 +42,14 @@
   </div>
 
   <div id="chevron-container" (click)="extend()">
-    <span *ngIf="!extended" class="mat-caption fill text-center">News</span>
+    <span 
+        id="news-label"
+        *ngIf="!extended" 
+        class="mat-caption fill text-center"
+        matTooltip="Read the latest article from the Cumberland Cloud"
+    >
+        News
+    </span>
     <mat-icon
       id="extend-btn"
       role="button"
@@ -46,10 +59,17 @@
       [matTooltip]="
         extended
           ? 'Collpase menu'
-          : 'Read the Cumberland Cloud blog!'
+          : 'Read the Cumberland Cloud blog'
       "
     >
     </mat-icon>
-    <span *ngIf="!extended" class="mat-caption fill text-center">Archive</span>
+    <span
+        id="archive-label" 
+        *ngIf="!extended" 
+        class="mat-caption fill text-center"
+        matTooltip="Read past articles from the Cumberland Cloud"
+    >
+        Archive
+    </span>
   </div>
 </div>

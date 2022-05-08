@@ -8,6 +8,7 @@ import { SharedMaterialModule } from './shared-material.module';
 import { TrayComponent } from './components/tray/tray.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { ArticleComponent } from './components/article/article.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ArticleComponent } from './components/article/article.component';
     ArticleComponent,
   ],
   imports: [
+    AppRoutingModule,
     CommonModule,
     HttpClientModule,
     FormsModule,

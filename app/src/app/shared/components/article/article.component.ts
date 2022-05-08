@@ -18,6 +18,7 @@ export class ArticleComponent implements OnInit {
     let route_param: string | null = this._route.snapshot.paramMap.get('name');
     let route_id: number | null = route_param ? parseInt(route_param) : null;
     this.article = this._articles.getById(route_id);
+    console.log(this.article);
   }
 
   ngOnInit(): void {}
