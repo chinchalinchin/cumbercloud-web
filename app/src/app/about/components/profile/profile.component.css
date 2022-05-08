@@ -93,7 +93,6 @@
   .actions {
     left: 47.5%;
     bottom: 0%;
-
   }
   .profile-pic {
     max-width: 150px;
@@ -106,7 +105,7 @@
     margin-bottom: -5%;
 
   }
-  .profile-scroller{
+  .profile-scroller {
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 1%;
@@ -181,7 +180,7 @@
   .flipped{
     bottom: -15%;
   }
-  .unflipped{
+  .unflipped {
     bottom: -7.5%;
   }
   .profile-pic-container {
