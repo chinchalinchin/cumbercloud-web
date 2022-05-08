@@ -1,6 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { NavigationEnd, Router } from '@angular/router';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { filter } from 'rxjs/operators';
 import {
   AnimationControl,
@@ -33,7 +34,8 @@ export class AppComponent {
     private _router: Router,
     private _renderer: Renderer2,
     private _seo: SeoService,
-    private _meta: MetaService
+    private _meta: MetaService,
+    private _ga: GoogleAnalyticsService,
   ) {
     this._router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
@@ -72,8 +74,10 @@ export class AppComponent {
   public toggleMenu() {
     if (this.menuDisplayed) {
       this.menuFoldCntl.prime();
+      this._ga.event('app', 'menu', 'display')
     } else {
       this.menuFoldCntl.animate();
+      this._ga.event('app', 'menu','hide');
     }
     this.menuDisplayed = !this.menuDisplayed;
   }
@@ -83,5 +87,6 @@ export class AppComponent {
       ariaLabel: 'Contact Information',
       panelClass: 'sheet',
     });
+    this._ga.event('app', 'sheet', 'open')
   }
 }
