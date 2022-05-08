@@ -1,30 +1,38 @@
-# Angular on AWS, Part 1: Getting Started
+# Angular on AWS
 
-This is the first article in a series that covers how to get an [Angular]() application up and running on an [AWS Cloud Environment](). In this article, we will cover setting up your cloud environment so that an **Angular** app can be easily deployed into it. In future entries to the series, we will cover [continuous integration and deployment](), i.e. creating a development pipeline so that changes to your **Angular** app can be automatically built and deployed anytime you push to your version control.
+<p align="center">
+    <img src="/assets/svgs/icons/angular.svg" width="10%" height="auto">
+</p>
 
-What follows assumes the reader is familiar with **Angular**. If you are new to **Angular**, check out our [Angular Tutorial series]() before proceeding. After you finish, come back here to get your application into production.
+In this article we will talk about how to get an [Angular]() application for your personal website up and running on the [AWS]() cloud. We will cover setting up your environment and provisioning all the resources you will need to deploy and run the **Angular** app. In a future article, we will cover [continuous integration and deployment](), i.e. creating a development pipeline so that changes to your **Angular** app can be automatically built and deployed anytime you push to your version control. We will use the current environment as a base upon which to build the complexity of [CICD]().
+
+Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for articles aimed at a more novice audience. 
 
 ## Cost Optimization
 
-**AWS** is a diverse eco-systems of services and platforms. As such, there are many different approaches you could take to get an **Angular** app onto **AWS**. You could provision an [EC2]() instance and install a lightweight web server like [nginx](https://www.nginx.com/) or [apache](https://httpd.apache.org/) onto it. If portability and scability are important for you, you might opt to deploy a container of a web server onto a managed service like [AWS Elastic Container Service](). Or, if you're feeling adventurous, you might decide to go for broke and manage the cluster yourself with something like [AWS Elastic Kubernetes Service]() or [OpenShift](). These are all viable solutions; indeed, you will encounter these architectures in production quite often. However, the needs of a production system are quite different from the needs of a personal website.
+**AWS** is a diverse eco-systems of services and platforms. As such, there are many different approaches you could take to get an **Angular** app onto **AWS**. You could provision an [EC2]() instance and install a lightweight web server like [nginx](https://www.nginx.com/) or [apache](https://httpd.apache.org/) onto it. If portability and scability are important for you, you might opt to deploy an image of a web server into a managed container using a service like [AWS Elastic Container Service](). Or, if you're feeling adventurous, you might decide to go for broke and manage the cluster yourself with something like [AWS Elastic Kubernetes Service]() or [OpenShift](). These are all viable solutions; indeed, you will often encounter these architectures in production. However, the needs of a production system are quite different from the needs of a personal website.
 
-The [Cumberland Cloud](https://cumberland-cloud.com)'s guiding principle in architecting a cloud environment is simple: **cost**. If a thing can be done cheaply without sacrificing quality, then we will always select the route with the least cost. The approaches detailed in the previous paragraph all suffer from one crucial defect: these methods quickly rack up charges. **EC2** and container orchestration clusters are always running; if they are not managed properly, your bill can quickly get out of control.
+The [Cumberland Cloud](https://cumberland-cloud.com)'s guiding principle in architecting a cloud environment is simple: **cost**. If a thing can be done cheaply without sacrificing quality, then we will always select the route with the least cost. The approaches detailed in the previous paragraph all suffer from one crucial defect: these methods quickly rack up charges. **EC2** and container orchestration clusters are always running and thus always incurring charges; if they are not managed properly, your bill can quickly get out of control.
 
 We do not need the computing power of a full fledged web server (virtual or otherwise). All we need is to host some static files (i.e., the HTML, JS and CSS files that an **Angular** app transpiles down into when you `ng build`). [AWS Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html) give us the ability to host a large quantity of static content for virtually free in a **S3 bucket**. We can then distribute the contents of the **S3 bucket** through a [global content distribution network](https://en.wikipedia.org/wiki/Content_delivery_network) **AWS** manages called [CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html).
 
-This is how the **Cumberland Cloud** hosts its website. We think the numbers speak for themselves. Last month, the entire bill for [https://cumberland-cloud.com](https://cumberland-cloud.com) was _$0.70_. By contrast, the lowest monthly charges for an **EC2** you will find are between _$18_ - _$30_, depending on the CPU and memory specifications.
+The **Cumberland Cloud** website is written in **Angular** and this is the method we use to host the build files. We think the numbers speak for themselves. Last month, the entire bill for [https://cumberland-cloud.com](https://cumberland-cloud.com) was _$0.70_. By contrast, the lowest monthly charges you will find for an **EC2** are between _$18_ - _$30_, depending on the CPU and memory specifications.
+
+With those figures in mind, further justification for pursuing this route should not need given. 
 
 ## Prerequisites
 
-There are several things you will need to set up manually in your **AWS** account before we proceed.
+There are several things you will need to set up manually in your **AWS** account before we proceed. These items are covered briefly in the sections below, with links to the relevant documentation provided for further investigation.
 
 ### Domain & Hosted Zone
 
-You will need to purchase a domain name and set up a hosted zone for that domain. [When you register a domain through AWS Route53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html), AWS will automatically provision a hosted zone for you. If you already own a domain through a different registrate, you will need to [setup the hosted zone yourself](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html).
+You will need to purchase a domain name and set up a hosted zone for that domain. [When you register a domain through AWS Route53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html), AWS will automatically provision a hosted zone for you. If you already own a domain through a different registrar, you will need to [setup the hosted zone yourself](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html).
 
 Once the hosted zone is provisioned and setup, note the physical ID for later,
 
-![](https://cumberland-cloud.com/assets/imgs/articles/aws_hosted_zone_id.png)
+<p align="center">
+    <img src="/assets/imgs/articles/aws_hosted_zone_id.png" width="85%" height="auto">
+</p>
 
 ### TLS/SSL Certificate
 
@@ -36,7 +44,9 @@ If you registered `example.com` as your domain, then you will need to request a 
 
 Once the certificate is provisioned (this may take up to a day if your domain isn't registered through **Route53**), note the [AWS Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the certificate,
 
-![](https://cumberland-cloud.com/assets/imgs/articles/aws_certificate_arn.png)
+<p align="center">
+    <img src="/assets/imgs/articles/aws_certificate_arn.png" width="85%" height="auto">
+</p>
 
 ## CloudFormation
 

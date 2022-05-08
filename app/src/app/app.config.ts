@@ -162,7 +162,7 @@ export interface ArticleConfig {
   date: Date;
   title: string;
   preview: Preview;
-  content: string;
+  src: string;
 }
 
 ////////
@@ -217,7 +217,7 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
         title: 'Angular on AWS',
       },
     },
-    content: '/assets/articles/aws_angular_tutorial.md',
+    src: '/assets/articles/aws_angular_tutorial.md',
   },
 ];
 

@@ -1,0 +1,19 @@
+#article{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    right: 5%;
+    bottom: 2.5%;
+    border-radius: 15px;
+}
+#article-sheet{
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    left: 1%;
+    bottom: 2%;
+    border-radius: 15px;
+    overflow-y: auto;
+    padding-left: 1%;
+    padding-right: 1%;
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { BlogRoutingModule } from './blog-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -15,7 +16,8 @@ import { ArticleComponent } from './components/article/article.component';
   imports: [
     CommonModule,
     BlogRoutingModule,
-    SharedModule
+    SharedModule,
+    MarkdownModule.forRoot()
   ]
 })
 export class BlogModule { }

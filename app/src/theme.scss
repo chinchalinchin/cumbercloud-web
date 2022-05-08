@@ -9,6 +9,7 @@
 @use "./app/about/components/profile/profile.theme" as profile;
 @use "./app/about/components/resume/resume.theme" as resume;
 @use "./app/about/components/experience/experience.theme" as experience;
+@use './app/blog/components/article/article.theme' as article;
 @use "./app/pricing/components/pricing/pricing.theme" as pricing;
 @use "./app/pricing/components/rate/rate.theme" as rate;
 @use "./app/contact/components/contact/contact.theme" as contact;
@@ -227,6 +228,7 @@ $cc-theme: mat-light-theme($cc-primary, $cc-complement, $cc-warn);
 
 @include global.theme($cc-theme);
 @include app.theme($cc-theme);
+@include article.theme($cc-theme);
 @include design.theme($cc-theme);
 @include experience.theme($cc-theme);
 @include home.theme($cc-theme);
