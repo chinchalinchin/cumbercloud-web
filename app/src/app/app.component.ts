@@ -26,6 +26,7 @@ export class AppComponent {
   public selectedNav?: NavConfig;
   public menuDisplayed: boolean = false;
   public sheetDisplayed: boolean = false;
+  public overlaid: boolean = false;
   public init: boolean = false;
   public menuFoldCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public pageConfig: NavConfig[] = NAV_CONFIG;
@@ -90,5 +91,10 @@ export class AppComponent {
       panelClass: 'sheet',
     });
     this._ga.event('app', 'sheet', 'open');
+  }
+
+  public overlay(event: any){
+    console.log(event);
+    this.overlaid = event;
   }
 }

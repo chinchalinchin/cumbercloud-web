@@ -82,8 +82,12 @@
 
   <div id="btm-spacer" aria-hidden="true"></div>
 
+  <div class="overlay" *ngIf="overlaid"></div>
+
   <app-tray 
     class="tray"
     *ngIf="menuDisplayed"
+    (trayChanged)="overlay($event)"
   ></app-tray>
+
 </div>

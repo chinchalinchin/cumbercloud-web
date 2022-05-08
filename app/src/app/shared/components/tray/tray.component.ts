@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers } from 'src/animations';
 
 @Component({
@@ -13,16 +13,16 @@ import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers } fro
         { top: '0%', bottom: '97%', left: '0%', right: '0%' },
         { top: '0%', bottom: '75%', left: '0%', right: '0%'}
       ],
-      'tray',
-      AnimationPeriods.medium
+      'tray'
     )
   ]
 })
 export class TrayComponent implements OnInit {
 
   public extended: boolean = false;
-
   public positionCntl : AnimationControl = new AnimationControl(AnimationTriggers.cntl_position);
+  @Output()
+  public trayChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -38,5 +38,7 @@ export class TrayComponent implements OnInit {
       this.positionCntl.animatePosition(0);
     }
     this.extended = !this.extended;
+    console.log('emitting')
+    this.trayChanged.emit(this.extended);
   }
 }
