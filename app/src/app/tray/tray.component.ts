@@ -41,7 +41,7 @@ export class TrayComponent implements OnInit {
 
   constructor(
     private _articles: ArticleService,
-    private _ga: GoogleAnalyticsService,
+    private _ga: GoogleAnalyticsService
   ) {
     this.latest = this._articles.getLatest();
     this.feed = this._articles.getSampleFeed();
@@ -54,7 +54,7 @@ export class TrayComponent implements OnInit {
   public extend() {
     if (!this.extended) {
       this.positionCntl.animatePosition(1);
-      this._ga.event('app', 'tray', 'unextend')
+      this._ga.event('app', 'tray', 'unextend');
     } else {
       this.positionCntl.animatePosition(0);
     }

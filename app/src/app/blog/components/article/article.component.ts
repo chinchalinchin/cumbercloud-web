@@ -25,7 +25,7 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  scrollTo(el: string){
+  scrollTo(el: string) {
     document.getElementById(el)?.scrollIntoView();
   }
 
