@@ -5,9 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './components/error/error.component';
 import { SheetComponent } from './components/sheet/sheet.component';
 import { SharedMaterialModule } from './shared-material.module';
+import { SafePipe } from './pipes/sanitize.pipe';
 
 @NgModule({
-  declarations: [ErrorComponent, SheetComponent],
+  declarations: [
+    ErrorComponent, 
+    SheetComponent,
+    SafePipe
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -21,6 +26,7 @@ import { SharedMaterialModule } from './shared-material.module';
     FormsModule,
     ReactiveFormsModule,
     SharedMaterialModule,
+    SafePipe,
   ],
 })
 export class SharedModule {}

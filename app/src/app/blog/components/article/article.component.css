@@ -8,11 +8,7 @@
 }
 #article-sheet {
   position: absolute;
-<<<<<<< HEAD
   top: 7.5%;
-=======
-  top: 2%;
->>>>>>> 34b77a3cb292255a251d082fd5c7b4b8a058732c
   right: 1%;
   left: 1%;
   bottom: 2%;
@@ -20,11 +16,17 @@
   overflow-y: auto;
   padding-left: 1%;
   padding-right: 1%;
-<<<<<<< HEAD
+}
+#share-panel{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.share-item{
+  margin-right: 0.5%;
+  margin-top: 0.25%;
 }
 .chevron {
   width: 2%;
   cursor: pointer;
-=======
->>>>>>> 34b77a3cb292255a251d082fd5c7b4b8a058732c
 }

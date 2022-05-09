@@ -1,15 +1,21 @@
 <div id="article">
   <div id="share-panel">
-    <iframe
-      [src]="facebookShareUrl"
-      width="77"
-      height="20"
-      style="border: none; overflow: hidden"
-      scrolling="no"
-      frameborder="0"
-      allowfullscreen="true"
-      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-    ></iframe>
+    <div class="share-item">
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+    </div>
+    <div class="share-item">
+      <iframe
+        [src]="facebookShareUrl | safe: 'resourceUrl'"
+        width="67"
+        height="20"
+        style="border: none; overflow: hidden; border-radius:9999px;"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      ></iframe>
+    </div>
+    
   </div>
   <div id="article-sheet" class="mat-elevation-z1">
     <markdown [src]="article.src"></markdown>
