@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, SecurityContext } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
@@ -14,6 +14,7 @@ import { ArticleComponent } from './components/article/article.component';
     BlogRoutingModule,
     SharedModule,
     MarkdownModule.forRoot({
+      sanitize: SecurityContext.NONE,
       markedOptions: {
         provide: MarkedOptions,
         useValue: {

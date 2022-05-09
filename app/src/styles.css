@@ -68,6 +68,8 @@ mat-card img {
 }
 .article-header {
   width: 100%;
+  border-style: solid;
+  border-width: 1px;
 }
 .animation {
   position: absolute;

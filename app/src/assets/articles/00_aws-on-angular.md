@@ -1,5 +1,11 @@
 <sup><sub>This article is part of the **Cumberland Cloud**'s [Building a Web Application with Angular]() series.</sub></sup>
 
+# <span onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Angular on AWS</span>
+
+<p align="center" class="article-header">
+    <img src="/assets/svgs/icons/angular.svg" width="10%" height="auto">
+</p>
+
 ## <span id="toc">Table of Contents</span>
 
 - <span onclick="document.getElementById('cost-optimization').scrollIntoView()" class="link">Cost Optimization</span>
@@ -11,7 +17,7 @@
 - <span onclick="document.getElementById('anatomy-template').scrollIntoView()" class="link">Anatomy of Template</span>
   - <span onclick="document.getElementById('tldr').scrollIntoView()" class="link">TL;DR</span>
   - <span onclick="document.getElementById('template').scrollIntoView()" class="link">Template</span>
-  - <span onclick="document.getElementById('parameters').scrollIntoView()" class="link">Parameters</span>
+  - Parameters</span>
   - <span onclick="document.getElementById('s3-buckets').scrollIntoView()" class="link">S3 Buckets</span>
   - <span onclick="document.getElementById('cloudfront-distribution').scrollIntoView()" class="link">Cloudfront Distribution</span>
   - <span onclick="document.getElementById('route53-recordset').scrollIntoView()" class="link">Route53 Recordset</span>
@@ -19,25 +25,21 @@
 - <span onclick="document.getElementById('prerendering-problem').scrollIntoView()" class="link">Prerendering Problem</span>
   - <span onclick="document.getElementById('cloudfront-edge').scrollIntoView()" class="link">CloudFront Edge Functions</span>
   - <span onclick="document.getElementById('function-handler').scrollIntoView()" class="link">Function Handler</span>
-- <span onclick="document.getElementById('series-index').scrollIntoView()" class="link">More Articles in **Building a Web Application with Angular**</span>
+- <span onclick="document.getElementById('series-index').scrollIntoView()" class="link">More Articles in _Building a Web Application with Angular_ series</span>
 
-# <span onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Angular on AWS</span>
-
-<p align="center" class="article-header">
-    <img src="/assets/svgs/icons/angular.svg" width="10%" height="auto">
-</p>
+## Introduction
 
 In this article we explain how to get an [Angular](https://angular.io/) application for your personal website up and running on the [AWS](https://aws.amazon.com/) cloud. We cover setting up your environment and provisioning all the resources you will need to deploy and run the **Angular** app. In a subsequent article in [this series](), we will cover [continuous integration and deployment](), i.e. creating a development pipeline so that changes to your **Angular** app can be automatically built and deployed anytime you push to your version control. We will use the environment detailed in this article later as a base upon which to build the complexity of [CI/CD](https://en.wikipedia.org/wiki/CI/CD).
 
-Everything that follows will assume the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for the previous articles in this series to get started.
+Everything that follows assumes the reader is familiar enough with **Angular** to build and run an app on their local computer. If you are new to **Angular**, check out our [archive](/blog/archive) for previous articles in this series for more information on getting started.
 
 ## <span id="cost-optimization" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Cost Optimization</span>
 
-**AWS** is a diverse eco-systems of services and platforms. As such, there are many different approaches you could take to get an **Angular** app onto **AWS**. You could provision an [Elastic Cloud Compute (EC2) instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) and install a lightweight web server like [nginx](https://www.nginx.com/) or [apache](https://httpd.apache.org/) onto it. If portability and scability are important for you, you might opt to deploy an image of a web server into a managed container using a service like [AWS Elastic Container Service (ECS)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html). Or, if you're feeling adventurous, you might decide to go for broke and manage the cluster yourself with something like [AWS Elastic Kubernetes Service (EKS)](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) or [RedHat OpenShift on AWS (ROSA)](https://docs.aws.amazon.com/ROSA/latest/userguide/what-is-rosa.html). These are all viable solutions; indeed, you will often encounter these architectures in production. However, the needs of a production system are quite different from the needs of a personal website.
+**AWS** is a diverse eco-systems of disparate services and platforms. As such, there are many different approaches you can take to get an **Angular** app onto **AWS**; each method has its advantages and disadvantages, and depending on your situation, you may have reason to choose one over the other. You could provision an [Elastic Cloud Compute (EC2) instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) and install a lightweight web server like [nginx](https://www.nginx.com/) or [apache](https://httpd.apache.org/) onto it. If portability and scability are important for you, you might opt to deploy an image of a web server into a managed container using a service like [AWS Elastic Container Service (ECS)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html). Or, if you're feeling adventurous, you might decide to go for broke and manage the cluster yourself with something like [AWS Elastic Kubernetes Service (EKS)](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) or [RedHat OpenShift on AWS (ROSA)](https://docs.aws.amazon.com/ROSA/latest/userguide/what-is-rosa.html). These are all viable solutions; indeed, you will often encounter these architectures in production. However, the needs of a production system are quite different from the needs of a personal website.
 
 The [Cumberland Cloud](https://cumberland-cloud.com)'s guiding principle in architecting a cloud environment is simple: **cost** above all else. If a thing can be done cheaply without sacrificing quality, then we will always select the route with the least cost. The approaches detailed in the previous paragraph all suffer from one crucial defect: these methods quickly rack up charges. **EC2** and container orchestration clusters are always running and thus always incurring charges; if they are not managed properly, your bill can quickly get out of control.
 
-We do not need the computing power of a full fledged web server (virtual or otherwise). All we need is to host some static files (i.e., the HTML, JS and CSS files that an **Angular** app transpiles down into when you `ng build`). [AWS Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html) give us the ability to host a large quantity of static content for virtually free in a **S3 bucket**. We can then distribute the contents of the **S3 bucket** through a [global content distribution network](https://en.wikipedia.org/wiki/Content_delivery_network) **AWS** manages called [CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html).
+We do not need the computing power of a full fledged web server (virtual or otherwise). All we need is to host some static files (i.e., the _HTML_, _JS_ and _CSS_ files that an **Angular** app transpiles down into when you `ng build`). [AWS Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html) give us the ability to host a large quantity of static content for virtually free in a **S3 bucket**. We can then distribute the contents of the **S3 bucket** through a [global content distribution network](https://en.wikipedia.org/wiki/Content_delivery_network) **AWS** manages called [CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html).
 
 The **Cumberland Cloud** website is written in **Angular** and this is the method we use to host our build files. We think the numbers speak for themselves. Last month, the entire bill for [https://cumberland-cloud.com](https://cumberland-cloud.com) was _$0.70_. By contrast, the lowest monthly charges you will find for an **EC2** are between _$18_ - _$30_, depending on the CPU and memory specifications. You would be lucky to find a [Content Management System (CMS)](), like **Wix** or **Wordpress**, with monthly hosting rates as low as that.
 
@@ -63,7 +65,7 @@ In order to setup a secure website through **HTTPS**, you will need a valid cert
 
 **AWS** issues its own certificates through the [AWS Cerfiticate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html). The easiest way to setup **HTTPS** for your **S3-Cloudfront** distribution is to provision a certificate through the **ACM**. [Follow the instructions in the official documentation](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) to setup an SSL certificate.
 
-If you registered `example.com` as your domain, then you will need to request a certificate for `*.example.com`. While not technically neccessary for the current scope, the wildcard will allow the certificate to valid any requests to subdomains within your domain, such as `api.example.com` or `app.example.com`. [In another article](), we show how to setup backend functionality for an **Angular** app via [AWS APIGateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html); if you use the wilcard, you will be able to use the same certificate as you follow along with all of our guides and tutorials.
+If you registered `example.com` as your domain, then you will need to request a certificate for `*.example.com`. While not technically neccessary for the current scope, the wildcard will allow the certificate to valid any requests to subdomains within your domain, such as `api.example.com` or `app.example.com`. [In another article](), we show how to setup backend functionality for an **Angular** app via [AWS APIGateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html); if you use the wilcard, you will be able to use the same certificate as you follow along with all of our guides and tutorials.
 
 Once the certificate is provisioned (this may take up to a day if your domain isn't registered through **Route53**), note the [AWS Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the certificate in the **ACM** web console,
 
@@ -73,21 +75,21 @@ Once the certificate is provisioned (this may take up to a day if your domain is
 
 ## <span id="cloudformation" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFormation</span>
 
-After the domain and certificate have been provisioned in your **AWS** account, it's smooth sailing. We provide a **CloudFormation** template below for provisioning the rest of the stack.
+After the domain and certificate have been provisioned in your **AWS** account, the hard part is over; It's smooth sailing from here on out. We provide a **CloudFormation** template below for provisioning the rest of the stack. Using either through the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html), [AWS API](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html) or the [AWS Console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console.html), you can upload this template to the cloud and **CloudFormation** will automatically create everything you need for an **S3**-**CloudFront** distribution.
 
-[CloudFormation]() is the **AWS** version of [Infrastructure-as-Code (IaC)](). _IaC_ uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax, you create _templates_ of a cloud environment by declaring a collection of resources. Each resource has unique configuration properties that determine how the physical analogue of each block is mapped in the cloud, i.e. how much space a volume should allocate, how much memory an EC2 should provision, etc. The result is then uploaded to the **CloudFormation** API where cloud resources are provisioned according to the parsed template and deployed into your account.
+[CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) is the **AWS** version of [Infrastructure-as-Code (IaC)](https://en.wikipedia.org/wiki/Infrastructure_as_code). _IaC_ uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax, you create _templates_ of a cloud environment by declaring a collection of resources, also known as a _stack_ of resources. Each resource is specified in a _block_ of code and has unique configuration properties that determine how the physical analogue of each block is mapped in the cloud, i.e. how much space a volume should allocate, how much memory an EC2 should provision, how many buckets should be created in **S3**, etc. The result is then uploaded to the **CloudFormation** API (ultimately, the console and the CLI are just [wrappers](https://en.wikipedia.org/wiki/Wrapper_function) around the API). **CloudFormation** parses the template, applies any intrinsic functions (covered in the <span onclick="document.getElementById('parameters').scrollIntoView()" class="link">Parameters</span> section) and then deploys the stack into your account.
 
-_IaC_ templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from using version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit of all, though, is reusability. Once an _IaC_ has been created and debugged, it be can deployed into any account, at any time.
+_IaC_ templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit of all, though, is reusability. Once an _IaC_ has been created and debugged, it be can deployed into any account, at any time.
 
-The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<sup><sub>[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</sup></sub>). Over the years, we have accumualted templates for virtually every imaginable use case. Among the many templates we maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template.
+The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<sup><sub>[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</sup></sub>). Over the years, we have accumulated templates for virtually every imaginable use case. Among the many templates we maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template. 
 
 ### <span id="cloudformation-prerequisites" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFormation Prerequisites</span>
 
-Before following along with this section, make sure you [install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configure it with your account credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+Before procedding, make sure you [install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configure it with your account credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
 
 ## <span id="anatomy-template" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Anatomy of a Template</span>
 
-In this section, we describe in detail the anatomy of the **S3**-**Cloudfront** distribution **CloudFormation** template. If you're only interested in getting the stack deployed, you can clone one of our sample repository on [Github]() and use a script to stand up the stack without hassle.
+In this section, we describe in detail the anatomy of the **S3**-**Cloudfront** distribution **CloudFormation** template. If you're only interested in getting the stack deployed, you can clone our sample repository on [Github](https://github.com/chinchalinchin/cumbercloud-cloudformation) and use a script contained within to stand up the stack without hassle.
 
 ### <span id="tldr" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">TL;DR</span>
 
@@ -101,7 +103,7 @@ The script will prompt you to enter your domain name (without the _http://_ or _
 
 ### <span id="template" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Template</span>
 
-The raw **CloudFormation** template is given below. It can also be found [on the Cumberland Cloud Github]().
+The raw **CloudFormation** template is given below. It can also be found [on the Cumberland Cloud Github](https://github.com/chinchalinchin/cumbercloud-cloudformation/blob/master/templates/web.yml).
 
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
@@ -238,14 +240,14 @@ Outputs:
       Name: !Sub ${AWS::StackName}-WebsiteBucketDistributionDomain
 ```
 
-The template is organized into four main blocks: `Description`, `Parameters`, `Resources` and `Outputs`. The `Description` block is a string of metadata that is appended to the stack; it serves no purpose other than describing to a human the purpose of the stack. Nothing in the `Description` block affects how or what gets provisioned. The other blocks are described below in more detail.
+The template is organized into four main blocks: `Description`, `Parameters`, `Resources` and `Outputs`. The `Description` block is a string of metadata that is appended to the stack; it serves no function other than describing to a human the purpose of the stack. Nothing in the `Description` block affects how or what gets provisioned. The other blocks, which are where the meat of the template is, are described below in more detail.
 
 ### <span id="parameters" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Parameters</span>
 
-The `Parameters` block defines the input into a **CloudFormation** template. These values must be provided to the template anytime it is posted to **AWS**. If you use the **AWS** CLI, the `aws cloudformation create-stack` API command can ingest the parameters from the command line. The following command will provision the **S3**-**Cloudfront** template,
+The `Parameters` block defines the input into a **CloudFormation** template. These values must be provided to the template anytime it is posted to **AWS**. If you use the **AWS** CLI, the `aws cloudformation create-stack` API command can ingest the parameters directly from the command line. The following command will provision the **S3**-**Cloudfront** template,
 
 ```bash
-aws cloudformation update-stack \
+aws cloudformation create-stack \
           --stack-name "Angular-WebStack" \
           --template-body file://cloudformation.yml \
           --parameters ParameterKey=applicationName,ParameterValue=<application-name> \
@@ -254,7 +256,9 @@ aws cloudformation update-stack \
                         ParameterKey=hostedZoneId,ParameterValue=<hosted-zone-id>
 ```
 
-`--stack-name` is the identifier given to the stack. `--template-body` points the command to the location of the YML template. `--parameters` is a list of key-value pairs that is passed into the `Parameters` block of the template.
+Replace `<application-name>`, `<domain-name>`, `<certificate-arn>` and `<hosted-zone-id>` with the corresponding values for your environment. 
+
+The `aws cloudformation` command has several arguments. `--stack-name` is the identifier given to the stack. `--template-body` points the command to the location of the YML template. `--parameters` is a list of key-value pairs that is passed into the `Parameters` block of the template.
 
 **NOTE**: The template, _cloudformation.yml_, must be saved in the directory _where this command is executed_. If you try to point this command to the location of the template, it will cause endless headaches as you struggle to figure out what the problem is.
 
