@@ -240,7 +240,7 @@ Outputs:
       Name: !Sub ${AWS::StackName}-WebsiteBucketDistributionDomain
 ```
 
-The template is organized into four main blocks: `Description`, `Parameters`, `Resources` and `Outputs`. The `Description` block is a string of metadata that is appended to the stack; it serves no function other than describing to a human the purpose of the stack. Nothing in the `Description` block affects how or what gets provisioned. The other blocks, which are where the meat of the template is, are described below in more detail.
+The template is organized into four main blocks: `Description`, `Parameters`, `Resources` and `Outputs`. The `Description` block is a string of metadata that is appended to the stack; it serves no function other than describing to a human the purpose of the stack. Nothing in the `Description` block affects how or what gets provisioned. The other blocks, where the meat of the template is, are described below in more detail.
 
 ### <span id="parameters" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Parameters</span>
 
@@ -258,15 +258,27 @@ aws cloudformation create-stack \
 
 Replace `<application-name>`, `<domain-name>`, `<certificate-arn>` and `<hosted-zone-id>` with the corresponding values for your environment.
 
-The `aws cloudformation` command has several arguments. `--stack-name` is the identifier given to the stack. `--template-body` points the command to the location of the YML template. `--parameters` is a list of key-value pairs that is passed into the `Parameters` block of the template.
+The `aws cloudformation` command has several arguments. `--stack-name` is the identifier given to the stack. `--template-body` points the command to the location of the YML template. `--parameters` is the aforementioned list of key-value pairs that are passed into the `Parameters` block of the template. Notice how the `ParameterKeys` map to the `Parameters` defined in the template. `ParameterValue` maps to the value assigned to that particular parameter.
 
 **NOTE**: The template, _cloudformation.yml_, must be saved in the directory _where this command is executed_. If you try to point this command to the location of the template, it will cause endless headaches as you struggle to figure out what the problem is.
 
-Parameters allow you to generalize your template. You can parameterize any hardcoded values specific to your environment so your template can be reused in different accounts, or even different environments in the same account. In order to utilize parameters in a template, you must use one of the **CloudFormation** [intrinsic functions](), either the `Fn::Sub` (substitute function) or the `Fn::Ref` (reference function). Intrinsic functions are macros executed by **CloudFormation** before the template is processed. For example, the `Fn::Sub` intrinsic function substitutes the value of a parameter into a string expression, whereas the `Fn::Ref` references the value of a parameter.
+Parameters allow you to generalize your template. You can parameterize any hardcoded values specific to your environment so your template can be reused in different accounts, or even different environments in the same account. 
+
+In order to utilize parameters in a template, you must use one of the **CloudFormation** [intrinsic functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html). Usually, you will only need `Fn::Sub` (substitute function) or `Fn::Ref` (reference function). Intrinsic functions are macros executed by **CloudFormation** before the template is processed. For example, the `Fn::Sub` intrinsic function substitutes the value of a parameter into a string expression, whereas the `Fn::Ref` references the value of a parameter.
+
+---
+
+  **NOTE**: The syntax for intrinsic functions can be frustrating the first time you encounter it, especially if you are unfamiliar with *YML*. If you are having trouble understanding what exactly an intrinsic function is doing, it is most likely due to the pecularities of *YML* data structures; it is helpful to read the first few chapters of the [official YML specification](https://yaml.org/spec/1.2.2), where the syntax is precisely defined.
+
+---
+
+  **NOTE**: Another thing to keep in mind is the syntactical variation of intrinsic functions. For instance, the substitute function can be used in a `!Sub` form of the `Fn::Sub` form. In general, all intrinsic functions have this same double naming convention.
+
+---
 
 The **S3**-**CloudFromation** template requires the following parameters,
 
-1. **applicationName** : This is a tag that is used to enforce naming conventions. Note how the bucket resources substitute in the value of **applicationName** in for their bucket names using the `Fn::Sub` [instrinsic function](). It is a good practice to enforce naming and tagging conventions early on, before your accumulate too many resources without any organizational structure.
+1. **applicationName** : This is a tag that is used to enforce naming conventions. Note how the bucket resources substitute the value of **applicationName** in for their bucket names using the `Fn::Sub` [instrinsic function](). It is a good practice to enforce naming and tagging conventions early on, before your accumulate too many resources without any organizational structure.
 
 2. **certiicateArn** : This is the **ARN** of the SSL certificate you provisioned in a previous section. This is ingested by the `AWS::CloudFront::Distribution` resource through the `DistributionConfig.ViewerCertificate.AcmCertificateArn` property, using the `Fn::Ref` [instrinic function](). Note the difference in syntax between `Fn::Sub` and `Fn::Ref`. `Fn::Sub` injects the value of the parameter into a string, whereas `Fn::Ref` refers to a single value.
 
@@ -288,9 +300,15 @@ TODO
 
 TODO
 
-### <span id="outputs" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Outputss</span>
+### <span id="outputs" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Outputs</span>
 
 TODO
+
+Here we meet another intrinsic function, `Fn::GetAtt` or `!GetAtt`. Every resource has a set of return values it exposes once it is provisioned. For example, almost every resource will return the **ARN** as an attribute of the resource. You can hook into this value and output it via the `Outputs` block, or use it in the creation of another resource. In this way, you can chain together resources in a template, using the outputs of one resource as in the inputs into another.
+
+You may, at this point, wonder about resource dependency. For instance, the `WebsiteDistribution` in the **S3**-**Cloudfront** template requires `WebsiteBucket` to exist before it can "distribute" it contents. How do we inform **CloudFormation** about this dependency? The answer in most cases is **CloudFormation** can figure it out by itself. This is because the intrinsic functions create a natural hierarchy in the template. The `Origins` property of the `WebsiteDistribution` references the `WebsiteBucket` directly, with the `!Ref` intrinsic function; this creates a link between the two resources. In other words, intrinsic functions are how **CloudFormation** is able to construct a resource tree and shake out the dependencies between them.
+
+There are cases where you may have two resource blocks without any explicit mapping via intrinsic functions. In cases like these, you will need to use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html), you explicitly declare to **CloudFormation** there is a dependency between two resources. We will encounter this problem in the subsequent article in this series, when we attempt to [implement backend functionality for our website via API Gateway and AWS Lambda]().
 
 ## <span id="prerendering-problem" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">The Problem With Prerendering</span>
 
