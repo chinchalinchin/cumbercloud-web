@@ -8,11 +8,7 @@ import { SharedMaterialModule } from './shared-material.module';
 import { SafePipe } from './pipes/sanitize.pipe';
 
 @NgModule({
-  declarations: [
-    ErrorComponent, 
-    SheetComponent,
-    SafePipe
-  ],
+  declarations: [ErrorComponent, SheetComponent, SafePipe],
   imports: [
     CommonModule,
     HttpClientModule,

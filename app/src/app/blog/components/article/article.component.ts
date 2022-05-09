@@ -30,7 +30,7 @@ export class ArticleComponent implements OnInit {
 
   ngAfterViewInit() {
     let scriptEl = document.createElement('script');
-    scriptEl.src = "https://platform.twitter.com/widgets.js"
+    scriptEl.src = 'https://platform.twitter.com/widgets.js';
     this._renderer.appendChild(this._el.nativeElement, scriptEl);
   }
 

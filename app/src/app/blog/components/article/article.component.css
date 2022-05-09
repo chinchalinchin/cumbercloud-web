@@ -17,12 +17,12 @@
   padding-left: 1%;
   padding-right: 1%;
 }
-#share-panel{
+#share-panel {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.share-item{
+.share-item {
   margin-right: 0.5%;
   margin-top: 0.25%;
 }
