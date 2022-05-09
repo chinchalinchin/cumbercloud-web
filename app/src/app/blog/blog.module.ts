@@ -1,4 +1,4 @@
-import { NgModule, SecurityContext } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
