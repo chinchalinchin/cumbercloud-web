@@ -81,7 +81,7 @@ After the domain and certificate have been provisioned in your **AWS** account, 
 
 _IaC_ templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit of all, though, is reusability. Once an _IaC_ has been created and debugged, it be can deployed into any account, at any time.
 
-The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<sup><sub>[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</sup></sub>). Over the years, we have accumulated templates for virtually every imaginable use case. Among the many templates we maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template. 
+The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<sup><sub>[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</sup></sub>). Over the years, we have accumulated templates for virtually every imaginable use case. Among the many templates we maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template.
 
 ### <span id="cloudformation-prerequisites" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFormation Prerequisites</span>
 
@@ -256,7 +256,7 @@ aws cloudformation create-stack \
                         ParameterKey=hostedZoneId,ParameterValue=<hosted-zone-id>
 ```
 
-Replace `<application-name>`, `<domain-name>`, `<certificate-arn>` and `<hosted-zone-id>` with the corresponding values for your environment. 
+Replace `<application-name>`, `<domain-name>`, `<certificate-arn>` and `<hosted-zone-id>` with the corresponding values for your environment.
 
 The `aws cloudformation` command has several arguments. `--stack-name` is the identifier given to the stack. `--template-body` points the command to the location of the YML template. `--parameters` is a list of key-value pairs that is passed into the `Parameters` block of the template.
 
