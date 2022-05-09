@@ -16,7 +16,6 @@
 
 9. need cicd to update cloudfront edge everytime a new article is added...
 
-
 ### articles
 
 1. angular and seo
