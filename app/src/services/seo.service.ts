@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { MetaConfig } from 'src/app/app.config';
+import { MetaConfig } from 'src/nav.config';
 
 @Injectable({
   providedIn: 'root',

@@ -10,7 +10,7 @@ import {
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { SeoService } from 'src/services/seo.service';
-import { NavConfig, NAV_CONFIG } from './app.config';
+import { NavConfig, NAV_CONFIG } from '../nav.config';
 import { SheetComponent } from './shared/components/sheet/sheet.component';
 
 @Component({

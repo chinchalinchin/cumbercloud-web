@@ -103,7 +103,7 @@ The script will prompt you to enter your domain name (without the _http://_ or _
 
 ### <span id="template" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Template</span>
 
-The raw **CloudFormation** template is given below. It can also be found [on the Cumberland Cloud Github](https://github.com/chinchalinchin/cumbercloud-cloudformation/blob/master/templates/web.yml).
+The raw **CloudFormation** template is given below. It can also be found on the [Cumberland Cloud Github page](https://github.com/chinchalinchin/cumbercloud-cloudformation/blob/master/templates/web.yml).
 
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"

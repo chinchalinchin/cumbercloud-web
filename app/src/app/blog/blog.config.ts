@@ -1,5 +1,7 @@
 import { ImgConfig } from '../app.config';
 
+// TODO: ARTICLE_CONFIG should be populate from API.
+
 export interface Preview {
   content: string;
   img: ImgConfig;
