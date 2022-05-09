@@ -397,22 +397,24 @@ export const NAV_CONFIG: NavConfig[] = [
         logo: 'https://cumberland-cloud.com/assets/svgs/icons/cloud-03.svg',
       },
       {
-        "@context": "https://schema.org",
-        "@type": "NewsArticle",
-        "headline": "Article headline",
-        "image": [
-          "https://cumberland-cloud.com/assets/svgs/icons/aws-logo.svg",
-          "https://cumberland-cloud.com/assets/svgs/icons/angular.svg",
-          "https://cumberland-cloud/com/assets/imgs/logo.png"
-         ],
-        "datePublished": "2022-05-08T08:00:00+08:00",
-        "dateModified": "2015-05-09T09:20:00+08:00",
-        "author": [{
-            "@type": "Person",
-            "name": "Grant Moore",
-            "url": "https://cumberland-cloud.com/about/grant"
-          }]
-      }
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        headline: 'Article headline',
+        image: [
+          'https://cumberland-cloud.com/assets/svgs/icons/aws-logo.svg',
+          'https://cumberland-cloud.com/assets/svgs/icons/angular.svg',
+          'https://cumberland-cloud/com/assets/imgs/logo.png',
+        ],
+        datePublished: '2022-05-08T08:00:00+08:00',
+        dateModified: '2015-05-09T09:20:00+08:00',
+        author: [
+          {
+            '@type': 'Person',
+            name: 'Grant Moore',
+            url: 'https://cumberland-cloud.com/about/grant',
+          },
+        ],
+      },
     ],
     meta: [
       {

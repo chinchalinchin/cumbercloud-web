@@ -27,7 +27,6 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
         alt: 'Get Angular running on an AWS cloud environment',
         title: 'Angular on AWS',
       },
-      src: '/assets/articles/00_angular_on_aws.md'
     },
     src: '/assets/articles/00_aws-on-angular.md',
   },
