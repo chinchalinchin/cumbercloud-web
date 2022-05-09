@@ -5,3 +5,4 @@
 /contact
 /design
 /404
+/blog/article/angular_on_aws

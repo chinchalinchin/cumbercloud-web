@@ -383,6 +383,76 @@ export const NAV_CONFIG: NavConfig[] = [
       },
     ],
   },
+  {
+    path: '/blog/article/angular_on_aws',
+    page_title: 'The Cumberland Cloud',
+    page_description:
+      'In this article we explain how to setup a cloud environment to run an Angular single page application. We use a S3 Cloudfront distribution to host a static website. We go over the CloudFormation template to provision the entire stack.',
+    menu: false,
+    data: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        url: 'https://cumberland-cloud.com',
+        logo: 'https://cumberland-cloud.com/assets/svgs/icons/cloud-03.svg',
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Article headline",
+        "image": [
+          "https://cumberland-cloud.com/assets/svgs/icons/aws-logo.svg",
+          "https://cumberland-cloud.com/assets/svgs/icons/angular.svg",
+          "https://cumberland-cloud/com/assets/imgs/logo.png"
+         ],
+        "datePublished": "2022-05-08T08:00:00+08:00",
+        "dateModified": "2015-05-09T09:20:00+08:00",
+        "author": [{
+            "@type": "Person",
+            "name": "Grant Moore",
+            "url": "https://cumberland-cloud.com/about/grant"
+          }]
+      }
+    ],
+    meta: [
+      {
+        property: 'og:url',
+        content: 'https://cumberland-cloud.com/',
+      },
+      {
+        property: 'og:image',
+        content: 'http://cumberland-cloud.com/assets/imgs/logo.png',
+      },
+      {
+        property: 'og:image:secure_url',
+        content: 'https://cumberland-cloud.com/assets/imgs/logo.png',
+      },
+      {
+        property: 'og:image:width',
+        content: '1024',
+      },
+      {
+        property: 'og:image:height',
+        content: '1024',
+      },
+      {
+        property: 'og:image:alt',
+        content: 'Cumberland Cloud - Cloud Native Applications',
+      },
+      {
+        property: 'twitter:image',
+        content: 'https://cumberland-cloud.com/assets/imgs/logo.png',
+      },
+      {
+        property: 'twitter:image:alt',
+        content: 'Cumberland Cloud - Cloud Native Applications',
+      },
+      {
+        property: 'twitter:card',
+        content: 'summary',
+      },
+    ],
+  },
   // '/about' isn't a route, but this object is used to configure the nav menu.
   {
     path: '/about',
