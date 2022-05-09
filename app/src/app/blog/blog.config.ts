@@ -43,8 +43,6 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
         title: '',
       },
     },
-    src: '/assets/articles/01_aws-cicd.md'
-
-  }
+    src: '/assets/articles/01_aws-cicd.md',
+  },
 ];
-  
