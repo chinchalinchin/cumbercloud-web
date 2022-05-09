@@ -25,15 +25,15 @@
   width: 100%;
   justify-content: center;
 }
-#preview-content{
+#preview-content {
   width: 60%;
   padding: 1%;
   border-radius: 15px;
 }
-#preview-link{
+#preview-link {
   width: 5%;
 }
-#preview-btn{
+#preview-btn {
   float: right;
   margin-top: -5%;
 }
@@ -43,10 +43,10 @@
   cursor: pointer;
   min-width: 5%;
 }
-.content-pane{
-  width:60%
+.content-pane {
+  width: 60%;
 }
-.panel-pane{
+.panel-pane {
   width: 40%;
 }
 .news-item {
