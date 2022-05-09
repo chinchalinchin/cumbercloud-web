@@ -18,7 +18,6 @@ import { ArticleComponent } from './components/article/article.component';
     BlogRoutingModule,
     SharedModule,
     MarkdownModule.forRoot({
-      sanitize: SecurityContext.NONE,
       markedOptions: {
         provide: MarkedOptions,
         useValue: {

@@ -14,8 +14,7 @@
 
 8. pass routing params through route to archive component so archive can be filtered on load. you can pass links to "series"
 
-9. need cicd to update cloudfront edge everytime a new article is added...
-
+9. need cicd to update cloudfront edge everytime a new article is added: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/update-function.html
 
 ### articles
 
