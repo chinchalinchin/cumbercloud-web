@@ -11,7 +11,8 @@ function endsWithPath(uri){
 }
 
 function endsWithBackslash(uri){
-    return uri.endsWith('/')
+    var paths = ['grant/', 'design/', 'pricing/', 'contact/','404/', 'angular_on_aws/'];
+    return endsWithArray(uri, paths)
 }
 
 function handler(event) {
@@ -21,7 +22,7 @@ function handler(event) {
     if (endsWithPath(uri)) {
         request.uri += '/index.html';
     }
-    else if (endsWithBackslash) {
+    else if (endsWithBackslash(uri)) {
         request.uri += 'index.html';
     }
     return request;
