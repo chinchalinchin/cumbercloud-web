@@ -276,7 +276,6 @@ export const DESIGN_CONFIG: StateImgConfig[] = [
   },
 ];
 
-
 export const ASSET_CONFIG: ImgConfig[] = [
   {
     src: '/assets/imgs/banners/money-banner.jpg',

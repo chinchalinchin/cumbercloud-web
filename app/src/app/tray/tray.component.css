@@ -70,26 +70,27 @@
   }
 }
 @media (max-width: 992px) {
-  #preview-content{
+  #preview-content {
     margin-top: 3.5%;
     padding-left: 2.5%;
   }
-  .content-pane, .panel-pane {
+  .content-pane,
+  .panel-pane {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
-  .panel-pane{
+  .panel-pane {
     display: flex;
     flex-direction: row;
   }
   .panel-img {
     width: 50%;
   }
-  .preview-img{
+  .preview-img {
     float: right;
   }
-  .archive-img{
+  .archive-img {
     float: left;
   }
   .news-item {
