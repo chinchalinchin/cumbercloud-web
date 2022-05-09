@@ -7,6 +7,7 @@ import {
   AnimationTriggers,
 } from 'src/animations';
 import { ArticleService } from 'src/services/article.service';
+import { MetaService } from 'src/services/meta.service';
 import { ArticleConfig } from '../blog/blog.config';
 
 @Component({
@@ -31,6 +32,7 @@ export class TrayComponent implements OnInit {
   @Output()
   public trayChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  public screenSize: string = '';
   public extended: boolean = false;
   public extending: boolean = false;
   public positionCntl: AnimationControl = new AnimationControl(
@@ -40,11 +42,15 @@ export class TrayComponent implements OnInit {
   public feed: ArticleConfig[];
 
   constructor(
+    private _meta: MetaService,
     private _articles: ArticleService,
     private _ga: GoogleAnalyticsService
   ) {
     this.latest = this._articles.getLatest();
     this.feed = this._articles.getSampleFeed();
+    this._meta.mediaBreakpoint.subscribe((size: string) => {
+      this.screenSize = size;
+    });
   }
 
   ngOnInit(): void {
@@ -64,5 +70,13 @@ export class TrayComponent implements OnInit {
       this.extending = false;
     }, AnimationPeriods.short * 900);
     this.trayChanged.emit(this.extended);
+  }
+
+  public mobileMode() {
+    return (
+      this.screenSize === 'md' ||
+      this.screenSize === 'sm' ||
+      this.screenSize === 'xs'
+    );
   }
 }

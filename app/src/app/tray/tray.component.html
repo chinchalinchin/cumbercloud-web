@@ -8,7 +8,9 @@
   <div id="news-container" *ngIf="extended || extending" aria-live="polite">
     <div class="news-item" *ngIf="!extending" role="section">
       <div id="preview-panel" class="panel-pane">
-        <h2 class="mat-h2">Latest Article</h2>
+        <h2 class="mat-h2">
+          {{ mobileMode() ? 'Latest' : 'Latest Article'}}
+        </h2>
         <div id="preview-img-container">
           <img
             [id]="latest.preview.img.id"
@@ -24,12 +26,20 @@
         <div>
           <h3 class="mat-h3">
             {{ latest.title }}
-            <span style="float: right" class="mat-body">{{
-              latest.date | date
-            }}</span>
+            <span 
+              [style]="mobileMode() ? 'float:left' : 'float: right'" 
+              class="mat-body"
+            >
+              {{ latest.date | date }}
+            </span>
           </h3>
         </div>
-        <p class="mat-body" [innerHTML]="latest.preview.content"></p>
+        <p
+          id="preview-text" 
+          class="mat-body" 
+          *ngIf="!mobileMode()" 
+          [innerHTML]="latest.preview.content"
+        ></p>
         <button
           id="preview-btn"
           mat-icon-button
@@ -45,7 +55,9 @@
     <div class="news-item" *ngIf="!extending">
       <div id="archive-content" class="content-pane"></div>
       <div id="archive-panel" class="panel-pane">
-        <h2 class="mat-h2">Archive Feed</h2>
+        <h2 *ngIf="!mobileMode()" class="mat-h2">
+          Archive Feed
+        </h2>
         <div id="archive-img-container">
           <img
             id="archive-img"
@@ -55,6 +67,9 @@
             class="panel-img"
           />
         </div>
+        <h2 *ngIf="mobileMode()" class="mat-h2">
+          Archive
+        </h2>
       </div>
     </div>
   </div>
