@@ -26,10 +26,9 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('./contact/contact.module').then((m) => m.ContactModule),
   },
-  { 
-    path: 'blog', 
-    loadChildren: () => 
-      import('./blog/blog.module').then(m => m.BlogModule) 
+  {
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
   },
   { path: '**', redirectTo: '/404' },
 ];
