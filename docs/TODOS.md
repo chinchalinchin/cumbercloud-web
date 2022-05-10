@@ -14,11 +14,9 @@
 
 8. pass routing params through route to archive component so archive can be filtered on load. you can pass links to "series"
 
-<<<<<<< HEAD 9. need cicd to update cloudfront edge everytime a new article is added: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/update-function.html
+9. need cicd to update cloudfront edge everytime a new article is added: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/update-function.html
 
-=======
-
-> > > > > > > 34b77a3cb292255a251d082fd5c7b4b8a058732c
+10. dynamic table of contents on article page? would require shifting toc into config  and hardcoding some ids...might be worth it.
 
 ### articles
 

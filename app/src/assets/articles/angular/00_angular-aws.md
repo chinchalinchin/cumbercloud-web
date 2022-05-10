@@ -61,7 +61,7 @@ You will need to purchase a domain name and set up a hosted zone for that domain
 Once the hosted zone is provisioned and setup, note the physical ID for later. This can be found in the **Route53** web console,
 
 <p align="center">
-    <img src="/assets/imgs/articles/aws_hosted_zone_id.png" width="85%" height="auto">
+    <img src="/assets/imgs/articles/aws_hosted_zone_id.png" class="article-img" width="85%" height="auto">
 </p>
 
 ### <span id="tls-ssl" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">TLS/SSL Certificate</span>
@@ -75,7 +75,7 @@ If you registered `example.com` as your domain, then you will need to request a 
 Once the certificate is provisioned (this may take up to a day if your domain isn't registered through **Route53**), note the [AWS Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the certificate in the **ACM** web console,
 
 <p align="center">
-    <img src="/assets/imgs/articles/aws_certificate_arn.png" width="85%" height="auto">
+    <img src="/assets/imgs/articles/aws_certificate_arn.png" width="85%" height="auto" class="article-img">
 </p>
 
 ## <span id="cloudformation" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFormation</span>
@@ -112,7 +112,7 @@ cd cumbercloud-cloudformation
 ./scripts/provision-stack
 ```
 
-The script will prompt you to enter your domain name (without the _http://_ or _www._), the hosted zone ID, the SSL certificate ARN and a tag for the application namespace. The last argument is purely cosmetic and organizational; it will be appended to resources that are provisioned so they can be grouped together.
+The script will prompt you to enter your domain name (without the _https://_ or _www._), the hosted zone ID, the SSL certificate ARN and a tag for the application namespace. The last argument is purely cosmetic and organizational; it will be appended to resources that are provisioned so they can be logically grouped together.
 
 ### <span id="template" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Template</span>
 
@@ -131,9 +131,11 @@ Parameters:
   certificateArn:
     Type: String
     Description: ARN of the ACM certificate used to sign requests on the domain.
+    NoEcho: true
   hostedZoneId:
-    Type: String
+    Type: AWS::Route53::HostedZone::Id
     Description: Physical ID of the hosted zone where the domain is being served.
+    NoEcho: true
   domainName:
     Type: String
     Description: Domain name that is hosting the application
@@ -145,6 +147,12 @@ Resources:
     Properties:
       AccessControl: LogDeliveryWrite
       BucketName: !Sub "${applicationName}-logs"
+      PublicAccessBlockConfiguration:
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+        BlockPublicPolicy: true
+        BlockPublicAcls: true
+
 
   WebsiteBucket:
     Type: AWS::S3::Bucket
@@ -160,6 +168,12 @@ Resources:
         LogFilePrefix: "log/"
       WebsiteConfiguration:
         IndexDocument: "index.html"
+      PublicAccessBlockConfiguration:
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+        BlockPublicPolicy: true
+        BlockPublicAcls: true
+
 
   WebsiteBucketPolicy:
     Type: AWS::S3::BucketPolicy
@@ -277,7 +291,7 @@ The `aws cloudformation` command has several arguments. `--stack-name` is the id
 
 Parameters allow you to generalize your template. You can parameterize any hardcoded values specific to your environment so your template can be reused in different accounts, or even different environments in the same account. 
 
-In order to utilize parameters in a template, you must use one of the **CloudFormation** [intrinsic functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html). Usually, you will only need `Fn::Sub` (substitute function) or `Fn::Ref` (reference function). Intrinsic functions are macros executed by **CloudFormation** before the template is processed. For example, the `Fn::Sub` intrinsic function substitutes the value of a parameter into a string expression, whereas the `Fn::Ref` references the value of a parameter.
+In order to utilize parameters in a template, you must use one of the **CloudFormation** [intrinsic functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html). Usually, you will only need `Fn::Sub` (<span class="inline-aside">substitute function</span>) or `Fn::Ref` (<span class="inline-aside">reference function</span>). Intrinsic functions are macros executed by **CloudFormation** before the template is processed. For example, the `Fn::Sub` intrinsic function substitutes the value of a parameter into a string expression, whereas the `Fn::Ref` references the value of a parameter.
 
 ---
 
@@ -299,11 +313,38 @@ The **S3**-**CloudFromation** template requires the following parameters,
 
 4. **domainName**: This is the domain name you registered in or transferred to **Route53**. Do not include the _https://_ or _www_ in the value.
 
+
+Each parameter is defined through the nested properties underneath the parameter name. `Description` is a human readable explanation of the purpose of the parameter, but has no other effect on the template.
+
+`Type` defines the data type of the parameters. **AWS** supports basic primitive types, like `String`, `Number` and `List`, but they also support [AWS specific parameter types](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-specific-parameter-types). In particular, the `hostedZoneId` `Type` in our template is a native AWS `Type`, namely `AWS::Route53::HostedZone:Id`; **CloudFormation** will validate the inputted parameter against what it expects a `HostedZone::Id` to look like and reject the input if it is not a syntactically valid `HostedZone::Id`.
+
+Unfortunately, **AWS** does not support a `Type` specifically for certificate **ARNS**, so we pass that value in as a `String`.
+
+Both the `hostedZoneId` and the `certificateArn` parameter have an additional property, `NoEcho`. This property prevents the value of these parameters from being printed in the **AWS** web console; parameters with this property will be censored and replaced with a string of "\*\*\*"'s when they are rendered. You should add this property to any parameter that contains sensitive, account-specific information, such as passwords, physical IDs and ARNs.
+
+You can read more about `Parameter` properties, types and syntax in the [Parameters section](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) of the [CloudFormation documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
+
 ### <span id="s3-buckets" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">S3 Buckets</span>
 
-The first two resources we configure are both instances of `AWS::S3::Bucket`. The first bucket, `WebsiteBucketLogs`, is an archive for access log files. Any time users enter your website, logs will be generated and stored in this bucket as raw text files. While not as featured or useful as a full-fledged log service like [Datadog](https://www.datadoghq.com/) or [Splunk](https://www.splunk.com/), it is better than nothing and **AWS** does have tools, such as [Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html), for querying directly against **S3** bucket objects should you find yourself in situation where you need to search through thousands of logs for a specific date, time or IP.
+The first two resources we configure are both instances of `AWS::S3::Bucket`. 
+
+The first bucket, `WebsiteBucketLogs`, is an archive for access log files. Any time users enter your website, logs will be generated and stored in this bucket as raw text files. While not as featured or useful as a full-fledged log service like [Datadog](https://www.datadoghq.com/) or [Splunk](https://www.splunk.com/), it is better than nothing and **AWS** does have tools, such as [Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html), for querying directly against **S3** bucket objects should you find yourself in situation where you need to search through thousands of logs for a specific date, time or IP.
 
 The second bucket, `WebsiteBucket`, is where the actual website files will be hosted. This is where you will upload the artifacts of `ng build`.
+
+Both of the buckets have a `DeletionPolicy` attached to them. Notice how the `DeletionPolicy` is *not* nested under the `Properties` attribute. This is because a `DeletionPolicy` is a property of all resources, not just **S3** buckets. The [DeletionPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) configures how the resource is treated when its containing stack is deleted. If `DeletionPolicy` is set to `Retain`, the resource itself will be kept, but it will be disassociated from the stack that is being deleted. Some services, like the [Elastic Block Store (EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) and the [Relational Database Service (RDS)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html), offer an option of `Snapshot`, where the state of the service is snapshotted at a particular moment in time and saved to a backup store. 
+
+We have set the `DeletionPolicy` on each bucket to `Delete`, meaning when the stack is deleted, nothing is retained; everything associated with the resource will be deleted. You may want to modify this to `Retain`, depending on your circumstances.
+
+Both buckets also [block all public access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) through the `PublicAccessBlockConfiguration` property. This ensures anyone with a direct link to the contents of `WebsiteBucket` will be denied access by default. In other words, users cannot access the contents of the website directly; they must enter the website through the **CloudFront** distribution.
+
+The astute reader may wonder how the **CloudFront** distribution is able to access the **S3** bucket if all access is denied explicitly; after all, the distribution needs to *distribute* the contents of the bucket. So how does it do it? This is where the `WebsiteBucketPolicy` and `WebsiteOriginAccessIdentity` come into play.
+
+The `WebsiteBucketPolicy` gives the the canonical user, represented by the `WebsiteOriginAccessIdentity.S3CanonicalUserId` attribute (<span class="inline-aside">note the usage of the [Fn::GetAtt]() intrinsic function to point to the attribute of a resource</span>), the `s3:GetObject` permission.
+
+When you are architecting a cloud environment or an application in general, you should always follow the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). This is a generally accepted best practice for ensuring a secure application. Access management systems start on the foundation of denying users access to everything and then only allowing the actions that are absolutely neccessary.
+
+In the current setup, that translates to making sure nothing can access our `Resource`, i.e. the **S3** buckets, and then explicitly granting _only_ the **CloudFront** distribution, the `Principal`, permission to acccess its contents, and even then ensuring the distribution has _only_ the `Actions`, i.e. the permissions, it absolutely requires, in this `s3:GetObject`.
 
 ### <span id="cloudfront-distribution" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Cloudfront Distribution</span>
 
