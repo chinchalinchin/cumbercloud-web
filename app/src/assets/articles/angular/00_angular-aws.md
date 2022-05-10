@@ -82,11 +82,11 @@ Once the certificate is provisioned (this may take up to a day if your domain is
 
 After the domain and certificate have been provisioned in your **AWS** account, the hard part is over; It's smooth sailing from here on out. We provide a **CloudFormation** template below for provisioning the rest of the stack. Using either through the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html), [AWS API](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html) or the [AWS Console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console.html), you can upload this template to the cloud and **CloudFormation** will automatically create everything you need for an **S3**-**CloudFront** distribution.
 
-[CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) is the **AWS** version of [Infrastructure-as-Code (IaC)](https://en.wikipedia.org/wiki/Infrastructure_as_code). _IaC_ uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax (<span class="inline-aside">sometimes the *A* is dropped to abbreviate the abbreviation to *YML*</span>), you create _templates_ of a cloud environment by declaring a collection of resources, also known as a _stack_ of resources. 
+[CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) is the **AWS** version of [Infrastructure-as-Code (IaC)](https://en.wikipedia.org/wiki/Infrastructure_as_code). _IaC_ uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax (<span class="inline-aside">sometimes the _A_ is dropped to abbreviate the abbreviation to _YML_</span>), you create _templates_ of a cloud environment by declaring a collection of resources, also known as a _stack_ of resources.
 
 ---
 
-  **NOTE**: *YAML*, like *GNU* and *PHP*, is one of the famous [recursive acronyms](https://en.wikipedia.org/wiki/Recursive_acronym) in computer science; it stands for *YAML Ain't Markup Language*.
+**NOTE**: _YAML_, like _GNU_ and _PHP_, is one of the famous [recursive acronyms](https://en.wikipedia.org/wiki/Recursive_acronym) in computer science; it stands for _YAML Ain't Markup Language_.
 
 ---
 
@@ -153,7 +153,6 @@ Resources:
         BlockPublicPolicy: true
         BlockPublicAcls: true
 
-
   WebsiteBucket:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
@@ -173,7 +172,6 @@ Resources:
         RestrictPublicBuckets: true
         BlockPublicPolicy: true
         BlockPublicAcls: true
-
 
   WebsiteBucketPolicy:
     Type: AWS::S3::BucketPolicy
@@ -289,17 +287,17 @@ The `aws cloudformation` command has several arguments. `--stack-name` is the id
 
 **NOTE**: The template, _cloudformation.yml_, must be saved in the directory _where this command is executed_. If you try to point this command to the location of the template, it will cause endless headaches as you struggle to figure out what the problem is.
 
-Parameters allow you to generalize your template. You can parameterize any hardcoded values specific to your environment so your template can be reused in different accounts, or even different environments in the same account. 
+Parameters allow you to generalize your template. You can parameterize any hardcoded values specific to your environment so your template can be reused in different accounts, or even different environments in the same account.
 
 In order to utilize parameters in a template, you must use one of the **CloudFormation** [intrinsic functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html). Usually, you will only need `Fn::Sub` (<span class="inline-aside">substitute function</span>) or `Fn::Ref` (<span class="inline-aside">reference function</span>). Intrinsic functions are macros executed by **CloudFormation** before the template is processed. For example, the `Fn::Sub` intrinsic function substitutes the value of a parameter into a string expression, whereas the `Fn::Ref` references the value of a parameter.
 
 ---
 
-  **NOTE**: The syntax for intrinsic functions can be frustrating the first time you encounter it, especially if you are unfamiliar with *YML*. If you are having trouble understanding what exactly an intrinsic function is doing, it is most likely due to the pecularities of *YML* data structures; it is helpful to read the first few chapters of the [official YML specification](https://yaml.org/spec/1.2.2), where the syntax is precisely defined.
+**NOTE**: The syntax for intrinsic functions can be frustrating the first time you encounter it, especially if you are unfamiliar with _YML_. If you are having trouble understanding what exactly an intrinsic function is doing, it is most likely due to the pecularities of _YML_ data structures; it is helpful to read the first few chapters of the [official YML specification](https://yaml.org/spec/1.2.2), where the syntax is precisely defined.
 
 ---
 
-  **NOTE**: Another thing to keep in mind is the syntactical variation of intrinsic functions. For instance, the substitute function can be used in a `!Sub` form of the `Fn::Sub` form. In general, all intrinsic functions have this same double naming convention.
+**NOTE**: Another thing to keep in mind is the syntactical variation of intrinsic functions. For instance, the substitute function can be used in a `!Sub` form of the `Fn::Sub` form. In general, all intrinsic functions have this same double naming convention.
 
 ---
 
@@ -313,7 +311,6 @@ The **S3**-**CloudFromation** template requires the following parameters,
 
 4. **domainName**: This is the domain name you registered in or transferred to **Route53**. Do not include the _https://_ or _www_ in the value.
 
-
 Each parameter is defined through the nested properties underneath the parameter name. `Description` is a human readable explanation of the purpose of the parameter, but has no other effect on the template.
 
 `Type` defines the data type of the parameters. **AWS** supports basic primitive types, like `String`, `Number` and `List`, but they also support [AWS specific parameter types](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-specific-parameter-types). In particular, the `hostedZoneId` `Type` in our template is a native AWS `Type`, namely `AWS::Route53::HostedZone:Id`; **CloudFormation** will validate the inputted parameter against what it expects a `HostedZone::Id` to look like and reject the input if it is not a syntactically valid `HostedZone::Id`.
@@ -326,19 +323,19 @@ You can read more about `Parameter` properties, types and syntax in the [Paramet
 
 ### <span id="s3-buckets" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">S3 Buckets</span>
 
-The first two resources we configure are both instances of `AWS::S3::Bucket`. 
+The first two resources we configure are both instances of `AWS::S3::Bucket`.
 
 The first bucket, `WebsiteBucketLogs`, is an archive for access log files. Any time users enter your website, logs will be generated and stored in this bucket as raw text files. While not as featured or useful as a full-fledged log service like [Datadog](https://www.datadoghq.com/) or [Splunk](https://www.splunk.com/), it is better than nothing and **AWS** does have tools, such as [Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html), for querying directly against **S3** bucket objects should you find yourself in situation where you need to search through thousands of logs for a specific date, time or IP.
 
 The second bucket, `WebsiteBucket`, is where the actual website files will be hosted. This is where you will upload the artifacts of `ng build`.
 
-Both of the buckets have a `DeletionPolicy` attached to them. Notice how the `DeletionPolicy` is *not* nested under the `Properties` attribute. This is because a `DeletionPolicy` is a property of all resources, not just **S3** buckets. The [DeletionPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) configures how the resource is treated when its containing stack is deleted. If `DeletionPolicy` is set to `Retain`, the resource itself will be kept, but it will be disassociated from the stack that is being deleted. Some services, like the [Elastic Block Store (EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) and the [Relational Database Service (RDS)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html), offer an option of `Snapshot`, where the state of the service is snapshotted at a particular moment in time and saved to a backup store. 
+Both of the buckets have a `DeletionPolicy` attached to them. Notice how the `DeletionPolicy` is _not_ nested under the `Properties` attribute. This is because a `DeletionPolicy` is a property of all resources, not just **S3** buckets. The [DeletionPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) configures how the resource is treated when its containing stack is deleted. If `DeletionPolicy` is set to `Retain`, the resource itself will be kept, but it will be disassociated from the stack that is being deleted. Some services, like the [Elastic Block Store (EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) and the [Relational Database Service (RDS)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html), offer an option of `Snapshot`, where the state of the service is snapshotted at a particular moment in time and saved to a backup store.
 
 We have set the `DeletionPolicy` on each bucket to `Delete`, meaning when the stack is deleted, nothing is retained; everything associated with the resource will be deleted. You may want to modify this to `Retain`, depending on your circumstances.
 
 Both buckets also [block all public access](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) through the `PublicAccessBlockConfiguration` property. This ensures anyone with a direct link to the contents of `WebsiteBucket` will be denied access by default. In other words, users cannot access the contents of the website directly; they must enter the website through the **CloudFront** distribution.
 
-The astute reader may wonder how the **CloudFront** distribution is able to access the **S3** bucket if all access is denied explicitly; after all, the distribution needs to *distribute* the contents of the bucket. So how does it do it? This is where the `WebsiteBucketPolicy` and `WebsiteOriginAccessIdentity` come into play.
+The astute reader may wonder how the **CloudFront** distribution is able to access the **S3** bucket if all access is denied explicitly; after all, the distribution needs to _distribute_ the contents of the bucket. So how does it do it? This is where the `WebsiteBucketPolicy` and `WebsiteOriginAccessIdentity` come into play.
 
 The `WebsiteBucketPolicy` gives the the canonical user, represented by the `WebsiteOriginAccessIdentity.S3CanonicalUserId` attribute (<span class="inline-aside">note the usage of the [Fn::GetAtt]() intrinsic function to point to the attribute of a resource</span>), the `s3:GetObject` permission.
 
