@@ -14,11 +14,12 @@
 .inline-aside {
   font-size: x-small;
 }
-.img-container {
-  display: flex;
-}
 .article-img {
   border-radius: 25px;
   border-width: 2px;
   border-style: solid;
+}
+.img-container{
+  display: flex;
+  flex-direction: row;
 }
