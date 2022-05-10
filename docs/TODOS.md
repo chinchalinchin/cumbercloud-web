@@ -16,7 +16,7 @@
 
 9. need cicd to update cloudfront edge everytime a new article is added: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/update-function.html
 
-10. dynamic table of contents on article page? would require shifting toc into config  and hardcoding some ids...might be worth it.
+10. dynamic table of contents on article page? would require shifting toc into config and hardcoding some ids...might be worth it.
 
 ### articles
 
