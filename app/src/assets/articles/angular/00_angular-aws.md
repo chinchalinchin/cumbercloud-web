@@ -41,10 +41,10 @@ Everything that follows assumes the reader is familiar enough with **Angular** t
       <b>AWS</b> is a diverse eco-systems of unrelated services and platforms. As such, there are many different approaches you can take to get an <b>Angular</b> app onto <b>AWS</b>; each method has its advantages and disadvantages, and depending on your situation, you may have reason to choose one over the other. You could provision an <a id="ec2-link" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html" target="_blank">Elastic Cloud Compute (EC2) instance</a> and install a lightweight web server like <a id="nginx-link" href="https://www.nginx.com" target="_blank">nginx</a> or <a id="apache-link" href="https://httpd.apache.org" target="_blank">apache</a> onto it. If portability and scability are important for you, you might opt to deploy an image of a web server into a managed container using a service like <a id="ecs-link" href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html" target="_blank">AWS Elastic Container Service (ECS)</a>. Or, if you're feeling adventurous, you might decide to go for broke and manage the cluster yourself with something like <a id="eks-link" href="https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html" target="_blank">AWS Elastic Kubernetes Service (EKS)</a> or <a id="openshift-link" href="https://docs.aws.amazon.com/ROSA/latest/userguide/what-is-rosa.html" target="_blank">RedHat OpenShift on AWS (ROSA)</a>. These are all viable solutions; indeed, you will often encounter these architectures in production. However, the needs of a production system are quite different from the needs of a personal website.
     </p>
     <p>
-      The <a id="cumbercloud-link-1" href="https://cumberland-cloud.com" target="_blank">Cumberland Cloud</a>'s guiding principle in architecting a cloud environment is simple: <b>cost</b> above all else. If a thing can be done cheaply without sacrificing quality, then we will always select the route with the least cost. The approaches detailed in the previous paragraph all suffer from one crucial defect: these methods quickly rack up charges. <b>EC2</b> and container orchestration clusters are always running and thus always incurring charges; if they are not managed properly, your bill can quickly get out of control.
+      The <a id="cumbercloud-link-1" href="https://cumberland-cloud.com" target="_blank">Cumberland Cloud</a>'s guiding principle in architecting a cloud environment is simple: <i>cost above all else</i>. If a thing can be done cheaply without sacrificing quality, then we will always select the route with the least cost. The approaches detailed in the previous paragraph all suffer from one crucial defect: these methods quickly rack up charges. <b>EC2</b> and container orchestration clusters are always running and thus always incurring charges; if they are not managed properly, your bill can quickly get out of control.
     </p>
   </div>
-  <figure style="min-width: 25%; max-width: 35%;">
+  <figure style="min-width: 25%; max-width: 35%; margin-top: auto; margin-bottom: auto;">
     <a
       id="cloud-design-link"
       href="/assets/imgs/articles/cloud_design.png"
@@ -62,10 +62,10 @@ Everything that follows assumes the reader is familiar enough with **Angular** t
   <figure>
 </div>
 
-We do not need the computing power of a full fledged web server (<span class="inline-aside">virtual or otherwise</span>). All we need is to host some static files (i.e., the _HTML_, _JS_ and _CSS_ files that an **Angular** app transpiles down into when you `ng build`). [AWS Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html) give us the ability to host a large quantity of static content for virtually free in a **S3 bucket**. We can then distribute the contents of the **S3 bucket** through a [global content distribution network](https://en.wikipedia.org/wiki/Content_delivery_network) **AWS** manages called [CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html).
+We do not need the computing power of a full fledged web server (<span class="inline-aside">virtual or otherwise</span>). All we need is to host some static files, i.e., the _HTML_, _JS_ and _CSS_ files that an **Angular** app <a id="transpiler-link" href="https://en.wikipedia.org/wiki/Source-to-source_compiler" target="_blank">transpiles</a> down into when you `ng build`. [AWS Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html) give us the ability to host a large quantity of static content for virtually free in a **S3 bucket**. We can then distribute the contents of the **S3 bucket** through a [global content distribution network](https://en.wikipedia.org/wiki/Content_delivery_network) **AWS** manages called [CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html).
 
 <div class="img-container">
-  <figure style="min-width: 35%; max-width:50%;">
+  <figure style="min-width: 35%; max-width:50%; margin-top: auto; margin-bottom: auto;">
     <a
       id="cloudfront-cdn-link"
       href="/assets/imgs/articles/cloudfront_cdn.png" 
@@ -85,7 +85,7 @@ We do not need the computing power of a full fledged web server (<span class="in
   </figure>
   <div style="margin-left: 2.5%;">
     <p>
-      While you can host a static website from <b>S3</b> without <b>CloudFront</b>, the benefits with <b>CloudFront</b> are enormous; <b>CloudFront</b> will determine the geographical location of traffic entering your site, based on the incoming IP and other metadata associated with the request, and route it to the cache in its network physically closest to the user (<span class="inline-aside">the so-called edge location</span>). Not only does this improve latency, but it also prevents overtaxing your <b>S3</b> access limits and thus incurring access charges (<span class="inline-aside">very hard to do with <b>AWS</b>'s generous <b>S3</b> pricing tiers, but it is possible</span>), since a subsequent request to the same resource will defer to the <b>CloudFront</b> cache. <b>AWS</b> is a global cloud provider, so they maintain data centers on every continent (<span class="inline-aside"> except Antartica, of course</span>). Using <b>CloudFront</b> lets you leverage this network <b>AWS</b> has put millions of dollars into developing and maintaining for less than a dollar a month.
+      While you can host a static website from <b>S3</b> without <b>CloudFront</b>, the benefits with <b>CloudFront</b> are enormous; <b>CloudFront</b> will determine the geographical location of traffic entering your site, based on the incoming IP and other metadata associated with the request, and route it to the cache in its network physically closest to the user (<span class="inline-aside">the so-called edge location</span>). Not only does this improve latency, but it also prevents overtaxing your <b>S3</b> access limits and thus incurring access charges (<span class="inline-aside">very hard to do with <b>AWS</b>'s generous <b>S3</b> pricing tiers, but it is possible</span>), since a subsequent request to the same resource will defer to the <b>CloudFront</b> cache. <b>AWS</b> is a global cloud provider, so they maintain data centers on every continent (<span class="inline-aside"> except Antartica, of course</span>). Using <b>CloudFront</b> lets you leverage a network <b>AWS</b> has dumped millions of dollars into developing and maintaining over the years, for less than a dollar a month.
     </p>
     <p>
       The <b>Cumberland Cloud</b> website is written in <b>Angular</b> and this is the method we use to host our build files. We think the numbers speak for themselves. Last month, the entire bill for <a id="cumbercloud-link-2" href="https://cumberland-cloud.com" target="_blank">https://cumberland-cloud.com</a> was <i>$0.70</i>. By contrast, the lowest monthly charges you will find for an <b>EC2</b> are between <i>$18</i> - <i>$30</i>, depending on the CPU and memory specifications. You would be lucky to find a <a id="cms-link" href="https://en.wikipedia.org/wiki/Content_management_system" target="_blank">Content Management System (CMS)</a>, like <b>Wix</b> or <b>Wordpress</b>, with monthly hosting rates as low as that.
@@ -93,11 +93,11 @@ We do not need the computing power of a full fledged web server (<span class="in
   </div>
 </div>
 
-With those figures in mind, the justification for pursuing this route should be self-eidence. In the sections that follow, we show how to setup a **S3**-**CloudFront** distribution you can use to host an **Angular** single page application.
+With those figures in mind, the justification for pursuing this route should be self-evident. In the sections that follow, we show how to setup a **S3**-**CloudFront** distribution you can use to host an **Angular** single page application for dirt-cheap.
 
 ## <span id="setup-prerequisites" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Setup Prerequisites</span>
 
-There are several things you will need to set up pmanually in your **AWS** account before we proceed. These items are covered briefly in the sections below, with links to the relevant documentation provided for further investigation.
+There are several things you will need to set up manually in your **AWS** account before we proceed. These items are covered briefly in the sections below, with links provided to the relevant documentation for further investigation.
 
 ### <span id="domain-hosted-zone" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Domain & Hosted Zone</span>
 
@@ -128,9 +128,9 @@ In order to setup a secure website through **HTTPS**, you will need a valid cert
 
 **AWS** issues its own certificates through the [AWS Cerfiticate Manager (ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html). The easiest way to setup **HTTPS** for your **S3-Cloudfront** distribution is to provision a certificate through the **ACM**. [Follow the instructions in the official documentation](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) to setup an SSL certificate.
 
-If you registered `example.com` as your domain, then you will need to request a certificate for `*.example.com`. While not technically neccessary for the current scope, the wildcard will allow the certificate to valid any requests to subdomains within your domain, such as `api.example.com` or `app.example.com`. [In another article](), we show how to setup backend functionality for an **Angular** app via [AWS APIGateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html); if you use the wilcard, you will be able to use the same certificate as you follow along with all of our guides and tutorials.
+If you registered `example.com` as your domain, then you will need to request a certificate for `*.example.com`. While not technically neccessary for the current scope, the [wildcard](https://en.wikipedia.org/wiki/Wildcard_character) will allow the certificate to valid any requests to subdomains within your domain, such as `api.example.com` or `app.example.com`. [In another article](), we show how to setup backend functionality for an **Angular** app via [AWS APIGateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) and [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html); if you use the wilcard, you will be able to use the same certificate as you follow along with all of our guides and tutorials.
 
-Once the certificate is provisioned (this may take up to a day if your domain isn't registered through **Route53**), note the [AWS Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the certificate in the **ACM** web console,
+Once the certificate is provisioned (<span class="inline-aside">this may take up to a day if your domain isn't registered through **Route53**</span>), note the [AWS Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the certificate in the **ACM** web console,
 
 <p align="center">
   <a 
@@ -151,9 +151,9 @@ Once the certificate is provisioned (this may take up to a day if your domain is
 
 ## <span id="cloudformation" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFormation</span>
 
-After the domain and certificate have been provisioned in your **AWS** account, the hard part is over; It's smooth sailing from here on out. We provide a **CloudFormation** template below for provisioning the rest of the stack. Using either through the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html), [AWS API](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html) or the [AWS Console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console.html), you can upload this template to the cloud and **CloudFormation** will automatically create everything you need for an **S3**-**CloudFront** distribution.
+After the domain and certificate have been provisioned in your **AWS** account, the hard part is over; the rest of the process can be automated. We provide a **CloudFormation** template below for provisioning the rest of the stack. Using either through the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html), [AWS API](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html) or the [AWS Console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console.html), you can upload this template to the cloud and **CloudFormation** will automatically create everything you need for an **S3**-**CloudFront** distribution.
 
-[CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) is the **AWS** version of [Infrastructure-as-Code (IaC)](https://en.wikipedia.org/wiki/Infrastructure_as_code). _IaC_ uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control the environment on which a given application runs. Using [YAML](https://yaml.org/) syntax (<span class="inline-aside">sometimes the _A_ is dropped to abbreviate the abbreviation to _YML_</span>), you create _templates_ of a cloud environment by declaring a collection of resources, also known as a _stack_ of resources.
+[CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) is the **AWS** version of [Infrastructure-as-Code (IaC)](https://en.wikipedia.org/wiki/Infrastructure_as_code). _IaC_ uses [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) to automate and version control a cloud environment. Using [YAML](https://yaml.org/) syntax (<span class="inline-aside">sometimes the _A_ is dropped to abbreviate the abbreviation to _YML_</span>), you create _templates_ of a cloud environment by declaring a collection of resources, also known as a _stack_ of resources.
 
 ---
 
@@ -165,7 +165,7 @@ Each resource is specified in a _block_ of code and has unique configuration pro
 
 Since _YML_ is just code, _IaC_ templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit of all, though, is reusability. Once an _IaC_ has been created and debugged, it be can deployed into any account, at any time.
 
-The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<span class="inline-aside">[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</span>). Over the years, we have accumulated templates for virtually every imaginable use case. Among the many templates we maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template.
+The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<span class="inline-aside">[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</span>). Over the years, we have accumulated templates for virtually every use case imaginable. Among the many templates we maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template.
 
 ### <span id="cloudformation-prerequisites" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFormation Prerequisites</span>
 
@@ -361,13 +361,13 @@ aws cloudformation create-stack \
 
 ---
 
-Replace `<application-name>`, `<domain-name>`, `<certificate-arn>` and `<hosted-zone-id>` with the corresponding values for your environment.
+Replace `<application-name>`, `<domain-name>`, `<certificate-arn>` and `<hosted-zone-id>` with the corresponding values for your environment. The purpose and function of each variable is described several paragraphs below. 
 
 The `aws cloudformation create-stack` command has several arguments. `--stack-name` is the identifier given to the stack. `--template-body` points the command to the location of the _YML_ template (<span class="inline-aside">you can also remove the _file://_ prefix and specify the template as an inline string</span>). `--parameters` is the aforementioned list of key-value pairs that are passed into the `Parameters` block of the template. Notice how the `ParameterKey` maps to the `Parameter` names defined in the template. `ParameterValue` maps to the value assigned to that particular parameter.
 
 Parameters allow you to generalize your template. You can parameterize any hardcoded values specific to your environment so your template can be reused in different accounts, or even different environments in the same account.
 
-In order to utilize parameters in a template, you must use one of the **CloudFormation** [intrinsic functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html). Typically, you will only need `Fn::Sub` (<span class="inline-aside">substitute function</span>) or `Fn::Ref` (<span class="inline-aside">reference function</span>), although there are many other functions with which you should familiarize yourself, as `Fn::GetAtt` and `Fn::ImportValue` . Intrinsic functions are macros executed by **CloudFormation** before the template is processed. For example, the `Fn::Sub` intrinsic function substitutes the value of a parameter into a string expression, whereas the `Fn::Ref` references the value of a parameter.
+In order to utilize parameters in a template, you must use one **CloudFormation**'s [intrinsic functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html). Typically, you will only need `Fn::Sub` (<span class="inline-aside">substitute function</span>) or `Fn::Ref` (<span class="inline-aside">reference function</span>), although there are many other functions with which you should familiarize yourself, such as `Fn::GetAtt` and `Fn::ImportValue` . Intrinsic functions are macros executed by **CloudFormation** before the template is processed. For example, the `Fn::Sub` intrinsic function substitutes the value of a parameter into a string expression, whereas the `Fn::Ref` references the value of a parameter.
 
 ---
 
@@ -375,25 +375,25 @@ In order to utilize parameters in a template, you must use one of the **CloudFor
 
 ---
 
-**NOTE**: Another thing to keep in mind is the syntactical variation of intrinsic functions. For instance, the substitute function can be used in a `!Sub` form or the `Fn::Sub` form. Each form has slightly different syntax. In general, all intrinsic functions have this redundancy.
+**NOTE**: Another thing to keep in mind is the syntactical variation of intrinsic functions. For instance, the substitute function can be used in a `!Sub` form or the `Fn::Sub` form. Each form has slightly different syntax. In general, all intrinsic functions have this multiplicity of forms.
 
 ---
 
 The **S3**-**CloudFromation** template requires the following parameters,
 
-1. **applicationName** : This is a tag used to enforce naming conventions. Note how the bucket resources substitute the value of **applicationName** in for their bucket names using the `Fn::Sub` [instrinsic function](). It is a good practice to enforce naming and tagging conventions early on, before your accumulate too many resources without any organizational structure.
+1. **applicationName** : This is a tag used to enforce naming conventions. Note how the bucket resources substitute the value of **applicationName** in for their bucket names using the `Fn::Sub` [instrinsic function](). It is a good practice to enforce naming and tagging conventions early on, before your accumulate too many resources in your account without any organizational structure.
 
 2. **certiicateArn** : This is the **ARN** of the SSL certificate you provisioned in a previous section. This is ingested by the `AWS::CloudFront::Distribution` resource through the `DistributionConfig.ViewerCertificate.AcmCertificateArn` property, using the `Fn::Ref` [instrinic function](). Note the difference in syntax between `Fn::Sub` and `Fn::Ref`. `Fn::Sub` injects the value of the parameter into a string, whereas `Fn::Ref` refers to a single, primitive value.
 
 3. **hostedZoneId**: This is the phyiscal ID (not the **ARN**!) of the Hosted Zone for your domain. It is ingested through the `HostedZoneId` property of the `AWS::Route53::RecordSetGroup` using the `Fn::Ref` intrinsic function.
 
-4. **domainName**: This is the domain name you registered in or transferred to **Route53**. Do not include the _https://_ or _www._ in the value.
+4. **domainName**: This is the domain name you registered in or transferred to **Route53**. Do not include the _https://_ or _www._ in the value. It is ingested in two spots in the template: in the `RecordSets` property of `WebsiteRoute53RecordSetGroup` resource and through the `DistributionConfig.Aliases` property of the `WebsiteDistribution` resource.
 
 Each parameter is defined through the nested properties underneath the parameter name. `Description` is a human readable explanation of the purpose of the parameter, but has no other effect on the template.
 
-`Type` defines the data type of the parameter. **AWS** supports basic primitive types, like `String`, `Number` and `List`, but they also support [AWS specific parameter types](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-specific-parameter-types). In particular, the `hostedZoneId` `Type` in our template is a native AWS `Type`, namely `AWS::Route53::HostedZone:Id` ; **CloudFormation** will validate the inputted parameter against what it expects a `HostedZone::Id` to look like and reject the input if it is not a syntactically valid `HostedZone::Id`.
+`Type` defines the data type of the parameter. **AWS** supports basic primitive types, like `String`, `Number` and `List`, but they also support [AWS specific parameter types](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-specific-parameter-types). In particular, the `hostedZoneId` parameter in our template is a native AWS `Type`, namely `AWS::Route53::HostedZone:Id` ; **CloudFormation** will validate the inputted value for `hostedZoneId` against what it expects a `HostedZone::Id` to look like and reject the input if it is not syntactically valid.
 
-Unfortunately, **AWS** does not support a `Type` specifically for certificate **ARN**s, so we pass in that value as a `String`.
+Unfortunately, **AWS** does not support a `Type` specifically for certificate **ARN**s (<span class="inline-aside">yet; you can open an issue on the [CloudFormation Github Roadmap](https://github.com/aws-cloudformation/cloudformation-coverage-roadmap) and perhaps the folks at AWS will include it in a future release</span>), so we pass in that value as a `String`.
 
 Both the `hostedZoneId` and the `certificateArn` parameter have an additional property, `NoEcho` . This property prevents the value of these parameters from being printed in the **AWS** web console; parameters with this property will be censored and replaced with a string of "\*\*\*"'s when they are rendered. You should add this property to any parameter that contains sensitive, account-specific information, such as passwords, physical IDs and ARNs.
 
@@ -431,7 +431,7 @@ Which brings us to the biggest chunk of the template, the `AWS::CloudFront::Dist
 
 First of all, we should notice the `AWS::CloudFront::Distribution` only has two properties, `DistributionConfig` and `Tags`. And `Tags` is simply a list of key-value pairs appended to the resource as meta; they have no material effect on how the distribution functions, so all the functionality comes from the `DistributionConfig` property . However, this property contains many nested properties and can take a little while to fully unpack. Let's go through each subproperty in order.
 
-1. **Aliases**: This is a list (<span class="inlink-aside">or <a id="yaml-sequence-link" href="https://yaml.org/spec/1.2.2/#22-structures" target="_blank">sequence</span>, in the terminology o the _YML_ specification) of domains the distribution serves. In our case, we have a single domain, so we use the `Fn::Ref` intrinsic function to pull the value from the parameters.
+1. **Aliases**: This is a list (<span class="inlink-aside">or <a id="yaml-sequence-link" href="https://yaml.org/spec/1.2.2/#22-structures" target="_blank">sequence</a></span>, in the terminology o the _YML_ specification) of domains the distribution serves. In our case, we have a single domain, so we use the `Fn::Ref` intrinsic function to pull the value from the parameters.
 
 2. **Origins**: This is a list of sources for the distribution. **CloudFront** will crawl the publicly accessible content from these sources and store it in its global CDN cache. In our template, we attach a `AWS::CloudFront::CloudFrontOriginAccessIdentity` to the distribution through the `S3OriginConfig`. In the <span onclick="document.getElementById('s3-buckets').scrollIntoView()" class="link">S3 Buckets</span> section, we explained how the `WebsiteBucketPolicy` grants permission to access its contents to the holder of this identity. This identity can grant access to multiple buckets, so that further origins are not necessary; The `WebsiteBucketPolicy` needs it `Resource` modified to include a list of all the buckets to which you want to grant the distribution access.
 

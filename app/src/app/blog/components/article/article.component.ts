@@ -6,7 +6,9 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { ArticleService } from 'src/services/article.service';
+import { MetaService } from 'src/services/meta.service';
 import { ArticleConfig } from '../../blog.config';
 
 @Component({
@@ -17,15 +19,21 @@ import { ArticleConfig } from '../../blog.config';
 export class ArticleComponent implements OnInit {
   public article: ArticleConfig;
   public facebookShareUrl: string;
+  public screenSize: string = '';
 
   @ViewChild('linkedIn') public sharePanel!: ElementRef;
 
   constructor(
+    private _meta: MetaService,
+    private _ga: GoogleAnalyticsService,
     private _route: ActivatedRoute,
     private _articles: ArticleService,
     private _el: ElementRef,
     private _renderer: Renderer2
   ) {
+    this._meta.mediaBreakpoint.subscribe((size: string) => {
+      this.screenSize = size;
+    });
     let route_param: string | null = this._route.snapshot.paramMap.get('name');
     this.article = this._articles.getById(route_param);
     let url = encodeURI(
@@ -57,5 +65,13 @@ export class ArticleComponent implements OnInit {
 
   scrollTo(el: string) {
     document.getElementById(el)?.scrollIntoView();
+  }
+
+  public mobileMode() {
+    return (
+      this.screenSize === 'md' ||
+      this.screenSize === 'sm' ||
+      this.screenSize === 'xs'
+    );
   }
 }

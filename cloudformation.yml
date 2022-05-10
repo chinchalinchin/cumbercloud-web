@@ -65,8 +65,6 @@ Resources:
             Principal:
               CanonicalUser: !GetAtt WebsiteOriginAccessIdentity.S3CanonicalUserId
             Resource: !Sub '${WebsiteBucket.Arn}/*'
-    DependsOn:
-      - WebsiteBucket
 
   WebsiteDistribution:
     Type: "AWS::CloudFront::Distribution"
@@ -106,6 +104,9 @@ Resources:
           Bucket: !GetAtt WebsiteBucketLogs.DomainName
           IncludeCookies: false
           Prefix: 'log/'
+      Tags:
+        - Key: "Application"
+          Value: !Ref applicationName
 
   WebsiteOriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
