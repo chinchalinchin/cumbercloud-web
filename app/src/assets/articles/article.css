@@ -19,7 +19,7 @@
   border-width: 2px;
   border-style: solid;
 }
-.img-container{
+.img-container {
   display: flex;
   flex-direction: row;
 }
