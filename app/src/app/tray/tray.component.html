@@ -53,7 +53,24 @@
     <mat-divider [vertical]="true"></mat-divider>
 
     <div class="news-item" *ngIf="!extending">
-      <div id="archive-content" class="content-pane"></div>
+      <div id="archive-content" class="content-pane">
+        <div
+          class="archive-item mat-elevation-z3" 
+          *ngFor="let article of feed"
+        >
+          <h3 class="mat-h3">
+            {{article.title}}
+            <button
+              class="archive-btn"
+              mat-icon-button
+              [routerLink]="['blog', 'article', article.id]"
+            >
+              <mat-icon>open_in_new</mat-icon>
+            </button>
+          </h3>
+          <p class="mat-caption" style="margin-top: -5%;">{{article.date | date}}</p>
+        </div>
+      </div>
       <div id="archive-panel" class="panel-pane">
         <h2 *ngIf="!mobileMode()" class="mat-h2">Archive Feed</h2>
         <div id="archive-img-container">

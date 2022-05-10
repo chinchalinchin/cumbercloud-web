@@ -30,12 +30,12 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
         title: 'Angular on AWS',
       },
     },
-    src: '/assets/articles/00_aws-on-angular.md',
+    src: '/assets/articles/angular/00_angular-aws.md',
   },
   {
     id: 'angular_aws_cicd',
     date: new Date('2022-05-08'),
-    title: 'CI/CD with Angular on AWS',
+    title: 'CI/CD with Angular',
     preview: {
       content: 'something',
       img: {
@@ -45,6 +45,36 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
         title: '',
       },
     },
-    src: '/assets/articles/01_aws-cicd.md',
+    src: '/assets/articles/angular/01_angular-cicd.md',
+  },
+  {
+    id: 'angular_prerender',
+    date: new Date('2022-05-07'),
+    title: 'Prerendering with Angular',
+    preview: {
+      content: 'something',
+      img: {
+        id: 'angular-ssr',
+        src: '/assets/svgs/pipeline.svg',
+        alt: 'Continuously deploy Angular onto AWS',
+        title: '',
+      },
+    },
+    src: '/assets/articles/angular/02_angular-ssr.md',
+  },
+  {
+    id: 'angular_seo',
+    date: new Date('2022-05-06'),
+    title: 'Search Optimization with Angular',
+    preview: {
+      content: 'something',
+      img: {
+        id: 'angular-seo',
+        src: '/assets/svgs/pipeline.svg',
+        alt: 'Continuously deploy Angular onto AWS',
+        title: '',
+      },
+    },
+    src: '/assets/articles/angular/03_angular-seo.md',
   },
 ];
