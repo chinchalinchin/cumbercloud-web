@@ -1,0 +1,21 @@
+.article-header {
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+}
+.pointer {
+    cursor: pointer;
+}
+.link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.inline-aside{
+    font-size:x-small;
+}
+.img-container{
+    display: flex;
+}
+.article-img{
+    border-radius: 25px;
+}

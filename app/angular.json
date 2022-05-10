@@ -25,6 +25,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.css",
+              "src/assets/articles/article.css",
               "src/theme.scss",
               "node_modules/prismjs/themes/prism.css"
             ],
