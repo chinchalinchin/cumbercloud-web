@@ -62,7 +62,7 @@ Everything that follows assumes the reader is familiar enough with **Angular** t
   <figure>
 </div>
 
-We do not need the computing power of a full fledged web server (<span class="inline-aside">virtual or otherwise</span>). All we need is to host some static files (i.e., the _HTML_, _JS_ and _CSS_ files that an **Angular** app transpiles down into when you `ng build`). [AWS Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html) give us the ability to host a large quantity of static content for virtually free in a **S3 bucket**. We can then distribute the contents of the **S3 bucket** through a [global content distribution network](https://en.wikipedia.org/wiki/Content_delivery_network) **AWS** manages called [CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html). 
+We do not need the computing power of a full fledged web server (<span class="inline-aside">virtual or otherwise</span>). All we need is to host some static files (i.e., the _HTML_, _JS_ and _CSS_ files that an **Angular** app transpiles down into when you `ng build`). [AWS Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html) give us the ability to host a large quantity of static content for virtually free in a **S3 bucket**. We can then distribute the contents of the **S3 bucket** through a [global content distribution network](https://en.wikipedia.org/wiki/Content_delivery_network) **AWS** manages called [CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html).
 
 <div class="img-container">
   <figure style="min-width: 35%; max-width:50%;">
@@ -163,7 +163,7 @@ After the domain and certificate have been provisioned in your **AWS** account, 
 
 Each resource is specified in a _block_ of code and has unique configuration properties that determine how the physical analogue of each block is mapped in the cloud, i.e. how much space a volume should allocate, how much memory an **EC2** should provision, what algorithm should be used to encrypt a bucket, etc. The result is then uploaded to the **CloudFormation** API (<span class="inline-aside">ultimately, the console and the CLI are just [wrappers](https://en.wikipedia.org/wiki/Wrapper_function) around the API</span>). **CloudFormation** parses the template, applies any intrinsic functions (<span class="inline-aside">covered in the <span onclick="document.getElementById('parameters').scrollIntoView()" class="link">Parameters</span> section</span>) and then deploys the stack into your account.
 
-Since *YML* is just code, _IaC_ templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit of all, though, is reusability. Once an _IaC_ has been created and debugged, it be can deployed into any account, at any time.
+Since _YML_ is just code, _IaC_ templates can be committed to version control, just like regular code. This brings with it all the benefits application source code receives from version control: an immutable history of changes, the ability to roll back to previously committed configurations, a web hook for continuous deployment and integration, and much more. Perhaps the greatest benefit of all, though, is reusability. Once an _IaC_ has been created and debugged, it be can deployed into any account, at any time.
 
 The **Cumberland Cloud** curates a repository of **CloudFormation** templates (<span class="inline-aside">[found on our Github](https://github.com/chinchalinchin/cf-deploy.git)</span>). Over the years, we have accumulated templates for virtually every imaginable use case. Among the many templates we maintain, one of the first ones we ever created was the **S3**-**Cloudfront** distribution template.
 
@@ -343,7 +343,7 @@ The template is organized into four main blocks: `Description`, `Parameters`, `R
 
 ### <span id="parameters" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Parameters</span>
 
-The `Parameters` block defines the input for a **CloudFormation** template. These values must be provided to the template anytime it is posted to **AWS**. If you use the **AWS** CLI, the `aws cloudformation create-stack` API command ingests the parameters directly from the command line. The following command will provision the **S3**-**Cloudfront** template, assuming the template is saved in a file named *cloudformation.yml*,
+The `Parameters` block defines the input for a **CloudFormation** template. These values must be provided to the template anytime it is posted to **AWS**. If you use the **AWS** CLI, the `aws cloudformation create-stack` API command ingests the parameters directly from the command line. The following command will provision the **S3**-**Cloudfront** template, assuming the template is saved in a file named _cloudformation.yml_,
 
 ```bash
 aws cloudformation create-stack \
@@ -357,7 +357,7 @@ aws cloudformation create-stack \
 
 ---
 
-  **NOTE**: The template, _cloudformation.yml_, must be saved in the directory _where this command is executed_. If you try to point this command to a location outside the current working directory, it will cause endless headaches as you struggle to figure out why the **AWS** CLI cannot find your template.
+**NOTE**: The template, _cloudformation.yml_, must be saved in the directory _where this command is executed_. If you try to point this command to a location outside the current working directory, it will cause endless headaches as you struggle to figure out why the **AWS** CLI cannot find your template.
 
 ---
 
@@ -421,9 +421,9 @@ When you are architecting a cloud environment or an application in general, you 
 
 In the current setup, that translates to making sure nothing can access our `Resource`, i.e. the **S3** buckets, and then explicitly granting _only_ the **CloudFront** distribution, the `Principal`, permission to acccess its contents, and even then ensuring the distribution has _only_ the `Actions`, i.e. the permissions, it absolutely requires, in this case, `s3:GetObject`.
 
-At this point, we have two buckets, but they have not been configured to serve a website. Underneath `WebsiteBucket`, we add a `WebsiteConfiguration` property that specifies `IndexDocument`. This is the root *index.html* of the webpage, the file that is served when a user enters your domain.
+At this point, we have two buckets, but they have not been configured to serve a website. Underneath `WebsiteBucket`, we add a `WebsiteConfiguration` property that specifies `IndexDocument`. This is the root _index.html_ of the webpage, the file that is served when a user enters your domain.
 
-We also attach the `WebsiteBucketLogs` to the logstream generated by web traffic, through the `LoggingConfiguration` property of `WebsiteBucket`.  The `DestinationBucketName` using the `Fn::Ref` intrinsic function to link the log bucket to the web bucket, and then `LogFilePrefix` informs the `WebsiteBucketLogs` in which subdirectory it should store log files.
+We also attach the `WebsiteBucketLogs` to the logstream generated by web traffic, through the `LoggingConfiguration` property of `WebsiteBucket`. The `DestinationBucketName` using the `Fn::Ref` intrinsic function to link the log bucket to the web bucket, and then `LogFilePrefix` informs the `WebsiteBucketLogs` in which subdirectory it should store log files.
 
 ### <span id="cloudfront-distribution" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">Cloudfront Distribution</span>
 
@@ -431,9 +431,9 @@ Which brings us to the biggest chunk of the template, the `AWS::CloudFront::Dist
 
 First of all, we should notice the `AWS::CloudFront::Distribution` only has two properties, `DistributionConfig` and `Tags`. And `Tags` is simply a list of key-value pairs appended to the resource as meta; they have no material effect on how the distribution functions, so all the functionality comes from the `DistributionConfig` property . However, this property contains many nested properties and can take a little while to fully unpack. Let's go through each subproperty in order.
 
-1. **Aliases**: This is a list (<span class="inlink-aside">or <a id="yaml-sequence-link" href="https://yaml.org/spec/1.2.2/#22-structures" target="_blank">sequence</span>, in the terminology o the *YML* specification) of domains the distribution serves. In our case, we have a single domain, so we use the `Fn::Ref` intrinsic function to pull the value from the parameters.
+1. **Aliases**: This is a list (<span class="inlink-aside">or <a id="yaml-sequence-link" href="https://yaml.org/spec/1.2.2/#22-structures" target="_blank">sequence</span>, in the terminology o the _YML_ specification) of domains the distribution serves. In our case, we have a single domain, so we use the `Fn::Ref` intrinsic function to pull the value from the parameters.
 
-2. **Origins**: This is a list of sources for the distribution. **CloudFront** will crawl the publicly accessible content from these sources and store it in its global CDN cache. In our template, we attach a `AWS::CloudFront::CloudFrontOriginAccessIdentity` to the distribution through the `S3OriginConfig`. In the <span onclick="document.getElementById('s3-buckets').scrollIntoView()" class="link">S3 Buckets</span> section, we explained how the `WebsiteBucketPolicy` grants permission to access its contents to the holder of this identity. This identity can grant access to multiple buckets, so that further origins are not necessary; The `WebsiteBucketPolicy` needs it `Resource` modified to include a list of all the buckets to which you want to grant the distribution access. 
+2. **Origins**: This is a list of sources for the distribution. **CloudFront** will crawl the publicly accessible content from these sources and store it in its global CDN cache. In our template, we attach a `AWS::CloudFront::CloudFrontOriginAccessIdentity` to the distribution through the `S3OriginConfig`. In the <span onclick="document.getElementById('s3-buckets').scrollIntoView()" class="link">S3 Buckets</span> section, we explained how the `WebsiteBucketPolicy` grants permission to access its contents to the holder of this identity. This identity can grant access to multiple buckets, so that further origins are not necessary; The `WebsiteBucketPolicy` needs it `Resource` modified to include a list of all the buckets to which you want to grant the distribution access.
 
 3. **DefaultCacheBehavior**: As mentioned in the <span onclick="document.getElementById('cost-optimization').scrollIntoView()" class="link">Cost Optimization section</span>, **CloudFront** is essentially a global cache. Depending on the location of the user entering your site, it will route them to the cache physically closest to them.
 
