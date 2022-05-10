@@ -45,13 +45,19 @@ Everything that follows assumes the reader is familiar enough with **Angular** t
     </p>
   </div>
   <figure style="min-width: 25%; max-width: 35%;">
-    <img 
-      id="cloud-design-img"
-      alt="AWS is a diverse eco-sytem."
-      class="article-img mat-elevation-z1"
-      src="/assets/imgs/articles/cloud_design.png" 
-      width="100%"
+    <a
+      id="cloud-design-link"
+      href="/assets/imgs/articles/cloud_design.png"
+      target="_blank"
     >
+      <img 
+        id="cloud-design-img"
+        alt="AWS is a diverse eco-sytem."
+        class="article-img mat-elevation-z1"
+        src="/assets/imgs/articles/cloud_design.png" 
+        width="100%"
+      >
+    </a>
     <figcaption class="text-center inline-aside">AWS has <b>hundreds</b> of services</figcaption>
   <figure>
 </div>
@@ -60,13 +66,22 @@ We do not need the computing power of a full fledged web server (<span class="in
 
 <div class="img-container">
   <figure style="min-width: 35%; max-width:50%;">
-    <img 
-      class="article-img"
-      alt="AWS CloudFront cache diagram" 
-      src="/assets/imgs/articles/cloudfront_cdn.png" 
-      width="100%" 
-    />
-    <figcaption class="text-center inline-aside">The AWS Global CloudFront Network</figcaption>
+    <a
+      id="cloudfront-cdn-link"
+      href="/assets/imgs/articles/cloudfront_cdn.png" 
+      target="_blank"
+    >
+      <img 
+        id="cloudfront-cdn-img"
+        class="article-img"
+        alt="AWS CloudFront cache diagram" 
+        src="/assets/imgs/articles/cloudfront_cdn.png" 
+        width="100%" 
+      />
+    </a>
+    <figcaption class="text-center inline-aside">
+      The Global <b>AWS CloudFront</b> Network
+    </figcaption>
   </figure>
   <div style="margin-left: 2.5%;">
     <p>
@@ -91,7 +106,20 @@ You will need to purchase a domain name and set up a hosted zone for that domain
 Once the hosted zone is provisioned and setup, note the physical ID for later. This can be found in the **Route53** web console,
 
 <p align="center">
-    <img src="/assets/imgs/articles/aws_hosted_zone_id.png" class="article-img" width="85%" height="auto">
+  <a 
+    id="hosted-zone-link"
+    href="/assets/imgs/articles/aws_hosted_zone_id.png"
+    target="_blank"
+  >
+    <img 
+      id="hosted-zone-img"
+      src="/assets/imgs/articles/aws_hosted_zone_id.png" 
+      alt="Where to find the Hosted Zone ID in the console"
+      class="article-img" 
+      width="85%" 
+      height="auto"
+    />
+  </a>
 </p>
 
 ### <span id="tls-ssl" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">TLS/SSL Certificate</span>
@@ -105,7 +133,20 @@ If you registered `example.com` as your domain, then you will need to request a 
 Once the certificate is provisioned (this may take up to a day if your domain isn't registered through **Route53**), note the [AWS Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the certificate in the **ACM** web console,
 
 <p align="center">
-    <img src="/assets/imgs/articles/aws_certificate_arn.png" width="85%" height="auto" class="article-img">
+  <a 
+    id="certificate-link"
+    href="/assets/imgs/articles/aws_certificate_arn.png"
+    target="_blank"
+  >
+    <img 
+      id="certificate-img"
+      alt="Where to find the SSL Certificate ARN in the web console"
+      src="/assets/imgs/articles/aws_certificate_arn.png" 
+      width="85%" 
+      height="auto" 
+      class="article-img"
+    >
+  </a>
 </p>
 
 ## <span id="cloudformation" onclick="document.getElementById('toc').scrollIntoView()" class="pointer">CloudFormation</span>
