@@ -18,4 +18,6 @@
 }
 .article-img{
     border-radius: 25px;
+    border-width: 2px;
+    border-style: solid;
 }
