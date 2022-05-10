@@ -289,17 +289,17 @@ The `aws cloudformation` command has several arguments. `--stack-name` is the id
 
 **NOTE**: The template, _cloudformation.yml_, must be saved in the directory _where this command is executed_. If you try to point this command to the location of the template, it will cause endless headaches as you struggle to figure out what the problem is.
 
-Parameters allow you to generalize your template. You can parameterize any hardcoded values specific to your environment so your template can be reused in different accounts, or even different environments in the same account. 
+Parameters allow you to generalize your template. You can parameterize any hardcoded values specific to your environment so your template can be reused in different accounts, or even different environments in the same account.
 
 In order to utilize parameters in a template, you must use one of the **CloudFormation** [intrinsic functions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html). Usually, you will only need `Fn::Sub` (<span class="inline-aside">substitute function</span>) or `Fn::Ref` (<span class="inline-aside">reference function</span>). Intrinsic functions are macros executed by **CloudFormation** before the template is processed. For example, the `Fn::Sub` intrinsic function substitutes the value of a parameter into a string expression, whereas the `Fn::Ref` references the value of a parameter.
 
 ---
 
-  **NOTE**: The syntax for intrinsic functions can be frustrating the first time you encounter it, especially if you are unfamiliar with *YML*. If you are having trouble understanding what exactly an intrinsic function is doing, it is most likely due to the pecularities of *YML* data structures; it is helpful to read the first few chapters of the [official YML specification](https://yaml.org/spec/1.2.2), where the syntax is precisely defined.
+**NOTE**: The syntax for intrinsic functions can be frustrating the first time you encounter it, especially if you are unfamiliar with _YML_. If you are having trouble understanding what exactly an intrinsic function is doing, it is most likely due to the pecularities of _YML_ data structures; it is helpful to read the first few chapters of the [official YML specification](https://yaml.org/spec/1.2.2), where the syntax is precisely defined.
 
 ---
 
-  **NOTE**: Another thing to keep in mind is the syntactical variation of intrinsic functions. For instance, the substitute function can be used in a `!Sub` form of the `Fn::Sub` form. In general, all intrinsic functions have this same double naming convention.
+**NOTE**: Another thing to keep in mind is the syntactical variation of intrinsic functions. For instance, the substitute function can be used in a `!Sub` form of the `Fn::Sub` form. In general, all intrinsic functions have this same double naming convention.
 
 ---
 

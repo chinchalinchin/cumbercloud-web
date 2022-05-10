@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from 'src/services/article.service';
 import { ArticleConfig } from '../../blog.config';
@@ -44,8 +50,8 @@ export class ArticleComponent implements OnInit {
     this._renderer.appendChild(this._el.nativeElement, scriptEl);
 
     scriptEl = document.createElement('script');
-    scriptEl.setAttribute('data-url', "https://www.linkedin.com")
-    scriptEl.type = 'IN/Share'
+    scriptEl.setAttribute('data-url', 'https://www.linkedin.com');
+    scriptEl.type = 'IN/Share';
     this._renderer.appendChild(this.sharePanel.nativeElement, scriptEl);
   }
 
