@@ -361,7 +361,7 @@ aws cloudformation create-stack \
 
 ---
 
-Replace `<application-name>`, `<domain-name>`, `<certificate-arn>` and `<hosted-zone-id>` with the corresponding values for your environment. The purpose and function of each variable is described several paragraphs below. 
+Replace `<application-name>`, `<domain-name>`, `<certificate-arn>` and `<hosted-zone-id>` with the corresponding values for your environment. The purpose and function of each variable is described several paragraphs below.
 
 The `aws cloudformation create-stack` command has several arguments. `--stack-name` is the identifier given to the stack. `--template-body` points the command to the location of the _YML_ template (<span class="inline-aside">you can also remove the _file://_ prefix and specify the template as an inline string</span>). `--parameters` is the aforementioned list of key-value pairs that are passed into the `Parameters` block of the template. Notice how the `ParameterKey` maps to the `Parameter` names defined in the template. `ParameterValue` maps to the value assigned to that particular parameter.
 
