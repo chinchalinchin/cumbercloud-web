@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ArticleConfig, ARTICLE_CONFIG } from 'src/app/blog/blog.config';
 
-const FEED_SIZE = 2; 
+const FEED_SIZE = 2;
 @Injectable({
   providedIn: 'root',
 })
@@ -22,7 +22,8 @@ export class ArticleService {
   }
 
   public getSampleFeed(): ArticleConfig[] {
-    if (this.articles.length > FEED_SIZE - 1) return this.articles.slice(1, FEED_SIZE + 1);
+    if (this.articles.length > FEED_SIZE - 1)
+      return this.articles.slice(1, FEED_SIZE + 1);
     return this.articles;
   }
 

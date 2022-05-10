@@ -20,7 +20,8 @@
   cursor: pointer;
   flex-shrink: 1;
 }
-#preview-content, .archive-item {
+#preview-content,
+.archive-item {
   padding: 1%;
   border-radius: 15px;
 }
@@ -31,7 +32,7 @@
   float: right;
   margin-top: -12.5%;
 }
-.archive-btn{
+.archive-btn {
   float: right;
 }
 #extend-btn {
@@ -61,7 +62,7 @@
     width: 100%;
     justify-content: center;
   }
-  #archive-content{
+  #archive-content {
     display: flex;
     flex-direction: column;
     height: 100%;
