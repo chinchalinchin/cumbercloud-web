@@ -6,27 +6,6 @@
     <img src="/assets/svgs/icons/angular.svg" width="10%" height="auto">
 </p>
 
-## <span id="toc">Table of Contents</span>
-
-- <span onclick="document.getElementById('cost-optimization').scrollIntoView()" class="link">Cost Optimization</span>
-- <span onclick="document.getElementById('setup-prerequisites').scrollIntoView()" class="link">Setup Prerequisites</span>
-  - <span onclick="document.getElementById('domain-hosted-zone').scrollIntoView()" class="link">Domain & Hosted Zone</span>
-  - <span onclick="document.getElementById('tls-ssl').scrollIntoView()" class="link">SSL Certificate</span>
-- <span onclick="document.getElementById('cloudformation').scrollIntoView()" class="link">CloudFormation</span>
-  - <span onclick="document.getElementById('cloudformation-prerequisites').scrollIntoView()" class="link">CloudFormation Prerequisites</span>
-- <span onclick="document.getElementById('anatomy-template').scrollIntoView()" class="link">Anatomy of Template</span>
-  - <span onclick="document.getElementById('tldr').scrollIntoView()" class="link">TL;DR</span>
-  - <span onclick="document.getElementById('template').scrollIntoView()" class="link">Template</span>
-  - <span onclick="document.getElementById('parameters').scrollIntoView()" class="link">Parameters</span>
-  - <span onclick="document.getElementById('s3-buckets').scrollIntoView()" class="link">S3 Buckets</span>
-  - <span onclick="document.getElementById('cloudfront-distribution').scrollIntoView()" class="link">CloudFront Distribution</span>
-  - <span onclick="document.getElementById('route53-recordset').scrollIntoView()" class="link">Route53 Recordset</span>
-  - <span onclick="document.getElementById('').scrollIntoView()" class="link">Outputs</span>
-- <span onclick="document.getElementById('prerendering-problem').scrollIntoView()" class="link">Prerendering Problem</span>
-  - <span onclick="document.getElementById('cloudfront-edge').scrollIntoView()" class="link">CloudFront Edge Functions</span>
-  - <span onclick="document.getElementById('function-handler').scrollIntoView()" class="link">Function Handler</span>
-- <span onclick="document.getElementById('series-index').scrollIntoView()" class="link">More Articles in _Building a Web Application with Angular_ series</span>
-
 ## Introduction
 
 In this article we explain how to get an [Angular](https://angular.io/) application for your personal website up and running on the [AWS](https://aws.amazon.com/) cloud. We cover setting up your environment and provisioning all the resources you will need to deploy and run the **Angular** app. In a subsequent article in [this series](), we will cover [continuous integration and deployment](), i.e. creating a development pipeline so that changes to your **Angular** app can be automatically built and deployed anytime you push to your [version control](https://en.wikipedia.org/wiki/Version_control). We will use the environment detailed in this article as a foundation upon which to build the complexity of [CI/CD](https://en.wikipedia.org/wiki/CI/CD).

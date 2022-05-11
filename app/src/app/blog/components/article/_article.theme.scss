@@ -16,6 +16,9 @@
   #toc-tree {
     background-color: white;
   }
+  #toc-toggle{
+    color: map-get($accent-palette, 500);
+  }
   .highlighted {
     background-color: map-get($primary-palette, 200) !important;
   }

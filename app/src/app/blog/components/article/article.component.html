@@ -1,10 +1,11 @@
 <div id="article">
-  <div id="share-panel">
+  <div id="share-panel" role="region">
     <div class="share-item">
       <a
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"
         class="twitter-share-button"
         data-show-count="false"
+        role="button"
         >Tweet</a
       >
     </div>
@@ -17,6 +18,7 @@
         scrolling="no"
         frameborder="0"
         allowfullscreen="true"
+        role="button"
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
       ></iframe>
     </div>
@@ -24,7 +26,7 @@
       <script type="IN/Share" data-url="https://www.linkedin.com"></script>
     </div>
   </div>
-  <div id="article-sheet" class="mat-elevation-z1">
+  <div id="article-sheet" class="mat-elevation-z1" role="Region">
     <markdown class="mat-body" [src]="article.src"></markdown>
   </div>
 
@@ -37,13 +39,33 @@
     (mouseenter)="highlight()"
     (mouseleave)="highlighted = false"
     (click)="toggleTocTree()"
+    aria-live="polite"
   >
     <div *ngIf="expanded" [@fade]>
       <h2 class="mat-h2 text-center">Table of Contents</h2>
+      <div *ngFor="let toc of article.toc_tree" class="toc-root">
+        <span (click)="scrollTo(toc.id)" class="link">
+          {{toc.title}}
+        </span>
+        <div *ngIf="toc.children" class="toc-child">
+          <div *ngFor="let child of toc.children">
+            <span (click)="scrollTo(child.id)" class="link">
+              {{child.title}}
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
 
   
-    <mat-icon id="toc-toggle" class="cursor" (click)="toggleTocTree()" role="button">
+    <mat-icon 
+      id="toc-toggle" 
+      class="cursor" 
+      role="button" 
+      aria-controls="toc-tree"
+      aria-label="Expand Table of Contents"
+      matTooltip="Expand Table of Contents"
+    >
       {{ tocExpandCntl.fired() ? 'chevron_left' : 'chevron_right' }}
     </mat-icon>
   </div>

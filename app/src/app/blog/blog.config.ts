@@ -10,6 +10,7 @@ export interface Preview {
 export interface TOCNode {
   id: string;
   title: string;
+  children?: TOCNode[]
 }
 
 export interface ArticleConfig {
@@ -18,6 +19,7 @@ export interface ArticleConfig {
   title: string;
   preview: Preview;
   src: string;
+  toc_tree: TOCNode[]
 }
 
 export const ARTICLE_CONFIG: ArticleConfig[] = [
@@ -36,6 +38,78 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
       },
     },
     src: '/assets/articles/angular/00_angular-aws.md',
+    toc_tree: [
+      {
+        id: 'cost-optimization',
+        title: 'Cost Optimization'
+      },
+      {
+        id: 'setup-prerequisites',
+        title: 'Setup Prerequisities',
+        children: [
+          {
+            id: 'domain-hosted-zone',
+            title: 'Domain & Hosted Zone'
+          },
+          {
+            id:'tls-sls',
+            title: 'SSL Certificate'
+          }
+        ]
+      },
+      {
+        id: 'cloudformation',
+        title: 'CloudFormation',
+        children: [
+          {
+            id: 'cloudformation-prerequisites',
+            title: ' CloudFormation Prerequisites'
+          }
+        ]
+      },
+      {
+        id: 'anatomy-template',
+        title: 'Anatomy of a Template',
+        children: [
+          {
+            id: 'tldr',
+            title: 'TL;DR'
+          },
+          {
+            id: 'template',
+            title: 'Template'
+          },
+          {
+            id: 'parameters',
+            title: 'Parameters'
+          },
+          {
+            id: 's3-buckets',
+            title: 'S3 Buckets'
+          },
+          {
+            id: 'cloudfront-distribution',
+            title: 'CloudFront Distribution'
+          },
+          {
+            id: 'route53-recordset',
+            title: 'Record53 Recordset'
+          }
+        ],
+      },
+      {
+        id: 'cloudfront-edge',
+        title: 'CloudFront Edge Functions'
+      },
+      {
+        id: 'function-handler',
+        title: 'Function Handler'
+      },
+      {
+        id: 'series-index',
+        title: 'More Articles in Series'
+      }
+    ]
   },
   {
     id: 'angular_aws_cicd',
@@ -51,6 +125,9 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
       },
     },
     src: '/assets/articles/angular/01_angular-cicd.md',
+    toc_tree: [
+      
+    ]
   },
   {
     id: 'angular_prerender',
@@ -66,6 +143,9 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
       },
     },
     src: '/assets/articles/angular/02_angular-ssr.md',
+    toc_tree: [
+
+    ]
   },
   {
     id: 'angular_seo',
@@ -81,5 +161,8 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
       },
     },
     src: '/assets/articles/angular/03_angular-seo.md',
+    toc_tree: [
+
+    ]
   },
 ];

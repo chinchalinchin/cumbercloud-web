@@ -31,6 +31,7 @@
 #toc-toggle{
   position: absolute;
   bottom: 1%;
+  top: 48.5%;
 }
 .share-item {
   margin-right: 0.5%;
@@ -45,10 +46,28 @@
   #article-sheet{
     left: 2%;
   }
+  #toc-toggle{
+    right: 1%;
+  }
+  .toc-root{
+    margin-left: 10%;
+  }
+  .toc-child{
+    margin-left: 20%;
+  }
 }
 @media (max-width:992px){
   #article-sheet{
     left: 3%;
+  }
+  #toc-toggle{
+    right: 0%;
+  }
+  .toc-root{
+    margin-left: 5%;
+  }
+  .toc-child{
+    margin-left: 10%;
   }
 
 }
