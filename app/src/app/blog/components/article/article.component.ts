@@ -58,9 +58,6 @@ export class ArticleComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    if(this._meta.isBrowser()){
-
-    }
     let scriptEl = this._document.createElement('script');
     scriptEl.src = 'https://platform.twitter.com/widgets.js';
     scriptEl.type = 'text/javascript';
