@@ -208,7 +208,7 @@ export class Animations {
     ]);
   }
 
-   public static getManualEnlargeTrigger(
+  public static getManualEnlargeTrigger(
     fromWidth: string,
     toWidth: string,
     tag: string | null | undefined = null,
@@ -236,7 +236,7 @@ export class Animations {
     ]);
   }
 
-   public static getManualDilateTrigger(
+  public static getManualDilateTrigger(
     toHeight: string,
     toWidth: string,
     tag: string | null | undefined = null,
