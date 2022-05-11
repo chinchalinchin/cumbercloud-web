@@ -188,7 +188,7 @@ export class DesignComponent implements OnInit {
   }
 
   public oscillateLure() {
-    if (this.lureScaleCntl.fired()) {
+    if (!this.lureScaleCntl.fired()) {
       this.oscillations++;
       this.lureScaleCntl.animate();
     } else {

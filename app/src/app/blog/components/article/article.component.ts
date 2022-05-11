@@ -1,6 +1,8 @@
+import { DOCUMENT } from '@angular/common';
 import {
   Component,
   ElementRef,
+  Inject,
   OnInit,
   Renderer2,
   ViewChild,
@@ -38,7 +40,8 @@ export class ArticleComponent implements OnInit {
     private _route: ActivatedRoute,
     private _articles: ArticleService,
     private _el: ElementRef,
-    private _renderer: Renderer2
+    private _renderer: Renderer2,
+    @Inject(DOCUMENT) private _document: Document
   ) {
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
@@ -55,25 +58,28 @@ export class ArticleComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    let scriptEl = document.createElement('script');
+    if(this._meta.isBrowser()){
+
+    }
+    let scriptEl = this._document.createElement('script');
     scriptEl.src = 'https://platform.twitter.com/widgets.js';
     scriptEl.type = 'text/javascript';
     this._renderer.appendChild(this._el.nativeElement, scriptEl);
 
-    scriptEl = document.createElement('script');
+    scriptEl = this._document.createElement('script');
     scriptEl.src = 'https://platform.linkedin.com/in.js';
     scriptEl.type = 'text/javascript';
     scriptEl.innerText = 'lang: en_US';
     this._renderer.appendChild(this._el.nativeElement, scriptEl);
 
-    scriptEl = document.createElement('script');
+    scriptEl = this._document.createElement('script');
     scriptEl.setAttribute('data-url', 'https://www.linkedin.com');
     scriptEl.type = 'IN/Share';
     this._renderer.appendChild(this.sharePanel.nativeElement, scriptEl);
   }
 
   scrollTo(el: string) {
-    document.getElementById(el)?.scrollIntoView();
+    this._document.getElementById(el)?.scrollIntoView();
   }
 
   public mobileMode() {
