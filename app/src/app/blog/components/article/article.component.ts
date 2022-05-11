@@ -77,6 +77,7 @@ export class ArticleComponent implements OnInit {
 
   scrollTo(el: string) {
     this._document.getElementById(el)?.scrollIntoView();
+    this._ga.event(`article_scroll_${el}`)
   }
 
   public mobileMode() {
@@ -92,14 +93,16 @@ export class ArticleComponent implements OnInit {
       this.expanded = false;
       setTimeout(()=>{
         this.tocExpandCntl.prime();
-      }, AnimationPeriods.short*1000)
+      }, AnimationPeriods.short*1000);
+      this._ga.event('article_toc_toggle');
     }
     else{
       this.tocExpandCntl.animate();
       this.highlighted = false;
       setTimeout(()=>{
         this.expanded = true;
-      }, AnimationPeriods.short*1000)
+      }, AnimationPeriods.short*1000);
+      this._ga.event('article_toc_untoggle')
     }
   }
 
