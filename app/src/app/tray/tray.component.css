@@ -2,6 +2,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  z-index: 999;
 }
 #news-container {
   flex-grow: 1;
@@ -115,6 +116,12 @@
   }
   .news-item {
     width: 50%;
+  }
+  #preview-item{
     flex-direction: column;
+  }
+  #archive-item{
+    flex-direction: column-reverse;
+
   }
 }
