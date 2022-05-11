@@ -165,7 +165,7 @@ export class PricingComponent {
   public setFocus(group: PricingGroups): void {
     this.focusing = true;
     this.focus = group;
-    this._ga.event('pricing', 'expansion', group.toString());
+    this._ga.event(`pricing_expansion_${group.toString()}`);
   }
 
   public removeFocus(): void {
@@ -176,6 +176,7 @@ export class PricingComponent {
   public calculate(): void {
     this.parseEnabledCalculations();
     this.calculated = true;
+    this._ga.event(`pricing_calculate`)
   }
 
   public uncalculate(): void {
@@ -190,5 +191,6 @@ export class PricingComponent {
     this.addOnFormGroup.reset();
     this.analyticsFormGroup.reset();
     this.accordion.closeAll();
+    this._ga.event('pricing_uncalculate')
   }
 }

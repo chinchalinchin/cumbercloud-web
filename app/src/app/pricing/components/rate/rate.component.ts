@@ -68,7 +68,7 @@ export class RateComponent implements OnInit {
       key: this.config.key,
       total: this.total,
     });
-    this._ga.event('rate', 'calculate', this.config.key);
+    this._ga.event(`rate_calculate_${this.config.key}`);
   }
 
   public recalculate(num: number) {
@@ -77,6 +77,6 @@ export class RateComponent implements OnInit {
       key: this.config.key,
       total: this.total,
     });
-    this._ga.event('rate', 'calculate', this.config.key);
+    this._ga.event(`rate_calculate_${this.config.key}`);
   }
 }

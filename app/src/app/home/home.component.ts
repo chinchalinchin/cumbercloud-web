@@ -247,7 +247,7 @@ export class HomeComponent implements OnInit {
       this.selecting = false;
       this.selectionFadeCntl.prime();
     }, AnimationPeriods.short * 1000);
-    this._ga.event('home', 'state', state.toString());
+    this._ga.event(`home_state_${state.toString()}`);
   }
 
   public selected(state: HomeStates) {

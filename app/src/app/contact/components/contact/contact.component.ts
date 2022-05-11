@@ -74,9 +74,7 @@ export class ContactComponent {
 
   public submit(): void {
     this._ga.event(
-      'contact',
-      'email',
-      this.contactGroup.controls['email'].value
+      `contact_email_${this.contactGroup.controls['email'].value}`
     );
     this.loading = true;
     this._http
