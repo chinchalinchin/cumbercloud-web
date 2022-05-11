@@ -7,6 +7,11 @@ export interface Preview {
   img: ImgConfig;
 }
 
+export interface TOCNode {
+  id: string;
+  title: string;
+}
+
 export interface ArticleConfig {
   id: string;
   date: Date;

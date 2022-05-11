@@ -6,7 +6,7 @@ import {
   AnimationPeriods,
   Animations,
   AnimationTriggers,
-  ScaleStates,
+  BinaryState,
   SwipeStates,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
@@ -185,14 +185,14 @@ export class DesignComponent implements OnInit {
   }
 
   public lureOscillated() {
-    return this.lureScaleCntl.state === ScaleStates.scale;
+    return this.lureScaleCntl.state === BinaryState.on;
   }
 
   public oscillateLure() {
-    if (this.lureScaleCntl.state === ScaleStates.normal) {
+    if (this.lureScaleCntl.state === BinaryState.off) {
       this.oscillations++;
       this.lureScaleCntl.animate();
-    } else if (this.lureScaleCntl.state === ScaleStates.scale) {
+    } else if (this.lureScaleCntl.state === BinaryState.on) {
       this.lureScaleCntl.prime();
     }
     if (this.oscillations > 3) {

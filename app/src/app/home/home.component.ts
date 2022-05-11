@@ -5,7 +5,7 @@ import {
   AnimationPeriods,
   Animations,
   AnimationTriggers,
-  FadeStates,
+  BinaryState,
 } from 'src/animations';
 import { MetaService } from 'src/services/meta.service';
 import { HomeConfig, HomeStates, HOME_CONFIG, ImgConfig } from '../app.config';
@@ -171,7 +171,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cloudFadeCntl.setState(FadeStates.out);
+    this.cloudFadeCntl.setState(BinaryState.on);
     setTimeout(() => {
       this.pressable = true;
     }, AnimationPeriods.short * 1000);

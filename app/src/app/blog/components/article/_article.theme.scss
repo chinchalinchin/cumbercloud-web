@@ -13,6 +13,9 @@
   #article-sheet {
     background-color: map-get($primary-palette, 50);
   }
+  #toc-tree {
+    background-color: white;
+  }
   .article-header {
     background-color: white;
     border-color: map-get($primary-palette, 500);

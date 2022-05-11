@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { Animations } from 'src/animations';
 import { ArticleService } from 'src/services/article.service';
 import { MetaService } from 'src/services/meta.service';
 import { ArticleConfig } from '../../blog.config';
@@ -15,6 +16,8 @@ import { ArticleConfig } from '../../blog.config';
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css'],
+  animations: [
+  ]
 })
 export class ArticleComponent implements OnInit {
   public article: ArticleConfig;

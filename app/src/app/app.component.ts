@@ -17,7 +17,8 @@ import { SheetComponent } from './shared/components/sheet/sheet.component';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [Animations.getManualFoldTrigger('4%')],
+  animations: [
+    Animations.getManualExpandTrigger('4%')],
 })
 export class AppComponent {
   public title: String = 'cumberland cloud';
@@ -26,7 +27,7 @@ export class AppComponent {
   public sheetDisplayed: boolean = false;
   public overlaid: boolean = false;
   public init: boolean = false;
-  public menuFoldCntl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public menuExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public pageConfig: NavConfig[] = NAV_CONFIG;
   public navConfig: NavConfig[] = NAV_CONFIG.filter((element) => element.menu);
 
@@ -79,10 +80,10 @@ export class AppComponent {
 
   public toggleMenu() {
     if (this.menuDisplayed) {
-      this.menuFoldCntl.prime();
+      this.menuExpandCntl.prime();
       this._ga.event('app', 'menu', 'display');
     } else {
-      this.menuFoldCntl.animate();
+      this.menuExpandCntl.animate();
       this._ga.event('app', 'menu', 'hide');
     }
     this.menuDisplayed = !this.menuDisplayed;

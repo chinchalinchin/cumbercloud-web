@@ -6,8 +6,7 @@ import {
   AnimationControl,
   Animations,
   AnimationTriggers,
-  ExpandStates,
-  HighlightStates,
+  BinaryState
 } from 'src/animations';
 import {
   CertificationConfig,
@@ -26,7 +25,7 @@ import { ExperienceComponent } from '../experience/experience.component';
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css'],
   animations: [
-    Animations.getManualExpandTrigger('60%', '80%'),
+    Animations.getManualDilateTrigger('60%', '80%'),
     Animations.getManualHighlightTrigger(1.25),
   ],
 })
@@ -36,7 +35,7 @@ export class ResumeComponent {
   public screenSize: string = '';
   public selectedCertTab: number = 0;
   public selectedEducationTab: number = 0;
-  public popupExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
+  public popupDilateCntl = new AnimationControl(AnimationTriggers.cntl_dilate);
   public popUpStates = ResumePopUpStates;
   public popUpState: ResumePopUpStates = ResumePopUpStates.null;
   public experience: ExperienceConfig[] = EXPERIENCE_CONFIG;
@@ -62,7 +61,7 @@ export class ResumeComponent {
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
-    this.popupExpandCntl.setState(ExpandStates.closed);
+    this.popupDilateCntl.setState(BinaryState.off);
   }
 
   public indexFromState(state: ResumePopUpStates) {
@@ -99,17 +98,17 @@ export class ResumeComponent {
 
   public expandPopUp(state: ResumePopUpStates): void {
     this.popUpState = state;
-    this.popupExpandCntl.animate();
+    this.popupDilateCntl.animate();
     this._ga.event('resume', 'popup', state.toString());
   }
 
   public closePopUp(): void {
     this.popUpState = ResumePopUpStates.null;
-    this.popupExpandCntl.prime();
+    this.popupDilateCntl.prime();
   }
 
   public isPopUpClosed(): boolean {
-    return this.popupExpandCntl.state == ExpandStates.closed;
+    return this.popupDilateCntl.state == BinaryState.off;
   }
 
   public getPopupTitle(): string {
@@ -130,7 +129,7 @@ export class ResumeComponent {
   public isFactHighlighted(state: ResumePopUpStates) {
     return (
       this.factHighlightCntls[this.indexFromState(state)].state ==
-      HighlightStates.highlight
+      BinaryState.on
     );
   }
 
@@ -145,7 +144,7 @@ export class ResumeComponent {
   public getFactMessage(state: ResumePopUpStates): string {
     if (
       this.factHighlightCntls[this.indexFromState(state)].state ==
-      HighlightStates.normal
+      BinaryState.off
     ) {
       switch (state) {
         case this.popUpStates.one:
