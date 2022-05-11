@@ -99,7 +99,7 @@ export class ResumeComponent {
   public expandPopUp(state: ResumePopUpStates): void {
     this.popUpState = state;
     this.popupDilateCntl.animate();
-    this._ga.event('resume', 'popup', state.toString());
+    this._ga.event(`resume_popup_${state.toString()}`);
   }
 
   public closePopUp(): void {
@@ -190,7 +190,7 @@ export class ResumeComponent {
     if (this.selectedCertTab > this.certifications.length - 1) {
       this.selectedCertTab = 0;
     }
-    this._ga.event('resume', 'certification', this.selectedCertTab.toString());
+    this._ga.event(`resume_certification_${this.selectedCertTab.toString()}`);
   }
 
   public decrementCertTab() {
@@ -198,7 +198,7 @@ export class ResumeComponent {
     if (this.selectedCertTab < 0) {
       this.selectedCertTab = this.certifications.length - 1;
     }
-    this._ga.event('resume', 'certification', this.selectedCertTab.toString());
+    this._ga.event(`resume_certification_${this.selectedCertTab.toString()}`);
   }
 
   public incrementEdTab() {
@@ -206,7 +206,7 @@ export class ResumeComponent {
     if (this.selectedEducationTab > 2) {
       this.selectedEducationTab = 0;
     }
-    this._ga.event('resume', 'education', this.selectedEducationTab.toString());
+    this._ga.event(`resume_education_${this.selectedEducationTab.toString()}`);
   }
 
   public decrementEdTab() {
@@ -214,6 +214,6 @@ export class ResumeComponent {
     if (this.selectedEducationTab < 0) {
       this.selectedEducationTab = 1;
     }
-    this._ga.event('resume', 'education', this.selectedEducationTab.toString());
+    this._ga.event(`resume_education_${this.selectedEducationTab.toString()}`);
   }
 }

@@ -223,7 +223,7 @@ export class ProfileComponent implements OnInit {
         this.whoGrassPositionCntl.animatePosition(0);
         this.whoFlowerPositionCntl.animatePosition(0);
       }, AnimationPeriods.short * 500);
-      this._ga.event('profile', 'animation', 'who');
+      this._ga.event('profile_animation_who');
     } else if (which === 'what' && !this.whatAnimated) {
       this.whatAnimated = true;
       this.whatBnrScaleCntl.animate();
@@ -235,7 +235,7 @@ export class ProfileComponent implements OnInit {
         this.whatGrassPositionCntl.animatePosition(0);
         this.whatFlowerPositionCntl.animatePosition(0);
       }, AnimationPeriods.short * 500);
-      this._ga.event('profile', 'animation', 'what');
+      this._ga.event('profile_animation_what');
     }
     setTimeout(() => {
       this.unfolded = true;
@@ -271,6 +271,7 @@ export class ProfileComponent implements OnInit {
         this.flippedContent = content;
         this.flipped = true;
       }, AnimationPeriods.medium * 500);
+      this._ga.event(`resume_flip_${content?.id}`);
     } else {
       this.cardFlipCntl.prime();
       setTimeout(() => {
@@ -279,6 +280,7 @@ export class ProfileComponent implements OnInit {
       setTimeout(() => {
         this.flippedContent = content;
       }, AnimationPeriods.medium * 1000);
+      this._ga.event(`resume_unflip_${content?.id}`);
     }
   }
 }

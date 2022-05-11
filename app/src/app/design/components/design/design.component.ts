@@ -54,6 +54,7 @@ enum Splash {
     Animations.getExpandTrigger('50%', 'half'),
     Animations.getExpandTrigger('25%', 'quarter'),
     Animations.getEnlargeTrigger('70%', 'underline'),
+    Animations.getManualFullSwipeTrigger(),
   ],
 })
 export class DesignComponent implements OnInit {
@@ -126,7 +127,10 @@ export class DesignComponent implements OnInit {
     AnimationTriggers.cntl_swipe
   );
 
-  constructor(private _meta: MetaService, private _ga: GoogleAnalyticsService) {
+  constructor(
+    private _meta: MetaService, 
+    private _ga: GoogleAnalyticsService
+  ) {
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
@@ -231,11 +235,11 @@ export class DesignComponent implements OnInit {
     switch (this.phase) {
       case Phases.none:
         this.phase = Phases.splash;
-        this._ga.event('design', 'phase_next', 'splash');
+        this._ga.event('design_phase_next_splash');
         break;
       case Phases.splash:
         this.phase = Phases.design;
-        this._ga.event('design', 'phase_next', 'design');
+        this._ga.event('design_phase_next_design');
         setTimeout(() => {
           this.designLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -254,7 +258,7 @@ export class DesignComponent implements OnInit {
           cntl.animate();
         });
         this.phase = Phases.develop;
-        this._ga.event('design', 'phase_next', 'develop');
+        this._ga.event('design_phase_next_develop');
         setTimeout(() => {
           this.developLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -272,7 +276,7 @@ export class DesignComponent implements OnInit {
         this.developLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
-        this._ga.event('design', 'phase_next', 'deploy');
+        this._ga.event('design_phase_next_deploy');
         this.phase = Phases.deploy;
         setTimeout(() => {
           this.deployLinesFadeCntl.forEach(
@@ -292,7 +296,7 @@ export class DesignComponent implements OnInit {
           cntl.animate();
         });
         this.phase = Phases.deliver;
-        this._ga.event('design', 'phase_next', 'deliver');
+        this._ga.event('design_phase_next_deliver');
         setTimeout(() => {
           this.deliverLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -311,7 +315,7 @@ export class DesignComponent implements OnInit {
           cntl.animate();
         });
         this.phase = Phases.done;
-        this._ga.event('design', 'phase_next', 'done');
+        this._ga.event('design_phase_next_done');
         break;
     }
   }
@@ -320,18 +324,18 @@ export class DesignComponent implements OnInit {
     switch (this.phase) {
       case Phases.splash:
         this.phase = Phases.none;
-        this._ga.event('design', 'phase_previous', 'none');
+        this._ga.event('design_phase_previous_none');
         break;
       case Phases.design:
         this.phase = Phases.splash;
-        this._ga.event('design', 'phase_previous', 'splash');
+        this._ga.event('design_phase_previous_splash');
         break;
       case Phases.develop:
         this.developLinesFadeCntl.forEach((cntl: AnimationControl) => {
           cntl.animate();
         });
         this.phase = Phases.design;
-        this._ga.event('design', 'phase_previous', 'design');
+        this._ga.event('design_phase_previous_design');
         setTimeout(() => {
           this.designLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -347,7 +351,7 @@ export class DesignComponent implements OnInit {
           cntl.animate();
         });
         this.phase = Phases.develop;
-        this._ga.event('design', 'phase_previous', 'develop');
+        this._ga.event('design_phase_previous_develop');
         setTimeout(() => {
           this.developLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -363,7 +367,7 @@ export class DesignComponent implements OnInit {
           cntl.animate();
         });
         this.phase = Phases.deploy;
-        this._ga.event('design', 'phase_previous', 'deploy');
+        this._ga.event('design_phase_previous_deploy');
         setTimeout(() => {
           this.deployLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -376,7 +380,7 @@ export class DesignComponent implements OnInit {
         break;
       case Phases.done:
         this.phase = Phases.deliver;
-        this._ga.event('design', 'phase_previous', 'deliver');
+        this._ga.event('design_phase_previous_deliver');
         setTimeout(() => {
           this.deliverLinesFadeCntl.forEach(
             (cntl: AnimationControl, ind: number) => {
@@ -393,6 +397,7 @@ export class DesignComponent implements OnInit {
   public touchSplash(): void {
     if (this.splash === Splash.untouched && this.lured) {
       this.splashSrcFadeCntl.animate();
+      this._ga.event('design_splash_touch');
       setTimeout(() => {
         this.splash = Splash.touched;
         setTimeout(() => {
