@@ -50,7 +50,7 @@ export enum AnimationTriggers {
   cntl_swipe = 'cntl_swipe',
   cntl_fade = 'cntl_fade',
   cntl_expand = 'cntl_expand',
-  cntl_enlarge = 'cntl_expand',
+  cntl_enlarge = 'cntl_enlarge',
   cntl_dilate = 'cntl_dilate',
   cntl_highlight = 'cntl_highlight',
   cntl_scale = 'cntl_scale',
@@ -209,8 +209,8 @@ export class Animations {
   }
 
    public static getManualEnlargeTrigger(
-    toWidth: string,
     fromWidth: string,
+    toWidth: string,
     tag: string | null | undefined = null,
     animateLength: number = AnimationPeriods.short
   ): AnimationTriggerMetadata {
@@ -229,7 +229,7 @@ export class Animations {
           width: `${fromWidth}`,
         })
       ),
-      transition(`* <=> ${BinaryState.off}`, [
+      transition(`${BinaryState.on} <=> ${BinaryState.off}`, [
         animate(`${animateLength}s`),
         query('@*', animateChild(), { optional: true }),
       ]),
@@ -617,7 +617,7 @@ export class AnimationControl {
     }
   }
 
-  public prime() {
+  public prime(): void {
     if(this.binaryTriggers.includes(this.animationType)){
       this.state = BinaryState.off;
     }
@@ -631,6 +631,21 @@ export class AnimationControl {
           break;
       }
     }
+  }
+
+  public fired(): boolean {
+    if(this.binaryTriggers.includes(this.animationType)){
+      return this.state !== BinaryState.off;
+    }
+    else{
+      switch (this.animationType){
+        case AnimationTriggers.cntl_position:
+          return this.state !== PositionStates.unmoved;
+        case AnimationTriggers.cntl_swipe:
+          return this.state !== SwipeStates.unmoved;
+      }
+    }
+    return false;
   }
 
   public animatePosition(positionIndex: number) {

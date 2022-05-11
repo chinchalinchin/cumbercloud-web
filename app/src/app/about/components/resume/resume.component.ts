@@ -108,7 +108,7 @@ export class ResumeComponent {
   }
 
   public isPopUpClosed(): boolean {
-    return this.popupDilateCntl.state == BinaryState.off;
+    return !this.popupDilateCntl.fired();
   }
 
   public getPopupTitle(): string {

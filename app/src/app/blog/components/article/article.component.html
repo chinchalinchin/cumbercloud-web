@@ -27,12 +27,24 @@
   <div id="article-sheet" class="mat-elevation-z1">
     <markdown class="mat-body" [src]="article.src"></markdown>
   </div>
-  <div id="toc-tree" class="mat-elevation-z2">
-    <h2 class="mat-h2 text-center">Table of Contents</h2>
-    <button 
-      mat-icon-button
-    >
-      <mat-icon>arrow_forward</mat-icon>
-    </button>
+
+  <div 
+    id="toc-tree" 
+    class="mat-elevation-z2" 
+    [class.highlighted]="highlighted"
+    [@cntl_enlarge_desktop]="mobileMode() ? null : tocExpandCntl.state"
+    [@cntl_enlarge_mobile]="mobileMode() ? tocExpandCntl.state : null"  
+    (mouseenter)="highlight()"
+    (mouseleave)="highlighted = false"
+    (click)="toggleTocTree()"
+  >
+    <div *ngIf="expanded" [@fade]>
+      <h2 class="mat-h2 text-center">Table of Contents</h2>
+    </div>
+
+  
+    <mat-icon id="toc-toggle" class="cursor" (click)="toggleTocTree()" role="button">
+      {{ tocExpandCntl.fired() ? 'chevron_left' : 'chevron_right' }}
+    </mat-icon>
   </div>
 </div>
