@@ -21,14 +21,14 @@
   flex-direction: row;
   justify-content: center;
 }
-#toc-tree{
+#toc-tree {
   position: absolute;
   top: 0%;
   left: 0%;
   bottom: 0%;
   border-radius: 15px;
 }
-#toc-toggle{
+#toc-toggle {
   position: absolute;
   bottom: 1%;
 }
@@ -41,14 +41,13 @@
   cursor: pointer;
 }
 
-@media (min-width:991px){
-  #article-sheet{
+@media (min-width: 991px) {
+  #article-sheet {
     left: 2%;
   }
 }
-@media (max-width:992px){
-  #article-sheet{
+@media (max-width: 992px) {
+  #article-sheet {
     left: 3%;
   }
-
 }

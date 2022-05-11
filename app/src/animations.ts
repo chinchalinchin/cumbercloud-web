@@ -65,7 +65,6 @@ export enum AnimationPeriods {
   long = 2,
 }
 
-
 function validatePosition(position: Position): KeyObject {
   let parsed_position: KeyObject = {};
   if (position.top) {
@@ -88,7 +87,6 @@ function formatTriggerTag(trigger: string, tag: string | null | undefined) {
 }
 
 export class Animations {
-  
   public static getManualScaleTrigger(
     scaleFactor: number,
     tag: string | null | undefined = null,
@@ -208,7 +206,7 @@ export class Animations {
     ]);
   }
 
-   public static getManualEnlargeTrigger(
+  public static getManualEnlargeTrigger(
     fromWidth: string,
     toWidth: string,
     tag: string | null | undefined = null,
@@ -236,7 +234,7 @@ export class Animations {
     ]);
   }
 
-   public static getManualDilateTrigger(
+  public static getManualDilateTrigger(
     toHeight: string,
     toWidth: string,
     tag: string | null | undefined = null,
@@ -359,7 +357,7 @@ export class Animations {
       ),
       transition(`${BinaryState.on} <=> ${BinaryState.off}`, [
         animate(`${animateLength}s`),
-      ])
+      ]),
     ]);
   }
 
@@ -582,7 +580,7 @@ export class Animations {
 }
 
 export class AnimationControl {
-  public binaryTriggers: any[]= [
+  public binaryTriggers: any[] = [
     AnimationTriggers.cntl_expand,
     AnimationTriggers.cntl_enlarge,
     AnimationTriggers.cntl_dilate,
@@ -590,12 +588,12 @@ export class AnimationControl {
     AnimationTriggers.cntl_scale,
     AnimationTriggers.cntl_fade,
     AnimationTriggers.cntl_skew,
-    AnimationTriggers.cntl_flip
-  ]
+    AnimationTriggers.cntl_flip,
+  ];
   public stateTriggers: any[] = [
     AnimationTriggers.cntl_swipe,
     AnimationTriggers.cntl_position,
-  ]
+  ];
   public animationType: AnimationTriggers;
   public state!: string;
 
@@ -605,23 +603,21 @@ export class AnimationControl {
   }
 
   public animate() {
-    if(this.binaryTriggers.includes(this.animationType)){
+    if (this.binaryTriggers.includes(this.animationType)) {
       this.state = BinaryState.on;
-    }
-    else{
+    } else {
       switch (this.animationType) {
         case AnimationTriggers.cntl_position:
           this.state = PositionStates.moved;
           break;
-      } 
+      }
     }
   }
 
   public prime(): void {
-    if(this.binaryTriggers.includes(this.animationType)){
+    if (this.binaryTriggers.includes(this.animationType)) {
       this.state = BinaryState.off;
-    }
-    else{
+    } else {
       switch (this.animationType) {
         case AnimationTriggers.cntl_position:
           this.state = PositionStates.unmoved;
@@ -634,11 +630,10 @@ export class AnimationControl {
   }
 
   public fired(): boolean {
-    if(this.binaryTriggers.includes(this.animationType)){
+    if (this.binaryTriggers.includes(this.animationType)) {
       return this.state !== BinaryState.off;
-    }
-    else{
-      switch (this.animationType){
+    } else {
+      switch (this.animationType) {
         case AnimationTriggers.cntl_position:
           return this.state !== PositionStates.unmoved;
         case AnimationTriggers.cntl_swipe:
