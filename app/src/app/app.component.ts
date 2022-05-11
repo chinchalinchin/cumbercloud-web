@@ -17,8 +17,7 @@ import { SheetComponent } from './shared/components/sheet/sheet.component';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [
-    Animations.getManualExpandTrigger('4%')],
+  animations: [Animations.getManualExpandTrigger('4%')],
 })
 export class AppComponent {
   public title: String = 'cumberland cloud';

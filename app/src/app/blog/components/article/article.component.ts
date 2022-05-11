@@ -16,8 +16,7 @@ import { ArticleConfig } from '../../blog.config';
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css'],
-  animations: [
-  ]
+  animations: [],
 })
 export class ArticleComponent implements OnInit {
   public article: ArticleConfig;

@@ -6,7 +6,7 @@ import {
   AnimationControl,
   Animations,
   AnimationTriggers,
-  BinaryState
+  BinaryState,
 } from 'src/animations';
 import {
   CertificationConfig,
