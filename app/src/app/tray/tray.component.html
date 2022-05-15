@@ -10,7 +10,12 @@
     *ngIf="extended || extending" 
     aria-live="polite"
   >
-    <div id="preview-item" class="news-item" *ngIf="!extending" role="section">
+    <div 
+      id="preview-item" 
+      class="news-item" 
+      *ngIf="!extending" 
+      role="section"
+    >
       <div id="preview-panel" class="panel-pane">
         <h2 class="mat-h2">
           {{ mobileMode() ? "Latest" : "Latest Article" }}
@@ -31,12 +36,19 @@
           <h3 class="mat-h3">
             {{ latest.title }}
             <span
-              [style]="mobileMode() ? 'float:left' : 'float: right'"
-              class="mat-body"
-            >
+              *ngIf="!mobileMode()"
+              style="float:right;"
+              class="mat-body">
               {{ latest.date | date }}
             </span>
           </h3>
+          <div
+            *ngIf="mobileMode()"
+            style="float:left; margin-top: -5%;"
+            class="mat-body"
+          >
+            {{ latest.date | date }}
+          </div>
         </div>
         <p
           id="preview-text"

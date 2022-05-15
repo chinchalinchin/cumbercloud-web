@@ -104,9 +104,11 @@
   .panel-pane {
     display: flex;
     flex-direction: row;
+    max-height: 40%;
   }
   .panel-img {
     width: 50%;
+    max-height: 100%;
   }
   .preview-img {
     float: right;
