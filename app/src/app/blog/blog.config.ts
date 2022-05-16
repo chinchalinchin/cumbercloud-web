@@ -52,10 +52,10 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
             title: 'Domain & Hosted Zone',
           },
           {
-            id:'tls-ssl',
-            title: 'SSL Certificate'
-          }
-        ]
+            id: 'tls-ssl',
+            title: 'SSL Certificate',
+          },
+        ],
       },
       {
         id: 'cloudformation',
