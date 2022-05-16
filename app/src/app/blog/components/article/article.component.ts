@@ -83,11 +83,13 @@ export class ArticleComponent implements OnInit {
 
   private init(): void{
     let route_param: string | null = this._route.snapshot.paramMap.get('id');
-    this.article = this._articles.getById(route_param);
-    let url = encodeURI(
-      `https://cumberland-cloud.com/blog/article/${this.article.id}`
-    );
-    this.facebookShareUrl = `https://www.facebook.com/plugins/share_button.php?href=${url}&layout=button&size=small&width=67&height=20&appId`;
+    this._articles.getById(route_param).subscribe((data:ApiResponse)=>{
+      this.article = data;
+      let url = encodeURI(
+        `https://cumberland-cloud.com/blog/article/${this.article.id}`
+      );
+      this.facebookShareUrl = `https://www.facebook.com/plugins/share_button.php?href=${url}&layout=button&size=small&width=67&height=20&appId`;
+    });
   }
 
   public scrollTo(el: string): void{

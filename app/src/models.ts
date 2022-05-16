@@ -39,8 +39,3 @@ export interface ApiResponse{
     article_config: ArticleConfig;
     data: string;
 }
-
-export interface ApiListResponse{
-    response: ApiResponse[]
-}
-  

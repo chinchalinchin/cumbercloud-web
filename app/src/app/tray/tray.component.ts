@@ -42,16 +42,20 @@ export class TrayComponent implements OnInit {
   public positionCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_position
   );
-  public latest: ApiResponse;
-  public feed: ApiResponse[];
+  public latest!: ApiResponse;
+  public feed!: ApiResponse[];
 
   constructor(
     private _meta: MetaService,
     private _articles: ArticleService,
     private _ga: GoogleAnalyticsService
   ) {
-    this.latest = this._articles.getLatest();
-    this.feed = this._articles.getSampleFeed();
+    this._articles.getLatest().subscribe((data:ApiResponse)=>{
+      this.latest = data;
+    });
+    this._articles.getSampleFeed().subscribe((data:ApiResponse[])=>{
+      this.feed = data;
+    })
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
