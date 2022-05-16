@@ -191,12 +191,12 @@ export const NAV_CONFIG: NavConfig[] = [
       {
         path: '/about/design',
         nav_title: 'Design',
-        group: 'Process'
+        group: 'Process',
       },
       {
         path: '/about/grant',
         nav_title: 'Grant Moore',
-        group: 'Team'
+        group: 'Team',
       },
     ],
   },
