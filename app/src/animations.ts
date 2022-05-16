@@ -207,6 +207,10 @@ export class Animations {
   }
 
   public static getManualEnlargeTrigger(
+<<<<<<< HEAD
+=======
+    toWidth: string,
+>>>>>>> c31edea869c70037b2766eefc852875769e07b1f
     fromWidth: string,
     toWidth: string,
     tag: string | null | undefined = null,
@@ -614,7 +618,11 @@ export class AnimationControl {
     }
   }
 
+<<<<<<< HEAD
   public prime(): void {
+=======
+  public prime() {
+>>>>>>> c31edea869c70037b2766eefc852875769e07b1f
     if (this.binaryTriggers.includes(this.animationType)) {
       this.state = BinaryState.off;
     } else {
