@@ -58,7 +58,7 @@ export class ArticleComponent implements OnInit {
       .pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe((event) => {
         this.init();
-    })
+      });
   }
 
   ngOnInit(): void {}
@@ -81,7 +81,7 @@ export class ArticleComponent implements OnInit {
     this._renderer.appendChild(this.sharePanel.nativeElement, scriptEl);
   }
 
-  private init(): void{
+  private init(): void {
     let route_param: string | null = this._route.snapshot.paramMap.get('id');
     this.article = this._articles.getById(route_param);
     let url = encodeURI(
@@ -90,7 +90,7 @@ export class ArticleComponent implements OnInit {
     this.facebookShareUrl = `https://www.facebook.com/plugins/share_button.php?href=${url}&layout=button&size=small&width=67&height=20&appId`;
   }
 
-  public scrollTo(el: string): void{
+  public scrollTo(el: string): void {
     this._document.getElementById(el)?.scrollIntoView();
     this._ga.event(`article_scroll_${el}`);
   }

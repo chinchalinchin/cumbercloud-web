@@ -43,8 +43,8 @@
 .news-item {
   display: flex;
 }
-.tray-link{
-  text-decoration: none; 
+.tray-link {
+  text-decoration: none;
 }
 .panel-img {
   border-radius: 15px;

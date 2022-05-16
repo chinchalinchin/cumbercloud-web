@@ -10,7 +10,7 @@
     flex-direction: column-reverse;
     justify-content: flex-end;
   }
-  #archive-panel{
+  #archive-panel {
     min-height: 40%;
   }
   .content-pane,
@@ -34,7 +34,7 @@
   .archive-img {
     float: left;
   }
-  .archive-item{
+  .archive-item {
     max-height: 50%;
     margin-top: 2.5%;
     text-align: center;
