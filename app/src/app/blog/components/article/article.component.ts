@@ -20,7 +20,7 @@ import { ArticleConfig } from '../../blog.config';
   styleUrls: ['./article.component.css'],
   animations: [
     Animations.getManualEnlargeTrigger('1.5%', '30%', 'desktop'),
-    Animations.getManualEnlargeTrigger('2.5%', '35%', 'mobile'),
+    Animations.getManualEnlargeTrigger('5%', '60%', 'mobile'),
     Animations.getFadeTrigger(null, AnimationPeriods.short)
   ]
 })

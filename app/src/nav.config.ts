@@ -4,6 +4,7 @@ export interface NavConfig {
   nav_title?: string;
   page_title?: string;
   page_description?: string;
+  group?: string;
   menu?: boolean;
   data?: any;
   children?: NavConfig[];
@@ -188,8 +189,14 @@ export const NAV_CONFIG: NavConfig[] = [
     data: {},
     children: [
       {
+        path: '/about/design',
+        nav_title: 'Design',
+        group: 'Process'
+      },
+      {
         path: '/about/grant',
         nav_title: 'Grant Moore',
+        group: 'Team'
       },
     ],
   },
@@ -319,13 +326,13 @@ export const NAV_CONFIG: NavConfig[] = [
     ],
   },
   {
-    path: '/design',
+    path: '/about/design',
     nav_title: 'Design',
     nav_id: 'design-nav',
     page_title: 'The Cumberland Cloud - Design',
     page_description:
       'The Cumberland Cloud has at your disposal years of production-grade software engineering experience. We take pride in our professionalism and as a result, our design process stands out from the rest of the crowd',
-    menu: true,
+    menu: false,
     data: {},
     meta: [
       {

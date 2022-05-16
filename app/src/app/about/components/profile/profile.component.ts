@@ -113,7 +113,7 @@ import {
       AnimationPeriods.short
     ),
     Animations.getFadeTrigger(),
-    Animations.getExpandTrigger('100%'),
+    Animations.getExpandTrigger('100%', null, AnimationPeriods.long),
     Animations.getEnlargeTrigger('100%'),
     Animations.getManualFlipTrigger(null, AnimationPeriods.medium),
   ],

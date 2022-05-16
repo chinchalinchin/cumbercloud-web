@@ -62,14 +62,43 @@
       >
         {{ conf.nav_title }}
         <mat-menu #about_menu>
-          <a
-            *ngFor="let child of conf.children"
+          <button 
             mat-menu-item
-            [routerLink]="child.path"
+            [matMenuTriggerFor]="team_menu"
           >
-            {{ child.nav_title }}
-          </a>
+            Team
+          </button>
+          <mat-menu #team_menu>
+            <div *ngFor="let child of conf.children">
+              <a *ngIf="child.group === 'Team'"
+                mat-menu-item
+                [routerLink]="child.path"
+              >
+                {{ child.nav_title }}
+              </a>
+            </div>
+          </mat-menu>
+
+          <mat-divider></mat-divider>
+
+          <button 
+            mat-menu-item
+            [matMenuTriggerFor]="process_menu"
+          >
+            Process
+          </button>
+          <mat-menu #process_menu>
+            <div *ngFor="let child of conf.children">
+              <a *ngIf="child.group === 'Process'"
+                mat-menu-item
+                [routerLink]="child.path"
+              >
+                {{ child.nav_title }}
+              </a>
+            </div>
+          </mat-menu>
         </mat-menu>
+
       </span>
     </div>
   </div>

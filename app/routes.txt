@@ -1,5 +1,6 @@
 /
 /pricing
+/about/design
 /about/grant
 /about/resume/grant
 /contact

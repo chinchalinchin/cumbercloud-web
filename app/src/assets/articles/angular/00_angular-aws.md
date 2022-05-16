@@ -23,7 +23,7 @@ Everything that follows assumes the reader is familiar enough with **Angular** t
       The <a id="cumbercloud-link-1" href="https://cumberland-cloud.com" target="_blank">Cumberland Cloud</a>'s guiding principle in architecting a cloud environment is simple: <i>cost above all else</i>. If a thing can be done cheaply without sacrificing quality, then we will always select the route with the least cost. The approaches detailed in the previous paragraph all suffer from one crucial defect: these methods quickly rack up charges. <b>EC2</b> and container orchestration clusters are always running and thus always incurring charges; if they are not managed properly, your bill can quickly get out of control.
     </p>
   </div>
-  <figure style="min-width: 25%; max-width: 35%; margin-top: auto; margin-bottom: auto;">
+  <figure class="article-fig fig-md">
     <a
       id="cloud-design-link"
       href="/assets/imgs/articles/cloud_design.png"
@@ -44,7 +44,7 @@ Everything that follows assumes the reader is familiar enough with **Angular** t
 We do not need the computing power of a full fledged web server (<span class="inline-aside">virtual or otherwise</span>). All we need is to host some static files, i.e., the _HTML_, _JS_ and _CSS_ files that an **Angular** app <a id="transpiler-link" href="https://en.wikipedia.org/wiki/Source-to-source_compiler" target="_blank">transpiles</a> down into when you `ng build`. [AWS Simple Storage Service (S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html) give us the ability to host a large quantity of static content for virtually free in a **S3 bucket**. We can then distribute the contents of the **S3 bucket** through a [global content distribution network](https://en.wikipedia.org/wiki/Content_delivery_network) **AWS** manages called [CloudFront](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-cloudfront-walkthrough.html).
 
 <div class="img-container">
-  <figure style="min-width: 35%; max-width:50%; margin-top: auto; margin-bottom: auto;">
+  <figure class="article-fig fig-lg">
     <a
       id="cloudfront-cdn-link"
       href="/assets/imgs/articles/cloudfront_cdn.png" 

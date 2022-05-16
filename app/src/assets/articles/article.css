@@ -23,3 +23,24 @@
   display: flex;
   flex-direction: row;
 }
+@media (min-width:991px){
+  .img-container{
+    flex-direction: row;
+  }
+  .article-fig{
+    min-width: 25%; 
+    margin-top: auto; 
+    margin-bottom: auto;
+  }
+  .fig-md{
+    max-width: 35%;
+  }
+  .fig-lg{
+    max-width: 50%;
+  }
+}
+@media (max-width:992px){
+  .img-container{
+    flex-direction: column;
+  }
+}

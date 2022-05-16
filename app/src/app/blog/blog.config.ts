@@ -52,7 +52,7 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
             title: 'Domain & Hosted Zone'
           },
           {
-            id:'tls-sls',
+            id:'tls-ssl',
             title: 'SSL Certificate'
           }
         ]
