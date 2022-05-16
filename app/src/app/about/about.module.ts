@@ -11,10 +11,10 @@ import { DesignComponent } from './components/design/design.component';
 
 @NgModule({
   declarations: [
-    ProfileComponent, 
-    ResumeComponent, 
+    ProfileComponent,
+    ResumeComponent,
     ExperienceComponent,
-    DesignComponent
+    DesignComponent,
   ],
   imports: [AboutRoutingModule, AboutMaterialModule, SharedModule],
 })

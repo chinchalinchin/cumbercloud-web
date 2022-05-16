@@ -10,7 +10,7 @@ export interface Preview {
 export interface TOCNode {
   id: string;
   title: string;
-  children?: TOCNode[]
+  children?: TOCNode[];
 }
 
 export interface ArticleConfig {
@@ -19,7 +19,7 @@ export interface ArticleConfig {
   title: string;
   preview: Preview;
   src: string;
-  toc_tree: TOCNode[]
+  toc_tree: TOCNode[];
 }
 
 export const ARTICLE_CONFIG: ArticleConfig[] = [
@@ -41,7 +41,7 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
     toc_tree: [
       {
         id: 'cost-optimization',
-        title: 'Cost Optimization'
+        title: 'Cost Optimization',
       },
       {
         id: 'setup-prerequisites',
@@ -49,13 +49,13 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
         children: [
           {
             id: 'domain-hosted-zone',
-            title: 'Domain & Hosted Zone'
+            title: 'Domain & Hosted Zone',
           },
           {
-            id:'tls-ssl',
-            title: 'SSL Certificate'
-          }
-        ]
+            id: 'tls-ssl',
+            title: 'SSL Certificate',
+          },
+        ],
       },
       {
         id: 'cloudformation',
@@ -63,9 +63,9 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
         children: [
           {
             id: 'cloudformation-prerequisites',
-            title: ' CloudFormation Prerequisites'
-          }
-        ]
+            title: ' CloudFormation Prerequisites',
+          },
+        ],
       },
       {
         id: 'anatomy-template',
@@ -73,43 +73,43 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
         children: [
           {
             id: 'tldr',
-            title: 'TL;DR'
+            title: 'TL;DR',
           },
           {
             id: 'template',
-            title: 'Template'
+            title: 'Template',
           },
           {
             id: 'parameters',
-            title: 'Parameters'
+            title: 'Parameters',
           },
           {
             id: 's3-buckets',
-            title: 'S3 Buckets'
+            title: 'S3 Buckets',
           },
           {
             id: 'cloudfront-distribution',
-            title: 'CloudFront Distribution'
+            title: 'CloudFront Distribution',
           },
           {
             id: 'route53-recordset',
-            title: 'Record53 Recordset'
-          }
+            title: 'Record53 Recordset',
+          },
         ],
       },
       {
         id: 'cloudfront-edge',
-        title: 'CloudFront Edge Functions'
+        title: 'CloudFront Edge Functions',
       },
       {
         id: 'function-handler',
-        title: 'Function Handler'
+        title: 'Function Handler',
       },
       {
         id: 'series-index',
-        title: 'More Articles in Series'
-      }
-    ]
+        title: 'More Articles in Series',
+      },
+    ],
   },
   {
     id: 'angular_aws_cicd',
@@ -125,9 +125,7 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
       },
     },
     src: '/assets/articles/angular/01_angular-cicd.md',
-    toc_tree: [
-      
-    ]
+    toc_tree: [],
   },
   {
     id: 'angular_prerender',
@@ -143,9 +141,7 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
       },
     },
     src: '/assets/articles/angular/02_angular-ssr.md',
-    toc_tree: [
-
-    ]
+    toc_tree: [],
   },
   {
     id: 'angular_seo',
@@ -161,8 +157,6 @@ export const ARTICLE_CONFIG: ArticleConfig[] = [
       },
     },
     src: '/assets/articles/angular/03_angular-seo.md',
-    toc_tree: [
-
-    ]
+    toc_tree: [],
   },
 ];
