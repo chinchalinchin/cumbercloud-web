@@ -1,35 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ArticleConfig, ARTICLE_CONFIG } from 'src/app/blog/blog.config';
+import { environment } from 'src/environments/environment';
+import { ApiListResponse, ApiResponse, ArticleConfig } from 'src/models';
 
 const FEED_SIZE = 2;
 @Injectable({
   providedIn: 'root',
 })
 export class ArticleService {
-  // TODO: initialize through API call
-  public articles: ArticleConfig[] = ARTICLE_CONFIG;
+  public articles!: ApiResponse[];
 
-  constructor() {}
+  constructor(private _http: HttpClient) {
+    this._http.get<ApiListResponse>(`${environment.apiUrl}/articles`).subscribe((data: ApiListResponse)=>{
+      this.articles = data.response;
+    });
+  }
 
-  public sortByDate(): ArticleConfig[] {
+  public sortByDate(): ApiResponse[] {
     return this.articles.sort(
       (previous, next) => next.date.getTime() - previous.date.getTime()
     );
   }
 
-  public getLatest(): ArticleConfig {
+  public getLatest(): ApiResponse {
     return this.sortByDate()[0];
   }
 
-  public getSampleFeed(): ArticleConfig[] {
+  public getSampleFeed(): ApiResponse[] {
     if (this.articles.length > FEED_SIZE - 1)
       return this.articles.slice(1, FEED_SIZE + 1);
     return this.articles;
   }
 
-  public getById(id: string | null | undefined): ArticleConfig {
+  public getById(id: string | null | undefined): ApiResponse {
     let found = this.articles.find(
-      (article: ArticleConfig) => article.id === id
+      (article: ApiResponse) => article.id === id
     );
     if (found) return found;
     return this.getLatest();

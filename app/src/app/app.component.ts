@@ -8,9 +8,10 @@ import {
   Animations,
   AnimationTriggers,
 } from 'src/animations';
+import { NavConfig } from 'src/models';
+import { NAV_CONFIG } from 'src/nav.config';
 import { MetaService } from 'src/services/meta.service';
 import { SeoService } from 'src/services/seo.service';
-import { NavConfig, NAV_CONFIG } from '../nav.config';
 import { SheetComponent } from './shared/components/sheet/sheet.component';
 
 @Component({
@@ -28,7 +29,7 @@ export class AppComponent {
   public init: boolean = false;
   public menuExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
   public pageConfig: NavConfig[] = NAV_CONFIG;
-  public navConfig: NavConfig[] = NAV_CONFIG.filter((element) => element.menu);
+  public navConfig: NavConfig[] = NAV_CONFIG.filter((element: any) => element.menu);
 
   public constructor(
     private _bottomSheet: MatBottomSheet,
@@ -65,6 +66,9 @@ export class AppComponent {
           .filter((nav: NavConfig) => nav.path === event.url)
           .pop();
       });
+
+    // TODO: need to pull navconfig from article service and append to existing static nav.
+    // best way to do this? want to put as much logic in th service as possible...
   }
 
   public ngAfterViewInit() {

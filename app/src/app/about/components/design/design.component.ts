@@ -8,12 +8,12 @@ import {
   AnimationTriggers,
   SwipeStates,
 } from 'src/animations';
+import { ImgConfig } from 'src/properties';
 import { MetaService } from 'src/services/meta.service';
 import {
   ChipConfig,
   GalleryConfig,
   GALLERY_CONFIG,
-  ImgConfig,
   DESIGN_CONFIG,
   StateImgConfig,
   SVG_CONFIG,

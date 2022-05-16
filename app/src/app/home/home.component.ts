@@ -7,8 +7,9 @@ import {
   AnimationTriggers,
   BinaryState,
 } from 'src/animations';
+import { ImgConfig } from 'src/properties';
 import { MetaService } from 'src/services/meta.service';
-import { HomeConfig, HomeStates, HOME_CONFIG, ImgConfig } from '../app.config';
+import { HomeConfig, HomeStates, HOME_CONFIG } from '../app.config';
 
 @Component({
   selector: 'app-home',

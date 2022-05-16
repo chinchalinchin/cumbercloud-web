@@ -13,10 +13,10 @@
         </h2>
         <div id="preview-img-container">
           <img
-            [id]="latest.preview.img.id"
-            [src]="latest.preview.img.src"
-            [alt]="latest.preview.img.alt"
-            [title]="latest.preview.img.title"
+            [id]="latest.article_config.preview.img.id"
+            [src]="latest.article_config.preview.img.src"
+            [alt]="latest.article_config.preview.img.alt"
+            [title]="latest.article_config.preview.img.title"
             class="preview-img panel-img"
           />
         </div>
@@ -25,7 +25,7 @@
       <div id="preview-content" class="content-pane mat-elevation-z3">
         <div>
           <h3 class="mat-h3">
-            {{ latest.title }}
+            {{ latest.article_config.title }}
             <span *ngIf="!mobileMode()" style="float: right" class="mat-body">
               {{ latest.date | date }}
             </span>
@@ -42,7 +42,7 @@
           id="preview-text"
           class="mat-body"
           *ngIf="!mobileMode()"
-          [innerHTML]="latest.preview.content"
+          [innerHTML]="latest.article_config.preview.content"
         ></p>
         <button
           id="preview-btn"
@@ -60,7 +60,7 @@
       <div id="archive-content" class="content-pane">
         <div class="archive-item mat-elevation-z3" *ngFor="let article of feed">
           <h4 class="mat-h4" *ngIf="!mobileMode()">
-            {{ article.title }}
+            {{ article.article_config.title }}
             <button
               class="archive-btn"
               mat-icon-button
@@ -79,7 +79,7 @@
             class="tray-link"
             *ngIf="mobileMode()"
             [routerLink]="['blog', 'article', article.id]">
-            &bull; {{ article.title }}
+            &bull; {{ article.article_config.title }}
           </a>
         </div>
       </div>

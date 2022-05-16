@@ -15,7 +15,6 @@ import {
   ASSET_CONFIG,
   ICON_CONFIG,
   IconConfig,
-  ImgConfig,
 } from 'src/app/app.config';
 import { HammerConfig } from 'src/hammer';
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -26,6 +25,7 @@ import { MetaService } from 'src/services/meta.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { TrayComponent } from './tray/tray.component';
+import { ImgConfig } from 'src/properties';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, TrayComponent],

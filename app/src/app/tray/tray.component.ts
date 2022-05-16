@@ -6,9 +6,9 @@ import {
   Animations,
   AnimationTriggers,
 } from 'src/animations';
+import { ApiResponse, ArticleConfig } from 'src/models';
 import { ArticleService } from 'src/services/article.service';
 import { MetaService } from 'src/services/meta.service';
-import { ArticleConfig } from '../blog/blog.config';
 
 @Component({
   selector: 'app-tray',
@@ -42,8 +42,8 @@ export class TrayComponent implements OnInit {
   public positionCntl: AnimationControl = new AnimationControl(
     AnimationTriggers.cntl_position
   );
-  public latest: ArticleConfig;
-  public feed: ArticleConfig[];
+  public latest: ApiResponse;
+  public feed: ApiResponse[];
 
   constructor(
     private _meta: MetaService,

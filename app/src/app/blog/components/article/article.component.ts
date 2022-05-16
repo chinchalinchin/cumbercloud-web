@@ -16,9 +16,9 @@ import {
   Animations,
   AnimationTriggers,
 } from 'src/animations';
+import { ApiResponse, ArticleConfig } from 'src/models';
 import { ArticleService } from 'src/services/article.service';
 import { MetaService } from 'src/services/meta.service';
-import { ArticleConfig } from '../../blog.config';
 
 @Component({
   selector: 'app-article',
@@ -31,7 +31,7 @@ import { ArticleConfig } from '../../blog.config';
   ],
 })
 export class ArticleComponent implements OnInit {
-  public article!: ArticleConfig;
+  public article!: ApiResponse;
   public facebookShareUrl!: string;
   public highlighted: boolean = false;
   public expanded: boolean = false;

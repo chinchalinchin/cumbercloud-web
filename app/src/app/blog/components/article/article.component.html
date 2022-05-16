@@ -28,7 +28,7 @@
   </div>
 
   <div id="article-sheet" class="mat-elevation-z1" role="Region">
-    <markdown class="mat-body" [src]="article.src"></markdown>
+    <!-- <markdown class="mat-body" [src]="article.src"></markdown> -->
   </div>
 
   <div
@@ -44,7 +44,7 @@
   >
     <div *ngIf="expanded" [@fade]>
       <h2 class="mat-h2 text-center">Table of Contents</h2>
-      <div *ngFor="let toc of article.toc_tree" class="toc-root">
+      <div *ngFor="let toc of article.article_config.toc_tree" class="toc-root">
         <span (click)="scrollTo(toc.id)" class="link">
           {{ toc.title }}
         </span>
