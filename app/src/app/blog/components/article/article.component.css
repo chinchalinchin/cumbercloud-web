@@ -49,13 +49,13 @@
   #article-sheet{
     left: 2%;
   }
-  #toc-toggle{
+  #toc-toggle {
     right: 1%;
   }
-  .toc-root{
+  .toc-root {
     margin-left: 10%;
   }
-  .toc-child{
+  .toc-child {
     margin-left: 20%;
   }
 }
@@ -69,13 +69,13 @@
   #article-sheet{
     left: 5.5%;
   }
-  #toc-toggle{
+  #toc-toggle {
     right: 0%;
   }
-  .toc-root{
+  .toc-root {
     margin-left: 5%;
   }
-  .toc-child{
+  .toc-child {
     margin-left: 10%;
   }
 }

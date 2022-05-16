@@ -98,15 +98,23 @@ export class ArticleComponent implements OnInit {
       setTimeout(() => {
         this.tocExpandCntl.prime();
       }, AnimationPeriods.short * 1000);
+<<<<<<< HEAD
       this._ga.event('article_toc_toggle');
     }
     else{
+=======
+    } else {
+>>>>>>> 37de92f2f8df83ac19f5ee1c72be68507130604e
       this.tocExpandCntl.animate();
       this.highlighted = false;
       setTimeout(() => {
         this.expanded = true;
+<<<<<<< HEAD
       }, AnimationPeriods.short*1000);
       this._ga.event('article_toc_untoggle');
+=======
+      }, AnimationPeriods.short * 1000);
+>>>>>>> 37de92f2f8df83ac19f5ee1c72be68507130604e
     }
   }
 

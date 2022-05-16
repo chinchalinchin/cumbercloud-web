@@ -46,28 +46,27 @@
       <h2 class="mat-h2 text-center">Table of Contents</h2>
       <div *ngFor="let toc of article.toc_tree" class="toc-root">
         <span (click)="scrollTo(toc.id)" class="link">
-          {{toc.title}}
+          {{ toc.title }}
         </span>
         <div *ngIf="toc.children" class="toc-child">
           <div *ngFor="let child of toc.children">
             <span (click)="scrollTo(child.id)" class="link">
-              {{child.title}}
+              {{ child.title }}
             </span>
           </div>
         </div>
       </div>
     </div>
 
-  
-    <mat-icon 
-      id="toc-toggle" 
-      class="cursor" 
-      role="button" 
+    <mat-icon
+      id="toc-toggle"
+      class="cursor"
+      role="button"
       aria-controls="toc-tree"
       aria-label="Expand Table of Contents"
       matTooltip="Expand Table of Contents"
     >
-      {{ tocExpandCntl.fired() ? 'chevron_left' : 'chevron_right' }}
+      {{ tocExpandCntl.fired() ? "chevron_left" : "chevron_right" }}
     </mat-icon>
   </div>
 </div>
