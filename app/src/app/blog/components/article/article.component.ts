@@ -27,7 +27,7 @@ import { ArticleConfig } from '../../blog.config';
     Animations.getManualEnlargeTrigger('1.5%', '30%', 'desktop'),
     Animations.getManualEnlargeTrigger('5%', '60%', 'mobile'),
     Animations.getFadeTrigger(null, AnimationPeriods.short),
-  ]
+  ],
 })
 export class ArticleComponent implements OnInit {
   public article: ArticleConfig;
@@ -97,36 +97,16 @@ export class ArticleComponent implements OnInit {
       this.expanded = false;
       setTimeout(() => {
         this.tocExpandCntl.prime();
-<<<<<<< HEAD
-<<<<<<< HEAD
-      }, AnimationPeriods.short*1000);
+      }, AnimationPeriods.short * 1000);
       this._ga.event('article_toc_toggle');
     }
     else{
-=======
-      }, AnimationPeriods.short * 1000);
-    } else {
->>>>>>> 4b485597de44f5b96f1c5909a3044851493e7d34
-=======
-      }, AnimationPeriods.short * 1000);
-      this._ga.event('article_toc_toggle');
-    } else {
->>>>>>> 71b50033932adbc295d31ce325ccd9c9d2c69e10
       this.tocExpandCntl.animate();
       this.highlighted = false;
       setTimeout(() => {
         this.expanded = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
       }, AnimationPeriods.short*1000);
-      this._ga.event('article_toc_untoggle')
-=======
-      }, AnimationPeriods.short * 1000);
->>>>>>> 4b485597de44f5b96f1c5909a3044851493e7d34
-=======
-      }, AnimationPeriods.short * 1000);
       this._ga.event('article_toc_untoggle');
->>>>>>> 71b50033932adbc295d31ce325ccd9c9d2c69e10
     }
   }
 

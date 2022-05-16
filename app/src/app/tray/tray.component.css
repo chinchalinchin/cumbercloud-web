@@ -119,11 +119,10 @@
   .news-item {
     width: 50%;
   }
-  #preview-item{
+  #preview-item {
     flex-direction: column;
   }
-  #archive-item{
+  #archive-item {
     flex-direction: column-reverse;
-
   }
 }
