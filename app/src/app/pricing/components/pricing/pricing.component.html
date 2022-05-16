@@ -10,9 +10,6 @@
       <mat-accordion displayMode="flat">
         <mat-expansion-panel
           id="core-expansion-panel"
-          (opened)="setFocus(pricingGroups.core)"
-          (closed)="removeFocus()"
-          *ngIf="!focusing || focused(pricingGroups.core)"
           [@expand_full]
         >
           <mat-expansion-panel-header>
@@ -57,9 +54,6 @@
 
         <mat-expansion-panel
           id="addon-expansion-panel"
-          (opened)="setFocus(pricingGroups.addon)"
-          (closed)="removeFocus()"
-          *ngIf="!focusing || focused(pricingGroups.addon)"
           [@expand_full]
         >
           <mat-expansion-panel-header>
@@ -103,9 +97,6 @@
 
         <mat-expansion-panel
           id="analytics-expansion-panel"
-          (opened)="setFocus(pricingGroups.analytics)"
-          (closed)="removeFocus()"
-          *ngIf="!focusing || focused(pricingGroups.analytics)"
           [@expand_full]
         >
           <mat-expansion-panel-header>
