@@ -176,7 +176,7 @@ export class PricingComponent {
   public calculate(): void {
     this.parseEnabledCalculations();
     this.calculated = true;
-    this._ga.event(`pricing_calculate`)
+    this._ga.event(`pricing_calculate`);
   }
 
   public uncalculate(): void {
@@ -191,6 +191,6 @@ export class PricingComponent {
     this.addOnFormGroup.reset();
     this.analyticsFormGroup.reset();
     this.accordion.closeAll();
-    this._ga.event('pricing_uncalculate')
+    this._ga.event('pricing_uncalculate');
   }
 }

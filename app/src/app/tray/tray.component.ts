@@ -63,7 +63,7 @@ export class TrayComponent implements OnInit {
       this._ga.event('tray_extend');
     } else {
       this.positionCntl.animatePosition(0);
-      this._ga.event('tray_unextend')
+      this._ga.event('tray_unextend');
     }
     this.extending = true;
     this.extended = !this.extended;
