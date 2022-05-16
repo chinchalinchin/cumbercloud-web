@@ -6,7 +6,7 @@
   [@expand]
 >
   <div id="news-container" *ngIf="extended || extending" aria-live="polite">
-    <div id="preview-item" class="news-item" *ngIf="!extending" role="section">
+    <div id="preview" class="news-item" *ngIf="!extending" role="section">
       <div id="preview-panel" class="panel-pane">
         <h2 class="mat-h2">
           {{ mobileMode() ? "Latest" : "Latest Article" }}
@@ -17,7 +17,7 @@
             [src]="latest.preview.img.src"
             [alt]="latest.preview.img.alt"
             [title]="latest.preview.img.title"
-            class="preview-img panel-img mat-elevation-z3"
+            class="preview-img panel-img"
           />
         </div>
       </div>
@@ -56,10 +56,10 @@
 
     <mat-divider [vertical]="true"></mat-divider>
 
-    <div id="archive-item" class="news-item" *ngIf="!extending">
+    <div id="archive" class="news-item" *ngIf="!extending">
       <div id="archive-content" class="content-pane">
         <div class="archive-item mat-elevation-z3" *ngFor="let article of feed">
-          <h3 class="mat-h3">
+          <h4 class="mat-h4" *ngIf="!mobileMode()">
             {{ article.title }}
             <button
               class="archive-btn"
@@ -68,10 +68,19 @@
             >
               <mat-icon>open_in_new</mat-icon>
             </button>
-          </h3>
-          <p *ngIf="!mobileMode()" class="mat-caption" style="margin-top: -5%">
+          </h4>
+          <p 
+            *ngIf="!mobileMode()" 
+            class="mat-caption" 
+            style="margin-top: -5%">
             {{ article.date | date }}
           </p>
+          <a 
+            class="tray-link"
+            *ngIf="mobileMode()"
+            [routerLink]="['blog', 'article', article.id]">
+            &bull; {{ article.title }}
+          </a>
         </div>
       </div>
       <div id="archive-panel" class="panel-pane">

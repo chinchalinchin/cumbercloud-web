@@ -13,7 +13,11 @@ import { ArticleConfig } from '../blog/blog.config';
 @Component({
   selector: 'app-tray',
   templateUrl: './tray.component.html',
-  styleUrls: ['./tray.component.css'],
+  styleUrls: [
+    './css/tray.component.css',
+    './css/tray.component.desktop.css',
+    './css/tray.component.mobile.css',
+  ],
   animations: [
     Animations.getExpandTrigger('3%'),
     Animations.getExpandTrigger('100%', 'full'),

@@ -7,8 +7,9 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { filter } from 'rxjs/operators';
 import {
   AnimationControl,
   AnimationPeriods,
@@ -30,8 +31,8 @@ import { ArticleConfig } from '../../blog.config';
   ],
 })
 export class ArticleComponent implements OnInit {
-  public article: ArticleConfig;
-  public facebookShareUrl: string;
+  public article!: ArticleConfig;
+  public facebookShareUrl!: string;
   public highlighted: boolean = false;
   public expanded: boolean = false;
   public screenSize: string = '';
@@ -43,6 +44,7 @@ export class ArticleComponent implements OnInit {
     private _meta: MetaService,
     private _ga: GoogleAnalyticsService,
     private _route: ActivatedRoute,
+    private _router: Router,
     private _articles: ArticleService,
     private _el: ElementRef,
     private _renderer: Renderer2,
@@ -51,12 +53,12 @@ export class ArticleComponent implements OnInit {
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });
-    let route_param: string | null = this._route.snapshot.paramMap.get('name');
-    this.article = this._articles.getById(route_param);
-    let url = encodeURI(
-      `https://cumberland-cloud.com/blog/article/${this.article.id}`
-    );
-    this.facebookShareUrl = `https://www.facebook.com/plugins/share_button.php?href=${url}&layout=button&size=small&width=67&height=20&appId`;
+    this.init();
+    this._router.events
+      .pipe(filter((event: any) => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        this.init();
+    })
   }
 
   ngOnInit(): void {}
@@ -79,7 +81,16 @@ export class ArticleComponent implements OnInit {
     this._renderer.appendChild(this.sharePanel.nativeElement, scriptEl);
   }
 
-  scrollTo(el: string) {
+  private init(): void{
+    let route_param: string | null = this._route.snapshot.paramMap.get('id');
+    this.article = this._articles.getById(route_param);
+    let url = encodeURI(
+      `https://cumberland-cloud.com/blog/article/${this.article.id}`
+    );
+    this.facebookShareUrl = `https://www.facebook.com/plugins/share_button.php?href=${url}&layout=button&size=small&width=67&height=20&appId`;
+  }
+
+  public scrollTo(el: string): void{
     this._document.getElementById(el)?.scrollIntoView();
     this._ga.event(`article_scroll_${el}`);
   }
