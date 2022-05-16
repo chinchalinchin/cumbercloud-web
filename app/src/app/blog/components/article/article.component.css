@@ -18,14 +18,14 @@
   flex-direction: row;
   justify-content: center;
 }
-#toc-tree{
+#toc-tree {
   position: absolute;
   top: 0%;
   left: 0%;
   bottom: 0%;
   border-radius: 15px;
 }
-#toc-toggle{
+#toc-toggle {
   position: absolute;
   bottom: 1%;
   top: 48.5%;
@@ -78,5 +78,4 @@
   .toc-child{
     margin-left: 10%;
   }
-
 }

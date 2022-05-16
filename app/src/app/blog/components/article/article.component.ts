@@ -9,7 +9,12 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
-import { AnimationControl, AnimationPeriods, Animations, AnimationTriggers } from 'src/animations';
+import {
+  AnimationControl,
+  AnimationPeriods,
+  Animations,
+  AnimationTriggers,
+} from 'src/animations';
 import { ArticleService } from 'src/services/article.service';
 import { MetaService } from 'src/services/meta.service';
 import { ArticleConfig } from '../../blog.config';
@@ -28,7 +33,7 @@ export class ArticleComponent implements OnInit {
   public article: ArticleConfig;
   public facebookShareUrl: string;
   public highlighted: boolean = false;
-  public expanded: boolean = false
+  public expanded: boolean = false;
   public screenSize: string = '';
   public tocExpandCntl = new AnimationControl(AnimationTriggers.cntl_enlarge);
 
@@ -54,8 +59,7 @@ export class ArticleComponent implements OnInit {
     this.facebookShareUrl = `https://www.facebook.com/plugins/share_button.php?href=${url}&layout=button&size=small&width=67&height=20&appId`;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
     let scriptEl = this._document.createElement('script');
@@ -88,26 +92,35 @@ export class ArticleComponent implements OnInit {
     );
   }
 
-  public toggleTocTree(){
-    if(this.tocExpandCntl.fired()){
+  public toggleTocTree() {
+    if (this.tocExpandCntl.fired()) {
       this.expanded = false;
-      setTimeout(()=>{
+      setTimeout(() => {
         this.tocExpandCntl.prime();
+<<<<<<< HEAD
       }, AnimationPeriods.short*1000);
       this._ga.event('article_toc_toggle');
     }
     else{
+=======
+      }, AnimationPeriods.short * 1000);
+    } else {
+>>>>>>> 4b485597de44f5b96f1c5909a3044851493e7d34
       this.tocExpandCntl.animate();
       this.highlighted = false;
-      setTimeout(()=>{
+      setTimeout(() => {
         this.expanded = true;
+<<<<<<< HEAD
       }, AnimationPeriods.short*1000);
       this._ga.event('article_toc_untoggle')
+=======
+      }, AnimationPeriods.short * 1000);
+>>>>>>> 4b485597de44f5b96f1c5909a3044851493e7d34
     }
   }
 
-  public highlight(){
-    if(!this.tocExpandCntl.fired()){
+  public highlight() {
+    if (!this.tocExpandCntl.fired()) {
       this.highlighted = true;
     }
   }

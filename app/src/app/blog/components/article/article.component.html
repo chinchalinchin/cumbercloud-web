@@ -31,12 +31,12 @@
     <markdown class="mat-body" [src]="article.src"></markdown>
   </div>
 
-  <div 
-    id="toc-tree" 
-    class="mat-elevation-z2" 
+  <div
+    id="toc-tree"
+    class="mat-elevation-z2"
     [class.highlighted]="highlighted"
     [@cntl_enlarge_desktop]="mobileMode() ? null : tocExpandCntl.state"
-    [@cntl_enlarge_mobile]="mobileMode() ? tocExpandCntl.state : null"  
+    [@cntl_enlarge_mobile]="mobileMode() ? tocExpandCntl.state : null"
     (mouseenter)="highlight()"
     (mouseleave)="highlighted = false"
     (click)="toggleTocTree()"
