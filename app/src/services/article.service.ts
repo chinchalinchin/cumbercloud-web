@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { ApiResponse, ArticleConfig } from 'src/models';
+import { ApiResponse } from 'src/models';
 
 const FEED_SIZE = 2;
 @Injectable({

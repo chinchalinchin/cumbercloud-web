@@ -99,12 +99,12 @@ export interface ProfileConfig {
   factoids: FlipConfig[];
 }
 
-interface DesktopLine {
+export interface DesktopLine {
   moved: string;
   unmoved: string;
 }
 
-interface Line {
+export interface Line {
   mobile: string;
   desktop: DesktopLine;
 }

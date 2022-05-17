@@ -41,10 +41,10 @@ export class AppComponent {
     private _ga: GoogleAnalyticsService,
     private _articles: ArticleService,
   ) {
-    this.constructNavigation(()=>{
-      this._router.events
-        .pipe(filter((event: any) => event instanceof NavigationEnd))
-        .subscribe((event) => {
+    this._router.events
+      .pipe(filter((event: any) => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        this.constructNavigation(()=>{
           if (this.menuDisplayed) {
             this.toggleMenu();
           }
@@ -66,11 +66,10 @@ export class AppComponent {
             this._seo.updateMetaAttributes(conf ? conf.meta : undefined);
           }
           this.selectedNav = this.navConfig
-            .filter((nav: NavConfig) => nav.path === event.url)
-            .pop();
+          .filter((nav: NavConfig) => nav.path === event.url)
+          .pop();
         });
-    });
-    
+      });
 
     // TODO: need to pull navconfig from article service and append to existing static nav.
     // best way to do this? want to put as much logic in th service as possible...
@@ -88,6 +87,8 @@ export class AppComponent {
         data.map((element:ApiResponse)=> element.nav_config)
       );
       this.navConfig = this.pageConfig.filter((element: any) => element.menu);
+      console.log(this.pageConfig);
+      callback();
     })
   }
 
