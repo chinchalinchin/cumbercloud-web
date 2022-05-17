@@ -95,10 +95,10 @@ export class AppComponent {
   public toggleMenu() {
     if (this.menuDisplayed) {
       this.menuExpandCntl.prime();
-      this._ga.event('app', 'menu', 'display');
+      this._ga.event('app_menu_display');
     } else {
       this.menuExpandCntl.animate();
-      this._ga.event('app', 'menu', 'hide');
+      this._ga.event('app_menu_hide');
     }
     this.menuDisplayed = !this.menuDisplayed;
   }
@@ -108,7 +108,7 @@ export class AppComponent {
       ariaLabel: 'Contact Information',
       panelClass: 'sheet',
     });
-    this._ga.event('app', 'sheet', 'open');
+    this._ga.event('app_sheet_open');
   }
 
   public overlay(event: any) {
