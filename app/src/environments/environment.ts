@@ -5,7 +5,7 @@
 export const environment = {
   apiUrl: '',
   apiEndpoints: {
-    articles: 'assets/mock/00_angular-aws.json'
+    articles: 'assets/mock/00_angular-aws.json',
   },
   production: false,
   google_analytics: 'G-xxxxxxxx',

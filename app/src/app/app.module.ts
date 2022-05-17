@@ -11,11 +11,7 @@ import {
   NgxGoogleAnalyticsModule,
   NgxGoogleAnalyticsRouterModule,
 } from 'ngx-google-analytics';
-import {
-  ASSET_CONFIG,
-  ICON_CONFIG,
-  IconConfig,
-} from 'src/app/app.config';
+import { ASSET_CONFIG, ICON_CONFIG, IconConfig } from 'src/app/app.config';
 import { HammerConfig } from 'src/hammer';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MaterialModule } from 'src/app/app-material.module';
