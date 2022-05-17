@@ -83,7 +83,7 @@ export class ArticleComponent implements OnInit {
 
   private init(): void {
     let route_param: string | null = this._route.snapshot.paramMap.get('id');
-    this._articles.getById(route_param).subscribe((data:ApiResponse)=>{
+    this._articles.getById(route_param).subscribe((data: ApiResponse) => {
       this.article = data;
       let url = encodeURI(
         `https://cumberland-cloud.com/blog/article/${this.article.id}`
