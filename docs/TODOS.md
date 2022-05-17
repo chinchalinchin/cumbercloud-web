@@ -16,7 +16,6 @@
 
 9. need cicd to update cloudfront edge everytime a new article is added: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/update-function.html
 
-
 ### articles
 
 1. angular and seo
