@@ -13,24 +13,25 @@ export class ArticleService {
   public articles!: Observable<ApiResponse[]>;
 
   constructor(private _http: HttpClient) {
-    this.articles = this._http.get<ApiResponse[]>(`${environment.apiUrl}/${environment.apiEndpoints.articles}`);
+    this.articles = this._http.get<ApiResponse[]>(
+      `${environment.apiUrl}/${environment.apiEndpoints.articles}`
+    );
   }
 
   public getLatest(): Observable<ApiResponse> {
     return this.articles.pipe(
-      map((data: ApiResponse[])=>{
+      map((data: ApiResponse[]) => {
         return data.sort(
           (previous, next) => next.date.getTime() - previous.date.getTime()
-        )[0]
+        )[0];
       })
     );
   }
 
   public getSampleFeed(): Observable<ApiResponse[]> {
     return this.articles.pipe(
-      map((data: ApiResponse[])=>{
-        if (data.length > FEED_SIZE - 1)
-          return data.slice(1, FEED_SIZE + 1);
+      map((data: ApiResponse[]) => {
+        if (data.length > FEED_SIZE - 1) return data.slice(1, FEED_SIZE + 1);
         return data;
       })
     );
@@ -42,13 +43,14 @@ export class ArticleService {
 
   public getById(id: string | null | undefined): Observable<ApiResponse> {
     return this.articles.pipe(
-      map((data: ApiResponse[])=>{
-        let found = data.find((article:ApiResponse)=> article.id === id)
-        if(found) return found;
-        else return data.sort(
-          (previous, next) => next.date.getTime() - previous.date.getTime()
-        )[0]
+      map((data: ApiResponse[]) => {
+        let found = data.find((article: ApiResponse) => article.id === id);
+        if (found) return found;
+        else
+          return data.sort(
+            (previous, next) => next.date.getTime() - previous.date.getTime()
+          )[0];
       })
-    )
-  };
+    );
+  }
 }

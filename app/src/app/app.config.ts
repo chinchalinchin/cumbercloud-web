@@ -2,7 +2,7 @@
 // INTERFACES
 /////////////
 
-import { ImgConfig, LinkConfig } from "src/properties";
+import { ImgConfig, LinkConfig } from 'src/properties';
 
 export interface StateImgConfig {
   img: ImgConfig;

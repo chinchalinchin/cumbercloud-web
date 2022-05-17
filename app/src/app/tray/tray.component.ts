@@ -50,12 +50,12 @@ export class TrayComponent implements OnInit {
     private _articles: ArticleService,
     private _ga: GoogleAnalyticsService
   ) {
-    this._articles.getLatest().subscribe((data:ApiResponse)=>{
+    this._articles.getLatest().subscribe((data: ApiResponse) => {
       this.latest = data;
     });
-    this._articles.getSampleFeed().subscribe((data:ApiResponse[])=>{
+    this._articles.getSampleFeed().subscribe((data: ApiResponse[]) => {
       this.feed = data;
-    })
+    });
     this._meta.mediaBreakpoint.subscribe((size: string) => {
       this.screenSize = size;
     });

@@ -39,12 +39,12 @@ export class AppComponent {
     private _seo: SeoService,
     private _meta: MetaService,
     private _ga: GoogleAnalyticsService,
-    private _articles: ArticleService,
+    private _articles: ArticleService
   ) {
     this._router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe((event) => {
-        this.constructNavigation(()=>{
+        this.constructNavigation(() => {
           if (this.menuDisplayed) {
             this.toggleMenu();
           }
@@ -66,8 +66,8 @@ export class AppComponent {
             this._seo.updateMetaAttributes(conf ? conf.meta : undefined);
           }
           this.selectedNav = this.navConfig
-          .filter((nav: Nav) => nav.path === event.url)
-          .pop();
+            .filter((nav: Nav) => nav.path === event.url)
+            .pop();
         });
       });
   }
@@ -79,13 +79,13 @@ export class AppComponent {
   }
 
   private constructNavigation(callback: Function): void {
-    this._articles.getFeed().subscribe((data:ApiResponse[])=>{
+    this._articles.getFeed().subscribe((data: ApiResponse[]) => {
       this.pageConfig = NAV_CONFIG.concat(
-        data.map((element:ApiResponse)=> element.nav_config)
+        data.map((element: ApiResponse) => element.nav_config)
       );
       this.navConfig = this.pageConfig.filter((element: any) => element.menu);
       callback();
-    })
+    });
   }
 
   private findNavByPath(path: string): Nav | undefined {
