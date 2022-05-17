@@ -8,7 +8,7 @@ import {
   Animations,
   AnimationTriggers,
 } from 'src/animations';
-import { ApiResponse, NavConfig } from 'src/models';
+import { ApiResponse, Nav } from 'src/models';
 import { NAV_CONFIG } from 'src/nav.config';
 import { ArticleService } from 'src/services/article.service';
 import { MetaService } from 'src/services/meta.service';
@@ -23,14 +23,14 @@ import { SheetComponent } from './shared/components/sheet/sheet.component';
 })
 export class AppComponent {
   public title: String = 'cumberland cloud';
-  public selectedNav?: NavConfig;
+  public selectedNav?: Nav;
   public menuDisplayed: boolean = false;
   public sheetDisplayed: boolean = false;
   public overlaid: boolean = false;
   public init: boolean = false;
   public menuExpandCntl = new AnimationControl(AnimationTriggers.cntl_expand);
-  public pageConfig!: NavConfig[];
-  public navConfig!: NavConfig[];
+  public pageConfig!: Nav[];
+  public navConfig!: Nav[];
 
   public constructor(
     private _bottomSheet: MatBottomSheet,
@@ -52,7 +52,7 @@ export class AppComponent {
             this.overlaid = false;
           }
           if (this._meta.isServer()) {
-            let conf = this.findConfigByPath(event.url);
+            let conf = this.findNavByPath(event.url);
             this._seo.setStaticAtrributes();
             this._seo.setJsonLd(this._renderer, conf?.data ? conf.data : {});
             this._seo.updateTitle(
@@ -66,13 +66,10 @@ export class AppComponent {
             this._seo.updateMetaAttributes(conf ? conf.meta : undefined);
           }
           this.selectedNav = this.navConfig
-          .filter((nav: NavConfig) => nav.path === event.url)
+          .filter((nav: Nav) => nav.path === event.url)
           .pop();
         });
       });
-
-    // TODO: need to pull navconfig from article service and append to existing static nav.
-    // best way to do this? want to put as much logic in th service as possible...
   }
 
   public ngAfterViewInit() {
@@ -87,13 +84,12 @@ export class AppComponent {
         data.map((element:ApiResponse)=> element.nav_config)
       );
       this.navConfig = this.pageConfig.filter((element: any) => element.menu);
-      console.log(this.pageConfig);
       callback();
     })
   }
 
-  private findConfigByPath(path: string): NavConfig | undefined {
-    return this.pageConfig.filter((nav: NavConfig) => nav.path === path).pop();
+  private findNavByPath(path: string): Nav | undefined {
+    return this.pageConfig.filter((nav: Nav) => nav.path === path).pop();
   }
 
   public toggleMenu() {

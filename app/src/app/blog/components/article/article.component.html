@@ -28,7 +28,11 @@
   </div>
 
   <div id="article-sheet" class="mat-elevation-z1" role="Region">
-    <!-- <markdown class="mat-body" [src]="article.src"></markdown> -->
+    <markdown 
+      *ngIf="article && article.data" 
+      class="mat-body" 
+      [data]="article.data"
+    ></markdown>
   </div>
 
   <div

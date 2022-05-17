@@ -16,7 +16,7 @@ import {
   Animations,
   AnimationTriggers,
 } from 'src/animations';
-import { ApiResponse, ArticleConfig } from 'src/models';
+import { ApiResponse } from 'src/models';
 import { ArticleService } from 'src/services/article.service';
 import { MetaService } from 'src/services/meta.service';
 

@@ -5,21 +5,21 @@ export interface Preview {
     img: ImgConfig;
 }
 
-export interface TOCNode {
+export interface TOC {
     id: string;
     title: string;
-    children?: TOCNode[];
+    children?: TOC[];
 }
 
-export interface ArticleConfig {
+export interface Article{
     title: string;
     preview: Preview;
     data: string;
     src: string;
-    toc_tree: TOCNode[];
+    toc_tree: TOC[];
 }
 
-export interface NavConfig {
+export interface Nav {
     path: string;
     nav_id?: string;
     nav_title?: string;
@@ -28,14 +28,14 @@ export interface NavConfig {
     group?: string;
     menu?: boolean;
     data?: any;
-    children?: NavConfig[];
+    children?: Nav[];
     meta?: MetaConfig[];
 }
 
 export interface ApiResponse{
     id: string;
     date: Date;
-    nav_config: NavConfig;
-    article_config: ArticleConfig;
+    nav_config: Nav;
+    article_config: Article;
     data: string;
 }

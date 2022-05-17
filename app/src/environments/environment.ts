@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl: 'https://api.cumberland-cloud.com/v1',
+  apiUrl: '',
+  apiEndpoints: {
+    articles: 'assets/mock/00_angular-aws.json'
+  },
   production: false,
   google_analytics: 'G-xxxxxxxx',
 };

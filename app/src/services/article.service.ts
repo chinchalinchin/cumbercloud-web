@@ -13,7 +13,7 @@ export class ArticleService {
   public articles!: Observable<ApiResponse[]>;
 
   constructor(private _http: HttpClient) {
-    this.articles = this._http.get<ApiResponse[]>(`${environment.apiUrl}/blog/articles`);
+    this.articles = this._http.get<ApiResponse[]>(`${environment.apiUrl}/${environment.apiEndpoints.articles}`);
   }
 
   public getLatest(): Observable<ApiResponse> {

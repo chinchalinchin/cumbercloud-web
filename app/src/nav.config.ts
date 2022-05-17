@@ -1,6 +1,6 @@
-import { NavConfig } from "./models";
+import { Nav } from "./models";
 
-export const NAV_CONFIG: NavConfig[] = [
+export const NAV_CONFIG: Nav[] = [
     {
       path: '/',
       nav_title: 'Home',
