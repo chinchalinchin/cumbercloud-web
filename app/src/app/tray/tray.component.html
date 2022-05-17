@@ -69,16 +69,14 @@
               <mat-icon>open_in_new</mat-icon>
             </button>
           </h4>
-          <p 
-            *ngIf="!mobileMode()" 
-            class="mat-caption" 
-            style="margin-top: -5%">
+          <p *ngIf="!mobileMode()" class="mat-caption" style="margin-top: -5%">
             {{ article.date | date }}
           </p>
-          <a 
+          <a
             class="tray-link"
             *ngIf="mobileMode()"
-            [routerLink]="['blog', 'article', article.id]">
+            [routerLink]="['blog', 'article', article.id]"
+          >
             &bull; {{ article.article_config.title }}
           </a>
         </div>
