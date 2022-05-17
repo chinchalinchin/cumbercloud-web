@@ -16,6 +16,7 @@ export interface Article {
   preview: Preview;
   data: string;
   src: string;
+  tags: string[];
   toc_tree: TOC[];
 }
 
