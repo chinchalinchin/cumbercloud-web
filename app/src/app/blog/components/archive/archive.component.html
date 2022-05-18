@@ -1,1 +1,22 @@
-<p>archive works!</p>
+<div id="archive">
+    <mat-list *ngIf="articles">
+        <mat-list-item 
+            *ngFor="let article of articles"
+            class="archive-item"
+        >
+            <mat-icon mat-list-item>folder</mat-icon>
+            <div mat-line>{{ article.article_config.title }}</div>
+            <div mat-line>{{ article.date | date }}</div>
+        </mat-list-item>
+        <mat-list-item class="archive-item">
+            <mat-icon mat-list-item>folder</mat-icon>
+            <div mat-line>line</div>
+            <div mat-line>line</div>
+        </mat-list-item>
+        <mat-list-item class="archive-item">
+            <mat-icon mat-list-item>folder</mat-icon>
+            <div mat-line>line</div>
+            <div mat-line>line</div>
+        </mat-list-item>
+    </mat-list>
+</div>

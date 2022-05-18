@@ -16,6 +16,11 @@
   #archive-panel {
     margin-left: 5%;
   }
+  #archive-btn{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+  }
   .archive-item {
     margin-top: 2%;
     padding-left: 2%;
