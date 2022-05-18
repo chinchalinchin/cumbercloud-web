@@ -9,16 +9,15 @@ import { ArticleService } from 'src/services/article.service';
   styleUrls: ['./archive.component.css'],
 })
 export class ArchiveComponent implements OnInit {
-
   public articles!: ApiResponse[];
 
   constructor(
     private _articles: ArticleService,
-    private _ga: GoogleAnalyticsService,
+    private _ga: GoogleAnalyticsService
   ) {
-    this._articles.getFeed().subscribe((data:ApiResponse[])=>{
+    this._articles.getFeed().subscribe((data: ApiResponse[]) => {
       this.articles = data;
-    })
+    });
   }
 
   ngOnInit(): void {}
