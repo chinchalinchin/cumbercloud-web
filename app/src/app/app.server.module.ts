@@ -21,8 +21,6 @@ import { TrayComponent } from './tray/tray.component';
     AppRoutingModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     NoopAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
     MaterialModule,
     SharedModule,
   ],

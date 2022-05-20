@@ -4,7 +4,11 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 SCRIPT_NAME="provision-stack"
 SCRIPT_DES=$''
 PROJECT_DIR="$SCRIPT_DIR/.."
-TEMPLATE_DIR="$PROJECT_DIR/templates"
+
+if [ -f "$PROJECT_DIR/.env" ]
+then
+  source "$PROJECT_DIR/.env"
+fi
 
 function log(){
     echo -e "\e[92m$(date +"%r")\e[0m: \e[4;32m$SCRIPT_NAME\e[0m : >> $1"
@@ -21,6 +25,16 @@ while [[ $# -gt 0 ]]; do
       help
       exit 0
       ;;
+    --action|-action|--a|-a)
+      ACTION=$2
+      shift
+      shift
+      ;;
+    --application|-application|--app|-app|--ap|-ap)
+      APPLICATION=$2
+      shift
+      shift
+      ;;
     *)
       log "Input not understood. See \e[3m--help\e[0m for information on using this command."
       exit 1
@@ -30,17 +44,43 @@ done
 
 cd "$TEMPLATE_DIR"
 
-echo -e "---------- \e[2mAWS RESOURCE PROVISIONING \e[0m ---------- \n" 
-echo -e "Provision the necessary AWS infrastructure for supporting the "
-echo -e "Angular application with a CloudFormation stack template. \n"
-
-echo -e '\e[4mStack Actions:\e[0m \e[3mcreate\e[0m, \e[3mupdate\e[0m, \e[3mdelete\e[0m \n'
-read -p "Enter stack action: " ACTION
-
-if [ "$ACTION" != "create" ] && [ "$ACTION" != "update" ] && [ "$ACTION" != "delete" ]
+if [[ -z "$ACTION" || -z "$APPLICATION" ]]
 then
-  log "Input not understood. See \e[3m--help\e[0m for information on using this command."
-  exit 1
+  echo -e "---------- \e[2mCUMBERLAND CLOUD APPLICATION\e[0m ---------- \n" 
+  echo -e "Provision the necessary AWS infrastructure for a cloud native "
+  echo -e "web application through CloudFormation stack templates. \n"
+fi
+
+while  [[ -z "$ACTION" ]] || [[ "$ACTION" != "create" && "$ACTION" != "update" && "$ACTION" != "delete" ]]
+do
+  echo -e '\e[4mStack Actions:\e[0m \e[3mcreate\e[0m, \e[3mupdate\e[0m, \e[3mdelete\e[0m \n'
+  read -p "Enter stack action: " ACTION
+
+  if [[ -z "$ACTION" ]] || [[ "$ACTION" != "create" && "$ACTION" != "update" && "$ACTION" != "delete" ]]
+  then
+    log "Input not understood."
+  fi
+done
+
+while [[ -z "$APPLICATION" ]]
+do
+  read -p "Enter application name:  " APPLICATION
+done
+
+if [[ "$ACTION" == "create" || "$ACTION" == "update" ]]
+then
+  while [[ -z "$DOMAIN" ]]
+  do
+    read -p "Enter domain name (without www.): " DOMAIN
+  done
+  while [[ -z "$HOSTED_ZONE" ]]
+  do
+    read -p "Enter hosted zone ID: " HOSTED_ZONE
+  done
+  while [[ -z "$CERTIFICATE_ARN" ]]
+  do
+    read -p "Enter ACM certificate ARN: " CERTIFICATE_ARN
+  done
 fi
 
 if [ "$ACTION" == "create" ]

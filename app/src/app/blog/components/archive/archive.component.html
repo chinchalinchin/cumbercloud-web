@@ -4,17 +4,18 @@
             *ngFor="let article of articles"
             class="archive-item"
         >
-            <mat-icon mat-list-item>folder</mat-icon>
+            <mat-icon mat-list-item>open_in_new</mat-icon>
             <div mat-line>{{ article.article_config.title }}</div>
             <div mat-line>{{ article.date | date }}</div>
+            <div mat-line [innerHTML]="article.article_config.preview.content"></div>
         </mat-list-item>
         <mat-list-item class="archive-item">
-            <mat-icon mat-list-item>folder</mat-icon>
+            <mat-icon mat-list-item>open_in_new</mat-icon>
             <div mat-line>line</div>
             <div mat-line>line</div>
         </mat-list-item>
         <mat-list-item class="archive-item">
-            <mat-icon mat-list-item>folder</mat-icon>
+            <mat-icon mat-list-item>open_in_new</mat-icon>
             <div mat-line>line</div>
             <div mat-line>line</div>
         </mat-list-item>

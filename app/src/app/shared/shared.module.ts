@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './components/error/error.component';
-import { SheetComponent } from './components/sheet/sheet.component';
 import { SharedMaterialModule } from './shared-material.module';
 import { SafePipe } from './pipes/sanitize.pipe';
 
 @NgModule({
-  declarations: [ErrorComponent, SheetComponent, SafePipe],
+  declarations: [ErrorComponent, SafePipe],
   imports: [
     CommonModule,
     HttpClientModule,

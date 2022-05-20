@@ -22,7 +22,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { TrayComponent } from './tray/tray.component';
 import { ImgConfig } from 'src/properties';
-import { ArticleService } from 'src/services/article.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, TrayComponent],
