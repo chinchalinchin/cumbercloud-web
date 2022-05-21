@@ -347,4 +347,8 @@ Resources:
                 - Name: !Sub "${applicationName}-web-build"
               Configuration: 
                 ProjectName: !Ref CodeBuild
-                EnvironmentVariables: !Sub '[{"name":"APPLICATION","value":"${applicationName}","type":"PLAINTEXT"},{ "name":"AWS_ACCOUNT_ID","value":"${AWS::AccountId}","type": "PLAINTEXT"}]'
+                EnvironmentVariables: !Sub 
+                   - '[{"name":"APPLICATION","value":"${app}","type":"PLAINTEXT"},{ "name": "AWS_ACCOUNT_ID", "value": "${id}", "type": "PLAINTEXT"}, { "name":"DISTRIBUTION_ID", "value": "${dist}", "type": "PLAINTEXT"}]'
+                    - app: !Ref applicationName
+                      id: !Sub ${AWS::AccountId}
+                      dist: !Ref WebsiteDistribution
