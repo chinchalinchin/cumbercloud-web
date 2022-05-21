@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
-  imports: [MatButtonModule, MatDividerModule, MatIconModule, MatTooltipModule],
-  exports: [MatButtonModule, MatDividerModule, MatIconModule, MatTooltipModule],
+  imports: [MatButtonModule, MatIconModule, MatDividerModule, MatIconModule, MatTooltipModule],
+  exports: [MatButtonModule, MatIconModule, MatDividerModule, MatIconModule, MatTooltipModule],
 })
 export class SharedMaterialModule {}

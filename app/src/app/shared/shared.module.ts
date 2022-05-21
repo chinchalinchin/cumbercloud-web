@@ -5,9 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './components/error/error.component';
 import { SharedMaterialModule } from './shared-material.module';
 import { SafePipe } from './pipes/sanitize.pipe';
+import { SheetComponent } from './components/sheet/sheet.component';
 
 @NgModule({
-  declarations: [ErrorComponent, SafePipe],
+  declarations: [ErrorComponent, SheetComponent, SafePipe],
   imports: [
     CommonModule,
     HttpClientModule,
