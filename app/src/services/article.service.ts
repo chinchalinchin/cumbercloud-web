@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ApiResponse } from 'src/models';
 
@@ -20,7 +20,11 @@ export class ArticleService {
 
   public getLatest(): Observable<ApiResponse> {
     return this.articles.pipe(
+      tap((data: any)=>{
+        console.log(data);
+      }),
       map((data: ApiResponse[]) => {
+        console.log(data);
         return data.sort(
           (previous, next) => next.date.getTime() - previous.date.getTime()
         )[0];

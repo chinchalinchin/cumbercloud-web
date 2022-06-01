@@ -12,11 +12,6 @@ const appRoutes: Routes = [
       import('./about/about.module').then((m) => m.AboutModule),
   },
   {
-    path: 'pricing',
-    loadChildren: () =>
-      import('./pricing/pricing.module').then((m) => m.PricingModule),
-  },
-  {
     path: 'contact',
     loadChildren: () =>
       import('./contact/contact.module').then((m) => m.ContactModule),

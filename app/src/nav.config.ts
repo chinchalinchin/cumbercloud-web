@@ -298,7 +298,7 @@ export const NAV_CONFIG: Nav[] = [
     page_title: 'The Cumberland Cloud - Pricing',
     page_description:
       'Find out how much your next project with the Cumberland Cloud will cost. Input your project details into our Project Cost Calculator to get an instant estimate.',
-    menu: true,
+    menu: false,
     data: {},
     meta: [
       {
