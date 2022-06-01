@@ -20,7 +20,7 @@ export class ArticleService {
 
   public getLatest(): Observable<ApiResponse> {
     return this.articles.pipe(
-      tap((data: any)=>{
+      tap((data: any) => {
         console.log(data);
       }),
       map((data: ApiResponse[]) => {
