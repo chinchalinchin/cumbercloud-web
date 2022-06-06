@@ -2,6 +2,7 @@
     <mat-list *ngIf="articles">
         <mat-list-item 
             *ngFor="let article of articles"
+            class="mat-elevation-z3"
         >
             <mat-icon mat-list-item
                 [routerLink]="article.nav_config.path">open_in_new</mat-icon>
