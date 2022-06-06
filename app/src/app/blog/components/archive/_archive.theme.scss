@@ -7,8 +7,9 @@
   $accent-palette: map.get($color-config, "accent");
   $warn-palette: map.get($color-config, "warn");
 
-  .archive-item{
+  mat-list-item{
     background-color: map-get($primary-palette, 100);
+    border-color: map-get($primary-palette, default-contrast);
   }
 }
 
