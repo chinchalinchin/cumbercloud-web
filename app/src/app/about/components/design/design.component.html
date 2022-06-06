@@ -1,15 +1,13 @@
 <!--Animated Elements-->
-<div
+<div id="splash-svg-animation"
   role="region"
-  id="splash-svg-animation"
   aria-label="Splash animation region"
   aria-live="polite"
 >
-  <svg
+  <svg id="splash-bubble"
     x="0px"
     y="0px"
     viewBox="0 0 508 508"
-    id="splash-bubble"
     class="animation"
     [attr.width]="mobileMode() ? '10%' : '3%'"
     *ngIf="phasedIn(phases.splash) && !lured && oscillating"
