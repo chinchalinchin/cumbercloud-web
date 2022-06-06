@@ -5,25 +5,24 @@
   right: 0%;
   bottom: 0%;
 }
-mat-list-item{
+mat-list-item {
   border-radius: 25px;
   border-width: 2px;
   border-style: solid;
 }
-mat-list-item:not(:first-child){
+mat-list-item:not(:first-child) {
   margin-top: 0.5%;
 }
 
 @media (min-width: 991px) {
-  mat-list{
+  mat-list {
     width: 100%;
   }
-  .mat-list-item{
+  .mat-list-item {
     width: 90% !important;
     margin-left: auto;
     margin-right: auto;
   }
 }
 @media (max-width: 992px) {
-
 }
