@@ -194,7 +194,7 @@ export const HOME_CONFIG: HomeConfig[] = [
     line: {
       mobile: 'Incites the hand to push it',
       desktop: {
-        moved: 'Minimal Fees',
+        moved: 'Cost Effective',
         unmoved: 'And I will move the world',
       },
     },
