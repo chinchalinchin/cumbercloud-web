@@ -102,7 +102,7 @@ import { HomeConfig, HomeStates, HOME_CONFIG } from '../app.config';
     ),
     Animations.getManualPositionTrigger(
       { top: '60%', left: '5%', right: '5%' },
-      [{ top: '60%', left: '-100%' }],
+      [{ top: '60%', left: '-200%' }],
       'cloud_line_mobile_2',
       AnimationPeriods.short
     ),

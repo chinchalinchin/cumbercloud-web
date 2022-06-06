@@ -208,7 +208,7 @@ export const HOME_CONFIG: HomeConfig[] = [
       id: 'expertise-banner',
     },
     title: 'Professional Solutions',
-    subtitle: 'Years of web and software design experience.',
+    subtitle: 'Years of web design experience',
     blurb:
       'Our team has a rich professional background in web development, with experience on production-scale projects from the leading names in the industry.',
     line: {
