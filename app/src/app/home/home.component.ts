@@ -125,6 +125,7 @@ export class HomeComponent implements OnInit {
   public selecting: boolean = false;
   public moved: boolean = false;
   public animated: boolean = false;
+  public inited: boolean = false;
   public screenSize: string = '';
   public states = HomeStates;
   public state = HomeStates.one;
@@ -176,6 +177,10 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.pressable = true;
     }, AnimationPeriods.short * 1000);
+  }
+
+  ngAfterViewInit(): void {
+    this.inited = true;
   }
 
   private getConfigFromState(
