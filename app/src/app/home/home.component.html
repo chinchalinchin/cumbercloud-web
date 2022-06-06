@@ -1,5 +1,6 @@
 <div id="home" aria-live="polite">
-  <div id="btn-banner"
+  <div
+    id="btn-banner"
     [@cntl_fade]="centerFadeCntl.state"
     [@fade]
     *ngIf="!animated"
@@ -7,7 +8,8 @@
     role="banner"
   ></div>
 
-  <div id="selection-menu"
+  <div
+    id="selection-menu"
     class="animation"
     [@cntl_position_selector]="selectionPositionCntl.state"
     role="region"
@@ -66,7 +68,8 @@
     <div id="selector" class="border-accent animation"></div>
   </div>
 
-  <button id="splash-btn"
+  <button
+    id="splash-btn"
     mat-fab
     color="primary"
     [@cntl_position_center]="mobileMode() ? null : centerPositionCntl.state"
@@ -89,7 +92,8 @@
     <mat-icon>touch_app</mat-icon>
   </button>
 
-  <div id="splash-navigator"
+  <div
+    id="splash-navigator"
     role="radiogroup"
     aria-label="Splash page navigation"
   >
